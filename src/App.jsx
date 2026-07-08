@@ -23,10 +23,16 @@ export default function App() {
     const saved = localStorage.getItem('opos_current_user');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Safeguard against malformed/legacy sessions to prevent runtime crashes
+        if (parsed && typeof parsed === 'object' && parsed.uid && parsed.code) {
+          return parsed;
+        }
       } catch (e) {
         console.error('Error parsing user session', e);
       }
+      localStorage.removeItem('opos_current_user');
+      sessionStorage.removeItem('opos_local_session_id');
     }
     return null;
   });

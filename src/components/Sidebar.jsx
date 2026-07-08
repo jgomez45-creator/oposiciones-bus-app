@@ -54,7 +54,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
               <span style={{ fontSize: '0.8rem', fontWeight: '600', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name}</span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ID: {currentUser.code.split('_')[0]}</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ID: {currentUser.code ? currentUser.code.split('_')[0] : 'DEMO'}</span>
             </div>
           </div>
           <button 
