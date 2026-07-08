@@ -2226,7 +2226,7 @@ body.study-focus-mode .study-timer-bar {
 }
 
 /* Responsive / Mobile Optimization */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   /* Layout Structure */
   .app-container {
     flex-direction: column;
@@ -2723,7 +2723,9 @@ body.study-focus-mode .study-timer-bar {
     margin: 0 !important;
     gap: 0 !important;
     height: 100vh !important;
+    height: 100dvh !important;
     width: 100vw !important;
+    width: 100dvw !important;
     max-width: 100% !important;
   }
 
@@ -2732,12 +2734,14 @@ body.study-focus-mode .study-timer-bar {
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
+    width: 100dvw !important;
     height: 100vh !important;
+    height: 100dvh !important;
     z-index: 1200 !important;
     border-radius: 0 !important;
     border: none !important;
     margin: 0 !important;
-    padding: 12px 12px 20px 12px !important; /* Flat padding */
+    padding: 8px 12px 12px 12px !important; /* Compact padding */
     display: flex !important;
     flex-direction: column !important;
     background: var(--bg-dark) !important; /* Full screen background */
@@ -2755,9 +2759,23 @@ body.study-focus-mode .study-timer-bar {
     display: none !important;
   }
 
+  body.study-focus-mode .topic-header-status-controls {
+    display: none !important; /* Hide status selector and print button in focus mode */
+  }
+
+  body.study-focus-mode .topic-viewer-nav {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+    border-bottom: none !important;
+    padding-top: 0 !important;
+  }
+
   body.study-focus-mode .audiobook-player-card {
     padding: 8px 12px !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
     gap: 6px !important;
   }
 
@@ -2770,8 +2788,8 @@ body.study-focus-mode .study-timer-bar {
   }
 
   body.study-focus-mode .study-timer-bar {
-    padding: 8px 10px !important;
-    margin-bottom: 12px !important;
+    padding: 6px 10px !important;
+    margin-bottom: 8px !important;
     font-size: 0.75rem !important;
   }
   
@@ -2782,13 +2800,13 @@ body.study-focus-mode .study-timer-bar {
 
   body.study-focus-mode .reading-settings-bar {
     padding: 6px 12px !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
   }
 
   /* Optimize landscape rotation in focus mode */
   @media (orientation: landscape) {
     body.study-focus-mode .topic-viewer-main {
-      padding: 8px 12px !important;
+      padding: 6px 12px !important;
     }
     body.study-focus-mode .markdown-body-container {
       max-width: 750px !important;
@@ -2798,7 +2816,7 @@ body.study-focus-mode .study-timer-bar {
     body.study-focus-mode .study-timer-bar,
     body.study-focus-mode .audiobook-player-card,
     body.study-focus-mode .reading-settings-bar {
-      margin-bottom: 8px !important;
+      margin-bottom: 6px !important;
     }
   }
 }
