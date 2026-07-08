@@ -70,6 +70,7 @@ export default function Login({ onLogin }) {
     // Guest bypass profile (uses a static guest code, local localStorage progress)
     const guestUser = {
       uid: 'guest_profile',
+      code: 'DEMO',
       name: 'Usuario Invitado (Demo)',
       email: 'invitado@oposicionesbus.com',
       bookCode: 'DEMO-INVITADO'
