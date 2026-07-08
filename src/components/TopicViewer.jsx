@@ -15,7 +15,9 @@ import {
   Printer,
   Eye,
   Volume2,
-  Square
+  Square,
+  Maximize2,
+  Minimize2
 } from 'lucide-react';
 import quizzesData from '../data/quizzes.json';
 
@@ -40,6 +42,9 @@ export default function TopicViewer({
 }) {
   const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
+  const [fontSize, setFontSize] = useState('medium'); // 'small' | 'medium' | 'large' | 'extra-large'
+  const [readingTheme, setReadingTheme] = useState('default'); // 'default' | 'light-reading' | 'sepia'
   const [markdownContent, setMarkdownContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -545,7 +550,7 @@ export default function TopicViewer({
 
   // Focus mode effect (hides sidebars for distraction-free study)
   useEffect(() => {
-    if (timerRunning) {
+    if (timerRunning || isFocusMode) {
       document.body.classList.add('study-focus-mode');
     } else {
       document.body.classList.remove('study-focus-mode');
@@ -553,7 +558,7 @@ export default function TopicViewer({
     return () => {
       document.body.classList.remove('study-focus-mode');
     };
-  }, [timerRunning]);
+  }, [timerRunning, isFocusMode]);
 
   // Reset session timer on topic change
   useEffect(() => {
@@ -869,6 +874,15 @@ export default function TopicViewer({
                   <List size={16} />
                   <span>Temas</span>
                 </button>
+                <button 
+                  onClick={() => setIsFocusMode(!isFocusMode)} 
+                  className={`focus-toggle-btn glow-btn-secondary ${isFocusMode ? 'active' : ''}`}
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
+                  title={isFocusMode ? "Salir de pantalla completa" : "Ver en pantalla completa"}
+                >
+                  {isFocusMode ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
+                  <span>{isFocusMode ? "Salir" : "Enfoque"}</span>
+                </button>
               </div>
               
               <div className="topic-header-status-controls">
@@ -1149,6 +1163,23 @@ export default function TopicViewer({
               </button>
             </div>
 
+            {/* Reading settings bar */}
+            <div className="reading-settings-bar glass-panel">
+              <div className="settings-group">
+                <span className="settings-label">Letra:</span>
+                <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
+                <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
+                <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
+                <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
+              </div>
+              <div className="settings-group">
+                <span className="settings-label">Fondo:</span>
+                <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
+                <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
+                <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
+              </div>
+            </div>
+
             {/* Markdown Renderer Area */}
             <div className="markdown-body-container">
               {loading ? (
@@ -1186,7 +1217,7 @@ export default function TopicViewer({
                 </div>
               ) : (
                 <div 
-                  className="markdown-rendered-content"
+                  className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
                   dangerouslySetInnerHTML={{ 
                     __html: activeSubTab === 'content' 
                       ? parsedSections.content 

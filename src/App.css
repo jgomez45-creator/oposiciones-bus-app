@@ -2044,6 +2044,187 @@ body.study-focus-mode .study-timer-bar {
   display: none;
 }
 
+/* Reading Settings and Font Sizing */
+.reading-settings-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  gap: 16px;
+  flex-wrap: wrap;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.settings-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.font-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.font-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
+}
+
+.font-btn.active {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.theme-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.theme-dot:hover {
+  transform: scale(1.15);
+}
+
+.theme-dot.active {
+  border-color: var(--primary-light) !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 10px var(--primary-light);
+}
+
+.theme-dot.theme-default {
+  background: var(--bg-card);
+}
+
+.theme-dot.theme-light {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.theme-dot.theme-sepia {
+  background: #f4ecd8;
+  border-color: #e4dcd3;
+}
+
+/* Font Size Overrides */
+.markdown-rendered-content.font-small {
+  font-size: 0.85rem !important;
+  line-height: 1.6 !important;
+}
+.markdown-rendered-content.font-medium {
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+}
+.markdown-rendered-content.font-large {
+  font-size: 1.15rem !important;
+  line-height: 1.75 !important;
+}
+.markdown-rendered-content.font-extra-large {
+  font-size: 1.35rem !important;
+  line-height: 1.8 !important;
+}
+
+/* Reading Themes Styles */
+.markdown-rendered-content.theme-light-reading {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  padding: 24px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.markdown-rendered-content.theme-light-reading h1,
+.markdown-rendered-content.theme-light-reading h2,
+.markdown-rendered-content.theme-light-reading h3,
+.markdown-rendered-content.theme-light-reading h4,
+.markdown-rendered-content.theme-light-reading strong {
+  color: #0f172a !important;
+}
+.markdown-rendered-content.theme-light-reading p,
+.markdown-rendered-content.theme-light-reading li {
+  color: #334155 !important;
+}
+.markdown-rendered-content.theme-light-reading blockquote {
+  background: #f8fafc !important;
+  border-left-color: var(--primary) !important;
+  color: #475569 !important;
+}
+.markdown-rendered-content.theme-light-reading table {
+  background: #ffffff !important;
+}
+.markdown-rendered-content.theme-light-reading th,
+.markdown-rendered-content.theme-light-reading td {
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+.markdown-rendered-content.theme-light-reading th {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.markdown-rendered-content.theme-sepia {
+  background: #f4ecd8 !important;
+  color: #433422 !important;
+  padding: 24px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e4dcd3 !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.markdown-rendered-content.theme-sepia h1,
+.markdown-rendered-content.theme-sepia h2,
+.markdown-rendered-content.theme-sepia h3,
+.markdown-rendered-content.theme-sepia h4,
+.markdown-rendered-content.theme-sepia strong {
+  color: #2b1f13 !important;
+}
+.markdown-rendered-content.theme-sepia p,
+.markdown-rendered-content.theme-sepia li {
+  color: #4f3f2d !important;
+}
+.markdown-rendered-content.theme-sepia blockquote {
+  background: #ebdcb9 !important;
+  border-left-color: #bfa054 !important;
+  color: #5b4a3a !important;
+}
+.markdown-rendered-content.theme-sepia table {
+  background: #f4ecd8 !important;
+}
+.markdown-rendered-content.theme-sepia th,
+.markdown-rendered-content.theme-sepia td {
+  border-color: #e6dcd0 !important;
+  color: #4f3f2d !important;
+}
+.markdown-rendered-content.theme-sepia th {
+  background: #e9dec4 !important;
+  color: #2b1f13 !important;
+}
+
 /* Responsive / Mobile Optimization */
 @media screen and (max-width: 768px) {
   /* Layout Structure */
@@ -2530,6 +2711,95 @@ body.study-focus-mode .study-timer-bar {
     width: 100% !important;
     text-align: center !important;
     padding: 10px !important;
+  }
+
+  /* Mobile-specific Focus Mode Overrides */
+  body.study-focus-mode {
+    overflow: hidden !important; /* Block outer scroll */
+  }
+
+  body.study-focus-mode .app-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+  }
+
+  body.study-focus-mode .topic-viewer-main {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 1200 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 12px 12px 20px 12px !important; /* Flat padding */
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--bg-dark) !important; /* Full screen background */
+  }
+
+  body.study-focus-mode .markdown-body-container {
+    flex-grow: 1 !important;
+    overflow-y: auto !important;
+    padding-right: 4px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Compact controls in mobile focus mode to save space */
+  body.study-focus-mode .topic-viewer-header {
+    display: none !important;
+  }
+
+  body.study-focus-mode .audiobook-player-card {
+    padding: 8px 12px !important;
+    margin-bottom: 12px !important;
+    gap: 6px !important;
+  }
+
+  body.study-focus-mode .audiobook-player-header h4 {
+    font-size: 0.8rem !important;
+  }
+
+  body.study-focus-mode .audiobook-config-row {
+    display: none !important; /* Hide voice selectors in full screen to maximize text area */
+  }
+
+  body.study-focus-mode .study-timer-bar {
+    padding: 8px 10px !important;
+    margin-bottom: 12px !important;
+    font-size: 0.75rem !important;
+  }
+  
+  body.study-focus-mode .study-timer-bar .timer-info {
+    font-size: 0.75rem !important;
+    gap: 2px !important;
+  }
+
+  body.study-focus-mode .reading-settings-bar {
+    padding: 6px 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Optimize landscape rotation in focus mode */
+  @media (orientation: landscape) {
+    body.study-focus-mode .topic-viewer-main {
+      padding: 8px 12px !important;
+    }
+    body.study-focus-mode .markdown-body-container {
+      max-width: 750px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+    }
+    body.study-focus-mode .study-timer-bar,
+    body.study-focus-mode .audiobook-player-card,
+    body.study-focus-mode .reading-settings-bar {
+      margin-bottom: 8px !important;
+    }
   }
 }
 
