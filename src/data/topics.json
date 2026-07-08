@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "block": "Específico",
+    "title": "Las bibliotecas universitarias y la BUS",
+    "subtitle": "Concepto, estructura, funciones, organigrama y marco normativo (Reglamento, normas de préstamo y uso)",
+    "description": "Estudio de la Biblioteca de la Universidad de Sevilla (BUS), sus órganos, funciones, organigrama y la normativa que la regula."
+  },
+  {
+    "id": 2,
+    "block": "Específico",
+    "title": "Sistema de gestión de la calidad en la BUS",
+    "subtitle": "Modelo EFQM, propósito, visión, valores y cartas de servicios",
+    "description": "Principios de gestión de la calidad, el marco estratégico EFQM y los compromisos adquiridos en las cartas de servicio de la biblioteca."
+  },
+  {
+    "id": 3,
+    "block": "Específico",
+    "title": "Instalaciones, espacios y equipamiento en las bibliotecas",
+    "subtitle": "Espacios y equipamiento en las bibliotecas universitarias",
+    "description": "Planificación y diseño de espacios físicos en bibliotecas académicas, áreas funcionales, mobiliario y distribución de equipamientos."
+  },
+  {
+    "id": 4,
+    "block": "Específico",
+    "title": "La colección impresa y electrónica en la BUS y acceso remoto",
+    "subtitle": "Gestión, tipologías y acceso a los recursos fuera del campus",
+    "description": "Tipos de soporte y recursos de la BUS, portales de acceso, revistas y libros electrónicos, y sistemas de autenticación para acceso remoto."
+  },
+  {
+    "id": 5,
+    "block": "Específico",
+    "title": "Gestión de la colección",
+    "subtitle": "Selección, adquisición, tratamiento técnico, inventario, expurgo y preservación",
+    "description": "El ciclo de vida de la colección de la biblioteca, desde la selección y compra hasta el expurgo y conservación física y digital."
+  },
+  {
+    "id": 6,
+    "block": "Específico",
+    "title": "Clasificación de fondos: la CDU",
+    "subtitle": "Clasificación Decimal Universal. Organización y control de fondos",
+    "description": "Introducción y aplicación práctica de la CDU. Métodos de ordenación física de los fondos en las salas y depósitos."
+  },
+  {
+    "id": 7,
+    "block": "Específico",
+    "title": "Sistemas de gestión bibliotecaria y plataformas. FAMA",
+    "subtitle": "Plataformas de servicios de biblioteca y el catálogo FAMA de la US",
+    "description": "Sistemas integrados de gestión bibliotecaria (SIGB) y plataformas de servicios de nueva generación. El catálogo FAMA de la Universidad de Sevilla."
+  },
+  {
+    "id": 8,
+    "block": "Específico",
+    "title": "Tecnologías aplicadas en bibliotecas",
+    "subtitle": "RFID, autopréstamo y sistemas de seguridad",
+    "description": "Uso de la tecnología de identificación por radiofrecuencia (RFID) para la seguridad, el inventario y las estaciones de autopréstamo."
+  },
+  {
+    "id": 9,
+    "block": "Específico",
+    "title": "Servicios a los usuarios I: Préstamo y Objetoteca",
+    "subtitle": "El servicio de préstamo en la BUS y la Objetoteca",
+    "description": "Reglas, plazos y modalidades de préstamo de documentos, dispositivos y el innovador servicio de Objetoteca de la BUS."
+  },
+  {
+    "id": 10,
+    "block": "Específico",
+    "title": "Servicios a los usuarios II: Información y referencia",
+    "subtitle": "Información, atención y referencia",
+    "description": "Servicios de atención al usuario presenciales y virtuales, resolución de consultas y herramientas de referencia."
+  },
+  {
+    "id": 11,
+    "block": "Específico",
+    "title": "Servicios a los usuarios III: Apoyo al aprendizaje",
+    "subtitle": "Apoyo al aprendizaje y formación en competencias informacionales y digitales (ALFIN/CODI)",
+    "description": "Formación de usuarios en habilidades de búsqueda de información, evaluación de recursos y competencias digitales académicas."
+  },
+  {
+    "id": 12,
+    "block": "Específico",
+    "title": "Servicios a los usuarios IV: Apoyo a la investigación",
+    "subtitle": "Apoyo a los investigadores, bases de datos y evaluación científica",
+    "description": "Servicios para investigadores de la US, el repositorio institucional, gestión de perfiles científicos y asesoramiento sobre publicación científica."
+  },
+  {
+    "id": 13,
+    "block": "Específico",
+    "title": "Herramientas digitales: Microsoft 365",
+    "subtitle": "Correo electrónico (Outlook) y herramientas de Microsoft 365 (OneDrive, SharePoint, Teams, Word, Excel, etc.)",
+    "description": "Dominio de la suite ofimática y de colaboración de Microsoft 365 utilizada en la administración y servicios de la US."
+  },
+  {
+    "id": 14,
+    "block": "Común",
+    "title": "Sistema de Gestión de Prevención de Riesgos de la US",
+    "subtitle": "Política preventiva, guía del empleado, actuación ante accidentes y obligaciones",
+    "description": "El plan y sistema de prevención propio de la Universidad de Sevilla y los protocolos obligatorios ante emergencias y accidentes."
+  },
+  {
+    "id": 15,
+    "block": "Común",
+    "title": "Riesgos generales y específicos del puesto de trabajo",
+    "subtitle": "Riesgos asociados al auxiliar de biblioteca",
+    "description": "Análisis de riesgos ergonómicos, manipulación de cargas, fatiga postural y riesgos psicosociales en el entorno bibliotecario."
+  },
+  {
+    "id": 16,
+    "block": "Común",
+    "title": "Legislación sobre Prevención de Riesgos Laborales",
+    "subtitle": "Ley 31/1995 y Reales Decretos sobre lugares de trabajo, pantallas, EPIs y señalización",
+    "description": "Marco normativo nacional sobre la prevención de riesgos laborales aplicable a las administraciones y centros públicos."
+  },
+  {
+    "id": 17,
+    "block": "Común",
+    "title": "Estatutos de la Universidad de Sevilla",
+    "subtitle": "Decreto 98/2025: Órganos de gobierno, centros y personal técnico (PTGAS)",
+    "description": "Estructura institucional de la US según los Estatutos de 2025: rectorado, claustro, consejo de gobierno, facultades y estatuto del PTGAS."
+  },
+  {
+    "id": 18,
+    "block": "Común",
+    "title": "IV Convenio Colectivo del Personal Laboral de las UUPP de Andalucía",
+    "subtitle": "Organización del trabajo, vacaciones, permisos y régimen disciplinario",
+    "description": "Derechos y deberes regulados por el convenio colectivo vigente para el personal laboral de las universidades andaluzas."
+  },
+  {
+    "id": 19,
+    "block": "Común",
+    "title": "Ley Orgánica 3/2007 para la igualdad efectiva",
+    "subtitle": "Ley Orgánica 3/2007 de 22 de marzo para la igualdad efectiva de mujeres y hombres",
+    "description": "Conceptos de igualdad de trato, acoso sexual, acciones positivas y transversalidad regulados en la Ley Orgánica estatal."
+  },
+  {
+    "id": 20,
+    "block": "Común",
+    "title": "Normativa de la US contra violencia, acoso y discriminación",
+    "subtitle": "Protocolo contra el acoso y prevención de la violencia en la Universidad de Sevilla",
+    "description": "El marco normativo interno de la US para prevenir y sancionar conductas de acoso sexual, por razón de sexo, orientación sexual o discriminación."
+  }
+]

@@ -1,0 +1,547 @@
+{
+  "1": [
+    {
+      "id": 1,
+      "front": "¿Cómo define el Reglamento de la BUS a la biblioteca?",
+      "back": "Como una 'unidad funcional única' que funciona como un Centro de Recursos para el Aprendizaje, la Docencia, la Investigación y la Formación Continua (CRAI)."
+    },
+    {
+      "id": 2,
+      "front": "¿Cuál es la estructura orgánica de la BUS?",
+      "back": "Se organiza en Dirección de la Biblioteca, Servicios Centrales, y Bibliotecas de Área o Centro agrupadas por Campus, coordinados bajo una unidad funcional."
+    },
+    {
+      "id": 3,
+      "front": "¿Qué órgano de la BUS se encarga de la planificación, coordinación e inspección de los servicios?",
+      "back": "La Dirección de la Biblioteca de la Universidad de Sevilla."
+    },
+    {
+      "id": 4,
+      "front": "¿Qué es la Comisión de Biblioteca de la US?",
+      "back": "Es el órgano colegiado de asesoramiento, participación y consulta de la comunidad universitaria en materia bibliotecaria, presidida por el Rector."
+    },
+    {
+      "id": 5,
+      "front": "¿Cuáles son los tipos principales de usuarios de la BUS regulados?",
+      "back": "Estudiantes, Personal Docente e Investigador (PDI), Personal Técnico de Gestión y de Administración y Servicios (PTGAS), e investigadores y entidades autorizadas."
+    }
+  ],
+  "2": [
+    {
+      "id": 1,
+      "front": "¿Qué significa la sigla EFQM?",
+      "back": "European Foundation for Quality Management (Fundación Europea para la Gestión de la Calidad). Modelo de excelencia y mejora continua basado en criterios de resultados y facilitadores."
+    },
+    {
+      "id": 2,
+      "front": "¿Cuál es el propósito del plan estratégico de la BUS?",
+      "back": "Facilitar el acceso y difusión de los recursos de información y colaborar en los procesos de creación y transferencia de conocimiento para contribuir a los objetivos de la US."
+    },
+    {
+      "id": 3,
+      "front": "¿Qué es la 'Misión' de la BUS?",
+      "back": "El encargo social y la razón de ser de la biblioteca: servir de apoyo a la docencia, al aprendizaje, a la investigación y a la difusión de la cultura."
+    },
+    {
+      "id": 4,
+      "front": "¿Qué son las Cartas de Servicios en la BUS?",
+      "back": "Documentos públicos interactivos donde se detallan los servicios prestados, los derechos del ciudadano, y los compromisos de calidad (con indicadores medibles)."
+    },
+    {
+      "id": 5,
+      "front": "¿Qué compromisos de calidad típicos incluye la Carta de Servicios de la BUS?",
+      "back": "Tiempos máximos de respuesta a consultas, horarios mínimos de apertura, plazos de adquisición de libros recomendados, disponibilidad horaria del catálogo web."
+    }
+  ],
+  "3": [
+    {
+      "id": 1,
+      "front": "¿Cuáles son las prioridades espaciales del modelo CRAI?",
+      "back": "Flexibilidad, accesibilidad, confortabilidad y seguridad orientadas a crear entornos de aprendizaje dinámicos para el usuario."
+    },
+    {
+      "id": 2,
+      "front": "Rango de iluminación recomendado en mesas de estudio",
+      "back": "Entre 300 y 500 lux de intensidad lumínica sobre el plano de trabajo."
+    },
+    {
+      "id": 3,
+      "front": "Rango de humedad relativa recomendado en bibliotecas",
+      "back": "Debe mantenerse entre el 45% y el 55% para prevenir el deterioro del papel y evitar la proliferación de mohos y plagas."
+    },
+    {
+      "id": 4,
+      "front": "Ancho mínimo de pasillos entre estanterías",
+      "back": "90 centímetros libres para permitir el tránsito autónomo y cómodo de usuarios en silla de ruedas."
+    },
+    {
+      "id": 5,
+      "front": "Capacidad de llenado aconsejable para estanterías de libre acceso",
+      "back": "Llenar como máximo al 75% - 80% de su capacidad lineal física para permitir la intercalación natural de novedades sin recolocar la sala."
+    }
+  ],
+  "4": [
+    {
+      "id": 1,
+      "front": "¿Qué es el Fondo Antiguo en la BUS?",
+      "back": "Categoría que engloba el patrimonio bibliográfico histórico constituido por manuscritos, incunables e impresos anteriores al año 1801."
+    },
+    {
+      "id": 2,
+      "front": "¿Qué es IdUS?",
+      "back": "El repositorio institucional de acceso abierto de la US para albergar, preservar y difundir la producción científica y académica de sus investigadores."
+    },
+    {
+      "id": 3,
+      "front": "¿Qué significa la sigla UVUS?",
+      "back": "Usuario Virtual de la Universidad de Sevilla: credencial de acceso corporativo unificado para todos sus servicios informáticos y de red."
+    },
+    {
+      "id": 4,
+      "front": "Vías principales de acceso remoto a recursos electrónicos de pago",
+      "back": "Red Privada Virtual (VPN) y sistemas federados de identificación Single Sign-On (como Shibboleth)."
+    },
+    {
+      "id": 5,
+      "front": "Modelo PDA para adquisición de e-books",
+      "back": "Patron-Driven Acquisition: compra automatizada de libros de un catálogo digital cuando alcanzan un nivel de uso real prefijado por parte de los alumnos."
+    }
+  ],
+  "5": [
+    {
+      "id": 1,
+      "front": "Vías principales de adquisición de fondos",
+      "back": "Compra directa de manuales, suscripción anual de recursos electrónicos, donaciones aceptadas de terceros e intercambio científico entre instituciones."
+    },
+    {
+      "id": 2,
+      "front": "RDA (Definición)",
+      "back": "Resource Description and Access: estándar internacional flexible de descripción y catalogación orientado a bases de datos y la web semántica."
+    },
+    {
+      "id": 3,
+      "front": "Formato MARC21 (Definición)",
+      "back": "Protocolo estructurado que utiliza campos con etiquetas numéricas (ej. 245 para título) para almacenar datos bibliográficos en ficheros legibles por ordenador."
+    },
+    {
+      "id": 4,
+      "front": "Expurgo (Definición)",
+      "back": "Operación técnica de descarte y retirada selectiva de libros dañados, obsoletos o duplicados innecesarios para optimizar la colección."
+    },
+    {
+      "id": 5,
+      "front": "Requisitos clave de conservación preventiva del papel",
+      "back": "Control constante de temperatura (18-22 °C), humedad (50%) y evitar luz ultravioleta directa solar."
+    }
+  ],
+  "6": [
+    {
+      "id": 1,
+      "front": "Notación CDU para Ciencias Sociales",
+      "back": "Se codifica bajo el número de clase principal 3 (ej. Derecho, Economía, Educación)."
+    },
+    {
+      "id": 2,
+      "front": "Clase vacía reservada de la CDU",
+      "back": "La clase principal 4 está vacía para albergar futuras reestructuraciones científicas globales."
+    },
+    {
+      "id": 3,
+      "front": "El signo de relación simple `:` en CDU",
+      "back": "Sirve para relacionar lógicamente dos materias principales independientes sin jerarquía entre ellas (ej. matemáticas aplicadas a la medicina)."
+    },
+    {
+      "id": 4,
+      "front": "Auxiliar de forma `(0...)` en la CDU",
+      "back": "Indica el soporte o la presentación de la obra de forma independiente a su temática (ej. `(03)` para diccionarios)."
+    },
+    {
+      "id": 5,
+      "front": "Signatura Topográfica (Composición típica)",
+      "back": "Notación de la CDU (tema) + Tres letras del apellido del autor en MAYÚSCULAS + Tres letras del título en minúsculas."
+    }
+  ],
+  "7": [
+    {
+      "id": 1,
+      "front": "Alma (Definición)",
+      "back": "La plataforma de servicios de biblioteca (LSP) en la nube utilizada para toda la gestión y procesamiento técnico interno de la BUS."
+    },
+    {
+      "id": 2,
+      "front": "Primo VE (Definición)",
+      "back": "El software de descubrimiento de Ex Libris que hace de portal público de FAMA para realizar búsquedas y acceder a 'Mi Cuenta'."
+    },
+    {
+      "id": 3,
+      "front": "OPAC (Definición)",
+      "back": "Online Public Access Catalog: catálogo clásico informatizado accesible a través de la web para la consulta y localización pública de fondos."
+    },
+    {
+      "id": 4,
+      "front": "Diferencia básica entre SIGB y LSP",
+      "back": "El SIGB tradicional separa los flujos físicos en módulos locales; la LSP moderna unifica la gestión de papel y e-books en la nube mediante web services."
+    },
+    {
+      "id": 5,
+      "front": "'Mi Cuenta' de FAMA (Funcionalidades)",
+      "back": "Permite al estudiante loguearse con UVUS para renovar libros prestados, solicitar reservas intercampus y sugerir compras (desideratas)."
+    }
+  ],
+  "8": [
+    {
+      "id": 1,
+      "front": "Elementos clave de una etiqueta RFID de libro",
+      "back": "Consta de un microchip de silicio con memoria para grabar el código del libro y una antena metálica fina para comunicarse."
+    },
+    {
+      "id": 2,
+      "front": "Ventajas de RFID frente a códigos de barras",
+      "back": "Permite lecturas a distancia sin contacto visual directo, procesamiento simultáneo de múltiples libros e inventariado rápido de estantes."
+    },
+    {
+      "id": 3,
+      "front": "Bit de Seguridad (Security Bit)",
+      "back": "Bit lógico de la etiqueta RFID que se desactiva al realizar el préstamo para que el usuario pueda cruzar los arcos de salida sin activar la alarma."
+    },
+    {
+      "id": 4,
+      "front": "Estación de Autopréstamo (Definición)",
+      "back": "Terminal de autoservicio que permite al lector identificarse con su carné y registrar el préstamo o devolución de sus libros mediante RFID."
+    },
+    {
+      "id": 5,
+      "front": "Middleware RFID (Definición)",
+      "back": "El software encargado de actuar de puente, comunicando los datos leídos por los lectores RFID locales con la base de datos de Alma."
+    }
+  ],
+  "9": [
+    {
+      "id": 1,
+      "front": "Plazo préstamo monografías Grado BUS",
+      "back": "Los alumnos de Grado disponen de un plazo de 15 días naturales, con opción a 3 renovaciones sucesivas si el libro no tiene reservas."
+    },
+    {
+      "id": 2,
+      "front": "Penalización por libro devuelto con retraso en la BUS",
+      "back": "1 día de suspensión del derecho de préstamo por cada día de retraso y por cada documento demorado."
+    },
+    {
+      "id": 3,
+      "front": "Plazo de devolución dispositivos Objetoteca",
+      "back": "Se prestan para uso diario de estudio y se deben retornar en el mismo día del préstamo antes de la hora de cierre."
+    },
+    {
+      "id": 4,
+      "front": "¿Qué es el préstamo interbibliotecario?",
+      "back": "Servicio de intercambio que permite conseguir libros o copias de artículos no disponibles en la BUS solicitándolos a centros externos."
+    },
+    {
+      "id": 5,
+      "front": "CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)",
+      "back": "Consorcio cooperativo que permite a la comunidad universitaria andaluza solicitar en préstamo libros físicos de otras UUPP de la región."
+    }
+  ],
+  "10": [
+    {
+      "id": 1,
+      "front": "Servicio de referencia (Definición)",
+      "back": "La atención e información personalizada al usuario para la búsqueda de información, recuperación de datos y resolución de dudas bibliográficas."
+    },
+    {
+      "id": 2,
+      "front": "Obra de referencia (Definición)",
+      "back": "Obra pensada para la consulta rápida de datos aislados (como diccionarios, enciclopedias, directorios) y excluida de préstamo a domicilio."
+    },
+    {
+      "id": 3,
+      "front": "Fuente Primaria vs. Secundaria",
+      "back": "La primaria es el documento de investigación original (patente, tesis); la secundaria recoge y procesa esa información (catálogo, enciclopedia)."
+    },
+    {
+      "id": 4,
+      "front": "Canales virtuales de referencia en la BUS",
+      "back": "Formulario web 'Pregunte al Bibliotecario', correo institucional y servicio de ayuda integrada en FAMA."
+    },
+    {
+      "id": 5,
+      "front": "Tres niveles del servicio de referencia",
+      "back": "Información general (mostrador y normas), información bibliográfica (uso de FAMA) y referencia especializada (apoyo a investigadores)."
+    }
+  ],
+  "11": [
+    {
+      "id": 1,
+      "front": "¿Qué significan ALFIN y CODI?",
+      "back": "ALFIN: Alfabetización Informacional (buscar y evaluar información de forma ética). CODI: Competencias Digitales (uso de software y creación digital)."
+    },
+    {
+      "id": 2,
+      "front": "Fin de los cursos de acogida de la BUS",
+      "back": "Sesiones de bienvenida orientadas a alumnos de nuevo ingreso para enseñarles el uso del carné, el préstamo y búsquedas iniciales en FAMA."
+    },
+    {
+      "id": 3,
+      "front": "Formación integrada en Grado",
+      "back": "Sesiones especializadas coordinadas con el profesorado de asignaturas específicas, típicamente vinculadas al Trabajo de Fin de Grado (TFG)."
+    },
+    {
+      "id": 4,
+      "front": "Gestor de referencias bibliográficas (Definición)",
+      "back": "Programa informático que almacena referencias, genera bibliografías estructuradas e inserta citas automáticas en procesadores de texto (ej. Mendeley)."
+    },
+    {
+      "id": 5,
+      "front": "Plagio académico (Definición)",
+      "back": "Copiar o apropiarse de párrafos, ideas o imágenes de otros autores sin citar explícitamente la fuente, presentándolos como propios."
+    }
+  ],
+  "12": [
+    {
+      "id": 1,
+      "front": "ORCID (Definición)",
+      "back": "Identificador digital persistente de 16 dígitos para investigadores que elimina errores por homonimia de firmas científicas."
+    },
+    {
+      "id": 2,
+      "front": "Sexenio de investigación (¿Quién lo evalúa?)",
+      "back": "Es evaluado a nivel nacional por la ANECA (Agencia Nacional de Evaluación de la Calidad y Acreditación)."
+    },
+    {
+      "id": 3,
+      "front": "Índices de impacto típicos",
+      "back": "JCR (Journal Citation Reports, asociado a Web of Science) y SJR (SCImago Journal Rank, asociado a la base de datos Scopus)."
+    },
+    {
+      "id": 4,
+      "front": "Acuerdo Transformativo (Definición)",
+      "back": "Contrato de suscripción de la biblioteca que costea tanto el derecho a leer (revistas) como las tasas de publicación en abierto (APCs) de sus autores."
+    },
+    {
+      "id": 5,
+      "front": "Repositorio institucional Abierto de la US",
+      "back": "IdUS: base de datos institucional en abierto que reúne, preserva y divulga los resultados de la labor investigadora de la US."
+    }
+  ],
+  "13": [
+    {
+      "id": 1,
+      "front": "Check-out / Desproteger (SharePoint)",
+      "back": "Bloqueo técnico temporal de edición de un archivo compartido para evitar que otros usuarios lo modifiquen o sobrescriban simultáneamente."
+    },
+    {
+      "id": 2,
+      "front": "Nube azul en OneDrive Files On-Demand",
+      "back": "Indica que el archivo está guardado solo en la nube y se descarga únicamente cuando se abre, consumiendo cero almacenamiento en el disco duro local."
+    },
+    {
+      "id": 3,
+      "front": "Fórmula =BUSCARV en Excel",
+      "back": "Función que busca un valor en la columna izquierda de un rango y recupera el dato de la misma fila en otra columna especificada."
+    },
+    {
+      "id": 4,
+      "front": "Atajo Ctrl + Intro en Outlook",
+      "back": "Atajo de teclado estándar para enviar de forma inmediata el correo electrónico que se está redactando en la ventana activa."
+    },
+    {
+      "id": 5,
+      "front": "Atajo F12 en Word y Excel",
+      "back": "Atajo directo para abrir el cuadro de diálogo 'Guardar como' para renombrar el archivo, cambiar su ubicación o exportarlo a PDF."
+    }
+  ],
+  "14": [
+    {
+      "id": 1,
+      "front": "Notificación de accidente laboral al SPP-US",
+      "back": "Plazo máximo de 24 horas desde que ocurre el accidente laboral o in itinere para remitir el parte de notificación al Servicio de Prevención."
+    },
+    {
+      "id": 2,
+      "front": "Mutua asistencial de la US",
+      "back": "Fremap: entidad de cobertura médica encargada de prestar asistencia sanitaria ante accidentes y bajas de carácter laboral."
+    },
+    {
+      "id": 3,
+      "front": "Comité de Seguridad y Salud de la US",
+      "back": "Órgano de consulta y participación paritario compuesto al 50% por los Delegados de Prevención y al 50% por representantes de la Universidad."
+    },
+    {
+      "id": 4,
+      "front": "Servicio de Prevención Propio (SPP-US)",
+      "back": "Unidad técnica encargada de asesorar y controlar los riesgos en Seguridad, Higiene, y Ergonomía y Psicosociología."
+    },
+    {
+      "id": 5,
+      "front": "Accidente In Itinere",
+      "back": "Aquel accidente corporal que sufre el trabajador en el camino de ida o vuelta entre su domicilio habitual y su puesto de trabajo."
+    }
+  ],
+  "15": [
+    {
+      "id": 1,
+      "front": "Distancia recomendada a pantalla de ordenador (PVD)",
+      "back": "Se aconseja colocar el monitor a una distancia visual cómoda de entre 40 y 70 centímetros."
+    },
+    {
+      "id": 2,
+      "front": "Duración de pausas con pantallas",
+      "back": "Pausas breves de 5 a 10 minutos por cada hora de trabajo continuo frente al ordenador."
+    },
+    {
+      "id": 3,
+      "front": "Peso máximo recomendado para levantar cargas",
+      "back": "25 kg de peso máximo para hombres y 15 kg para mujeres en condiciones ideales de levantamiento ergonómico."
+    },
+    {
+      "id": 4,
+      "front": "Postura correcta para levantar cargas del suelo",
+      "back": "Flexionar las rodillas manteniendo la columna recta y levantar la carga manteniéndola pegada al cuerpo."
+    },
+    {
+      "id": 5,
+      "front": "Riesgo biológico en archivos de fondo antiguo",
+      "back": "Exposición a esporas de hongos, bacterias y ácaros acumulados en libros antiguos y depósitos poco ventilados (usar guantes/mascarilla)."
+    }
+  ],
+  "16": [
+    {
+      "id": 1,
+      "front": "Primer principio de la acción preventiva (LPRL Art 15)",
+      "back": "Evitar los riesgos. Si el riesgo no se puede evitar, se debe proceder a su evaluación y corrección en su origen."
+    },
+    {
+      "id": 2,
+      "front": "Rango térmico legal en oficinas y salas",
+      "back": "Entre 17 °C y 27 °C para trabajos de oficina y sedentarios según el RD 486/1997 de Lugares de Trabajo."
+    },
+    {
+      "id": 3,
+      "front": "EPI (Definición)",
+      "back": "Equipo de Protección Individual: cualquier dispositivo destinado a ser llevado o sujetado por el trabajador para protegerlo de riesgos (Marcado CE obligatorio)."
+    },
+    {
+      "id": 4,
+      "front": "Señal redonda con pictograma blanco y fondo azul",
+      "back": "Señales de obligatoriedad (ej. uso obligatorio de calzado de seguridad o guantes) según el RD 485/1997."
+    },
+    {
+      "id": 5,
+      "front": "Jerarquía de protección",
+      "back": "Obligación legal de anteponer las medidas de protección colectiva (ej. barandillas, ventilación) a las individuales (EPIs)."
+    }
+  ],
+  "17": [
+    {
+      "id": 1,
+      "front": "Decreto 98/2025 (Definición)",
+      "back": "Decreto de la Junta de Andalucía que aprueba los Estatutos vigentes de la US, adaptados a la Ley Orgánica del Sistema Universitario (LOSU)."
+    },
+    {
+      "id": 2,
+      "front": "Jefatura del PTGAS en la US",
+      "back": "Corresponde legalmente al Gerente de la Universidad de Sevilla, bajo la dependencia orgánica del Rector."
+    },
+    {
+      "id": 3,
+      "front": "Claustro Universitario (Definición)",
+      "back": "Máximo órgano de representación de la comunidad de la US encargada de formular Estatutos y debatir líneas generales."
+    },
+    {
+      "id": 4,
+      "front": "Consejo Social (Función económica)",
+      "back": "Órgano de participación de la sociedad andaluza que supervisa las finanzas y aprueba el presupuesto anual de la US."
+    },
+    {
+      "id": 5,
+      "front": "Defensor Universitario",
+      "back": "Órgano comisionado encargado de velar por los derechos y libertades de PDI, PTGAS y estudiantes ante los servicios del campus."
+    },
+    {
+      "id": 6,
+      "front": "Requisitos para ser Rector/a de la US (Decreto 98/2025)",
+      "back": "Ser PDI permanente doctor a tiempo completo que preste servicios en la US, y acreditar 3 sexenios de investigación, 3 quinquenios docentes y 4 años de gestión en cargos unipersonales."
+    }
+  ],
+  "18": [
+    {
+      "id": 1,
+      "front": "Vacaciones anuales básicas (Personal laboral)",
+      "back": "Un mes natural o 22 días hábiles retribuidos al año, con días adicionales incrementados según la antigüedad."
+    },
+    {
+      "id": 2,
+      "front": "Permiso retribuido por matrimonio",
+      "back": "15 días naturales retribuidos, iniciados desde el primer día laborable o el enlace."
+    },
+    {
+      "id": 3,
+      "front": "Falta muy grave por acoso",
+      "back": "El acoso moral, sexual o por razón de sexo se califica siempre como falta muy grave en el régimen de faltas y sanciones del convenio."
+    },
+    {
+      "id": 4,
+      "front": "Sanción por falta muy grave",
+      "back": "Suspensión de empleo y sueldo de 16 días a 6 meses, traslado forzoso o despido disciplinario definitivo."
+    },
+    {
+      "id": 5,
+      "front": "Días por asuntos particulares ('moscosos')",
+      "back": "6 días hábiles retribuidos de libre disposición al año (ampliables por trienios de antigüedad)."
+    }
+  ],
+  "19": [
+    {
+      "id": 1,
+      "front": "Discriminación Directa (Definición)",
+      "back": "Situación en que una persona es o ha sido tratada de forma menos favorable que otra en situación comparable por razón de su sexo."
+    },
+    {
+      "id": 2,
+      "front": "Discriminación Indirecta (Definición)",
+      "back": "Disposición, criterio o práctica aparentemente neutros que sitúan a personas de un sexo en desventaja particular respecto de las del otro, salvo justificación objetiva y legítima."
+    },
+    {
+      "id": 3,
+      "front": "¿Qué es el principio de transversalidad (mainstreaming)?",
+      "back": "La integración activa de la perspectiva de género y la igualdad en la elaboración, aplicación y seguimiento de todas las disposiciones y políticas públicas."
+    },
+    {
+      "id": 4,
+      "front": "¿Qué es el acoso por razón de sexo?",
+      "back": "Comportamiento hostil realizado en función del sexo de una persona, con el propósito o el efecto de atentar contra su dignidad y crear un entorno intimidatorio o degradante."
+    },
+    {
+      "id": 5,
+      "front": "¿Qué es la representación equilibrada en los órganos colegiados según la ley?",
+      "back": "Presencia de hombres y mujeres en la que ninguno de los sexos supere el 60% ni sea menos del 40% del total de miembros de un órgano o tribunal de selección."
+    }
+  ],
+  "20": [
+    {
+      "id": 1,
+      "front": "Ámbito del protocolo contra el acoso US",
+      "back": "Aplica a todos los miembros de la US (PDI, PTGAS, estudiantes) y a trabajadores de contratas de servicios externos en los campus."
+    },
+    {
+      "id": 2,
+      "front": "Órgano interno que coordina la atención del acoso",
+      "back": "La Unidad de Igualdad o la Inspección de Servicios de la Universidad de Sevilla."
+    },
+    {
+      "id": 3,
+      "front": "Medidas cautelares en caso de denuncia de acoso",
+      "back": "Separación o traslado provisional inmediato de las partes decretada por el Rector sin menoscabo salarial ni laboral."
+    },
+    {
+      "id": 4,
+      "front": "Garantía de Indemnidad (Definición)",
+      "back": "Protección legal frente a cualquier sanción, despido o perjuicio académico derivado de haber denunciado una situación de acoso."
+    },
+    {
+      "id": 5,
+      "front": "Actuación ante indicios de delito en acoso",
+      "back": "La Universidad debe suspender el procedimiento disciplinario y denunciar los hechos ante el Ministerio Fiscal de forma inmediata."
+    }
+  ]
+}
