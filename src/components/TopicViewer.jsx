@@ -376,9 +376,15 @@ export default function TopicViewer({
 
     setIsPlayingAudio(true);
     setIsPausedAudio(false);
-    window.speechSynthesis.speak(utterance);
+    
+    // Add a tiny delay to avoid the iOS Safari cancel-speak silent failure bug
+    setTimeout(() => {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.speak(utterance);
+      }
+    }, 100);
   };
-
+ 
   const handlePlayPause = () => {
     if (audioMode === 'mp3') {
       const audioEl = audioElRef.current;
@@ -393,16 +399,18 @@ export default function TopicViewer({
     } else {
       if (isPlayingAudio) {
         if (window.speechSynthesis) {
-          window.speechSynthesis.pause();
+          window.speechSynthesis.cancel(); // Stop playing but we preserve speechCharIndexRef
           setIsPausedAudio(true);
           setIsPlayingAudio(false);
         }
       } else if (isPausedAudio) {
-        if (window.speechSynthesis) {
-          window.speechSynthesis.resume();
-          setIsPlayingAudio(true);
-          setIsPausedAudio(false);
-        }
+        let activeText = '';
+        if (activeSubTab === 'content') activeText = parsedSections.content;
+        else if (activeSubTab === 'outline') activeText = parsedSections.outline;
+        else activeText = parsedSections.concepts;
+
+        // Resume by playing from the last saved index
+        playTts(activeText, speechCharIndexRef.current);
       } else {
         let activeText = '';
         if (activeSubTab === 'content') activeText = parsedSections.content;
