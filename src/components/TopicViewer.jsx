@@ -24,9 +24,8 @@ const getCleanTextForSpeech = (htmlString) => {
   if (!htmlString) return '';
   const tempDiv = document.createElement('div');
   tempDiv.innerHTML = htmlString;
-  let text = tempDiv.innerText || tempDiv.textContent || '';
-  text = text.replace(/\s+/g, ' ');
-  return text;
+  let text = tempDiv.textContent || tempDiv.innerText || '';
+  return text.replace(/\s+/g, ' ').trim();
 };
 
 
@@ -346,6 +345,9 @@ export default function TopicViewer({
     const utterance = new SpeechSynthesisUtterance(textSegment);
     speechUtteranceRef.current = utterance;
 
+    // Set language explicitly to Spanish to ensure correct voice loading
+    utterance.lang = 'es-ES';
+
     if (selectedVoiceName) {
       const voice = audioVoices.find(v => v.name === selectedVoiceName);
       if (voice) utterance.voice = voice;
@@ -377,12 +379,13 @@ export default function TopicViewer({
     setIsPlayingAudio(true);
     setIsPausedAudio(false);
     
-    // Add a tiny delay to avoid the iOS Safari cancel-speak silent failure bug
-    setTimeout(() => {
-      if (window.speechSynthesis) {
-        window.speechSynthesis.speak(utterance);
-      }
-    }, 100);
+    // Prime the engine to bridge the user-gesture context on iOS Safari
+    const prime = new SpeechSynthesisUtterance('');
+    prime.lang = 'es-ES';
+    window.speechSynthesis.speak(prime);
+
+    // Speak actual utterance synchronously (no setTimeout)
+    window.speechSynthesis.speak(utterance);
   };
  
   const handlePlayPause = () => {
