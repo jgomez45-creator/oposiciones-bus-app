@@ -258,6 +258,7 @@ export default function TopicViewer({
   const speechUtteranceRef = React.useRef(null); // SpeechSynthesisUtterance object
   const speechCharIndexRef = React.useRef(0); // current character index read
   const fullSpeechTextRef = React.useRef(''); // full text being read
+  const activeUtterancesRef = React.useRef([]); // protect utterances from garbage collection
 
   // Load voices for SpeechSynthesis
   useEffect(() => {
@@ -334,6 +335,8 @@ export default function TopicViewer({
   const playTts = (textToRead, startCharIndex = 0) => {
     if (!window.speechSynthesis) return;
 
+    // Clear previous utterances and cancel current speech
+    activeUtterancesRef.current = [];
     window.speechSynthesis.cancel();
 
     const cleanText = getCleanTextForSpeech(textToRead);
@@ -342,53 +345,92 @@ export default function TopicViewer({
     const textSegment = cleanText.substring(startCharIndex);
     if (!textSegment.trim()) return;
 
-    const utterance = new SpeechSynthesisUtterance(textSegment);
-    speechUtteranceRef.current = utterance;
-
-    // Set language explicitly to Spanish to ensure correct voice loading
-    utterance.lang = 'es-ES';
-
-    if (selectedVoiceName) {
-      const voice = audioVoices.find(v => v.name === selectedVoiceName);
-      if (voice) utterance.voice = voice;
-    }
-
-    utterance.rate = audioPlaybackRate;
-
-    utterance.onboundary = (event) => {
-      if (event.name === 'word') {
-        const absoluteIndex = startCharIndex + event.charIndex;
-        speechCharIndexRef.current = absoluteIndex;
-        const percent = (absoluteIndex / cleanText.length) * 100;
-        setAudioProgress(percent);
-      }
+    // Helper to chunk text by sentences (under 200 chars) to prevent WebKit buffer limits
+    const chunkText = (text) => {
+      const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+      const result = [];
+      let currentChunk = '';
+      
+      sentences.forEach(sentence => {
+        if ((currentChunk + sentence).length < 200) {
+          currentChunk += (currentChunk ? ' ' : '') + sentence;
+        } else {
+          if (currentChunk.trim()) result.push(currentChunk.trim());
+          currentChunk = sentence;
+        }
+      });
+      if (currentChunk.trim()) result.push(currentChunk.trim());
+      return result;
     };
 
-    utterance.onend = () => {
-      setIsPlayingAudio(false);
-      setIsPausedAudio(false);
-      setAudioProgress(100);
-    };
-
-    utterance.onerror = (e) => {
-      console.error('SpeechSynthesis error:', e);
-      setIsPlayingAudio(false);
-      setIsPausedAudio(false);
-    };
+    const chunks = chunkText(textSegment);
+    if (chunks.length === 0) return;
 
     setIsPlayingAudio(true);
     setIsPausedAudio(false);
-    
-    // Prime the engine to bridge the user-gesture context on iOS Safari
-    const prime = new SpeechSynthesisUtterance('');
-    prime.lang = 'es-ES';
-    window.speechSynthesis.speak(prime);
 
-    // Speak actual utterance synchronously (no setTimeout)
-    window.speechSynthesis.speak(utterance);
+    let accumulatedLength = startCharIndex;
+
+    chunks.forEach((chunkText, index) => {
+      const utterance = new SpeechSynthesisUtterance(chunkText);
+      utterance.lang = 'es-ES';
+      utterance.rate = audioPlaybackRate;
+
+      if (selectedVoiceName) {
+        const voice = audioVoices.find(v => v.name === selectedVoiceName);
+        if (voice) utterance.voice = voice;
+      }
+
+      const chunkOffset = accumulatedLength;
+      accumulatedLength += chunkText.length + 1; // +1 for the space
+
+      utterance.onboundary = (event) => {
+        if (event.name === 'word') {
+          const absoluteIndex = chunkOffset + event.charIndex;
+          speechCharIndexRef.current = absoluteIndex;
+          const percent = (absoluteIndex / cleanText.length) * 100;
+          setAudioProgress(percent);
+        }
+      };
+
+      utterance.onend = () => {
+        if (index === chunks.length - 1) {
+          setIsPlayingAudio(false);
+          setIsPausedAudio(false);
+          setAudioProgress(100);
+          activeUtterancesRef.current = [];
+        }
+      };
+
+      utterance.onerror = (e) => {
+        console.error('SpeechSynthesis chunk error:', e);
+        if (index === chunks.length - 1) {
+          setIsPlayingAudio(false);
+          setIsPausedAudio(false);
+          activeUtterancesRef.current = [];
+        }
+      };
+
+      // Keep reference to prevent garbage collection on iOS
+      activeUtterancesRef.current.push(utterance);
+
+      // Queue the chunk synchronously
+      window.speechSynthesis.speak(utterance);
+    });
   };
  
   const handlePlayPause = () => {
+    // Wake up iOS/mobile audio system context on user click gesture
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) {
+        const audioCtx = new AudioContextClass();
+        audioCtx.resume();
+      }
+    } catch (e) {
+      console.error("Error waking up AudioContext:", e);
+    }
+
     if (audioMode === 'mp3') {
       const audioEl = audioElRef.current;
       if (!audioEl) return;
@@ -437,6 +479,7 @@ export default function TopicViewer({
         window.speechSynthesis.cancel();
       }
       speechCharIndexRef.current = 0;
+      activeUtterancesRef.current = []; // Clear references
     }
     setIsPlayingAudio(false);
     setIsPausedAudio(false);
