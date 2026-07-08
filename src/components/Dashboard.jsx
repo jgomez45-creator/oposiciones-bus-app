@@ -8,10 +8,11 @@ import {
   BookOpen, 
   ChevronRight,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  LogOut
 } from 'lucide-react';
 
-export default function Dashboard({ topics, progress, updateTopicStatus, selectTopic, setTimerActiveGlobally, incrementTimeForTopic }) {
+export default function Dashboard({ topics, progress, updateTopicStatus, selectTopic, setTimerActiveGlobally, incrementTimeForTopic, currentUser, handleLogout }) {
   // Pomodoro state
   const [pomodoroMode, setPomodoroMode] = useState('work'); // 'work' or 'break'
   const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
@@ -106,14 +107,29 @@ export default function Dashboard({ topics, progress, updateTopicStatus, selectT
 
   return (
     <div className="dashboard-view fade-in">
-      <header className="dashboard-header">
+      <header className="dashboard-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <h1 className="text-gradient">Preparador Virtual de Oposiciones</h1>
-          <p className="text-muted">Dossier de Apoyo Didáctico &bull; Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Referencias de Convocatoria US)</p>
+          <p className="text-muted">
+            Dossier de Apoyo Didáctico &bull; Técnico/a Auxiliar de Biblioteca, Archivo y Museo (US)
+            {currentUser && <strong style={{ color: 'var(--secondary-light)', marginLeft: '8px' }}>&bull; Perfil: {currentUser.name}</strong>}
+          </p>
         </div>
-        <div className="date-badge glass-panel">
-          <Clock size={16} />
-          <span>Examen US 2026</span>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          {currentUser && (
+            <button 
+              onClick={handleLogout} 
+              className="glow-btn-secondary mobile-logout-btn" 
+              style={{ fontSize: '0.75rem', padding: '6px 12px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}
+            >
+              <LogOut size={12} />
+              <span>Cerrar Sesión</span>
+            </button>
+          )}
+          <div className="date-badge glass-panel">
+            <Clock size={16} />
+            <span>Examen US 2026</span>
+          </div>
         </div>
       </header>
 
