@@ -40,6 +40,7 @@ export default function TopicViewer({
   setCurrentTab 
 }) {
   const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
+  const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [markdownContent, setMarkdownContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -590,11 +591,26 @@ export default function TopicViewer({
 
   return (
     <div className="topic-viewer-layout fade-in">
+      {/* Mobile Sidebar Overlay */}
+      {showMobileSidebar && (
+        <div 
+          className="mobile-sidebar-overlay active" 
+          onClick={() => setShowMobileSidebar(false)}
+        />
+      )}
+
       {/* Sidebar: Topics list */}
-      <aside className="topics-sidebar glass-panel">
+      <aside className={`topics-sidebar glass-panel ${showMobileSidebar ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <BookOpen size={18} />
           <h3>Temas del Programa</h3>
+          <button 
+            className="mobile-sidebar-close-btn" 
+            onClick={() => setShowMobileSidebar(false)}
+            title="Cerrar"
+          >
+            &times;
+          </button>
         </div>
         <div className="sidebar-topics-list">
           {topics.map(t => {
@@ -603,7 +619,10 @@ export default function TopicViewer({
             return (
               <button
                 key={t.id}
-                onClick={() => setActiveTopicId(t.id)}
+                onClick={() => {
+                  setActiveTopicId(t.id);
+                  setShowMobileSidebar(false);
+                }}
                 className={`topic-sidebar-item ${isSelected ? 'active' : ''}`}
               >
                 <span className="topic-sidebar-num">T{t.id.toString().padStart(2, '0')}</span>
@@ -783,10 +802,20 @@ export default function TopicViewer({
           <>
             {/* Navigation header */}
             <div className="topic-viewer-nav">
-              <button onClick={() => setCurrentTab('dashboard')} className="back-to-dashboard-btn">
-                <ChevronLeft size={16} />
-                <span>Volver al Dashboard</span>
-              </button>
+              <div className="nav-buttons-left">
+                <button onClick={() => setCurrentTab('dashboard')} className="back-to-dashboard-btn">
+                  <ChevronLeft size={16} />
+                  <span>Dashboard</span>
+                </button>
+                <button 
+                  onClick={() => setShowMobileSidebar(true)} 
+                  className="mobile-topics-toggle-btn"
+                  title="Mostrar Temas"
+                >
+                  <List size={16} />
+                  <span>Temas</span>
+                </button>
+              </div>
               
               <div className="topic-header-status-controls">
                 {timerRunning && (
