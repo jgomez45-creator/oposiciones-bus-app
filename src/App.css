@@ -2151,24 +2151,70 @@ body.study-focus-mode .study-timer-bar {
 }
 
 /* Reading Themes Styles */
-.markdown-rendered-content.theme-light-reading {
+.topic-viewer-main.theme-light-reading {
   background: #ffffff !important;
   color: #1e293b !important;
-  padding: 24px !important;
-  border-radius: 12px !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: var(--shadow-lg) !important;
+  border-color: #cbd5e1 !important;
 }
-.markdown-rendered-content.theme-light-reading h1,
-.markdown-rendered-content.theme-light-reading h2,
-.markdown-rendered-content.theme-light-reading h3,
-.markdown-rendered-content.theme-light-reading h4,
-.markdown-rendered-content.theme-light-reading strong {
+.theme-light-reading h1,
+.theme-light-reading h2,
+.theme-light-reading h3,
+.theme-light-reading h4,
+.theme-light-reading h5,
+.theme-light-reading h6,
+.theme-light-reading strong {
   color: #0f172a !important;
 }
-.markdown-rendered-content.theme-light-reading p,
-.markdown-rendered-content.theme-light-reading li {
+.theme-light-reading p,
+.theme-light-reading li {
   color: #334155 !important;
+}
+.theme-light-reading .nav-btn-text,
+.theme-light-reading .settings-label,
+.theme-light-reading .config-label,
+.theme-light-reading .timer-info,
+.theme-light-reading .timer-info strong,
+.theme-light-reading .audiobook-player-header h4 {
+  color: #475569 !important;
+}
+.theme-light-reading .back-to-dashboard-btn,
+.theme-light-reading .mobile-topics-toggle-btn,
+.theme-light-reading .focus-toggle-btn {
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+.theme-light-reading .back-to-dashboard-btn:hover,
+.theme-light-reading .mobile-topics-toggle-btn:hover,
+.theme-light-reading .focus-toggle-btn:hover {
+  background: #f1f5f9 !important;
+}
+.theme-light-reading .font-btn {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+.theme-light-reading .font-btn:hover {
+  background: #e2e8f0 !important;
+}
+.theme-light-reading .font-btn.active {
+  background: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+}
+.theme-light-reading .viewer-tab-btn {
+  color: #475569 !important;
+}
+.theme-light-reading .viewer-tab-btn.active {
+  color: var(--primary) !important;
+  border-bottom-color: var(--primary) !important;
+}
+
+.markdown-rendered-content.theme-light-reading {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 .markdown-rendered-content.theme-light-reading blockquote {
   background: #f8fafc !important;
@@ -2188,24 +2234,70 @@ body.study-focus-mode .study-timer-bar {
   color: #0f172a !important;
 }
 
-.markdown-rendered-content.theme-sepia {
+.topic-viewer-main.theme-sepia {
   background: #f4ecd8 !important;
   color: #433422 !important;
-  padding: 24px !important;
-  border-radius: 12px !important;
-  border: 1px solid #e4dcd3 !important;
-  box-shadow: var(--shadow-lg) !important;
+  border-color: #e4dcd3 !important;
 }
-.markdown-rendered-content.theme-sepia h1,
-.markdown-rendered-content.theme-sepia h2,
-.markdown-rendered-content.theme-sepia h3,
-.markdown-rendered-content.theme-sepia h4,
-.markdown-rendered-content.theme-sepia strong {
+.theme-sepia h1,
+.theme-sepia h2,
+.theme-sepia h3,
+.theme-sepia h4,
+.theme-sepia h5,
+.theme-sepia h6,
+.theme-sepia strong {
   color: #2b1f13 !important;
 }
-.markdown-rendered-content.theme-sepia p,
-.markdown-rendered-content.theme-sepia li {
+.theme-sepia p,
+.theme-sepia li {
   color: #4f3f2d !important;
+}
+.theme-sepia .nav-btn-text,
+.theme-sepia .settings-label,
+.theme-sepia .config-label,
+.theme-sepia .timer-info,
+.theme-sepia .timer-info strong,
+.theme-sepia .audiobook-player-header h4 {
+  color: #5b4a3a !important;
+}
+.theme-sepia .back-to-dashboard-btn,
+.theme-sepia .mobile-topics-toggle-btn,
+.theme-sepia .focus-toggle-btn {
+  color: #433422 !important;
+  border-color: #dfd3b8 !important;
+}
+.theme-sepia .back-to-dashboard-btn:hover,
+.theme-sepia .mobile-topics-toggle-btn:hover,
+.theme-sepia .focus-toggle-btn:hover {
+  background: #ebdcb9 !important;
+}
+.theme-sepia .font-btn {
+  background: #e9dec4 !important;
+  border-color: #d8cbb2 !important;
+  color: #5b4a3a !important;
+}
+.theme-sepia .font-btn:hover {
+  background: #dfd3b8 !important;
+}
+.theme-sepia .font-btn.active {
+  background: #855e3a !important;
+  color: white !important;
+  border-color: #855e3a !important;
+}
+.theme-sepia .viewer-tab-btn {
+  color: #5b4a3a !important;
+}
+.theme-sepia .viewer-tab-btn.active {
+  color: #855e3a !important;
+  border-bottom-color: #855e3a !important;
+}
+
+.markdown-rendered-content.theme-sepia {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 .markdown-rendered-content.theme-sepia blockquote {
   background: #ebdcb9 !important;
@@ -2223,6 +2315,12 @@ body.study-focus-mode .study-timer-bar {
 .markdown-rendered-content.theme-sepia th {
   background: #e9dec4 !important;
   color: #2b1f13 !important;
+}
+
+@media screen and (max-width: 480px) {
+  .nav-btn-text {
+    display: none !important;
+  }
 }
 
 /* Responsive / Mobile Optimization */

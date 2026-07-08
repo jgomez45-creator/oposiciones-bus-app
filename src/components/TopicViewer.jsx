@@ -17,7 +17,8 @@ import {
   Volume2,
   Square,
   Maximize2,
-  Minimize2
+  Minimize2,
+  Sliders
 } from 'lucide-react';
 import quizzesData from '../data/quizzes.json';
 
@@ -43,6 +44,7 @@ export default function TopicViewer({
   const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
+  const [showReadingControls, setShowReadingControls] = useState(false);
   const [fontSize, setFontSize] = useState('medium'); // 'small' | 'medium' | 'large' | 'extra-large'
   const [readingTheme, setReadingTheme] = useState('default'); // 'default' | 'light-reading' | 'sepia'
   const [markdownContent, setMarkdownContent] = useState('');
@@ -705,7 +707,7 @@ export default function TopicViewer({
       </aside>
 
       {/* Main Content Area */}
-      <div className="topic-viewer-main glass-panel">
+      <div className={`topic-viewer-main glass-panel theme-${readingTheme}`}>
         {viewMode === 'multi-print' ? (
           <div className="multi-print-view-container" style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
             <div className="topic-viewer-nav">
@@ -864,7 +866,7 @@ export default function TopicViewer({
               <div className="nav-buttons-left">
                 <button onClick={() => setCurrentTab('dashboard')} className="back-to-dashboard-btn">
                   <ChevronLeft size={16} />
-                  <span>Dashboard</span>
+                  <span className="nav-btn-text">Dashboard</span>
                 </button>
                 <button 
                   onClick={() => setShowMobileSidebar(true)} 
@@ -872,7 +874,7 @@ export default function TopicViewer({
                   title="Mostrar Temas"
                 >
                   <List size={16} />
-                  <span>Temas</span>
+                  <span className="nav-btn-text">Temas</span>
                 </button>
                 <button 
                   onClick={() => setIsFocusMode(!isFocusMode)} 
@@ -881,8 +883,19 @@ export default function TopicViewer({
                   title={isFocusMode ? "Salir de pantalla completa" : "Ver en pantalla completa"}
                 >
                   {isFocusMode ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
-                  <span>{isFocusMode ? "Salir" : "Enfoque"}</span>
+                  <span className="nav-btn-text">{isFocusMode ? "Salir" : "Enfoque"}</span>
                 </button>
+                {isFocusMode && (
+                  <button 
+                    onClick={() => setShowReadingControls(!showReadingControls)} 
+                    className={`focus-toggle-btn glow-btn-secondary ${showReadingControls ? 'active' : ''}`}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
+                    title={showReadingControls ? "Ocultar ajustes" : "Ajustes de lectura"}
+                  >
+                    <Sliders size={14} />
+                    <span className="nav-btn-text">{showReadingControls ? "Ocultar" : "Ajustes"}</span>
+                  </button>
+                )}
               </div>
               
               <div className="topic-header-status-controls">
@@ -921,7 +934,9 @@ export default function TopicViewer({
             </header>
 
             {/* Study Timer Bar */}
-            <div className="study-timer-bar">
+            {(!isFocusMode || showReadingControls) && (
+              <div className="focus-controls-collapsible-group" style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
+                <div className="study-timer-bar">
               <div className="timer-info">
                 <Clock size={16} className="text-primary-light" />
                 <span>Sesión actual: <strong className="timer-digits">{formatSessionTime(sessionTime)}</strong></span>
@@ -1137,8 +1152,10 @@ export default function TopicViewer({
                 />
               )}
             </div>
+          </div>
+        )}
 
-            {/* Tabs navigation */}
+        {/* Tabs navigation */}
             <div className="viewer-tabs">
               <button 
                 onClick={() => setActiveSubTab('content')} 
@@ -1164,21 +1181,23 @@ export default function TopicViewer({
             </div>
 
             {/* Reading settings bar */}
-            <div className="reading-settings-bar glass-panel">
-              <div className="settings-group">
-                <span className="settings-label">Letra:</span>
-                <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
-                <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
-                <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
-                <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
+            {(!isFocusMode || showReadingControls) && (
+              <div className="reading-settings-bar glass-panel">
+                <div className="settings-group">
+                  <span className="settings-label">Letra:</span>
+                  <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
+                  <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
+                  <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
+                  <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
+                </div>
+                <div className="settings-group">
+                  <span className="settings-label">Fondo:</span>
+                  <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
+                  <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
+                  <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
+                </div>
               </div>
-              <div className="settings-group">
-                <span className="settings-label">Fondo:</span>
-                <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
-                <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
-                <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
-              </div>
-            </div>
+            )}
 
             {/* Markdown Renderer Area */}
             <div className="markdown-body-container">
