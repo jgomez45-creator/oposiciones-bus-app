@@ -104,9 +104,21 @@ El procedimiento de intervención ante situaciones de violencia o acoso destaca 
 
 ## 5. La Red de Referentes para la Convivencia y el "Buentrato"
 
-Como novedad en el marco preventivo de la Universidad de Sevilla, se crea la **Red de Referentes para la Convivencia y el "Buentrato"**. 
-*   Consiste en un conjunto de personas distribuidas en los diferentes centros, facultades y servicios (incluida la estructura de la BUS) especialmente formadas en materia de mediación, resolución pacífica de conflictos, igualdad y prevención de la violencia.
-*   Su función primordial es servir de punto de contacto cercano e informal para canalizar dudas, facilitar el diálogo primario y guiar a las personas afectadas hacia los recursos y canales formales del protocolo.
+La **Red de Referentes para la Convivencia y el Buentrato** es una iniciativa pionera a nivel nacional de la Universidad de Sevilla, creada en **2018** para fortalecer el enfoque preventivo en situaciones de violencia y acoso.
+
+### A. Naturaleza y Composición
+*   Es una estructura de apoyo capilar integrada por miembros del **PDI** (Personal Docente e Investigador) y del **PTGAS/PAS** (Personal Técnico, de Gestión y de Administración y Servicios) distribuidos por todos los centros, facultades y áreas de servicio (incluyendo delegados en las sucursales de la **BUS**).
+*   Las personas referentes participan de manera voluntaria y reciben una formación especializada intensiva de **más de 100 horas lectivas** en mediación, igualdad, resolución pacífica de conflictos y evaluación de riesgos psicosociales.
+
+### B. Funciones Principales de la Red
+La labor de esta red es complementaria a los órganos de instrucción formales y se divide en cuatro áreas de actuación:
+1.  **Punto de Acogida e Información de Proximidad:** Actúan como una primera vía de contacto informal, cercana y libre de burocracia. Escuchan a las presuntas víctimas o testigos que duden sobre la gravedad de una situación o no sepan cómo activar los recursos institucionales.
+2.  **Sensibilización y Detección Precoz:** Promueven campañas en sus respectivos centros para difundir la cultura del buentrato y detectar de manera temprana dinámicas de relaciones laborales/académicas tóxicas o abuso de poder.
+3.  **Facilitación del Diálogo y Mediación Informal:** Ayudan a encauzar y resolver conflictos interpersonales ordinarios o tensiones laborales comunes antes de que escalen a situaciones graves de acoso. *(Nota: El acoso laboral o acoso sexual no es susceptible de mediación y debe ser derivado).*
+4.  **Derivación Coordinada:** En caso de apreciar indicios objetivos de acoso, violencia o discriminación, las personas referentes guían y acompañan a la víctima para formalizar la queja ante el **SEPRUS** o la **Unidad para la Igualdad**, facilitando el enlace con los servicios de apoyo psicológico o médico.
+
+### C. Reconocimiento Oficial (Dato de interés para el Examen)
+En el año **2021**, la Red de Referentes para la Convivencia y el Buentrato de la US recibió el **Premio a la Mujer Sevillana** en su modalidad colectiva otorgado por el Ayuntamiento de Sevilla, como reconocimiento público a su contribución en la defensa de la igualdad de género y la prevención frente al acoso y la violencia en el entorno de la educación superior.
 
 ---
 
