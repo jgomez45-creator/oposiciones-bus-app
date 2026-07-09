@@ -281,18 +281,6 @@ export default function App() {
     return <Login onLogin={handleLogin} />;
   }
 
-  // Cloud loading indicator screen
-  if (loadingProgress) {
-    return (
-      <div className="login-screen-overlay" style={{ background: 'var(--bg-dark)' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-          <RefreshCw className="spinner" size={32} style={{ color: 'var(--secondary)' }} />
-          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Cargando tu progreso desde la nube...</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="app-container">
@@ -303,7 +291,14 @@ export default function App() {
           handleLogout={handleLogout}
         />
         <main className="main-content">
-          {renderContent()}
+          {loadingProgress ? (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '16px' }}>
+              <RefreshCw className="spinner" size={32} style={{ color: 'var(--secondary)' }} />
+              <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Actualizando tu progreso...</span>
+            </div>
+          ) : (
+            renderContent()
+          )}
         </main>
       </div>
       

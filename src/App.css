@@ -2366,6 +2366,10 @@ body.study-focus-mode .study-timer-bar {
     display: none !important;
   }
 
+  .sidebar-user-profile {
+    display: none !important;
+  }
+
   .sidebar-menu {
     flex-direction: row !important;
     width: 100% !important;
