@@ -27801,7 +27801,7 @@
         "15 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "El Informe de Valoración Inicial de la Fase 1 debe emitirse en un plazo máximo de 10 días hábiles desde el registro de la solicitud.",
+      "explanation": "El Informe de Valoración Inicial de la Fase 1 debe emitirse en un plazo máximo de 15 días hábiles desde el registro de la solicitud.",
       "usage": "dossier"
     },
     {
@@ -27936,7 +27936,7 @@
     },
     {
       "id": 42,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 17)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 17)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -27944,7 +27944,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -28001,7 +28001,7 @@
     },
     {
       "id": 47,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 22)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 22)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28009,7 +28009,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -28066,7 +28066,7 @@
     },
     {
       "id": 52,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 27)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 27)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28074,7 +28074,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -28131,7 +28131,7 @@
     },
     {
       "id": 57,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 32)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 32)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28139,7 +28139,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -28196,7 +28196,7 @@
     },
     {
       "id": 62,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 37)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 37)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28204,7 +28204,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -28261,7 +28261,7 @@
     },
     {
       "id": 67,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 42)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 42)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28269,7 +28269,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -28327,7 +28327,7 @@
     },
     {
       "id": 72,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 47)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 47)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28335,7 +28335,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "simulacro",
       "simulacroExamId": 1
     },
@@ -28397,7 +28397,7 @@
     },
     {
       "id": 77,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 52)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 52)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28405,7 +28405,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "simulacro",
       "simulacroExamId": 4
     },
@@ -28467,7 +28467,7 @@
     },
     {
       "id": 82,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 57)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 57)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28475,7 +28475,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "simulacro",
       "simulacroExamId": 6
     },
@@ -28537,7 +28537,7 @@
     },
     {
       "id": 87,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 62)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 62)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28545,7 +28545,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "simulacro",
       "simulacroExamId": 9
     },
@@ -28607,7 +28607,7 @@
     },
     {
       "id": 92,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 67)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 67)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28615,7 +28615,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "simulacro",
       "simulacroExamId": 11
     },
@@ -28677,7 +28677,7 @@
     },
     {
       "id": 97,
-      "question": "El plazo máximo de 10 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 72)",
+      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 72)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "La emisión del Informe de Valoración Inicial de la Fase 1.",
@@ -28685,7 +28685,7 @@
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 10 días hábiles.",
+      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
       "usage": "simulacro",
       "simulacroExamId": 14
     },
@@ -28748,7 +28748,7 @@
       "id": 102,
       "question": "En la estructura administrativa de la US, ¿qué siglas corresponden al Servicio de Prevención de Riesgos Laborales encargado de tramitar inicialmente la activación del protocolo?",
       "options": [
-        "CIPA.",
+        "CPEIA.",
         "SEPRUS.",
         "CIVE.",
         "DEVA."
@@ -28780,25 +28780,25 @@
         "30 días hábiles."
       ],
       "correctAnswer": 2,
-      "explanation": "El protocolo fija un plazo de 15 días hábiles a partir de la denuncia para que el SEPRUS concluya la valoración previa y decida sobre el archivo o derivación a la CIPA.",
+      "explanation": "El protocolo fija un plazo de 15 días hábiles a partir de la denuncia para que el SEPRUS concluya la valoración previa y decida sobre el archivo o derivación a el CPEIA.",
       "usage": "dossier"
     },
     {
       "id": 105,
-      "question": "¿Qué significan las siglas 'CIPA' en el marco del protocolo contra el acoso de la Universidad de Sevilla?",
+      "question": "¿Qué significan las siglas 'CPEIA' en el marco del protocolo contra el acoso de la Universidad de Sevilla?",
       "options": [
         "Comité de Inspección del Personal de Administración.",
-        "Comisión de Investigación y Prevención del Acoso.",
+        "Comité Técnico para la Prevención, Evaluación e Intervención en situaciones de Violencia, Discriminación y Acoso.",
         "Centro de Innovación y Preservación de Archivos.",
         "Comisión de Interpretación del Personal Académico."
       ],
       "correctAnswer": 1,
-      "explanation": "La CIPA representa a la Comisión de Investigación y Prevención del Acoso, que es el órgano técnico colegiado instructor del protocolo en la US.",
+      "explanation": "La CPEIA representa a la Comité Técnico para la Prevención, Evaluación e Intervención en situaciones de Violencia, Discriminación y Acoso, que es el órgano técnico colegiado instructor del protocolo en la US.",
       "usage": "dossier"
     },
     {
       "id": 106,
-      "question": "¿Por cuántos miembros con derecho a voto está compuesta con carácter general la Comisión CIPA de la US?",
+      "question": "¿Por cuántos miembros con derecho a voto está compuesta con carácter general la Comité CPEIA de la US?",
       "options": [
         "4 miembros.",
         "6 miembros.",
@@ -28806,12 +28806,12 @@
         "10 miembros."
       ],
       "correctAnswer": 1,
-      "explanation": "La CIPA está constituida formalmente por 6 miembros con derecho a voto (representantes de la universidad y de los trabajadores a partes iguales), asegurando un carácter paritario.",
+      "explanation": "La CPEIA está constituida formalmente por 6 miembros con derecho a voto (representantes de la universidad y de los trabajadores a partes iguales), asegurando un carácter paritario.",
       "usage": "dossier"
     },
     {
       "id": 107,
-      "question": "¿Quién tiene la competencia exclusiva para nombrar al Presidente/a de la Comisión CIPA de la Universidad de Sevilla?",
+      "question": "¿Quién tiene la competencia exclusiva para nombrar al Presidente/a de la Comité CPEIA de la Universidad de Sevilla?",
       "options": [
         "El Gerente de la Universidad.",
         "El Rector de la Universidad.",
@@ -28819,12 +28819,12 @@
         "La Junta de Andalucía."
       ],
       "correctAnswer": 1,
-      "explanation": "La designación de la Presidencia de la CIPA corresponde de forma directa a la máxima autoridad ejecutiva de la universidad, que es el Rector.",
+      "explanation": "La designación de la Presidencia de el CPEIA corresponde de forma directa a la máxima autoridad ejecutiva de la universidad, que es el Rector.",
       "usage": "dossier"
     },
     {
       "id": 108,
-      "question": "En el seno de la CIPA, ¿qué perfiles profesionales participan como asesores técnicos obligatorios con voz pero sin voto?",
+      "question": "En el seno de el CPEIA, ¿qué perfiles profesionales participan como asesores técnicos obligatorios con voz pero sin voto?",
       "options": [
         "El Secretario General y el Gerente de la US.",
         "Un médico del trabajo del SEPRUS y un psicólogo/a especializado en riesgos psicosociales.",
@@ -28837,7 +28837,7 @@
     },
     {
       "id": 109,
-      "question": "¿De qué plazo dispone la CIPA para llevar a cabo la investigación formal de los hechos y emitir su Informe Final de Conclusiones?",
+      "question": "¿De qué plazo dispone el CPEIA para llevar a cabo la investigación formal de los hechos y emitir su Informe Final de Conclusiones?",
       "options": [
         "15 días hábiles.",
         "30 días hábiles.",
@@ -28845,12 +28845,12 @@
         "60 días hábiles."
       ],
       "correctAnswer": 1,
-      "explanation": "La fase de investigación formal e instrucción a cargo de la CIPA está limitada a un plazo máximo de 30 días hábiles, prorrogable excepcionalmente por otros 15 días hábiles.",
+      "explanation": "La fase de investigación formal e instrucción a cargo de el CPEIA está limitada a un plazo máximo de 30 días hábiles, prorrogable excepcionalmente por otros 15 días hábiles.",
       "usage": "dossier"
     },
     {
       "id": 110,
-      "question": "Si la CIPA requiere más tiempo para la recopilación de pruebas o testimonios testificales, ¿cuál es el plazo máximo autorizado de prórroga?",
+      "question": "Si el CPEIA requiere más tiempo para la recopilación de pruebas o testimonios testificales, ¿cuál es el plazo máximo autorizado de prórroga?",
       "options": [
         "5 días hábiles.",
         "10 días naturales.",
@@ -28858,12 +28858,12 @@
         "30 días hábiles."
       ],
       "correctAnswer": 2,
-      "explanation": "La prórroga excepcional del periodo de instrucción por la CIPA se sitúa en un límite de 15 días hábiles adicionales.",
+      "explanation": "La prórroga excepcional del periodo de instrucción por el CPEIA se sitúa en un límite de 15 días hábiles adicionales.",
       "usage": "dossier"
     },
     {
       "id": 111,
-      "question": "¿Qué medidas de urgencia puede proponer la CIPA desde el inicio de la instrucción para separar a las partes y proteger la integridad física y mental de la presunta víctima?",
+      "question": "¿Qué medidas de urgencia puede proponer el CPEIA desde el inicio de la instrucción para separar a las partes y proteger la integridad física y mental de la presunta víctima?",
       "options": [
         "Sanciones de suspensión de empleo y sueldo definitivas.",
         "Medidas cautelares provisionales (como cambio temporal de turno, horario o traslado de sucursal de biblioteca).",
@@ -28876,11 +28876,11 @@
     },
     {
       "id": 112,
-      "question": "Una vez recibido el Informe Final de la CIPA, ¿quién ostenta la competencia exclusiva para dictar la resolución del expediente en la US?",
+      "question": "Una vez recibido el Informe Final de el CPEIA, ¿quién ostenta la competencia exclusiva para dictar la resolución del expediente en la US?",
       "options": [
         "El Gerente de la Universidad.",
         "El Rector de la Universidad.",
-        "El Presidente de la CIPA.",
+        "El Presidente de el CPEIA.",
         "La Comisión de Dirección de la BUS."
       ],
       "correctAnswer": 1,
@@ -28902,7 +28902,7 @@
     },
     {
       "id": 114,
-      "question": "¿De qué plazo en días hábiles dispone el Rector para dictar la resolución formal una vez que la CIPA le remite su informe final de conclusiones?",
+      "question": "¿De qué plazo en días hábiles dispone el Rector para dictar la resolución formal una vez que el CPEIA le remite su informe final de conclusiones?",
       "options": [
         "3 días hábiles.",
         "5 días hábiles.",
@@ -28910,7 +28910,7 @@
         "15 días naturales."
       ],
       "correctAnswer": 1,
-      "explanation": "La firma de la resolución por el Rectorado está sujeta a un plazo corto de 5 días hábiles tras recibir la propuesta instructora de la CIPA.",
+      "explanation": "La firma de la resolución por el Rectorado está sujeta a un plazo corto de 5 días hábiles tras recibir la propuesta instructora de el CPEIA.",
       "usage": "dossier"
     },
     {

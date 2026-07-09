@@ -3,82 +3,133 @@
 
 ---
 
-## 1. El Protocolo de Acoso y Violencia de la Universidad de Sevilla
-La Universidad de Sevilla (US) dispone de un **Protocolo de prevención y actuación frente al acoso sexual, acoso por razón de sexo, acoso moral y violencia en el trabajo**. 
+## 1. El Protocolo y la Normativa de Acoso y Violencia de la Universidad de Sevilla
 
-Este protocolo tiene como finalidad principal establecer un cauce de protección ágil, confidencial y seguro para prevenir, detectar y resolver de forma interna las situaciones de acoso o violencia que puedan producirse en el seno de la comunidad universitaria de la US, protegiendo la salud física y mental de sus trabajadores (incluido el PTGAS de la BUS) y estudiantes.
+La Universidad de Sevilla (US) cuenta con un marco regulador actualizado mediante la **"Normativa para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso en la Universidad de Sevilla"** (aprobada por Acuerdo 9.1 del Consejo de Gobierno el 18 de diciembre de 2024 y publicada en el **BOUS nº 2 de 12 de febrero de 2025**). Esta normativa deroga y unifica los anteriores protocolos de acoso sexual (2013) y de acoso moral y laboral (2018).
 
----
+### A. Finalidad del Protocolo
+Establecer un cauce de protección ágil, confidencial y seguro para prevenir, detectar, evaluar y resolver de forma interna las situaciones de violencia, discriminación y acoso que puedan producirse en el seno de la comunidad universitaria. Su objetivo prioritario es garantizar la salud física y mental, la dignidad y los derechos fundamentales de las personas afectadas, fomentando entornos de trabajo y estudio basados en el "buentrato".
 
-## 2. El Papel del SEPRUS (Servicio de Prevención de Riesgos)
-El **SEPRUS (Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla)** es el órgano técnico encargado de:
-*   Recibir inicialmente las solicitudes de activación del protocolo o denuncias por acoso de forma confidencial.
-*   Prestar asesoramiento inmediato y apoyo psicológico a la presunta víctima.
-*   Elaborar el **Informe de Valoración Inicial** en el que se evalúa si existen indicios suficientes de acoso para abrir un expediente formal o si se debe desestimar la solicitud.
+### B. Marco Normativo de Referencia
+*   **Constitución Española (CE):** Art. 15 (derecho a la vida y a la integridad física y moral) y Art. 18 (derecho al honor, a la intimidad personal y familiar y a la propia imagen).
+*   **Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario (LOSU):** Exige a las universidades contar con protocolos frente al acoso y la violencia de género.
+*   **Ley 3/2022, de 25 de febrero, de Convivencia Universitaria:** Marco estatal para el régimen disciplinario y de convivencia en las universidades.
+*   **Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres:** Obligatoriedad de promover condiciones de trabajo que eviten el acoso sexual y por razón de sexo.
+*   **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales:** Art. 14 (derecho del personal a una protección eficaz en materia de seguridad y salud, incluidos los riesgos psicosociales).
 
----
+### C. Ámbito de Aplicación Subjetivo (A quién protege)
+Protege a **toda la comunidad universitaria de la US** sin excepción:
+1.  **Estudiantes:** Alumnado de grado, máster, doctorado y títulos propios.
+2.  **PTGAS (Personal Técnico, de Gestión y de Administración y Servicios):** Incluye de forma expresa a todo el personal de la Biblioteca de la Universidad de Sevilla (BUS), tanto funcionario como laboral.
+3.  **PDI (Personal Docente e Investigador).**
+4.  **Personal de empresas externas:** Trabajadores de contratas de servicios que desempeñen su actividad dentro de las instalaciones de la US (ej. servicios de limpieza, seguridad o mantenimiento técnico en las bibliotecas de la US).
 
-## 3. La Comisión de Investigación y Prevención del Acoso (CIPA)
-La **CIPA** es el órgano técnico colegiado específico creado en la Universidad de Sevilla para la instrucción, esclarecimiento y resolución del protocolo de acoso laboral y sexual:
+### D. Ámbito de Aplicación Objetivo (Qué situaciones cubre)
+*   **Acoso Sexual:** Cualquier comportamiento, verbal, no verbal o físico, de naturaleza sexual, realizado con el propósito o el efecto de atentar contra la dignidad de una persona, en particular cuando se crea un entorno intimidatorio, degradante u ofensivo.
+*   **Acoso por Razón de Sexo, Identidad/Expresión de Género y Orientación Sexual:** Comportamiento realizado en función del sexo, género u orientación sexual de una persona, con el propósito o efecto de atentar contra su dignidad.
+*   **Acoso Moral (Acoso Laboral o Mobbing):** Exposición sistemática y prolongada en el tiempo a conductas de violencia psicológica extrema en el puesto de trabajo (humillaciones, aislamiento social, desprecio profesional) dirigidas a destruir la estabilidad emocional de la víctima.
+*   **Discriminación:** Toda distinción, exclusión o preferencia basada en nacimiento, raza, sexo, religión, opinión, discapacidad u otra circunstancia personal o social.
+*   **Violencia:** Agresiones físicas, verbales o malos tratos psicológicos vinculados al desarrollo de la actividad universitaria o laboral.
 
-*   **Composición Paritaria y Multidisciplinar:** Integrada por un total de **6 miembros** para garantizar la neutralidad y el rigor técnico:
-    *   *Presidente/a:* Nombrado por el Rector de la US.
-    *   *Representantes de la Universidad:* Técnicos designados por la Gerencia y el Rectorado (del área de inspección de servicios y recursos humanos).
-    *   *Representantes de los Trabajadores:* Delegados designados por la Junta de Personal (PTGAS funcionario) y el Comité de Empresa (PTGAS laboral).
-    *   *Asesores Técnicos:* Un médico del trabajo del SEPRUS y un psicólogo/a especializado en riesgos psicosociales (con voz pero sin voto).
-*   **Competencias:**
-    *   Investigar los hechos denunciados recabando testimonios, pruebas documentales y entrevistas confidenciales.
-    *   Adoptar de forma inmediata **medidas cautelares provisionales** para separar a la víctima del presunto acosador (ej. traslados de despacho temporales, cambios de turno en la biblioteca) para salvaguardar la integridad de las personas.
-    *   Redactar el **Informe Final de Conclusiones** y la propuesta de resolución al Rector.
-
----
-
-## 4. Fases del Procedimiento y Plazos de Resolución
-El procedimiento del protocolo destaca por su rapidez y por realizarse bajo un estricto principio de confidencialidad para proteger la intimidad de las partes:
-
-### Fase 1: Solicitud de Activación (Denuncia)
-*   Se presenta mediante escrito confidencial dirigido al SEPRUS. Puede ser activado por la propia víctima, por un compañero de trabajo de la biblioteca que presencie los hechos, por el Comité de Seguridad y Salud, o por los representantes sindicales.
-
-### Fase 2: Valoración Inicial (Plazo de 15 Días Hábiles)
-*   Una vez recibida la denuncia, el SEPRUS dispone de un plazo máximo improrrogable de **15 días hábiles** para realizar las primeras indagaciones, entrevistar a las partes implicadas y emitir el *Informe de Valoración Inicial*.
-*   Si el informe concluye que **no hay indicios** de acoso, se procede al archivo del caso (pudiendo derivarse a mediación laboral si es un conflicto interpersonal común). Si se concluye que **sí existen indicios**, se remite de inmediato a la CIPA para iniciar la investigación formal.
-
-### Fase 3: Investigación e Instrucción por la CIPA (Plazo de 30 Días Hábiles)
-*   La CIPA abre el expediente y dispone de un plazo de **30 días hábiles** (prorrogable de forma justificada por un máximo de otros 15 días si la recopilación de pruebas lo requiere) para instruir el caso.
-*   Durante esta fase, la CIPA puede citar a testigos de la biblioteca, realizar careos confidenciales y recabar informes. Al finalizar, redacta el *Informe Final de Conclusiones*.
-
-### Fase 4: Resolución y Régimen Disciplinario
-*   El informe de la CIPA se remite al Rector de la US, quien tiene la competencia exclusiva para dictar la resolución definitiva en el plazo de **5 días hábiles**.
-*   Si se confirma la existencia de acoso, se procede de inmediato a la apertura de un expediente disciplinario por **falta muy grave** (de acuerdo con el IV Convenio Colectivo), lo que puede acarrear sanciones de suspensión de empleo y sueldo o despido disciplinario, además de la derivación de los hechos a la Fiscalía de ser constitutivos de delito penal.
+### E. Principios Informadores del Procedimiento
+El protocolo de actuación de la US se rige por los siguientes principios obligatorios:
+*   **Confidencialidad absoluta:** Garantía de sigilo y reserva estricta de las actuaciones. La información se restringe únicamente a los órganos instructores directos.
+*   **Diligencia y celeridad:** Tramitación ágil y plazos perentorios e improrrogables para evitar la prolongación del sufrimiento de la víctima.
+*   **Garantía de indemnidad:** Prohibición absoluta de represalias contra la presunta víctima, testigos, denunciantes o cualquier persona que colabore en el esclarecimiento del caso.
+*   **Imparcialidad y contradicción:** Garantía de audiencia y defensa justa y equitativa para las partes implicadas.
+*   **Protección y reparación:** Adopción de medidas de acompañamiento, apoyo psicológico y restablecimiento de las condiciones saludables de trabajo o estudio.
 
 ---
 
-## 5. Esquema de Repaso Rápido
-*   **SEPRUS:** Recibe la denuncia y hace el informe inicial en **15 días hábiles**.
-*   **CIPA:** Comisión de Investigación paritaria de **6 miembros** que instruye el caso en **30 días hábiles**.
-*   **Rector:** Emite la resolución definitiva tras el informe de la CIPA.
-*   **Medidas cautelares:** Separación física o funcional de las partes desde el primer momento de indicios.
-*   **Acoso verificado:** Se sanciona siempre como **falta muy grave** en el régimen disciplinario.
+## 2. El Papel del SEPRUS y de la Unidad para la Igualdad
+
+El protocolo se activa y gestiona en estrecha colaboración entre dos entidades técnicas clave de la US:
+
+*   **SEPRUS (Servicio de Prevención de Riesgos Laborales de la US):**
+    *   Actúa como canal receptor de solicitudes en el ámbito laboral y del personal (PTGAS y PDI).
+    *   Evalúa los riesgos psicosociales asociados al puesto de trabajo y ofrece asesoramiento preventivo.
+    *   Presta apoyo técnico mediante personal médico del trabajo y psicólogos expertos en salud ocupacional.
+*   **Unidad para la Igualdad de la US:**
+    *   Actúa como canal receptor para la comunidad estudiantil y en casos vinculados a discriminación de género o acoso sexual.
+    *   Coordina las campañas de sensibilización, formación y prevención del acoso en toda la universidad.
+    *   Supervisa el cumplimiento de las medidas de equidad y no discriminación.
+
+Ambos servicios colaboran para dar una primera acogida y asesoramiento confidencial e inmediato a las presuntas víctimas, derivando los casos cuando existan indicios al órgano instructor colegiado.
 
 ---
 
-## 6. Reglas Mnemotécnicas para el Examen
-Para memorizar fácilmente los plazos y órganos del protocolo de acoso de la US, utiliza estas reglas:
+## 3. El Comité Técnico CPEIA
 
-*   **Los Plazos del Protocolo: "Quince Días de Valor y Treinta para Investigar":**
-    *   Valoración Inicial (SEPRUS): **15 días hábiles** (las dos primeras semanas laborables).
-    *   Investigación Formal (CIPA): **30 días hábiles** (aproximadamente un mes y medio laborable, el doble de tiempo que la valoración inicial).
-    *   *Mnemónico:* *"El SEPRUS te valora en **15** días; la CIPA investiga el doble de tiempo: **30** días".*
-*   **La Comisión CIPA: "Seis Miembros para la Paz (6)":**
-    *   La CIPA tiene **6 miembros** con derecho a voto (paritaria: 3 de la universidad y 3 de los sindicatos).
-    *   *Mnemónico:* *"La **CIPA** tiene **4** letras, pero para resolver el conflicto suma **2** técnicos asesores para dar un total de **6** miembros".*
-*   **El Acrónimo SEPRUS: "Servicio de Prevención de la US":**
-    *   *Mnemónico:* *"El **SE**rvicio de **PR**evención de la **US** es **SEPRUS**".*
+El **CPEIA (Comité Técnico para la Prevención, Evaluación e Intervención en situaciones de Violencia, Discriminación y Acoso)** es el órgano colegiado, de carácter estrictamente técnico y especializado, encargado de instruir y resolver los procedimientos del protocolo de la Universidad de Sevilla.
+
+### A. Composición del CPEIA
+Para garantizar la imparcialidad, profesionalidad y neutralidad, el CPEIA cuenta con una composición multidisciplinar:
+1.  **Presidencia:** La persona titular del Vicerrectorado con competencias en materia de igualdad (o persona en quien delegue).
+2.  **Dirección de la Unidad para la Igualdad** de la Universidad de Sevilla.
+3.  **Dirección del Servicio de Prevención de Riesgos Laborales (SEPRUS).**
+4.  **Personal Experto Técnico:**
+    *   Una persona especialista técnica en factores de riesgo psicosocial de la US.
+    *   Una persona asesora especialista en materia jurídica de la US.
+5.  **Representantes de la Comunidad Universitaria:** Delegados de prevención y representantes designados para asegurar la participación de los distintos sectores (PDI, PTGAS/PAS y estudiantado), garantizando la transparencia y paridad en el seno del comité.
+
+### B. Funciones Principales del CPEIA
+*   **Investigación formal:** Realizar la instrucción de los expedientes mediante la práctica de pruebas, entrevistas y careos confidenciales con las partes y testigos.
+*   **Adopción de Medidas Cautelares:** Proponer de inmediato la separación física o funcional de las partes implicadas (ej. traslados de sección en la biblioteca, cambios de turno de trabajo, adaptaciones de matrícula en estudiantes) desde el momento en que se detecten indicios razonables de riesgo para salvaguardar la integridad de la víctima.
+*   **Propuesta de Resolución:** Emitir el *Informe Final de Conclusiones* dirigido al Rectorado, determinando la existencia o no de violencia/acoso y proponiendo las medidas de sanción o corrección correspondientes.
 
 ---
 
-## 7. Conceptos Clave
-*   **CIPA (Comisión de Investigaciones y Prevención del Acoso):** Órgano interno colegiado de la US encargado de tramitar los expedientes de acoso laboral, sexual y discriminatorio.
-*   **Medidas Cautelares:** Resoluciones provisionales de urgencia adoptadas para garantizar la seguridad de la víctima durante la tramitación del expediente.
-*   **SEPRUS:** Servicio de prevención propio de la Universidad de Sevilla con competencias de asesoría en salud laboral y psicosocial.
-*   **Acoso Moral (Mobbing):** Conductas hostiles reiteradas en el tiempo ejercidas contra un trabajador para provocar su desestabilización psicológica o aislamiento.
+## 4. Fases del Procedimiento y Plazos de Intervención
+
+El procedimiento de intervención ante situaciones de violencia o acoso destaca por sus plazos ágiles e improrrogables:
+
+### Fase 1: Solicitud de Intervención (Denuncia)
+*   Cualquier miembro de la comunidad universitaria que sufra o sea testigo de una situación de acoso o violencia puede presentar la solicitud ante la Unidad para la Igualdad o ante el SEPRUS.
+
+### Fase 2: Valoración Inicial y Admisión (Plazo de 15 Días Hábiles)
+*   Los servicios técnicos (SEPRUS/Unidad para la Igualdad) disponen de un plazo máximo de **15 días hábiles** desde la recepción de la solicitud para:
+    *   Efectuar una valoración inicial del caso y entrevistas previas.
+    *   Redactar un **Informe de Valoración Inicial** recomendando la inadmisión y archivo (por tratarse de un conflicto laboral común no constitutivo de acoso, el cual se derivaría a mediación) o bien la admisión a trámite y remisión al CPEIA.
+
+### Fase 3: Instrucción y Elaboración de Informe Técnico (Plazo de 30 Días Hábiles)
+*   Una vez admitido a trámite, el **CPEIA** asume la competencia y abre la fase de instrucción formal.
+*   El CPEIA dispone de un plazo de **30 días hábiles** (prorrogable excepcionalmente de forma justificada por un máximo de otros 15 días hábiles en casos de alta complejidad) para practicar las diligencias oportunas y emitir su **Informe Final de Conclusiones**.
+
+### Fase 4: Resolución y Régimen Disciplinario (Plazo de 5 Días Hábiles)
+*   El informe del CPEIA se eleva al Rector de la Universidad de Sevilla, quien dictará la resolución definitiva en un plazo máximo de **5 días hábiles**.
+*   Si se confirma la existencia de acoso, el Rector ordenará de inmediato la apertura del **expediente disciplinario**.
+*   El acoso moral, sexual o por razón de sexo se sanciona en el régimen de la función pública y convenios colectivos siempre como una **falta muy grave**, pudiendo conllevar la suspensión de funciones, el traslado forzoso de localidad, o la expulsión/despido disciplinario del infractor, sin perjuicio de dar traslado a la Fiscalía si los hechos constituyen delito penal.
+
+---
+
+## 5. La Red de Referentes para la Convivencia y el "Buentrato"
+
+Como novedad en el marco preventivo de la Universidad de Sevilla, se crea la **Red de Referentes para la Convivencia y el "Buentrato"**. 
+*   Consiste en un conjunto de personas distribuidas en los diferentes centros, facultades y servicios (incluida la estructura de la BUS) especialmente formadas en materia de mediación, resolución pacífica de conflictos, igualdad y prevención de la violencia.
+*   Su función primordial es servir de punto de contacto cercano e informal para canalizar dudas, facilitar el diálogo primario y guiar a las personas afectadas hacia los recursos y canales formales del protocolo.
+
+---
+
+## 6. Esquema de Repaso Rápido y Mnemotecnia
+
+*   **Normativa US:** Aprobada el **18 de diciembre de 2024** (BOUS 12 de febrero de 2025). Deroga protocolos de 2013 y 2018.
+*   **SEPRUS / Unidad para la Igualdad:** Acogida inicial y valoración de admisión en **15 días hábiles**.
+*   **CPEIA:** Comité Técnico colegiado que instruye el caso en **30 días hábiles** (ampliables por 15 más).
+*   **Rector:** Emite resolución final en **5 días hábiles** y abre el expediente sancionador.
+*   **Medidas cautelares:** Separación provisional automática de las partes implicadas (cambio de biblioteca o puesto).
+*   **Calificación del acoso:** Considerado siempre como **falta muy grave** en el régimen sancionador de la US.
+
+### Reglas Mnemotécnicas para el Examen
+*   **Los Plazos: "15 para Valorar, 30 para Investigar y 5 para Resolver":**
+    *   *Mnemónico:* *"15 días tarda el SEPRUS en valorar la admisión. El CPEIA investiga el doble de tiempo (30 días). El Rector firma la sentencia en los dedos de una mano (5 días)"*.
+*   **El Órgano Instructor: CPEIA:**
+    *   *Mnemónico:* *"**C**omité **P**ara **E**vitar e **I**ntervenir en **A**coso = **CPEIA**"*.
+
+---
+
+## 7. Conceptos Clave para Preguntas Test
+
+*   **CPEIA (Comité Técnico):** Órgano colegiado instructor y multidisciplinar frente a situaciones de violencia, acoso y discriminación.
+*   **Garantía de Indemnidad:** Derecho de la víctima y colaboradores a no sufrir consecuencias perjudiciales o represalias laborales/académicas por activar el protocolo.
+*   **Falta Muy Grave:** Gravedad jurídica asignada a cualquier conducta probada de acoso moral, sexual o de discriminación según las normas de la US.
+*   **Riesgos Psicosociales:** Aquellos factores de las condiciones de trabajo que afectan a la salud mental y física del trabajador a través de mecanismos de estrés (como la exposición al acoso laboral).
