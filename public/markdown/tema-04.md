@@ -3,41 +3,56 @@
 
 ---
 
-## 1. La Colección Híbrida de la Biblioteca Universitaria
-La colección de la biblioteca universitaria actual es de carácter **híbrido**, conviviendo en un mismo espacio de gestión el fondo físico (monografías impresas, revistas en papel, mapas, Fondo Antiguo) y los recursos electrónicos (revistas científicas, libros electrónicos, bases de datos referenciales y a texto completo, patentes).
+## 1. La Colección en la Biblioteca de la Universidad de Sevilla (BUS)
 
-El propósito de la colección en la BUS es dar cobertura a las necesidades de:
-1.  **Docencia y Aprendizaje:** Adquisición de manuales y bibliografía recomendada recogida en las guías docentes de los grados y másteres.
-2.  **Investigación:** Acceso a bases de datos de citas y revistas científicas internacionales de alto nivel.
+Según el **Reglamento de la BUS**, la colección (o fondo documental) está integrada por todos los recursos de información, con independencia de su soporte material, adquiridos para cumplir con los objetivos de docencia, aprendizaje, investigación y extensión cultural de la Universidad de Sevilla.
 
----
-
-## 2. Adquisición Cooperativa y Consorciada: El CBUA
-En el ámbito de las universidades públicas de Andalucía, la adquisición de grandes paquetes de recursos electrónicos (especialmente las bases de datos multidisciplinares y los paquetes de revistas de grandes editoriales científicas como Elsevier, Springer o Wiley) se realiza de forma centralizada y conjunta para abaratar costes:
-
-*   **El CBUA (Consorcio de Bibliotecas Universitarias de Andalucía):** Creado en el año 2001, agrupa a las 9 universidades públicas andaluzas bajo la coordinación de la Junta de Andalucía.
-*   **Adquisición Consorciada:** La negociación unificada del CBUA frente a los proveedores internacionales de información científica permite conseguir economías de escala y licencias compartidas de acceso a recursos electrónicos que individualmente las universidades no podrían financiar de forma aislada.
+Hoy en día, la BUS responde plenamente al modelo de **Biblioteca Híbrida**, donde conviven armónicamente el espacio físico (fondo impreso y colecciones especiales) y el digital (recursos electrónicos y acceso remoto).
 
 ---
 
-## 3. Modelos de Adquisición de Recursos Electrónicos
-A diferencia de los libros impresos (que se compran y pasan a ser propiedad física permanente de la biblioteca), las licencias de uso de recursos electrónicos se adquieren bajo diversos modelos comerciales avanzados:
+## 2. La Colección Impresa: Características y Organización
 
-### A. Suscripción y Licencias "Big Deals"
-*   **Definición:** Modelo tradicional para paquetes de revistas científicas. La biblioteca paga una cuota anual para dar acceso a sus usuarios al catálogo completo de revistas de una gran editorial científica (ej. ScienceDirect de Elsevier).
-*   **Contratos de Transición:** Actualmente vinculados a acuerdos de tipo "Leer y Publicar" (Read & Publish), donde la cuota anual cubre tanto la lectura del contenido como las tasas de procesamiento de artículos (APC - Article Processing Charges) para que los investigadores de la US publiquen en abierto.
+El fondo impreso sigue siendo un pilar fundamental en la BUS, especialmente para la docencia de grado y la investigación en áreas de Humanidades y Ciencias Sociales.
 
-### B. PDA (Patron Driven Acquisition - Adquisición Guiada por el Usuario)
-*   **Definición:** Modelo para la compra de libros electrónicos. La biblioteca activa y carga en su catálogo FAMA miles de registros de e-books de un editor sin pagar por ellos inicialmente. Los estudiantes e investigadores pueden abrir y leer los libros.
-*   **Funcionamiento:** La compra real del libro se ejecuta de forma automática únicamente cuando se supera un número determinado de accesos, descargas o lecturas (ej. más de 3 lecturas en un mes por diferentes usuarios).
+### A. Tipologías principales
+*   **Monografías (Libros):** Manuales de estudio de bibliografía recomendada, manuales de referencia y literatura científica.
+*   **Publicaciones periódicas:** Revistas impresas (actualmente en progresivo desuso frente a las electrónicas, pero con un valor histórico esencial en colecciones retrospectivas).
+*   **Fondo Antiguo y Colecciones Especiales:** Manuscritos, incunables e impresos históricos custodiados principalmente en la **Biblioteca de Fondo Antiguo** (con sede en la Facultad de Filología/Geografía e Historia).
 
-### C. EBA (Evidence Based Acquisition - Adquisición Basada en la Evidencia)
-*   **Definición:** La biblioteca realiza un pago inicial fijo a la editorial para dar acceso ilimitado a todo su catálogo de libros electrónicos durante un período establecido (normalmente un año).
-*   **Funcionamiento:** Transcurrido el año, la biblioteca analiza las estadísticas reales de uso de los e-books y utiliza el dinero inicialmente depositado para seleccionar y adquirir en propiedad permanente los títulos más consultados.
+### B. Organización y Acceso en las Salas
+*   **Libre acceso:** La mayor parte de la colección impresa disponible directamente en las salas de lectura está ordenada por materias utilizando la **CDU (Clasificación Decimal Universal)**.
+*   **Colecciones de depósito:** Los materiales menos consultados, obsoletos o de conservación especial se guardan en depósitos cerrados y se ordenan por número de entrada o **número currens**.
+
+---
+
+## 3. La Colección Electrónica: Modelos y Tipologías
+
+La colección digital ha crecido exponencialmente y absorbe la mayor parte del presupuesto de la BUS, siendo crucial para el área científica y la investigación.
+
+### A. Tipos de Recursos Electrónicos
+*   **Bases de Datos:** Plataformas de indexación y búsqueda de información científica referencial y a texto completo (ej. *Scopus*, *Web of Science*).
+*   **Revistas Electrónicas (E-journals):** Publicaciones científicas periódicas organizadas mayoritariamente en grandes paquetes de editoriales científicas internacionales (ej. *Elsevier ScienceDirect*, *SpringerLink*, *Wiley*).
+*   **Libros Electrónicos (E-books):** Manuales y textos académicos multidisciplinares (ej. plataformas contratadas como *Ingebook*, *ProQuest Ebook Central*).
+*   **IdUS (Depósito de Investigación de la Universidad de Sevilla):** Repositorio institucional de acceso abierto que recoge, conserva y difunde la producción científica y académica de la US (tesis, artículos, comunicaciones).
+
+### B. Adquisición Cooperativa y Consorciada: El CBUA
+En el ámbito de las universidades públicas de Andalucía, la adquisición de grandes paquetes de recursos electrónicos se gestiona de forma conjunta para abaratar costes:
+*   **El CBUA (Consorcio de Bibliotecas Universitarias de Andalucía):** Creado en el año **2001**, agrupa a las 9 universidades públicas andaluzas bajo la coordinación de la Junta de Andalucía.
+*   **Adquisición Consorciada:** La negociación unificada del CBUA frente a los proveedores permite conseguir economías de escala y licencias compartidas de acceso a recursos que individualmente serían inviables financieramente.
+
+### C. Modelos de Adquisición y Licenciamiento
+A diferencia del libro en papel (que se adquiere en propiedad), el recurso electrónico se rige mediante licencias de acceso sujetas a derechos de autor:
+*   **Suscripción anual y "Big Deals":** Pago periódico anual por el derecho a acceder a los contenidos de un paquete de revistas.
+*   **Compra a perpetuidad (Archivo):** Se realiza un pago único por el contenido del libro o año de revista y se mantiene el acceso permanente en el tiempo.
+*   **Modelos PDA (Patron Driven Acquisition / Adquisición Dirigida por el Usuario):** La biblioteca activa y carga en su catálogo miles de registros de e-books sin coste inicial. El libro se compra definitivamente solo cuando los usuarios superan un número determinado de consultas reales y reiteradas.
+*   **Modelos EBA (Evidence Based Acquisition / Adquisición Basada en la Evidencia):** La biblioteca realiza un prepago fijo a la editorial para dar acceso ilimitado a todo su catálogo de libros durante un año. Al finalizar el período, la biblioteca analiza las estadísticas de uso y selecciona qué títulos adquiere en propiedad permanente con el depósito inicial.
+*   **Acuerdos Transformativos (Licencias CRUE):** Contratos de transición vinculados a modelos "Leer y Publicar" (*Read & Publish*), donde la cuota anual financia tanto la lectura como las tasas de procesamiento de artículos (**APC - Article Processing Charges**) para que los investigadores de la US publiquen en **Acceso Abierto (Open Access)**.
 
 ---
 
 ## 4. Derechos de Autor e Igualdad en Acceso Abierto: Licencias Creative Commons (CC)
+
 Para regular los derechos de autor de las obras compartidas en el repositorio institucional **IdUS** en abierto, se emplean las licencias Creative Commons, basadas en la combinación de 4 condiciones de uso:
 
 1.  **Atribución (BY):** Obliga a citar y reconocer la autoría original de la obra.
@@ -49,32 +64,46 @@ Para regular los derechos de autor de las obras compartidas en el repositorio in
 
 ---
 
-## 5. Protocolos y Sistemas de Autenticación de Acceso Remoto
-Dado que los recursos electrónicos están restringidos y licenciados para la comunidad universitaria de la US, el acceso desde fuera de los campus universitarios requiere sistemas de validación técnica de identidad:
+## 5. Integración y Descubrimiento: FAMA
 
-### A. VPN (Virtual Private Network)
-*   **Funcionamiento:** Conexión segura punto a punto que encapsula el tráfico. Requiere instalar un software cliente en el ordenador del usuario que simula que este se encuentra conectado directamente a la red física local de la universidad.
-
-### B. EZproxy
-*   **Funcionamiento:** Servidor proxy web mantenido por la biblioteca. Cuando un usuario intenta acceder a un recurso electrónico restringido desde su hogar a través del catálogo FAMA, el enlace lo redirige a EZproxy, donde se identifica con su **UVUS**. El servidor proxy realiza la descarga de la información en su nombre utilizando su dirección IP autorizada institucional y se la muestra al usuario en el navegador web de forma transparente.
-
-### C. Autenticación Federada Shibboleth / OpenAthens (Protocolo SAML)
-*   **Funcionamiento:** Estándar moderno de autenticación basado en el protocolo seguro **SAML 2.0**. No requiere simular IPs autorizadas.
-*   **Mecanismo:** La biblioteca forma parte de una federación de identidades (como **SIR** - Servicio de Identidad de RedIRIS en España). Cuando el usuario accede a la web del editor científico, selecciona "Identificarse a través de su Institución", introduce sus credenciales UVUS en el portal de su universidad, y esta envía una confirmación segura digital al editor autorizando el acceso.
+Para el Técnico Auxiliar de la BUS, el punto clave de cara al usuario es que ambas colecciones (impresa y electrónica) se gestionan e integran de manera unificada:
+*   **FAMA:** Es la herramienta de descubrimiento de la BUS, basada en el sistema informático unificado **Alma/Primo** de la empresa *Ex Libris*.
+*   **Integración:** Desde un único buscador, FAMA muestra tanto la ubicación física y disponibilidad del libro impreso (mediante la **signatura topográfica**) como el enlace directo al texto completo en formato digital del recurso electrónico.
 
 ---
 
-## 6. Esquema de Repaso Rápido
-*   **CBUA:** Consorcio creado en 2001 para la compra unificada andaluza de revistas y bases de datos.
-*   **PDA:** Compra de e-books activada automáticamente por el uso en tiempo real del lector.
-*   **EBA:** Compra permanente al final de año basada en las estadísticas de uso de los e-books tras un prepago.
-*   **Licencias CC:** Combinación de BY (Atribución), NC (No Comercial), ND (Sin Derivada), SA (Compartir Igual).
-*   **Autenticación remota:** VPN (túnel IP), EZproxy (servidor proxy web de la BUS), Shibboleth (autenticación federada).
+## 6. El Acceso Remoto en la BUS (Autenticación y Red)
+
+Dado que los recursos electrónicos están bajo licencias de pago restrictivas, los miembros de la comunidad universitaria de la US (PDI, PAS/PTGAS y Estudiantes) que se encuentren fuera de las instalaciones físicas (su casa, congresos, etc.) deben identificarse mediante los siguientes sistemas técnicos:
+
+### A. El Sistema VPN (Virtual Private Network)
+*   **Funcionamiento:** Red Privada Virtual. Conexión segura encriptada de extremo a extremo que encapsula el tráfico.
+*   **Implementación en la US:** El usuario instala un software cliente (actualmente el software **GlobalProtect**, gestionado por el **SIC - Servicio de Informática y Comunicaciones**). Al activarlo, el dispositivo del usuario simula estar físicamente conectado a la red interna de la Universidad de Sevilla, otorgándole una dirección IP institucional válida para acceder a los recursos restringidos.
+
+### B. El Acceso vía Identidad SIR (Autenticación Federada / Single Sign-On)
+*   **Funcionamiento:** Estándar moderno de autenticación basado en el protocolo seguro **SAML 2.0**. No requiere simular IPs institucionales mediante software.
+*   **Implementación en la US:** La universidad forma parte del **SIR (Servicio de Identidad de RedIRIS)** en España. Al acceder a la plataforma de una editorial científica compatible, el usuario selecciona la opción de identificarse a través de su institución ("Login via institution"), busca "Universidad de Sevilla" e introduce su **UVUS (Usuario Virtual de la Universidad de Sevilla)** y contraseña.
+
+### C. El Servidor EZproxy
+*   **Funcionamiento:** Servidor proxy web mantenido por la propia biblioteca. Cuando un usuario accede a un recurso electrónico restringido desde casa mediante FAMA, el sistema redirige la petición a través de EZproxy, donde el usuario se valida con su **UVUS**. El servidor descarga el recurso utilizando la IP autorizada de la universidad y se lo muestra al usuario final en el navegador web de forma transparente sin configuraciones especiales en el ordenador cliente.
 
 ---
 
-## 7. Reglas Mnemotécnicas para el Examen
-Para memorizar los modelos y protocolos de este tema, utiliza estas asociaciones:
+## 7. Esquema de Repaso Rápido
+
+*   **BUS:** Biblioteca Híbrida (conviven el fondo físico y el digital).
+*   **Colección Impresa:** Organizada mayormente por CDU en libre acceso; depósitos organizados por *número currens*.
+*   **Fondo Antiguo:** Custodiado en la Biblioteca de Fondo Antiguo (Facultad de Filología/Geografía e Historia).
+*   **Colección Electrónica:** Bases de datos, revistas (e-journals), libros (e-books) e **IdUS** (repositorio abierto).
+*   **CBUA:** Consorcio creado en 2001 para la adquisición cooperativa de recursos en Andalucía.
+*   **Modelos de e-compra:** Suscripción, Compra a Perpetuidad, PDA (pago por uso real), EBA (pago inicial con selección final basada en evidencia), Acuerdos Transformativos (pago de APCs para publicación en acceso abierto).
+*   **Licencias CC:** BY (Atribución), NC (No Comercial), ND (Sin Derivada), SA (Compartir Igual).
+*   **FAMA:** Herramienta de descubrimiento unificada (sistema Alma/Primo de Ex Libris).
+*   **Acceso Remoto:** VPN (GlobalProtect/SIC), Autenticación Federada (SIR/UVUS mediante SAML 2.0) y EZproxy (proxy web).
+
+---
+
+## 8. Reglas Mnemotécnicas para el Examen
 
 *   **Diferencia entre PDA y EBA: "El Momento del Pago"**
     *   **P**DA (**P**rimero el uso, luego la compra): Pagas cada libro individual en el instante en que el usuario lo usa (**P**atrón -> **P**ago en caliente).
@@ -92,9 +121,11 @@ Para memorizar los modelos y protocolos de este tema, utiliza estas asociaciones
 
 ---
 
-## 8. Conceptos Clave
-*   **CBUA (Consorcio de Bibliotecas Universitarias de Andalucía):** Entidad cooperativa que gestiona los servicios informáticos y adquisiciones consorciadas de las universidades públicas andaluzas.
-*   **PDA (Patron Driven Acquisition):** Modelo comercial de adquisición de libros electrónicos donde el uso activo de los usuarios desencadena la compra real de la monografía.
-*   **Shibboleth:** Sistema informático de código abierto basado en SAML para proporcionar inicio de sesión único y acceso federado seguro a recursos restringidos.
-*   **Licencia Creative Commons:** Instrumento legal que permite a los autores otorgar permisos de uso sobre sus trabajos bajo determinadas condiciones, manteniendo sus derechos.
-*   **Acuerdo Transformativo:** Contrato de suscripción a revistas científicas que reorienta el gasto de las bibliotecas desde el modelo clásico de pago por lectura hacia el pago por publicación en abierto.
+## 9. Conceptos Clave
+
+*   **CBUA (Consorcio de Bibliotecas Universitarias de Andalucía):** Entidad cooperativa creada en 2001 que gestiona adquisiciones consorciadas y servicios compartidos de las universidades públicas andaluzas.
+*   **FAMA:** Catálogo y herramienta de descubrimiento unificada de la BUS sustentada bajo Alma/Primo (Ex Libris).
+*   **IdUS (Depósito de Investigación de la Universidad de Sevilla):** Repositorio institucional para archivar y difundir en abierto la producción científica de la US.
+*   **GlobalProtect:** Cliente de software VPN oficial de la Universidad de Sevilla gestionado por el SIC para el acceso remoto.
+*   **SIR (Servicio de Identidad de RedIRIS):** Federación de identidades que permite a los usuarios de la US autenticarse en portales de editores utilizando sus credenciales institucionales UVUS.
+*   **APC (Article Processing Charge):** Tasa cobrada por las editoriales científicas para publicar un artículo bajo el modelo de Acceso Abierto.

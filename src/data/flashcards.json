@@ -105,6 +105,21 @@
       "id": 5,
       "front": "Modelo PDA para adquisición de e-books",
       "back": "Patron-Driven Acquisition: compra automatizada de libros de un catálogo digital cuando alcanzan un nivel de uso real prefijado por parte de los alumnos."
+    },
+    {
+      "id": 6,
+      "front": "¿Bajo qué sistemas informáticos funciona FAMA en la BUS?",
+      "back": "Bajo la plataforma de servicios de biblioteca Alma (gestión interna) y el portal de descubrimiento Primo (de la empresa Ex Libris)."
+    },
+    {
+      "id": 7,
+      "front": "Software cliente y servicio gestor de la VPN en la US",
+      "back": "Software cliente GlobalProtect, gestionado y mantenido por el SIC (Servicio de Informática y Comunicaciones)."
+    },
+    {
+      "id": 8,
+      "front": "Organización física del fondo impreso de la BUS",
+      "back": "Por materias usando la CDU (Clasificación Decimal Universal) en salas de libre acceso, y por número currens (orden de entrada) en depósitos."
     }
   ],
   "5": [
@@ -132,6 +147,21 @@
       "id": 5,
       "front": "Requisitos clave de conservación preventiva del papel",
       "back": "Control constante de temperatura (18-22 °C), humedad (50%) y evitar luz ultravioleta directa solar."
+    },
+    {
+      "id": 6,
+      "front": "Criterios MUSTIE para el expurgo",
+      "back": "Misleading (obsoleto), Ugly (deteriorado), Superseded (sustituido), Trivial (sin valor), Irrelevant (sin uso) y Elsewhere (disponible en otro sitio/PI)."
+    },
+    {
+      "id": 7,
+      "front": "Destinos de los documentos expurgados en la BUS",
+      "back": "Traslado a depósito cerrado o almacén secundario, donación a otras entidades, o destrucción/reciclaje definitivo."
+    },
+    {
+      "id": 8,
+      "front": "Prioridad de la Política de Gestión de la Colección de la BUS",
+      "back": "Priorizar el formato digital para favorecer el acceso multiusuario y reducir espacio, limitando duplicidades físicas de baja consulta."
     }
   ],
   "6": [

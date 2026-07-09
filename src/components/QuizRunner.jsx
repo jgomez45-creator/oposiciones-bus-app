@@ -43,6 +43,11 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const [score, setScore] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
 
+  // Paper exam mode states
+  const [isPaperInteractiveMode, setIsPaperInteractiveMode] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [paperExamSubmitted, setPaperExamSubmitted] = useState(false);
+
   const generateSimulacro40Questions = () => {
     let qPool = [];
     availableTopicIds.forEach(topicId => {
@@ -189,7 +194,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     }
   }, [activeTopicId]);
 
-  const handleStartQuiz = () => {
+  const handleStartQuiz = (paperMode = false) => {
     let qPool = [];
     
     if (selectedTopicMode === 'simulacro-40') {
@@ -228,7 +233,48 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     setAnswered(false);
     setScore(0);
     setQuizFinished(false);
+    
+    // Set paper mode states
+    setIsPaperInteractiveMode(paperMode === true);
+    setUserAnswers(Array(qPool.length).fill(null));
+    setPaperExamSubmitted(false);
+    
     setQuizStarted(true);
+  };
+
+  const handleSubmitPaperExam = () => {
+    const answeredCount = userAnswers.filter(ans => ans !== null).length;
+    if (answeredCount === 0) {
+      if (!window.confirm('No has respondido a ninguna pregunta. ¿Estás seguro de que quieres finalizar el examen?')) {
+        return;
+      }
+    } else if (answeredCount < questions.length) {
+      if (!window.confirm(`Has respondido ${answeredCount} de ${questions.length} preguntas. ¿Deseas finalizar y corregir el examen ahora?`)) {
+        return;
+      }
+    }
+
+    let correctCount = 0;
+    questions.forEach((q, idx) => {
+      if (userAnswers[idx] === q.correctAnswer) {
+        correctCount++;
+      }
+    });
+
+    setScore(correctCount);
+    setPaperExamSubmitted(true);
+
+    const scorePct = Math.round((correctCount / questions.length) * 100);
+    if (selectedTopicMode === 'single') {
+      recordQuizScore(Number(singleTopicId), scorePct);
+    } else if (selectedTopicMode === 'custom' || selectedTopicMode === 'simulacro-40' || selectedTopicMode === 'simulacro-oficial') {
+      const activeIds = (selectedTopicMode === 'simulacro-40' || selectedTopicMode === 'simulacro-oficial') ? availableTopicIds : customSelectedTopicIds;
+      activeIds.forEach(topicId => {
+        recordQuizScore(Number(topicId), scorePct);
+      });
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleAnswerClick = (optionIndex) => {
@@ -275,9 +321,22 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     setIsPrintPreviewMode(false);
     setIsTestBookPrintMode(false);
     setIsExamsPrintMode(false);
+    setIsPaperInteractiveMode(false);
+    setUserAnswers([]);
+    setPaperExamSubmitted(false);
     setTestBookContent([]);
     setCompiledExamsContent([]);
   };
+
+  // Calculations for paper exam results summary and layout
+  const totalQuestions = questions.length;
+  const answeredCount = userAnswers.filter(ans => ans !== null).length;
+  const blankCount = totalQuestions - answeredCount;
+  const correctCount = score;
+  const incorrectCount = userAnswers.filter((ans, idx) => ans !== null && ans !== questions[idx].correctAnswer).length;
+  const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
+  const netScore = correctCount - (incorrectCount * 0.25);
+  const scoreOver65 = totalQuestions > 0 ? Math.max(0, (netScore / totalQuestions) * 65) : 0;
 
   return (
     <div className="quiz-view fade-in">
@@ -526,20 +585,29 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               ) : (
                 <>
                   <button 
-                    onClick={handleStartQuiz} 
+                    onClick={() => handleStartQuiz(false)} 
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: 1, minWidth: '200px' }}
+                    style={{ flex: '1 1 200px' }}
                   >
-                    Comenzar Examen Online
+                    Test Clásico (Pregunta a Pregunta)
                     <ArrowRight size={18} />
+                  </button>
+                  <button 
+                    onClick={() => handleStartQuiz(true)} 
+                    className="glow-btn start-quiz-btn"
+                    disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
+                    style={{ flex: '1 1 200px', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', borderColor: 'var(--secondary-light)' }}
+                  >
+                    Simulacro en Papel (Interactivo)
+                    <BookOpen size={18} style={{ marginLeft: '8px' }} />
                   </button>
                   <button 
                     type="button"
                     onClick={handlePreparePrintExam} 
                     className="glow-btn-secondary"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: 1, minWidth: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                    style={{ flex: '1 1 200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
                   >
                     <Printer size={16} />
                     Imprimir Examen (PDF)
@@ -569,7 +637,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           </p>
 
           <div className="result-actions">
-            <button onClick={handleStartQuiz} className="glow-btn">
+            <button onClick={() => handleStartQuiz(isPaperInteractiveMode)} className="glow-btn">
               <RotateCcw size={16} />
               Repetir Test
             </button>
@@ -960,6 +1028,270 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <div className="print-page-break"></div>
               </React.Fragment>
             ))}
+          </div>
+        </div>
+      ) : isPaperInteractiveMode ? (
+        /* Interactive Paper Exam Mode */
+        <div className="paper-exam-container fade-in" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
+              <div className="print-preview-header" style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '16px', marginBottom: '24px' }}>
+                <div>
+                  <h4 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--text-main)' }}>Modo Examen en Papel (Interactivo)</h4>
+                  <p className="text-muted" style={{ fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                    Responde directamente sobre las hojas simuladas del examen. Haz clic sobre cada opción para marcar tu respuesta con una cruz.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <button 
+                    onClick={handleRestart} 
+                    className="glow-btn-secondary" 
+                    style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                  >
+                    Volver a Configurar
+                  </button>
+                  
+                  {!paperExamSubmitted ? (
+                    <button 
+                      onClick={handleSubmitPaperExam} 
+                      className="glow-btn" 
+                      style={{ padding: '8px 16px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    >
+                      <span>Finalizar Examen y Corregir</span>
+                    </button>
+                  ) : (
+                    <button 
+                      onClick={() => handleStartQuiz(true)} 
+                      className="glow-btn" 
+                      style={{ padding: '8px 16px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    >
+                      <RotateCcw size={14} />
+                      <span>Repetir Examen</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Results Summary Box if submitted */}
+              {paperExamSubmitted && (
+                <div className="results-summary-paper-card glass-panel fade-in" style={{ padding: '24px', borderRadius: '12px', marginBottom: '24px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-color)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+                    <Award size={36} className="text-gradient-gold" style={{ flexShrink: 0 }} />
+                    <div>
+                      <h3 style={{ margin: 0, fontSize: '1.25rem', color: 'var(--text-main)', fontWeight: 'bold' }}>Examen Corregido</h3>
+                      <p className="text-muted" style={{ fontSize: '0.85rem', margin: '2px 0 0 0' }}>
+                        Resultados detallados y penalización aplicada (cada error resta 1/4 del valor de una respuesta correcta; las preguntas en blanco no restan puntos).
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', 
+                    gap: '12px', 
+                    width: '100%' 
+                  }}>
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Total Preguntas</div>
+                      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{totalQuestions}</div>
+                    </div>
+                    
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Contestadas</div>
+                      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{answeredCount}</div>
+                    </div>
+                    
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>En Blanco</div>
+                      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#94a3b8' }}>{blankCount}</div>
+                    </div>
+                    
+                    <div style={{ background: 'rgba(16,185,129,0.06)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(16,185,129,0.2)', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--accent-emerald)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Aciertos</div>
+                      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>{correctCount}</div>
+                    </div>
+                    
+                    <div style={{ background: 'rgba(239,68,68,0.06)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(239,68,68,0.2)', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--accent-rose)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Errores</div>
+                      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--accent-rose)' }}>{incorrectCount}</div>
+                    </div>
+                    
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Porcentaje</div>
+                      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--accent-gold)' }}>{percentage}%</div>
+                    </div>
+                    
+                    <div style={{ 
+                      background: 'linear-gradient(135deg, rgba(217,119,6,0.15) 0%, rgba(245,158,11,0.05) 100%)', 
+                      padding: '12px 18px', 
+                      borderRadius: '8px', 
+                      border: '1px solid var(--secondary)', 
+                      textAlign: 'center',
+                      gridColumn: 'span 2',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center'
+                    }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 'bold', textTransform: 'uppercase' }}>Puntuación Final</div>
+                      <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--secondary-light)', margin: '2px 0' }}>
+                        {scoreOver65.toFixed(2)} <span style={{ fontSize: '0.9rem', fontWeight: 'normal', color: 'var(--text-muted)' }}>/ 65.00</span>
+                      </div>
+                      <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
+                        Fórmula: (Aciertos - Errores / 4) × (65 / {totalQuestions}) <br />
+                        [Acierto = +{(65 / totalQuestions).toFixed(2)} ptos | Error = -{(65 / totalQuestions / 4).toFixed(3)} ptos | Blanco = 0 ptos]
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              <div className="print-preview-content" style={{ padding: '40px 50px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', border: '1px solid #cbd5e1', width: '100%', maxHeight: 'none', boxSizing: 'border-box' }}>
+                <div className="printable-exam-sheet">
+                  {/* Header inside paper */}
+                  <div className="exam-metadata-header" style={{ borderBottom: '2px solid black', paddingBottom: '16px', marginBottom: '28px' }}>
+                    <h2 style={{ margin: '0 0 8px 0', fontSize: '1.6rem', fontWeight: '800', textAlign: 'center', color: 'black' }}>
+                      {selectedTopicMode === 'simulacro-40' ? 'SIMULACRO DE EXAMEN (40 PREGUNTAS)' : selectedTopicMode === 'simulacro-oficial' ? `SIMULACRO PREDEFINIDO Nº ${selectedSimulacroNums[0]} (40 PREGUNTAS)` : 'SIMULACRO DE EXAMEN - OPOSICIONES BUS'}
+                    </h2>
+                    <p style={{ textAlign: 'center', margin: 0, fontSize: '0.85rem', color: '#555', fontWeight: '600' }}>
+                      Técnico/a Auxiliar de Biblioteca, Archivo y Museo - Universidad de Sevilla
+                    </p>
+                    <div className="exam-metadata-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '12px', fontSize: '0.85rem', marginTop: '16px' }}>
+                      <div className="metadata-field" style={{ borderBottom: '1px solid #666', paddingBottom: '4px' }}>
+                        <strong>Nombre y Apellidos:</strong> <span style={{ fontFamily: 'monospace', fontSize: '0.95rem' }}>{progress.name || 'Estudiante'}</span>
+                      </div>
+                      <div className="metadata-field" style={{ borderBottom: '1px solid #666', paddingBottom: '4px' }}>
+                        <strong>Fecha:</strong> <span style={{ fontFamily: 'monospace', fontSize: '0.95rem' }}>{new Date().toLocaleDateString('es-ES')}</span>
+                      </div>
+                      <div className="metadata-field" style={{ borderBottom: '1px solid #666', paddingBottom: '4px' }}>
+                        <strong>Puntuación:</strong> <span style={{ fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: 'bold' }}>{paperExamSubmitted ? `${scoreOver65.toFixed(2)}/65.00 (${Math.round((score/questions.length)*100)}%)` : '_________'}</span>
+                      </div>
+                    </div>
+                  </div>
+
+              {/* Questions List */}
+              <div className="questions-print-list">
+                {questions.map((q, qIndex) => (
+                  <div key={qIndex} className="paper-exam-question" style={{ marginBottom: '28px', paddingBottom: '24px', borderBottom: '1px dashed #e2e8f0', pageBreakInside: 'avoid' }}>
+                    <div className="printable-question-text" style={{ fontWeight: '700', fontSize: '1.05rem', color: 'black', marginBottom: '12px', lineHeight: '1.4' }}>
+                      {qIndex + 1}. {q.question}
+                      <span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: '#666', marginLeft: '8px', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>
+                        Tema {q.topicId}
+                      </span>
+                    </div>
+
+                    <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '12px' }}>
+                      {q.options.map((opt, optIndex) => {
+                        const isSelected = userAnswers[qIndex] === optIndex;
+                        const isCorrect = optIndex === q.correctAnswer;
+                        
+                        let itemStyle = {
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '12px',
+                          padding: '10px 14px',
+                          borderRadius: '8px',
+                          cursor: paperExamSubmitted ? 'default' : 'pointer',
+                          fontSize: '0.92rem',
+                          color: '#334155',
+                          transition: 'all 0.15s ease',
+                          border: '1px solid transparent'
+                        };
+
+                        let boxStyle = {
+                          width: '18px',
+                          height: '18px',
+                          border: '2px solid #475569',
+                          borderRadius: '4px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginTop: '2px',
+                          flexShrink: 0,
+                          fontWeight: 'bold',
+                          fontSize: '0.8rem',
+                          color: '#1e3a8a',
+                          transition: 'all 0.15s ease'
+                        };
+
+                        if (paperExamSubmitted) {
+                          if (isCorrect) {
+                            itemStyle.backgroundColor = '#dcfce7'; // green bg
+                            itemStyle.color = '#14532d';
+                            itemStyle.border = '1px solid #bbf7d0';
+                            boxStyle.borderColor = '#16a34a';
+                            boxStyle.backgroundColor = '#16a34a';
+                            boxStyle.color = 'white';
+                          } else if (isSelected && !isCorrect) {
+                            itemStyle.backgroundColor = '#fee2e2'; // red bg
+                            itemStyle.color = '#7f1d1d';
+                            itemStyle.border = '1px solid #fecaca';
+                            boxStyle.borderColor = '#dc2626';
+                            boxStyle.backgroundColor = '#dc2626';
+                            boxStyle.color = 'white';
+                          }
+                        } else {
+                          if (isSelected) {
+                            itemStyle.backgroundColor = '#eff6ff'; // blue outline
+                            itemStyle.border = '1px solid #bfdbfe';
+                            boxStyle.borderColor = '#1d4ed8';
+                            boxStyle.backgroundColor = '#1d4ed8';
+                            boxStyle.color = 'white';
+                          }
+                        }
+
+                        const handleOptionSelect = () => {
+                          if (paperExamSubmitted) return;
+                          setUserAnswers(prev => {
+                            const next = [...prev];
+                            next[qIndex] = optIndex;
+                            return next;
+                          });
+                        };
+
+                        return (
+                          <div 
+                            key={optIndex} 
+                            onClick={handleOptionSelect}
+                            className={`paper-option-item-container ${!paperExamSubmitted ? 'hoverable-option' : ''}`}
+                            style={itemStyle}
+                          >
+                            <div style={boxStyle}>
+                              {paperExamSubmitted ? (
+                                isCorrect ? '✓' : isSelected ? '✗' : ''
+                              ) : (
+                                isSelected ? 'X' : ''
+                              )}
+                            </div>
+                            <span style={{ lineHeight: '1.4' }}>
+                              <strong>{['A', 'B', 'C', 'D'][optIndex]})</strong> {opt}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Feedback Explanation if submitted */}
+                    {paperExamSubmitted && (
+                      <div className="paper-explanation-box fade-in" style={{ marginTop: '16px', marginLeft: '12px', padding: '12px 16px', backgroundColor: '#f8fafc', borderLeft: '4px solid #94a3b8', borderRadius: '4px', fontSize: '0.85rem', color: '#475569', lineHeight: '1.5' }}>
+                        <strong>Justificación:</strong> {q.explanation}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Submit button at bottom */}
+              {!paperExamSubmitted && (
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingTop: '20px', borderTop: '2px solid black' }}>
+                  <button 
+                    onClick={handleSubmitPaperExam} 
+                    className="glow-btn"
+                    style={{ padding: '14px 32px', fontSize: '1.05rem', fontWeight: 'bold', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', display: 'flex', alignItems: 'center', gap: '8px', borderRadius: '30px' }}
+                  >
+                    <span>Finalizar Examen y Corregir</span>
+                    <ArrowRight size={20} />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       ) : (

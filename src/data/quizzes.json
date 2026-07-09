@@ -5715,6 +5715,84 @@
       "correctAnswer": 2,
       "explanation": "El campo 856 (Localización y acceso electrónico) es el campo normalizado MARC21 que almacena el enlace URL permanente (subcampo $u) para acceder al recurso desde el catálogo.",
       "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Según el Reglamento de la BUS, ¿cómo está integrada la colección o fondo documental de la biblioteca?",
+      "options": [
+        "Exclusivamente por las monografías impresas y revistas físicas adquiridas con presupuesto ordinario de los departamentos.",
+        "Por todos los recursos de información, con independencia de su soporte material, adquiridos para cumplir con los objetivos de docencia, aprendizaje, investigación y extensión cultural de la US.",
+        "Únicamente por los recursos digitales accesibles a través del catálogo FAMA y el repositorio institucional idUS.",
+        "Por las adquisiciones financiadas mediante donaciones privadas y el fondo histórico anterior a la desamortización."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Reglamento de la BUS define que su colección está integrada por todos los recursos de información, sin importar su soporte, adquiridos para satisfacer la docencia, el aprendizaje, la investigación y la extensión cultural en la US.",
+      "usage": "dossier"
+    },
+    {
+      "id": 117,
+      "question": "¿En qué facultad de la Universidad de Sevilla tiene su sede principal la Biblioteca de Fondo Antiguo que custodia manuscritos e impresos históricos?",
+      "options": [
+        "Facultad de Derecho y Ciencias del Trabajo.",
+        "Facultad de Filología / Geografía e Historia.",
+        "Facultad de Comunicación.",
+        "Facultad de Medicina."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Biblioteca de Fondo Antiguo de la BUS, encargada de custodiar el valioso patrimonio bibliográfico histórico (manuscritos, incunables, etc.), tiene su sede física en el edificio de la Facultad de Filología y de Geografía e Historia (Antigua Fábrica de Tabacos).",
+      "usage": "dossier"
+    },
+    {
+      "id": 118,
+      "question": "En la organización física de la colección de la BUS, ¿qué criterios de ordenación se utilizan respectivamente para las salas de libre acceso y para los depósitos cerrados?",
+      "options": [
+        "Orden alfabético de autores en libre acceso y orden numérico decimal en depósitos.",
+        "Clasificación Decimal Universal (CDU) en libre acceso y número currens (número de entrada) en depósitos.",
+        "Clasificación Decimal Universal (CDU) tanto en libre acceso como en depósitos.",
+        "Número currens en libre acceso y Clasificación Decimal Universal (CDU) en depósitos."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las salas de libre acceso ordenan sus libros por materias mediante la CDU para facilitar la búsqueda directa del usuario, mientras que los depósitos cerrados, para optimizar espacio, ordenan los libros por número currens (número de entrada).",
+      "usage": "dossier"
+    },
+    {
+      "id": 119,
+      "question": "¿En qué sistemas informáticos se sustenta FAMA, la herramienta de descubrimiento unificada de la Biblioteca de la Universidad de Sevilla?",
+      "options": [
+        "Symphony y WorldCat.",
+        "Alma y Primo (de la empresa Ex Libris).",
+        "Koha y VuFind.",
+        "AbsysNet y OPAC de segunda generación."
+      ],
+      "correctAnswer": 1,
+      "explanation": "FAMA es la herramienta de descubrimiento de la BUS que funciona bajo el software unificado Alma (para la gestión interna) y Primo (como interfaz de descubrimiento de cara al usuario), ambos de la firma Ex Libris.",
+      "usage": "dossier"
+    },
+    {
+      "id": 120,
+      "question": "Para el acceso remoto a los recursos electrónicos mediante VPN en la Universidad de Sevilla, ¿qué software cliente oficial se utiliza y qué servicio de la US lo gestiona?",
+      "options": [
+        "Cisco AnyConnect, gestionado por el CBUA.",
+        "GlobalProtect, gestionado por el SIC (Servicio de Informática y Comunicaciones).",
+        "OpenVPN, gestionado por la propia Biblioteca Universitaria (BUS).",
+        "FortiClient, gestionado por la Sección de Acceso Abierto."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La conexión por VPN en la Universidad de Sevilla se realiza a través del software cliente GlobalProtect, cuyo mantenimiento y soporte recae en el SIC (Servicio de Informática y Comunicaciones).",
+      "usage": "dossier"
+    },
+    {
+      "id": 121,
+      "question": "El acceso remoto federado a editoriales científicas mediante la identidad corporativa de la US se realiza a través de la federación SIR de RedIRIS. ¿Qué protocolo estándar seguro sustenta esta tecnología?",
+      "options": [
+        "Protocolo Z39.50.",
+        "Protocolo SAML 2.0.",
+        "Protocolo TCP/IP seguro.",
+        "Protocolo LDAPv3."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La autenticación federada del SIR (Servicio de Identidad de RedIRIS) y sistemas SSO como Shibboleth se basan en el protocolo seguro estándar SAML 2.0 (Security Assertion Markup Language).",
+      "usage": "dossier"
     }
   ],
   "5": [
@@ -7047,6 +7125,71 @@
       "explanation": "El 'Control ambiental (temperatura 18-22 °C, humedad 45-55%), evitar la exposición directa a la luz solar, control de plagas y manipulación correcta' son ejemplos de 'Preservación Preventiva'.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "En la evaluación y descarte de colecciones físicas en bibliotecas, ¿qué significan las siglas del método de expurgo MUSTIE?",
+      "options": [
+        "Monographs, Users, Serials, Texts, Indexing, Edition.",
+        "Misleading (obsoleto), Ugly (deteriorado), Superseded (reemplazado), Trivial, Irrelevant (sin uso), Elsewhere (disponible en otro sitio).",
+        "Management, University, Selection, Taxonomy, Information, Evaluation.",
+        "Monografías, Unidades, Soporte, Tejuelos, Inventario, Expurgo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El acrónimo MUSTIE condensa los criterios de descarte internacional: Misleading (contenido desactualizado), Ugly (deteriorado), Superseded (edición superada), Trivial (sin valor duradero), Irrelevant (no demandado) y Elsewhere (disponible en otro sitio o préstamo interbibliotecario).",
+      "usage": "dossier"
+    },
+    {
+      "id": 102,
+      "question": "Según el temario de Gestión de la Colección, ¿cuáles son los tres posibles destinos técnicos de un documento físico expurgado en la BUS?",
+      "options": [
+        "Venta en subasta pública, digitalización total o archivo en la caja fuerte.",
+        "Traslado a depósito cerrado, donación a otras instituciones, o destrucción/reciclaje.",
+        "Pérdida forzosa, catalogación en FAMA o préstamo interbibliotecario permanente.",
+        "Devolución a la editorial, intercambio de canje o exposición en salas de lectura."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los tres destinos normalizados para los materiales expurgados son: traslado al depósito cerrado (conserva valor histórico/investigación), donación a otros centros de lectura, o destrucción/reciclaje en caso de mal estado o desactualización absoluta.",
+      "usage": "dossier"
+    },
+    {
+      "id": 103,
+      "question": "¿Qué pauta prioritaria establece la Política de Gestión de la Colección de la BUS respecto a los formatos físico y digital?",
+      "options": [
+        "Prioriza el formato físico en papel para todas las disciplinas científicas.",
+        "Prioriza el formato electrónico para dar soporte a un mayor número de usuarios simultáneos, evitando duplicidades innecesarias en papel.",
+        "Exige la adquisición obligatoria en ambos formatos (físico y digital) para cualquier título.",
+        "Restringe la adquisición digital solo al repositorio institucional idUS."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La política de colecciones de la BUS prioriza la adquisición en formato digital (e-books, e-journals) por su mayor accesibilidad multiusuario y eficiencia en espacio, limitando la duplicidad en papel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 104,
+      "question": "En la Biblioteca de la Universidad de Sevilla, la selección de fondos se define como un proceso corresponsable. ¿Qué tres agentes participan en él?",
+      "options": [
+        "El Rector, el Gerente y el Director de la Biblioteca.",
+        "El personal bibliotecario, la comunidad académica (PDI) y los estudiantes (vía desideratas).",
+        "El Consorcio CBUA, la Junta de Andalucía y el Ministerio de Educación.",
+        "Las editoriales homologadas, los libreros locales y el personal de compras."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La selección es mixta: los bibliotecarios adquieren la bibliografía recomendada de grado; el PDI solicita monografías especializadas para investigar; y los alumnos proponen compras a través de las desideratas.",
+      "usage": "dossier"
+    },
+    {
+      "id": 105,
+      "question": "En el marco de la adquisición por canje o intercambio de la BUS, ¿qué tipo de publicaciones de la US se utilizan principalmente para intercambiar con otras universidades?",
+      "options": [
+        "Libros y revistas editados por la Editorial Universidad de Sevilla, o tesis doctorales de idUS.",
+        "Manuales de texto de libre acceso comprados en librerías locales.",
+        "Obras duplicadas del Fondo Antiguo procedentes de donaciones.",
+        "Material informático obsoleto y colecciones descartadas por expurgo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "El canje se realiza mediante el intercambio recíproco de publicaciones propias, habitualmente producidas por la Editorial Universidad de Sevilla (EUS) o a través de tesis y trabajos en abierto del repositorio idUS.",
+      "usage": "dossier"
     }
   ],
   "6": [

@@ -300,7 +300,10 @@ export const firebaseService = {
           onProgressUpdate(JSON.parse(saved));
         } catch (e) {
           console.error(e);
+          onProgressUpdate({});
         }
+      } else {
+        onProgressUpdate({});
       }
       return () => {}; // return empty unsubscribe
     } else {
@@ -311,7 +314,11 @@ export const firebaseService = {
           const data = docSnap.data();
           if (data.topicsProgress) {
             onProgressUpdate(data.topicsProgress);
+          } else {
+            onProgressUpdate({});
           }
+        } else {
+          onProgressUpdate({});
         }
       });
     }

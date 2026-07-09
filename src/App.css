@@ -3254,3 +3254,16 @@ body.study-focus-mode .study-timer-bar {
     print-color-adjust: exact !important;
   }
 }
+
+/* Interactive Paper Exam Styles */
+.paper-option-item-container.hoverable-option:hover {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+.paper-option-item-container:active {
+  transform: scale(0.995);
+}
+.paper-option-item-container {
+  border: 1px solid transparent;
+}
+
