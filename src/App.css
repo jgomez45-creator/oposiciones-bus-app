@@ -2356,6 +2356,9 @@ body.study-focus-mode .study-timer-bar {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
     background: rgba(10, 15, 30, 0.95) !important;
     backdrop-filter: blur(20px) !important;
+    /* GPU acceleration to prevent mobile WebKit repaint lag on dynamic JS loading */
+    transform: translate3d(0, 0, 0) !important;
+    will-change: transform !important;
   }
 
   .sidebar-logo {
