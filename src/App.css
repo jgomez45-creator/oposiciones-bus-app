@@ -2459,6 +2459,10 @@ body.study-focus-mode .study-timer-bar {
     gap: 12px !important;
   }
 
+  .dashboard-view .stats-grid {
+    display: none !important;
+  }
+
   .stat-card {
     padding: 16px !important;
     gap: 16px !important;
