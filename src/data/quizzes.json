@@ -27936,93 +27936,93 @@
     },
     {
       "id": 42,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 17)",
+      "question": "¿En qué fecha aprobó el Consejo de Gobierno de la Universidad de Sevilla la vigente 'Normativa para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso'?",
       "options": [
-        "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
-        "El traslado del expediente al Ministerio Fiscal.",
-        "El periodo de alegaciones del presunto acosador."
+        "El 12 de febrero de 2025.",
+        "El 18 de diciembre de 2024.",
+        "El 15 de marzo de 2018.",
+        "El 25 de febrero de 2022."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "El Consejo de Gobierno de la US aprobó esta normativa clave el 18 de diciembre de 2024 (Acuerdo 9.1), y se publicó en el BOUS el 12 de febrero de 2025.",
       "usage": "dossier"
     },
     {
       "id": 43,
-      "question": "La prejudicialidad penal en el protocolo contra el acoso de la US exige que: (Pregunta de control 18)",
+      "question": "La vigente normativa contra el acoso de la Universidad de Sevilla de finales de 2024 deroga y unifica en un solo texto regulador:",
       "options": [
-        "El Rector suspenda las actuaciones administrativas internas en favor de la vía judicial penal.",
-        "Se continúe el proceso administrativo con prioridad.",
-        "La víctima renuncie a denunciar en los tribunales de justicia.",
-        "El Comité de Investigación asuma funciones de juez penal."
+        "Las directrices de la Ley de Convivencia y el régimen del PTGAS de la BUS de 2007.",
+        "Los anteriores protocolos de acoso sexual y por razón de sexo (2013) y de acoso moral y laboral (2018).",
+        "El plan de prevención de riesgos psicosociales y las sanciones del IV Convenio Colectivo.",
+        "El estatuto del estudiante y las normas de permanencia."
       ],
-      "correctAnswer": 0,
-      "explanation": "Si hay indicios de delito, la vía administrativa de la US se paraliza y se trasladan las actuaciones a la Fiscalía (prejudicialidad penal).",
+      "correctAnswer": 1,
+      "explanation": "La normativa unifica la regulación frente a todos los tipos de acoso y violencia en la US, derogando los antiguos protocolos independientes de 2013 y 2018.",
       "usage": "dossier"
     },
     {
       "id": 44,
-      "question": "La garantía de indemnidad en la US protege de manera directa a: (Pregunta de control 19)",
+      "question": "¿En qué año fue creada la Red de Referentes para la Convivencia y el Buentrato de la Universidad de Sevilla y por quién está integrada?",
       "options": [
-        "Las víctimas, denunciantes y testigos frente a represalias.",
-        "Exclusivamente al personal de las bibliotecas universitarias.",
-        "Al presunto acosador para mantener su puesto.",
-        "Al Rector de la universidad frente a demandas."
+        "En 2013, integrada únicamente por miembros de la Inspección de Servicios y el Rectorado.",
+        "En 2018, integrada por voluntarios del PDI y del PTGAS/PAS de los distintos centros y servicios.",
+        "En 2021, integrada exclusivamente por psicólogos del SEPRUS y de la Unidad de Igualdad.",
+        "En 2025, integrada por estudiantes elegidos democráticamente por sorteo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La garantía de indemnidad asegura que no habrá represalias contra denunciantes, testigos o víctimas que participen en el proceso.",
+      "correctAnswer": 1,
+      "explanation": "La Red de Referentes se constituyó en 2018 con personal voluntario del PDI y PTGAS/PAS (incluyendo la BUS) en cada facultad y centro.",
       "usage": "dossier"
     },
     {
       "id": 45,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 20)",
+      "question": "Las personas voluntarias que forman la Red de Referentes para la Convivencia y el Buentrato de la US reciben una formación especializada de:",
       "options": [
-        "5 días hábiles",
-        "10 días hábiles",
-        "15 días hábiles",
-        "30 días hábiles"
+        "10 horas de sensibilización online básica.",
+        "Más de 100 horas lectivas en mediación, igualdad, resolución de conflictos y riesgos psicosociales.",
+        "Un máster universitario oficial de 60 créditos ECTS.",
+        "30 horas organizadas exclusivamente por el SEPRUS."
       ],
-      "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "correctAnswer": 1,
+      "explanation": "Los referentes cuentan con una sólida capacitación de más de 100 horas en mediación, género y prevención de conflictos interpersonales.",
       "usage": "dossier"
     },
     {
       "id": 46,
-      "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 21)",
+      "question": "¿Con qué galardón oficial fue reconocida en el año 2021 la Red de Referentes para la Convivencia y el Buentrato de la Universidad de Sevilla?",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
-        "Ante el Registro General de Estudiantes.",
-        "Ante el Decano de la Facultad correspondiente.",
-        "Ante los juzgados ordinarios directamente."
+        "El Premio al Mérito en el Trabajo del Ministerio de Educación.",
+        "El Premio a la Mujer Sevillana en su modalidad colectiva, otorgado por el Ayuntamiento de Sevilla.",
+        "El Sello de Calidad y Excelencia EFQM 500 de la BUS.",
+        "El Premio Nacional de Convivencia Universitaria del Ministerio de Universidades."
       ],
-      "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "correctAnswer": 1,
+      "explanation": "El Ayuntamiento de Sevilla galardonó en 2021 a la Red con el Premio a la Mujer Sevillana por su labor en pro de la igualdad y la prevención de riesgos psicosociales.",
       "usage": "dossier"
     },
     {
       "id": 47,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 22)",
+      "question": "Respecto a la tramitación del protocolo de acoso en la US, ¿cuál es una función principal de las personas pertenecientes a la Red de Referentes para la Convivencia y el Buentrato?",
       "options": [
-        "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
-        "El traslado del expediente al Ministerio Fiscal.",
-        "El periodo de alegaciones del presunto acosador."
+        "Instruir de manera formal el expediente y redactar la propuesta de sanción disciplinaria.",
+        "Actuar como punto de contacto de proximidad y confianza para acoger informalmente consultas, sensibilizar y orientar sobre la derivación del caso.",
+        "Adoptar las medidas cautelares provisionales de traslado del presunto acosador.",
+        "Sustituir el papel instructor del Comité Técnico CPEIA y del SEPRUS en la valoración inicial."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "Los referentes actúan como primer contacto de proximidad y confianza, realizando una labor preventiva y de orientación, pero no instruyen ni resuelven expedientes.",
       "usage": "dossier"
     },
     {
       "id": 48,
-      "question": "La prejudicialidad penal en el protocolo contra el acoso de la US exige que: (Pregunta de control 23)",
+      "question": "En los exámenes de oposición de la Universidad de Sevilla (PTGAS), ¿cómo se calcula habitualmente la penalización por respuestas erróneas en los cuestionarios tipo test?",
       "options": [
-        "El Rector suspenda las actuaciones administrativas internas en favor de la vía judicial penal.",
-        "Se continúe el proceso administrativo con prioridad.",
-        "La víctima renuncie a denunciar en los tribunales de justicia.",
-        "El Comité de Investigación asuma funciones de juez penal."
+        "Cada error resta el equivalente a media pregunta correcta (1/2), y las preguntas en blanco restan un cuarto (1/4).",
+        "Cada 4 errores restan el valor de una pregunta correcta (1/4 de penalización por error), y las preguntas dejadas en blanco no penalizan.",
+        "Los errores no penalizan en absoluto, sumándose únicamente las respuestas correctas sobre el total.",
+        "Cada error resta una pregunta correcta completa (1 por 1), y las dejadas en blanco penalizan la mitad de una pregunta."
       ],
-      "correctAnswer": 0,
-      "explanation": "Si hay indicios de delito, la vía administrativa de la US se paraliza y se trasladan las actuaciones a la Fiscalía (prejudicialidad penal).",
+      "correctAnswer": 1,
+      "explanation": "De acuerdo con los criterios estándar de la US, cada error penaliza con la pérdida de 1/4 del valor de una pregunta correcta (fórmula clásica de aciertos menos errores/4), mientras que las respuestas en blanco no penalizan.",
       "usage": "dossier"
     },
     {
