@@ -1,118 +1,136 @@
-# Tema 13: Herramientas digitales: Microsoft 365
-## Correo electrónico (Outlook) y herramientas de Microsoft 365 para Auxiliares
+# Tema 13: Servicio de Correo Electrónico (Outlook) y Herramientas de Microsoft 365
+
+Este tema desarrolla el entorno oficial de colaboración digital de la Universidad de Sevilla (**Microsoft 365**) basado en el identificador único **UVUS** (`usuario@us.es`), abordando de forma profunda las aplicaciones requeridas en la convocatoria, especialmente **Outlook, Word y SharePoint**.
 
 ---
 
-## 1. El Entorno de Colaboración Microsoft 365 en la US
-La Universidad de Sevilla ofrece a su personal (incluido el PTGAS) acceso a la suite **Microsoft 365** como entorno oficial de trabajo de oficina, almacenamiento y comunicación. El acceso se realiza utilizando el identificador corporativo de la US denominado **UVUS** (`usuario@us.es`).
+## 1. Microsoft Outlook: Correo y Gestión Diaria
+
+**Microsoft Outlook** es la herramienta corporativa oficial para el envío y recepción de correspondencia, gestión del calendario y tareas en la Universidad de Sevilla. 
+
+### A. La Cinta de Opciones y Menús Principales
+
+![Menú de Configuración y Respuestas Automáticas de Outlook](/outlook_menu.png)
+
+1.  **Pestaña Archivo (Vista Backstage):**
+    *   **Información de Cuenta:** Permite visualizar el tamaño del buzón (limite de cuota) y configurar las cuentas.
+    *   **Respuestas Automáticas (Fuera de Oficina):** Opción crítica para periodos vacacionales. Permite programar un mensaje de respuesta automática en un intervalo de fechas y horas específico. Se pueden redactar dos mensajes diferentes:
+        *   *Dentro de mi organización:* Dirigido únicamente a usuarios con correo corporativo de la US.
+        *   *Fuera de mi organización:* Mensajes destinados a usuarios de correos externos (ej. Gmail, Hotmail).
+    *   **Reglas y Alertas:** Acceso directo para la creación de reglas automáticas de organización.
+2.  **Pestaña Inicio:**
+    *   **Nuevo correo electrónico:** `Ctrl + U` (en Outlook web) o `Ctrl + N` (en Outlook de escritorio).
+    *   **Pasos Rápidos (Quick Steps):** Acciones predefinidas configurables para ejecutarse en un solo clic (ej. mover un correo a una carpeta y marcarlo como leído simultáneamente).
+    *   **Responder (`Ctrl + R`), Responder a todos (`Ctrl + Shift + R`) y Reenviar (`Ctrl + F`).**
+3.  **Pestaña Vista:**
+    *   Permite activar y cambiar la ubicación del *Panel de lectura* (derecha, inferior o desactivado) y organizar la bandeja por hilos de conversación o fecha.
+
+### B. Características Avanzadas de Gestión
+*   **Lista de Direcciones Globales (GAL - Global Address List):** Directorio centralizado gestionado por el servicio de informática de la US que contiene las direcciones de correo actualizadas de todo el personal (PDI, PTGAS) y estudiantes de la universidad.
+*   **Reglas de Bandeja de Entrada:** Filtros lógicos ejecutados en el servidor que automatizan el correo basándose en criterios:
+    *   *Remitente, Destinatario, Palabras clave en el asunto o cuerpo.*
+    *   *Acciones:* Mover a carpeta, marcar como leído, reenviar o eliminar.
+*   **Atajos Clave para Examen:**
+    *   `Ctrl + Intro`: Enviar el correo electrónico redactado de forma inmediata.
+    *   `Ctrl + 1` / `Ctrl + 2` / `Ctrl + 3`: Conmutar entre la vista de *Correo*, *Calendario* y *Personas/Contactos*.
 
 ---
 
-## 2. Microsoft Outlook: Correo y Gestión Diaria
-**Microsoft Outlook** es el gestor de correo electrónico corporativo oficial en la US. Para un Auxiliar de Biblioteca, es la herramienta clave para la recepción de consultas y notificaciones de Alma.
+## 2. Microsoft Word: Procesador de Textos
 
-### A. Estructura de la Cinta de Opciones
-*   **Pestaña Archivo (Backstage):** 
-    *   *Información de cuenta:* Tamaño y estado del buzón de correo.
-    *   *Respuestas automáticas (Fuera de oficina):* Configuración para enviar avisos de ausencia por vacaciones de forma programada durante un intervalo de tiempo concreto. Permite configurar dos mensajes diferenciados: uno para remitentes de la Universidad de Sevilla ("Dentro de mi organización") y otro para correos externos ("Fuera de mi organización").
-    *   *Reglas y alertas:* Menú para la creación y edición de automatizaciones del correo.
-*   **Pestaña Inicio:**
-    *   *Nuevo:* Crear nuevo correo (`Ctrl + U` o `Ctrl + N`), cita o reunión.
-    *   *Responder y Reenviar:* `Ctrl + R` para responder al remitente, `Ctrl + Shift + R` para responder a todos los destinatarios y `Ctrl + F` para reenviar el correo.
-    *   *Pasos rápidos:* Botones de automatización en un solo clic (ej. archivar un correo y marcarlo como leído simultáneamente).
-*   **Pestaña Vista:** Permite configurar el panel de carpetas (izquierda), panel de lectura (derecha/inferior) y ordenar los correos por fecha, remitente, tamaño o hilos de conversación.
+**Microsoft Word** es el procesador oficial empleado para la redacción de informes, actas, cartas y documentación administrativa en la BUS.
 
-### B. Utilidades Especiales de Outlook
-*   **Lista de Direcciones Globales (GAL - Global Address List):** Directorio centralizado de la US que contiene los correos electrónicos del personal docente (PDI), de administración y servicios (PTGAS) y de estudiantes para su localización rápida al redactar un correo.
-*   **Reglas de Correo:** Reglas automáticas para organizar la bandeja de entrada según criterios (ej. *"Si el remitente es biblioteca@us.es, mover el correo a la carpeta 'Avisos BUS' y marcarlo como importante"*).
-*   **Atajos de Teclado Clíticos en Outlook:**
-    *   `Ctrl + Intro`: Enviar el mensaje de correo electrónico redactado (atajo clásico de examen).
-    *   `Ctrl + 1` / `Ctrl + 2` / `Ctrl + 3`: Conmutar rápidamente entre las vistas de Correo, Calendario y Contactos.
+### A. Gestión de Estilos e Índices Automáticos
 
----
+![Cinta de Estilos y Saltos de Sección en Word](/word_menu.png)
 
-## 3. Microsoft Teams: Colaboración y Canales
-Plataforma de comunicación y videollamadas integrada con el resto de herramientas de Microsoft 365.
-*   **Equipos:** Grupos de personas con un fin común (ej. "Biblioteca de Humanidades").
-*   **Canales:** Subdivisiones temáticas dentro de un equipo (ej. canal "Préstamo" o "Adquisiciones"). Cada canal dispone de pestañas:
-    *   *Publicaciones:* Hilo de conversación asíncrona grupal.
-    *   *Archivos:* Carpeta compartida conectada directamente a SharePoint.
-*   **Atajos en Teams:**
-    *   `Ctrl + Shift + M`: Silenciar o activar el micrófono en videollamada.
-    *   `Ctrl + Shift + O`: Activar o desactivar la cámara de vídeo.
+*   **Estilos de Título:** Situados en la pestaña **Inicio**. Aplicar estilos estructurados (como *Título 1*, *Título 2*, *Subtítulo*) permite formatear el documento homogéneamente y es el requisito técnico indispensable para que Word genere automáticamente la **Tabla de Contenido (Índice)** desde la pestaña **Referencias -> Tabla de contenido**.
+
+### B. Control de Páginas y Secciones
+Es uno de los conceptos más evaluados en los exámenes prácticos de ofimática:
+*   **Salto de Página (`Ctrl + Intro`):** Corta el flujo del texto y lo envía al inicio de la página siguiente. Todo el documento se mantiene dentro de la misma sección, heredando márgenes, encabezados y orientación de página.
+*   **Salto de Sección (Pestaña Disposición -> Saltos):**
+    *   Divide el documento en partes con configuraciones independientes.
+    *   *Utilidad:* Es imprescindible para rotar una página a horizontal (dejando el resto en vertical), cambiar los márgenes de una zona del documento o configurar encabezados y pies de página distintos (desvinculando la sección actual de la anterior con el botón **Vincular al anterior** desmarcado).
+
+### C. Combinar Correspondencia (Pestaña Correspondencia)
+*   Permite crear cartas personalizadas, etiquetas o correos electrónicos masivos.
+*   Conecta un documento plantilla de Word con una base de datos externa (normalmente una tabla de Excel o contactos de Outlook) para insertar campos combinados (ej. `<<Nombre>>`, `<<Apellidos>>`).
 
 ---
 
-## 4. OneDrive para la Empresa: Almacenamiento Personal
-Espacio de almacenamiento en la nube individual asignado a cada empleado de la US.
+## 3. Microsoft SharePoint Online: Gestión Documental de Equipos
 
-### A. Gestión de Permisos al Compartir
-Al compartir un archivo, se puede configurar la seguridad de forma estricta:
-*   **Permitir la edición:** Si se desmarca, el destinatario solo podrá visualizar el archivo (modo solo lectura).
-*   **Establecer fecha de caducidad:** El enlace dejará de funcionar en la fecha fijada.
-*   **Establecer contraseña:** Obliga a introducir una clave para abrir el documento.
-*   **Bloquear descarga:** Impide que el usuario guarde una copia local en su PC (solo visualización web).
+**SharePoint** es la herramienta principal en la US para crear repositorios documentales, intranets de campus y colaboración estructurada a nivel de departamentos de biblioteca.
 
-### B. Archivos a Petición (Files On-Demand) en Windows
-Permite ver los archivos de OneDrive en el Explorador de Windows sin que ocupen espacio en el disco duro local, representados por tres estados:
-*   Icono de **Nube azul**: El archivo está únicamente en la nube. Se descarga temporalmente en el PC solo al abrirlo. No consume espacio físico en disco.
-*   Icono de **Tic verde con fondo blanco**: Archivo descargado temporalmente en el PC que se puede abrir sin internet. Puede volver al estado de nube si se limpia el disco.
-*   Icono de **Tic blanco en círculo verde relleno**: El archivo se mantiene descargado de forma permanente en el PC y está siempre disponible sin conexión a internet.
+### A. Operaciones de Control de Documentos (Bibliotecas)
 
----
+![Opción de Proteger/Desproteger (Check-out) en SharePoint](/sharepoint_menu.png)
 
-## 5. SharePoint Online: Portales Colaborativos
-Herramienta destinada a la creación de intranets corporativas y la gestión documental estructurada a nivel de equipos.
-*   **Check-out / Check-in (Proteger / Desproteger):** Función indispensable que bloquea la edición de un documento para un único usuario, impidiendo que otros realicen modificaciones en paralelo hasta que el archivo sea liberado (check-in) con una anotación de los cambios.
-*   **Herencia de Permisos:** Por defecto, las carpetas e informes heredan los permisos del sitio principal de SharePoint. Se puede romper la herencia para asignar permisos exclusivos a un grupo o carpeta específica.
+*   **Proteger (Check-out):** Bloquea el archivo en la biblioteca de SharePoint para que ningún otro usuario pueda realizar cambios en él de forma simultánea. El archivo queda en estado de "solo lectura" para el resto de compañeros del equipo.
+*   **Desproteger (Check-in):** Libera el archivo para que otros puedan editarlo. Obliga a introducir un comentario describiendo los cambios realizados, lo que alimenta el **Historial de Versiones**.
+*   **Historial de Versiones:** SharePoint registra de forma automática cada cambio en un documento, permitiendo visualizar qué usuario modificó el archivo, comparar versiones previas y restaurar una versión anterior en caso de error.
+
+### B. Estructura de Sitios y Permisos
+*   SharePoint funciona mediante Sitios y Subsitios.
+*   **Herencia de Permisos:** Por defecto, cualquier biblioteca o carpeta dentro de un sitio hereda los permisos de acceso del sitio principal.
+*   **Permisos Exclusivos:** Se puede romper la herencia de permisos para dar acceso de edición o visualización a un grupo específico de personas en un documento o carpeta confidencial.
 
 ---
 
-## 6. Microsoft Word: Procesador de Textos
-Aplicación de ofimática enfocada en la creación y formateo de documentos textuales oficiales.
+## 4. Microsoft OneDrive para la Empresa: Almacenamiento Personal
 
-### A. Aspectos Operativos Críticos en Word
-*   **Estilos de Título:** El uso de estilos predefinidos (Título 1, Título 2) en la pestaña *Inicio* es obligatorio para estructurar el documento y generar de forma automática la **Tabla de Contenido (Índice)** en la pestaña *Referencias*.
-*   **Diferencia entre Saltos:**
-    *   **Salto de Página (`Ctrl + Intro`):** Envía el cursor al principio de la página siguiente dentro de la misma sección. Mantiene el mismo encabezado, pie de página y márgenes.
-    *   **Salto de Sección (Página Siguiente):** Divide el documento en secciones independientes. Es indispensable cuando se quiere cambiar la orientación de una página concreta a horizontal, o aplicar encabezados y pies de página distintos dentro del mismo archivo.
-*   **Atajos de Teclado en Word:**
-    *   `Ctrl + N` / `Ctrl + K` / `Ctrl + S`: Aplicar Negrita / Cursiva / Subrayado.
-    *   `Ctrl + J`: Justificar el párrafo seleccionado (distribución homogénea entre márgenes).
-    *   **`F12`**: Abre directamente el cuadro de diálogo 'Guardar como' para cambiar el nombre, carpeta y tipo de archivo (ej. guardar como PDF).
+Espacio personal de almacenamiento en la nube asignado a cada usuario de la US (PTGAS) para sus documentos de trabajo individuales.
 
----
+### A. Estados de Sincronización (Files On-Demand)
+OneDrive utiliza la tecnología de "Archivos a petición" en Windows para no saturar el almacenamiento físico del ordenador:
+*   ☁️ **Nube azul:** El archivo reside únicamente en la nube. Ocupa 0 bytes en el disco duro local y se descarga temporalmente en el PC solo cuando el usuario hace doble clic para abrirlo.
+*   🟢 **Tic verde con fondo blanco:** Archivo que ha sido abierto y descargado temporalmente. Se puede acceder a él sin conexión a internet. Puede volver a la nube automáticamente si Windows necesita liberar espacio en el disco.
+*   🟢 **Círculo verde relleno con tic blanco:** El usuario ha elegido "Mantener siempre en este dispositivo". El archivo se descarga permanentemente, está disponible sin conexión y nunca se borrará del PC de manera automática.
 
-## 7. Microsoft Excel: Hojas de Cálculo
-Herramienta de cálculo y bases de datos tabulares fundamental para el análisis estadístico de préstamos y usuarios.
-
-### A. Funciones y Fórmulas Clave (Desglose de Sintaxis para Examen)
-Las fórmulas en Excel siempre se inician con el carácter `=` o `+`.
-
-#### 1. Función `=BUSCARV(valor_buscado; matriz_buscar_en; indicador_columnas; [ordenado])`
-Esta función realiza una búsqueda vertical en la primera columna de una tabla de origen para recuperar un dato situado en la misma fila de otra columna:
-*   *valor_buscado:* El dato de referencia común (ej. el código de barras del libro en la celda `D2`).
-*   *matriz_buscar_en:* El rango de celdas que contiene toda la tabla de datos de origen (ej. `A2:B100`).
-*   *indicador_columnas:* El número correlativo de columna del rango de donde se extraerá la información (ej. `2` para traer el título del libro).
-*   *ordenado:* El valor lógico **`FALSO`** (exige una coincidencia exacta de búsqueda) o **`VERDADERO`** (permite una coincidencia aproximada). En supuestos prácticos de auxiliar, siempre se utiliza `FALSO` para evitar errores de coincidencia.
-*   *Sintaxis de ejemplo:* `=BUSCARV(D2; A2:B100; 2; FALSO)`
-
-#### 2. Función `=SI(prueba_lógica; valor_si_verdadero; valor_si_falso)`
-Esta función lógica evalúa una condición comparativa y devuelve un resultado si se cumple y otro diferente si no se cumple:
-*   *prueba_lógica:* La comparación a evaluar (ej. `C2>=10` que comprueba si los días de retraso del lector son mayores o iguales a 10).
-*   *valor_si_verdadero:* El texto o número a mostrar si la comparación es verdadera (ej. `"Bloqueado"`).
-*   *valor_si_falso:* El texto o número a mostrar si la comparación es falsa (ej. `"Activo"`).
-*   *Sintaxis de ejemplo:* `=SI(C2>=10; "Bloqueado"; "Activo")`
-
-### B. Atajos de Teclado Críticos en Excel
-*   **`F2`**: Entra en modo de edición de la celda activa seleccionada sin borrar su contenido previo.
-*   **`Ctrl + Shift + L`**: Activar o desactivar los filtros automáticos en la fila de cabecera de la tabla de datos.
-*   **`Ctrl + +`** / **`Ctrl + -`**: Comando rápido para Insertar / Eliminar filas, celdas o columnas seleccionadas.
+### B. Configuración de Seguridad al Compartir Enlaces
+Al generar un enlace para compartir un archivo, se pueden definir límites estrictos:
+*   *Cualquier persona con el enlace* / *Solo personas de la Universidad de Sevilla*.
+*   *Permitir la edición* (habilitado/deshabilitado).
+*   *Establecer fecha de caducidad* (el enlace se inactiva automáticamente).
+*   *Establecer contraseña* (obliga al receptor a introducir una contraseña).
+*   *Bloquear descarga* (el destinatario solo puede ver el documento en el navegador web, sin poder guardarlo).
 
 ---
 
-## 8. Esquema de Repaso Rápido
-*   **Outlook:** GAL para contactos, respuestas automáticas de vacaciones (dentro/fuera de la US) y atajo `Ctrl + Intro` para enviar.
-*   **SharePoint:** Check-out (desproteger) bloquea la edición de un documento compartido para impedir que otros lo sobrescriban.
-*   **Word:** F12 para 'Guardar como'. Estilos de título para generar tablas de contenido automáticas. Salto de sección de página siguiente para cambiar orientación de páginas o encabezados.
-*   **Excel:** `=BUSCARV` (con `FALSO` para coincidencia exacta) y `=SI` para condiciones lógicas. `F2` edita celda, `Ctrl + Shift + L` activa/desactiva filtros.
+## 5. Microsoft Teams: Hub de Colaboración
+
+Herramienta unificada de comunicación, reuniones virtuales y trabajo en equipo.
+*   **Equipos:** Grupos cerrados de usuarios (ej. "Biblioteca de Derecho").
+*   **Canales:** Subdivisiones dentro de un equipo organizadas por temas de trabajo (ej. canal "Adquisiciones", canal "Préstamo").
+*   **Pestaña Archivos en Canales:** Integrada directamente con **SharePoint**. Todos los archivos subidos a un equipo de Teams se almacenan físicamente en el sitio de SharePoint correspondiente.
+*   **Atajos básicos:**
+    *   `Ctrl + Shift + M`: Activar o silenciar el micrófono en una reunión.
+    *   `Ctrl + Shift + O`: Encender o apagar la cámara web.
+
+---
+
+## 6. Otras Herramientas de Microsoft 365
+
+### A. Microsoft Planner: Gestión de Tareas
+*   Herramienta de gestión de proyectos basada en la metodología ágil **Kanban**.
+*   **Estructura:**
+    *   **Tablero (Plan):** El proyecto general.
+    *   **Depósitos (Buckets):** Columnas para categorizar tareas (ej. "Pendiente", "En curso", "Terminado").
+    *   **Tareas:** Tarjetas individuales que contienen descripciones, listas de comprobación, archivos adjuntos, etiquetas de colores y personas asignadas.
+
+### B. Microsoft Excel: Hojas de Cálculo
+*   **Fórmulas:** Siempre comienzan por el signo `=` o `+`.
+*   **Función `=BUSCARV` (Búsqueda Vertical):** Busca un valor en la primera columna de una tabla y devuelve el valor de otra columna de la misma fila.
+    *   *Sintaxis:* `=BUSCARV(valor_buscado; matriz_buscar_en; indicador_columnas; ordenado)`
+    *   *Rigor:* Se suele poner `FALSO` como último argumento para exigir una **coincidencia exacta** en la búsqueda.
+*   **Función `=SI` (Condición Lógica):** Devuelve un valor si una condición es verdadera y otro si es falsa.
+    *   *Sintaxis:* `=SI(prueba_lógica; valor_si_verdadero; valor_si_falso)`
+*   **Atajos:**
+    *   `F2`: Entra en modo edición de la celda activa.
+    *   `Ctrl + Shift + L`: Activar/desactivar filtros de cabecera.
+
+### C. Microsoft PowerPoint: Presentaciones
+*   Herramienta de diapositivas para ponencias, formación de usuarios (ALFIN) e informes de gerencia.
+*   **Ideas de Diseño (Diseñador):** Servicio inteligente que sugiere plantillas visuales basadas en el contenido de la diapositiva.
+*   **Transición vs. Animación:** La *transición* es el efecto de movimiento al cambiar de una diapositiva a otra; la *animación* es el efecto aplicado a un objeto individual (texto, imagen) dentro de la misma diapositiva.
