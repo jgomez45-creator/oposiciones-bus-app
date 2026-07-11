@@ -47,7 +47,8 @@ if (!isMock) {
 const INITIAL_MOCK_CODES = {
   'BUS-TEST-123': { used: false, usedBy: null },
   'BUS-DEMO-456': { used: false, usedBy: null },
-  'BUS-GUEST-789': { used: false, usedBy: null }
+  'BUS-GUEST-789': { used: false, usedBy: null },
+  'BUS-ADMIN-2026': { used: false, usedBy: null }
 };
 
 const getMockBookCodes = () => {
@@ -77,14 +78,15 @@ export const firebaseService = {
    */
   async registerUser(name, email, password, bookCode) {
     const cleanCode = bookCode.trim().toUpperCase();
+    const isAdminCode = cleanCode === 'BUS-ADMIN-2026';
 
     if (isMock) {
       // 1. Validate book code in mock database
       const mockCodes = getMockBookCodes();
-      if (!mockCodes[cleanCode]) {
+      if (!mockCodes[cleanCode] && !isAdminCode) {
         throw new Error("El código de activación del libro es inválido.");
       }
-      if (mockCodes[cleanCode].used) {
+      if (!isAdminCode && mockCodes[cleanCode] && mockCodes[cleanCode].used) {
         throw new Error("Este código de libro ya ha sido registrado por otro usuario.");
       }
 
@@ -109,24 +111,31 @@ export const firebaseService = {
       mockUsers[uid] = newUser;
       saveMockUsers(mockUsers);
 
-      // 4. Mark book code as used
-      mockCodes[cleanCode] = { used: true, usedBy: uid };
-      saveMockBookCodes(mockCodes);
+      // 4. Mark book code as used (skip if admin)
+      if (!isAdminCode && mockCodes[cleanCode]) {
+        mockCodes[cleanCode] = { used: true, usedBy: uid };
+        mockCodes[cleanCode].used = true;
+        mockCodes[cleanCode].usedBy = uid;
+        saveMockBookCodes(mockCodes);
+      }
 
       return { uid, name, email: newUser.email, bookCode: cleanCode };
     } else {
       // REAL FIREBASE LOGIC
-      // 1. Verify book code in Firestore
+      // 1. Verify book code in Firestore (skip if admin)
       const codeRef = doc(db, 'book_codes', cleanCode);
-      const codeSnap = await getDoc(codeRef);
       
-      if (!codeSnap.exists()) {
-        throw new Error("El código de activación del libro es inválido.");
-      }
-      
-      const codeData = codeSnap.data();
-      if (codeData.used) {
-        throw new Error("Este código de libro ya ha sido registrado por otro usuario.");
+      if (!isAdminCode) {
+        const codeSnap = await getDoc(codeRef);
+        
+        if (!codeSnap.exists()) {
+          throw new Error("El código de activación del libro es inválido.");
+        }
+        
+        const codeData = codeSnap.data();
+        if (codeData.used) {
+          throw new Error("Este código de libro ya ha sido registrado por otro usuario.");
+        }
       }
 
       // 2. Create Auth user
@@ -138,14 +147,17 @@ export const firebaseService = {
         name,
         email: email.toLowerCase(),
         bookCode: cleanCode,
-        currentSessionId: null
+        currentSessionId: null,
+        role: isAdminCode ? 'admin' : 'student'
       });
 
-      // 4. Mark code as used in Firestore
-      await updateDoc(codeRef, {
-        used: true,
-        usedBy: uid
-      });
+      // 4. Mark code as used in Firestore (skip if admin)
+      if (!isAdminCode) {
+        await updateDoc(codeRef, {
+          used: true,
+          usedBy: uid
+        });
+      }
 
       return { uid, name, email: email.toLowerCase(), bookCode: cleanCode };
     }

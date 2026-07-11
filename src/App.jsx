@@ -206,6 +206,7 @@ export default function App() {
             incrementTimeForTopic={incrementTimeForTopic}
             currentUser={currentUser}
             handleLogout={handleLogout}
+            setCurrentTab={setCurrentTab}
           />
         );
       case 'topics':

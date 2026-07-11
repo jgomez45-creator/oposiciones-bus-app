@@ -9,10 +9,13 @@ import {
   ChevronRight,
   CheckCircle2,
   AlertCircle,
-  LogOut
+  LogOut,
+  GraduationCap,
+  Layers,
+  BarChart3
 } from 'lucide-react';
 
-export default function Dashboard({ topics, progress, updateTopicStatus, selectTopic, setTimerActiveGlobally, incrementTimeForTopic, currentUser, handleLogout }) {
+export default function Dashboard({ topics, progress, updateTopicStatus, selectTopic, setTimerActiveGlobally, incrementTimeForTopic, currentUser, handleLogout, setCurrentTab }) {
   // Pomodoro state
   const [pomodoroMode, setPomodoroMode] = useState('work'); // 'work' or 'break'
   const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
