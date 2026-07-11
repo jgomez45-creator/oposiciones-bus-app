@@ -17299,1333 +17299,393 @@
   "13": [
     {
       "id": 1,
-      "question": "¿Qué cuenta o identificador corporativo se requiere para acceder a la suite Microsoft 365 de la US?",
+      "question": "¿Qué identificador y cuenta corporativa se requiere para acceder a la suite Microsoft 365 de la Universidad de Sevilla?",
       "options": [
-        "Cuenta personal de Gmail.",
-        "El UVUS corporativo oficial.",
-        "Número de DNI sin letras.",
-        "Dirección postal del campus."
+        "El número de DNI y contraseña de la biblioteca.",
+        "El identificador de usuario UVUS corporativo (con formato usuario@us.es).",
+        "Una cuenta de correo electrónico de Outlook.com personal.",
+        "El código de barras del carné de la biblioteca."
       ],
       "correctAnswer": 1,
-      "explanation": "Los alumnos y el personal técnico y docente acceden al ecosistema de Microsoft 365 mediante su cuenta corporativa de correo electrónico ligada a su UVUS.",
+      "explanation": "El acceso a la suite Microsoft 365 de la US se realiza utilizando el identificador corporativo de la US denominado UVUS, con el formato usuario@us.es.",
       "usage": "dossier"
     },
     {
       "id": 2,
-      "question": "¿Cómo se llama la función en SharePoint Online que bloquea la edición de un documento para un único usuario, impidiendo que otros realicen modificaciones en paralelo hasta que sea liberado?",
+      "question": "Dentro de Microsoft Outlook, ¿en qué menú o vista se configuran las Respuestas Automáticas (Fuera de oficina) y las Reglas de Bandeja de Entrada?",
       "options": [
-        "Check-out (Desproteger).",
-        "Check-in (Proteger).",
-        "Formato condicional.",
-        "Sincronización selectiva."
+        "En la pestaña Archivo (Vista Backstage).",
+        "En la pestaña Inicio.",
+        "En la pestaña Vista, sección Configuración de lectura.",
+        "En la pestaña Enviar y recibir."
       ],
       "correctAnswer": 0,
-      "explanation": "La función Check-out (Desproteger) bloquea temporalmente el archivo para el usuario que lo extrae, evitando que otros lo editen hasta que realice el Check-in (Proteger) de nuevo.",
+      "explanation": "En la pestaña Archivo (Backstage) se encuentra la configuración de Respuestas Automáticas, Reglas y Alertas, así como la información de cuota y tamaño del buzón de correo.",
       "usage": "dossier"
     },
     {
       "id": 3,
-      "question": "En el sistema de Archivos a Petición (Files On-Demand) de OneDrive, ¿qué indica el icono de un tic blanco dentro de un círculo verde relleno?",
+      "question": "Al configurar Respuestas Automáticas en Outlook, ¿qué distinción de destinatarios permite realizar la aplicación para programar diferentes mensajes?",
       "options": [
-        "El archivo es solo en línea y no ocupa espacio en el disco duro local.",
-        "El archivo se encuentra guardado en el dispositivo de forma permanente ('Mantener siempre en este dispositivo') y está disponible sin conexión.",
-        "El archivo tiene un virus de macro bloqueado por Windows Defender.",
-        "El archivo está siendo coeditado en tiempo real por otro usuario."
+        "Remitentes que envían archivos adjuntos y remitentes que solo envían texto.",
+        "Remitentes 'Dentro de mi organización' (de la US) y 'Fuera de mi organización' (correos externos).",
+        "Remitentes agregados a contactos y remitentes desconocidos únicamente.",
+        "Remitentes nacionales y remitentes internacionales."
       ],
       "correctAnswer": 1,
-      "explanation": "El círculo verde relleno con un tic blanco indica que el archivo se ha marcado para estar disponible de forma permanente de forma local en el PC ('Mantener siempre en este dispositivo'), ideal para usar sin internet.",
+      "explanation": "Outlook permite redactar dos mensajes diferenciados de ausencia: uno para usuarios dentro de la organización (US) y otro para usuarios de fuera (externos).",
       "usage": "dossier"
     },
     {
       "id": 4,
-      "question": "En Microsoft Excel, ¿qué función de búsqueda busca un valor en la primera columna de un rango y devuelve el dato de la celda de la columna indicada en la misma fila?",
+      "question": "¿Qué es la Lista de Direcciones Globales (GAL) en Microsoft Outlook?",
       "options": [
-        "=SI(condicion; valor_si; valor_no)",
-        "=BUSCARV(valor; rango; columna; [ordenado])",
-        "=SUMA(rango)",
-        "=CONTAR.SI(rango; criterio)"
+        "Un directorio centralizado de la US que contiene las direcciones de correo actualizadas de todo el personal (PDI, PTGAS) y estudiantes.",
+        "Una carpeta local donde se almacenan las firmas de correo.",
+        "Una base de datos externa de la Junta de Andalucía.",
+        "Una lista negra de remitentes no deseados o de spam."
       ],
-      "correctAnswer": 1,
-      "explanation": "BUSCARV es la función estándar de Excel para buscar verticalmente un valor en la columna izquierda y recuperar datos asociados de la misma fila.",
+      "correctAnswer": 0,
+      "explanation": "La Lista de Direcciones Globales (GAL) es el directorio centralizado institucional que contiene los correos electrónicos del personal docente, de administración y servicios y estudiantes de la US.",
       "usage": "dossier"
     },
     {
       "id": 5,
-      "question": "En Microsoft Outlook, ¿qué atajo de teclado permite enviar de forma instantánea el correo electrónico que se está editando?",
+      "question": "¿Qué combinación de teclas permite enviar de forma instantánea el correo electrónico que se está redactando en la ventana activa de Outlook?",
       "options": [
+        "Ctrl + Shift + S",
         "Ctrl + Intro",
-        "F12",
-        "Ctrl + Shift + R",
-        "Alt + F4"
+        "Ctrl + F12",
+        "Alt + E"
       ],
-      "correctAnswer": 0,
-      "explanation": "La combinación de teclas Ctrl + Intro es el método abreviado estándar de Outlook para enviar de forma inmediata el correo redactado sin tener que pulsar el botón Enviar con el ratón.",
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Intro es el atajo de teclado clásico y de examen para enviar de forma inmediata el correo que se está editando en Outlook.",
       "usage": "dossier"
     },
     {
       "id": 6,
-      "question": "En virtud de la legislación y normativa vigente del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'salto de sección en Word'?",
+      "question": "En Outlook, ¿qué atajo de teclado se utiliza para conmutar a la vista de Calendario?",
       "options": [
-        "Determina que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto.",
-        "Afirma erróneamente que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto solo en casos de excepcional urgencia decretada por el Ministerio de Educación."
+        "Ctrl + 1",
+        "Ctrl + 2",
+        "Ctrl + 3",
+        "Ctrl + 4"
       ],
-      "correctAnswer": 2,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Los atajos de teclado numéricos permiten cambiar rápidamente de panel: Ctrl + 1 para Correo, Ctrl + 2 para Calendario y Ctrl + 3 para Personas/Contactos.",
       "usage": "dossier"
     },
     {
       "id": 7,
-      "question": "En virtud de la legislación y normativa vigente del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'OneDrive para la Empresa'?",
+      "question": "En Microsoft Word, ¿por qué es importante el uso de los Estilos de Título (Título 1, Título 2, etc.) de la pestaña Inicio?",
       "options": [
-        "Afirma erróneamente que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces."
+        "Porque impiden que el documento sea modificado por otros usuarios.",
+        "Porque estructuran jerárquicamente el documento y permiten generar automáticamente la Tabla de Contenido (Índice).",
+        "Porque son necesarios para poder imprimir el archivo a doble cara.",
+        "Porque reducen de forma automática el espacio que el archivo ocupa en el disco duro."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Aplicar estilos estructurados permite formatear el documento homogéneamente y es el requisito indispensable para generar la tabla de contenido automática (pestaña Referencias).",
       "usage": "dossier"
     },
     {
       "id": 8,
-      "question": "En virtud de la legislación y normativa vigente del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'Global Address List (GAL)'?",
+      "question": "Si deseamos enviar el cursor al inicio de la página siguiente dentro de la misma sección y manteniendo los mismos encabezados y márgenes en Word, debemos realizar:",
       "options": [
-        "Establece que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US.",
-        "Afirma erróneamente que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US salvo para el personal interino o estudiantes de doctorado con becas de colaboración."
+        "Un Salto de Página (Ctrl + Intro).",
+        "Un Salto de Sección (Página siguiente).",
+        "Pulsar Intro repetidamente hasta pasar de página.",
+        "Un Salto de Columna."
       ],
-      "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 0,
+      "explanation": "Un Salto de Página (Ctrl + Intro) envía el texto a la página siguiente dentro de la misma sección, manteniendo todas las cabeceras y configuraciones idénticas.",
       "usage": "dossier"
     },
     {
       "id": 9,
-      "question": "En virtud de la legislación y normativa vigente del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'atajo Ctrl + Intro'?",
+      "question": "¿Qué elemento de organización de página de Word es imprescindible si queremos poner una única página en orientación horizontal dejando las demás en vertical?",
       "options": [
-        "Afirma erróneamente que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook."
+        "Un Salto de Página.",
+        "Un Salto de Sección de página siguiente.",
+        "Un Salto de Ajuste de texto.",
+        "No es posible mezclar orientaciones en un mismo documento."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Salto de Sección divide el documento en secciones independientes, permitiendo configurar de forma exclusiva la orientación, márgenes o bordes de una sección sin afectar al resto.",
       "usage": "dossier"
     },
     {
       "id": 10,
-      "question": "En virtud de la legislación y normativa vigente del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'fórmula =SI en Excel'?",
+      "question": "En Microsoft Word, ¿para qué sirve la desvinculación de encabezados mediante el botón 'Vincular al anterior' al usar secciones?",
       "options": [
-        "Establece que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa.",
-        "Afirma erróneamente que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa salvo para el personal interino o estudiantes de doctorado con becas de colaboración."
+        "Para guardar el documento como plantilla protegida.",
+        "Para poder definir encabezados y pies de página distintos en cada sección independiente.",
+        "Para conectar el documento a una hoja de cálculo externa.",
+        "Para borrar el encabezado de todo el documento."
       ],
       "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "Desmarcar 'Vincular al anterior' en los encabezados/pies de página rompe la herencia con la sección anterior, permitiendo escribir un título o número de página diferente.",
       "usage": "dossier"
     },
     {
       "id": 11,
-      "question": "Con relación al Tema 13 y el concepto de 'check-out (desproteger) en SharePoint', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "¿Qué utilidad de Microsoft Word permite generar masivamente cartas personalizadas o etiquetas conectando una plantilla con una base de datos externa (ej. contactos de Outlook o Excel)?",
       "options": [
-        "Es crucial recordar que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez.",
-        "Resulta fundamental saber que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "Combinar Correspondencia.",
+        "Control de Cambios.",
+        "Insertar Objeto OLE.",
+        "Pasos Rápidos."
       ],
       "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La combinación de correspondencia (pestaña Correspondencia) inserta campos dinámicos a partir de un origen de datos externo en un documento común para personalizar envíos masivos.",
       "usage": "dossier"
     },
     {
       "id": 12,
-      "question": "Con relación al Tema 13 y el concepto de 'Files On-Demand de OneDrive', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "¿Qué atajo de teclado en Microsoft Word abre directamente el cuadro de diálogo 'Guardar como'?",
       "options": [
-        "Es de interés recalcar que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes únicamente si el afectado presenta reclamación en el registro general en 3 días.",
-        "Es crucial recordar que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes.",
-        "Resulta fundamental saber que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo."
+        "F5",
+        "F12",
+        "Ctrl + S",
+        "Alt + F4"
       ],
       "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La tecla F12 es el método abreviado universal en la suite Office para abrir directamente el menú 'Guardar como' para renombrar o cambiar la ubicación del archivo.",
       "usage": "dossier"
     },
     {
       "id": 13,
-      "question": "Con relación al Tema 13 y el concepto de 'respuestas automáticas de Outlook', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "En SharePoint Online, ¿para qué sirve la función de 'Proteger' (Check-out) de un documento?",
       "options": [
-        "Se ha de tener presente que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US únicamente si el afectado presenta reclamación en el registro general en 3 días.",
-        "Es crucial recordar que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US.",
-        "Resulta fundamental saber que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US siempre y cuando afecte de forma directa al profesorado funcionario doctor."
+        "Para bloquear temporalmente la edición del archivo a un único usuario, impidiendo que otros realicen cambios simultáneos y sobrescriban el contenido.",
+        "Para encriptar el archivo con una contraseña digital de la US.",
+        "Para eliminar de forma definitiva las versiones anteriores del archivo.",
+        "Para sincronizar el documento localmente con el disco duro."
       ],
-      "correctAnswer": 2,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 0,
+      "explanation": "Proteger (Check-out) extrae el documento de forma exclusiva, impidiendo la edición concurrente de otros compañeros y asegurando la integridad del contenido.",
       "usage": "dossier"
     },
     {
       "id": 14,
-      "question": "Con relación al Tema 13 y el concepto de 'fórmula =BUSCARV', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "En una biblioteca de documentos de SharePoint Online, ¿qué acción libera un archivo previamente extraído y permite a los demás editarlo registrando una nueva versión?",
       "options": [
-        "Se ha de tener presente que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna únicamente si el afectado presenta reclamación en el registro general en 3 días.",
-        "Es crucial recordar que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna.",
-        "Resulta fundamental saber que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna siempre y cuando afecte de forma directa al profesorado funcionario doctor."
+        "Compartir mediante enlace.",
+        "Desproteger (Check-in).",
+        "Sincronizar mediante OneDrive.",
+        "Heredar permisos."
       ],
-      "correctAnswer": 2,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Desproteger (Check-in) devuelve el archivo al repositorio común, permitiendo que sea coeditado y obligando a incluir una anotación de cambios para el control de versiones.",
       "usage": "dossier"
     },
     {
       "id": 15,
-      "question": "Con relación al Tema 13 y el concepto de 'atajo F12 en Word', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "¿Qué función de SharePoint Online permite registrar el autor del cambio, comparar cambios anteriores e incluso restaurar versiones previas de un archivo?",
       "options": [
-        "Es crucial recordar que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual.",
-        "Resulta fundamental saber que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "La lista de direcciones global.",
+        "El Historial de Versiones.",
+        "La herencia de permisos exclusiva.",
+        "El modo solo lectura dinámico."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Historial de Versiones graba automáticamente los estados y cambios de cada guardado, permitiendo restaurar o comparar copias anteriores de forma selectiva.",
       "usage": "dossier"
     },
     {
       "id": 16,
-      "question": "Respecto a 'OneDrive para la Empresa' dentro de las directrices y normas del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "Por defecto, ¿qué sucede con los permisos de acceso de una nueva carpeta creada dentro de un sitio de SharePoint?",
       "options": [
-        "El convenio aclara que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces únicamente a partir del tercer año de antigüedad consolidada en el puesto.",
-        "El reglamento dispone que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces.",
-        "El marco estatutario dicta que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces solo en aquellas provincias con más de dos universidades públicas."
+        "Hereda automáticamente los permisos del sitio principal o carpeta contenedora.",
+        "Se crea sin permisos y debe configurarse manualmente uno a uno.",
+        "Permite el acceso a cualquier usuario de internet de forma pública.",
+        "Hereda los permisos personales del creador en OneDrive."
       ],
-      "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que permite bloquear descargas, poner contraseñas y establecer fechas de caducidad al compartir enlaces. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 0,
+      "explanation": "Por defecto, los subsitios, bibliotecas y carpetas heredan los permisos del sitio principal, a menos que el administrador elija romper la herencia de permisos.",
       "usage": "dossier"
     },
     {
       "id": 17,
-      "question": "Respecto a 'Global Address List (GAL)' dentro de las directrices y normas del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "En OneDrive para la Empresa, ¿qué indica el icono de la Nube Azul al lado del nombre de un archivo en el Explorador de Windows?",
       "options": [
-        "El reglamento dispone que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US.",
-        "El marco estatutario dicta que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US únicamente a partir del tercer año de antigüedad consolidada en el puesto."
+        "El archivo tiene un error de sincronización y está bloqueado.",
+        "El archivo está guardado únicamente en la nube (no consume almacenamiento físico en el disco duro local) y se descargará al abrirlo.",
+        "El archivo está protegido con una contraseña corporativa.",
+        "El archivo se encuentra permanentemente descargado en el dispositivo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que es la libreta de direcciones unificada que contiene las cuentas de correo institucional de toda la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El icono de nube azul representa un archivo disponible únicamente en línea, ahorrando espacio en el disco duro local.",
       "usage": "dossier"
     },
     {
       "id": 18,
-      "question": "Respecto a 'atajo Ctrl + Intro' dentro de las directrices y normas del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "En el sistema de Archivos a Petición de OneDrive, ¿qué indica el icono de un Tic Blanco dentro de un círculo verde relleno permanente?",
       "options": [
-        "El convenio aclara que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook únicamente a partir del tercer año de antigüedad consolidada en el puesto.",
-        "El reglamento dispone que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook.",
-        "El marco estatutario dicta que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook solo en aquellas provincias con más de dos universidades públicas."
+        "El archivo es compartido externamente de forma pública.",
+        "El archivo está marcado como 'Mantener siempre en este dispositivo' y reside de forma permanente en el PC para uso sin conexión.",
+        "El archivo se ha borrado de la nube pero se conserva una copia local.",
+        "El archivo se está guardando en el servidor central de la US."
       ],
       "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que es la combinación rápida que envía el correo electrónico redactado en Microsoft Outlook. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "El círculo verde relleno con tic blanco indica que el archivo reside permanentemente en el ordenador local y nunca se liberará al espacio en la nube de forma automática.",
       "usage": "dossier"
     },
     {
       "id": 19,
-      "question": "Respecto a 'fórmula =SI en Excel' dentro de las directrices y normas del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "Al compartir un archivo desde OneDrive o SharePoint, ¿cuál de las siguientes es una medida de seguridad avanzada para restringir el acceso?",
       "options": [
-        "El reglamento dispone que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa.",
-        "El marco estatutario dicta que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa únicamente a partir del tercer año de antigüedad consolidada en el puesto."
+        "Establecer una contraseña, fijar una fecha de caducidad o bloquear la descarga.",
+        "Desconectar el equipo de la red local de la US.",
+        "Guardar el archivo en una carpeta oculta de Windows.",
+        "No existen opciones avanzadas de protección en OneDrive."
       ],
       "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que evalúa una condición comparativa lógica y devuelve un valor si es verdadera y otro si es falsa. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "OneDrive/SharePoint permiten establecer una fecha de caducidad al enlace, añadir una contraseña requerida o deshabilitar la descarga del documento (bloquear descarga).",
       "usage": "dossier"
     },
     {
       "id": 20,
-      "question": "Respecto a 'salto de sección en Word' dentro de las directrices y normas del Tema 13 (Herramientas digitales: Microsoft 365), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "En Microsoft Teams, ¿dónde se guardan físicamente los archivos que se suben a la pestaña 'Archivos' de un canal de un equipo?",
       "options": [
-        "El reglamento dispone que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto.",
-        "El marco estatutario dicta que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto únicamente a partir del tercer año de antigüedad consolidada en el puesto."
+        "En la cuenta de correo de Outlook del creador del canal.",
+        "En el sitio de SharePoint Online vinculado de forma automática al equipo.",
+        "En el disco duro local del servidor de Teams de la US.",
+        "En la carpeta personal de OneDrive del Rector de la US."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que crea una subdivisión independiente para aplicar orientaciones, márgenes o encabezados distintos al resto. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Cada equipo de Teams tiene un sitio de SharePoint asociado, y la pestaña 'Archivos' de cada canal corresponde a una carpeta dentro de su biblioteca de documentos.",
       "usage": "dossier"
     },
     {
       "id": 21,
-      "question": "Según el temario oficial del Tema 13, cuando nos referimos a 'Files On-Demand de OneDrive', es correcto afirmar que:",
+      "question": "¿Cuál es el atajo de teclado rápido en una reunión de Microsoft Teams para silenciar o activar el micrófono?",
       "options": [
-        "Se fundamenta en que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes.",
-        "Implica que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes bajo sanción administrativa de suspensión automática de la Junta de Andalucía."
+        "Ctrl + Shift + O",
+        "Ctrl + Shift + M",
+        "Ctrl + Enter",
+        "Alt + F4"
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que muestra archivos en la nube sin ocupar espacio físico local en disco, usando los iconos de nube azul y tics verdes. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Shift + M es el atajo de teclado rápido en Teams para activar o desactivar rápidamente el audio del micrófono.",
       "usage": "dossier"
     },
     {
       "id": 22,
-      "question": "Según el temario oficial del Tema 13, cuando nos referimos a 'respuestas automáticas de Outlook', es correcto afirmar que:",
+      "question": "En Microsoft Planner, ¿cuál es la estructura organizativa de tareas basada en la metodología Kanban?",
       "options": [
-        "Asegura que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US.",
-        "Implica que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla."
+        "Grupos de correos, bandejas de entrada e hilos.",
+        "Tableros (Planes), Depósitos (Buckets) y Tareas (Tarjetas).",
+        "Hojas de cálculo, libros y celdas.",
+        "Canales de voz, canales de texto e hilos."
       ],
       "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que permiten programar avisos de ausencia por tiempo limitado diferenciando remitentes de dentro y fuera de la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "Planner organiza los proyectos mediante planes (tableros), los cuales contienen columnas (depósitos/buckets) donde se sitúan las tareas representadas por tarjetas.",
       "usage": "dossier"
     },
     {
       "id": 23,
-      "question": "Según el temario oficial del Tema 13, cuando nos referimos a 'fórmula =BUSCARV', es correcto afirmar que:",
+      "question": "¿Con qué caracteres debe iniciarse obligatoriamente una fórmula o función matemática en Microsoft Excel?",
       "options": [
-        "Asegura que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna.",
-        "Implica que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla."
+        "El signo interrogante (?) o asterisco (*).",
+        "El signo igual (=) o el signo más (+).",
+        "La palabra FORMULA en mayúsculas.",
+        "El signo de exclamación (!)."
       ],
       "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que busca un valor en la primera columna de un rango (con FALSO para coincidencia exacta) y extrae el dato de otra columna. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "En Excel, las fórmulas y funciones deben comenzar por el operador '=' o, en su defecto por compatibilidad clásica, el operador '+'.",
       "usage": "dossier"
     },
     {
       "id": 24,
-      "question": "Según el temario oficial del Tema 13, cuando nos referimos a 'atajo F12 en Word', es correcto afirmar que:",
+      "question": "En la función =BUSCARV(valor_buscado; matriz_buscar_en; indicador_columnas; ordenado) de Excel, ¿cuál es la finalidad de establecer el parámetro 'ordenado' como FALSO?",
       "options": [
-        "Implica que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual."
+        "Permitir la búsqueda con comodines aproximados.",
+        "Exigir una coincidencia exacta de búsqueda del valor buscado.",
+        "Ordenar la tabla de origen en orden alfabético.",
+        "Indicar que el valor buscado es una condición lógica."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual.\". Esto se encuentra regulado de manera expresa en el marco del Licencia Corporativa M365 de la US, el cual establece textualmente que abre directamente la ventana 'Guardar como' para renombrar o exportar el documento actual. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Poner FALSO en el argumento de ordenación obliga a BUSCARV a buscar la coincidencia exacta, evitando errores de aproximación.",
       "usage": "dossier"
     },
     {
       "id": 25,
-      "question": "Según el temario oficial del Tema 13, cuando nos referimos a 'check-out (desproteger) en SharePoint', es correcto afirmar que:",
+      "question": "¿Qué sintaxis describe correctamente la función lógica =SI en Microsoft Excel?",
       "options": [
-        "Implica que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez."
+        "=SI(valor_si; valor_no; prueba_lógica)",
+        "=SI(prueba_lógica; valor_si_verdadero; valor_si_falso)",
+        "=SI(buscar_rango; columna_extraer)",
+        "=SI(rango_suma; criterio_comparar)"
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez.\". Esto se encuentra regulado de manera expresa en el marco del Manuales y Atajos Oficiales de Microsoft, el cual establece textualmente que bloquea temporalmente un archivo compartido impidiendo que otros lo editen y sobrescriban a la vez. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "La función lógica =SI requiere primero una prueba o condición comparativa, seguida de la acción si se cumple (verdadero) y la acción si no (falso).",
       "usage": "dossier"
     },
     {
       "id": 26,
-      "question": "¿Cuál es el identificador corporativo que utiliza el personal de la Universidad de Sevilla para acceder a la suite Microsoft 365?",
+      "question": "En Microsoft Excel, ¿qué atajo de teclado permite editar la celda seleccionada activa sin borrar su contenido previo?",
       "options": [
-        "ID_US",
-        "UVUS",
-        "SECUS",
-        "UNI_ID"
+        "F5",
+        "F2",
+        "Ctrl + E",
+        "Ctrl + Intro"
       ],
       "correctAnswer": 1,
-      "explanation": "Según el apartado '1. El Entorno de Colaboración Microsoft 365 en la US', el identificador corporativo de la US para acceder a Microsoft 365 es el UVUS, con el formato `usuario@us.es`.",
+      "explanation": "Al pulsar F2 en Excel, el cursor se sitúa al final del texto dentro de la celda activa para permitir su edición.",
       "usage": "dossier"
     },
     {
       "id": 27,
-      "question": "En Microsoft Outlook, ¿qué función se utiliza para configurar avisos de ausencia por vacaciones con mensajes diferenciados para remitentes internos y externos?",
+      "question": "¿Qué combinación de teclas de Microsoft Excel se utiliza para activar o desactivar rápidamente los filtros automáticos en la fila seleccionada?",
       "options": [
-        "Reglas de Correo",
-        "Alertas de Buzón",
-        "Respuestas automáticas (Fuera de oficina)",
-        "Gestión de Disponibilidad"
+        "Ctrl + Shift + F",
+        "Ctrl + Shift + L",
+        "Ctrl + +",
+        "F12"
       ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.A. Pestaña Archivo (Backstage)' especifica que las 'Respuestas automáticas (Fuera de oficina)' permiten configurar dos mensajes diferenciados: uno para remitentes de la Universidad de Sevilla ('Dentro de mi organización') y otro para correos externos ('Fuera de mi organización').",
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Shift + L es el atajo de teclado en Excel para habilitar o inhabilitar de forma instantánea el modo de filtros en el rango activo.",
       "usage": "dossier"
     },
     {
       "id": 28,
-      "question": "¿Qué atajo de teclado se utiliza en Microsoft Outlook para enviar directamente un mensaje de correo electrónico redactado?",
+      "question": "En Microsoft PowerPoint, ¿cuál es la diferencia conceptual entre Transición y Animación?",
       "options": [
-        "`Ctrl + E`",
-        "`Ctrl + S`",
-        "`Ctrl + Intro`",
-        "`Alt + Enter`"
+        "No existe diferencia, son términos idénticos en la aplicación.",
+        "La transición es el efecto de cambio entre diapositivas; la animación es el efecto aplicado a un objeto individual dentro de la diapositiva.",
+        "La animación es para fotos y la transición es para textos en párrafo.",
+        "La transición se guarda en PDF y la animación no."
       ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.B. Atajos de Teclado Clíticos en Outlook' indica que `Ctrl + Intro` es el atajo para enviar el mensaje de correo electrónico redactado.",
+      "correctAnswer": 1,
+      "explanation": "Las transiciones actúan sobre la diapositiva completa al cambiar de una a otra, mientras que las animaciones dan efectos de entrada, salida o énfasis a textos o imágenes individuales de la diapositiva.",
       "usage": "dossier"
     },
     {
       "id": 29,
-      "question": "La Lista de Direcciones Globales (GAL) en Microsoft Outlook contiene los correos electrónicos de, entre otros, el personal docente (PDI). ¿Qué otra categoría de personal y usuarios incluye esta lista en la US?",
+      "question": "En Microsoft PowerPoint, ¿qué función sugiere diseños visuales automáticos y profesionales basados en el contenido introducido en la diapositiva?",
       "options": [
-        "Solo personal externo y proveedores",
-        "Personal de administración y servicios (PTGAS) y estudiantes",
-        "Antiguos alumnos y jubilados",
-        "Únicamente el personal directivo"
+        "Temas compartidos de SharePoint.",
+        "Ideas de Diseño (Diseñador).",
+        "Patrón de Diapositivas.",
+        "Combinar Correspondencia."
       ],
       "correctAnswer": 1,
-      "explanation": "Según el apartado '2.B. Utilidades Especiales de Outlook', la Lista de Direcciones Globales (GAL) es un directorio centralizado que contiene los correos electrónicos del personal docente (PDI), de administración y servicios (PTGAS) y de estudiantes.",
+      "explanation": "La herramienta inteligente 'Ideas de diseño' de PowerPoint analiza el contenido de la diapositiva (textos, palabras clave) y sugiere composiciones y estilos profesionales.",
       "usage": "dossier"
     },
     {
       "id": 30,
-      "question": "Para un Auxiliar de Biblioteca en la Universidad de Sevilla, ¿cuál es la herramienta clave para la recepción de consultas y notificaciones del sistema Alma?",
+      "question": "En Microsoft 365, ¿qué herramienta de notas digitales permite crear blocs de notas estructurados en secciones y páginas para uso personal o compartido?",
       "options": [
-        "Microsoft Teams",
-        "Microsoft Word",
-        "Microsoft Outlook",
-        "Microsoft SharePoint"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2. Microsoft Outlook: Correo y Gestión Diaria' establece que Microsoft Outlook es el gestor de correo electrónico corporativo oficial en la US y la herramienta clave para la recepción de consultas y notificaciones de Alma para un Auxiliar de Biblioteca.",
-      "usage": "dossier"
-    },
-    {
-      "id": 31,
-      "question": "En la pestaña 'Inicio' de Microsoft Outlook, ¿qué opción permite crear automatizaciones de correo en un solo clic, como archivar y marcar un correo como leído simultáneamente?",
-      "options": [
-        "Reglas y alertas",
-        "Pasos rápidos",
-        "Crear plantilla",
-        "Organizar elementos"
+        "Outlook.",
+        "OneNote.",
+        "Planner.",
+        "SharePoint Lists."
       ],
       "correctAnswer": 1,
-      "explanation": "El apartado '2.A. Pestaña Inicio' describe los 'Pasos rápidos' como botones de automatización en un solo clic, ejemplificando la acción de archivar un correo y marcarlo como leído simultáneamente.",
+      "explanation": "OneNote es la libreta digital oficial en Microsoft 365 para la recopilación de notas, capturas y apuntes estructurados de forma asíncrona.",
       "usage": "dossier"
-    },
-    {
-      "id": 32,
-      "question": "¿Qué atajo de teclado en Outlook permite conmutar rápidamente a la vista de Calendario?",
-      "options": [
-        "`Ctrl + 1`",
-        "`Ctrl + 2`",
-        "`Ctrl + 3`",
-        "`Ctrl + 4`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '2.B. Atajos de Teclado Clíticos en Outlook' indica que `Ctrl + 1` / `Ctrl + 2` / `Ctrl + 3` permiten conmutar rápidamente entre las vistas de Correo, Calendario y Contactos, respectivamente. Por lo tanto, `Ctrl + 2` es para Calendario.",
-      "usage": "dossier"
-    },
-    {
-      "id": 33,
-      "question": "Al configurar reglas de correo en Outlook, ¿qué se puede lograr con la condición 'Si el remitente es biblioteca@us.es, mover el correo a la carpeta 'Avisos BUS' y marcarlo como importante'?",
-      "options": [
-        "Bloquear al remitente automáticamente",
-        "Enviar una respuesta automática al remitente",
-        "Organizar la bandeja de entrada según criterios específicos",
-        "Eliminar el correo antes de que llegue a la bandeja de entrada"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.B. Utilidades Especiales de Outlook' explica que las 'Reglas de Correo' son reglas automáticas para organizar la bandeja de entrada según criterios, citando el ejemplo proporcionado en la pregunta.",
-      "usage": "dossier"
-    },
-    {
-      "id": 34,
-      "question": "¿Cuál de las siguientes acciones NO es posible configurar en la pestaña 'Archivo' (Backstage) de Microsoft Outlook?",
-      "options": [
-        "Consultar el tamaño y estado del buzón de correo.",
-        "Crear y editar reglas de automatización del correo.",
-        "Configurar respuestas automáticas de ausencia.",
-        "Cambiar el diseño visual de la interfaz de Outlook."
-      ],
-      "correctAnswer": 3,
-      "explanation": "El apartado '2.A. Pestaña Archivo (Backstage)' menciona 'Información de cuenta', 'Respuestas automáticas' y 'Reglas y alertas'. La configuración del diseño visual de la interfaz se realiza generalmente desde la pestaña 'Vista' o las opciones generales de la aplicación, no desde la pestaña 'Archivo'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 35,
-      "question": "En Microsoft Outlook, ¿qué combinación de teclas permite responder a TODOS los destinatarios de un correo electrónico?",
-      "options": [
-        "`Ctrl + R`",
-        "`Ctrl + F`",
-        "`Ctrl + Shift + R`",
-        "`Ctrl + U`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.A. Pestaña Inicio' especifica que `Ctrl + R` es para responder al remitente, mientras que `Ctrl + Shift + R` es para responder a todos los destinatarios.",
-      "usage": "dossier"
-    },
-    {
-      "id": 36,
-      "question": "Si un Auxiliar de Biblioteca desea configurar el panel de carpetas en el lado izquierdo y el panel de lectura en la parte inferior de su Outlook, ¿qué pestaña de la cinta de opciones debería utilizar?",
-      "options": [
-        "Pestaña Archivo",
-        "Pestaña Inicio",
-        "Pestaña Vista",
-        "Pestaña Datos"
-      ],
-      "correctAnswer": 2,
-      "explanation": "Según el apartado '2.A. Pestaña Vista', esta permite configurar el panel de carpetas (izquierda), panel de lectura (derecha/inferior) y ordenar los correos.",
-      "usage": "dossier"
-    },
-    {
-      "id": 37,
-      "question": "En Microsoft Teams, ¿qué elemento se describe como una subdivisión temática dentro de un 'Equipo'?",
-      "options": [
-        "Unidad",
-        "Proyecto",
-        "Canal",
-        "Grupo de chat"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' define los 'Canales' como subdivisiones temáticas dentro de un equipo, como 'Préstamo' o 'Adquisiciones'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 38,
-      "question": "¿Cuál es el atajo de teclado en Microsoft Teams para activar o desactivar el micrófono durante una videollamada?",
-      "options": [
-        "`Ctrl + M`",
-        "`Ctrl + Shift + M`",
-        "`Alt + M`",
-        "`F5`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '3. Atajos en Teams' establece que `Ctrl + Shift + M` es el atajo para silenciar o activar el micrófono en una videollamada.",
-      "usage": "dossier"
-    },
-    {
-      "id": 39,
-      "question": "La pestaña 'Archivos' dentro de un canal de Microsoft Teams está directamente conectada a qué otra herramienta de Microsoft 365?",
-      "options": [
-        "Microsoft Outlook",
-        "Microsoft OneDrive",
-        "Microsoft SharePoint",
-        "Microsoft Word Online"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' explica que cada canal de Teams dispone de una pestaña 'Archivos' que es una carpeta compartida conectada directamente a SharePoint.",
-      "usage": "dossier"
-    },
-    {
-      "id": 40,
-      "question": "Un 'Equipo' en Microsoft Teams se define como:",
-      "options": [
-        "Un hilo de conversación asíncrona grupal.",
-        "Una plataforma de almacenamiento personal en la nube.",
-        "Un grupo de personas con un fin común.",
-        "Un directorio centralizado de contactos."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' describe los 'Equipos' como grupos de personas con un fin común (ej. 'Biblioteca de Humanidades').",
-      "usage": "dossier"
-    },
-    {
-      "id": 41,
-      "question": "¿Cuál es el atajo de teclado para activar o desactivar la cámara de vídeo durante una reunión en Microsoft Teams?",
-      "options": [
-        "`Ctrl + Shift + O`",
-        "`Ctrl + C`",
-        "`Alt + V`",
-        "`F4`"
-      ],
-      "correctAnswer": 0,
-      "explanation": "El apartado '3. Atajos en Teams' indica que `Ctrl + Shift + O` se utiliza para activar o desactivar la cámara de vídeo.",
-      "usage": "dossier"
-    },
-    {
-      "id": 42,
-      "question": "En Microsoft Teams, la pestaña 'Publicaciones' dentro de un canal sirve para:",
-      "options": [
-        "Gestionar calendarios compartidos.",
-        "Almacenar documentos de forma privada.",
-        "Mantener un hilo de conversación asíncrona grupal.",
-        "Crear encuestas y formularios."
-      ],
-      "correctAnswer": 2,
-      "explanation": "Según el apartado '3. Microsoft Teams: Colaboración y Canales', la pestaña 'Publicaciones' en un canal es un hilo de conversación asíncrona grupal.",
-      "usage": "dossier"
-    },
-    {
-      "id": 43,
-      "question": "Microsoft Teams está integrado con el resto de herramientas de Microsoft 365, ¿para qué tipo de funcionalidades se utiliza principalmente?",
-      "options": [
-        "Análisis estadístico y bases de datos tabulares.",
-        "Procesamiento de textos y creación de documentos oficiales.",
-        "Comunicación y videollamadas.",
-        "Creación de intranets corporativas y gestión documental estructurada."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' define Teams como una 'Plataforma de comunicación y videollamadas integrada con el resto de herramientas de Microsoft 365'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 44,
-      "question": "¿Qué describe mejor el propósito de los 'Canales' en Microsoft Teams?",
-      "options": [
-        "Facilitar la creación de documentos de texto.",
-        "Servir como espacio de almacenamiento personal seguro.",
-        "Permitir la subdivisión temática de las conversaciones y archivos dentro de un equipo.",
-        "Administrar las citas y reuniones del equipo."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' explica que los Canales son 'Subdivisiones temáticas dentro de un equipo (ej. canal 'Préstamo' o 'Adquisiciones')'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 45,
-      "question": "Si un Auxiliar de Biblioteca necesita almacenar un documento de forma personal en la nube, ¿cuál de las siguientes herramientas de Microsoft 365 debería utilizar?",
-      "options": [
-        "SharePoint Online",
-        "Microsoft Teams",
-        "OneDrive para la Empresa",
-        "Microsoft Outlook"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '4. OneDrive para la Empresa: Almacenamiento Personal' lo describe como el 'Espacio de almacenamiento en la nube individual asignado a cada empleado de la US'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 46,
-      "question": "Al compartir un archivo desde OneDrive para la Empresa, ¿qué opción permite que el destinatario solo pueda visualizar el archivo sin modificarlo?",
-      "options": [
-        "Establecer contraseña.",
-        "Bloquear descarga.",
-        "Permitir la edición (desmarcar).",
-        "Establecer fecha de caducidad."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '4.A. Gestión de Permisos al Compartir' indica que, si se desmarca la opción 'Permitir la edición', el destinatario solo podrá visualizar el archivo (modo solo lectura).",
-      "usage": "dossier"
-    },
-    {
-      "id": 47,
-      "question": "En el sistema 'Archivos a Petición' (Files On-Demand) de OneDrive, ¿qué representa un icono de 'Nube azul' junto a un archivo en el Explorador de Windows?",
-      "options": [
-        "El archivo está permanentemente descargado en el PC.",
-        "El archivo solo está disponible en la nube y se descarga temporalmente al abrirlo.",
-        "El archivo ha sido modificado y requiere sincronización.",
-        "El archivo está bloqueado para edición."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '4.B. Archivos a Petición (Files On-Demand) en Windows' describe el icono de 'Nube azul' como indicativo de que 'El archivo está únicamente en la nube. Se descarga temporalmente en el PC solo al abrirlo. No consume espacio físico en disco'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 48,
-      "question": "Si un Auxiliar de Biblioteca comparte un documento confidencial desde OneDrive y quiere asegurarse de que el destinatario no pueda guardar una copia local, ¿qué opción de seguridad debe activar?",
-      "options": [
-        "Permitir la edición.",
-        "Establecer fecha de caducidad.",
-        "Establecer contraseña.",
-        "Bloquear descarga."
-      ],
-      "correctAnswer": 3,
-      "explanation": "Según el apartado '4.A. Gestión de Permisos al Compartir', la opción 'Bloquear descarga' impide que el usuario guarde una copia local en su PC (solo visualización web).",
-      "usage": "dossier"
-    },
-    {
-      "id": 49,
-      "question": "¿Qué estado de 'Archivos a Petición' en OneDrive indica que un archivo está descargado temporalmente en el PC y se puede abrir sin internet, pero puede volver al estado de nube si se limpia el disco?",
-      "options": [
-        "Icono de Nube azul.",
-        "Icono de Tic verde con fondo blanco.",
-        "Icono de Tic blanco en círculo verde relleno.",
-        "Icono de candado rojo."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '4.B. Archivos a Petición (Files On-Demand) en Windows' describe el icono de 'Tic verde con fondo blanco' como el estado de un 'Archivo descargado temporalmente en el PC que se puede abrir sin internet. Puede volver al estado de nube si se limpia el disco'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 50,
-      "question": "Al compartir un enlace en OneDrive, ¿cuál de las siguientes opciones contribuye a una seguridad estricta al requerir una clave para abrir el documento?",
-      "options": [
-        "Permitir la edición.",
-        "Establecer fecha de caducidad.",
-        "Establecer contraseña.",
-        "Bloquear descarga."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '4.A. Gestión de Permisos al Compartir' menciona que 'Establecer contraseña' obliga a introducir una clave para abrir el documento, lo que contribuye a la seguridad estricta.",
-      "usage": "dossier"
-    },
-    {
-      "id": 51,
-      "question": "¿Qué representa el icono de 'Tic blanco en círculo verde relleno' en 'Archivos a Petición' de OneDrive?",
-      "options": [
-        "El archivo está esperando ser sincronizado.",
-        "El archivo está corrupto y no se puede abrir.",
-        "El archivo se mantiene descargado de forma permanente en el PC y está siempre disponible sin conexión a internet.",
-        "El archivo es un acceso directo a una ubicación web."
-      ],
-      "correctAnswer": 2,
-      "explanation": "Según el apartado '4.B. Archivos a Petición (Files On-Demand) en Windows', este icono indica que 'El archivo se mantiene descargado de forma permanente en el PC y está siempre disponible sin conexión a internet'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 52,
-      "question": "OneDrive para la Empresa proporciona a cada empleado de la US un espacio de almacenamiento. ¿Cuál es la característica principal de este espacio?",
-      "options": [
-        "Es un espacio de almacenamiento en red local de acceso compartido.",
-        "Es un espacio de almacenamiento individual en la nube.",
-        "Es un disco duro externo virtual para copias de seguridad.",
-        "Es un servidor de correo electrónico personal."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '4. OneDrive para la Empresa: Almacenamiento Personal' lo define como 'Espacio de almacenamiento en la nube individual asignado a cada empleado de la US'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 53,
-      "question": "En el contexto de OneDrive, si un documento compartido tiene una 'fecha de caducidad' establecida, ¿qué implicación tiene esto?",
-      "options": [
-        "El documento se elimina automáticamente en la fecha fijada.",
-        "El enlace de acceso al documento dejará de funcionar en la fecha fijada.",
-        "El documento se convierte en solo lectura a partir de esa fecha.",
-        "El propietario del documento recibe una notificación de vencimiento."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '4.A. Gestión de Permisos al Compartir' explica que 'Establecer fecha de caducidad' significa que 'El enlace dejará de funcionar en la fecha fijada'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 54,
-      "question": "La función 'Check-out / Check-in' (Proteger / Desproteger) en SharePoint Online tiene como objetivo principal:",
-      "options": [
-        "Generar copias de seguridad automáticas de los documentos.",
-        "Bloquear la edición de un documento para un único usuario, impidiendo modificaciones paralelas.",
-        "Sincronizar documentos entre la nube y el PC local.",
-        "Compartir documentos con usuarios externos de forma segura."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '5. SharePoint Online: Portales Colaborativos' describe 'Check-out / Check-in' como una función indispensable que 'bloquea la edición de un documento para un único usuario, impidiendo que otros realicen modificaciones en paralelo hasta que el archivo sea liberado (check-in)'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 55,
-      "question": "¿Cuál es la herramienta de Microsoft 365 destinada a la creación de intranets corporativas y la gestión documental estructurada a nivel de equipos?",
-      "options": [
-        "Microsoft Word",
-        "Microsoft Excel",
-        "Microsoft SharePoint Online",
-        "Microsoft Outlook"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '5. SharePoint Online: Portales Colaborativos' describe esta herramienta como 'destinada a la creación de intranets corporativas y la gestión documental estructurada a nivel de equipos'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 56,
-      "question": "Por defecto, ¿cómo se comportan los permisos de las carpetas e informes en SharePoint Online?",
-      "options": [
-        "Se configuran individualmente para cada elemento.",
-        "Heredan los permisos del sitio principal de SharePoint.",
-        "Son siempre públicos por defecto.",
-        "Requieren aprobación del administrador para cualquier cambio."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '5. Herencia de Permisos' establece que 'Por defecto, las carpetas e informes heredan los permisos del sitio principal de SharePoint'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 57,
-      "question": "Si un Auxiliar de Biblioteca necesita asignar permisos exclusivos a un grupo o carpeta específica en SharePoint Online, rompiendo la configuración predeterminada, ¿qué acción debe realizar?",
-      "options": [
-        "Eliminar la carpeta y recrearla con nuevos permisos.",
-        "Contactar al soporte técnico para una configuración manual.",
-        "Deshabilitar la herencia de permisos.",
-        "Exportar los permisos y luego importarlos con modificaciones."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '5. Herencia de Permisos' indica que 'Se puede romper la herencia para asignar permisos exclusivos a un grupo o carpeta específica'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 58,
-      "question": "Cuando un usuario realiza un 'Check-out' de un documento en SharePoint, ¿qué sucede con la capacidad de otros usuarios para editar ese documento?",
-      "options": [
-        "Otros usuarios pueden editarlo, pero sus cambios no se guardan hasta el 'check-in'.",
-        "La edición del documento se bloquea para otros usuarios.",
-        "Otros usuarios solo pueden ver el historial de cambios.",
-        "Se crea automáticamente una copia del documento para cada usuario que intente editarlo."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '5. Check-out / Check-in (Proteger / Desproteger)' explica que esta función 'bloquea la edición de un documento para un único usuario, impidiendo que otros realicen modificaciones en paralelo'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 59,
-      "question": "¿Cuál es el propósito de realizar un 'Check-in' de un documento en SharePoint después de haberlo editado tras un 'Check-out'?",
-      "options": [
-        "Restaurar una versión anterior del documento.",
-        "Guardar el documento en una ubicación diferente.",
-        "Liberar el archivo para que otros usuarios puedan editarlo y registrar los cambios realizados.",
-        "Convertir el documento a un formato solo de lectura."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '5. Check-out / Check-in (Proteger / Desproteger)' menciona que la función bloquea la edición 'hasta que el archivo sea liberado (check-in) con una anotación de los cambios'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 60,
-      "question": "Microsoft SharePoint Online está diseñado para:",
-      "options": [
-        "Gestión de correos electrónicos y calendarios personales.",
-        "Almacenamiento individual de archivos en la nube.",
-        "Creación de intranets corporativas y gestión documental estructurada.",
-        "Comunicación en tiempo real y videollamadas."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '5. SharePoint Online: Portales Colaborativos' lo define como una 'Herramienta destinada a la creación de intranets corporativas y la gestión documental estructurada a nivel de equipos'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 61,
-      "question": "En Microsoft Word, ¿por qué es obligatorio el uso de estilos predefinidos (Título 1, Título 2) en la pestaña 'Inicio'?",
-      "options": [
-        "Para reducir el tamaño del archivo del documento.",
-        "Para mejorar la compatibilidad con otros procesadores de texto.",
-        "Para generar de forma automática la Tabla de Contenido (Índice).",
-        "Para aplicar un formato visual estético al texto."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Aspectos Operativos Críticos en Word' establece que 'El uso de estilos predefinidos (Título 1, Título 2) en la pestaña Inicio es obligatorio para estructurar el documento y generar de forma automática la Tabla de Contenido (Índice) en la pestaña Referencias'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 62,
-      "question": "¿Cuál es el atajo de teclado en Microsoft Word para abrir directamente el cuadro de diálogo 'Guardar como'?",
-      "options": [
-        "`Ctrl + G`",
-        "`Alt + G`",
-        "`F12`",
-        "`Shift + S`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Atajos de Teclado en Word' especifica que `F12` abre directamente el cuadro de diálogo 'Guardar como' para cambiar el nombre, carpeta y tipo de archivo.",
-      "usage": "dossier"
-    },
-    {
-      "id": 63,
-      "question": "Si un Auxiliar de Biblioteca necesita cambiar la orientación de una página concreta a horizontal dentro de un documento Word, manteniendo el resto de las páginas en vertical, ¿qué tipo de salto debe utilizar?",
-      "options": [
-        "Salto de Página (`Ctrl + Intro`)",
-        "Salto de Columna",
-        "Salto de Sección (Página Siguiente)",
-        "Salto de Texto"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Diferencia entre Saltos' explica que el 'Salto de Sección (Página Siguiente)' es indispensable cuando se quiere cambiar la orientación de una página concreta a horizontal, ya que divide el documento en secciones independientes.",
-      "usage": "dossier"
-    },
-    {
-      "id": 64,
-      "question": "¿Qué atajo de teclado permite justificar un párrafo seleccionado en Microsoft Word?",
-      "options": [
-        "`Ctrl + I`",
-        "`Ctrl + D`",
-        "`Ctrl + J`",
-        "`Ctrl + T`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Atajos de Teclado en Word' indica que `Ctrl + J` se utiliza para justificar el párrafo seleccionado (distribución homogénea entre márgenes).",
-      "usage": "dossier"
-    },
-    {
-      "id": 65,
-      "question": "Un 'Salto de Página' (`Ctrl + Intro`) en Word tiene como característica principal que:",
-      "options": [
-        "Inicia una nueva sección con encabezados y pies de página distintos.",
-        "Envía el cursor al principio de la página siguiente dentro de la misma sección.",
-        "Cambia automáticamente la orientación de la página.",
-        "Genera una tabla de contenido automática."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '6.A. Diferencia entre Saltos' describe el 'Salto de Página (`Ctrl + Intro`)' como una acción que 'Envía el cursor al principio de la página siguiente dentro de la misma sección. Mantiene el mismo encabezado, pie de página y márgenes'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 66,
-      "question": "En Word, ¿dónde se encuentra la opción para generar automáticamente la Tabla de Contenido (Índice) una vez que se han aplicado los estilos de título?",
-      "options": [
-        "Pestaña Inicio",
-        "Pestaña Insertar",
-        "Pestaña Referencias",
-        "Pestaña Vista"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Aspectos Operativos Críticos en Word' menciona que los estilos de título se usan para generar automáticamente la Tabla de Contenido (Índice) 'en la pestaña Referencias'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 67,
-      "question": "¿Qué tipo de salto es necesario para aplicar encabezados y pies de página distintos dentro del mismo documento de Word?",
-      "options": [
-        "Salto de Columna.",
-        "Salto de Línea.",
-        "Salto de Sección (Página Siguiente).",
-        "Salto de Página."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Diferencia entre Saltos' aclara que el 'Salto de Sección (Página Siguiente)' es indispensable para aplicar encabezados y pies de página distintos dentro del mismo archivo, ya que divide el documento en secciones independientes.",
-      "usage": "dossier"
-    },
-    {
-      "id": 68,
-      "question": "Para aplicar el formato de 'Negrita' a un texto seleccionado en Microsoft Word, ¿cuál es el atajo de teclado correcto?",
-      "options": [
-        "`Ctrl + B`",
-        "`Ctrl + N`",
-        "`Ctrl + G`",
-        "`Ctrl + Z`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '6.A. Atajos de Teclado en Word' indica que `Ctrl + N` se utiliza para aplicar Negrita.",
-      "usage": "dossier"
-    },
-    {
-      "id": 69,
-      "question": "La aplicación Microsoft Word está enfocada principalmente en:",
-      "options": [
-        "Análisis de datos y gráficos.",
-        "Gestión de bases de datos tabulares.",
-        "Creación y formateo de documentos textuales oficiales.",
-        "Comunicación en tiempo real y videollamadas."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6. Microsoft Word: Procesador de Textos' lo define como una 'Aplicación de ofimática enfocada en la creación y formateo de documentos textuales oficiales'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 70,
-      "question": "En Microsoft Excel, todas las fórmulas deben iniciarse con uno de estos dos caracteres. ¿Cuáles son?",
-      "options": [
-        "`#` o `$`",
-        "`=` o `+`",
-        "`@` o `&`",
-        "`*` o `/`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '7.A. Funciones y Fórmulas Clave (Desglose de Sintaxis para Examen)' especifica que 'Las fórmulas en Excel siempre se inician con el carácter `=` o `+`'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 71,
-      "question": "¿Qué atajo de teclado en Excel permite entrar en modo de edición de la celda activa seleccionada sin borrar su contenido previo?",
-      "options": [
-        "`Enter`",
-        "`F2`",
-        "`Ctrl + E`",
-        "`Alt + F2`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '7.B. Atajos de Teclado Críticos en Excel' indica que `F2` 'Entra en modo de edición de la celda activa seleccionada sin borrar su contenido previo'.",
-      "usage": "simulacro",
-      "simulacroExamId": 1
-    },
-    {
-      "id": 72,
-      "question": "En la función `=BUSCARV` de Excel, ¿cuál es el valor lógico que se debe utilizar en el argumento `[ordenado]` para exigir una coincidencia EXACTA de búsqueda?",
-      "options": [
-        "`VERDADERO`",
-        "`0`",
-        "`FALSO`",
-        "`NULL`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '7.A.1. Función `=BUSCARV`' establece que el argumento `ordenado` con valor lógico `FALSO` 'exige una coincidencia exacta de búsqueda'.",
-      "usage": "simulacro",
-      "simulacroExamId": 1
-    },
-    {
-      "id": 73,
-      "question": "Si un Auxiliar de Biblioteca utiliza la función `=SI(C2>=10; \"Bloqueado\"; \"Activo\")` en Excel, ¿qué resultado obtendrá si el valor de la celda `C2` es 5?",
-      "options": [
-        "`Bloqueado`",
-        "`Activo`",
-        "`ERROR`",
-        "`10`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '7.A.2. Función `=SI`' explica que esta función devuelve `valor_si_verdadero` si la `prueba_lógica` se cumple y `valor_si_falso` si no se cumple. En este caso, `C2` (5) NO es `>=10`, por lo tanto, la función devuelve 'Activo'.",
-      "usage": "simulacro",
-      "simulacroExamId": 2
-    },
-    {
-      "id": 74,
-      "question": "¿Cuál es el atajo de teclado en Excel para activar o desactivar los filtros automáticos en la fila de cabecera de una tabla de datos?",
-      "options": [
-        "`Ctrl + F`",
-        "`Ctrl + Shift + L`",
-        "`Alt + A + T`",
-        "`F3`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '7.B. Atajos de Teclado Críticos en Excel' indica que `Ctrl + Shift + L` se utiliza para 'Activar o desactivar los filtros automáticos en la fila de cabecera de la tabla de datos'.",
-      "usage": "simulacro",
-      "simulacroExamId": 2
-    },
-    {
-      "id": 75,
-      "question": "En la sintaxis de la función `=BUSCARV(valor_buscado; matriz_buscar_en; indicador_columnas; [ordenado])`, ¿qué representa el argumento `indicador_columnas`?",
-      "options": [
-        "La celda donde se encuentra el `valor_buscado`.",
-        "El número correlativo de columna del rango de donde se extraerá la información.",
-        "El rango de celdas que contiene toda la tabla de datos de origen.",
-        "Un valor lógico para la coincidencia de búsqueda."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '7.A.1. Función `=BUSCARV`' define `indicador_columnas` como 'El número correlativo de columna del rango de donde se extraerá la información (ej. `2` para traer el título del libro)'.",
-      "usage": "simulacro",
-      "simulacroExamId": 3
-    },
-    {
-      "id": 76,
-      "question": "Para insertar filas, celdas o columnas seleccionadas en Excel, ¿cuál es el atajo de teclado rápido?",
-      "options": [
-        "`Ctrl + I`",
-        "`Ctrl + Alt + Insert`",
-        "`Ctrl + +`",
-        "`Ctrl + Shift + I`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '7.B. Atajos de Teclado Críticos en Excel' establece que `Ctrl + +` es el 'Comando rápido para Insertar filas, celdas o columnas seleccionadas'.",
-      "usage": "simulacro",
-      "simulacroExamId": 3
-    },
-    {
-      "id": 77,
-      "question": "Si una fórmula en Excel devuelve un valor `VERDADERO` cuando la `prueba_lógica` `C2>=10` se cumple, ¿qué parte de la sintaxis de la función `=SI` corresponde a este resultado?",
-      "options": [
-        "`prueba_lógica`",
-        "`valor_si_verdadero`",
-        "`valor_si_falso`",
-        "`[ordenado]`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '7.A.2. Función `=SI`' define `valor_si_verdadero` como 'El texto o número a mostrar si la comparación es verdadera'.",
-      "usage": "simulacro",
-      "simulacroExamId": 4
-    },
-    {
-      "id": 78,
-      "question": "En un supuesto práctico de Auxiliar de Biblioteca con la función `=BUSCARV`, ¿cuál es el valor recomendado para el argumento `[ordenado]` para evitar errores de coincidencia?",
-      "options": [
-        "`VERDADERO`",
-        "`1`",
-        "`FALSO`",
-        "`0` (o `TRUE`)"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '7.A.1. Función `=BUSCARV`' indica que 'En supuestos prácticos de auxiliar, siempre se utiliza `FALSO` para evitar errores de coincidencia'.",
-      "usage": "simulacro",
-      "simulacroExamId": 4
-    },
-    {
-      "id": 79,
-      "question": "¿Cuál es la utilidad principal de Microsoft Excel para un Auxiliar de Biblioteca, según el temario?",
-      "options": [
-        "Creación de documentos textuales oficiales.",
-        "Gestión de correo electrónico corporativo.",
-        "Análisis estadístico de préstamos y usuarios y bases de datos tabulares.",
-        "Comunicación en tiempo real y videollamadas."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '7. Microsoft Excel: Hojas de Cálculo' lo describe como una 'Herramienta de cálculo y bases de datos tabulares fundamental para el análisis estadístico de préstamos y usuarios'.",
-      "usage": "simulacro",
-      "simulacroExamId": 5
-    },
-    {
-      "id": 80,
-      "question": "Para eliminar filas, celdas o columnas seleccionadas en Excel, ¿cuál es el atajo de teclado rápido?",
-      "options": [
-        "`Ctrl + -`",
-        "`Ctrl + Del`",
-        "`Alt + Supr`",
-        "`Ctrl + X`"
-      ],
-      "correctAnswer": 0,
-      "explanation": "El apartado '7.B. Atajos de Teclado Críticos en Excel' establece que `Ctrl + -` es el 'Comando rápido para ... Eliminar filas, celdas o columnas seleccionadas'.",
-      "usage": "simulacro",
-      "simulacroExamId": 5
-    },
-    {
-      "id": 81,
-      "question": "En la función `=SI(prueba_lógica; valor_si_verdadero; valor_si_falso)`, ¿qué es `prueba_lógica`?",
-      "options": [
-        "El valor a devolver si la condición es falsa.",
-        "El valor a devolver si la condición es verdadera.",
-        "La comparación a evaluar.",
-        "Un indicador de columna."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '7.A.2. Función `=SI`' define `prueba_lógica` como 'La comparación a evaluar (ej. `C2>=10` que comprueba si los días de retraso del lector son mayores o iguales a 10)'.",
-      "usage": "simulacro",
-      "simulacroExamId": 6
-    },
-    {
-      "id": 82,
-      "question": "Si en la función `=BUSCARV(D2; A2:B100; 2; FALSO)`, `D2` contiene el código de barras de un libro, ¿qué representa `A2:B100`?",
-      "options": [
-        "El valor buscado.",
-        "El indicador de columna.",
-        "El rango de celdas que contiene toda la tabla de datos de origen.",
-        "El criterio de ordenación."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '7.A.1. Función `=BUSCARV`' define `matriz_buscar_en` (en este caso `A2:B100`) como 'El rango de celdas que contiene toda la tabla de datos de origen'.",
-      "usage": "simulacro",
-      "simulacroExamId": 6
-    },
-    {
-      "id": 83,
-      "question": "¿Qué herramienta de Microsoft 365 utiliza el PTGAS de la US como entorno oficial de trabajo de oficina, almacenamiento y comunicación?",
-      "options": [
-        "Google Workspace",
-        "LibreOffice Suite",
-        "Microsoft 365",
-        "Apple iWork"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '1. El Entorno de Colaboración Microsoft 365 en la US' indica que la Universidad de Sevilla ofrece a su personal (incluido el PTGAS) acceso a la suite 'Microsoft 365' como entorno oficial de trabajo.",
-      "usage": "simulacro",
-      "simulacroExamId": 7
-    },
-    {
-      "id": 84,
-      "question": "En Outlook, ¿qué atajo de teclado permite crear un nuevo correo electrónico?",
-      "options": [
-        "`Ctrl + R`",
-        "`Ctrl + F`",
-        "`Ctrl + U` o `Ctrl + N`",
-        "`Ctrl + S`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.A. Pestaña Inicio' menciona que para crear un nuevo correo se usa `Ctrl + U` o `Ctrl + N`.",
-      "usage": "simulacro",
-      "simulacroExamId": 7
-    },
-    {
-      "id": 85,
-      "question": "Si se desea reenviar un correo electrónico en Outlook, ¿qué atajo de teclado se debe utilizar?",
-      "options": [
-        "`Ctrl + R`",
-        "`Ctrl + F`",
-        "`Ctrl + Shift + R`",
-        "`Ctrl + E`"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '2.A. Pestaña Inicio' especifica que `Ctrl + F` se usa para reenviar el correo.",
-      "usage": "simulacro",
-      "simulacroExamId": 8
-    },
-    {
-      "id": 86,
-      "question": "En la pestaña 'Vista' de Outlook, ¿qué opción permite organizar los correos en la bandeja de entrada?",
-      "options": [
-        "Respuestas automáticas",
-        "Pasos rápidos",
-        "Ordenar los correos por fecha, remitente, tamaño o hilos de conversación",
-        "Reglas y alertas"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.A. Pestaña Vista' indica que esta permite 'ordenar los correos por fecha, remitente, tamaño o hilos de conversación'.",
-      "usage": "simulacro",
-      "simulacroExamId": 8
-    },
-    {
-      "id": 87,
-      "question": "Al utilizar las respuestas automáticas 'Fuera de oficina' en Outlook, ¿qué tipo de remitentes son cubiertos por la configuración de 'Dentro de mi organización'?",
-      "options": [
-        "Cualquier correo externo a la Universidad de Sevilla.",
-        "Solo remitentes de la Universidad de Sevilla.",
-        "Remitentes de otras universidades colaboradoras.",
-        "Únicamente los remitentes previamente añadidos a la lista de contactos."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '2.A. Pestaña Archivo (Backstage)' especifica que la configuración de 'Dentro de mi organización' es para 'remitentes de la Universidad de Sevilla'.",
-      "usage": "simulacro",
-      "simulacroExamId": 9
-    },
-    {
-      "id": 88,
-      "question": "¿Cuál de las siguientes afirmaciones sobre la Lista de Direcciones Globales (GAL) en Outlook es correcta?",
-      "options": [
-        "Contiene solo contactos personales del usuario.",
-        "Es un directorio externo que requiere conexión a internet para cada búsqueda.",
-        "Es un directorio centralizado de la US con correos del PDI, PTGAS y estudiantes.",
-        "Solo muestra correos de usuarios de otras instituciones."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.B. Utilidades Especiales de Outlook' define la GAL como un 'Directorio centralizado de la US que contiene los correos electrónicos del personal docente (PDI), de administración y servicios (PTGAS) y de estudiantes'.",
-      "usage": "simulacro",
-      "simulacroExamId": 9
-    },
-    {
-      "id": 89,
-      "question": "En Microsoft Teams, ¿dónde se encuentra la conversación asíncrona grupal de un canal?",
-      "options": [
-        "En la pestaña 'Archivos'.",
-        "En la sección de 'Notas'.",
-        "En la pestaña 'Publicaciones'.",
-        "En el chat privado."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' indica que cada canal dispone de una pestaña 'Publicaciones' que es el 'Hilo de conversación asíncrona grupal'.",
-      "usage": "simulacro",
-      "simulacroExamId": 10
-    },
-    {
-      "id": 90,
-      "question": "¿Qué diferencia un 'Equipo' de un 'Canal' en Microsoft Teams?",
-      "options": [
-        "Un Equipo es una subdivisión temática, mientras que un Canal es un grupo de personas.",
-        "Un Equipo es para videollamadas, un Canal es para chat.",
-        "Un Equipo es un grupo de personas con un fin común, y un Canal es una subdivisión temática dentro de ese equipo.",
-        "Los Canales tienen almacenamiento en OneDrive, y los Equipos en SharePoint."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '3. Microsoft Teams: Colaboración y Canales' define 'Equipos' como 'Grupos de personas con un fin común' y 'Canales' como 'Subdivisiones temáticas dentro de un equipo'.",
-      "usage": "simulacro",
-      "simulacroExamId": 10
-    },
-    {
-      "id": 91,
-      "question": "Al compartir un archivo en OneDrive para la Empresa, ¿cuál de los siguientes permisos NO se menciona como una opción de seguridad estricta?",
-      "options": [
-        "Permitir la edición.",
-        "Establecer fecha de caducidad.",
-        "Solicitar confirmación de lectura.",
-        "Bloquear descarga."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '4.A. Gestión de Permisos al Compartir' menciona 'Permitir la edición', 'Establecer fecha de caducidad', 'Establecer contraseña' y 'Bloquear descarga'. 'Solicitar confirmación de lectura' no es una opción de seguridad listada para compartir archivos.",
-      "usage": "simulacro",
-      "simulacroExamId": 11
-    },
-    {
-      "id": 92,
-      "question": "Si un archivo en OneDrive tiene el icono de 'Tic verde con fondo blanco' en el Explorador de Windows, ¿qué significa con respecto a su disponibilidad sin conexión?",
-      "options": [
-        "No está disponible sin conexión.",
-        "Está disponible sin conexión de forma temporal y puede volver a la nube.",
-        "Está disponible sin conexión de forma permanente.",
-        "Está corrupto y no es accesible."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '4.B. Archivos a Petición (Files On-Demand) en Windows' describe el icono de 'Tic verde con fondo blanco' como un 'Archivo descargado temporalmente en el PC que se puede abrir sin internet. Puede volver al estado de nube si se limpia el disco'.",
-      "usage": "simulacro",
-      "simulacroExamId": 11
-    },
-    {
-      "id": 93,
-      "question": "¿Cuál es la principal diferencia entre un 'Salto de Página' y un 'Salto de Sección (Página Siguiente)' en Microsoft Word?",
-      "options": [
-        "El Salto de Página crea una nueva página, el Salto de Sección crea un nuevo documento.",
-        "El Salto de Página mantiene la misma sección, el Salto de Sección divide el documento en secciones independientes.",
-        "Ambos son idénticos en funcionalidad.",
-        "El Salto de Página cambia la orientación, el Salto de Sección no."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '6.A. Diferencia entre Saltos' explica que un 'Salto de Página' mantiene la misma sección, mientras que un 'Salto de Sección (Página Siguiente)' 'Divide el documento en secciones independientes'.",
-      "usage": "simulacro",
-      "simulacroExamId": 12
-    },
-    {
-      "id": 94,
-      "question": "En Word, ¿qué atajo de teclado se utiliza para aplicar el formato de 'Cursiva'?",
-      "options": [
-        "`Ctrl + C`",
-        "`Ctrl + I`",
-        "`Ctrl + K`",
-        "`Ctrl + J`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '6.A. Atajos de Teclado en Word' especifica que `Ctrl + K` se utiliza para aplicar Cursiva.",
-      "usage": "simulacro",
-      "simulacroExamId": 12
-    },
-    {
-      "id": 95,
-      "question": "Si se utiliza la función `=SI(C2>=10; \"Bloqueado\"; \"Activo\")` en Excel, y `C2` contiene el valor 15, ¿cuál será el resultado?",
-      "options": [
-        "`Activo`",
-        "`15`",
-        "`Bloqueado`",
-        "`ERROR`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "Según el apartado '7.A.2. Función `=SI`', si la `prueba_lógica` (`C2>=10`) es verdadera (15 es mayor o igual que 10), se devuelve el `valor_si_verdadero`, que es 'Bloqueado'.",
-      "usage": "simulacro",
-      "simulacroExamId": 13
-    },
-    {
-      "id": 96,
-      "question": "¿Qué herramienta de Microsoft 365 es fundamental para el análisis estadístico de préstamos y usuarios, según el temario?",
-      "options": [
-        "Microsoft Word",
-        "Microsoft Outlook",
-        "Microsoft Teams",
-        "Microsoft Excel"
-      ],
-      "correctAnswer": 3,
-      "explanation": "El apartado '7. Microsoft Excel: Hojas de Cálculo' indica que es una 'Herramienta de cálculo y bases de datos tabulares fundamental para el análisis estadístico de préstamos y usuarios'.",
-      "usage": "simulacro",
-      "simulacroExamId": 13
-    },
-    {
-      "id": 97,
-      "question": "En el esquema de repaso rápido, ¿qué función de SharePoint se destaca para bloquear la edición de un documento compartido y evitar sobrescrituras?",
-      "options": [
-        "Herencia de Permisos",
-        "Check-out (desproteger)",
-        "Creación de Sitios",
-        "Integración con OneDrive"
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado '8. Esquema de Repaso Rápido' menciona: 'SharePoint: Check-out (desproteger) bloquea la edición de un documento compartido para impedir que otros lo sobrescriban'.",
-      "usage": "simulacro",
-      "simulacroExamId": 14
-    },
-    {
-      "id": 98,
-      "question": "¿Qué atajo de teclado en Outlook permite conmutar rápidamente a la vista de Contactos?",
-      "options": [
-        "`Ctrl + 1`",
-        "`Ctrl + 2`",
-        "`Ctrl + 3`",
-        "`Ctrl + 4`"
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.B. Atajos de Teclado Clíticos en Outlook' indica que `Ctrl + 1` / `Ctrl + 2` / `Ctrl + 3` permiten conmutar rápidamente entre las vistas de Correo, Calendario y Contactos, respectivamente. Por lo tanto, `Ctrl + 3` es para Contactos.",
-      "usage": "simulacro",
-      "simulacroExamId": 14
-    },
-    {
-      "id": 99,
-      "question": "Si un Auxiliar de Biblioteca recibe un correo de un remitente externo y tiene configuradas 'Respuestas automáticas (Fuera de oficina)', ¿qué mensaje se enviará?",
-      "options": [
-        "El mensaje configurado para 'Dentro de mi organización'.",
-        "Ningún mensaje si el remitente no está en la GAL.",
-        "El mensaje configurado para 'Fuera de mi organización'.",
-        "Un mensaje genérico predeterminado por Outlook."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado '2.A. Pestaña Archivo (Backstage)' indica que las respuestas automáticas permiten configurar dos mensajes diferenciados, uno de ellos para 'correos externos ('Fuera de mi organización')'.",
-      "usage": "simulacro",
-      "simulacroExamId": 15
-    },
-    {
-      "id": 100,
-      "question": "En Microsoft Word, para aplicar el formato de 'Subrayado', ¿cuál es el atajo de teclado correcto?",
-      "options": [
-        "`Ctrl + S`",
-        "`Ctrl + U`",
-        "`Ctrl + B`",
-        "`Ctrl + W`"
-      ],
-      "correctAnswer": 0,
-      "explanation": "El apartado '6.A. Atajos de Teclado en Word' indica que `Ctrl + S` se utiliza para aplicar Subrayado.",
-      "usage": "simulacro",
-      "simulacroExamId": 15
     }
   ],
   "14": [
