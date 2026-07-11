@@ -496,28 +496,28 @@
   "18": [
     {
       "id": 1,
-      "front": "Vacaciones anuales básicas (Personal laboral)",
-      "back": "Un mes natural o 22 días hábiles retribuidos al año, con días adicionales incrementados según la antigüedad."
+      "front": "Vacaciones anuales básicas (IV Convenio)",
+      "back": "Un mes natural o 22 días hábiles retribuidos al año, con incrementos adicionales por antigüedad acumulada (de 23 a 26 días hábiles a partir de los 15 a 30 años de servicio)."
     },
     {
       "id": 2,
-      "front": "Permiso retribuido por matrimonio",
-      "back": "15 días naturales retribuidos, iniciados desde el primer día laborable o el enlace."
+      "front": "Permiso retribuido por matrimonio (IV Convenio)",
+      "back": "15 días naturales consecutivos, los cuales pueden acumularse al período vacacional ordinario."
     },
     {
       "id": 3,
-      "front": "Falta muy grave por acoso",
-      "back": "El acoso moral, sexual o por razón de sexo se califica siempre como falta muy grave en el régimen de faltas y sanciones del convenio."
+      "front": "Días por asuntos particulares (IV Convenio)",
+      "back": "Hasta 10 días al año, distribuidos a conveniencia del trabajador y condicionados a necesidades del servicio (tras un año completo de trabajo)."
     },
     {
       "id": 4,
-      "front": "Sanción por falta muy grave",
-      "back": "Suspensión de empleo y sueldo de 16 días a 6 meses, traslado forzoso o despido disciplinario definitivo."
+      "front": "Sanciones por faltas muy graves (IV Convenio - Anexo III)",
+      "back": "1) Suspensión de sueldo y empleo de 1 a 3 meses. 2) Suspensión del derecho a concurrir a pruebas selectivas o concursos de ascenso por un período de 2 a 3 años."
     },
     {
       "id": 5,
-      "front": "Días por asuntos particulares ('moscosos')",
-      "back": "6 días hábiles retribuidos de libre disposición al año (ampliables por trienios de antigüedad)."
+      "front": "Prescripción y cancelación de faltas y sanciones graves (IV Convenio - Anexo III)",
+      "back": "Las faltas graves prescriben a los 20 días desde su conocimiento (límite de 6 meses desde comisión); sus sanciones se cancelan del expediente a los 3 años de su cumplimiento."
     }
   ],
   "19": [

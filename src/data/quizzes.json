@@ -24349,1527 +24349,392 @@
   "18": [
     {
       "id": 1,
-      "question": "¿Cuántos días hábiles de vacaciones retribuidas anuales básicas reconoce el IV Convenio Colectivo por año completo de servicio?",
+      "question": "¿A qué personal se aplica el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, según su Artículo 3?",
       "options": [
-        "15 días hábiles.",
-        "22 días hábiles (o un mes natural).",
-        "30 días hábiles obligatorios.",
-        "22 días naturales totales."
+        "Únicamente al personal directivo y de libre designación.",
+        "A todo el Personal de Administración y Servicios (PAS) laboral cuyas retribuciones se abonen con cargo al Capítulo I de los Presupuestos.",
+        "Al personal funcionario docente y laboral de investigación exclusivamente.",
+        "A todo el personal subcontratado y de empresas externas de servicios."
       ],
       "correctAnswer": 1,
-      "explanation": "El convenio establece un periodo de vacación anual retribuida de un mes natural o, si se prefiere su cómputo por días hábiles, de 22 días hábiles (excluyendo sábados, domingos y festivos).",
+      "explanation": "El Artículo 3 establece la aplicación a todo el personal de Administración y Servicios vinculado mediante relación jurídico-laboral formalizada por el Rector o Gerente y cuyas retribuciones se abonen con cargo al Capítulo I de los Presupuestos.",
       "usage": "dossier"
     },
     {
       "id": 2,
-      "question": "Según el IV Convenio Colectivo, ¿qué permiso retribuido corresponde al trabajador por la celebración de su matrimonio?",
+      "question": "Según el Artículo 6 del IV Convenio Colectivo, ¿cuál es el ámbito temporal y su efecto retroactivo?",
       "options": [
-        "3 días hábiles.",
-        "15 días naturales.",
-        "10 días naturales.",
-        "Un mes completo de permiso."
+        "Vigencia hasta el 31 de diciembre de 2010 y retroactividad al 1 de enero de 2005.",
+        "Vigencia hasta el 31 de diciembre de 1990 y retroactividad al 1 de enero de 1989.",
+        "Vigencia hasta el 31 de diciembre de 2006 y retroactividad al 1 de enero de 2003.",
+        "Vigencia indefinida sin efectos retroactivos."
       ],
-      "correctAnswer": 1,
-      "explanation": "El trabajador tiene derecho a ausentarse del trabajo con derecho a retribución por un plazo de 15 días naturales por razón de matrimonio.",
+      "correctAnswer": 2,
+      "explanation": "El Artículo 6 establece que su duración será hasta el 31 de Diciembre de 2.006, sin perjuicio de la retroactividad que se acuerda a 1 de enero de 2003.",
       "usage": "dossier"
     },
     {
       "id": 3,
-      "question": "¿Qué calificación disciplinaria recibe la conducta de acoso sexual o acoso por razón de sexo en el convenio?",
+      "question": "De acuerdo con el Artículo 8, ¿con qué antelación mínima debe notificarse la denuncia por escrito para pedir la revisión del convenio?",
       "options": [
-        "Falta leve.",
-        "Falta grave.",
-        "Falta muy grave.",
-        "No está regulada en el régimen de faltas."
+        "Al menos un mes de antelación.",
+        "Al menos dos meses de antelación.",
+        "Al menos tres meses de antelación.",
+        "Al menos quince días de antelación."
       ],
-      "correctAnswer": 2,
-      "explanation": "Cualquier forma de acoso moral, sexual o discriminatorio se tipifica como una infracción laboral muy grave en el régimen disciplinario (Anexo III).",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 8.1 dictamina que la denuncia solicitando la revisión del convenio deberá notificarse con una antelación mínima de dos meses a su vencimiento.",
       "usage": "dossier"
     },
     {
       "id": 4,
-      "question": "¿Cuál es la sanción máxima de suspensión de empleo y sueldo que puede imponerse al personal por cometer una falta calificada como grave?",
+      "question": "Según el Artículo 13 de la Organización del Trabajo, ¿a quién corresponde en exclusiva la facultad y responsabilidad de organizar el trabajo?",
       "options": [
-        "Hasta 2 días.",
-        "Hasta 15 días.",
-        "Hasta 6 meses.",
-        "El despido disciplinario."
+        "A los Comités de Empresa de forma unilateral.",
+        "A las Gerencias de las Universidades.",
+        "A la CIVEA.",
+        "A la Junta de Andalucía."
       ],
       "correctAnswer": 1,
-      "explanation": "Las faltas graves conllevan sanciones de suspensión de empleo y sueldo que van desde los 3 hasta los 15 días naturales.",
+      "explanation": "El Artículo 13.1 indica que la organización del trabajo es facultad y responsabilidad de las Gerencias de las Universidades, dentro de los límites legales.",
       "usage": "dossier"
     },
     {
       "id": 5,
-      "question": "¿Cuántos días de permiso por asuntos particulares sin justificación ('moscosos') se conceden al año según el convenio?",
+      "question": "De acuerdo con el Artículo 15 de Clasificación Profesional, ¿qué titulación se requiere para integrarse en el Grupo III?",
       "options": [
-        "3 días.",
-        "6 días.",
-        "10 días.",
-        "Varía libremente según acuerdo con el director."
+        "Título de Licenciado, Arquitecto o Ingeniero.",
+        "Título de Diplomado Universitario o Ingeniero Técnico.",
+        "Título de B.U.P., Bachiller Superior, Formación Profesional de Segundo Grado (FP II) o equivalente.",
+        "Certificado de Escolaridad únicamente."
       ],
-      "correctAnswer": 1,
-      "explanation": "El personal laboral dispone de 6 días hábiles de asuntos particulares al año, ampliables por trienios de antigüedad según las tablas del convenio.",
+      "correctAnswer": 2,
+      "explanation": "El Grupo III requiere la posesión del título de B.U.P., Bachiller Superior, FP II, experiencia equivalente o haber superado las pruebas de acceso a la universidad para mayores de 25 años.",
       "usage": "dossier"
     },
     {
       "id": 6,
-      "question": "En virtud de la legislación y normativa vigente del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'plazo de 10 días hábiles'?",
+      "question": "Según el Artículo 15.3, ¿cuál es la duración mínima de experiencia laboral requerida para la equiparación con las titulaciones exigidas en el Grupo III y Grupo IV respectivamente?",
       "options": [
-        "Afirma erróneamente que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio."
+        "2 años para el Grupo III y 1 año para el Grupo IV.",
+        "1 año para plazas integradas en el Grupo III y 6 meses para las del Grupo IV.",
+        "6 meses para el Grupo III y 3 meses para el Grupo IV.",
+        "No se contempla la equiparación por experiencia laboral."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Se considera equivalente la experiencia de 1 año para plazas del Grupo III y 6 meses para las integradas en el Grupo IV.",
       "usage": "dossier"
     },
     {
       "id": 7,
-      "question": "En virtud de la legislación y normativa vigente del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'cancelación al año'?",
+      "question": "De acuerdo con el Artículo 17.2, ¿cuál es el plazo máximo por el que un puesto de trabajo puede estar cubierto por desempeño de funciones de categoría de grupo superior?",
       "options": [
-        "Indica que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios.",
-        "Afirma erróneamente que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios únicamente si se cuenta con la aprobación previa del Defensor Universitario."
+        "Máximo 6 meses.",
+        "Máximo 12 meses.",
+        "Máximo 18 meses.",
+        "Máximo 2 años."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 17.2 indica que ningún puesto de trabajo podrá estar cubierto por tiempo superior a 12 meses en régimen de desempeño de funciones de categoría de grupo superior sin proceder a la convocatoria del proceso selectivo.",
       "usage": "dossier"
     },
     {
       "id": 8,
-      "question": "En virtud de la legislación y normativa vigente del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'permiso de 15 días naturales'?",
+      "question": "Según el Artículo 27, la jornada reducida durante los periodos de vacaciones que determine el Calendario laboral correspondiente consistirá en una reducción diaria de:",
       "options": [
-        "Afirma erróneamente que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio."
+        "Una hora.",
+        "Dos horas.",
+        "Treinta minutos.",
+        "Tres horas."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 27.b prescribe que durante los periodos de vacaciones correspondientes se verificará una reducción de la jornada de dos horas.",
       "usage": "dossier"
     },
     {
       "id": 9,
-      "question": "En virtud de la legislación y normativa vigente del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál de las siguientes opciones describe correctamente lo relativo a '6 días de asuntos particulares'?",
+      "question": "¿De qué descanso mínimo semanal ininterrumpido dispone el trabajador de acuerdo con el Artículo 27 del IV Convenio?",
       "options": [
-        "Determina que son los días de asuntos propios retribuidos al año que contempla el convenio salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que son los días de asuntos propios retribuidos al año que contempla el convenio únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que son los días de asuntos propios retribuidos al año que contempla el convenio.",
-        "Afirma erróneamente que son los días de asuntos propios retribuidos al año que contempla el convenio solo en casos de excepcional urgencia decretada por el Ministerio de Educación."
+        "36 horas ininterrumpidas.",
+        "48 horas ininterrumpidas.",
+        "24 horas ininterrumpidas.",
+        "48 horas pero fraccionables en dos periodos."
       ],
-      "correctAnswer": 2,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que son los días de asuntos propios retribuidos al año que contempla el convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que son los días de asuntos propios retribuidos al año que contempla el convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 27 establece de forma expresa que el descanso semanal será de 48 horas ininterrumpidas.",
       "usage": "dossier"
     },
     {
       "id": 10,
-      "question": "En virtud de la legislación y normativa vigente del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'prescripción de faltas graves'?",
+      "question": "Según el Artículo 27 (Horarios), entre jornada y jornada ordinaria de trabajo deberá observarse un descanso consecutivo de al menos:",
       "options": [
-        "Indica que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio.",
-        "Afirma erróneamente que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio únicamente si se cuenta con la aprobación previa del Defensor Universitario."
+        "10 horas.",
+        "12 horas.",
+        "14 horas.",
+        "8 horas."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 27 establece de forma explícita que entre jornada y jornada deberá observarse un descanso consecutivo de al menos 12 horas.",
       "usage": "dossier"
     },
     {
       "id": 11,
-      "question": "Con relación al Tema 18 y el concepto de 'cancelación a los 6 meses', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "De acuerdo con el Artículo 32, ¿cuántos días hábiles de vacaciones retribuidas anuales corresponden por cada año completo de servicio activo?",
       "options": [
-        "Es de interés recalcar que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios únicamente si el afectado presenta reclamación en el registro general en 3 días.",
-        "Es crucial recordar que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios.",
-        "Resulta fundamental saber que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo."
+        "20 días hábiles.",
+        "22 días hábiles (o un mes natural).",
+        "25 días hábiles.",
+        "22 días naturales."
       ],
       "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "El Artículo 32.1 reconoce el derecho a disfrutar de vacaciones retribuidas de un mes natural, o veintidós días hábiles anuales.",
       "usage": "dossier"
     },
     {
       "id": 12,
-      "question": "Con relación al Tema 18 y el concepto de 'cancelación a los 2 años', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "Según el Artículo 32.2, si un trabajador tiene 25 años de servicio en la Administración, ¿a cuántos días hábiles de vacaciones anuales tiene derecho?",
       "options": [
-        "Se ha de tener presente que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios únicamente si el afectado presenta reclamación en el registro general en 3 días.",
-        "Es crucial recordar que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios.",
-        "Resulta fundamental saber que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios siempre y cuando afecte de forma directa al profesorado funcionario doctor."
+        "23 días hábiles.",
+        "24 días hábiles.",
+        "25 días hábiles.",
+        "26 días hábiles."
       ],
       "correctAnswer": 2,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La escala de vacaciones por antigüedad del Art. 32.2 otorga: 23 días por 15 años, 24 días por 20 años, 25 días por 25 años y 26 días por 30 o más años de servicio.",
       "usage": "dossier"
     },
     {
       "id": 13,
-      "question": "Con relación al Tema 18 y el concepto de '22 días hábiles de vacaciones', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "De acuerdo con el Artículo 32, ¿cuál es la compensación de días si se acuerda un período de vacaciones fuera de los meses de julio, agosto y septiembre por necesidades del servicio?",
       "options": [
-        "Es crucial recordar que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio.",
-        "Resulta fundamental saber que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "Se incrementa el período vacacional en 3 días hábiles.",
+        "Se incrementa el período vacacional en 5 días naturales.",
+        "Se incrementa el período vacacional en 7 días naturales.",
+        "No se concede ningún incremento ni compensación."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "La regla general 3 del Art. 32 dispone que si se arbitra un periodo vacacional fuera de julio-septiembre, este será incrementado en 5 días naturales.",
       "usage": "dossier"
     },
     {
       "id": 14,
-      "question": "Con relación al Tema 18 y el concepto de 'prescripción de faltas leves', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "Según el Artículo 33, ¿cuántos días hábiles de permiso retribuido corresponden durante las festividades de Navidad?",
       "options": [
-        "Es crucial recordar que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio.",
-        "Resulta fundamental saber que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "3 días hábiles.",
+        "5 días hábiles.",
+        "7 días hábiles.",
+        "4 días hábiles."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 33.1 señala que el trabajador tendrá derecho a permisos retribuidos de cinco días hábiles durante las festividades de Navidad.",
       "usage": "dossier"
     },
     {
       "id": 15,
-      "question": "Con relación al Tema 18 y el concepto de 'prescripción de faltas muy graves', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
-      "options": [
-        "Es crucial recordar que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse.",
-        "Resulta fundamental saber que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse únicamente si el afectado presenta reclamación en el registro general en 3 días."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 16,
-      "question": "Respecto a 'cancelación al año' dentro de las directrices y normas del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál es el postulado legal o técnico correcto?",
-      "options": [
-        "El reglamento dispone que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios.",
-        "El marco estatutario dicta que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios únicamente a partir del tercer año de antigüedad consolidada en el puesto."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el periodo regulado por el convenio para limpiar de oficio una falta grave de la hoja de servicios. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 17,
-      "question": "Respecto a 'permiso de 15 días naturales' dentro de las directrices y normas del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál es el postulado legal o técnico correcto?",
-      "options": [
-        "El reglamento dispone que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio.",
-        "El marco estatutario dicta que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio únicamente a partir del tercer año de antigüedad consolidada en el puesto."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que se concede por matrimonio o constitución de pareja de hecho formalizada según el convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 18,
-      "question": "Respecto a '6 días de asuntos particulares' dentro de las directrices y normas del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál es el postulado legal o técnico correcto?",
-      "options": [
-        "El reglamento dispone que son los días de asuntos propios retribuidos al año que contempla el convenio.",
-        "El marco estatutario dicta que son los días de asuntos propios retribuidos al año que contempla el convenio siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que son los días de asuntos propios retribuidos al año que contempla el convenio solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que son los días de asuntos propios retribuidos al año que contempla el convenio únicamente a partir del tercer año de antigüedad consolidada en el puesto."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que son los días de asuntos propios retribuidos al año que contempla el convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que son los días de asuntos propios retribuidos al año que contempla el convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 19,
-      "question": "Respecto a 'prescripción de faltas graves' dentro de las directrices y normas del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál es el postulado legal o técnico correcto?",
-      "options": [
-        "El reglamento dispone que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio.",
-        "El marco estatutario dicta que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio únicamente a partir del tercer año de antigüedad consolidada en el puesto."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que las faltas graves prescriben a los **20 días** naturales conforme al régimen disciplinario del convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 20,
-      "question": "Respecto a 'plazo de 10 días hábiles' dentro de las directrices y normas del Tema 18 (IV Convenio Colectivo de Personal Laboral de Andalucía), ¿cuál es el postulado legal o técnico correcto?",
-      "options": [
-        "El reglamento dispone que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio.",
-        "El marco estatutario dicta que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio únicamente a partir del tercer año de antigüedad consolidada en el puesto."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el plazo común de alegaciones para el expedientado y el Comité de Empresa en el expediente contradictorio del convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 21,
-      "question": "Según el temario oficial del Tema 18, cuando nos referimos a 'cancelación a los 2 años', es correcto afirmar que:",
-      "options": [
-        "Asegura que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios.",
-        "Implica que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla."
-      ],
-      "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el periodo regulado por el convenio para limpiar de oficio una falta muy grave de la hoja de servicios. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 22,
-      "question": "Según el temario oficial del Tema 18, cuando nos referimos a '22 días hábiles de vacaciones', es correcto afirmar que:",
-      "options": [
-        "Implica que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio."
-      ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que o un mes natural, es el derecho vacacional ordinario regulado por el convenio por año de servicio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 23,
-      "question": "Según el temario oficial del Tema 18, cuando nos referimos a 'prescripción de faltas leves', es correcto afirmar que:",
-      "options": [
-        "Implica que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio."
-      ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que las faltas leves prescriben a los **10 días** naturales según los plazos disciplinarios del convenio. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 24,
-      "question": "Según el temario oficial del Tema 18, cuando nos referimos a 'prescripción de faltas muy graves', es correcto afirmar que:",
-      "options": [
-        "Implica que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse."
-      ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que prescriben a los **60 días** desde que la Universidad tiene conocimiento y, en todo caso, a los **6 meses** de cometerse. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 25,
-      "question": "Según el temario oficial del Tema 18, cuando nos referimos a 'cancelación a los 6 meses', es correcto afirmar que:",
-      "options": [
-        "Se fundamenta en que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios.",
-        "Implica que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios bajo sanción administrativa de suspensión automática de la Junta de Andalucía."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios.\". Esto se encuentra regulado de manera expresa en el marco del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el cual establece textualmente que es el periodo regulado por el convenio para limpiar de oficio una falta leve de la hoja de servicios. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 26,
-      "question": "¿Qué ámbito de personal regula el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía?",
-      "options": [
-        "Únicamente al personal funcionario de carrera de las universidades andaluzas.",
-        "Solamente al personal bajo relación contractual laboral de las universidades públicas andaluzas.",
-        "A todo el personal, tanto funcionario como laboral, de las universidades públicas andaluzas.",
-        "Exclusivamente al personal directivo de las gerencias de las universidades andaluzas."
-      ],
-      "correctAnswer": 1,
-      "explanation": "Según el apartado 1 del IV Convenio Colectivo, esta norma regula las condiciones de trabajo, derechos y deberes de todo el personal bajo relación contractual laboral de las universidades públicas andaluzas.",
-      "usage": "dossier"
-    },
-    {
-      "id": 27,
-      "question": "¿A cuántas universidades públicas de Andalucía aplica el IV Convenio Colectivo?",
-      "options": [
-        "A las 8 universidades públicas andaluzas.",
-        "A las 9 universidades públicas andaluzas.",
-        "A las 10 universidades públicas andaluzas.",
-        "A las 7 universidades públicas andaluzas."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 1 del texto indica que el IV Convenio Colectivo aplica por igual a los trabajadores de las diez universidades públicas de la comunidad autónoma de Andalucía.",
-      "usage": "dossier"
-    },
-    {
-      "id": 28,
-      "question": "De acuerdo con el IV Convenio Colectivo, ¿a quién corresponde en exclusiva la organización del trabajo en las Universidades Públicas de Andalucía?",
-      "options": [
-        "Al Comité de Empresa de cada Universidad, previa consulta a la Gerencia.",
-        "A los órganos de gobierno de cada Universidad, garantizando la participación y consulta de los comités de empresa.",
-        "Directamente a la Gerencia de cada Universidad, sin necesidad de consulta.",
-        "A la Comisión Paritaria del Convenio."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 2 del Convenio establece que la organización del trabajo corresponde en exclusiva a los órganos de gobierno de cada Universidad (a través de la Gerencia), garantizando en todo momento la participación y consulta de los comités de empresa de los trabajadores.",
-      "usage": "dossier"
-    },
-    {
-      "id": 29,
-      "question": "¿Cuál es la jornada ordinaria de trabajo efectivo semanal promedio establecida en el IV Convenio Colectivo?",
-      "options": [
-        "40 horas semanales.",
-        "37.5 horas semanales.",
-        "35 horas semanales.",
-        "30 horas semanales."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 2 del Convenio especifica que la jornada ordinaria de trabajo efectivo se establece en 35 horas semanales de promedio en cómputo anual.",
-      "usage": "dossier"
-    },
-    {
-      "id": 30,
-      "question": "¿Cuál es el límite máximo anual de horas de trabajo efectivo establecido en el IV Convenio Colectivo para el personal laboral de las Universidades Públicas de Andalucía?",
-      "options": [
-        "1600 horas anuales.",
-        "1500 horas anuales.",
-        "1445 horas anuales.",
-        "1395 horas anuales."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 2 del Convenio fija un máximo absoluto de 1445 horas anuales de trabajo efectivo.",
-      "usage": "dossier"
-    },
-    {
-      "id": 31,
-      "question": "¿Cómo se distribuyen las horas de trabajo efectivo anuales en las Universidades Públicas de Andalucía?",
-      "options": [
-        "Mediante decisión unilateral de la Gerencia, sin negociación.",
-        "A través de los calendarios laborales anuales negociados y aprobados en cada universidad.",
-        "De forma homogénea para todo el personal de la comunidad autónoma, fijado por la Comisión Paritaria.",
-        "Según el horario individual que cada trabajador pacte con su dirección de servicio."
-      ],
-      "correctAnswer": 1,
-      "explanation": "Según el apartado 2 del Convenio, la distribución de estas horas se organiza a través de los calendarios laborales anuales negociados y aprobados en cada universidad para dar cobertura a sus servicios.",
-      "usage": "dossier"
-    },
-    {
-      "id": 32,
-      "question": "¿Qué derecho básico tienen las plazas de Auxiliar de Biblioteca, Archivo y Museo respecto a las vacaciones anuales, según el IV Convenio Colectivo?",
-      "options": [
-        "20 días hábiles o un mes natural.",
-        "22 días naturales o un mes hábil.",
-        "Un mes natural o 22 días hábiles.",
-        "25 días hábiles o un mes natural."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.A. del Convenio establece que todo el personal laboral tiene derecho a disfrutar de una vacación anual retribuida de un mes natural o 22 días hábiles por cada año completo de servicio activo.",
-      "usage": "dossier"
-    },
-    {
-      "id": 33,
-      "question": "¿Cuántos días hábiles adicionales de vacaciones le corresponden a un trabajador con 15 años de servicio prestado en el sector público, según el IV Convenio Colectivo?",
-      "options": [
-        "Ninguno, hasta los 20 años.",
-        "1 día hábil adicional.",
-        "2 días hábiles adicionales.",
-        "3 días hábiles adicionales."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.A. del Convenio (días adicionales por antigüedad CIVE) indica que por 15 años de servicio se reconoce 1 día hábil adicional de vacaciones.",
-      "usage": "dossier"
-    },
-    {
-      "id": 34,
-      "question": "Un trabajador del sector público con 20 años de servicio acumulado, ¿a cuántos días hábiles adicionales de vacaciones tiene derecho según el IV Convenio Colectivo?",
-      "options": [
-        "1 día hábil adicional, sumando un total de 23 días.",
-        "2 días hábiles adicionales, sumando un total de 24 días.",
-        "3 días hábiles adicionales, sumando un total de 25 días.",
-        "4 días hábiles adicionales, sumando un total de 26 días."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.A. del Convenio (días adicionales por antigüedad CIVE) establece que por 20 años de servicio se reconocen 2 días hábiles adicionales de vacaciones, lo que hace un total de 24 días si se suman a los 22 básicos.",
-      "usage": "dossier"
-    },
-    {
-      "id": 35,
-      "question": "Según el IV Convenio Colectivo, ¿cuántos días hábiles adicionales de vacaciones le corresponden a un trabajador que haya acumulado 25 años de servicio en el sector público?",
-      "options": [
-        "2 días hábiles adicionales.",
-        "3 días hábiles adicionales.",
-        "4 días hábiles adicionales.",
-        "5 días hábiles adicionales."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.A. del Convenio (días adicionales por antigüedad CIVE) especifica que por 25 años de servicio se reconocen 3 días hábiles adicionales de vacaciones.",
-      "usage": "dossier"
-    },
-    {
-      "id": 36,
-      "question": "¿Cuántos días hábiles adicionales de vacaciones le corresponden a un trabajador con 30 o más años de servicio prestado en el sector público, según el IV Convenio Colectivo?",
-      "options": [
-        "2 días hábiles adicionales.",
-        "3 días hábiles adicionales.",
-        "4 días hábiles adicionales.",
-        "5 días hábiles adicionales."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.A. del Convenio (días adicionales por antigüedad CIVE) establece que por 30 o más años de servicio se reconocen 4 días hábiles adicionales de vacaciones.",
-      "usage": "dossier"
-    },
-    {
-      "id": 37,
-      "question": "¿De cuántos días naturales dispone el personal laboral para el permiso por matrimonio o inscripción como pareja de hecho, según el IV Convenio Colectivo?",
-      "options": [
-        "10 días naturales.",
-        "15 días naturales.",
-        "20 días naturales.",
-        "5 días hábiles."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio indica que el permiso por matrimonio o inscripción como pareja de hecho es de 15 días naturales.",
-      "usage": "dossier"
-    },
-    {
-      "id": 38,
-      "question": "¿Cuántos días hábiles de permiso retribuido se conceden por traslado de domicilio habitual que no implica cambio de localidad de residencia?",
-      "options": [
-        "Ninguno.",
-        "1 día hábil.",
-        "2 días hábiles.",
-        "3 días hábiles."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio establece 1 día hábil para el traslado de domicilio habitual cuando no implica cambio de localidad de residencia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 39,
-      "question": "Si el traslado de domicilio habitual implica un cambio de localidad de residencia, ¿a cuántos días hábiles de permiso retribuido tiene derecho el personal laboral según el IV Convenio Colectivo?",
-      "options": [
-        "1 día hábil.",
-        "2 días hábiles.",
-        "3 días hábiles.",
-        "5 días hábiles."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio indica que el permiso por traslado de domicilio habitual es ampliable a 2 días hábiles si implica cambio de localidad de residencia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 40,
-      "question": "¿Cuántos días hábiles de permiso retribuido se otorgan por fallecimiento de un familiar de primer grado de consanguinidad o afinidad sin desplazamiento a otra localidad?",
-      "options": [
-        "2 días hábiles.",
-        "3 días hábiles.",
-        "4 días hábiles.",
-        "5 días hábiles."
-      ],
-      "correctAnswer": 1,
-      "explanation": "Según el apartado 3.B. del Convenio, por fallecimiento, accidente o enfermedad grave de familiar de primer grado se conceden 3 días hábiles si no se requiere desplazamiento a otra localidad.",
-      "usage": "dossier"
-    },
-    {
-      "id": 41,
-      "question": "En caso de enfermedad grave de un hijo (familiar de primer grado), ¿cuántos días hábiles de permiso retribuido se conceden si se requiere desplazamiento a otra localidad?",
+      "question": "Según el Artículo 33, ¿cuántos días hábiles de permiso retribuido corresponden durante la Semana Santa o Feria?",
       "options": [
         "3 días hábiles.",
         "4 días hábiles.",
         "5 días hábiles.",
         "6 días hábiles."
       ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio establece que, en caso de enfermedad grave de un familiar de primer grado, se conceden 5 días hábiles si se requiere desplazamiento a otra localidad.",
-      "usage": "dossier"
-    },
-    {
-      "id": 42,
-      "question": "¿Cuántos días hábiles de permiso retribuido se conceden por accidente de un hermano (familiar de segundo grado de consanguinidad o afinidad) sin desplazamiento a otra localidad?",
-      "options": [
-        "1 día hábil.",
-        "2 días hábiles.",
-        "3 días hábiles.",
-        "4 días hábiles."
-      ],
       "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio indica que, por accidente de un familiar de segundo grado, se conceden 2 días hábiles si no se requiere desplazamiento a otra localidad.",
+      "explanation": "El Artículo 33.1 establece que el trabajador tendrá derecho a cuatro días hábiles durante la Semana Santa, Feria o festividades equivalentes.",
       "usage": "dossier"
     },
     {
-      "id": 43,
-      "question": "Si se produce el fallecimiento de un abuelo (familiar de segundo grado) y se requiere desplazamiento a otra localidad, ¿cuántos días hábiles de permiso retribuido corresponden?",
-      "options": [
-        "2 días hábiles.",
-        "3 días hábiles.",
-        "4 días hábiles.",
-        "5 días hábiles."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio establece que, por fallecimiento de un familiar de segundo grado, se conceden 4 días hábiles si se requiere desplazamiento a otra localidad.",
-      "usage": "dossier"
-    },
-    {
-      "id": 44,
-      "question": "¿Cuál es la duración del permiso retribuido para concurrir a exámenes en centros oficiales según el IV Convenio Colectivo?",
-      "options": [
-        "Un día completo por examen.",
-        "Medio día por examen.",
-        "El tiempo indispensable para su cumplimiento.",
-        "El tiempo necesario para el desplazamiento y el examen, con un máximo de dos días."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio establece que se concederá el tiempo indispensable para concurrir a exámenes en centros oficiales.",
-      "usage": "dossier"
-    },
-    {
-      "id": 45,
-      "question": "¿Qué se entiende por 'deber inexcusable de carácter público o personal' que da derecho a permiso retribuido?",
-      "options": [
-        "Cualquier actividad de ocio o formación personal.",
-        "Actividades como citaciones judiciales o el ejercicio del derecho al voto.",
-        "Tareas domésticas urgentes o gestiones bancarias.",
-        "Visitas médicas rutinarias de familiares."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio menciona como ejemplos de deber inexcusable de carácter público o personal las citaciones judiciales o el ejercicio del derecho al voto, concediendo el tiempo indispensable para su cumplimiento.",
-      "usage": "dossier"
-    },
-    {
-      "id": 46,
-      "question": "¿Cuántos días de libre disposición (asuntos particulares) puede disfrutar el personal laboral al año, según el IV Convenio Colectivo, sin necesidad de justificación?",
-      "options": [
-        "Hasta 5 días al año.",
-        "Hasta 7 días al año.",
-        "Hasta 10 días al año.",
-        "Hasta 12 días al año."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio establece que se podrán disfrutar hasta 10 días al año de libre disposición (asuntos particulares), sin necesidad de justificación, supeditados a las necesidades del servicio y requiriendo un año completo de trabajo.",
-      "usage": "dossier"
-    },
-    {
-      "id": 47,
-      "question": "¿Qué condición es necesaria para poder disfrutar de los 10 días de asuntos particulares, en relación con el tiempo de servicio?",
-      "options": [
-        "Haber prestado servicio durante al menos 6 meses.",
-        "Haber prestado servicio durante al menos 9 meses.",
-        "Haber prestado un año completo de trabajo o la parte proporcional si fuese inferior.",
-        "No se requiere ningún tiempo mínimo de servicio."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio especifica que los 10 días de asuntos particulares se conceden 'requiriendo un año completo de trabajo o la parte proporcional si fuese inferior'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 48,
-      "question": "¿Cuál de las siguientes conductas se clasifica como 'Falta Leve' según el IV Convenio Colectivo?",
-      "options": [
-        "Más de tres faltas de puntualidad injustificadas en un mes.",
-        "Abandono del puesto de trabajo sin causa justificada en dos ocasiones en un mes.",
-        "Ligeros retrasos injustificados en la puntualidad.",
-        "Causar daños graves en los locales por negligencia grave."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Faltas Leves 'conductas de descuido menor, tales como ligeros retrasos injustificados en la puntualidad, falta de aseo personal o negligencia leve en la conservación de los materiales de la biblioteca'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 49,
-      "question": "¿Cuál de las siguientes NO es una Falta Leve según el IV Convenio Colectivo?",
-      "options": [
-        "Negligencia leve en la conservación de los materiales de la biblioteca.",
-        "Falta de aseo personal.",
-        "Más de tres faltas de asistencia injustificadas en un mes.",
-        "Ligeros retrasos injustificados en la puntualidad."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Faltas Leves los ligeros retrasos injustificados, la falta de aseo personal o la negligencia leve. 'Más de tres faltas de asistencia injustificadas en un mes' se clasifica como falta muy grave.",
-      "usage": "dossier"
-    },
-    {
-      "id": 50,
-      "question": "¿Qué tipo de falta se considera la simulación de enfermedad por tiempo inferior a tres días según el IV Convenio Colectivo?",
-      "options": [
-        "Falta Leve.",
-        "Falta Grave.",
-        "Falta Muy Grave.",
-        "No es una falta sancionable."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.A. del Convenio clasifica la simulación de enfermedad por tiempo inferior a tres días como una Falta Grave.",
-      "usage": "dossier"
-    },
-    {
-      "id": 51,
-      "question": "¿Cuántas faltas de puntualidad injustificadas en un mes se consideran una Falta Grave según el IV Convenio Colectivo?",
-      "options": [
-        "Una falta.",
-        "Dos faltas.",
-        "Más de tres faltas.",
-        "Cinco o más faltas."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Falta Grave 'más de tres faltas de puntualidad injustificadas en un mes'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 52,
-      "question": "Se considera Falta Grave el abandono del puesto de trabajo sin causa justificada en un mes, si ocurre en:",
-      "options": [
-        "Una ocasión.",
-        "Dos ocasiones.",
-        "Tres ocasiones.",
-        "Cuatro o más ocasiones."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Falta Grave el 'abandono del puesto de trabajo sin causa justificada en dos ocasiones en un mes'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 53,
-      "question": "¿Cuándo se considera reincidencia como Falta Grave la comisión de faltas leves, según el IV Convenio Colectivo?",
-      "options": [
-        "La comisión de dos faltas leves en un mismo semestre.",
-        "La comisión de tres o más faltas leves (excepto de puntualidad) en un mismo trimestre, siempre que haya mediado sanción.",
-        "La comisión de cuatro o más faltas leves de cualquier tipo en un año.",
-        "La comisión de cualquier número de faltas leves sin sanción previa."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.A. del Convenio establece que se considera falta grave la comisión de tres o más faltas leves (excepto de puntualidad) en un mismo trimestre, siempre que haya mediado sanción.",
-      "usage": "dossier"
-    },
-    {
-      "id": 54,
-      "question": "¿Cuál de las siguientes se clasifica como 'Falta Muy Grave' según el IV Convenio Colectivo?",
-      "options": [
-        "La simulación de enfermedad por tiempo inferior a tres días.",
-        "Causar daños graves en los locales por negligencia grave.",
-        "Más de tres faltas de asistencia injustificadas en un mes.",
-        "Ligeros retrasos injustificados en la puntualidad."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Faltas Muy Graves 'más de tres faltas de asistencia injustificadas en un mes', entre otros incumplimientos de máxima gravedad.",
-      "usage": "dossier"
-    },
-    {
-      "id": 55,
-      "question": "¿Cuál de las siguientes conductas NO es considerada Falta Muy Grave por el IV Convenio Colectivo?",
-      "options": [
-        "Fraude o deslealtad.",
-        "Malos tratos físicos o de palabra a usuarios o compañeros de trabajo.",
-        "Acoso sexual y acoso por razón de sexo.",
-        "Abandono del puesto de trabajo sin causa justificada en una ocasión."
-      ],
-      "correctAnswer": 3,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Faltas Muy Graves el fraude, la deslealtad, los malos tratos físicos o de palabra, el acoso sexual y el acoso por razón de sexo. El abandono del puesto de trabajo sin causa justificada en una ocasión no es específicamente mencionado como falta grave o muy grave, mientras que en dos ocasiones en un mes sí se clasifica como grave.",
-      "usage": "dossier"
-    },
-    {
-      "id": 56,
-      "question": "¿Qué sanción puede aplicarse por una falta leve según el IV Convenio Colectivo?",
-      "options": [
-        "Suspensión de empleo y sueldo de 3 a 15 días.",
-        "Inhabilitación para el ascenso por un período de hasta 6 años.",
-        "Apercibimiento por escrito o suspensión de empleo y sueldo de hasta 2 días.",
-        "Despido disciplinario."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.B. del Convenio indica que por faltas leves se puede imponer apercibimiento por escrito o suspensión de empleo y sueldo de hasta 2 días.",
-      "usage": "dossier"
-    },
-    {
-      "id": 57,
-      "question": "¿Cuál es la sanción por una falta grave, según el IV Convenio Colectivo, en lo que respecta a la suspensión de empleo y sueldo?",
-      "options": [
-        "Hasta 2 días.",
-        "De 3 a 15 días.",
-        "De 16 días a 6 meses.",
-        "De 1 mes a 3 meses."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.B. del Convenio establece que por faltas graves se puede imponer suspensión de empleo y sueldo de 3 a 15 días.",
-      "usage": "dossier"
-    },
-    {
-      "id": 58,
-      "question": "Además de la suspensión de empleo y sueldo, ¿qué otra sanción puede aplicarse por faltas graves, según el IV Convenio Colectivo?",
-      "options": [
-        "Traslado forzoso con cambio de localidad.",
-        "Inhabilitación para el ascenso por un período de hasta 6 años.",
-        "Suspensión del derecho a concursar por traslado durante un período de hasta 1 año.",
-        "Despido disciplinario."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.B. del Convenio menciona, para faltas graves, la suspensión de empleo y sueldo de 3 a 15 días, o la suspensión del derecho a concursar por traslado durante un período de hasta 1 año.",
-      "usage": "dossier"
-    },
-    {
-      "id": 59,
-      "question": "¿Cuál es la duración mínima de la suspensión de empleo y sueldo por una falta muy grave?",
-      "options": [
-        "15 días.",
-        "16 días.",
-        "1 mes.",
-        "3 meses."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.B. del Convenio establece que por faltas muy graves se puede imponer suspensión de empleo y sueldo de 16 días a 6 meses.",
-      "usage": "dossier"
-    },
-    {
-      "id": 60,
-      "question": "¿Cuál de las siguientes sanciones se corresponde con una Falta Muy Grave según el IV Convenio Colectivo?",
-      "options": [
-        "Apercibimiento por escrito.",
-        "Suspensión del derecho a concursar por traslado durante un período de hasta 1 año.",
-        "Inhabilitación para el ascenso por un período de hasta 6 años.",
-        "Suspensión de empleo y sueldo de hasta 2 días."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.B. del Convenio menciona la inhabilitación para el ascenso por un período de hasta 6 años como una sanción aplicable por faltas muy graves.",
-      "usage": "dossier"
-    },
-    {
-      "id": 61,
-      "question": "¿Qué tipo de sanción de las siguientes es exclusiva de las faltas muy graves?",
-      "options": [
-        "Suspensión de empleo y sueldo.",
-        "Traslado forzoso con cambio de localidad.",
-        "Suspensión del derecho a concursar por traslado.",
-        "Apercibimiento por escrito."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.B. del Convenio lista 'traslado forzoso con cambio de localidad' y 'despido disciplinario' como sanciones específicas para faltas muy graves. La suspensión de empleo y sueldo puede aplicarse a leves, graves y muy graves con diferentes duraciones, y la suspensión del derecho a concursar a graves.",
-      "usage": "dossier"
-    },
-    {
-      "id": 62,
-      "question": "¿En qué plazo prescriben las faltas leves, según el IV Convenio Colectivo, desde la fecha en que la Universidad tiene constancia de su comisión?",
-      "options": [
-        "5 días naturales.",
-        "10 días naturales.",
-        "15 días naturales.",
-        "20 días naturales."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.C. del Convenio establece que las faltas leves prescriben a los 10 días naturales desde que la Universidad tiene constancia de su comisión.",
-      "usage": "dossier"
-    },
-    {
-      "id": 63,
-      "question": "¿Cuál es el plazo de prescripción de las faltas graves desde la fecha en que la Universidad tiene conocimiento de su comisión?",
+      "id": 16,
+      "question": "De acuerdo con el Artículo 33.2.a, ¿cuál es la duración del permiso retribuido por matrimonio?",
       "options": [
         "10 días naturales.",
         "15 días naturales.",
-        "20 días naturales.",
-        "30 días naturales."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.C. del Convenio establece que las faltas graves prescriben a los 20 días naturales desde la fecha en que la Universidad tiene constancia de su comisión.",
-      "usage": "dossier"
-    },
-    {
-      "id": 64,
-      "question": "¿En qué plazo prescriben las faltas muy graves desde la fecha en que la Universidad tuvo conocimiento de su comisión, según el IV Convenio Colectivo?",
-      "options": [
-        "20 días naturales.",
-        "30 días naturales.",
-        "60 días naturales.",
-        "90 días naturales."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.C. del Convenio indica que las faltas muy graves prescriben a los 60 días naturales a partir de la fecha en que la Universidad tuvo conocimiento de su comisión.",
-      "usage": "dossier"
-    },
-    {
-      "id": 65,
-      "question": "¿Cuál es el plazo máximo absoluto de prescripción de una falta muy grave, independientemente de la fecha de conocimiento de la Universidad?",
-      "options": [
-        "3 meses de haberse cometido.",
-        "4 meses de haberse cometido.",
-        "6 meses de haberse cometido.",
-        "1 año de haberse cometido."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.C. del Convenio especifica que las faltas muy graves prescriben, en cualquier caso, a los 6 meses de haberse cometido.",
-      "usage": "dossier"
-    },
-    {
-      "id": 66,
-      "question": "¿Qué efecto tiene la incoación de un expediente disciplinario sobre los plazos de prescripción de las faltas?",
-      "options": [
-        "Suspende los plazos de prescripción.",
-        "Amplía los plazos de prescripción en un 50%.",
-        "Interrumpe los plazos de prescripción.",
-        "No tiene ningún efecto sobre los plazos de prescripción."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.C. del Convenio aclara que 'la incoación de un expediente disciplinario interrumpe los plazos de prescripción señalados'.",
-      "usage": "dossier"
-    },
-    {
-      "id": 67,
-      "question": "¿Cuándo es obligatoria la apertura de un expediente contradictorio para la imposición de sanciones según el IV Convenio Colectivo?",
-      "options": [
-        "Solo para faltas leves.",
-        "Solo para faltas muy graves.",
-        "Para faltas graves o muy graves.",
-        "Para cualquier tipo de falta, si lo solicita el trabajador."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.D. del Convenio establece que para la imposición de sanciones por faltas graves o muy graves, el convenio exige la apertura obligatoria de un expediente contradictorio.",
-      "usage": "dossier"
-    },
-    {
-      "id": 68,
-      "question": "¿Qué figuras deben designarse formalmente para llevar a cabo la investigación en un expediente contradictorio?",
-      "options": [
-        "Un Instructor y un Vocal.",
-        "Un Instructor y un Secretario.",
-        "Un Presidente y un Vocal.",
-        "Un Juez y un Fiscal."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.D. del Convenio indica que se designará formalmente a un Instructor y a un Secretario para llevar a cabo la investigación en un expediente contradictorio.",
-      "usage": "dossier"
-    },
-    {
-      "id": 69,
-      "question": "¿De cuántos días hábiles dispone el trabajador afectado y el Comité de Empresa para presentar alegaciones en un expediente contradictorio?",
-      "options": [
-        "5 días hábiles.",
-        "7 días hábiles.",
-        "10 días hábiles.",
-        "15 días hábiles."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.D. del Convenio especifica que se concederá un plazo común de 10 días hábiles tanto al trabajador afectado como al Comité de Empresa para presentar el pliego de descargos, alegaciones y las pruebas que estimen oportunas en su defensa.",
-      "usage": "dossier"
-    },
-    {
-      "id": 70,
-      "question": "¿En qué momento se cancelan de oficio las sanciones firmes por faltas leves en el expediente personal del trabajador, sin reincidencia?",
-      "options": [
-        "A los 3 meses de cumplimiento de la sanción.",
-        "A los 6 meses de cumplimiento de la sanción.",
-        "Al año de cumplimiento de la sanción.",
-        "A los 2 años de cumplimiento de la sanción."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.E. del Convenio establece que las sanciones por faltas leves se cancelan de oficio a los 6 meses de su cumplimiento efectivo, sin reincidencia.",
-      "usage": "dossier"
-    },
-    {
-      "id": 71,
-      "question": "¿Cuál es el plazo para la cancelación de oficio de las sanciones firmes por faltas graves en el expediente personal, a contar desde el cumplimiento efectivo de la sanción y sin reincidencia?",
-      "options": [
-        "6 meses.",
-        "1 año.",
-        "18 meses.",
-        "2 años."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.E. del Convenio indica que las sanciones por faltas graves se cancelan de oficio al año (12 meses) de su cumplimiento efectivo, sin reincidencia.",
-      "usage": "simulacro",
-      "simulacroExamId": 1
-    },
-    {
-      "id": 72,
-      "question": "¿Cuánto tiempo debe transcurrir para la cancelación de oficio de una sanción firme por una falta muy grave en el expediente personal, sin reincidencia?",
-      "options": [
-        "1 año.",
-        "18 meses.",
-        "2 años.",
-        "3 años."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.E. del Convenio establece que las sanciones por faltas muy graves se cancelan de oficio a los 2 años (24 meses) de su cumplimiento efectivo, sin reincidencia.",
-      "usage": "simulacro",
-      "simulacroExamId": 1
-    },
-    {
-      "id": 73,
-      "question": "¿Qué concepto define un procedimiento administrativo obligatorio que garantiza el derecho a la defensa y alegaciones del trabajador y del Comité de Empresa ante acusaciones de faltas graves o muy graves?",
-      "options": [
-        "Comisión Paritaria.",
-        "Pliego de Descargos.",
-        "Expediente Contradictorio.",
-        "Recurso de Alzada."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 6 del Convenio define el Expediente Contradictorio como el 'procedimiento administrativo obligatorio que garantiza el derecho a la defensa y alegaciones del trabajador y del Comité de Empresa ante acusaciones de faltas graves o muy graves'.",
-      "usage": "simulacro",
-      "simulacroExamId": 2
-    },
-    {
-      "id": 74,
-      "question": "¿Qué es la Comisión Paritaria (CIVE) según el IV Convenio Colectivo?",
-      "options": [
-        "Un órgano exclusivamente de representación sindical.",
-        "Un órgano de gobierno universitario para la gestión de personal.",
-        "Un órgano mixto encargado de interpretar y velar por el cumplimiento del convenio.",
-        "Un tribunal de sanciones disciplinarias."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 6 del Convenio define la Comisión Paritaria (CIVE) como un 'Órgano mixto formado por representantes de las universidades y de los sindicatos firmantes encargado de interpretar y velar por el cumplimiento del convenio'.",
-      "usage": "simulacro",
-      "simulacroExamId": 2
-    },
-    {
-      "id": 75,
-      "question": "En relación con las vacaciones anuales, ¿cuál de los siguientes grupos de servicio otorga derecho a 25 días hábiles de vacaciones totales (incluidos los básicos y adicionales)?",
-      "options": [
-        "15 años de servicio.",
-        "20 años de servicio.",
-        "25 años de servicio.",
-        "30 o más años de servicio."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.A. del Convenio establece que por 25 años de servicio se reconocen 3 días hábiles adicionales, sumando un total de 22 (básicos) + 3 = 25 días hábiles.",
-      "usage": "simulacro",
-      "simulacroExamId": 3
-    },
-    {
-      "id": 76,
-      "question": "Un trabajador lleva 19 años de servicio acumulado en el sector público. ¿Cuántos días hábiles adicionales de vacaciones le corresponden según el IV Convenio Colectivo?",
-      "options": [
-        "1 día hábil adicional.",
-        "2 días hábiles adicionales.",
-        "Ningún día adicional todavía.",
-        "3 días hábiles adicionales."
-      ],
-      "correctAnswer": 0,
-      "explanation": "Según el apartado 3.A. del Convenio (CIVE), los días adicionales se reconocen a partir de los 15 años (1 día) y 20 años (2 días). Para 19 años, le correspondería 1 día adicional (el umbral de 15 años ya se ha superado, pero aún no el de 20).",
-      "usage": "simulacro",
-      "simulacroExamId": 3
-    },
-    {
-      "id": 77,
-      "question": "¿Cuál es la principal característica del permiso por asuntos particulares, además de su duración?",
-      "options": [
-        "Requiere justificación detallada de la causa.",
-        "Su disfrute es incondicional, sin consideración de las necesidades del servicio.",
-        "Se distribuye a conveniencia del trabajador, supeditado a las necesidades del servicio.",
-        "Solo puede disfrutarse de forma consecutiva."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio indica que los días de asuntos particulares son de libre disposición, 'distribuidos a conveniencia del trabajador supeditados a las necesidades del servicio'.",
-      "usage": "simulacro",
-      "simulacroExamId": 4
-    },
-    {
-      "id": 78,
-      "question": "Si un trabajador de la Universidad de Sevilla comete una Falta Grave, ¿cuál de estas sanciones NO podría serle aplicada según el IV Convenio Colectivo?",
-      "options": [
-        "Suspensión de empleo y sueldo de 5 días.",
-        "Suspensión del derecho a concursar por traslado durante 6 meses.",
-        "Traslado forzoso con cambio de localidad.",
-        "Suspensión de empleo y sueldo de 10 días."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.B. del Convenio clasifica el 'traslado forzoso con cambio de localidad' como una sanción aplicable únicamente por faltas muy graves, no por graves.",
-      "usage": "simulacro",
-      "simulacroExamId": 4
-    },
-    {
-      "id": 79,
-      "question": "¿Qué ocurre si un trabajador comete tres faltas leves de impuntualidad en un trimestre, habiendo mediado sanción por las dos primeras, según el IV Convenio Colectivo?",
-      "options": [
-        "Se le aplicará una sanción por falta muy grave.",
-        "Se le aplicará una nueva sanción por falta leve.",
-        "Se considerará una falta grave.",
-        "No hay reincidencia por faltas de puntualidad."
-      ],
-      "correctAnswer": 3,
-      "explanation": "El apartado 4.A. del Convenio especifica que la reincidencia como falta grave aplica a la comisión de tres o más faltas leves 'excepto de puntualidad'. Por lo tanto, no se clasificaría como falta grave en este caso específico de puntualidad.",
-      "usage": "simulacro",
-      "simulacroExamId": 5
-    },
-    {
-      "id": 80,
-      "question": "Un trabajador ha sido sancionado con 10 días de suspensión de empleo y sueldo por una falta grave. ¿Cuándo se cancelará esta sanción de su expediente personal, si no reincide?",
-      "options": [
-        "A los 6 meses.",
-        "Al año.",
-        "A los 18 meses.",
-        "A los 2 años."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.E. del Convenio establece que las sanciones por faltas graves se cancelan de oficio al año (12 meses) de su cumplimiento efectivo, sin reincidencia.",
-      "usage": "simulacro",
-      "simulacroExamId": 5
-    },
-    {
-      "id": 81,
-      "question": "¿Qué tipo de sanción aplica el Convenio para el 'despido disciplinario'?",
-      "options": [
-        "Faltas Leves.",
-        "Faltas Graves.",
-        "Faltas Muy Graves.",
-        "No es una sanción contemplada en el Convenio."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.B. del Convenio establece que el despido disciplinario con rescisión definitiva del contrato es una sanción aplicable por faltas muy graves.",
-      "usage": "simulacro",
-      "simulacroExamId": 6
-    },
-    {
-      "id": 82,
-      "question": "¿Qué significa que una sanción se 'cancela de oficio'?",
-      "options": [
-        "Que el trabajador debe solicitar su cancelación expresamente.",
-        "Que la administración la elimina automáticamente del expediente transcurrido el plazo establecido.",
-        "Que la sanción se anula retroactivamente.",
-        "Que la sanción es recurrible en cualquier momento."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.E. del Convenio indica que las sanciones 'se cancelan de oficio', lo que implica que la cancelación se realiza automáticamente por la administración una vez cumplidos los plazos y condiciones (sin reincidencia) establecidos, sin necesidad de solicitud por parte del trabajador.",
-      "usage": "simulacro",
-      "simulacroExamId": 6
-    },
-    {
-      "id": 83,
-      "question": "¿Cuál es la finalidad principal de los calendarios laborales anuales en las Universidades Públicas de Andalucía?",
-      "options": [
-        "Establecer la jornada ordinaria semanal, sin más detalles.",
-        "Determinar las vacaciones anuales de cada trabajador de forma individual.",
-        "Organizar la distribución de las horas de trabajo anuales para dar cobertura a los servicios.",
-        "Fijar el régimen disciplinario para el personal laboral."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 2 del Convenio explica que la distribución de las horas de trabajo se organiza a través de los calendarios laborales anuales negociados y aprobados en cada universidad para dar cobertura a sus servicios.",
-      "usage": "simulacro",
-      "simulacroExamId": 7
-    },
-    {
-      "id": 84,
-      "question": "En el caso de un familiar de segundo grado de afinidad (cuñado/a), ¿cuántos días hábiles de permiso corresponden por accidente grave si NO se necesita desplazamiento a otra localidad?",
-      "options": [
-        "1 día hábil.",
-        "2 días hábiles.",
-        "3 días hábiles.",
-        "4 días hábiles."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio establece que, por accidente o enfermedad grave de un familiar de segundo grado (como un cuñado/a), se conceden 2 días hábiles si no se requiere desplazamiento a otra localidad.",
-      "usage": "simulacro",
-      "simulacroExamId": 7
-    },
-    {
-      "id": 85,
-      "question": "Si una Falta Muy Grave fue cometida hace 7 meses y la Universidad tuvo conocimiento de ella hace 2 meses, ¿estaría prescrita la falta?",
-      "options": [
-        "No, porque aún no han pasado 60 días desde el conocimiento.",
-        "Sí, porque han pasado más de 6 meses desde que se cometió la falta.",
-        "No, la prescripción se interrumpe si se inicia un expediente disciplinario.",
-        "No, el plazo de prescripción para faltas muy graves es de 1 año."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 4.C. del Convenio establece que las faltas muy graves prescriben a los 60 días naturales a partir de la fecha en que la Universidad tuvo conocimiento de su comisión y, en cualquier caso, a los 6 meses de haberse cometido. Si se cometió hace 7 meses, ya habría prescrito por exceder el plazo máximo absoluto de 6 meses desde su comisión.",
-      "usage": "simulacro",
-      "simulacroExamId": 8
-    },
-    {
-      "id": 86,
-      "question": "¿Cuál de los siguientes es un requisito para que el personal laboral pueda disfrutar de permisos retribuidos, según el IV Convenio Colectivo?",
-      "options": [
-        "Obtener la autorización previa del Rector.",
-        "Justificación previa y posterior del permiso.",
-        "Aviso previo y justificación posterior del permiso.",
-        "Solicitud con al menos 15 días de antelación."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio establece que el personal laboral tiene derecho a ausentarse del trabajo con derecho a remuneración 'previo aviso y justificación posterior'.",
-      "usage": "simulacro",
-      "simulacroExamId": 8
-    },
-    {
-      "id": 87,
-      "question": "¿Quién tiene la competencia exclusiva sobre la organización del trabajo en las Universidades Públicas de Andalucía, aunque garantizando la participación de los comités de empresa?",
-      "options": [
-        "La Comisión Paritaria del Convenio.",
-        "La Consejería de Universidades de la Junta de Andalucía.",
-        "Los órganos de gobierno de cada Universidad.",
-        "Los representantes de los trabajadores."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 2 del Convenio indica que la organización del trabajo 'Corresponde en exclusiva a los órganos de gobierno de cada Universidad (a través de la Gerencia)'.",
-      "usage": "simulacro",
-      "simulacroExamId": 9
-    },
-    {
-      "id": 88,
-      "question": "En el contexto del IV Convenio Colectivo, ¿qué significa 'PAS'?",
-      "options": [
-        "Personal de Administración y Servicios.",
-        "Personal Altamente Cualificado.",
-        "Programa de Actuación Social.",
-        "Personal Académico Superior."
-      ],
-      "correctAnswer": 0,
-      "explanation": "Aunque el texto no lo define explícitamente, en el contexto de los convenios colectivos universitarios, 'PAS' se refiere al Personal de Administración y Servicios, siendo el personal laboral de este ámbito el regulado por el IV Convenio Colectivo.",
-      "usage": "simulacro",
-      "simulacroExamId": 9
-    },
-    {
-      "id": 89,
-      "question": "¿Cuál es el objetivo principal del régimen disciplinario del IV Convenio Colectivo?",
-      "options": [
-        "Fomentar la formación continua del personal.",
-        "Establecer las condiciones de ascensos y promociones.",
-        "Sancionar las infracciones cometidas por el personal laboral en el ejercicio de sus funciones.",
-        "Regular los procesos de negociación colectiva."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4 del Convenio claramente establece que 'El régimen disciplinario tiene por objeto sancionar las infracciones cometidas por el personal laboral en el ejercicio de sus funciones'.",
-      "usage": "simulacro",
-      "simulacroExamId": 10
-    },
-    {
-      "id": 90,
-      "question": "¿Cuál es el número total de días de vacaciones hábiles que le corresponde a un trabajador con 30 años de servicio en el sector público?",
-      "options": [
-        "22 días hábiles.",
-        "24 días hábiles.",
-        "25 días hábiles.",
-        "26 días hábiles."
-      ],
-      "correctAnswer": 3,
-      "explanation": "Según el apartado 3.A. del Convenio, un trabajador con 30 o más años de servicio tiene derecho a 4 días hábiles adicionales, lo que sumado a los 22 días hábiles básicos, hace un total de 26 días hábiles.",
-      "usage": "simulacro",
-      "simulacroExamId": 10
-    },
-    {
-      "id": 91,
-      "question": "¿Qué grado de parentesco se considera para padres, cónyuge e hijos en los permisos por fallecimiento, accidente o enfermedad grave?",
-      "options": [
-        "Primer grado de consanguinidad o afinidad.",
-        "Segundo grado de consanguinidad o afinidad.",
-        "Tercer grado de consanguinidad o afinidad.",
-        "No se especifica grado de parentesco."
-      ],
-      "correctAnswer": 0,
-      "explanation": "El apartado 3.B. del Convenio clasifica a padres, cónyuge, hijos como familiares de primer grado (de consanguinidad o afinidad).",
-      "usage": "simulacro",
-      "simulacroExamId": 11
-    },
-    {
-      "id": 92,
-      "question": "¿Qué grado de parentesco se considera para hermanos, abuelos, nietos y cuñados en los permisos por fallecimiento, accidente o enfermedad grave?",
-      "options": [
-        "Primer grado de consanguinidad o afinidad.",
-        "Segundo grado de consanguinidad o afinidad.",
-        "Tercer grado de consanguinidad o afinidad.",
-        "Cuarto grado de consanguinidad o afinidad."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 3.B. del Convenio clasifica a hermanos, abuelos, nietos, cuñados como familiares de segundo grado (de consanguinidad o afinidad).",
-      "usage": "simulacro",
-      "simulacroExamId": 11
-    },
-    {
-      "id": 93,
-      "question": "Un trabajador del personal laboral de la Universidad de Sevilla que ha estado de baja por enfermedad durante 6 meses, ¿a cuántos días de vacaciones anuales tiene derecho por ese año?",
-      "options": [
-        "A la totalidad de las vacaciones (un mes natural o 22 días hábiles).",
-        "A la mitad de las vacaciones anuales.",
-        "A la parte proporcional al tiempo de servicio activo prestado.",
-        "A ningún día de vacaciones si no ha trabajado activamente."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.A. del Convenio establece el derecho a una vacación anual 'por cada año completo de servicio activo (o la parte proporcional si el tiempo de servicio prestado fuese inferior)'. La baja por enfermedad, aunque es una situación administrativa, no siempre cuenta como 'servicio activo' a efectos del devengo total de vacaciones sin prorrateo, especialmente si la baja es larga. Sin embargo, en el contexto de la literalidad del texto proporcionado, la parte proporcional es la más adecuada para un período inferior al año completo de servicio activo.",
-      "usage": "simulacro",
-      "simulacroExamId": 12
-    },
-    {
-      "id": 94,
-      "question": "Según el IV Convenio Colectivo, la distribución de la jornada laboral se organiza a través de:",
-      "options": [
-        "Decisiones semanales de cada jefatura de servicio.",
-        "Calendarios laborales anuales negociados y aprobados en cada universidad.",
-        "Directrices mensuales de la Gerencia.",
-        "El Estatuto Básico del Empleado Público."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El apartado 2 del Convenio establece que 'La distribución de estas horas se organiza a través de los calendarios laborales anuales negociados y aprobados en cada universidad'.",
-      "usage": "simulacro",
-      "simulacroExamId": 12
-    },
-    {
-      "id": 95,
-      "question": "¿Cuál es la sanción máxima de suspensión de empleo y sueldo por una falta muy grave?",
-      "options": [
-        "15 días.",
-        "3 meses.",
-        "6 meses.",
-        "1 año."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.B. del Convenio establece que por faltas muy graves la suspensión de empleo y sueldo puede ser de '16 días a 6 meses'.",
-      "usage": "simulacro",
-      "simulacroExamId": 13
-    },
-    {
-      "id": 96,
-      "question": "Si una Falta Leve fue cometida hace 12 días, y la Universidad tuvo conocimiento de ella hace 10 días, ¿está prescrita?",
-      "options": [
-        "Sí, porque han pasado más de 10 días naturales desde que la Universidad tuvo conocimiento.",
-        "No, el plazo es de 15 días.",
-        "No, la prescripción se cuenta desde que se cometió, no desde que se conoce.",
-        "Sí, porque han pasado más de 10 días desde que se cometió."
-      ],
-      "correctAnswer": 0,
-      "explanation": "El apartado 4.C. del Convenio indica que las faltas leves prescriben a los 10 días naturales 'desde la fecha en que la Universidad tiene constancia de su comisión'. Si la Universidad tuvo constancia hace 10 días, y el plazo ya ha vencido.",
-      "usage": "simulacro",
-      "simulacroExamId": 13
-    },
-    {
-      "id": 97,
-      "question": "¿Cuál de las siguientes situaciones NO se considera una Falta Muy Grave en el régimen disciplinario del IV Convenio Colectivo?",
-      "options": [
-        "Fraude.",
-        "Deslealtad.",
-        "Más de tres faltas de puntualidad injustificadas en un mes.",
-        "Acoso por razón de sexo."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 4.A. del Convenio clasifica como Faltas Muy Graves el fraude, la deslealtad y el acoso por razón de sexo. 'Más de tres faltas de puntualidad injustificadas en un mes' se clasifica como Falta Grave.",
-      "usage": "simulacro",
-      "simulacroExamId": 14
-    },
-    {
-      "id": 98,
-      "question": "¿Qué organismo es el encargado de interpretar y velar por el cumplimiento del IV Convenio Colectivo?",
-      "options": [
-        "El Rectorado de cada Universidad.",
-        "La Gerencia de cada Universidad.",
-        "La Comisión Paritaria (CIVE).",
-        "El Comité de Empresa."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 6 del Convenio define la Comisión Paritaria (CIVE) como el 'Órgano mixto formado por representantes de las universidades y de los sindicatos firmantes encargado de interpretar y velar por el cumplimiento del convenio'.",
-      "usage": "simulacro",
-      "simulacroExamId": 14
-    },
-    {
-      "id": 99,
-      "question": "Para poder disfrutar de los días adicionales de vacaciones por antigüedad (CIVE), ¿en qué sector deben haberse acumulado los años de servicio?",
-      "options": [
-        "Solo en las Universidades Públicas de Andalucía.",
-        "En cualquier Universidad Pública española.",
-        "En el sector público en general.",
-        "En cualquier empresa pública o privada."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.A. del Convenio especifica que los días adicionales de vacaciones se reconocen según los años de servicio prestados 'acumulados en el sector público'.",
-      "usage": "simulacro",
-      "simulacroExamId": 15
-    },
-    {
-      "id": 100,
-      "question": "Si un trabajador necesita ausentarse del trabajo para el ejercicio del derecho al voto, ¿qué tipo de permiso le corresponde?",
-      "options": [
-        "Permiso no retribuido.",
-        "Permiso por asuntos particulares.",
-        "Permiso retribuido por deber inexcusable de carácter público o personal.",
-        "Permiso por examen oficial."
-      ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 3.B. del Convenio incluye el ejercicio del derecho al voto como un ejemplo de 'deber inexcusable de carácter público o personal', que da derecho a permiso retribuido por el tiempo indispensable.",
-      "usage": "simulacro",
-      "simulacroExamId": 15
-    },
-    {
-      "id": 101,
-      "question": "¿A qué universidades de la comunidad autónoma de Andalucía se aplica de manera obligatoria el IV Convenio Colectivo de Personal Laboral?",
-      "options": [
-        "Solo a la Universidad de Sevilla y la de Granada por ser las más antiguas.",
-        "A todas las universidades públicas andaluzas integradas en el convenio, incluyendo la Universidad de Sevilla.",
-        "Únicamente a los centros de formación técnica y profesional dependientes de la Junta de Andalucía.",
-        "A todas las universidades públicas y privadas situadas en el territorio andaluz."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El IV Convenio Colectivo es de aplicación obligatoria para todo el personal laboral con relación contractual en cualquiera de las 9 universidades públicas andaluzas firmantes, incluyendo la de Sevilla.",
-      "usage": "dossier"
-    },
-    {
-      "id": 102,
-      "question": "De acuerdo con el IV Convenio Colectivo, ¿en cuántas horas semanales se establece con carácter general la jornada ordinaria de trabajo en cómputo anual?",
-      "options": [
-        "35 horas semanales.",
-        "37,5 horas semanales.",
-        "40 horas semanales.",
-        "32 horas semanales."
-      ],
-      "correctAnswer": 0,
-      "explanation": "La jornada ordinaria promedio anual fijada en el convenio colectivo vigente para el personal laboral de las universidades públicas andaluzas es de 35 horas semanales.",
-      "usage": "dossier"
-    },
-    {
-      "id": 103,
-      "question": "¿Cuántos días de vacaciones anuales retribuidas garantiza el convenio colectivo por año completo de servicios, computándose de lunes a viernes?",
-      "options": [
-        "30 días naturales.",
-        "22 días hábiles.",
-        "26 días laborables.",
-        "15 días hábiles."
-      ],
-      "correctAnswer": 1,
-      "explanation": "El convenio establece 22 días hábiles (excluidos sábados, domingos y festivos) de vacaciones anuales retribuidas para todo el personal laboral, sin perjuicio de los incrementos reglamentarios por antigüedad.",
-      "usage": "dossier"
-    },
-    {
-      "id": 104,
-      "question": "En caso de contraer matrimonio, ¿de cuántos días de licencia retribuida natural dispone el personal laboral según el IV Convenio Colectivo?",
-      "options": [
-        "10 días naturales.",
         "12 días hábiles.",
-        "15 días naturales.",
-        "20 días naturales."
+        "15 días hábiles."
       ],
-      "correctAnswer": 2,
-      "explanation": "El permiso retribuido por matrimonio o registro oficial de pareja de hecho está fijado en 15 días naturales consecutivos en el convenio colectivo.",
+      "correctAnswer": 1,
+      "explanation": "El permiso por matrimonio es de 15 días naturales y puede ejercerse antes o después del hecho causante.",
       "usage": "dossier"
     },
     {
-      "id": 105,
-      "question": "Si fallece o se accidenta de forma grave un familiar de primer grado de consanguinidad (como un hijo o padre), ¿cuántos días hábiles de permiso tiene el trabajador si el suceso ocurre en una localidad distinta a la del puesto?",
+      "id": 17,
+      "question": "Según el Artículo 33.2.b, ¿cuántos días de permiso retribuido corresponden por el nacimiento, adopción o acogida de un hijo?",
       "options": [
+        "2 días naturales.",
+        "4 días naturales.",
         "3 días hábiles.",
-        "4 días hábiles.",
-        "5 días hábiles.",
-        "6 días naturales."
+        "5 días naturales."
       ],
-      "correctAnswer": 2,
-      "explanation": "Por fallecimiento, accidente o enfermedad grave de familiar de 1er grado, corresponden 3 días hábiles en la misma localidad y 5 días hábiles si hay desplazamiento a localidad distinta.",
+      "correctAnswer": 1,
+      "explanation": "El Art. 33.2.b especifica un permiso retribuido de 4 días naturales por nacimiento, adopción o acogida.",
       "usage": "dossier"
     },
     {
-      "id": 106,
-      "question": "Por accidente o enfermedad grave de un familiar de segundo grado de consanguinidad (como un hermano o abuelo), ¿de cuántos días hábiles de permiso dispone el trabajador si ocurre en la misma localidad?",
+      "id": 18,
+      "question": "De acuerdo con el Artículo 33.2.c, ¿cuántos días hábiles de permiso corresponden por enfermedad o accidente graves, hospitalización o intervención quirúrgica del padre, cónyuge o hijo?",
       "options": [
-        "1 día hábil.",
+        "2 días hábiles.",
+        "4 días hábiles.",
+        "3 días hábiles.",
+        "5 días naturales."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 33.2.c otorga 4 días hábiles por enfermedad o accidente graves, hospitalización o intervención del padre, cónyuge o hijo.",
+      "usage": "dossier"
+    },
+    {
+      "id": 19,
+      "question": "Según el Artículo 33.2.d, ¿cuántos días hábiles de permiso corresponden por enfermedad grave u hospitalización de familiares de primer grado por afinidad o hermanos?",
+      "options": [
         "2 días hábiles.",
         "3 días hábiles.",
+        "4 días hábiles.",
         "4 días naturales."
       ],
       "correctAnswer": 1,
-      "explanation": "Para familiares de 2º grado de consanguinidad o afinidad, el convenio regula un permiso de 2 días hábiles si ocurre en la misma localidad (y 4 días hábiles si exige desplazamiento).",
+      "explanation": "El Art. 33.2.d otorga 3 días hábiles por enfermedad o accidente graves u hospitalización de familiares de primer grado por afinidad o hermanos.",
       "usage": "dossier"
     },
     {
-      "id": 107,
-      "question": "¿De cuántos días de permiso por asuntos particulares (días de libre disposición o 'moscosos') dispone al año el personal laboral según el convenio?",
+      "id": 20,
+      "question": "De acuerdo con el Artículo 33.2.f, en caso de enfermedad terminal de cónyuge o hijo, ¿cuál es el plazo máximo de permiso y sus condiciones retributivas?",
       "options": [
-        "3 días.",
-        "6 días.",
-        "9 días.",
-        "12 días."
+        "Máximo 15 días con retribución al 100%.",
+        "Hasta un máximo de 15 días, ampliables a 30, pero en el segundo periodo de ampliación no se devengará retribución.",
+        "Máximo 30 días naturales no retribuidos.",
+        "Hasta un máximo de 10 días hábiles totalmente retribuidos."
       ],
       "correctAnswer": 1,
-      "explanation": "El personal laboral dispone de 6 días al año por asuntos particulares con carácter retribuido, de acuerdo con el clausulado común de la jornada laboral.",
+      "explanation": "El Art. 33.2.f especifica que el permiso es de hasta un máximo de 15 días, ampliables a 30, si bien en el segundo periodo no se devengará retribución.",
       "usage": "dossier"
     },
     {
-      "id": 108,
-      "question": "En el régimen disciplinario del convenio colectivo, ¿cuál es el plazo de prescripción de una falta catalogada como LEVE, contado a partir de que la Universidad tuvo conocimiento de su comisión?",
+      "id": 21,
+      "question": "Según el Artículo 33.2.g, ¿cuántos días naturales corresponden por fallecimiento del padre, cónyuge o hijo del trabajador?",
       "options": [
-        "5 días.",
-        "10 días.",
-        "15 días.",
-        "30 días."
+        "3 días naturales.",
+        "5 días naturales.",
+        "4 días hábiles.",
+        "5 días hábiles."
       ],
       "correctAnswer": 1,
-      "explanation": "El anexo III del IV Convenio Colectivo establece que las faltas leves prescriben a los 10 días a contar desde la fecha en que la universidad tuvo conocimiento de las mismas.",
+      "explanation": "El Art. 33.2.g otorga 5 días naturales por fallecimiento del padre, cónyuge o hijo del trabajador.",
       "usage": "dossier"
     },
     {
-      "id": 109,
-      "question": "De acuerdo con el IV Convenio Colectivo, ¿en qué plazo prescriben las faltas GRAVES cometidas por el personal laboral contados desde el conocimiento de la universidad?",
+      "id": 22,
+      "question": "De acuerdo con el Artículo 33.2.i, ¿cuál es el permiso básico por traslado de domicilio y sus ampliaciones por traslado de puesto de trabajo o a otra Universidad?",
       "options": [
-        "10 días.",
-        "20 días.",
-        "30 días.",
-        "60 días."
+        "1 día ampliable a 2 y 4 días respectivamente.",
+        "2 días naturales, ampliables a 4 por traslado dentro de la provincia, y a 7 por traslado a otra Universidad.",
+        "2 días hábiles no ampliables.",
+        "3 días naturales ampliables a 5."
       ],
       "correctAnswer": 1,
-      "explanation": "El plazo fijado para la prescripción de las faltas graves de personal laboral en las universidades andaluzas es de 20 días.",
+      "explanation": "Por traslado de domicilio habitual corresponden 2 días naturales, ampliables a 4 por traslado de puesto dentro de la provincia, y a 7 si se deriva del traslado a otra Universidad.",
       "usage": "dossier"
     },
     {
-      "id": 110,
-      "question": "¿Cuál es el plazo de prescripción que se aplica a las faltas disciplinarias MUY GRAVES cometidas por el personal laboral contados desde que el órgano competente tuvo conocimiento?",
+      "id": 23,
+      "question": "Según el Artículo 33.2.i, ¿cuántos días de asuntos particulares al año se conceden al trabajador tras cumplir un año de servicio?",
       "options": [
-        "30 días.",
-        "60 días.",
-        "90 días.",
-        "6 meses."
+        "Hasta 6 días hábiles.",
+        "Hasta 10 días al año.",
+        "Hasta 9 días naturales.",
+        "Hasta 5 días al año."
       ],
       "correctAnswer": 1,
-      "explanation": "Las infracciones y faltas disciplinarias muy graves prescriben a los 60 días a contar desde el conocimiento oficial del hecho por la administración de la universidad.",
+      "explanation": "El Convenio establece en su Artículo 33.2.i (penúltimo punto) la concesión de hasta diez días al año por asuntos particulares, distribuidos a conveniencia del trabajador y condicionados a necesidades del servicio.",
       "usage": "dossier"
     },
     {
-      "id": 111,
-      "question": "Independientemente de la fecha en que la universidad tenga conocimiento, ¿cuál es el límite absoluto de prescripción de cualquier falta laboral contados desde que esta se cometió físicamente?",
+      "id": 24,
+      "question": "De acuerdo con el Artículo 34, ¿cuál es la duración mínima y máxima de las licencias no retribuidas?",
       "options": [
-        "3 meses.",
-        "6 meses.",
-        "1 año.",
-        "2 años."
+        "Mínimo 7 días y máximo 1 mes.",
+        "Mínimo 15 días y máximo de tres meses.",
+        "Mínimo 1 mes y máximo 6 meses.",
+        "Mínimo 15 días y máximo de dos meses."
       ],
       "correctAnswer": 1,
-      "explanation": "El convenio establece que, en todo caso, cualquier tipo de falta (leve, grave o muy grave) prescribirá de forma absoluta al transcurrir 6 meses desde el momento en que se cometió.",
+      "explanation": "El Art. 34 establece que la licencia no retribuida para personal con al menos un año de antigüedad tendrá una duración mínima de 15 días y máxima de tres meses.",
       "usage": "dossier"
     },
     {
-      "id": 112,
-      "question": "Una vez impuesta una sanción firme por la comisión de una falta disciplinaria GRAVE, ¿en qué plazo prescribe dicha sanción si no se ejecuta?",
-      "options": [
-        "10 días.",
-        "20 días.",
-        "30 días.",
-        "60 días."
-      ],
-      "correctAnswer": 1,
-      "explanation": "Los plazos de prescripción de las sanciones son simétricos a los de las faltas: prescriben a los 10 días para faltas leves, 20 días para graves y 60 días para muy graves.",
-      "usage": "dossier"
-    },
-    {
-      "id": 113,
-      "question": "¿Cuál de las siguientes conductas se tipifica de manera expresa en el convenio colectivo como una falta disciplinaria MUY GRAVE?",
-      "options": [
-        "El descuido en la conservación de las estanterías de la biblioteca que no provoque daños severos.",
-        "La falta de asistencia al trabajo no justificada durante más de cinco días en un período de un mes.",
-        "La desconsideración de carácter leve al público usuario en el mostrador.",
-        "La desobediencia a instrucciones de servicio que no causen perjuicio grave."
-      ],
-      "correctAnswer": 1,
-      "explanation": "La falta de asistencia sin justificar por más de 5 días en un mes se califica como falta muy grave (mientras que de 3 a 5 días es grave y los retrasos o descuidos habituales son leves).",
-      "usage": "dossier"
-    },
-    {
-      "id": 114,
-      "question": "En el régimen disciplinario, la comisión de una negligencia grave en la custodia de fondos bibliográficos históricos de la BUS que cause la pérdida o deterioro de los libros se clasifica como:",
+      "id": 25,
+      "question": "Según el Anexo III (Régimen Disciplinario), la falta de asistencia al trabajo sin causa justificada de 1 o 2 días en un mes se califica como:",
       "options": [
         "Falta leve.",
         "Falta grave.",
         "Falta muy grave.",
-        "No está tipificado, derivándose a la responsabilidad civil ordinaria."
+        "Infracción no sancionable."
       ],
-      "correctAnswer": 1,
-      "explanation": "La negligencia en la custodia de materiales y bienes de la universidad que cause daño o pérdida se tipifica expresamente como falta grave en el Anexo III del convenio.",
+      "correctAnswer": 0,
+      "explanation": "El Anexo III.a.4 tipifica como falta leve la falta de asistencia al trabajo sin causa justificada de uno o dos días en el plazo de un mes natural.",
       "usage": "dossier"
     },
     {
-      "id": 115,
-      "question": "Para imponer una sanción por faltas graves o muy graves al personal laboral de la US, ¿qué trámite procedimental resulta obligatorio bajo pena de nulidad?",
+      "id": 26,
+      "question": "De acuerdo con el Anexo III, ¿cuál es el plazo de prescripción para las faltas muy graves contado desde que la Universidad tiene conocimiento de su comisión?",
       "options": [
-        "Una sanción directa por escrito por parte del Director de la biblioteca de centro.",
-        "La instrucción obligatoria de un expediente contradictorio con audiencia previa al trabajador y al Comité de Empresa.",
-        "La convocatoria extraordinaria del Claustro Universitario.",
-        "La ratificación de la sanción por el juzgado de lo social."
+        "A los 30 días.",
+        "A los 60 días (sesenta días).",
+        "A los 90 días.",
+        "A los 20 días."
       ],
       "correctAnswer": 1,
-      "explanation": "El IV Convenio Colectivo exige de forma ineludible la instrucción de un expediente contradictorio dando audiencia previa al expedientado y a los representantes de los trabajadores (Comité de Empresa) para sancionar faltas graves o muy graves.",
+      "explanation": "El Anexo III.2 establece que las faltas graves prescriben a los veinte días y las muy graves a los sesenta días desde que la administración tuvo conocimiento de ellas.",
+      "usage": "dossier"
+    },
+    {
+      "id": 27,
+      "question": "Según el Anexo III, ¿cuál es el límite absoluto de tiempo desde que ocurrió el hecho para que prescriba cualquier tipo de falta?",
+      "options": [
+        "A los 3 meses.",
+        "A los 6 meses.",
+        "Al año de cometerse.",
+        "No prescribe nunca de forma absoluta."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Anexo III determina que todas las faltas prescribirán, en todo caso, a los seis meses después de haberse cometido.",
+      "usage": "dossier"
+    },
+    {
+      "id": 28,
+      "question": "De acuerdo con el Anexo III, ¿cuál es el plazo para la cancelación de oficio o a petición de una sanción grave en el expediente personal desde su cumplimiento?",
+      "options": [
+        "1 año.",
+        "3 años.",
+        "5 años.",
+        "2 años."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Anexo III prescribe que la cancelación de las anotaciones se realizará al año para faltas leves, tres años para graves y cinco años para muy graves, a petición del interesado.",
+      "usage": "dossier"
+    },
+    {
+      "id": 29,
+      "question": "Según el Artículo 43 (Prevención de Riesgos), ¿con qué frecuencia ordinaria debe reunirse el Comité de Seguridad y Salud (CSS) de cada Universidad?",
+      "options": [
+        "Al menos mensualmente.",
+        "Al menos trimestralmente.",
+        "Al menos una vez al semestre.",
+        "Al menos una vez al año."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Artículo 43.3 dispone que el Comité de Seguridad y Salud se reunirá al menos trimestralmente (cada 3 meses).",
+      "usage": "dossier"
+    },
+    {
+      "id": 30,
+      "question": "De acuerdo con el Artículo 46.3, los reconocimientos médicos preventivos para el personal laboral se practicarán ordinariamente con una periodicidad de:",
+      "options": [
+        "Una vez cada dos años.",
+        "Una vez al año para todo el personal.",
+        "Solo al personal de nuevo ingreso.",
+        "Solo después de bajas superiores a seis meses."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 46.3.a indica de forma explícita que los reconocimientos médicos se practicarán una vez al año para todo el personal.",
       "usage": "dossier"
     }
   ],
