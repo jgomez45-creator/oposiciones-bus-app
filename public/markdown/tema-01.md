@@ -19,6 +19,7 @@ La **BUS** se define en el artículo 1 de su Reglamento como:
 > *"Un centro de recursos para el aprendizaje, la docencia, la investigación y la formación continua, constituido como una unidad funcional única e integrada por todos los fondos bibliográficos, documentales y archivísticos de la Universidad..."*
 
 *   **Plan Director de la BUS (2022-2026):** Es el documento estratégico vigente que marca las directrices, objetivos y estrategia de innovación de la biblioteca para los próximos años.
+*   **Periodicidad:** El plan se renueva cada 4‑5 años, con planes de acción anuales que se revisan y evalúan cada curso académico. No hay un plan posterior publicado; se está elaborando el siguiente (previsto para 2027‑2031).
 *   **Dependencia Funcional:** La Biblioteca de la Universidad de Sevilla depende funcionalmente del **Vicerrectorado de Investigación** de la US.
 *   **Concepto de Biblioteca/CRAI según REBIUN:** La Red de Bibliotecas Universitarias Españolas la define como un *"Centro de recursos para el aprendizaje, la docencia, la investigación y las actividades relacionadas con el funcionamiento y la gestión de la Universidad en su conjunto"*.
 
