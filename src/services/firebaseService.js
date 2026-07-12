@@ -16,16 +16,22 @@ import {
 } from 'firebase/firestore';
 
 // Check if we should run in Mock Simulator Mode
-const isMock = !import.meta.env.VITE_FIREBASE_PROJECT_ID || 
-               import.meta.env.VITE_FIREBASE_PROJECT_ID === 'tu_project_id';
+const projectID = import.meta.env.VITE_FIREBASE_PROJECT_ID || 'oposiciones-bus-app';
+const isMock = !projectID || projectID === 'tu_project_id';
+
+const rawApiKey = import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAuBS58f2eNqaeGIc10zyQwgjxgm2StgBg';
+// Automatically correct the '8g' -> 'Bg' typo if it exists in the environment variable
+const apiKey = rawApiKey && rawApiKey.endsWith('8g') 
+  ? rawApiKey.substring(0, rawApiKey.length - 2) + 'Bg' 
+  : rawApiKey;
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: apiKey,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'oposiciones-bus-app.firebaseapp.com',
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'oposiciones-bus-app',
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'oposiciones-bus-app.firebasestorage.app',
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '306671821699',
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || '1:306671821699:web:58c7be6781ab25c5230cb6'
 };
 
 let auth = null;
