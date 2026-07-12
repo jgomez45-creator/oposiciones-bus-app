@@ -32,7 +32,7 @@ export default function Login({ onLogin }) {
           throw new Error("Por favor, introduce tu correo electrónico.");
         }
         await firebaseService.sendPasswordReset(trimmedEmail);
-        setSuccessMessage("Se ha enviado un enlace de recuperación a tu correo electrónico. Por favor, revisa tu bandeja de entrada.");
+        setSuccessMessage("Se ha enviado un enlace de recuperación a tu correo electrónico. Por favor, revisa tu bandeja de entrada (si no lo recibes en unos minutos, comprueba tu carpeta de correo no deseado o spam).");
         setLoading(false);
       } else if (activeTab === 'login') {
         // LOGIN FLOW
