@@ -51,6 +51,11 @@ export default function TopicViewer({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   
+  // Autoscroll & Reading Ruler State
+  const [isAutoscrolling, setIsAutoscrolling] = useState(false);
+  const [autoscrollSpeed, setAutoscrollSpeed] = useState(3);
+  const [showReadingRuler, setShowReadingRuler] = useState(false);
+  
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'multi-print'
   const [selectedPrintTopicIds, setSelectedPrintTopicIds] = useState([]);
   const [isCompilingPrint, setIsCompilingPrint] = useState(false);
@@ -562,10 +567,45 @@ export default function TopicViewer({
     };
   }, [timerRunning, isFocusMode]);
 
+  // Autoscroll effect
+  useEffect(() => {
+    if (!isAutoscrolling) return;
+
+    const container = document.querySelector('.markdown-body-container');
+    if (!container) return;
+
+    let lastTime = performance.now();
+    let animationFrameId;
+
+    const scroll = (time) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
+      // Speed 1 = 15px/s, Speed 10 = 150px/s
+      const pixelsPerSecond = autoscrollSpeed * 15;
+      const step = (pixelsPerSecond * delta) / 1000;
+
+      container.scrollTop += step;
+
+      // If reached the bottom, stop autoscroll
+      if (container.scrollTop + container.clientHeight >= container.scrollHeight - 2) {
+        setIsAutoscrolling(false);
+        return;
+      }
+
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isAutoscrolling, autoscrollSpeed]);
+
   // Reset session timer on topic change
   useEffect(() => {
     setSessionTime(0);
     setTimerRunning(false);
+    setIsAutoscrolling(false);
+    setShowReadingRuler(false);
     
     // Load Markdown content
     setLoading(true);
@@ -1182,70 +1222,121 @@ export default function TopicViewer({
 
             {/* Reading settings bar */}
             {(!isFocusMode || showReadingControls) && (
-              <div className="reading-settings-bar glass-panel">
-                <div className="settings-group">
-                  <span className="settings-label">Letra:</span>
-                  <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
-                  <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
-                  <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
-                  <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
+              <>
+                <div className="reading-settings-bar glass-panel">
+                  <div className="settings-group">
+                    <span className="settings-label">Letra:</span>
+                    <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
+                    <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
+                    <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
+                    <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
+                  </div>
+                  <div className="settings-group">
+                    <span className="settings-label">Fondo:</span>
+                    <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
+                    <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
+                    <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
+                  </div>
                 </div>
-                <div className="settings-group">
-                  <span className="settings-label">Fondo:</span>
-                  <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
-                  <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
-                  <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
+
+                <div className="reading-settings-bar glass-panel" style={{ marginTop: '-10px', marginBottom: '20px' }}>
+                  <div className="settings-group">
+                    <span className="settings-label">Lectura Guiada:</span>
+                    <button 
+                      type="button"
+                      onClick={() => setIsAutoscrolling(!isAutoscrolling)} 
+                      className={`font-btn ${isAutoscrolling ? 'active' : ''}`}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                    >
+                      {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
+                      <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
+                    </button>
+                    
+                    <button 
+                      type="button"
+                      onClick={() => setShowReadingRuler(!showReadingRuler)} 
+                      className={`font-btn ${showReadingRuler ? 'active' : ''}`}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                    >
+                      <span>👉 Guía de Lectura</span>
+                    </button>
+                  </div>
+                  
+                  {isAutoscrolling && (
+                    <div className="settings-group" style={{ flexGrow: 1, justifyContent: 'flex-end', minWidth: '180px' }}>
+                      <span className="settings-label">Velocidad:</span>
+                      <input 
+                        type="range" 
+                        min="1" 
+                        max="10" 
+                        value={autoscrollSpeed} 
+                        onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
+                        style={{ 
+                          accentColor: 'var(--secondary)', 
+                          width: '100px', 
+                          height: '4px',
+                          cursor: 'pointer' 
+                        }} 
+                      />
+                      <span style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--text-muted)', width: '25px', textAlign: 'right' }}>
+                        {autoscrollSpeed}x
+                      </span>
+                    </div>
+                  )}
                 </div>
-              </div>
+              </>
             )}
 
             {/* Markdown Renderer Area */}
-            <div className="markdown-body-container">
-              {loading ? (
-                <div className="viewer-message loading">
-                  <div className="spinner" />
-                  <p>Cargando contenidos del tema...</p>
-                </div>
-              ) : error ? (
-                <div className="viewer-message error-placeholder">
-                  <AlertCircle size={48} className="text-secondary" />
-                  <h3>Contenido en Desarrollo</h3>
-                  <p>
-                    Actualmente estamos trabajando en la investigación y redacción completa del **Tema {topic.id}**.
-                    Sin embargo, ya puedes ver su descripción oficial y cambiar su estado de estudio o realizar tests.
-                  </p>
-                  
-                  <div className="placeholder-structure">
-                    <h5>Estructura del tema que se generará:</h5>
-                    <ul>
-                      {topic.subtitle.split(',').map((part, i) => (
-                        <li key={i}>{part.trim()}</li>
-                      ))}
-                    </ul>
+            <div className="markdown-body-wrapper" style={{ position: 'relative', flexGrow: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+              {showReadingRuler && <div className="reading-ruler" />}
+              <div className="markdown-body-container">
+                {loading ? (
+                  <div className="viewer-message loading">
+                    <div className="spinner" />
+                    <p>Cargando contenidos del tema...</p>
                   </div>
+                ) : error ? (
+                  <div className="viewer-message error-placeholder">
+                    <AlertCircle size={48} className="text-secondary" />
+                    <h3>Contenido en Desarrollo</h3>
+                    <p>
+                      Actualmente estamos trabajando en la investigación y redacción completa del **Tema {topic.id}**.
+                      Sin embargo, ya puedes ver su descripción oficial y cambiar su estado de estudio o realizar tests.
+                    </p>
+                    
+                    <div className="placeholder-structure">
+                      <h5>Estructura del tema que se generará:</h5>
+                      <ul>
+                        {topic.subtitle.split(',').map((part, i) => (
+                          <li key={i}>{part.trim()}</li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div className="info-actions">
-                    <button 
-                      onClick={() => setCurrentTab('quizzes')} 
-                      className="glow-btn-secondary"
-                    >
-                      <HelpCircle size={16} />
-                      Probar Test de este Tema
-                    </button>
+                    <div className="info-actions">
+                      <button 
+                        onClick={() => setCurrentTab('quizzes')} 
+                        className="glow-btn-secondary"
+                      >
+                        <HelpCircle size={16} />
+                        Probar Test de este Tema
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div 
-                  className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
-                  dangerouslySetInnerHTML={{ 
-                    __html: activeSubTab === 'content' 
-                      ? parsedSections.content 
-                      : activeSubTab === 'outline' 
-                      ? parsedSections.outline 
-                      : parsedSections.concepts 
-                  }} 
-                />
-              )}
+                ) : (
+                  <div 
+                    className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
+                    dangerouslySetInnerHTML={{ 
+                      __html: activeSubTab === 'content' 
+                        ? parsedSections.content 
+                        : activeSubTab === 'outline' 
+                        ? parsedSections.outline 
+                        : parsedSections.concepts 
+                    }} 
+                  />
+                )}
+              </div>
             </div>
           </>
         )}

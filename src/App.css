@@ -2317,6 +2317,190 @@ body.study-focus-mode .study-timer-bar {
   color: #2b1f13 !important;
 }
 
+/* Specificity fixes for study focus mode */
+body.study-focus-mode .topic-viewer-main.theme-light-reading {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.study-focus-mode .topic-viewer-main.theme-sepia {
+  background: #f4ecd8 !important;
+  color: #433422 !important;
+  border-color: #e4dcd3 !important;
+  box-shadow: 0 10px 40px rgba(67, 52, 34, 0.15) !important;
+}
+
+/* Guided Reading (Autoscroll & Reading Ruler) */
+.markdown-body-wrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.reading-ruler {
+  position: absolute;
+  left: 0;
+  right: 8px; /* Leave space for scrollbar padding */
+  top: 50%;
+  height: 38px;
+  transform: translateY(-50%);
+  background: rgba(234, 179, 8, 0.1); /* Seville Gold tint */
+  border-top: 1px dashed rgba(234, 179, 8, 0.4);
+  border-bottom: 1px dashed rgba(234, 179, 8, 0.4);
+  pointer-events: none; /* Let scroll/clicks pass through */
+  z-index: 10;
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+}
+
+.reading-ruler::before {
+  content: '👉';
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .reading-ruler::before {
+    left: 4px; /* Inside the box on smaller screens */
+    opacity: 0.7;
+  }
+}
+
+/* Theme adaptation for widgets inside topic viewer (audio player, settings, etc.) */
+
+/* Light Reading Theme overrides */
+.theme-light-reading .audiobook-player-card {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light-reading .audiobook-player-header h4 {
+  color: #0f172a !important;
+}
+
+.theme-light-reading .speed-chip {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.theme-light-reading .speed-chip:hover {
+  background: #e2e8f0 !important;
+}
+
+.theme-light-reading .speed-chip.active {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
+}
+
+.theme-light-reading .voice-select {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+.theme-light-reading .audio-progress-bar-container {
+  background: #e2e8f0 !important;
+}
+
+.theme-light-reading .audio-time-indicators {
+  color: #64748b !important;
+}
+
+.theme-light-reading .audiobook-mode-toggle {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light-reading .audiobook-mode-toggle .mode-btn {
+  color: #475569 !important;
+}
+
+.theme-light-reading .audiobook-mode-toggle .mode-btn.active {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: var(--primary) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light-reading .reading-ruler {
+  background: rgba(59, 130, 246, 0.08);
+  border-top-color: rgba(59, 130, 246, 0.3);
+  border-bottom-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Sepia Theme overrides */
+.theme-sepia .audiobook-player-card {
+  background: #ebdcb9 !important;
+  border: 1px solid #d8cbb2 !important;
+  box-shadow: 0 4px 12px rgba(67, 52, 34, 0.05) !important;
+}
+
+.theme-sepia .audiobook-player-header h4 {
+  color: #2b1f13 !important;
+}
+
+.theme-sepia .speed-chip {
+  background: #e9dec4 !important;
+  border: 1px solid #d8cbb2 !important;
+  color: #5b4a3a !important;
+}
+
+.theme-sepia .speed-chip:hover {
+  background: #dfd3b8 !important;
+}
+
+.theme-sepia .speed-chip.active {
+  background: #855e3a !important;
+  border-color: #855e3a !important;
+  color: white !important;
+}
+
+.theme-sepia .voice-select {
+  background: #f4ecd8 !important;
+  border-color: #d8cbb2 !important;
+  color: #4f3f2d !important;
+}
+
+.theme-sepia .audio-progress-bar-container {
+  background: #dfd3b8 !important;
+}
+
+.theme-sepia .audio-time-indicators {
+  color: #7c6853 !important;
+}
+
+.theme-sepia .audiobook-mode-toggle {
+  background: #e9dec4 !important;
+  border-color: #d8cbb2 !important;
+}
+
+.theme-sepia .audiobook-mode-toggle .mode-btn {
+  color: #5b4a3a !important;
+}
+
+.theme-sepia .audiobook-mode-toggle .mode-btn.active {
+  background: #f4ecd8 !important;
+  border-color: #d8cbb2 !important;
+  color: #855e3a !important;
+  box-shadow: 0 2px 4px rgba(67, 52, 34, 0.05) !important;
+}
+
+.theme-sepia .reading-ruler {
+  background: rgba(133, 94, 58, 0.1);
+  border-top-color: rgba(133, 94, 58, 0.4);
+  border-bottom-color: rgba(133, 94, 58, 0.4);
+}
+
 @media screen and (max-width: 480px) {
   .nav-btn-text {
     display: none !important;
