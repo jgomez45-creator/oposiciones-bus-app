@@ -7,9 +7,10 @@ const isMock = !import.meta.env.VITE_FIREBASE_PROJECT_ID ||
                import.meta.env.VITE_FIREBASE_PROJECT_ID === 'tu_project_id';
 
 export default function Login({ onLogin }) {
-  const [activeTab, setActiveTab] = useState('login'); // 'login' | 'register'
+  const [activeTab, setActiveTab] = useState('login'); // 'login' | 'register' | 'forgot'
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   
   // Form fields
   const [name, setName] = useState('');
@@ -20,10 +21,20 @@ export default function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccessMessage('');
     setLoading(true);
 
     try {
-      if (activeTab === 'login') {
+      if (activeTab === 'forgot') {
+        // FORGOT PASSWORD FLOW
+        const trimmedEmail = email.trim();
+        if (!trimmedEmail) {
+          throw new Error("Por favor, introduce tu correo electrónico.");
+        }
+        await firebaseService.sendPasswordReset(trimmedEmail);
+        setSuccessMessage("Se ha enviado un enlace de recuperación a tu correo electrónico. Por favor, revisa tu bandeja de entrada.");
+        setLoading(false);
+      } else if (activeTab === 'login') {
         // LOGIN FLOW
         const trimmedEmail = email.trim();
         const trimmedPassword = password.trim();
@@ -88,25 +99,37 @@ export default function Login({ onLogin }) {
           <p className="subtitle">Plataforma Didáctica Virtual &bull; Oposiciones US 2026</p>
         </div>
 
-        {/* Tab Selector */}
-        <div className="login-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--border-color)', marginBottom: '8px' }}>
-          <button
-            type="button"
-            onClick={() => { setActiveTab('login'); setError(''); }}
-            className={`login-tab-btn ${activeTab === 'login' ? 'active' : ''}`}
-            style={{ flex: 1, padding: '10px', background: 'none', border: 'none', borderBottom: activeTab === 'login' ? '2px solid var(--secondary)' : '2px solid transparent', color: activeTab === 'login' ? 'var(--text-main)' : 'var(--text-muted)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', transition: 'var(--transition-fast)' }}
-          >
-            Iniciar Sesión
-          </button>
-          <button
-            type="button"
-            onClick={() => { setActiveTab('register'); setError(''); }}
-            className={`login-tab-btn ${activeTab === 'register' ? 'active' : ''}`}
-            style={{ flex: 1, padding: '10px', background: 'none', border: 'none', borderBottom: activeTab === 'register' ? '2px solid var(--secondary)' : '2px solid transparent', color: activeTab === 'register' ? 'var(--text-main)' : 'var(--text-muted)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', transition: 'var(--transition-fast)' }}
-          >
-            Registrar Libro
-          </button>
-        </div>
+        {/* Tab Selector / Back to Login */}
+        {activeTab === 'forgot' ? (
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+            <button 
+              type="button" 
+              onClick={() => { setActiveTab('login'); setError(''); setSuccessMessage(''); }}
+              style={{ background: 'none', border: 'none', color: 'var(--secondary-light)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', fontSize: '0.85rem', fontWeight: '500', padding: 0 }}
+            >
+              &larr; Volver a Iniciar Sesión
+            </button>
+          </div>
+        ) : (
+          <div className="login-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--border-color)', marginBottom: '8px' }}>
+            <button
+              type="button"
+              onClick={() => { setActiveTab('login'); setError(''); setSuccessMessage(''); }}
+              className={`login-tab-btn ${activeTab === 'login' ? 'active' : ''}`}
+              style={{ flex: 1, padding: '10px', background: 'none', border: 'none', borderBottom: activeTab === 'login' ? '2px solid var(--secondary)' : '2px solid transparent', color: activeTab === 'login' ? 'var(--text-main)' : 'var(--text-muted)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', transition: 'var(--transition-fast)' }}
+            >
+              Iniciar Sesión
+            </button>
+            <button
+              type="button"
+              onClick={() => { setActiveTab('register'); setError(''); setSuccessMessage(''); }}
+              className={`login-tab-btn ${activeTab === 'register' ? 'active' : ''}`}
+              style={{ flex: 1, padding: '10px', background: 'none', border: 'none', borderBottom: activeTab === 'register' ? '2px solid var(--secondary)' : '2px solid transparent', color: activeTab === 'register' ? 'var(--text-main)' : 'var(--text-muted)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', transition: 'var(--transition-fast)' }}
+            >
+              Registrar Libro
+            </button>
+          </div>
+        )}
 
         {/* Form Container */}
         <form onSubmit={handleSubmit} className="login-form">
@@ -144,21 +167,34 @@ export default function Login({ onLogin }) {
             </div>
           </div>
 
-          <div className="input-group">
-            <label htmlFor="student-password">Contraseña</label>
-            <div className="input-field-wrapper">
-              <Lock size={16} className="input-icon" />
-              <input
-                id="student-password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder={activeTab === 'register' ? "Min. 6 caracteres" : "Introduce tu contraseña"}
-                autoComplete="off"
-                disabled={loading}
-              />
+          {activeTab !== 'forgot' && (
+            <div className="input-group">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <label htmlFor="student-password">Contraseña</label>
+                {activeTab === 'login' && (
+                  <button
+                    type="button"
+                    onClick={() => { setActiveTab('forgot'); setError(''); setSuccessMessage(''); }}
+                    style={{ background: 'none', border: 'none', color: 'var(--secondary-light)', cursor: 'pointer', fontSize: '0.75rem', padding: '0 0 5px 0' }}
+                  >
+                    ¿La has olvidado?
+                  </button>
+                )}
+              </div>
+              <div className="input-field-wrapper">
+                <Lock size={16} className="input-icon" />
+                <input
+                  id="student-password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder={activeTab === 'register' ? "Min. 6 caracteres" : "Introduce tu contraseña"}
+                  autoComplete="off"
+                  disabled={loading}
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           {activeTab === 'register' && (
             <div className="input-group">
@@ -175,6 +211,12 @@ export default function Login({ onLogin }) {
                   disabled={loading}
                 />
               </div>
+            </div>
+          )}
+
+          {successMessage && (
+            <div style={{ background: 'rgba(34, 197, 94, 0.08)', border: '1px solid rgba(34, 197, 94, 0.3)', padding: '10px 14px', borderRadius: '12px', color: '#4ade80', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '15px' }}>
+              <span>{successMessage}</span>
             </div>
           )}
 
@@ -196,7 +238,9 @@ export default function Login({ onLogin }) {
                 ? "Conectando..." 
                 : activeTab === 'login' 
                   ? "Iniciar Sesión" 
-                  : "Crear Cuenta y Activar"}
+                  : activeTab === 'register'
+                    ? "Crear Cuenta y Activar"
+                    : "Restablecer Contraseña"}
             </span>
           </button>
         </form>

@@ -3,7 +3,8 @@ import {
   getAuth, 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
-  signOut 
+  signOut,
+  sendPasswordResetEmail
 } from 'firebase/auth';
 import { 
   getFirestore, 
@@ -213,6 +214,25 @@ export const firebaseService = {
         user: { uid, name: userData.name, email: userData.email, bookCode: userData.bookCode },
         sessionId
       };
+    }
+  },
+
+  /**
+   * Send password reset email
+   */
+  async sendPasswordReset(email) {
+    if (isMock) {
+      const mockUsers = getMockUsers();
+      const matchedUser = Object.values(mockUsers).find(
+        u => u.email.toLowerCase() === email.toLowerCase()
+      );
+      if (!matchedUser) {
+        throw new Error("No existe ningún usuario registrado con este correo.");
+      }
+      console.log(`[Mock Mode] Correo de recuperación de contraseña enviado a: ${email}`);
+      return;
+    } else {
+      await sendPasswordResetEmail(auth, email);
     }
   },
 
