@@ -22,23 +22,33 @@ Las condiciones generales del Reglamento de Préstamo de la BUS son:
 | :--- | :---: | :---: | :---: |
 | **Alumnos de Grado** | 10 | 15 días | Hasta 3 veces (si no hay reservas de otros) |
 | **Alumnos de Postgrado / Máster** | 15 | 30 días | Hasta 3 veces (si no hay reservas de otros) |
-| **PDI / Doctorandos** | 30 | 60 días | Hasta 3 veces (si no hay reservas de otros) |
+| **PDI (Profesorado / Investigadores)** | 60 | 60 días | Hasta 3 veces (si no hay reservas de otros) |
+| **Doctorandos** | 30 | 60 días | Hasta 3 veces (si no hay reservas de otros) |
 | **PTGAS (Personal Técnico)** | 10 | 15 días | Hasta 3 veces (si no hay reservas de otros) |
 
 *Nota:* Si un documento tiene una reserva activa realizada por otro usuario, **no se permite la renovación**.
 
-### A. Condiciones del Préstamo Consorciado (CBUA)
+### A. Préstamo Intercampus y Préstamo Delegado
+*   **Préstamo Intercampus:** Servicio que permite al usuario solicitar y recibir en su biblioteca de campus habitual un libro que esté físicamente en otra biblioteca de la US de un campus distinto, sin tener que desplazarse. Su **requisito previo obligatorio** es que el documento solicitado **no esté disponible en su propio campus**.
+*   **Préstamo Delegado:** Es la posibilidad que tienen los miembros de la comunidad universitaria de la Universidad de Sevilla de **delegar en otra persona** (debidamente identificada y autorizada) la recogida de documentos impresos prestados a su nombre en el mostrador de la biblioteca.
+
+### B. Condiciones del Préstamo Consorciado (CBUA)
 El consorcio de universidades andaluzas cuenta con reglas unificadas de préstamo:
 * **Alumnos de Grado y PTGAS:** 5 libros de otras universidades andaluzas por **15 días** (con 1 posibilidad de renovación).
 * **PDI y Alumnos de Postgrado/Doctorado:** 10 libros por **30 días** (con 1 posibilidad de renovación).
 * **Sanciones por demora CBUA:** La penalización por retraso en devolución de libros consorciados es más rigurosa: **2 días de suspensión por cada día de retraso y libro**.
 
-### B. Condiciones del Préstamo Interbibliotecario
+### C. Condiciones del Préstamo Interbibliotecario
+El servicio de préstamo interbibliotecario **puede ser utilizado por toda la comunidad universitaria** de la US. Sus condiciones son:
 * **Plazo de recogida:** El usuario tiene **5 días hábiles** desde la recepción del correo de aviso para recoger los libros en la biblioteca elegida.
 * **Duración:** Fijada por la biblioteca propietaria del documento, por lo general **30 días naturales**.
 * **Uso exclusivo en sala:** Aquellos libros antiguos o de valor histórico solicitados por préstamo interbibliotecario no pueden salir de la biblioteca; deben consultarse exclusivamente en la sala de lectura asignada.
+* **Límite de solicitudes:** Se establece un límite máximo de **10 peticiones activas o en curso** de forma simultánea por usuario para evitar la saturación del servicio.
 
-### C. Documentos Excluidos de Préstamo a Domicilio
+### D. Préstamo de Bibliografía Recomendada
+* Los manuales básicos de asignaturas de alta demanda se prestan bajo condiciones especiales de corta duración. Están autorizados a tomar prestados estos materiales perfiles específicos como los estudiantes de doctorado, profesores invitados, profesores de centros adscritos y el PAS/PTGAS de la US.
+
+### E. Documentos Excluidos de Préstamo a Domicilio
 * Libros impresos antes de **1901** (según reglamento de la BUS, calificados como Fondo Antiguo) u obras de especial valor.
 * Obras de referencia general (diccionarios, enciclopedias, atlas).
 * Obras singulares, manuscritos, mapas de difícil reposición.
@@ -50,7 +60,7 @@ El consorcio de universidades andaluzas cuenta con reglas unificadas de préstam
 La reserva de documentos permite a un usuario solicitar un libro del catálogo que se encuentra prestado a otro lector. Se gestiona de forma automática en Alma y requiere tareas manuales del Auxiliar en el mostrador:
 
 ### A. Activación de la Reserva
-1.  Un usuario realiza la reserva a través de FAMA (se admiten hasta **3 reservas simultáneas** por lector).
+1.  Un usuario realiza la reserva a través de FAMA. El límite máximo de reservas simultáneas depende del perfil del usuario: los estudiantes de Grado, antiguos alumnos y externos tienen un límite de **3 reservas**, mientras que los estudiantes de Doctorado, Máster, Investigadores y PAS (PTGAS) tienen un límite de hasta **5 reservas simultáneas**.
 2.  Cuando el libro prestado es devuelto en el mostrador y el Auxiliar lo pasa por la antena RFID, el sistema Alma emite un aviso sonoro y visual de **"Documento Reservado"** (bloqueando su retorno a la estantería general).
 3.  El Auxiliar debe imprimir una **tira de reserva** que se coloca visiblemente dentro del libro. Esta tira contiene un código de identificación del usuario solicitante de forma anónima para cumplir con la Ley Orgánica de Protección de Datos (LOPD).
 4.  El libro se coloca físicamente en la **estantería de reservas en mostrador** (organizado por orden alfabético del código del lector o por número de reserva).
@@ -88,7 +98,8 @@ La **Objetoteca** es un servicio de préstamo de soportes especiales, dispositiv
 *   **Sanción CBUA:** 2 días de suspensión por día de retraso y documento.
 *   **Sanción portátiles:** 5 días hábiles de suspensión por cada día o fracción de retraso.
 *   **Plazo de recogida de reservas:** 2 días hábiles (si no se recoge, caduca y pasa al siguiente).
-*   **Límite de reservas:** Hasta 3 reservas simultáneas.
+*   **Límite de reservas:** 3 para Grado y externos; hasta **5** para Doctorados, Máster, PDI y PAS.
+*   **Límite Préstamo Interbibliotecario:** Máximo de **10 peticiones activas** simultáneas.
 *   **Plazo de reposición por pérdida:** 15 días hábiles.
 *   **Materiales excluidos:** Fondo antiguo, revistas, enciclopedias e impresos anteriores a **1958**.
 

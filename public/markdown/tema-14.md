@@ -29,6 +29,9 @@ La **Guía Preventiva para los Empleados Públicos de la Universidad de Sevilla*
 ### A. El SEPRUS (Servicio de Prevención de Riesgos Laborales)
 El **Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla (SEPRUS)** fue constituido mediante Resolución Rectoral el **1 de octubre de 1999** como un Servicio de Prevención Propio. Es el órgano técnico y multidisciplinar encargado de asesorar y asistir al Rectorado, a los órganos de gobierno, a la representación de los trabajadores y a toda la comunidad universitaria en la planificación y el control de la acción preventiva.
 
+*   **Notificación de situaciones de riesgo:** Según la Guía Preventiva, si un empleado detecta una anomalía o peligro en las condiciones de su puesto, debe comunicarlo formalmente al SEPRUS a través del **formulario específico de notificación de riesgos** habilitado en la web oficial del SEPRUS.
+*   **Actuación ante incendios o evacuación:** La pauta de actuación exige comunicar la alerta rápidamente a través de los **pulsadores de alarma** del edificio o avisar directamente a la **Conserjería** (que centraliza la comunicación como Centro de control interno de emergencias) para que se ponga en marcha el plan de emergencia del centro. En caso de no localizarlos, debe llamarse a emergencias **112**.
+
 ### B. Derechos y Obligaciones de los Trabajadores (Artículo 29 de la LPRL)
 Los empleados de la US ostentan el **derecho a una protección eficaz** en materia de seguridad y salud en el trabajo, lo que implica el derecho a la información, formación, consulta y participación. Paralelamente, de acuerdo con el **Artículo 29 de la LPRL**, tienen la obligación de velar por su propia seguridad y la de sus compañeros de trabajo, cumpliendo con las siguientes directrices:
 1.  Usar adecuadamente las máquinas, herramientas, sustancias peligrosas, equipos de transporte y cualquier otro medio con el que desarrollen su actividad.
@@ -50,6 +53,7 @@ La vigilancia de la salud en la Universidad de Sevilla está coordinada por el �
     *   **Evaluación tras ausencia prolongada:** Por motivos de salud (bajas médicas acumuladas o superiores a 3 meses), al objeto de identificar un posible origen laboral y proponer adaptaciones del puesto.
     *   **Evaluación periódica:** Intervalos definidos en los protocolos médicos según los factores de riesgo del puesto de trabajo (ej. pantallas de visualización de datos, manipulación de cargas).
 *   **Garantía de Confidencialidad:** El acceso a los datos médicos está limitado de manera estricta al **personal médico del SEPRUS** y a las autoridades sanitarias. La Universidad de Sevilla (a través del área de personal o responsables jerárquicos) **solo recibe los resultados en términos de aptitud** (Apto, Apto con restricciones, o No apto) y la necesidad de introducir adaptaciones organizativas o técnicas, sin revelar diagnósticos ni patologías.
+*   **Garantías Personales de Vigilancia (Guía Preventiva):** De acuerdo con lo establecido en la Guía Preventiva para los Empleados Públicos de la US, la práctica de los reconocimientos médicos de vigilancia de la salud se llevará a cabo siempre respetando el derecho a la **intimidad, dignidad y confidencialidad** clínica del trabajador.
 
 ---
 
@@ -83,7 +87,7 @@ Ante cualquier accidente, la primera intervención debe seguir la secuencia inte
     *   **Paso 1:** Comunicar el hecho inmediatamente al SEPRUS (teléfonos: 954 486 163 / 954 551 582, correo: docseprus@us.es).
     *   **Paso 2:** El SEPRUS o el centro emitirá el **Parte de Notificación de Accidente** o *Volante de Asistencia* oficial.
     *   **Paso 3:** Acudir al centro médico de la mutua colaboradora de la US, actualmente el **Hospital de FREMAP**, situado en la *Avenida de Jerez, s/n (Los Bermejales, Sevilla)*, presentando el volante.
-    *   **Casos de Urgencia Grave o Fuera de Horario:** Si el accidente ocurre por la tarde, noche, fin de semana, o requiere atención inmediata sin tiempo para trámites, **el accidentado debe acudir directamente al Hospital de FREMAP** (o al hospital público más cercano). Posteriormente, el propio trabajador o su responsable dispondrá de un plazo de **3 días hábiles** para notificar el accidente al SEPRUS para la regularización de la documentación.
+    *   **Casos de Urgencia Grave o Fuera de Horario (Circular de 24 de mayo de 2018 de la Gerencia de la US):** Si el accidente ocurre por la tarde, noche, fin de semana, o requiere atención inmediata sin tiempo para trámites, **el accidentado debe acudir directamente al Hospital de FREMAP** (o al hospital público más cercano). En todo caso, la notificación de accidente al Servicio de Prevención (SEPRUS) se realizará por parte del afectado o de su responsable de forma **inmediata o como máximo dentro de los tres días siguientes** a su ocurrencia.
 2.  **Personal Funcionario bajo el Régimen Especial de MUFACE (PDI funcionario):**
     *   Deben acudir a los centros sanitarios concertados correspondientes a su entidad médica elegida (ej. Adeslas, Asisa, DKV) utilizando los talonarios y partes de accidente específicos de MUFACE.
 

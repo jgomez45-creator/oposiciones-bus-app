@@ -9,6 +9,7 @@ El paso del modelo clásico de biblioteca de custodia al modelo **CRAI** (Centro
 
 Los principios generales para el diseño y planificación de espacios en las bibliotecas universitarias españolas (de acuerdo con las directrices de **REBIUN** e **IFLA**) son:
 
+*   **El Decálogo de Harry Faulkner-Brown:** En el documento *Normas y directrices para bibliotecas universitarias y científicas* de REBIUN, se aconseja atenerse a este decálogo que resume las cualidades esenciales de un edificio bibliotecario idóneo: flexible, compacto, accesible, ampliable (extendible), variado, organizado, confortable, constante en sus condiciones ambientales, seguro y económico.
 *   **Flexibilidad:** Diseño constructivo que permite reconfigurar las salas fácilmente (mediante tabiquería móvil, mamparas, falso techo y suelos técnicos registrables para cableado) según las necesidades tecnológicas y sociales futuras, sin tener que acometer obras estructurales mayores.
 *   **Accesibilidad Universal:** Eliminación de barreras arquitectónicas de acuerdo con la legislación vigente. El espacio debe ser utilizable de forma autónoma por cualquier persona, independientemente de sus capacidades físicas o sensoriales.
 *   **Seguridad:** Cumplimiento estricto del Código Técnico de la Edificación (CTE), especialmente en lo relativo a protección frente al fuego (puertas cortafuegos, extintores, rociadores) y planes de evacuación.
@@ -23,7 +24,7 @@ Para un correcto funcionamiento y bienestar de los usuarios, las áreas se estru
 
 ### A. Área de Recepción, Control y Servicios Rápidos (Zona de Alta Sonoridad)
 *   **Función:** Zona de acogida al usuario, información general, control de accesos e incidencias de préstamo.
-*   **Equipamiento:** Mostrador de atención al público, arcos antihurto con tecnología RFID, pantallas informativas, taquillas de consigna para efectos personales, terminales de autopréstamo y buzones de devolución rápida de documentos.
+*   **Equipamiento:** Mostrador de atención al público (que, según el documento marco de la BUS sobre espacios y mobiliario, es el punto clave de contacto y **no debe constituir nunca una barrera con el usuario**, ni de acceso a los servicios ni como instrumento de control), arcos antihurto con tecnología RFID, pantallas informativas, taquillas de consigna para efectos personales, terminales de autopréstamo y buzones de devolución rápida de documentos.
 *   **Ubicación:** Inmediatamente contigua al vestíbulo principal de entrada.
 
 ### B. Área de Aprendizaje Colectivo y Trabajo en Grupo (Zona de Sonoridad Media)
@@ -61,6 +62,7 @@ El exceso de calor y de humedad propicia la proliferación de insectos bibliófa
 *   **Colecciones de Fondo Antiguo y Documentos Raros (pergaminos y manuscritos):**
     *   *Temperatura:* **15 °C a 18 °C**.
     *   *Humedad relativa:* **40% a 50%**.
+*   **Sala de Investigadores (Fondo Antiguo):** Según las normas de uso y conservación de fondos antiguos de la BUS, esta sala debe estar adecuada con luz general indirecta (aproximadamente **200 a 600 lux**) y temperatura controlada estable entre **17º y 22º C**.
 *   **Soportes especiales (microfilmes y archivos fotográficos):**
     *   *Temperatura:* **12 °C a 15 °C** (el frío frena la degradación del acetato de celulosa).
     *   *Humedad relativa:* **30% a 40%**.

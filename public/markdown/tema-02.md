@@ -22,7 +22,7 @@ El Modelo EFQM se basa en tres pilares fundamentales o bloques de criterios:
 2. **Ejecución (Implicación de los grupos de interés, Valor sostenible y Gestión del rendimiento):** Cómo realiza su trabajo cotidiano, cómo optimiza sus operaciones y cómo involucra a usuarios, personal y partners.
 3. **Resultados (Rendimiento estratégico y operativo, Percepción de los grupos de interés):** Qué consigue la biblioteca y cómo es percibida por sus usuarios y por la propia Universidad.
 
-*Nota:* La BUS ha realizado diversos ciclos de autoevaluación EFQM, lo que le ha valido varios reconocimientos de Excelencia en Gestión Pública en España.
+*Nota:* La BUS ha realizado diversos ciclos de autoevaluación EFQM, lo que le ha valido varios reconocimientos de Excelencia en Gestión Pública en España. En el año **2022**, obtuvo el prestigioso **Sello de Excelencia Europea EFQM 600**, consolidándose como referente nacional de gestión de calidad.
 
 ---
 
@@ -47,9 +47,13 @@ La **Carta de Servicios** es un documento oficial de comunicación a la ciudadan
 * **Datos de identificación:** Nombre del servicio, ubicación, canales de contacto y horarios de atención.
 * **Servicios prestados:** Detalle clasificado de los servicios ofertados (ej. préstamo, ALFIN, salas de estudio).
 * **Derechos de los usuarios:** Listado de derechos específicos (ej. derecho a recibir un trato respetuoso, a la confidencialidad de sus datos de lectura).
-* **Compromisos de calidad:** Parámetros cuantificables y medibles que asume la biblioteca (ej. *"Resolver el 95% de las solicitudes de préstamo interbibliotecario en menos de 3 días hábiles"*).
+* **Compromisos de calidad:** Parámetros cuantificables y medibles que asume la biblioteca. Entre los compromisos específicos más destacados y evaluados en exámenes oficiales se encuentran:
+  *   **Consultas especializadas de investigación:** Responder a las dudas e información avanzada de investigación recibidas a través de formularios electrónicos web en un plazo máximo de **2 días laborables**.
+  *   **Préstamo interbibliotecario:** Resolver el 95% de las solicitudes en menos de 3 días hábiles.
+  *   **Puesta a disposición de material adquirido:** Procesar y poner a disposición de los usuarios los materiales bibliográficos adquiridos en un plazo máximo de **3 días laborables** desde su recepción en la biblioteca.
+  *   **Préstamo Intercampus:** Suministrar los documentos solicitados a través de préstamo intercampus en un plazo máximo de **4 días laborables**, excepto en periodos vacacionales oficiales.
 * **Indicadores:** Fórmulas o métricas utilizadas para verificar de forma transparente si se están cumpliendo los compromisos asumidos.
-* **Reclamaciones y sugerencias:** Procedimiento para que los usuarios expresen su descontento y plazos máximos de respuesta de la dirección.
+* **Reclamaciones y sugerencias:** Procedimiento para que los usuarios expresen su descontento. La Carta establece que, una vez admitida a trámite una queja o sugerencia formal enviada por formulario electrónico, se elaborará y remitirá un informe personalizado de respuesta a la persona interesada en un plazo máximo de **5 días laborables**.
 
 ### Incumplimientos
 Si un usuario detecta que no se cumple un compromiso de calidad expresado en la Carta, puede presentar una queja formal. La dirección del servicio está obligada a contestarle explicando el motivo del desvío y las medidas correctoras aplicadas. **No se derivan compensaciones económicas** del incumplimiento de las Cartas de Servicios en el sector público.

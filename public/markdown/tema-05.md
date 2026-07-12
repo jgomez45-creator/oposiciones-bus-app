@@ -23,7 +23,7 @@ El ciclo de vida de los documentos consta de fases interrelacionadas representad
 
 ### A. Selección y Detección de Necesidades
 La selección consiste en decidir qué materiales (físicos o digitales) entran a formar parte de la biblioteca. En la BUS es un proceso **corresponsable y mixto**:
-1.  **Personal bibliotecario:** Se encarga de adquirir manuales básicos de las asignaturas (bibliografía recomendada de las guías docentes), obras de referencia general y el mantenimiento y equilibrio de colecciones transversales.
+1.  **Personal bibliotecario:** Se encarga de adquirir manuales básicos de las asignaturas (bibliografía recomendada de las guías docentes), aplicando un escalonamiento de ejemplares según el número de alumnos (debiendo mantenerse **15 ejemplares** en la biblioteca si la asignatura supera los **800 alumnos** matriculados), así como obras de referencia general y el mantenimiento y equilibrio de colecciones transversales.
 2.  **Comunidad académica (PDI):** Los profesores e investigadores solicitan la adquisición de monografías especializadas para su docencia y proyectos de investigación.
 3.  **Estudiantes (Desideratas):** Son las peticiones formales de compra que los propios estudiantes pueden realizar a través de un formulario en la web de la BUS o desde su perfil personal en el catálogo **FAMA**. La biblioteca evalúa la pertinencia académica y presupuestaria antes de aprobarlas.
 
@@ -86,7 +86,7 @@ Este modelo describe los recursos bibliográficos a través de cuatro niveles je
 *   Actualmente facilitado por la tecnología **RFID**, que permite leer las etiquetas a distancia de manera masiva y sin sacar los libros del estante.
 
 ### B. El Expurgo (Weeding)
-Es la operación técnica de **retirada selectiva** de documentos de las secciones de libre acceso de la biblioteca. Un documento expurgado puede tener tres destinos en la BUS:
+Es la operación técnica de **retirada selectiva** de documentos de las secciones de libre acceso de la biblioteca. Están **totalmente excluidos del expurgo o descarte los manuscritos, incunables** y cualquier obra de valor histórico, artístico o archivístico singular. Un documento expurgado puede tener tres destinos en la BUS:
 1.  **Traslado al depósito:** El libro físico sale de la sala de libre acceso porque se consulta poco, pero se conserva en un depósito cerrado o almacén secundario porque mantiene valor histórico o de investigación.
 2.  **Donación:** Se ofrece gratuitamente a otras instituciones o bibliotecas en desarrollo si mantiene valor de lectura pero no utilidad curricular en la US.
 3.  **Destrucción / Reciclaje:** Si el documento está físicamente inservible (roto o con hongos) o su contenido está completamente obsoleto y carece de interés histórico (ej. un manual informático de MS-DOS de los años 90).
@@ -108,6 +108,8 @@ Es el conjunto de medidas destinadas a asegurar y prolongar la vida útil de los
 
 ### A. Conservación Preventiva
 *   **Parámetros ambientales:** Control de temperatura constante (entre 18-22 °C), humedad relativa (45-55%), y evitación de luz ultravioleta directa (solar o tubos fluorescentes).
+*   **Almacenamiento de volúmenes pesados:** Según las normas de uso y conservación de fondos valiosos de la BUS, los libros muy pesados o de formatos inusuales (como gran folio) **no deben apilarse** en torres y se procurará mantenerlos en **posición horizontal** para evitar que cedan las costuras y encuadernaciones.
+*   **Conservación de Folletos de Fondo Antiguo:** Según el Capítulo II de las Normas para uso y conservación del Fondo Antiguo y Archivo Histórico de la BUS, los folletos históricos deben **guardarse en cajas cerradas de material no ácido** para evitar su deterioro físico y la acidez.
 *   **Higiene:** Limpieza sistemática para evitar plagas de insectos bibliófagos y mohos.
 *   **Encuadernación y restauración:** Encuadernación protectora de libros dañados y restauración experta del Fondo Antiguo y documentos raros o valiosos.
 

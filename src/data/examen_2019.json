@@ -1,0 +1,562 @@
+[
+  {
+    "id": 1,
+    "question": "En la actualidad la Biblioteca Universitaria de Sevilla (en adelante BUS) forma parte de las siguientes redes y consorcios, con los que colabora de forma activa:",
+    "options": [
+      "OCLC, REBIUN, CBUA, DIALNET, MADROÑO.",
+      "REBIUN, CBUA, DIALNET, EXPANIA, LIBER, OCLC.",
+      "CBUA, DIALNET, REBIUN, OCLC, CBUG.",
+      "CBUC, CBUA, REBIUN, DIALNET."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La BUS colabora y forma parte de diversas redes y consorcios nacionales e internacionales, incluyendo REBIUN (Red de Bibliotecas Universitarias Españolas), CBUA (Consorcio de Bibliotecas Universitarias de Andalucía), DIALNET (portal de difusión de la producción científica hispana), EXPANIA (asociación de usuarios de productos Ex Libris), LIBER (Ligue des Bibliothèques Européennes de Recherche) y OCLC (Online Computer Library Center).",
+    "usage": "examen-real-2019",
+    "topicId": 1
+  },
+  {
+    "id": 2,
+    "question": "En el reglamento de la BUS se establece que los ciudadanos no vinculados a la Universidad de Sevilla pueden acceder a los recursos y servicios de la biblioteca universitaria:",
+    "options": [
+      "En el reglamento no se define a estos usuarios.",
+      "El reglamento establece que accederán previa autorización específica e individual.",
+      "El reglamento Establece que accederán con los mismos derechos que alumnos egresados.",
+      "El reglamento indica que accederán en los términos que establezca el Consejo de Gobierno."
+    ],
+    "correctAnswer": 3,
+    "explanation": "El Reglamento de la BUS regula las condiciones en las que los ciudadanos no pertenecientes a la comunidad universitaria de la US pueden acceder a sus servicios, remitiendo dicha regulación a los términos y tarifas que apruebe el Consejo de Gobierno de la Universidad.",
+    "usage": "examen-real-2019",
+    "topicId": 1
+  },
+  {
+    "id": 3,
+    "question": "Según el documento marco de la BUS sobre espacios y mobiliario:",
+    "options": [
+      "El mostrador tiene que ser un instrumento de control.",
+      "El mostrador no debe constituir nunca una barrera con el usuario, ni de acceso a los servicios ni instrumento de control.",
+      "El mostrador debe ser una barrera de acceso a los servicios de la biblioteca.",
+      "El mostrador debe constituir siempre una barrera con el usuario."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Según el documento marco sobre espacios y equipamientos de la BUS, el mostrador de atención al público es el punto clave de interacción con el usuario y debe ser accesible, abierto y cercano; nunca debe constituir una barrera física, de acceso o un elemento de control policial o restrictivo.",
+    "usage": "examen-real-2019",
+    "topicId": 3
+  },
+  {
+    "id": 4,
+    "question": "Según las Normas para uso y conservación de los fondos antiguos y valiosos de la BUS, la Sala de Investigadores se adecuará a normas mínimas de:",
+    "options": [
+      "Luz general indirecta (c. 200-300 lux) y temperatura (18º-25º).",
+      "L uz general indirecta (c. 200- 600lux) y temperatura (20º-25º).",
+      "L uz general indirecta (c. 100-200 lux) y temperatura (17º-22º).",
+      "L uz general indirecta (c. 200-600 lux) y temperatura (17º-22º)."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Las directrices preventivas y de conservación del patrimonio documental del Fondo Antiguo establecen que la Sala de Investigadores mantenga unas condiciones ambientales y de iluminación estrictas de luz general indirecta (entre 200 y 600 lux) y temperatura controlada entre 17º y 22º C.",
+    "usage": "examen-real-2019",
+    "topicId": 3
+  },
+  {
+    "id": 5,
+    "question": "El fondo bibliográfico de la Universidad es susceptible de ser expurgado, exceptuando:",
+    "options": [
+      "Manuales.",
+      "Manuscritos e incunables.",
+      "Libros recibidos por canje.",
+      "Libros recibidos por donación."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La Política de Gestión de la Colección de la BUS autoriza el expurgo de materiales obsoletos o duplicados para optimizar el espacio físico de las salas. No obstante, están absolutamente excluidos de cualquier proceso de descarte o expurgo los manuscritos, incunables y las obras de valor histórico singular.",
+    "usage": "examen-real-2019",
+    "topicId": 5
+  },
+  {
+    "id": 6,
+    "question": "El proceso de selección en una biblioteca es:",
+    "options": [
+      "El proceso de control que se realiza cuando se incorporan nuevos materiales a la colección.",
+      "El proceso por el que se decide qué materiales deben añadirse a la colección.",
+      "El proceso de descripción de los materiales que se someterán a expurgo.",
+      "El conjunto de operaciones cuya finalidad es agrupar los contenidos de la colección."
+    ],
+    "correctAnswer": 1,
+    "explanation": "En biblioteconomía, la selección es la fase del desarrollo de la colección en la que se evalúa, juzga y decide qué títulos y recursos documentales deben incorporarse al fondo bibliográfico de la biblioteca para cubrir las necesidades curriculares e investigadoras.",
+    "usage": "examen-real-2019",
+    "topicId": 5
+  },
+  {
+    "id": 7,
+    "question": "Según el Programa de Gestión de la Colección de la BUS accesible en la web de la misma ¿Qué número de ejemplares de un título presente en la bibliografía general deben estar en la biblioteca si tienen más de 800 alumnos matriculados en la asignatura?",
+    "options": [
+      "10 a 12 ejemplares.",
+      "5 a 10 ejemplares.",
+      "6 a 9 ejemplares.",
+      "15 ejemplares."
+    ],
+    "correctAnswer": 3,
+    "explanation": "El Programa de Gestión de la Colección de la BUS establece un escalonamiento de ejemplares en papel según el número de alumnos matriculados en la asignatura, exigiendo la presencia de 15 ejemplares si la matrícula de la asignatura supera los 800 alumnos.",
+    "usage": "examen-real-2019",
+    "topicId": 5
+  },
+  {
+    "id": 8,
+    "question": "Según las Normas para uso y conservación de los fondos antiguos y valiosos de la Biblioteca Universitaria de Sevilla, los volúmenes muy pesados o de formatos inusuales:",
+    "options": [
+      "Deben estar apilados y se procurará mantenerlos en posición vertical",
+      "No deben apilarse y se procurará mantenerlos en posición horizontal.",
+      "No deben apilarse and se procurará mantenerlos en posición vertical.",
+      "Deben estar apilados para su mejor conservación."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Las Normas para uso y conservación de fondos valiosos estipulan que los volúmenes pesados, atlas o libros de formato inusual (como gran folio) no deben ser almacenados en vertical ni apilarse en torres altas para evitar deformaciones en las encuadernaciones, debiendo mantenerse tumbados en horizontal.",
+    "usage": "examen-real-2019",
+    "topicId": 5
+  },
+  {
+    "id": 9,
+    "question": "Según la CDU, el número 74 se utiliza para:",
+    "options": [
+      "Escultura.",
+      "Fotografía.",
+      "Dibujo.",
+      "Pintura."
+    ],
+    "correctAnswer": 2,
+    "explanation": "En el esquema principal de la Clasificación Decimal Universal (CDU), la clase 7 está reservada para Bellas Artes, y la división de dos cifras 74 corresponde específicamente al Dibujo, Artesanía y Artes Aplicadas.",
+    "usage": "examen-real-2019",
+    "topicId": 6
+  },
+  {
+    "id": 10,
+    "question": "En la siguiente CDU 34(460), el auxiliar que se expresa hace referencia a:",
+    "options": [
+      "Forma de presentación.",
+      "Lugar geográfico.",
+      "Lengua del documento.",
+      "Periodo histórico."
+    ],
+    "correctAnswer": 1,
+    "explanation": "En la notación 34(460) de la CDU, la parte '34' representa la materia principal (Derecho) y la subdivisión entre paréntesis '(460)' es un auxiliar común de lugar que representa geográficamente a España.",
+    "usage": "examen-real-2019",
+    "topicId": 6
+  },
+  {
+    "id": 11,
+    "question": "Seleccione las respuestas en los que los números de la CDU están ordenados correctamente:",
+    "options": [
+      "32(091), 32:37, 32/34, 32(460), 32”19”",
+      "32/34, 32, 32:37, 32(091), 32(460), 32”19”",
+      "32, 32(091), 32(460), 32”19”, 32/34, 32:37",
+      "32, 32”19”, 32(460), 32(091), 32:37, 32/34"
+    ],
+    "correctAnswer": 1,
+    "explanation": "El orden de archivamiento de la CDU sigue una secuencia específica de símbolos: el signo de extensión '/' va antes del número simple, el cual precede al signo de relación ':', seguido de los auxiliares de forma '(0...)', de lugar '(1/9)' y de tiempo '\"...\"'. Así, el orden correcto es: 32/34, 32, 32:37, 32(091), 32(460), 32\"19\".",
+    "usage": "examen-real-2019",
+    "topicId": 6
+  },
+  {
+    "id": 12,
+    "question": "En la CDU ¿Qué símbolo indica relación entre dos notaciones?",
+    "options": [
+      "=",
+      ":",
+      "/",
+      "*"
+    ],
+    "correctAnswer": 1,
+    "explanation": "En la Clasificación Decimal Universal, el símbolo de dos puntos ':' es el signo de relación simple, utilizado para vincular y coordinar de forma reversible dos notaciones principales (ej. Derecho y Educación).",
+    "usage": "examen-real-2019",
+    "topicId": 6
+  },
+  {
+    "id": 13,
+    "question": "¿Cuál es el orden alfabético correcto para ordenar los siguientes títulos de revistas en la biblioteca?",
+    "options": [
+      "El espacio; 365 grados; The AAPS Journal; The Espace",
+      "365 grados; El espacio; The AAPS Journal; The Espace",
+      "El espacio; The AAPS Journal; The Espace; 365 grados",
+      "365 grados; The AAPS Journal; The Espace; El espacio"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Siguiendo las normas internacionales de ordenación de publicaciones periódicas, los números van antes que las letras, y los artículos iniciales de los títulos (como 'The' o 'El') se ignoran a efectos de alfabetización. Por tanto, el orden correcto es: 365 grados, The AAPS Journal (por A), The Espace (por E), El espacio (por E - esp... después de espac...).",
+    "usage": "examen-real-2019",
+    "topicId": 6
+  },
+  {
+    "id": 14,
+    "question": "¿Es posible recuperar desde el catalogo Fama libros electrónicos suscritos por la BUS?",
+    "options": [
+      "No, Los libros electrónicos no se cargan en Fama.",
+      "Sí, pero sólo los libros electrónicos de libre acceso.",
+      "No, solo se hace desde las diferentes plataformas de los proveedores.",
+      "Si, la inmensa mayoría de los libros electrónicos suscritos están descritos en Fama."
+    ],
+    "correctAnswer": 3,
+    "explanation": "FAMA es el catálogo unificado de la Universidad de Sevilla y en él se describe e integra la inmensa mayoría de los recursos electrónicos suscritos por la BUS, permitiendo el acceso directo al texto completo a través de enlaces autorizados.",
+    "usage": "examen-real-2019",
+    "topicId": 7
+  },
+  {
+    "id": 15,
+    "question": "En el catálogo Fama ¿Para qué sirven las facetas?",
+    "options": [
+      "Para filtrar los resultados de una búsqueda previa.",
+      "Para seleccionar y exportar resultados de una búsqueda.",
+      "Para relacionar distintas ediciones de una misma obra.",
+      "Para enlazar a los textos completos."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Las facetas son menús laterales interactivos del catálogo FAMA (como tipo de recurso, fecha, autor o biblioteca) que sirven para filtrar y refinar de manera progresiva los resultados de una búsqueda inicial amplia.",
+    "usage": "examen-real-2019",
+    "topicId": 7
+  },
+  {
+    "id": 16,
+    "question": "El catálogo del Consorcio de Bibliotecas Universitarias de Andalucía ( CBUA) permite recuperar:",
+    "options": [
+      "Fondos de las Bibliotecas del CSIC de Andalucía.",
+      "Fondos de las Bibliotecas del CSIC de España.",
+      "Fondos de Bibliotecas Universitarias Públicas y Privadas de Andalucía.",
+      "Fondos de bibliotecas universitarias públicas de Andalucía."
+    ],
+    "correctAnswer": 3,
+    "explanation": "El CBUA (Consorcio de Bibliotecas Universitarias de Andalucía) es una red cooperativa integrada por las bibliotecas de las 9 universidades públicas andaluzas de manera exclusiva, permitiendo el préstamo interbibliotecario gratuito entre ellas.",
+    "usage": "examen-real-2019",
+    "topicId": 7
+  },
+  {
+    "id": 17,
+    "question": "En Oculus las noticias se pueden:",
+    "options": [
+      "Sólo insertar.",
+      "Sólo modificar.",
+      "Sólo clonar.",
+      "Insertar, modificar, desactivar, clonar."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Oculus es la plataforma de escritorio virtual del servicio de información de la BUS. Entre sus herramientas para la gestión de contenidos, las noticias pueden ser insertadas, modificadas, desactivadas temporalmente o clonadas para facilitar la edición de campañas informativas.",
+    "usage": "examen-real-2019",
+    "topicId": 10
+  },
+  {
+    "id": 18,
+    "question": "En el servicio Chat de la BUS ¿Cuál de las siguientes afirmaciones es correcta?",
+    "options": [
+      "No se atenderán renovaciones o reservas, ni se actualizará ningún campo del registro de usuario.",
+      "Se atenderán renovaciones o reservas y se actualizarán campos del registro de usuario.",
+      "Se atenderán peticiones de préstamo interbibliotecario.",
+      "No se atenderán renovaciones o reservas, pero sí se actualizarán campos del registro de usuario."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El servicio de Chat de la BUS es un canal de información rápida y resolución de dudas orientativo. Por motivos de seguridad y control de datos personales, a través de él no se gestionan reservas, renovaciones de libros ni modificaciones de fichas de usuario, remitiendo al usuario a su cuenta personal en FAMA.",
+    "usage": "examen-real-2019",
+    "topicId": 10
+  },
+  {
+    "id": 19,
+    "question": "¿Qué define la Biblioteca 2.0?",
+    "options": [
+      "La tecnología.",
+      "Los contenidos.",
+      "La actitud hacia los usuarios.",
+      "Sus tipos de préstamo."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La Biblioteca 2.0 no se define por la tecnología o software que incorpora, sino por un cambio de actitud y filosofía hacia la participación activa de los usuarios, convirtiéndolos en creadores de contenido y colaboradores del servicio.",
+    "usage": "examen-real-2019",
+    "topicId": 11
+  },
+  {
+    "id": 20,
+    "question": "El número máximo de reservas depende del tipo de usuario. Cuál de las siguientes es verdadera en la BUS:",
+    "options": [
+      "Estudiante, antiguo alumno, usuario externo: 7",
+      "Doctorado, Máster, Investigador, PAS: 5",
+      "Profesorado: 15",
+      "Profesorado: 3"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Las Normas de Préstamo de la BUS limitan el número máximo de reservas de documentos físicas en función de la categoría del usuario. Los estudiantes de doctorado, estudiantes de máster, investigadores y el PAS tienen un límite de hasta 5 reservas simultáneas.",
+    "usage": "examen-real-2019",
+    "topicId": 9
+  },
+  {
+    "id": 21,
+    "question": "Pueden utilizar el servicio de préstamo interbibliotecario los miembros de la comunidad universitaria de la US, pero:",
+    "options": [
+      "No se admitirán más de 10 peticiones en curso por usuario.",
+      "No se admitirán más de 30 peticiones en curso por usuario.",
+      "No se admitirán más de 15 peticiones en curso por usuario.",
+      "No hay límite en el número de peticiones en curso por usuario."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El servicio de préstamo interbibliotecario (PI) de la US permite solicitar libros a otras universidades, pero para evitar abusos y saturación del servicio, se establece un límite máximo de 10 peticiones activas o en curso de forma simultánea por usuario.",
+    "usage": "examen-real-2019",
+    "topicId": 9
+  },
+  {
+    "id": 22,
+    "question": "La bibliografía recomendada se presta en la Biblioteca Universitaria de Sevilla (BUS) a:",
+    "options": [
+      "Estudiantes de doctorado, Profesor invitado, Profesor centro adscrito, PAS US.",
+      "Profesores US, Estudiantes de Grado o Máster, Erasmus, Asociado A6.",
+      "Becario Biblioteca, Usuarios externos, Profesores Us, Estudiantes de Grado o Máster.",
+      "Profesores US, Estudiantes de Máster, Erasmus, Usuarios externos."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La bibliografía recomendada (manuales de asignaturas con alta demanda) se presta bajo condiciones específicas en la BUS, incluyendo en su perfil de préstamo a estudiantes de doctorado, profesores invitados, profesores de centros adscritos y al PAS de la US.",
+    "usage": "examen-real-2019",
+    "topicId": 9
+  },
+  {
+    "id": 23,
+    "question": "¿Qué carnet necesito en la Universidad de Sevilla para utilizar el servicio de préstamo a domicilio de la biblioteca?",
+    "options": [
+      "Los miembros de la Comunidad Universitaria de la US (estudiantes, personal docente e investigador y personal de administración y servicios) no necesitan un carnet específico para utilizar este servicio, es suficiente con el carnet universitario.",
+      "Los miembros de la Asociación de Amigos y Antiguos Alumnos de la US no necesitan un carnet específico para utilizar este servicio, es suficiente con el carné universitario.",
+      "Los usuarios externos y el personal jubilado sólo necesitan el DNI para usar el servicio de préstamo a domicilio.",
+      "Los profesores Asociados deberán acreditarse mediante su carnet A6 para usar el servicio de préstamo a domicilio."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Los miembros de la comunidad universitaria de la US (alumnos, PDI y PAS) no requieren la emisión de ninguna tarjeta de biblioteca específica para hacer uso del préstamo domiciliario, siendo suficiente y obligatorio identificarse con la tarjeta universitaria oficial (física o virtual).",
+    "usage": "examen-real-2019",
+    "topicId": 9
+  },
+  {
+    "id": 24,
+    "question": "La alfombrilla lectora de RFID que se utiliza en préstamo, se identifica con:",
+    "options": [
+      "Dispositivo óptico.",
+      "Parte de la CPU.",
+      "Un dispositivo de la red de la US.",
+      "Dispositivo periférico."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La alfombrilla lectora de RFID se conecta al ordenador del mostrador de préstamo para registrar los movimientos de libros, actuando técnicamente como un dispositivo periférico de entrada/salida de datos en el sistema.",
+    "usage": "examen-real-2019",
+    "topicId": 8
+  },
+  {
+    "id": 25,
+    "question": "En cuanto al acceso a redes en la BUS, el acceso a la Red Inalámbrica de la US (ReInUS) y Eduroam se realizará:",
+    "options": [
+      "Mediante el DNI electrónico y la clave correspondiente.",
+      "Los usuarios que pertenecen a la US accederán con su UVUS (Usuario Virtual de la Universidad de Sevilla) y los que pertenecen a una organización Eduroam deben acceder con el par usuario/clave de su Universidad o institución.",
+      "Todos los usuarios que pertenecen a una institución docente española accederán con su UVUS (Usuario Virtual de la Universidad de Sevilla) y la clave asociada.",
+      "Sólo podrán acceder los miembros pertenecientes a la Universitaria de Sevilla utilizando para ello su UVUS (Usuario Virtual de la Universidad de Sevilla) y la clave asociada."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El acceso a la red ReInUS y a la red de movilidad Eduroam requiere validación: los miembros de la US acceden con su UVUS y contraseña institucional, mientras que los usuarios externos de otras instituciones Eduroam usan las credenciales de su universidad de origen.",
+    "usage": "examen-real-2019",
+    "topicId": 8
+  },
+  {
+    "id": 26,
+    "question": "Necesito cambiar las claves de mi Usuario Virtual (UVUS), ¿Desde qué página web puedo llevarlo a cabo?",
+    "options": [
+      "https://consigna.us.es",
+      "https://buzonweb.us.es",
+      "https://identidad.us.es",
+      "http://binus.us.es"
+    ],
+    "correctAnswer": 2,
+    "explanation": "El portal de gestión de identidad virtual de la Universidad de Sevilla para realizar modificaciones de contraseñas, recuperación de cuentas y gestión de credenciales UVUS es la web oficial https://identidad.us.es.",
+    "usage": "examen-real-2019",
+    "topicId": 13
+  },
+  {
+    "id": 27,
+    "question": "¿A qué nos referimos cuando hablamos de RFID?",
+    "options": [
+      "A una tecnología de identificación por radiofrecuencia.",
+      "A un protocolo de comunicaciones para internet.",
+      "A un sistema integrado de gestión bibliotecaria.",
+      "A las reglas de catalogación de la FID ."
+    ],
+    "correctAnswer": 0,
+    "explanation": "RFID son las siglas en inglés de Radio Frequency Identification (Identificación por Radiofrecuencia), tecnología que transmite la identidad de un objeto mediante ondas de radio.",
+    "usage": "examen-real-2019",
+    "topicId": 8
+  },
+  {
+    "id": 28,
+    "question": "La RFID permite:",
+    "options": [
+      "Reservar o solicitar préstamos.",
+      "Prestar y devolver documentos en bloque.",
+      "Enviar a los usuarios por radiofrecuencia a su correo electrónico avisos de las fechas de devolución y préstamo.",
+      "Prestar, pero no devolver."
+    ],
+    "correctAnswer": 1,
+    "explanation": "A diferencia del código de barras óptico tradicional, la tecnología RFID funciona por proximidad inalámbrica y permite procesar (prestar, devolver o verificar seguridad) múltiples documentos en bloque de forma simultánea.",
+    "usage": "examen-real-2019",
+    "topicId": 8
+  },
+  {
+    "id": 29,
+    "question": "En la carta de servicios de la BUS se establece un plazo para responder a las consultas de investigación realizadas a través del formulario web.",
+    "options": [
+      "En 24 horas.",
+      "En 2 días laborables.",
+      "En 3 días laborables.",
+      "En 5 día laborables."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La Carta de Servicios de la BUS se compromete formalmente a dar respuesta y asesorar a las consultas especializadas de investigación recibidas a través del formulario web en un plazo máximo de 2 días laborables.",
+    "usage": "examen-real-2019",
+    "topicId": 2
+  },
+  {
+    "id": 30,
+    "question": "Según la Carta de Servicios de la BUS, una vez recibida y admitida la queja o sugerencia enviada a través del formulario electrónico, se elaborará un informe, que será remitido a la persona interesada, de forma personalizada, en el plazo de:",
+    "options": [
+      "10 días laborables",
+      "5 días laborables.",
+      "10 días naturales",
+      "4 días laborables"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Según los compromisos de calidad y atención al usuario recogidos en la Carta de Servicios de la BUS, una vez admitida a trámite una queja o sugerencia formal, la biblioteca elaborará y remitirá una respuesta personalizada al interesado en un plazo máximo de 5 días laborables.",
+    "usage": "examen-real-2019",
+    "topicId": 2
+  },
+  {
+    "id": 31,
+    "question": "Según dispone la Circular de 24 de mayo de 2018 de la Gerencia de la Universidad de Sevilla, en relación con el procedimiento a seguir en caso de accidente de trabajo, la notificación al Servicio de Prevención, una vez ocurra el accidente, se realizará:",
+    "options": [
+      "En el plazo de veinticuatro horas.",
+      "En el plazo de cuarenta y ocho horas.",
+      "Inmediatamente o como máximo dentro de los tres días siguientes.",
+      "Inmediatamente o como máximo dentro de los cuatro días siguientes."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La circular de la Gerencia de la US de 2018 regula los accidentes de trabajo, estableciendo la obligación legal del trabajador o de su responsable de notificar el accidente al Servicio de Prevención de manera inmediata o, en su defecto, en el plazo máximo de los 3 días siguientes a su ocurrencia.",
+    "usage": "examen-real-2019",
+    "topicId": 14
+  },
+  {
+    "id": 32,
+    "question": "Según establece la Guía Preventiva para los Empleados Públicos de la Universidad de Sevilla, las personas trabajadoras de la Universidad de Sevilla pueden solicitar un reconocimiento médico en la Universidad. Este reconocimiento se llevará siempre respetando la:",
+    "options": [
+      "Publicidad y dignidad.",
+      "Confidencialidad y la capacidad.",
+      "Jerarquía.",
+      "Intimidad, dignidad y confidencialidad."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La Guía Preventiva para los Empleados Públicos de la US recoge que los reconocimientos médicos periódicos de vigilancia de la salud deben realizarse siempre con el máximo respeto a la intimidad, la dignidad y la confidencialidad clínica del trabajador.",
+    "usage": "examen-real-2019",
+    "topicId": 14
+  },
+  {
+    "id": 33,
+    "question": "Según el RD 486/1997 por el que se establecen las disposiciones mínimas de seguridad y salud en los lugares de trabajo, ¿qué anchura mínima deben tener los pasillos?:",
+    "options": [
+      "70 cm.",
+      "90 cm.",
+      "100 cm.",
+      "85 cm."
+    ],
+    "correctAnswer": 2,
+    "explanation": "El Real Decreto 486/1997 sobre disposiciones mínimas de seguridad en los lugares de trabajo establece, en su Anexo I, que los pasillos de las zonas de tránsito habitual deben tener una anchura libre mínima de 100 cm (1 metro) para permitir una circulación fluida y evacuación segura.",
+    "usage": "examen-real-2019",
+    "topicId": 16
+  },
+  {
+    "id": 34,
+    "question": "Según las píldoras informativas del Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla, en su píldora « Postura sentado ante el ordenador », en relación con un puesto de trabajo donde existe teclado de ordenador, se recomienda que el antebrazo, muñeca y mano:",
+    "options": [
+      "Deben permanecer cruzados.",
+      "Deben permanecer alineados.",
+      "Deben permanecer en ángulo de 45°.",
+      "Deben permanecer verticales."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La píldora preventiva sobre ergonomía ante pantallas de la US recomienda que, para evitar trastornos musculoesqueléticos en la muñeca y el síndrome del túnel carpiano, al teclear, el antebrazo, la muñeca y la mano deben permanecer perfectamente alineados en línea recta.",
+    "usage": "examen-real-2019",
+    "topicId": 15
+  },
+  {
+    "id": 35,
+    "question": "Son órganos de gobierno unipersonales de la Universidad de Sevilla:",
+    "options": [
+      "El Rector, El Secretario General, El Gerente y El Presidente del Consejo Social.",
+      "El Rector, Los Vicerrectores, El Secretario General y el Gerente.",
+      "El Rector, Los Vicerrectores, El Secretario General, el Gerente, los Vicegerentes y el Defensor Universitario.",
+      "El Rector, Los Vicerrectores, el Secretario General, el Gerente, los Decanos y Directores de Escuela y los Directores de Departamento."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Conforme a los Estatutos de la US (Decreto 98/2025), los órganos de gobierno unipersonales con carácter general para toda la universidad son el Rector, los Vicerrectores, el Secretario General y el Gerente.",
+    "usage": "examen-real-2019",
+    "topicId": 17
+  },
+  {
+    "id": 36,
+    "question": "La elaboración del calendario de exámenes y el de aquellas pruebas de evaluación que se establezcan reglamentariamente, según el art. 26 del Estatuto de la Universidad de Sevilla, es una función de:",
+    "options": [
+      "Los Departamentos.",
+      "Los Centros.",
+      "Los Consejos de Departamento, previo informe del Consejo de Alumnos y de acuerdo con la Junta de Centro.",
+      "La Junta de Centro, previo informe del Consejo de Alumnos y de acuerdo con los Consejos de Departamento."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El artículo 26 de los Estatutos de la US atribuye a las Juntas de Centro (de las Facultades y Escuelas) la competencia exclusiva para elaborar y aprobar el calendario de exámenes de sus respectivas titulaciones.",
+    "usage": "examen-real-2019",
+    "topicId": 17
+  },
+  {
+    "id": 37,
+    "question": "Conforme a lo establecido en el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el establecimiento y la regulación de las relaciones de prestación de servicios entre las Universidades Públicas de Andalucía y el personal laboral de las mismas, se encuentra recogido en:",
+    "options": [
+      "El ámbito temporal del Convenio.",
+      "El ámbito territorial del Convenio.",
+      "El ámbito personal del Convenio.",
+      "El objeto del Convenio."
+    ],
+    "correctAnswer": 3,
+    "explanation": "El IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía define en su primer artículo que la regulación de las condiciones y relaciones de prestación de servicios entre el personal laboral y las universidades constituye el objeto directo del convenio.",
+    "usage": "examen-real-2019",
+    "topicId": 18
+  },
+  {
+    "id": 38,
+    "question": "Según lo dispuesto en el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, por intervención quirúrgica de un hijo la persona trabajadora tendrá derecho a un permiso retribuido de:",
+    "options": [
+      "4 días hábiles.",
+      "4 días naturales.",
+      "5 días naturales.",
+      "3 días hábiles."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El régimen de permisos retribuidos del IV Convenio Colectivo concede al trabajador un permiso especial de 4 días hábiles en caso de intervención quirúrgica de un hijo que requiera hospitalización o reposo domiciliario.",
+    "usage": "examen-real-2019",
+    "topicId": 18
+  },
+  {
+    "id": 39,
+    "question": "Según el Protocolo para la Prevención, Evaluación e Intervención en situación de acoso en la Universidad de Sevilla, el hostigamiento psicológico u hostil en el marco de cualquier actividad laboral o funcionarial que humille a quien lo sufre, imponiendo situaciones de grave ofensa a la dignidad, se denomina:",
+    "options": [
+      "Acoso psicológico.",
+      "Acoso moral.",
+      "Acoso laboral.",
+      "Acoso discriminatorio."
+    ],
+    "correctAnswer": 2,
+    "explanation": "El Protocolo contra el acoso de la US define el hostigamiento psicológico prolongado e intencionado en el marco de la relación laboral, que lesiona la integridad moral y humilla al trabajador, con el término técnico de acoso laboral.",
+    "usage": "examen-real-2019",
+    "topicId": 20
+  },
+  {
+    "id": 40,
+    "question": "En virtud de lo establecido en la LO 3/2007 para la Igualdad efectiva de mujeres y hombres, la situación en que una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro, se considera:",
+    "options": [
+      "Discriminación laboral.",
+      "Discriminación directa por razón de sexo.",
+      "Discriminación indirecta por razón de sexo.",
+      "Acoso por razón de sexo."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La Ley Orgánica 3/2007 define como discriminación indirecta por razón de sexo aquella situación en la que una disposición, criterio o práctica aparentemente neutros sitúa a las personas de un sexo en una posición de desventaja particular respecto a las del otro, salvo que se justifique objetivamente por una finalidad legítima.",
+    "usage": "examen-real-2019",
+    "topicId": 19
+  }
+]

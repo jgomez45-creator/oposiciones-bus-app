@@ -11,9 +11,9 @@ La tecnología **RFID** (Radio Frequency Identification o Identificación por Ra
 ### A. ¿Cómo funciona el RFID?
 Consiste en la transmisión inalámbrica de datos a través de ondas de radio. El sistema funciona en la banda de **Alta Frecuencia (HF) a 13.56 MHz** (regulada por la norma internacional **ISO 15693** e **ISO 18000-3**). Se compone de tres elementos principales:
 1.  **La etiqueta RFID (Tag):** Un adhesivo plano pegado al libro. Contiene:
-    *   Un **microchip** de silicio que almacena información grabable (como el número de registro del ejemplar de la US).
+    *   Un **microchip** de silicio que almacena información grabable (como el número de registro del ejemplar de la US). *(Nota de examen: una ventaja del RFID es la alta capacidad de almacenamiento de sus etiquetas, que pueden guardar hasta **4 millones de caracteres**).*
     *   Una **antena** metálica plana de aluminio o cobre en forma de espiral.
-2.  **El lector/grabador RFID (Antena):** Emite ondas de radio que alimentan al chip pasivo (que no tiene pila) y leen o escriben datos en su memoria de manera inalámbrica.
+2.  **El lector/grabador RFID (Antena):** Emite ondas de radio que alimentan al chip pasivo (que no tiene pila) y leen o escriben datos en su memoria de manera inalámbrica. En los mostradores de préstamo, este elemento adopta la forma de una **alfombrilla lectora de RFID** conectada directamente al terminal de trabajo, identificada a nivel físico como un **dispositivo periférico** del ordenador.
 3.  **El Middleware:** Software puente que comunica las lecturas del lector físico con la plataforma integrada de la biblioteca (**Alma**).
 
 ### B. Ventajas Operativas para el Auxiliar
@@ -41,7 +41,7 @@ Para que una terminal física (como la máquina de autopréstamo de la marca 3M 
 ---
 
 ## 3. Sistemas de Seguridad Antihurto: Bit EAS y Código AFI
-Los arcos antihurto instalados en las puertas de salida de la biblioteca son antenas detectoras que leen los chips de los libros a su paso. Si detectan que un libro no ha sido prestado en el mostrador o en el autopréstamo, hacen sonar una alarma.
+Los arcos detectores del sistema antihurto se instalan obligatoriamente en la **zona de acceso de la biblioteca** (puertas de entrada y salida) para controlar el paso de personas. Estas antenas detectoras leen los chips de los libros a su paso y, si detectan que un documento no ha sido desactivado previamente (es decir, no ha sido prestado legalmente en mostrador o autopréstamo), emiten una alarma sonora y visual para avisar al personal auxiliar.
 
 Para gestionar esto en el mostrador, se utilizan dos tecnologías de codificación dentro del microchip del libro:
 
@@ -60,17 +60,28 @@ Es el sistema más moderno y normalizado según el estándar internacional **ISO
 
 ---
 
-## 4. Esquema de Repaso Rápido para Examen
-*   **Frecuencia RFID:** Alta Frecuencia (HF) a **13.56 MHz** (Norma ISO 15693).
+## 4. Conectividad y Acceso Remoto: ReInUS, Eduroam y Acceso desde Casa
+La Universidad de Sevilla ofrece cobertura de conectividad inalámbrica y acceso a sus colecciones de recursos-e bajo normativas y sistemas específicos:
+*   **ReInUS (Red Inalámbrica de la US):** Los miembros de la propia universidad (estudiantes, PDI, PTGAS) acceden mediante su credencial **UVUS** y contraseña.
+*   **Eduroam (Educational Roaming):** Red wifi de movilidad académica que permite a los usuarios visitantes pertenecientes a instituciones asociadas conectarse utilizando el **usuario y contraseña de su universidad de origen**, sin requerir cuentas de la US.
+*   **Acceso desde Casa (Acceso Remoto):** Es el servicio que ofrece la posibilidad de que las personas usuarias autorizadas de la comunidad universitaria de la US puedan utilizar, desde el exterior de la red física de la Universidad, todos los recursos electrónicos suscritos por la Biblioteca (revistas científicas, bases de datos y libros electrónicos), autenticándose en la pasarela proxy con su UVUS.
+
+---
+
+## 5. Esquema de Repaso Rápido para Examen
+*   **Frecuencia RFID:** Alta Frecuencia (HF) a **13.56 MHz** (Norma ISO 15693 e ISO 18000-3).
+*   **Dispositivo Periférico:** La alfombrilla de mostrador RFID se identifica técnicamente como tal.
 *   **SIP2:** Protocolo estándar de comunicación que conecta el hardware físico de autopréstamo/buzón con la base de datos de Alma en tiempo real.
 *   **Bit EAS:** Conmutador binario simple de un bit (1 = seguridad activada en sala / 0 = desactivada).
 *   **Código AFI:** Código de 1 byte (ISO 28560-2). En sala es **`07`** (o hexadecimal **`C2`**); al prestarse cambia a **`C0`** o **`00`** para desactivar la alarma de salida.
 *   **Middleware:** Software integrador entre los sensores RFID y la base de datos de Alma.
+*   **Redes inalámbricas:** ReInUS (acceso con UVUS/clave de la US) y Eduroam (acceso con credenciales de la institución de origen).
 
 ---
 
-## 5. Conceptos Clave
+## 6. Conceptos Clave
 *   **RFID pasivo:** Etiquetas que no tienen batería integrada; obtienen la energía necesaria para emitir sus datos de las propias ondas de radio emitidas por la antena del lector.
 *   **EAS (Electronic Article Surveillance):** Tecnología de protección electrónica básica contra el hurto de ejemplares.
 *   **AFI (Application Family Identifier):** Mecanismo estandarizado por ISO para clasificar la aplicación del chip y gestionar su estado de alarma en bibliotecas.
 *   **SIP2:** Protocolo imprescindible que rige todas las comunicaciones de autopréstamo del mostrador a nivel mundial.
+*   **Eduroam:** Red wifi mundial cooperativa para la movilidad de investigadores y estudiantes de educación superior.

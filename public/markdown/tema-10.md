@@ -99,7 +99,14 @@ Las bibliotecas evalúan periódicamente sus servicios de referencia mediante in
 
 ---
 
-## 6. Reglas Mnemotécnicas para el Examen
+## 6. Canales y Herramientas del Servicio de Referencia Virtual
+La BUS emplea herramientas tecnológicas específicas tanto para la interacción directa con el usuario como para la gestión del servicio por parte del personal auxiliar:
+*   **Servicio de Chat de la BUS:** Es un canal ágil de mensajería instantánea para resolver de forma rápida dudas de información general y bibliográfica. Por motivos de seguridad y protección de datos, a través del chat **no se atenderán renovaciones ni reservas de documentos, ni se actualizará ningún campo del registro o perfil del usuario**, debiendo redirigir al lector a que realice estas operaciones él mismo en su cuenta personal de FAMA.
+*   **Oculus:** Es el escritorio virtual de gestión de información de la BUS empleado por el personal técnico. Cuenta con un módulo para la edición de contenidos de actualidad donde las noticias se pueden **insertar, modificar, desactivar y clonar**.
+
+---
+
+## 7. Reglas Mnemotécnicas para el Examen
 Para memorizar los niveles de referencia y clasificación de fuentes, utiliza estas asociaciones:
 
 *   **Los Tres Niveles de Referencia: "G-B-E" (De menor a mayor complejidad):**
@@ -116,7 +123,7 @@ Para memorizar los niveles de referencia y clasificación de fuentes, utiliza es
 
 ---
 
-## 7. Conceptos Clave
+## 8. Conceptos Clave
 *   **Servicio de Referencia:** Función orientadora y de asistencia personalizada para facilitar el acceso a la información y su uso eficiente.
 *   **Literatura Gris:** Tipología documental caracterizada por canales de producción y distribución alternativos a los circuitos comerciales tradicionales.
 *   **Preguntas Abiertas:** Técnicas de formulación en la entrevista de referencia que invitan al usuario a expandir los detalles de su necesidad informativa.

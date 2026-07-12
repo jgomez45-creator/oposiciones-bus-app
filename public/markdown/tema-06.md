@@ -15,17 +15,19 @@ Esto permite:
 ## 2. La Clasificación Decimal Universal (CDU)
 La **CDU** es el sistema de clasificación por materias más extendido en las bibliotecas españolas y andaluzas, incluida la BUS. Es un sistema **decimal** (divide el conocimiento en 10 clases, del 0 al 9) y **universal** (abarca todas las áreas del conocimiento).
 
+*   **Origen e Historia:** Fue creada a finales del siglo XIX (1895) por los bibliógrafos belgas **Paul Otlet** y **Henri La Fontaine**. Nació como una traducción, ampliación y adaptación del **Sistema de Clasificación Decimal de Melvil Dewey**, de cuya obra se considera heredera directa.
+
 ### A. La Estructura de las Clases Principales (Tabla Principal)
 El esquema básico se divide en 10 números de una sola cifra:
 
 *   **0** Ciencia y conocimiento. Organización. Información. Documentación. Biblioteconomía. Instituciones. Documentos y publicaciones.
 *   **1** Filosofía. Psicología.
 *   **2** Religión. Teología.
-*   **3** Ciencias Sociales. Estadística. Política. Economía. Comercio. Derecho. Gobierno. Asuntos militares. Bienestar social. Educación. Antropología.
+*   **3** Ciencias Sociales. Estadística. Política. Economía. Comercio. Derecho. Gobierno. Asuntos militares. Bienestar social. Educación. Antropología. *(Nota de examen: la subdivisión de dos dígitos **33** corresponde a la materia de **Economía**).*
 *   **4** *Clase vacía (Reservada para futuras divisiones).*
 *   **5** Matemáticas. Ciencias Naturales (Física, Química, Biología, Geología, Astronomía).
 *   **6** Ciencias Aplicadas. Medicina. Tecnología. Ingeniería. Agricultura. Gestión doméstica.
-*   **7** Arte. Arquitectura. Fotografía. Música. Entretenimiento. Deporte.
+*   **7** Arte. Arquitectura. Fotografía. Música. Entretenimiento. Deporte. *(Nota de examen: la subdivisión **74** corresponde a **Dibujo**, dibujo artístico y diseño).*
 *   **8** Lengua. Lingüística. Literatura.
 *   **9** Geografía. Biografías. Historia.
 
@@ -43,7 +45,7 @@ La CDU es una clasificación **analítico-sintética**. Permite combinar concept
 | **`:`** | Relación simple (dos materias vinculadas) | `51:61` (Matemáticas aplicadas a la Medicina) |
 | **`::`** | Relación fija u ordenación estricta (irreversible) | `51::61` (Fija la relación temática) |
 | **`=`** | Auxiliar de Idioma (Lengua en la que está la obra) | `51=111` (Matemáticas en inglés) |
-| **`(0...)`**| Auxiliar de Forma (Tipo de documento) | `51(03)` (Diccionario de Matemáticas) |
+| **`(0...)`**| Auxiliar de Forma (Tipo de documento) | `51(03)` (Diccionario). *(Nota: se expresa mediante paréntesis cero **(0...)**).* |
 | **`(1/9)`** | Auxiliar de Lugar (Ámbito geográfico) | `33(460)` (Economía de España) |
 | **`(=...)`**| Auxiliar de Raza y Nacionalidad | `39(=134.2)` (Folclore de los españoles) |
 | **`"..."`** | Auxiliar de Tiempo (Fechas o periodos) | `94(460)"19"` (Historia de España del siglo XX) |
@@ -95,9 +97,12 @@ Es la dirección física del libro. Normalmente se compone de:
 
 Ejemplo de signatura: `82 CER qui`.
 
-### B. Criterios de Colocación
+### B. Criterios de Colocación y Ordenación
 * De izquierda a derecha y de arriba a abajo en los estantes.
 * Las estanterías de libre acceso no deben llenarse a más del **75%-80%** de su capacidad física para permitir el crecimiento natural de la colección sin recolocaciones constantes.
+* **Ordenación Alfabética (Publicaciones Periódicas/Revistas):** Al alfabetizar revistas por título en las estanterías de la BUS:
+  * Los títulos que inician con números o cifras se ordenan **siempre antes** que las letras (ej. *365 grados* antecede a *The AAPS Journal*).
+  * Los **artículos iniciales** en cualquier idioma (ej. *El*, *La*, *Los*, *The*, *Der*, *L'*) **se ignoran por completo** a efectos de ordenamiento alfabético, alfabetizando por la primera palabra significativa (ej. *The AAPS Journal* se ordena por la **A**; *The Espace* y *El espacio* se ordenan por la **E**). Ej: *365 grados* &rarr; *The AAPS Journal* &rarr; *The Espace* &rarr; *El espacio*.
 
 ---
 

@@ -15,6 +15,9 @@ En las bibliotecas universitarias modernas (CRAI), el servicio clásico de "form
     5.  *Comunicar y utilizar* la información de manera ética, legal y respetuosa con los derechos de autor.
 *   **CODI (Competencias Digitales):** Habilidades operativas que complementan la ALFIN mediante el uso de tecnologías de la información, herramientas de software académico, almacenamiento seguro de datos, ciberseguridad, y creación y edición de materiales digitales.
 
+### C. La Biblioteca 2.0 y los Entornos Colaborativos
+*   **Filosofía y Actitud:** El concepto de **Biblioteca 2.0** no está determinado o definido por las herramientas tecnológicas o plataformas concretas empleadas. Su rasgo diferenciador reside fundamentalmente en la **actitud hacia los usuarios**, convirtiéndolos de receptores pasivos de información a colaboradores activos y participativos en la creación y evaluación de los servicios bibliotecarios.
+
 ---
 
 ## 2. El Marco de Competencias Digitales de la Unión Europea (DigComp)

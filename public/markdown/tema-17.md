@@ -29,7 +29,7 @@ Es el órgano de gobierno ordinario y ejecutivo de la Universidad. Establece las
 *   **Periodicidad:** Se reúne con carácter ordinario al menos **1 vez al mes** (salvo en períodos inhábiles).
 
 #### 3. El Consejo Social
-Órgano de participación de la sociedad en la universidad. Es el responsable de aprobar el presupuesto definitivo de la universidad, las tasas académicas supletorias y supervisar las actividades de carácter económico e inversiones de la US.
+Órgano de participación de la sociedad en la universidad. Es el responsable de aprobar el presupuesto definitivo de la universidad, las tasas académicas supletorias y supervisar las actividades de carácter económico e inversiones de la US. *(Nota de examen: es competencia específica del Consejo Social promover la aportación de recursos para la financiación de la Universidad).*
 *   **Composición:** Mayoritariamente compuesto por personalidades de la vida social, empresarial y cultural ajenos a la propia universidad, además de una representación mínima de la comunidad universitaria (el Rector, el Secretario General y el Gerente son miembros natos, junto a un representante del PDI, uno del PTGAS y uno de los Estudiantes elegidos por el Consejo de Gobierno).
 
 ### B. Órganos Unipersonales Generales
@@ -47,7 +47,7 @@ Es el órgano de gobierno ordinario y ejecutivo de la Universidad. Establece las
 
 ## 3. Centros, Departamentos e Institutos de la US
 La Universidad de Sevilla se estructura territorialmente y académicamente en:
-*   **Centros Universitarios (Facultades y Escuelas Universitarias):** Encargados de la organización de las enseñanzas y los procesos académicos que conducen a la obtención de títulos oficiales de Grado y Máster (ej. Facultad de Filología, Escuela Técnica Superior de Ingeniería). Cada centro está dirigido por un **Decano** o **Director de Escuela**, y su órgano colegiado de gobierno es la **Junta de Centro**.
+*   **Centros Universitarios (Facultades y Escuelas Universitarias):** Encargados de la organización de las enseñanzas y los procesos académicos que conducen a la obtención de títulos oficiales de Grado y Máster (ej. Facultad de Filología, Escuela Técnica Superior de Ingeniería). Cada centro está dirigido por un **Decano** o **Director de Escuela**, y su órgano colegiado de gobierno es la **Junta de Centro**. De acuerdo con el **artículo 26 del Estatuto de la US**, corresponde a los **Centros** la competencia para elaborar y aprobar el **calendario de exámenes** y de aquellas pruebas de evaluación que se establezcan reglamentariamente.
 *   **Departamentos:** Órganos encargados de coordinar las enseñanzas de una o varias áreas de conocimiento en uno o varios centros, y de apoyar las iniciativas de investigación del profesorado de su competencia (ej. Departamento de Historia del Arte). Dirigido por un **Director de Departamento**, y su órgano colegiado es el **Consejo de Departamento**.
 *   **Institutos Universitarios de Investigación:** Centros dedicados de forma prioritaria a la investigación científica o técnica.
 

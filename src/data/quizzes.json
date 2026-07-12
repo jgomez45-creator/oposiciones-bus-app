@@ -1329,6 +1329,19 @@
       "explanation": "El 'Reglamento de la BUS' es la 'norma fundamental de organización interna' de la BUS.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "En el Reglamento de la Biblioteca de la Universidad de Sevilla se establece que el acceso de los ciudadanos no vinculados a la Universidad de Sevilla a los recursos y servicios de la biblioteca se realizará:",
+      "options": [
+        "De manera totalmente libre y gratuita en las mismas condiciones que el PDI doctor.",
+        "Previa autorización individualizada y por escrito emitida de forma exclusiva por la Dirección de la BUS.",
+        "Únicamente con derecho a préstamo y en los términos que establezca la Junta de Centro de Humanidades.",
+        "En los términos y condiciones que establezca el Consejo de Gobierno de la Universidad."
+      ],
+      "correctAnswer": 3,
+      "explanation": "El Reglamento de la BUS remite al Consejo de Gobierno de la Universidad de Sevilla la competencia para fijar las condiciones, términos y posibles tasas de acceso para usuarios que no pertenezcan formalmente a la comunidad universitaria.",
+      "usage": "dossier"
     }
   ],
   "2": [
@@ -2661,6 +2674,19 @@
       "explanation": "El apartado '3. Propósito, Visión y Valores de la BUS' asocia la 'gestión ética de los recursos públicos' con el valor de 'Sostenibilidad y transparencia'.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "Según se establece en los compromisos formales de calidad de la Carta de Servicios de la BUS, las consultas y peticiones de información especializadas de investigación recibidas mediante formulario electrónico se responderán en un plazo máximo de:",
+      "options": [
+        "24 horas naturales desde su recepción.",
+        "2 días laborables.",
+        "3 días hábiles.",
+        "5 días laborables."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Carta de Servicios de la BUS asume el compromiso medible de dar respuesta a las consultas de carácter especializado sobre investigación o recursos en un plazo no superior a 2 días laborables.",
+      "usage": "dossier"
     }
   ],
   "3": [
@@ -4187,6 +4213,19 @@
       ],
       "correctAnswer": 1,
       "explanation": "La seguridad estructural contra incendios exige puertas cortafuegos homologadas y de cierre automático para aislar las vías de evacuación (escaleras y salidas).",
+      "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Según las Normas de Conservación y las especificaciones físicas de la BUS, la Sala de Investigadores destinada a la consulta de fondos antiguos y valiosos debe mantener un rango de condiciones ambientales de:",
+      "options": [
+        "Luz general indirecta (c. 200-300 lux) y temperatura controlada entre 18º y 25º C.",
+        "Luz general indirecta (c. 200-600 lux) y temperatura controlada entre 20º y 25º C.",
+        "Luz general indirecta (c. 100-200 lux) y temperatura controlada entre 17º y 22º C.",
+        "Luz general indirecta (c. 200-600 lux) y temperatura controlada entre 17º y 22º C."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Las directrices ambientales para la Sala de Investigadores de la BUS exigen una iluminación general de tipo indirecto de entre 200 y 600 luxes, junto con una climatización estable de entre 17º y 22º C para proteger los soportes antiguos.",
       "usage": "dossier"
     }
   ],
@@ -5793,6 +5832,19 @@
       "correctAnswer": 1,
       "explanation": "La autenticación federada del SIR (Servicio de Identidad de RedIRIS) y sistemas SSO como Shibboleth se basan en el protocolo seguro estándar SAML 2.0 (Security Assertion Markup Language).",
       "usage": "dossier"
+    },
+    {
+      "id": 122,
+      "question": "En relación con los recursos de información y la colección electrónica de la Universidad de Sevilla, ¿es posible la recuperación y el acceso a los libros electrónicos suscritos por la BUS a través de su catálogo?",
+      "options": [
+        "No, puesto que los libros electrónicos carecen de descripción en FAMA y deben buscarse solo en las webs de las editoriales.",
+        "Sí, dado que la gran mayoría de los libros electrónicos suscritos por la universidad están descritos y enlazados en el catálogo FAMA.",
+        "Únicamente se permite el acceso a aquellos libros electrónicos que tengan licencia de libre acceso (Open Access).",
+        "No, la recuperación en FAMA se restringe de manera exclusiva a la colección impresa en papel y soportes físicos."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El catálogo unificado FAMA de la US describe e indexa la gran mayoría de los títulos de libros electrónicos bajo suscripción de la BUS, permitiendo la búsqueda y el enlace directo a los textos completos.",
+      "usage": "dossier"
     }
   ],
   "5": [
@@ -7190,6 +7242,19 @@
       "correctAnswer": 0,
       "explanation": "El canje se realiza mediante el intercambio recíproco de publicaciones propias, habitualmente producidas por la Editorial Universidad de Sevilla (EUS) o a través de tesis y trabajos en abierto del repositorio idUS.",
       "usage": "dossier"
+    },
+    {
+      "id": 106,
+      "question": "De conformidad con las Normas para uso y conservación de fondos antiguos y valiosos de la Biblioteca Universitaria de Sevilla, los volúmenes de gran formato, inusuales o muy pesados se almacenarán:",
+      "options": [
+        "Apilados en columnas de hasta diez volúmenes en posición vertical para facilitar su extracción rápida.",
+        "Sin apilar y se procurará mantenerlos siempre en posición horizontal sobre baldas adecuadas.",
+        "Sin apilar y se procurará mantenerlos en posición vertical mediante el uso de sujetalibros reforzados.",
+        "Apilados de forma piramidal para evitar presiones en las cubiertas y lomos."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las normas de conservación preventiva de la BUS especifican que los libros valiosos muy pesados o de formatos inusuales no deben apilarse unos sobre otros y deben colocarse tumbados en plano (horizontal) para no deformar sus encuadernaciones.",
+      "usage": "dossier"
     }
   ],
   "6": [
@@ -8522,6 +8587,19 @@
       "explanation": "El apartado '4. El Orden de Archivamiento (Secuencia de Ordenación) de la CDU' menciona 'Auxiliares Especiales (guion `-1/-9`, punto cero `.0...` o apóstrofo `'`)'. El doble punto (`::`) es un 'Signo de Relación Fija', no un auxiliar especial.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "Siguiendo los criterios de ordenación alfabética de publicaciones periódicas y revistas en la biblioteca, ¿cuál es la secuencia correcta de colocación para los siguientes títulos?",
+      "options": [
+        "El espacio; 365 grados; The AAPS Journal; The Espace",
+        "365 grados; El espacio; The AAPS Journal; The Espace",
+        "El espacio; The AAPS Journal; The Espace; 365 grados",
+        "365 grados; The AAPS Journal; The Espace; El espacio"
+      ],
+      "correctAnswer": 3,
+      "explanation": "En las normas de ordenación alfabética, las cifras numéricas anteceden a las letras, y los artículos iniciales en cualquier idioma (como 'The' o 'El') no se computan a efectos de ordenamiento. La ordenación es: 365 grados, AAPS Journal (The), Espace (The) y espacio (El).",
+      "usage": "dossier"
     }
   ],
   "7": [
@@ -10049,6 +10127,19 @@
       "correctAnswer": 2,
       "explanation": "El protocolo Z39.50 es un protocolo cliente-servidor para la búsqueda y recuperación de información bibliográfica en bases de datos externas, facilitando la catalogación cooperativa por copia.",
       "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "En el catálogo Fama de la Biblioteca de la Universidad de Sevilla, la utilidad principal que tienen las denominadas 'facetas' consiste en:",
+      "options": [
+        "Permitir al usuario filtrar y refinar de forma progresiva los resultados de una búsqueda previa.",
+        "Relacionar automáticamente las diferentes ediciones y traducciones de una misma obra.",
+        "Posibilitar la exportación masiva de registros bibliográficos a gestores como Mendeley.",
+        "Enlazar directamente con los servidores del proveedor para acceder al texto completo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Las facetas son filtros interactivos situados en los laterales de la pantalla de búsqueda de Fama que ayudan a acotar los resultados según criterios como tipo de recurso, fecha de publicación, autor o biblioteca.",
+      "usage": "dossier"
     }
   ],
   "8": [
@@ -11381,6 +11472,19 @@
       "explanation": "El lector/grabador RFID emite ondas de radio que alimentan al chip pasivo y leen o escriben datos en su memoria de manera inalámbrica.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "En el ámbito de la automatización y los equipamientos tecnológicos empleados en la BUS, la alfombrilla lectora de RFID utilizada en los mostradores de préstamo se identifica técnicamente como:",
+      "options": [
+        "Un dispositivo de red local de la Universidad de Sevilla.",
+        "Un dispositivo óptico de lectura digital.",
+        "Un dispositivo periférico del ordenador.",
+        "Una unidad central de procesamiento (CPU) auxiliar."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La alfombrilla lectora de RFID es un hardware externo que se conecta al equipo del mostrador para introducir datos de las etiquetas de los libros, actuando como un periférico de entrada en el sistema del SIGB.",
+      "usage": "dossier"
     }
   ],
   "9": [
@@ -12713,6 +12817,19 @@
       "explanation": "La sección 'Normativa y Plazos de la Objetoteca' establece que 'Ciertos dispositivos están marcados para uso interno y no pueden salir del edificio bajo ninguna circunstancia', lo que hace la opción B incorrecta.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS, el número máximo de reservas de documentos físicos que pueden realizar simultáneamente los estudiantes de doctorado, máster, investigadores y PAS es de:",
+      "options": [
+        "3 reservas simultáneas.",
+        "5 reservas simultáneas.",
+        "7 reservas simultáneas.",
+        "10 reservas simultáneas."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Para estas tipologías de usuarios (PDI, doctorandos, máster, PAS/PTGAS), las normas vigentes de la BUS elevan la cantidad de reservas físicas activas de forma concurrente a un máximo de 5.",
+      "usage": "dossier"
     }
   ],
   "10": [
@@ -14239,6 +14356,19 @@
       ],
       "correctAnswer": 2,
       "explanation": "Las tesis doctorales leídas y depositadas en la universidad que no son editadas en colecciones comerciales constituyen uno de los ejemplos más notables de literatura gris en el entorno académico.",
+      "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "En relación con el servicio de información y atención al usuario de la BUS, la herramienta Oculus cuenta con un gestor donde las noticias se pueden:",
+      "options": [
+        "Únicamente insertar en la página de inicio.",
+        "Únicamente modificar tras su aprobación por el Vicerrectorado.",
+        "Únicamente clonar para campañas repetitivas.",
+        "Insertar, modificar, desactivar y clonar."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Oculus es la intranet y escritorio de información de la BUS. Su gestor de contenidos otorga flexibilidad total para insertar nuevas noticias, modificarlas, desactivarlas temporalmente o clonarlas para agilizar la edición.",
       "usage": "dossier"
     }
   ],
@@ -15767,6 +15897,19 @@
       "correctAnswer": 1,
       "explanation": "CODI representa las Competencias Digitales (Competencias Digitales) exigidas e impartidas en el plan de formación activa de los estudiantes de la US.",
       "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Dentro de la evolución histórica y conceptual de los servicios bibliotecarios, ¿qué factor o aspecto resulta determinante para definir el modelo de la Biblioteca 2.0?",
+      "options": [
+        "El software de catalogación y los sistemas integrados de gestión bibliotecaria de nueva generación.",
+        "La tipología y cantidad de soportes electrónicos y bases de datos contratadas.",
+        "La actitud del personal y de la institución hacia la participación de los usuarios.",
+        "El número y variedad de las modalidades de préstamos a domicilio."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Biblioteca 2.0 no es una definición tecnológica, sino una filosofía basada en la actitud abierta que busca involucrar activamente al usuario, permitiéndole interactuar, opinar y colaborar en los servicios.",
+      "usage": "dossier"
     }
   ],
   "12": [
@@ -17294,6 +17437,19 @@
       "correctAnswer": 1,
       "explanation": "El autoarchivo es el mecanismo por el cual el autor de un trabajo científico realiza él mismo el depósito de una copia digital en un repositorio de acceso abierto para asegurar su libre difusión.",
       "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "En el marco de la BUS, el repositorio institucional de acceso abierto idUS tiene como finalidad principal de apoyo a los investigadores de la US:",
+      "options": [
+        "Gestionar de manera interna las compras de bases de datos científicas.",
+        "Archivar, conservar y difundir en acceso abierto la producción científica de la universidad.",
+        "Controlar la asignación de presupuestos de las facultades para publicaciones.",
+        "Emitir certificados oficiales de sexenios de investigación para la ANECA."
+      ],
+      "correctAnswer": 1,
+      "explanation": "idUS es el repositorio institucional de la Universidad de Sevilla, diseñado para reunir y difundir digitalmente en abierto la producción de sus investigadores, cumpliendo con los mandatos de ciencia abierta.",
+      "usage": "dossier"
     }
   ],
   "13": [
@@ -17685,6 +17841,19 @@
       ],
       "correctAnswer": 1,
       "explanation": "OneNote es la libreta digital oficial en Microsoft 365 para la recopilación de notas, capturas y apuntes estructurados de forma asíncrona.",
+      "usage": "dossier"
+    },
+    {
+      "id": 31,
+      "question": "Si un miembro del personal técnico o estudiante de la Universidad de Sevilla necesita cambiar la contraseña o gestionar los parámetros de seguridad de su Usuario Virtual (UVUS), ¿a qué portal web oficial debe dirigirse?",
+      "options": [
+        "https://consigna.us.es",
+        "https://buzonweb.us.es",
+        "https://identidad.us.es",
+        "http://binus.us.es"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El portal de gestión de identidad de la US es https://identidad.us.es, el cual centraliza los servicios de cambio de claves, recuperación de credenciales y activación del UVUS de toda la comunidad universitaria.",
       "usage": "dossier"
     }
   ],
@@ -19018,6 +19187,19 @@
       "explanation": "La sección 2 la describe como 'documento informativo de obligado conocimiento para todo el personal de nuevo ingreso en la US'.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "De acuerdo con lo establecido en la Circular de 24 de mayo de 2018 de la Gerencia de la Universidad de Sevilla, ¿en qué plazo debe realizarse la notificación oficial al Servicio de Prevención (SEPRUS) tras ocurrir un accidente de trabajo?",
+      "options": [
+        "En el plazo improrrogable de las veinticuatro horas siguientes.",
+        "En el plazo máximo de las cuarenta y ocho horas siguientes.",
+        "Inmediatamente o como máximo dentro de los tres días siguientes.",
+        "Inmediatamente o como máximo dentro de los cuatro días siguientes."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La circular de Gerencia fija una obligación de celeridad ante accidentes laborales, exigiendo comunicar el hecho de forma inmediata o, a lo sumo, dentro de un plazo de 3 días siguientes al accidente.",
+      "usage": "dossier"
     }
   ],
   "15": [
@@ -20350,6 +20532,19 @@
       "explanation": "El peso máximo recomendado para manipulación manual de cargas en condiciones ideales es de 25 kg, según el SEPRUS. Esta cifra se reduce a 15 kg para proteger a colectivos específicos.",
       "usage": "simulacro",
       "simulacroExamId": 15
+    },
+    {
+      "id": 101,
+      "question": "Según las directrices de ergonomía publicadas por el Servicio de Prevención de Riesgos Laborales de la US, al trabajar sentado frente a un ordenador con teclado, se recomienda que:",
+      "options": [
+        "Los antebrazos permanezcan cruzados para descargar la tensión de los hombros.",
+        "El antebrazo, la muñeca y la mano permanezcan alineados en línea recta.",
+        "Los antebrazos se coloquen en un ángulo constante de 45º respecto a la mesa.",
+        "Las muñecas se mantengan en posición vertical y suspendidas sin apoyos."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Para evitar tendinitis y lesiones por esfuerzo repetitivo (como el síndrome del túnel carpiano), la directriz ergonómica de la US aconseja mantener una postura recta y alineada del antebrazo, muñeca y mano al teclear.",
+      "usage": "dossier"
     }
   ],
   "16": [
@@ -21876,6 +22071,19 @@
       ],
       "correctAnswer": 1,
       "explanation": "El artículo 4.1 de la LPRL define la prevención como el conjunto de actividades o medidas adoptadas o previstas en todas las fases de la actividad de la empresa con el fin de evitar o disminuir los riesgos del trabajo.",
+      "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Conforme al Real Decreto 486/1997 por el que se establecen las disposiciones mínimas de seguridad y salud en los lugares de trabajo, las vías de circulación destinadas a pasillos de tránsito habitual deben disponer de una anchura mínima de:",
+      "options": [
+        "70 cm.",
+        "90 cm.",
+        "100 cm.",
+        "85 cm."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El RD 486/1997 prescribe en su Anexo I que, para garantizar tránsitos seguros y evacuación en caso de emergencia, los pasillos habituales de los centros de trabajo tengan un ancho mínimo libre de obstáculos de 1 metro (100 cm).",
       "usage": "dossier"
     }
   ],
@@ -23404,6 +23612,19 @@
       "correctAnswer": 1,
       "explanation": "La categoría convocada (Auxiliar de Biblioteca) se encuadra como Personal Técnico, de Gestión y de Administración y Servicios (PTGAS) de carácter laboral dentro del Grupo IV del convenio colectivo.",
       "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Según se establece en el artículo 26 del Estatuto de la Universidad de Sevilla (Decreto 98/2025), la competencia exclusiva para la elaboración y aprobación del calendario de exámenes de las asignaturas corresponde a:",
+      "options": [
+        "Los Departamentos académicos respectivos.",
+        "Los Centros (Facultades y Escuelas).",
+        "El Claustro Universitario.",
+        "El Rectorado de la Universidad."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los Estatutos de la US otorgan a las Juntas de Centro (de las Facultades y Escuelas) la competencia organizativa para fijar los calendarios y las fechas de las pruebas de evaluación oficial.",
+      "usage": "dossier"
     }
   ],
   "18": [
@@ -23795,6 +24016,19 @@
       ],
       "correctAnswer": 1,
       "explanation": "El Art. 46.3.a indica de forma explícita que los reconocimientos médicos se practicarán una vez al año para todo el personal.",
+      "usage": "dossier"
+    },
+    {
+      "id": 31,
+      "question": "De acuerdo con el régimen de licencias y permisos recogido en el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, en caso de intervención quirúrgica de un hijo que requiera reposo o cuidados, el trabajador tiene derecho a un permiso retribuido de:",
+      "options": [
+        "4 días hábiles.",
+        "4 días naturales.",
+        "5 días naturales.",
+        "3 días hábiles."
+      ],
+      "correctAnswer": 0,
+      "explanation": "El convenio colectivo establece una licencia de 4 días laborables o hábiles en caso de operaciones de familiares de primer grado (como hijos) que necesiten hospitalización o reposo domiciliario.",
       "usage": "dossier"
     }
   ],
@@ -25323,6 +25557,19 @@
       "correctAnswer": 1,
       "explanation": "La LOIMH obliga a todas las Administraciones Públicas y universidades (junto a la LOSU) a disponer de planes de igualdad activos y de mecanismos de supervisión específicos.",
       "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Conforme a la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres, la situación en que una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro se define como:",
+      "options": [
+        "Discriminación laboral por circunstancias de género.",
+        "Discriminación directa por razón de sexo.",
+        "Discriminación indirecta por razón de sexo.",
+        "Conducta constitutiva de acoso por razón de sexo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La discriminación indirecta se da cuando una regla aparentemente imparcial o neutra perjudica de manera desproporcionada a un colectivo de un determinado sexo, sin existir una justificación técnica o legal objetiva.",
+      "usage": "dossier"
     }
   ],
   "20": [
@@ -26849,6 +27096,19 @@
       ],
       "correctAnswer": 1,
       "explanation": "El protocolo es de activación abierta: cualquier persona o colectivo con conocimiento fundado de la situación (compañeros, delegados de prevención, Comité) puede denunciar los hechos para proteger la salud colectiva.",
+      "usage": "dossier"
+    },
+    {
+      "id": 116,
+      "question": "Según la normativa de la Universidad de Sevilla contra la violencia, acoso y discriminación, el comportamiento hostil o de hostigamiento psicológico sistemático y continuado en el marco laboral que humille y atente contra la dignidad de un empleado se denomina:",
+      "options": [
+        "Acoso psicológico circunstancial.",
+        "Acoso moral ordinario.",
+        "Acoso laboral.",
+        "Acoso discriminatorio indirecto."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El protocolo y normativa unificada de la US de 2024 define formalmente el mobbing o acoso moral continuado en el ámbito de las relaciones de trabajo con el término específico de acoso laboral.",
       "usage": "dossier"
     }
   ]

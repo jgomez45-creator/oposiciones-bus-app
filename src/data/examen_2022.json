@@ -1,0 +1,520 @@
+[
+  {
+    "id": 1,
+    "question": "El vigente Plan de la Biblioteca de la Universidad de Sevilla, que marca la estrategia a seguir por la Biblioteca en los próximos años, es el:",
+    "options": [
+      "Plan Estratégico 2020-2024.",
+      "Plan Director 2022-2026.",
+      "Plan Estratégico 2022-2026.",
+      "Plan Director 2020-2024."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El plan estratégico vigente que rige la actividad e innovación de la BUS es el Plan Director 2022-2026, el cual establece los objetivos y líneas estratégicas a seguir por el servicio de biblioteca.",
+    "usage": "examen-real-2022",
+    "topicId": 1
+  },
+  {
+    "id": 2,
+    "question": "De acuerdo con su Reglamento, los órganos colegiados de la Biblioteca de la Universidad de Sevilla son:",
+    "options": [
+      "La Comisión de la Biblioteca Universitaria, la Junta Técnica de la Biblioteca Universitaria y las Comisiones de las Bibliotecas de Área.",
+      "La Dirección de la Biblioteca Universitaria y los Responsables de las Bibliotecas de Área.",
+      "La Junta Técnica de la Biblioteca Universitaria y las Comisiones de las Bibliotecas de Área.",
+      "La Dirección y la Junta Técnica de la Biblioteca Universitaria."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Según el Reglamento de la BUS, se configuran como órganos colegiados la Comisión de la Biblioteca Universitaria (órgano superior de consulta), la Junta Técnica (órgano técnico-asesor) y las Comisiones de las Bibliotecas de Área (participación en campus).",
+    "usage": "examen-real-2022",
+    "topicId": 1
+  },
+  {
+    "id": 3,
+    "question": "Según REBIUN -Red de Bibliotecas Universitarias Españolas-, la biblioteca/CRAI es un:",
+    "options": [
+      "Catálogo de recursos para el aprendizaje y la investigación.",
+      "Centro de recursos para el aprendizaje, la docencia, la investigación y las actividades relacionadas con el funcionamiento y la gestión de la Universidad en su conjunto.",
+      "Centro de recursos audiovisuales e informáticos.",
+      "Centro de recursos para el autoaprendizaje y la información."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La Red de Bibliotecas Universitarias Españolas (REBIUN) define formalmente al CRAI como un centro integrador que da soporte a las actividades docentes, de aprendizaje e investigadoras, así como a la gestión global universitaria.",
+    "usage": "examen-real-2022",
+    "topicId": 1
+  },
+  {
+    "id": 4,
+    "question": "Según REBIUN, en su documento Normas y directrices para bibliotecas universitarias y científicas, se recomienda atenerse al decálogo de los principios básicos que debe poseer todo edificio bibliotecario. ¿Quién es el autor de este decálogo?:",
+    "options": [
+      "Ranganathan.",
+      "Harry Faulkner-Brown.",
+      "La ALA -American Library Association-.",
+      "La Red de Bibliotecas Universitarias Españolas -REBIUN-."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El decálogo de cualidades de un edificio de biblioteca (flexible, compacto, accesible, etc.) fue formulado originalmente por el arquitecto británico Harry Faulkner-Brown.",
+    "usage": "examen-real-2022",
+    "topicId": 3
+  },
+  {
+    "id": 10,
+    "question": "Según la Clasificación Decimal Universal, el número 33 corresponde a la materia:",
+    "options": [
+      "Economía.",
+      "Dibujo.",
+      "Geografía.",
+      "Física."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Dentro de la clase principal 3 (Ciencias Sociales) de la CDU, la subdivisión de dos dígitos 33 está dedicada a la Economía y las Ciencias Económicas.",
+    "usage": "examen-real-2022",
+    "topicId": 6
+  },
+  {
+    "id": 11,
+    "question": "¿Qué auxiliar común se expresa mediante paréntesis 0 (0...) en la Clasificación Decimal Universal?:",
+    "options": [
+      "Lugar.",
+      "Tiempo.",
+      "Forma.",
+      "Idioma."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Los auxiliares comunes de forma en la CDU representan el formato o tipo de documento (ej. diccionarios, enciclopedias) y van precedidos por paréntesis que inician con un cero: (0...).",
+    "usage": "examen-real-2022",
+    "topicId": 6
+  },
+  {
+    "id": 12,
+    "question": "¿De qué clasificación se considera heredera la Clasificación Decimal Universal?:",
+    "options": [
+      "Cutter.",
+      "Ranganathan.",
+      "Library of Congress.",
+      "Dewey."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La CDU fue creada por Paul Otlet y Henri La Fontaine como una adaptación y expansión de la Clasificación Decimal de Dewey (DDC) para poder indizar de forma más exhaustiva la literatura científica.",
+    "usage": "examen-real-2022",
+    "topicId": 6
+  },
+  {
+    "id": 13,
+    "question": "Las herramientas de descubrimiento:",
+    "options": [
+      "Descubren el fondo más valioso de una biblioteca.",
+      "Permiten una búsqueda simultánea en catálogos de diferentes bibliotecas.",
+      "Permiten únicamente la búsqueda de recursos-e.",
+      "Representan un sistema de recuperación de información que permite una búsqueda integrada en los diferentes recursos de una biblioteca."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Una herramienta de descubrimiento (discovery tool) es una interfaz de búsqueda unificada (como FAMA en la US) que indexa tanto el catálogo físico de la biblioteca como sus recursos electrónicos, bases de datos y repositorios institucionales.",
+    "usage": "examen-real-2022",
+    "topicId": 7
+  },
+  {
+    "id": 14,
+    "question": "En el portal de la web de la Biblioteca de la Universidad de Sevilla se habla de acceso desde casa. ¿En qué consiste?:",
+    "options": [
+      "La posibilidad de que el personal que trabaja en la Biblioteca pueda teletrabajar.",
+      "La posibilidad de que las personas usuarias autorizadas puedan utilizar, desde el exterior de la red de la Universidad, los recursos electrónicos suscritos por la Biblioteca.",
+      "La posibilidad de que las personas usuarias puedan acceder al catálogo Fama desde fuera de la Universidad.",
+      "La posibilidad de que las personas usuarias puedan acceder al portal web de la Biblioteca desde fuera de la Universidad."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El 'aceso desde casa' de la BUS permite a la comunidad universitaria conectarse de manera remota a los recursos de pago contratados por la biblioteca (revistas científicas, e-books, bases de datos) autenticándose con su UVUS.",
+    "usage": "examen-real-2022",
+    "topicId": 8
+  },
+  {
+    "id": 15,
+    "question": "Un estudiante matriculado en primero del Grado de Física de la Universidad de Sevilla acude al mostrador de préstamo para solicitar un préstamo interbibliotecario:",
+    "options": [
+      "Este servicio únicamente puede ser usado por las personas usuarias externas, residentes en la provincia de Sevilla, que deseen consultar fondos que estén en otras bibliotecas.",
+      "Este servicio lo puede utilizar toda la comunidad universitaria.",
+      "Es un servicio que sólo puede solicitar el personal investigador de la US.",
+      "Este servicio únicamente está disponible para otras instituciones externas."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El servicio de Préstamo Interbibliotecario (PI) está disponible para toda la comunidad universitaria de la US (alumnos, PDI y PTGAS) para conseguir documentos que no se encuentran en sus propios fondos.",
+    "usage": "examen-real-2022",
+    "topicId": 9
+  },
+  {
+    "id": 16,
+    "question": "En la Biblioteca de la Universidad de Sevilla, el número de documentos y los días que se pueden tener en préstamo varía según el tipo de persona usuaria. En el caso del profesorado de la Universidad de Sevilla pueden tener prestados:",
+    "options": [
+      "60 ejemplares.",
+      "40 ejemplares.",
+      "75 ejemplares.",
+      "20 ejemplares."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Según la reglamentación del préstamo a domicilio de la BUS, el PDI (profesorado) e investigadores cuentan con un límite especial de hasta 60 documentos simultáneos por un periodo de 60 días.",
+    "usage": "examen-real-2022",
+    "topicId": 9
+  },
+  {
+    "id": 17,
+    "question": "El préstamo intercampus permite que la persona usuaria reciba en su biblioteca un documento que se encuentre en la biblioteca de otro campus, sin necesidad de desplazarse:",
+    "options": [
+      "No existe requisito previo.",
+      "El requisito previo es que sea un estudiante de grado.",
+      "El requisito previo es que el documento no esté disponible en su propio campus.",
+      "El requisito previo es que lo solicite profesorado que imparta docencia en ambos campus."
+    ],
+    "correctAnswer": 2,
+    "explanation": "El préstamo intercampus tiene como condición obligatoria previa que la obra solicitada no esté disponible físicamente en las bibliotecas ubicadas en el propio campus del usuario solicitante.",
+    "usage": "examen-real-2022",
+    "topicId": 9
+  },
+  {
+    "id": 18,
+    "question": "Qué formato de archivos Excel podemos estar seguros de que no contiene macros:",
+    "options": [
+      ".xlsm.",
+      ".xlam.",
+      ".xls.",
+      ".xlsx."
+    ],
+    "correctAnswer": 3,
+    "explanation": "El formato estándar de Excel .xlsx no puede contener código ejecutable de macros de VBA por razones de seguridad. Para almacenar macros se debe guardar obligatoriamente en formato .xlsm o .xltm.",
+    "usage": "examen-real-2022",
+    "topicId": 13
+  },
+  {
+    "id": 19,
+    "question": "¿Se puede desactivar el sistemas de correo no deseado (antiSPAM) de mi buzón de office365?:",
+    "options": [
+      "No se puede.",
+      "Sólo de puede desde buzonweb.",
+      "Sólo se puede desde la OWA.",
+      "Sólo se puede desde Thunderbird."
+    ],
+    "correctAnswer": 2,
+    "explanation": "En el correo de Microsoft 365 corporativo de la US, las opciones avanzadas del filtro de correo no deseado (antiSPAM) solo pueden configurarse y desactivarse accediendo al cliente web oficial OWA (Outlook Web App).",
+    "usage": "examen-real-2022",
+    "topicId": 13
+  },
+  {
+    "id": 20,
+    "question": "¿Qué significa RFID en el contexto de tecnología de control y acceso de colecciones?:",
+    "options": [
+      "Radio Frequency Identification.",
+      "Random Frequency Integration.",
+      "Remote Field ID.",
+      "Real-time Frequency Interaction."
+    ],
+    "correctAnswer": 0,
+    "explanation": "RFID responde a las siglas en inglés de Radio Frequency Identification (Identificación por Radiofrecuencia), tecnología que emplea campos electromagnéticos para identificar y rastrear etiquetas pegadas a objetos de forma inalámbrica.",
+    "usage": "examen-real-2022",
+    "topicId": 8
+  },
+  {
+    "id": 21,
+    "question": "¿Dónde suelen colocarse los detectores de un sistema antihurto en una biblioteca?:",
+    "options": [
+      "En los estantes de libros.",
+      "En la zona de acceso de la biblioteca.",
+      "En los ordenadores de uso público.",
+      "En las salas de trabajo en grupo."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Los arcos o antenas detectoras antihurto se colocan físicamente en las salidas o zonas de acceso del edificio bibliotecario para detectar si un libro que cruza la puerta no ha sido desactivado/desmagnetizado previamente en el mostrador.",
+    "usage": "examen-real-2022",
+    "topicId": 8
+  },
+  {
+    "id": 22,
+    "question": "¿Cuál es una característica destacable del RFID?:",
+    "options": [
+      "Sus etiquetas pueden almacenar hasta 4 millones de caracteres.",
+      "Los libros se escanean uno por uno en el mostrador de préstamo.",
+      "Para realizar inventarios requiere escanear cada estantería manualmente.",
+      "Puede dañarse fácilmente."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Las etiquetas de radiofrecuencia (RFID) tienen chips de memoria con una capacidad de almacenamiento de datos muy superior al código de barras tradicional, pudiendo guardar teóricamente hasta 4 millones de caracteres en formatos extendidos.",
+    "usage": "examen-real-2022",
+    "topicId": 8
+  },
+  {
+    "id": 23,
+    "question": "Según la Carta de servicios, vigente desde el año 2020, la Biblioteca tiene como compromiso:",
+    "options": [
+      "Suministrar los documentos solicitados a través de Préstamo Intercampus en un plazo máximo de 4 días laborables, excepto en periodos vacacionales.",
+      "Entregar los documentos solicitados a través de Préstamo Interbibliotecario en un plazo máximo de 15 días laborables, excepto en periodos vacacionales.",
+      "Suministrar los documentos solicitados a través de Préstamo Intercampus en un plazo máximo de 2 días laborables, excepto en periodos vacacionales.",
+      "Suministrar los documentos solicitados a través de Préstamo Interbibliotecario en un plazo máximo de 15 días laborables, incluso en periodos vacacionales."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La Carta de Servicios de la BUS recoge explícitamente el compromiso de suministrar los préstamos entre diferentes campus (Intercampus) en un plazo que no supere los 4 días laborables (excluidos periodos vacacionales oficiales).",
+    "usage": "examen-real-2022",
+    "topicId": 2
+  },
+  {
+    "id": 24,
+    "question": "La Biblioteca de la Universidad de Sevilla, en su apuesta por un modelo de gestión basado en los principios de calidad y mejora continua, obtuvo en 2022:",
+    "options": [
+      "El Sello de Excelencia Europea 500+.",
+      "El Sello de Excelencia Europea 300+.",
+      "El Sello de Excelencia Europea EFQM 600.",
+      "La revalidación del Sello de Excelencia Europea 500+."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La BUS destaca por sus políticas de calidad. En el año 2022 alcanzó el máximo nivel de reconocimiento con el Sello de Excelencia Europea EFQM 600 (otorgado por el Club Excelencia en Gestión).",
+    "usage": "examen-real-2022",
+    "topicId": 2
+  },
+  {
+    "id": 25,
+    "question": "Según la Carta de servicios de la Biblioteca de la Universidad de Sevilla, vigente desde el año 2020, ¿cuál es número máximo de días que pueden transcurrir entre la recepción de un material adquirido y su puesta a disposición de los usuarios?:",
+    "options": [
+      "5 días laborables.",
+      "3 días laborables.",
+      "5 días naturales.",
+      "3 días naturales."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Un compromiso fundamental de la Carta de Servicios para dinamizar la colección es procesar técnicamente y poner a disposición de los lectores cualquier obra comprada en un plazo máximo de 3 días laborables desde su recepción física.",
+    "usage": "examen-real-2022",
+    "topicId": 2
+  },
+  {
+    "id": 26,
+    "question": "Tal y como se recoge en la Carta de Servicios, en el apartado presentación, la Biblioteca de la Universidad de Sevilla es un servicio que depende funcionalmente de:",
+    "options": [
+      "El Vicerrectorado de Estudiantes.",
+      "La Dirección de Recursos Humanos.",
+      "El Vicerrectorado de Transformación Digital.",
+      "El Vicerrectorado de Investigación."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La Biblioteca de la Universidad de Sevilla, dentro del organigrama institucional de la US, depende funcional y orgánicamente del Vicerrectorado de Investigación.",
+    "usage": "examen-real-2022",
+    "topicId": 1
+  },
+  {
+    "id": 27,
+    "question": "Según la guía preventiva de empleados públicos de la Universidad de Sevilla, cuando detecte una situación de riesgo relacionado con las condiciones de su puesto de trabajo puede:",
+    "options": [
+      "Ponerlo en conocimiento del Servicio de Prevención (SEPRUS) a través de un formulario específico que puede localizar en la página web del SEPRUS.",
+      "Comunicarlo al Comité de Empresa o Junta de Personal en su caso.",
+      "Comunicarlo por teléfono rápidamente para que sea realizado un estudio inmediato por parte del Servicio de Mantenimiento.",
+      "Evitarlo señalizando la zona donde se produce para que no haya accidentes."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La Guía Preventiva de la US indica que para cualquier incidencia o riesgo material percibido en el puesto de trabajo, el empleado debe cumplimentar y enviar el formulario de notificación de riesgos disponible en la web de SEPRUS.",
+    "usage": "examen-real-2022",
+    "topicId": 14
+  },
+  {
+    "id": 28,
+    "question": "Según la guía preventiva de empleados públicos de la Universidad de Sevilla, ¿cómo debo actuar ante un incendio/evacuación en mi lugar de trabajo?:",
+    "options": [
+      "Utilice la BIE más cercana abriendo la llave de paso y apuntando a la base de las llamas.",
+      "Revise el plan de autoprotección del centro que encontrará en la web de su centro y siga las instrucciones.",
+      "Comuníquelo rápidamente a través de los pulsadores de alarma existentes o bien comuníquelo a la Conserjería (Centro de control interno de emergencias) para que se active la emergencia del centro. Si no los localiza llame a los servicios de emergencia 112 o a bomberos.",
+      "Si se encuentra capacitado y no hay peligro, intente extinguir el fuego (quitar pasador de seguridad de extintor, coger la boquilla, comprobar que funciona, apretar la manilla y dirigir el chorro en zig-zag lateral a la base del fuego a 4-5 metros de distancia)."
+    ],
+    "correctAnswer": 2,
+    "explanation": "El protocolo básico de evacuación de la Guía de la US exige priorizar la alarma: pulsar el botón de emergencia o avisar inmediatamente a Conserjería (que centraliza las emergencias) o contactar con el 112/Bomberos.",
+    "usage": "examen-real-2022",
+    "topicId": 14
+  },
+  {
+    "id": 29,
+    "question": "En el artículo 29 de la Ley 31/1995 de prevención de riesgos laborales, es obligación de los trabajadores:",
+    "options": [
+      "Cooperar con el empresario para que éste pueda garantizar unas condiciones de trabajo que sean seguras y no entrañen riesgos para la seguridad y la salud de los trabajadores.",
+      "Negociar con el empresario las garantías de las condiciones de trabajo para que sean seguras y no entrañen riesgos para la seguridad y la salud de los trabajadores.",
+      "Solicitar al empresario para que éste pueda garantizar unas condiciones de trabajo que sean seguras y no entrañen riesgos para la seguridad y la salud de los trabajadores.",
+      "Poner fuera de funcionamiento inmediatamente los equipos y dispositivos de seguridad existentes relacionados con su actividad o en los lugares de trabajo en los que esta actividad tenga lugar, si estos no entrañan protección colectiva."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El artículo 29.2.6 de la LPRL detalla de forma literal la obligación de los trabajadores de colaborar activamente con el empresario en la implantación y mantenimiento de las condiciones seguras de trabajo.",
+    "usage": "examen-real-2022",
+    "topicId": 16
+  },
+  {
+    "id": 30,
+    "question": "Según el Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla en su modelo de evaluación de riesgos de puestos de trabajo, es una medida correctora de riesgo específico del puesto de trabajo en biblioteca:",
+    "options": [
+      "Tirar del cable para desconectar equipos eléctricos.",
+      "El consumo de alcohol y/o tabaco.",
+      "Elevar los brazos por encima de los hombros.",
+      "Evitar los agarres en pinza al coger los libros."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Al manipular libros en estanterías o carros, el SEPRUS advierte que coger libros haciendo pinza con los dedos tensiona las articulaciones de la mano, recomendando cogerlos abarcándolos con toda la mano.",
+    "usage": "examen-real-2022",
+    "topicId": 15
+  },
+  {
+    "id": 31,
+    "question": "Según las píldoras informativas del Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla, en su píldora «Fatiga visual: Pantalla de PVD», en relación con el puesto de trabajo donde existen este tipo de pantallas:",
+    "options": [
+      "Utilizar pantallas de TFT.",
+      "Si la tarea requiere alternar la visualización de la pantalla con documentos impresos, estos deben estar impresos con el tamaño de texto acorde al tamaño del texto visualizado en la pantalla.",
+      "La pantalla debe ser giratoria.",
+      "El tamaño de la pantalla debe ser al menos de 15”."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Las píldoras preventivas del SEPRUS aconsejan el uso de monitores con tecnología TFT (Thin Film Transistor) por su estabilidad de imagen y reducción de parpadeo visual dañino.",
+    "usage": "examen-real-2022",
+    "topicId": 15
+  },
+  {
+    "id": 35,
+    "question": "Según el Estatuto de la Universidad de Sevilla, es competencia del Consejo Social:",
+    "options": [
+      "Elegir de entre sus miembros a su coordinador.",
+      "Promover la aportación de recursos para la financiación de la Universidad.",
+      "Aprobar la modificación de las relaciones de puestos de trabajo del personal de la Universidad.",
+      "Aprobar el informe anual de gobierno una vez finalizado cada curso académico."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El Consejo Social de la US, como órgano de interconexión con la sociedad civil, tiene entre sus atribuciones y competencias esenciales la promoción e incentivo de vías de financiación externa para la universidad.",
+    "usage": "examen-real-2022",
+    "topicId": 17
+  },
+  {
+    "id": 36,
+    "question": "Según el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, un trabajador podrá ser destinado, por necesidades perentorias e imprevisibles, a funciones correspondientes a una categoría inferior por:",
+    "options": [
+      "La universidad previa negociación con el Comité de Empresa.",
+      "El Gerente previo acuerdo con el Comité de Empresa.",
+      "La universidad previa comunicación con el Comité de Empresa.",
+      "El Gerente previo aviso al comité de empresa."
+    ],
+    "correctAnswer": 1,
+    "explanation": "El artículo 17 del IV Convenio Colectivo establece que el desplazamiento temporal a funciones de categoría inferior sólo cabe excepcionalmente por orden del Gerente y previo acuerdo formalizado con el Comité de Empresa.",
+    "usage": "examen-real-2022",
+    "topicId": 18
+  },
+  {
+    "id": 37,
+    "question": "Según el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, la convocatoria de concurso de traslado se realizará:",
+    "options": [
+      "Una vez al año.",
+      "No hay tiempo especificado.",
+      "Cada cuatro años.",
+      "Cada tres años."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El IV Convenio Colectivo establece que el concurso general de traslados para posibilitar la movilidad interna del personal laboral fijo se debe convocar de forma obligatoria una vez al año.",
+    "usage": "examen-real-2022",
+    "topicId": 18
+  },
+  {
+    "id": 38,
+    "question": "Según el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, el personal con contrato de duración determinada podrá adquirir la consideración de fijo de plantilla, mediante:",
+    "options": [
+      "Libre designación por la Gerencia.",
+      "Superando los procesos selectivos que se acuerden.",
+      "Sumando puntos y designados por la Gerencia.",
+      "No pueden adquirir la consideración de fijo, ya que son temporales."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Para garantizar los principios constitucionales de igualdad, mérito y capacidad, la adquisición de la fijeza laboral estable exige superar los procesos selectivos por concurso u oposición convocados oficialmente.",
+    "usage": "examen-real-2022",
+    "topicId": 18
+  },
+  {
+    "id": 39,
+    "question": "Según la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres, en el objeto de la misma se establece hacer efectivo el derecho de igualdad de trato y oportunidades entre las mujeres y los hombres, en particular mediante la eliminación de la discriminación de la mujer:",
+    "options": [
+      "Sea cual fuera sus circunstancias o condición, en cualquiera de los ámbitos de la vida.",
+      "Actuando los poderes públicos y privados.",
+      "En la esfera civil, laboral y administrativa.",
+      "En el ámbito público y privado de las mujeres por discriminación por razón de género."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El artículo 1.1 de la LO 3/2007 recoge literalmente esta formulación para garantizar que la igualdad proteja a la mujer sin importar su estado civil, maternidad, edad u origen en todos los ámbitos vitales.",
+    "usage": "examen-real-2022",
+    "topicId": 19
+  },
+  {
+    "id": 40,
+    "question": "Según el Protocolo para la Prevención, Evaluación e Intervención en situación de acoso en la Universidad de Sevilla, en el ámbito de aplicación del Protocolo NO se encuentran:",
+    "options": [
+      "Estudiantes, becarios/as y personal en formación.",
+      "Personal Docente e Investigador y personal de administración y servicios.",
+      "Personal de empresas colaboradoras y entidades suministradoras.",
+      "Personal contratado en proyectos de investigación vinculados con la Universidad de Sevilla y que desarrollen su actividad en la Universidad de Sevilla."
+    ],
+    "correctAnswer": 2,
+    "explanation": "El Protocolo de acoso de la US se aplica únicamente a los miembros de la comunidad universitaria o personal bajo su control organizativo. Quedan fuera del ámbito de la comisión los empleados de empresas externas subcontratadas (contratas de limpieza, seguridad, proveedores).",
+    "usage": "examen-real-2022",
+    "topicId": 20
+  },
+  {
+    "id": 41,
+    "question": "Seleccione la ordenación de la CDU correcta:",
+    "options": [
+      "501(38) | 501:001.8 | 501:016 | 51:929 | 51::33 | 511.01:016 | 511.01\"04/14\"(091)",
+      "501:001.8 | 501:016 | 501(38) | 51:929 | 51::33 | 511.01:016 | 511.01\"04/14\"(091)",
+      "501:016 | 501:001.8 | 501(38) | 51:929 | 51::33 | 511.01:016 | 511.01\"04/14\"(091)",
+      "501:016 | 501:001.8 | 501(38) | 51:929 | 51::33 | 511.01\"04/14\"(091) | 511.01:016"
+    ],
+    "correctAnswer": 1,
+    "explanation": "El orden oficial de archivamiento de la CDU establece que la relación simple (:) se ordena antes que el auxiliar de lugar en paréntesis (1/9) o (3/9). Para el mismo número base 511.01, el signo de relación (:) va antes que el de tiempo '\"\"' o forma '(0...)'.",
+    "usage": "examen-real-2022",
+    "topicId": 6
+  },
+  {
+    "id": 42,
+    "question": "Según las Normas para uso y conservación del Fondo Antiguo y Archivo Histórico de la Biblioteca de la Universidad de Sevilla, en su Capítulo II, dedicado al depósito del Fondo Antiguo, los folletos deberán:",
+    "options": [
+      "Guardarse en cajas cerradas de material no ácido.",
+      "Colocarse tumbados con el lomo hacia fuera en los estantes reservados para ello.",
+      "Guardarse en archivadores.",
+      "Guardarse en cajas abiertas."
+    ],
+    "correctAnswer": 0,
+    "explanation": "El Capítulo II de las Normas de Conservación del Fondo Antiguo y Archivo Histórico de la BUS establece que los folletos deben conservarse metidos dentro de cajas cerradas especiales fabricadas con cartón libre de ácidos para evitar el ataque químico del soporte.",
+    "usage": "examen-real-2022",
+    "topicId": 5
+  },
+  {
+    "id": 43,
+    "question": "¿En qué consiste el préstamo delegado en la Biblioteca de la Universidad de Sevilla?:",
+    "options": [
+      "Es la posibilidad que tienen los miembros del CBUA -Consorcio de Bibliotecas Universitarias de Andalucía- de delegar en otra persona, a la que autoriza, la recogida de documentos impresos de la biblioteca.",
+      "Es la posibilidad que tienen los usuarios externos de la Biblioteca de la Universidad de Sevilla de delegar en otra persona, a la que autoriza, la recogida de documentos impresos de la biblioteca.",
+      "Es un servicio exclusivo para el personal investigador de la Universidad de Sevilla por el que se delega en otra persona, a la que autoriza, la recogida de documentos impresos de la biblioteca.",
+      "Es la posibilidad que tienen los miembros de la comunidad universitaria de la Universidad de Sevilla de delegar en otra persona, a la que autoriza, la recogida de documentos impresos de la biblioteca."
+    ],
+    "correctAnswer": 3,
+    "explanation": "El préstamo delegado de la BUS permite a cualquier miembro legítimo de su comunidad universitaria (alumno, docente o técnico) autorizar de manera expresa a un tercero para que retire libros físicos a su nombre presentando una autorización firmada.",
+    "usage": "examen-real-2022",
+    "topicId": 9
+  },
+  {
+    "id": 44,
+    "question": "Según las píldoras informativas del Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla, en su píldora «Entorno de trabajo en la posición sentada: espacio», en relación con el puesto de trabajo:",
+    "options": [
+      "Se debe disponer del espacio necesario para poderse mover con comodidad, procurando dejar al menos 100 cm libres detrás de la mesa.",
+      "Se debe disponer del espacio necesario para poderse mover con comodidad, procurando dejar al menos 80 cm libres detrás de la mesa.",
+      "Se debe disponer del espacio necesario para poderse mover con comodidad, procurando dejar al menos 90 cm libres detrás de la mesa.",
+      "Se debe disponer del espacio necesario para poderse mover con comodidad, procurando dejar al menos 85 cm libres detrás de la mesa."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La píldora del SEPRUS sobre espacios sentados exige dejar un espacio de holgura libre de al menos 100 cm (1 metro) detrás de la mesa del trabajador para posibilitar desplazamientos de la silla y cambios posturales cómodos.",
+    "usage": "examen-real-2022",
+    "topicId": 15
+  },
+  {
+    "id": 45,
+    "question": "Según el Protocolo para la Prevención, Evaluación e Intervención en situación de acoso en la Universidad de Sevilla, ¿cuál de las siguientes opciones es una función de la Red de Referentes para la Convivencia y el Buen Trato en materia de información y sensibilización a la comunidad universitaria en materia de buen trato, acoso y violencia de género?:",
+    "options": [
+      "Recibir todas las solicitudes de intervención que se presenten por acoso.",
+      "Atender a las personas que lo necesiten en los distintos procesos.",
+      "Establecer las medidas para la mediación de conflictos.",
+      "Elaborar una memoria anual de sus actuaciones y darle traslado a los órganos competentes."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La Red de Referentes para la Convivencia y el Buen Trato de la US tiene como una de sus misiones fundamentales en materia de información y acogida brindar atención personalizada y acompañamiento a los afectados por situaciones de conflicto o acoso.",
+    "usage": "examen-real-2022",
+    "topicId": 20
+  }
+]

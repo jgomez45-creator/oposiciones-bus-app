@@ -26,7 +26,7 @@ La **Biblioteca de la Universidad de Sevilla (BUS)** utiliza **Alma** (de la mul
 ### A. Las Tres Zonas de Datos en la Arquitectura de Alma
 Una de las mayores ventajas de Alma es su división de bases de datos para permitir la catalogación colaborativa y el ahorro de espacio en la nube:
 1.  **Zona Institucional (Institutional Zone - IZ):** Contiene los registros bibliográficos, de autoridades y de inventario locales y exclusivos de la Universidad de Sevilla. Es visible y editable únicamente por el personal de la US.
-2.  **Zona de Red (Network Zone - NZ):** Base de datos compartida por un consorcio de bibliotecas. En el caso de la BUS, está conectada a la Zona de Red del **CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)**. Permite que todas las universidades andaluzas compartan registros bibliográficos, evitando catalogar el mismo libro múltiples veces y facilitando el préstamo consorciado.
+2.  **Zona de Red (Network Zone - NZ):** Base de datos compartida por un consorcio de bibliotecas. En el caso de la BUS, está conectada a la Zona de Red del **CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)**. El catálogo colectivo de la CBUA permite recuperar de forma centralizada y unificada los fondos de las **bibliotecas universitarias públicas de Andalucía** (los 9 centros miembros), facilitando la catalogación cooperativa y el préstamo consorciado.
 3.  **Zona de Comunidad (Community Zone - CZ):** Base de datos global gestionada por *Ex Libris* que contiene registros de autoridad internacionales (ej. Library of Congress) y, fundamentalmente, carteras electrónicas y colecciones de revistas/libros electrónicos provistas por las editoriales científicas a nivel mundial. Facilita la activación de recursos digitales con un solo clic.
 
 ### B. Flujos de Trabajo en el Back-office de Alma
@@ -40,7 +40,10 @@ El personal de la BUS trabaja en Alma estructurando sus tareas diarias en tres g
 ## 3. Primo VE y el Catálogo FAMA: La Interfaz de Descubrimiento
 El catálogo **FAMA** de la Universidad de Sevilla utiliza la tecnología **Primo VE** (también de *Ex Libris*) como su front-end o herramienta de descubrimiento orientada al usuario. Primo VE sustituye al antiguo OPAC clásico.
 
-### A. Tipos de Búsqueda en FAMA
+### A. Herramientas de Descubrimiento (Discovery Tools)
+*   **Concepto y Función:** Representan un sistema avanzado de recuperación de información de interfaz unificada que permite una **búsqueda integrada en los diferentes recursos de una biblioteca** (tanto fondos físicos como electrónicos contratados, bases de datos y repositorios).
+
+### B. Tipos de Búsqueda en FAMA
 *   **Búsqueda Simple:** Caja única que busca palabras clave de forma transversal en todos los campos (título, autor, materia, notas) sobre todo el índice de la biblioteca y recursos electrónicos externos.
 *   **Búsqueda Avanzada:** Permite combinar múltiples campos de búsqueda específicos mediante el uso de operadores lógicos y filtros en una misma consulta. Los campos indexados principales son: *Título, Autor, Materia, ISBN/ISSN, Editor, Signatura* y *Código de barras*.
 
@@ -56,7 +59,7 @@ FAMA (Primo VE) procesa la sintaxis avanzada de búsqueda mediante reglas espec�
 *   **Búsqueda Exacta (Comillas `""`):** Encerrar términos entre comillas dobles obliga al motor a buscar la frase literal exacta con las palabras en ese orden preciso (ej. `"prevención de riesgos laborales"`).
 
 ### C. Refinamiento mediante Facetas e Índices
-Una vez realizada la búsqueda, Primo VE permite "filtrar" o "facilitar" la recuperación mediante el panel lateral de **facetas** dinámicas:
+Una vez realizada la búsqueda, Primo VE permite filtrar los resultados mediante el panel lateral de **facetas** dinámicas. La utilidad de las facetas consiste fundamentalmente en **filtrar y acotar los resultados de una búsqueda previa**, facilitando al usuario acotar de forma rápida su consulta sin tener que reformular la cadena de búsqueda. Las facetas principales son:
 *   **Disponibilidad:** Filtrar por *Disponible en la biblioteca* (físico), *Acceso en línea* (electrónico/digital), o *Recursos de acceso abierto*.
 *   **Tipo de recurso:** Limitar a libros, artículos científicos, revistas, tesis doctorales, material audiovisual o patentes.
 *   **Biblioteca de centro:** Filtrar la ubicación a una biblioteca física específica de la US (ej. Biblioteca de Derecho y Ciencias del Trabajo, Biblioteca de Ingeniería, etc.).

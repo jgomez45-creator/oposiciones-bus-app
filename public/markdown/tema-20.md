@@ -22,12 +22,12 @@ Protege a **toda la comunidad universitaria de la US** sin excepción:
 1.  **Estudiantes:** Alumnado de grado, máster, doctorado y títulos propios.
 2.  **PTGAS (Personal Técnico, de Gestión y de Administración y Servicios):** Incluye de forma expresa a todo el personal de la Biblioteca de la Universidad de Sevilla (BUS), tanto funcionario como laboral.
 3.  **PDI (Personal Docente e Investigador).**
-4.  **Personal de empresas externas:** Trabajadores de contratas de servicios que desempeñen su actividad dentro de las instalaciones de la US (ej. servicios de limpieza, seguridad o mantenimiento técnico en las bibliotecas de la US).
+4.  **Personal de empresas externas:** Trabajadores de contratas de servicios que desempeñen su actividad dentro de las instalaciones de la US. *(Nota de examen: no obstante, quedan expresamente excluidos del ámbito de aplicación directa del Protocolo el personal de empresas colaboradoras y entidades suministradoras).*
 
 ### D. Ámbito de Aplicación Objetivo (Qué situaciones cubre)
 *   **Acoso Sexual:** Cualquier comportamiento, verbal, no verbal o físico, de naturaleza sexual, realizado con el propósito o el efecto de atentar contra la dignidad de una persona, en particular cuando se crea un entorno intimidatorio, degradante u ofensivo.
 *   **Acoso por Razón de Sexo, Identidad/Expresión de Género y Orientación Sexual:** Comportamiento realizado en función del sexo, género u orientación sexual de una persona, con el propósito o efecto de atentar contra su dignidad.
-*   **Acoso Moral (Acoso Laboral o Mobbing):** Exposición sistemática y prolongada en el tiempo a conductas de violencia psicológica extrema en el puesto de trabajo (humillaciones, aislamiento social, desprecio profesional) dirigidas a destruir la estabilidad emocional de la víctima.
+*   **Acoso Moral (Acoso Laboral o Mobbing):** Exposición sistemática y prolongada en el tiempo a conductas de violencia psicológica extrema en el puesto de trabajo (humillaciones, aislamiento social, desprecio profesional) dirigidas a destruir la estabilidad emocional de la víctima. *(Nota de examen: el hostigamiento psicológico u hostil en el marco de la actividad laboral que humille a quien lo sufre, imponiendo situaciones de grave ofensa a la dignidad, se denomina **acoso laboral** en la normativa de la US).*
 *   **Discriminación:** Toda distinción, exclusión o preferencia basada en nacimiento, raza, sexo, religión, opinión, discapacidad u otra circunstancia personal o social.
 *   **Violencia:** Agresiones físicas, verbales o malos tratos psicológicos vinculados al desarrollo de la actividad universitaria o laboral.
 
@@ -112,7 +112,7 @@ La **Red de Referentes para la Convivencia y el Buentrato** es una iniciativa pi
 
 ### B. Funciones Principales de la Red
 La labor de esta red es complementaria a los órganos de instrucción formales y se divide en cuatro áreas de actuación:
-1.  **Punto de Acogida e Información de Proximidad:** Actúan como una primera vía de contacto informal, cercana y libre de burocracia. Escuchan a las presuntas víctimas o testigos que duden sobre la gravedad de una situación o no sepan cómo activar los recursos institucionales.
+1.  **Punto de Acogida e Información de Proximidad:** Actúan como una primera vía de contacto de proximidad. Su función principal consiste en **atender a las personas que lo necesiten en los distintos procesos** (de información, acogida u orientación), además de escuchar a presuntas víctimas o testigos.
 2.  **Sensibilización y Detección Precoz:** Promueven campañas en sus respectivos centros para difundir la cultura del buentrato y detectar de manera temprana dinámicas de relaciones laborales/académicas tóxicas o abuso de poder.
 3.  **Facilitación del Diálogo y Mediación Informal:** Ayudan a encauzar y resolver conflictos interpersonales ordinarios o tensiones laborales comunes antes de que escalen a situaciones graves de acoso. *(Nota: El acoso laboral o acoso sexual no es susceptible de mediación y debe ser derivado).*
 4.  **Derivación Coordinada:** En caso de apreciar indicios objetivos de acoso, violencia o discriminación, las personas referentes guían y acompañan a la víctima para formalizar la queja ante el **SEPRUS** o la **Unidad para la Igualdad**, facilitando el enlace con los servicios de apoyo psicológico o médico.

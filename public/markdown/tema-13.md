@@ -2,6 +2,10 @@
 
 Este tema desarrolla el entorno oficial de colaboración digital de la Universidad de Sevilla (**Microsoft 365**) basado en el identificador único **UVUS** (`usuario@us.es`), abordando de forma profunda las aplicaciones requeridas en la convocatoria, especialmente **Outlook, Word y SharePoint**.
 
+### Identidad Digital y Gestión del UVUS
+El **UVUS** (Usuario Virtual de la Universidad de Sevilla) es la credencial electrónica indispensable para acceder a los servicios informáticos de la US, correo Outlook, redes inalámbricas y el catálogo FAMA. 
+*   **Página de gestión:** Para realizar el cambio de claves, recuperación de contraseña o modificación de parámetros de seguridad del UVUS, el usuario debe acceder al portal oficial de identidad de la US: **`https://identidad.us.es`**.
+
 ---
 
 ## 1. Microsoft Outlook: Correo y Gestión Diaria
@@ -30,6 +34,7 @@ Este tema desarrolla el entorno oficial de colaboración digital de la Universid
 *   **Reglas de Bandeja de Entrada:** Filtros lógicos ejecutados en el servidor que automatizan el correo basándose en criterios:
     *   *Remitente, Destinatario, Palabras clave en el asunto o cuerpo.*
     *   *Acciones:* Mover a carpeta, marcar como leído, reenviar o eliminar.
+*   **Desactivación y Configuración del antiSPAM:** En las cuentas de Microsoft Office 365 corporativas de la US, la configuración detallada del filtro de correo no deseado (antiSPAM) del buzón **sólo puede gestionarse y desactivarse desde la OWA** (Outlook Web App, interfaz de correo web), no estando disponible esta configuración avanzada en clientes locales desconectados.
 *   **Atajos Clave para Examen:**
     *   `Ctrl + Intro`: Enviar el correo electrónico redactado de forma inmediata.
     *   `Ctrl + 1` / `Ctrl + 2` / `Ctrl + 3`: Conmutar entre la vista de *Correo*, *Calendario* y *Personas/Contactos*.
@@ -120,15 +125,21 @@ Herramienta unificada de comunicación, reuniones virtuales y trabajo en equipo.
     *   **Tareas:** Tarjetas individuales que contienen descripciones, listas de comprobación, archivos adjuntos, etiquetas de colores y personas asignadas.
 
 ### B. Microsoft Excel: Hojas de Cálculo
-*   **Fórmulas:** Siempre comienzan por el signo `=` o `+`.
-*   **Función `=BUSCARV` (Búsqueda Vertical):** Busca un valor en la primera columna de una tabla y devuelve el valor de otra columna de la misma fila.
-    *   *Sintaxis:* `=BUSCARV(valor_buscado; matriz_buscar_en; indicador_columnas; ordenado)`
-    *   *Rigor:* Se suele poner `FALSO` como último argumento para exigir una **coincidencia exacta** en la búsqueda.
-*   **Función `=SI` (Condición Lógica):** Devuelve un valor si una condición es verdadera y otro si es falsa.
-    *   *Sintaxis:* `=SI(prueba_lógica; valor_si_verdadero; valor_si_falso)`
-*   **Atajos:**
-    *   `F2`: Entra en modo edición de la celda activa.
-    *   `Ctrl + Shift + L`: Activar/desactivar filtros de cabecera.
+Es la aplicación de Microsoft 365 diseñada para trabajar con tablas de datos numéricos y alfanuméricos, facilitando la organización, formateo y análisis de información.
+*   **Estructura del Entorno (Conceptos Básicos):**
+    *   **Libro de trabajo:** Es el archivo de Excel propiamente dicho (extensión `.xlsx`). Un libro puede contener una o varias **Hojas de cálculo**. *(Nota de examen: el formato de archivo `.xlsx` es estándar y no puede contener macros de código ejecutable por razones de seguridad, requiriendo en su lugar la extensión `.xlsm` para almacenarlas).*
+    *   **Columnas:** Las divisiones dispuestas en vertical. Se identifican mediante **letras** (A, B, C... Z, AA, AB...).
+    *   **Filas:** Las divisiones dispuestas en horizontal. Se identifican mediante **números** (1, 2, 3...).
+    *   **Celda:** Es la intersección de una columna y una fila. Es la unidad básica donde se introducen datos y se referencia uniendo su letra y número (ej. la primera celda es `A1`).
+    *   **Rango:** Es un bloque o conjunto de celdas contiguas seleccionadas simultáneamente. Se expresa indicando la primera celda y la última separadas por dos puntos (ej. `A1:C10` abarca desde la columna A a la C, y desde la fila 1 a la 10).
+*   **Funcionalidades de Usuario Básico:**
+    *   **Fórmulas y Operaciones:** Expresiones para realizar cálculos. En Excel, **toda fórmula debe comenzar obligatoriamente por el signo `=` o por el signo `+`** (ej. `=SUMA(A1:A5)`).
+    *   **Formatos de celda:** Permiten cambiar el aspecto de presentación de los datos. Las celdas pueden configurarse con formatos como *Texto* (para palabras), *Número* (con o sin decimales), *Moneda* (ej. €), *Porcentaje* (ej. %) o *Fecha*.
+    *   **Filtros automáticos:** Permiten al usuario ocultar filas de forma temporal según criterios específicos para aislar y ver solo los datos relevantes (ej. filtrar libros prestados en una fecha). Se activan mediante el atajo **`Ctrl + Shift + L`**.
+    *   **Ordenación de datos:** Funcionalidad para reorganizar alfabéticamente (de A a Z o viceversa) o numéricamente (de menor a mayor o viceversa) el orden físico de las filas basándose en los valores de una columna.
+*   **Atajos esenciales para examen:**
+    *   **`F2`:** Permite entrar en modo edición directa de la celda seleccionada sin usar el ratón.
+    *   **`Ctrl + Shift + L`:** Activa o desactiva las flechas de filtros en la fila de cabecera.
 
 ### C. Microsoft PowerPoint: Presentaciones
 *   Herramienta de diapositivas para ponencias, formación de usuarios (ALFIN) e informes de gerencia.

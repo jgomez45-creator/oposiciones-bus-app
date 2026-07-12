@@ -6,7 +6,7 @@ Este documento recoge el contenido riguroso y exacto de las materias objeto de e
 
 ## 1. TÍTULO PRELIMINAR: Objeto, Ámbito y Vigencia (Artículos 1 al 6)
 
-*   **Artículo 1. Objeto:** Establecer y regular las relaciones de prestación de servicios entre las Universidades Públicas de Andalucía y el personal laboral de las mismas.
+*   **Artículo 1. Objeto (Evaluado en Examen 2019):** El objeto del Convenio es establecer y regular las relaciones de prestación de servicios entre las Universidades Públicas de Andalucía y el personal laboral de las mismas.
 *   **Artículo 2. Determinación de las partes que lo conciertan:** Las partes firmantes son:
     *   Por un lado, las Universidades Públicas de Andalucía: Almería, Cádiz, Córdoba, Granada, Huelva, Internacional de Andalucía, Jaén, Málaga, Pablo de Olavide y Sevilla.
     *   Por otro lado, el personal laboral de las mismas, representado por los sindicatos mayoritarios y legitimados: Comisiones Obreras (CC.OO.) y Unión General de Trabajadores (U.G.T.).
@@ -35,7 +35,11 @@ Este documento recoge el contenido riguroso y exacto de las materias objeto de e
     *   La realización de trabajos de superior o inferior categoría responderá a necesidades excepcionales y perentorias, durando el **tiempo mínimo imprescindible**.
     *   Ningún puesto podrá estar cubierto por tiempo superior a **12 meses** en régimen de desempeño de funciones de grupo superior sin que se convoque el correspondiente proceso selectivo.
     *   El trabajador percibirá las retribuciones del puesto desempeñado temporalmente, pero no consolidará la categoría.
-    *   El traslado a funciones de categoría inferior requerirá el acuerdo entre el Gerente y el Comité de Empresa, manteniéndole la retribución de su categoría de origen.
+    *   El traslado a funciones de categoría inferior por necesidades perentorias e imprevisibles requerirá el acuerdo entre el **Gerente y el Comité de Empresa**, manteniéndole la retribución de su categoría de origen.
+
+### CAPÍTULO III: Movilidad y Selección de Personal (Provisión de Vacantes)
+*   **Concurso General de Traslados:** Para garantizar la movilidad interna voluntaria del personal laboral fijo antes de convocar plazas externas, la convocatoria de este concurso general de traslados se realizará obligatoriamente **una vez al año**.
+*   **Adquisición de la Fijeza del Personal Temporal:** Según el Convenio Colectivo, el personal contratado con carácter temporal o de duración determinada sólo podrá adquirir la condición de personal fijo de plantilla mediante la **superación de los procesos selectivos que se acuerden** conforme a la ley, garantizando los principios de igualdad, mérito y capacidad.
 
 ---
 
@@ -66,7 +70,7 @@ El trabajador, previo aviso y justificación, tiene derecho a ausentarse con der
 2.  **Matrimonio:** **15 días naturales** (pueden disfrutarse antes o después del evento y acumularse a las vacaciones).
 3.  **Nacimiento, adopción o acogida:** **4 días naturales**.
 4.  **Enfermedad o accidente graves, hospitalización o intervención quirúrgica:**
-    *   Del padre, cónyuge o hijo: **4 días hábiles**.
+    *   Del padre, cónyuge o hijo: **4 días hábiles** *(Nota de examen: por intervención quirúrgica de un hijo que requiera hospitalización o reposo domiciliario, el trabajador tiene derecho a 4 días hábiles de permiso).*
     *   De familiares de primer grado por afinidad o hermanos: **3 días hábiles**.
     *   De familiares de segundo grado por consanguinidad o afinidad (no incluidos en los anteriores): **2 días hábiles**.
     *   *Nota:* La intervención quirúrgica da derecho a permiso mientras subsista la hospitalización hasta el máximo señalado.

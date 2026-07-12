@@ -20,20 +20,22 @@ El SEPRUS detalla que los riesgos musculoesqueléticos y la fatiga visual en tra
 
 ### A. Zonas de Alcance Espacial ( Reach Zones ) en la Mesa de Trabajo
 Para evitar estiramientos innecesarios y giros del tronco, la mesa se divide en tres áreas de alcance:
-1.  **Zona de Alcance Primario (Trabajo Frecuente):** Abarca el espacio al que se llega con los codos pegados al cuerpo. Aquí deben situarse el teclado y el ratón. Se debe dejar una distancia libre de **10 a 15 cm** entre el borde de la mesa y el teclado para poder apoyar cómodamente las muñecas y parte del antebrazo.
+1.  **Zona de Alcance Primario (Trabajo Frecuente):** Abarca el espacio al que se llega con los codos pegados al cuerpo. Aquí deben situarse el teclado y el ratón. Se debe dejar una distancia libre de **10 a 15 cm** entre el borde de la mesa y el teclado para poder apoyar cómodamente las muñecas y parte del antebrazo. Las directrices específicas de la US sobre ergonomía al teclear aconsejan que el **antebrazo, la muñeca y la mano permanezcan perfectamente alineados** en línea recta para evitar tendinitis y lesiones por esfuerzo repetitivo.
 2.  **Zona de Alcance Secundario (Trabajo Ocasional):** Espacio al alcance de las manos con los brazos extendidos pero sin doblar el tronco. Aquí se ubican el monitor, el soporte de documentos (atril) y los teléfonos.
 3.  **Zona de Alcance Terciario (Trabajo Excepcional):** Requiere la flexión o rotación del tronco para alcanzar objetos. No debe colocarse aquí ninguna herramienta de uso habitual.
 
 ### B. Configuración y Alineación del Monitor
 *   **Distancia visual:** El monitor debe estar a una distancia de entre **40 y 70 cm** de los ojos (longitud aproximada del brazo extendido).
 *   **Altura del monitor:** El borde superior de la pantalla debe quedar al nivel de los ojos o ligeramente por debajo (un ángulo de inclinación visual de **10° a 15°** hacia abajo). Esto reduce la fatiga de los músculos del cuello y disminuye la sequedad ocular al no forzar la apertura del párpado.
-*   **Orientación respecto a la luz:** El puesto debe orientarse **perpendicularmente a las ventanas** para evitar deslumbramientos directos (si se está de frente a la ventana) o reflejos molestos en la pantalla (si se está de espaldas a la ventana).
+*   **Orientación respecto a la luz:** El puesto debe orientarse **perpendicularmente a las ventanas** para evitar deslumbramientos directos o reflejos en la pantalla.
+*   **Fatiga visual:** Las píldoras preventivas del SEPRUS aconsejan utilizar **pantallas de TFT** (Thin Film Transistor) para optimizar la visualización y reducir el parpadeo que causa fatiga ocular.
 
 ### C. Regulación de la Silla Ergonómica (Pautas SEPRUS)
 *   **Altura del asiento:** Regulada de forma que los muslos queden horizontales, las rodillas formen un ángulo recto de **90°** y los pies apoyen completamente planos en el suelo. En caso de no alcanzar el suelo con comodidad, es obligatorio solicitar un **reposapiés regulable en inclinación**.
 *   **Profundidad del asiento:** Es fundamental dejar una holgura o margen libre de **2 a 4 dedos** (aproximadamente 5 cm) entre el borde anterior de la silla y la corva (hueco poplíteo). Esto evita la compresión mecánica de los vasos sanguíneos y nervios que circulan por detrás de la rodilla, previniendo isquemias y hormigueos.
 *   **Soporte Lumbar:** El respaldo debe tener una protuberancia ajustable que encaje perfectamente en la curva natural de la espalda baja (vértebras **L3 a L5**), manteniendo la lordosis lumbar.
 *   **Reposabrazos:** Ajustados a una altura tal que permitan apoyar los codos en un ángulo de **90°** manteniendo los hombros relajados (sin tensión de elevación).
+*   **Espacio libre detrás de la mesa:** En relación con el entorno de trabajo en la posición sentada, se debe disponer del espacio necesario para poderse mover con comodidad, procurando dejar **al menos 100 cm libres** detrás de la mesa para el retroceso de la silla.
 
 ---
 
@@ -45,7 +47,7 @@ Para levantar un libro pesado o una caja de documentos desde estantes bajos o de
 1.  **Base de sustentación:** Colocar los pies separados a la distancia de los hombros, adelantando ligeramente uno de ellos en dirección al objeto para mejorar la estabilidad.
 2.  **Aproximación de la carga:** Colocarse lo más cerca posible del objeto. Cuanto más alejada esté la carga del cuerpo, mayor será el "brazo de palanca" sobre la zona lumbar, multiplicando la tensión de los discos vertebrales.
 3.  **Flexión de rodillas:** Doblar las piernas manteniendo la columna vertebral recta y la pelvis estable. Nunca debe doblarse la espalda formando un arco.
-4.  **Agarre firme:** Sujetar la carga firmemente con las palmas de las manos (no solo con la punta de los dedos).
+4.  **Agarre firme:** Sujetar la carga firmemente con las palmas de las manos (no solo con la punta de los dedos). *(Nota de examen: es una medida correctora específica del puesto de biblioteca evitar los agarres en pinza al coger los libros, abarcándolos con toda la mano).*
 5.  **Levantamiento vertical:** Subir estirando las piernas de forma suave y sin tirones, manteniendo la espalda recta.
 6.  **Evitar giros:** Si se necesita girar mientras se sostiene la carga, se debe mover todo el cuerpo pivotando sobre los pies, **nunca realizar giros de tronco** mientras se sujeta el peso.
 7.  **Límite de peso:** El peso máximo recomendado para manipulación manual de cargas en condiciones ideales es de **25 kg** (reduciéndose a 15 kg para proteger a colectivos específicos).

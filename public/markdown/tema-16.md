@@ -72,6 +72,7 @@ Para evitar el hacinamiento y permitir la movilidad segura del Auxiliar, los pue
 *   **Altura del techo:** Mínimo **3 metros** desde el suelo. (No obstante, en oficinas, despachos y servicios higiénicos se permite un mínimo de **2,5 metros**).
 *   **Superficie libre:** Mínimo **2 metros cuadrados** de superficie libre por trabajador.
 *   **Volumen libre:** Mínimo **10 metros cúbicos** no ocupados por trabajador.
+*   **Anchura de pasillos (Anexo I):** Las vías de circulación destinadas a pasillos de tránsito habitual deben disponer de una anchura libre mínima de **100 cm** (1 metro) para garantizar evacuación y paso seguro.
 
 #### 2. Condiciones Ambientales de los Lugares de Trabajo (Anexo III)
 Las condiciones físicas de temperatura, humedad y ventilación deben evitar molestias, fatiga y proteger la salud:

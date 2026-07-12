@@ -68,7 +68,8 @@ Para regular los derechos de autor de las obras compartidas en el repositorio in
 
 Para el Técnico Auxiliar de la BUS, el punto clave de cara al usuario es que ambas colecciones (impresa y electrónica) se gestionan e integran de manera unificada:
 *   **FAMA:** Es la herramienta de descubrimiento de la BUS, basada en el sistema informático unificado **Alma/Primo** de la empresa *Ex Libris*.
-*   **Integración:** Desde un único buscador, FAMA muestra tanto la ubicación física y disponibilidad del libro impreso (mediante la **signatura topográfica**) como el enlace directo al texto completo en formato digital del recurso electrónico.
+*   **Integración:** Desde un único buscador, FAMA muestra tanto la ubicación física y disponibilidad del libro impreso (mediante la **signatura topográfica**) como el enlace directo al texto completo en formato digital del recurso electrónico. **La inmensa mayoría de los libros electrónicos suscritos por la BUS están descritos e integrados en FAMA**, permitiendo su búsqueda y recuperación directa por parte del usuario sin tener que acudir individualmente a las plataformas externas de cada proveedor.
+*   **Primo VE:** Interfaz de usuario de FAMA que ofrece búsquedas intuitivas, filtrado y servicios de cuenta personal.
 
 ---
 
