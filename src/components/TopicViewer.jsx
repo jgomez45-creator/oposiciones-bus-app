@@ -585,10 +585,20 @@ export default function TopicViewer({
       const pixelsPerSecond = autoscrollSpeed * 15;
       const step = (pixelsPerSecond * delta) / 1000;
 
+      // Try scrolling the container
+      const prevScrollTop = container.scrollTop;
       container.scrollTop += step;
 
-      // If reached the bottom, stop autoscroll
-      if (container.scrollTop + container.clientHeight >= container.scrollHeight - 2) {
+      // Fallback: If container didn't scroll (or isn't scrollable), scroll the window/html
+      if (container.scrollTop === prevScrollTop) {
+        window.scrollBy(0, step);
+      }
+
+      // Check if we reached the bottom of either the container or the document/window
+      const reachedContainerBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 5;
+      const reachedWindowBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5;
+
+      if (reachedContainerBottom && reachedWindowBottom) {
         setIsAutoscrolling(false);
         return;
       }
@@ -1289,7 +1299,6 @@ export default function TopicViewer({
 
             {/* Markdown Renderer Area */}
             <div className="markdown-body-wrapper" style={{ position: 'relative', flexGrow: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              {showReadingRuler && <div className="reading-ruler" />}
               <div className="markdown-body-container">
                 {loading ? (
                   <div className="viewer-message loading">
@@ -1337,6 +1346,7 @@ export default function TopicViewer({
                   />
                 )}
               </div>
+              {showReadingRuler && <div className="reading-ruler" />}
             </div>
           </>
         )}

@@ -1552,6 +1552,7 @@ body.study-focus-mode .topic-viewer-layout {
 
 body.study-focus-mode .topic-viewer-main {
   width: 100% !important;
+  height: 100% !important;
   border-radius: 16px !important;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(59, 130, 246, 0.15) !important;
   border: 1px solid rgba(59, 130, 246, 0.2) !important;
