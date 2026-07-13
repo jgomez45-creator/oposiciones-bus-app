@@ -775,11 +775,7 @@ export const firebaseService = {
       return { user: newUser, sessionId };
     } else {
       // 1. Sign in anonymously first to get a valid Auth credentials and UID
-      const userCredential = await withTimeout(
-        signInAnonymously(auth),
-        10000,
-        "No se pudo iniciar sesión anónima en Firebase (tiempo de espera agotado)."
-      );
+      const userCredential = await signInAnonymously(auth);
       const uid = userCredential.user.uid;
       
       const newUser = {
@@ -793,11 +789,7 @@ export const firebaseService = {
       };
 
       // 2. Write the user profile to Firestore (now authorized because request.auth is not null!)
-      await withTimeout(
-        setDoc(doc(db, 'users', uid), newUser),
-        10000,
-        "No se pudo crear el perfil demo en el servidor (tiempo de espera agotado)."
-      );
+      await setDoc(doc(db, 'users', uid), newUser);
       return { user: newUser, sessionId };
     }
   },
