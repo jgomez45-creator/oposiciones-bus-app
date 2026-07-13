@@ -276,6 +276,7 @@ export default function AdminPanel({ topics }) {
 {`rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Helper para verificar administrador de forma segura
     function isAdmin() {
       return request.auth != null && 
         exists(/databases/\$(database)/documents/users/\$(request.auth.uid)) &&
@@ -283,8 +284,8 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-      allow read, write: if request.auth != null && (request.auth.uid == userId || isAdmin());
-      allow list: if isAdmin();
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write, list: if isAdmin();
     }
     
     match /book_codes/{code} {
@@ -293,8 +294,8 @@ service cloud.firestore {
     }
     
     match /progress/{userId} {
-      allow read, write: if request.auth != null && (request.auth.uid == userId || isAdmin());
-      allow list: if isAdmin();
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write, list: if isAdmin();
     }
   }
 }`}
