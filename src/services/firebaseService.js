@@ -4,7 +4,8 @@ import {
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
   signOut,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  signInAnonymously
 } from 'firebase/auth';
 import { 
   initializeFirestore, 
@@ -756,28 +757,46 @@ export const firebaseService = {
   async createDemoSession() {
     const sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
     const guestNum = Math.floor(1000 + Math.random() * 9000);
-    const uid = 'demo_uid_' + Math.random().toString(36).substring(2, 9);
     
-    const newUser = {
-      uid,
-      name: `Invitado #${guestNum}`,
-      email: `demo_${guestNum}@oposicionesbus.com`,
-      bookCode: 'DEMO-INVITADO',
-      role: 'guest',
-      currentSessionId: sessionId,
-      lastActive: new Date().toISOString()
-    };
-
     if (isMock) {
+      const uid = 'demo_uid_' + Math.random().toString(36).substring(2, 9);
+      const newUser = {
+        uid,
+        name: `Invitado #${guestNum}`,
+        email: `demo_${guestNum}@oposicionesbus.com`,
+        bookCode: 'DEMO-INVITADO',
+        role: 'guest',
+        currentSessionId: sessionId,
+        lastActive: new Date().toISOString()
+      };
       const mockUsers = getMockUsers();
       mockUsers[uid] = newUser;
       saveMockUsers(mockUsers);
       return { user: newUser, sessionId };
     } else {
+      // 1. Sign in anonymously first to get a valid Auth credentials and UID
+      const userCredential = await withTimeout(
+        signInAnonymously(auth),
+        10000,
+        "No se pudo iniciar sesión anónima en Firebase (tiempo de espera agotado)."
+      );
+      const uid = userCredential.user.uid;
+      
+      const newUser = {
+        uid,
+        name: `Invitado #${guestNum}`,
+        email: `demo_${guestNum}@oposicionesbus.com`,
+        bookCode: 'DEMO-INVITADO',
+        role: 'guest',
+        currentSessionId: sessionId,
+        lastActive: new Date().toISOString()
+      };
+
+      // 2. Write the user profile to Firestore (now authorized because request.auth is not null!)
       await withTimeout(
         setDoc(doc(db, 'users', uid), newUser),
         10000,
-        "No se pudo iniciar la sesión demo en el servidor (tiempo de espera agotado)."
+        "No se pudo crear el perfil demo en el servidor (tiempo de espera agotado)."
       );
       return { user: newUser, sessionId };
     }
