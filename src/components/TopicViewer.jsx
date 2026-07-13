@@ -587,12 +587,48 @@ export default function TopicViewer({
     }
   }, [isAutoscrolling, showReadingRuler]);
 
-  // Exit reading mode when both autoscroll and ruler are off
-  useEffect(() => {
-    if (!isAutoscrolling && !showReadingRuler) {
-      setIsReadingMode(false);
+  const handleScrollPage = (direction) => {
+    const container = document.querySelector('.reading-fullscreen-content');
+    if (!container) return;
+    const scrollAmount = container.clientHeight * 0.75;
+    if (direction === 'down') {
+      container.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
     }
-  }, [isAutoscrolling, showReadingRuler]);
+  };
+
+  // Keyboard navigation for full-screen reading mode
+  useEffect(() => {
+    if (!isReadingMode) return;
+
+    const handleKeyDown = (e) => {
+      // If user is typing in inputs or text areas, ignore
+      if (
+        document.activeElement.tagName === 'INPUT' ||
+        document.activeElement.tagName === 'SELECT' ||
+        document.activeElement.tagName === 'TEXTAREA'
+      ) {
+        return;
+      }
+
+      if (e.key === 'Escape') {
+        setIsReadingMode(false);
+        setIsAutoscrolling(false);
+        setShowReadingRuler(false);
+      } else if (e.key === ' ' || e.key === 'PageDown' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        handleScrollPage('down');
+      } else if (e.key === 'PageUp' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        handleScrollPage('up');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isReadingMode]);
+
 
   useEffect(() => {
     if (!isAutoscrolling) return;
@@ -795,6 +831,27 @@ export default function TopicViewer({
                   : parsedSections.concepts
               }}
             />
+          </div>
+
+          {/* Floating manual page navigation buttons */}
+          <div className="reading-fullscreen-controls-floating">
+            <button
+              type="button"
+              onClick={() => handleScrollPage('up')}
+              className="reading-float-btn"
+              title="Página Anterior (Flecha Arriba)"
+            >
+              ▲
+            </button>
+            <span className="reading-float-divider" />
+            <button
+              type="button"
+              onClick={() => handleScrollPage('down')}
+              className="reading-float-btn"
+              title="Página Siguiente (Espacio / Flecha Abajo)"
+            >
+              ▼
+            </button>
           </div>
 
           {/* Reading ruler in full-screen mode */}
@@ -1350,8 +1407,18 @@ export default function TopicViewer({
               </div>
 
               <div className="reading-settings-bar glass-panel" style={{ marginTop: '-10px', marginBottom: '20px' }}>
-                <div className="settings-group">
-                  <span className="settings-label">Lectura Guiada:</span>
+                <div className="settings-group" style={{ flexWrap: 'wrap', gap: '8px' }}>
+                  <span className="settings-label">Modo de Lectura:</span>
+                  <button 
+                    type="button"
+                    onClick={() => setIsReadingMode(!isReadingMode)} 
+                    className={`font-btn ${isReadingMode && !isAutoscrolling && !showReadingRuler ? 'active' : ''}`}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                    title="Lectura a pantalla completa"
+                  >
+                    <span>📖 Lectura Manual (Pantalla Completa)</span>
+                  </button>
+
                   <button 
                     type="button"
                     onClick={() => setIsAutoscrolling(!isAutoscrolling)} 

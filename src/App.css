@@ -2570,7 +2570,124 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
 .reading-fullscreen-content .markdown-rendered-content {
   max-width: 860px;
   margin: 0 auto;
+  padding-bottom: 80px; /* Space to not get hidden behind floating buttons */
 }
+
+/* Floating pagination controls */
+.reading-fullscreen-controls-floating {
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 2100;
+  gap: 2px;
+  transition: all 0.2s ease;
+}
+
+.reading-fullscreen-controls-floating:hover {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.reading-float-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-main, #e2e8f0);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.reading-float-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--primary-light, #3b82f6);
+}
+
+.reading-float-btn:active {
+  transform: scale(0.9);
+}
+
+.reading-float-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 6px;
+}
+
+/* Theme Adaptations for Floating controls */
+.theme-light-reading .reading-fullscreen-controls-floating {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.theme-light-reading .reading-fullscreen-controls-floating:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-light-reading .reading-float-btn {
+  color: #334155;
+}
+
+.theme-light-reading .reading-float-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--primary, #1d4ed8);
+}
+
+.theme-light-reading .reading-float-divider {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.theme-sepia .reading-fullscreen-controls-floating {
+  background: rgba(235, 220, 185, 0.75);
+  border-color: rgba(67, 52, 34, 0.12);
+  box-shadow: 0 8px 32px rgba(67, 52, 34, 0.08);
+}
+
+.theme-sepia .reading-fullscreen-controls-floating:hover {
+  background: rgba(235, 220, 185, 0.95);
+  border-color: rgba(67, 52, 34, 0.2);
+}
+
+.theme-sepia .reading-float-btn {
+  color: #4f3f2d;
+}
+
+.theme-sepia .reading-float-btn:hover {
+  background: rgba(67, 52, 34, 0.05);
+  color: #855e3a;
+}
+
+.theme-sepia .reading-float-divider {
+  background: rgba(67, 52, 34, 0.12);
+}
+
+@media screen and (max-width: 768px) {
+  .reading-fullscreen-controls-floating {
+    bottom: 20px;
+    right: 20px;
+  }
+  .reading-float-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 0.95rem;
+  }
+}
+
 
 /* Default (dark) theme in fullscreen */
 .reading-fullscreen-overlay.theme-default {
