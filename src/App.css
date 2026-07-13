@@ -2572,16 +2572,42 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   margin: 0 auto;
 }
 
+/* Default (dark) theme in fullscreen */
+.reading-fullscreen-overlay.theme-default {
+  background: var(--bg-main, #0a0f1e);
+  color: var(--text-main, #e2e8f0);
+}
+
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content {
+  background: transparent !important;
+  color: var(--text-main, #e2e8f0) !important;
+}
+
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content h1,
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content h2,
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content h3,
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content h4,
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content strong {
+  color: #ffffff !important;
+}
+
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content p,
+.reading-fullscreen-overlay.theme-default .markdown-rendered-content li {
+  color: #cbd5e1 !important;
+}
+
 /* Light reading theme in fullscreen */
-.reading-fullscreen-overlay.theme-light-reading,
-body.reading-fullscreen-mode .reading-fullscreen-overlay {
+.reading-fullscreen-overlay.theme-light-reading {
   background: #ffffff;
+  color: #1e293b;
 }
 
 /* Sepia theme in fullscreen */
 .reading-fullscreen-overlay.theme-sepia {
   background: #f4ecd8;
+  color: #433422;
 }
+
 
 /* On mobile: tighter padding */
 @media screen and (max-width: 768px) {
