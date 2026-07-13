@@ -15,7 +15,8 @@ import {
   Check, 
   ShieldCheck, 
   X,
-  Trash2
+  Trash2,
+  Library
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 
@@ -501,7 +502,7 @@ service cloud.firestore {
                             <td style={{ padding: '14px 16px' }}>
                               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: isAdmin ? 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)' : u.role === 'guest' ? 'linear-gradient(135deg, var(--accent-rose) 0%, #fb7185 100%)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.85rem', color: isAdmin ? 'var(--bg-dark)' : 'white' }}>
-                                  {u.name.charAt(0).toUpperCase()}
+                                  {(u.name || 'U').charAt(0).toUpperCase()}
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                   <span style={{ fontWeight: '600', color: 'var(--text-main)' }}>{u.name}</span>
