@@ -774,8 +774,12 @@ export const firebaseService = {
       saveMockUsers(mockUsers);
       return { user: newUser, sessionId };
     } else {
-      // 1. Sign in anonymously first to get a valid Auth credentials and UID
-      const userCredential = await signInAnonymously(auth);
+      // 1. Sign in anonymously first to get a valid Auth credentials and UID (with 15s timeout to prevent infinite hanging)
+      const userCredential = await withTimeout(
+        signInAnonymously(auth),
+        15000,
+        "No se pudo iniciar sesión anónima en Firebase (tiempo de espera agotado)."
+      );
       const uid = userCredential.user.uid;
       
       const newUser = {
@@ -788,8 +792,12 @@ export const firebaseService = {
         lastActive: new Date().toISOString()
       };
 
-      // 2. Write the user profile to Firestore (now authorized because request.auth is not null!)
-      await setDoc(doc(db, 'users', uid), newUser);
+      // 2. Write the user profile to Firestore (with 15s timeout)
+      await withTimeout(
+        setDoc(doc(db, 'users', uid), newUser),
+        15000,
+        "No se pudo crear el perfil demo en el servidor (tiempo de espera agotado)."
+      );
       return { user: newUser, sessionId };
     }
   },
