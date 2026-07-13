@@ -751,6 +751,39 @@ export const firebaseService = {
   },
 
   /**
+   * Create a new temporary demo session (online guest profile)
+   */
+  async createDemoSession() {
+    const sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
+    const guestNum = Math.floor(1000 + Math.random() * 9000);
+    const uid = 'demo_uid_' + Math.random().toString(36).substring(2, 9);
+    
+    const newUser = {
+      uid,
+      name: `Invitado #${guestNum}`,
+      email: `demo_${guestNum}@oposicionesbus.com`,
+      bookCode: 'DEMO-INVITADO',
+      role: 'guest',
+      currentSessionId: sessionId,
+      lastActive: new Date().toISOString()
+    };
+
+    if (isMock) {
+      const mockUsers = getMockUsers();
+      mockUsers[uid] = newUser;
+      saveMockUsers(mockUsers);
+      return { user: newUser, sessionId };
+    } else {
+      await withTimeout(
+        setDoc(doc(db, 'users', uid), newUser),
+        10000,
+        "No se pudo iniciar la sesión demo en el servidor (tiempo de espera agotado)."
+      );
+      return { user: newUser, sessionId };
+    }
+  },
+
+  /**
    * Update last active time for user
    */
   async updateUserActiveTime(uid) {

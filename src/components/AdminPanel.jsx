@@ -143,7 +143,8 @@ export default function AdminPanel({ topics }) {
   };
 
   // Calculate Global Metrics
-  const totalStudents = users.filter(u => u.role !== 'admin' && u.uid !== 'guest_profile').length;
+  const officialStudents = users.filter(u => u.role === 'student').length;
+  const demoGuests = users.filter(u => u.role === 'guest').length;
   const onlineStudents = users.filter(u => u.role !== 'admin' && isUserOnline(u)).length;
   
   let totalSecondsStudied = 0;
@@ -320,7 +321,17 @@ service cloud.firestore {
                   </div>
                   <div>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Alumnos Registrados</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '4px' }}>{totalStudents}</h3>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '4px' }}>{officialStudents}</h3>
+                  </div>
+                </div>
+
+                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(244, 63, 94, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-rose)' }}>
+                    <Library size={24} />
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Interesados (Demo)</span>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--accent-rose)', marginTop: '4px' }}>{demoGuests}</h3>
                   </div>
                 </div>
 
@@ -329,7 +340,7 @@ service cloud.firestore {
                     <Activity size={24} />
                   </div>
                   <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Alumnos En Línea</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Usuarios En Línea</span>
                     <h3 style={{ fontSize: '1.8rem', color: 'var(--accent-emerald)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       {onlineStudents}
                       {onlineStudents > 0 && <span className="pulse-indicator" style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)', display: 'inline-block' }} />}
@@ -399,7 +410,7 @@ service cloud.firestore {
                         }
                       });
 
-                      const totalActiveStudents = totalStudents || 1;
+                      const totalActiveStudents = (officialStudents + demoGuests) || 1;
                       const percentage = ((completedCount / totalActiveStudents) * 100).toFixed(0);
 
                       return (
@@ -489,7 +500,7 @@ service cloud.firestore {
                             {/* User details */}
                             <td style={{ padding: '14px 16px' }}>
                               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: isAdmin ? 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.85rem', color: isAdmin ? 'var(--bg-dark)' : 'white' }}>
+                                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: isAdmin ? 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)' : u.role === 'guest' ? 'linear-gradient(135deg, var(--accent-rose) 0%, #fb7185 100%)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.85rem', color: isAdmin ? 'var(--bg-dark)' : 'white' }}>
                                   {u.name.charAt(0).toUpperCase()}
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -502,8 +513,8 @@ service cloud.firestore {
                             {/* Role / Code */}
                             <td style={{ padding: '14px 16px' }}>
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                                <span className={`badge ${isAdmin ? 'badge-gold' : 'badge-blue'}`} style={{ width: 'fit-content', padding: '2px 6px', fontSize: '0.65rem' }}>
-                                  {isAdmin ? 'Creador' : 'Alumno'}
+                                <span className={`badge ${isAdmin ? 'badge-gold' : u.role === 'guest' ? 'badge-rose' : 'badge-blue'}`} style={{ width: 'fit-content', padding: '2px 6px', fontSize: '0.65rem' }}>
+                                  {isAdmin ? 'Creador' : u.role === 'guest' ? 'Invitado (Demo)' : 'Alumno'}
                                 </span>
                                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>{u.bookCode}</span>
                               </div>

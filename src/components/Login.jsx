@@ -78,17 +78,28 @@ export default function Login({ onLogin }) {
     }
   };
 
-  const handleGuestAccess = () => {
-    // Guest bypass profile (uses a static guest code, local localStorage progress)
-    const guestUser = {
-      uid: 'guest_profile',
-      code: 'DEMO',
-      name: 'Usuario Invitado (Demo)',
-      email: 'invitado@oposicionesbus.com',
-      bookCode: 'DEMO-INVITADO'
-    };
-    const guestSessionId = 'session_guest_' + Date.now();
-    onLogin(guestUser, guestSessionId);
+  const handleGuestAccess = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const result = await firebaseService.createDemoSession();
+      onLogin(result.user, result.sessionId);
+    } catch (err) {
+      console.error("Error creating demo session online, using offline fallback", err);
+      // Guest bypass profile fallback
+      const guestUser = {
+        uid: 'guest_profile',
+        code: 'DEMO',
+        name: 'Usuario Invitado (Demo)',
+        email: 'invitado@oposicionesbus.com',
+        bookCode: 'DEMO-INVITADO',
+        role: 'guest'
+      };
+      const guestSessionId = 'session_guest_' + Date.now();
+      onLogin(guestUser, guestSessionId);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
