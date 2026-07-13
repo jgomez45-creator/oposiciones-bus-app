@@ -694,7 +694,7 @@ export const firebaseService = {
       const newCodes = [];
       for (let i = 0; i < count; i++) {
         const code = generateCode();
-        mockCodes[code] = { used: false, usedBy: null, assigned: false, createdAt: new Date().toISOString() };
+        mockCodes[code] = { used: false, usedBy: null, assigned: false, assignedTo: "", createdAt: new Date().toISOString() };
         newCodes.push(code);
       }
       saveMockBookCodes(mockCodes);
@@ -707,6 +707,7 @@ export const firebaseService = {
           used: false,
           usedBy: null,
           assigned: false,
+          assignedTo: "",
           createdAt: new Date()
         });
         newCodes.push(code);
@@ -728,6 +729,23 @@ export const firebaseService = {
     } else {
       await updateDoc(doc(db, 'book_codes', code), {
         assigned: assigned
+      });
+    }
+  },
+
+  /**
+   * Update the person the book code was assigned to
+   */
+  async updateBookCodeAssignedTo(code, assignedTo) {
+    if (isMock) {
+      const mockCodes = getMockBookCodes();
+      if (mockCodes[code]) {
+        mockCodes[code].assignedTo = assignedTo;
+        saveMockBookCodes(mockCodes);
+      }
+    } else {
+      await updateDoc(doc(db, 'book_codes', code), {
+        assignedTo: assignedTo
       });
     }
   },

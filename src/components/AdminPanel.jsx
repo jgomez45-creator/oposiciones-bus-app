@@ -627,6 +627,7 @@ service cloud.firestore {
                     <thead>
                       <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase', background: 'rgba(0,0,0,0.1)' }}>
                         <th style={{ padding: '10px 16px', textAlign: 'center', width: '95px' }}>Asignado</th>
+                        <th style={{ padding: '10px 16px', width: '180px' }}>Entregado a</th>
                         <th style={{ padding: '10px 16px' }}>Código de Activación</th>
                         <th style={{ padding: '10px 16px' }}>Estado</th>
                         <th style={{ padding: '10px 16px' }}>Activado Por</th>
@@ -635,7 +636,7 @@ service cloud.firestore {
                     <tbody>
                       {filteredCodes.length === 0 ? (
                         <tr>
-                          <td colSpan="4" style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                          <td colSpan="5" style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                             Ningún código coincide con el filtro seleccionado.
                           </td>
                         </tr>
@@ -665,6 +666,41 @@ service cloud.firestore {
                                     accentColor: 'var(--secondary)'
                                   }}
                                   title={c.used ? "Este código ya ha sido registrado por un alumno" : "Marcar como entregado con el manual impreso"}
+                                />
+                              </td>
+                              <td style={{ padding: '10px 16px' }}>
+                                <input
+                                  type="text"
+                                  placeholder="Ej. Julio Gomez"
+                                  defaultValue={c.assignedTo || ''}
+                                  disabled={!!c.used}
+                                  onBlur={async (e) => {
+                                    const assignedToVal = e.target.value.trim();
+                                    if (assignedToVal !== (c.assignedTo || '')) {
+                                      try {
+                                        await firebaseService.updateBookCodeAssignedTo(c.code, assignedToVal);
+                                      } catch (err) {
+                                        console.error(err);
+                                        alert("No se pudo actualizar el destinatario.");
+                                      }
+                                    }
+                                  }}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                      e.target.blur();
+                                    }
+                                  }}
+                                  style={{
+                                    width: '100%',
+                                    padding: '4px 8px',
+                                    borderRadius: '6px',
+                                    background: c.used ? 'transparent' : 'var(--bg-input)',
+                                    border: c.used ? 'none' : '1px solid var(--border-color)',
+                                    color: 'var(--text-main)',
+                                    fontSize: '0.8rem',
+                                    cursor: c.used ? 'not-allowed' : 'text'
+                                  }}
+                                  title={c.used ? "Este código ya está en uso" : "Introduce el nombre o seudónimo del destinatario"}
                                 />
                               </td>
                               <td style={{ padding: '10px 16px', fontFamily: 'monospace', fontWeight: 'bold', letterSpacing: '0.05em' }}>
