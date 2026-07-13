@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Lock, User, LogIn, ShieldAlert, Library, Mail, BookOpen, UserCheck } from 'lucide-react';
+import { Lock, User, LogIn, ShieldAlert, Library, Mail, BookOpen, UserCheck, Eye, EyeOff } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 
 // Detect if we are running in Mock Mode to show helper tips
@@ -11,6 +11,7 @@ export default function Login({ onLogin }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   
   // Form fields
   const [name, setName] = useState('');
@@ -181,17 +182,38 @@ export default function Login({ onLogin }) {
                   </button>
                 )}
               </div>
-              <div className="input-field-wrapper">
+              <div className="input-field-wrapper" style={{ position: 'relative' }}>
                 <Lock size={16} className="input-icon" />
                 <input
                   id="student-password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={activeTab === 'register' ? "Min. 6 caracteres" : "Introduce tu contraseña"}
                   autoComplete="off"
                   disabled={loading}
+                  style={{ paddingRight: '40px' }}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    position: 'absolute',
+                    right: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: 0
+                  }}
+                  title={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
               </div>
             </div>
           )}

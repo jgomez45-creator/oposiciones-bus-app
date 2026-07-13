@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail
 } from 'firebase/auth';
 import { 
-  getFirestore, 
+  initializeFirestore, 
   doc, 
   setDoc, 
   getDoc, 
@@ -16,7 +16,7 @@ import {
 } from 'firebase/firestore';
 
 // Check if we should run in Mock Simulator Mode
-const projectID = import.meta.env.VITE_FIREBASE_PROJECT_ID || 'oposiciones-bus-app';
+const projectID = import.meta.env.VITE_FIREBASE_PROJECT_ID;
 const isMock = !projectID || projectID === 'tu_project_id';
 
 const rawApiKey = import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAuBS58f2eNqaeGIc10zyQwgjxgm2StgBg';
@@ -41,14 +41,24 @@ if (!isMock) {
   try {
     const app = initializeApp(firebaseConfig);
     auth = getAuth(app);
-    db = getFirestore(app);
-    console.log("Firebase initialized in REAL CLOUD MODE.");
+    db = initializeFirestore(app, {
+      experimentalAutoDetectLongPolling: true
+    });
+    console.log("Firebase initialized in REAL CLOUD MODE with Auto-Detect Long-Polling.");
   } catch (e) {
     console.error("Error initializing Firebase App. Falling back to MOCK MODE.", e);
   }
 } else {
   console.log("Firebase running in MOCK SIMULATOR MODE. LocalStorage will simulate cloud sync.");
 }
+
+// Timeout helper for Firebase queries to prevent indefinite hanging
+const withTimeout = (promise, ms, errorMessage = "Tiempo de espera agotado en la red. Comprueba tu conexión.") => {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error(errorMessage)), ms))
+  ]);
+};
 
 // --- MOCK PERSISTENCE HELPERS ---
 const INITIAL_MOCK_CODES = {
@@ -133,7 +143,11 @@ export const firebaseService = {
       const codeRef = doc(db, 'book_codes', cleanCode);
       
       if (!isAdminCode) {
-        const codeSnap = await getDoc(codeRef);
+        const codeSnap = await withTimeout(
+          getDoc(codeRef),
+          10000,
+          "No se pudo verificar el código del libro en la base de datos (tiempo de espera agotado)."
+        );
         
         if (!codeSnap.exists()) {
           throw new Error("El código de activación del libro es inválido.");
@@ -146,24 +160,36 @@ export const firebaseService = {
       }
 
       // 2. Create Auth user
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await withTimeout(
+        createUserWithEmailAndPassword(auth, email, password),
+        12000,
+        "No se pudo crear la cuenta de usuario en Firebase (tiempo de espera agotado)."
+      );
       const uid = userCredential.user.uid;
 
       // 3. Create user profile in Firestore
-      await setDoc(doc(db, 'users', uid), {
-        name,
-        email: email.toLowerCase(),
-        bookCode: cleanCode,
-        currentSessionId: null,
-        role: isAdminCode ? 'admin' : 'student'
-      });
+      await withTimeout(
+        setDoc(doc(db, 'users', uid), {
+          name,
+          email: email.toLowerCase(),
+          bookCode: cleanCode,
+          currentSessionId: null,
+          role: isAdminCode ? 'admin' : 'student'
+        }),
+        10000,
+        "No se pudo crear tu perfil de usuario en la base de datos (tiempo de espera agotado)."
+      );
 
       // 4. Mark code as used in Firestore (skip if admin)
       if (!isAdminCode) {
-        await updateDoc(codeRef, {
-          used: true,
-          usedBy: uid
-        });
+        await withTimeout(
+          updateDoc(codeRef, {
+            used: true,
+            usedBy: uid
+          }),
+          10000,
+          "No se pudo marcar el código del libro como utilizado (tiempo de espera agotado)."
+        );
       }
 
       return { uid, name, email: email.toLowerCase(), bookCode: cleanCode };
@@ -200,11 +226,19 @@ export const firebaseService = {
       };
     } else {
       // REAL FIREBASE LOGIC
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await withTimeout(
+        signInWithEmailAndPassword(auth, email, password),
+        12000,
+        "No se pudo autenticar en el servidor de Firebase (tiempo de espera agotado)."
+      );
       const uid = userCredential.user.uid;
 
       // Fetch user profile name
-      const userSnap = await getDoc(doc(db, 'users', uid));
+      const userSnap = await withTimeout(
+        getDoc(doc(db, 'users', uid)),
+        10000,
+        "No se pudo obtener la información de tu perfil de usuario (tiempo de espera agotado)."
+      );
       if (!userSnap.exists()) {
         throw new Error("No se ha encontrado el perfil del usuario.");
       }
@@ -212,9 +246,13 @@ export const firebaseService = {
       const userData = userSnap.data();
 
       // Write session ID to Firestore to force logout other devices
-      await updateDoc(doc(db, 'users', uid), {
-        currentSessionId: sessionId
-      });
+      await withTimeout(
+        updateDoc(doc(db, 'users', uid), {
+          currentSessionId: sessionId
+        }),
+        10000,
+        "No se pudo iniciar sesión de forma exclusiva en el servidor (tiempo de espera agotado)."
+      );
 
       return {
         user: { uid, name: userData.name, email: userData.email, bookCode: userData.bookCode },
@@ -306,6 +344,8 @@ export const firebaseService = {
             onConcurrentSession();
           }
         }
+      }, (error) => {
+        console.error("Error en la suscripción de sesión en la nube:", error);
       });
     }
   },
@@ -358,6 +398,9 @@ export const firebaseService = {
         } else {
           onProgressUpdate({});
         }
+      }, (error) => {
+        console.error("Error al obtener progreso de la nube:", error);
+        onProgressUpdate({}); // Desbloquea la UI cargando aunque falle la red
       });
     }
   }
