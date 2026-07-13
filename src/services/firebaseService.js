@@ -149,11 +149,14 @@ export const firebaseService = {
       mockUsers[uid] = newUser;
       saveMockUsers(mockUsers);
 
-      // 4. Mark book code as used (skip if admin)
+      // 4. Mark book code as used and assigned (skip if admin)
       if (!isAdminCode && mockCodes[cleanCode]) {
-        mockCodes[cleanCode] = { used: true, usedBy: uid };
-        mockCodes[cleanCode].used = true;
-        mockCodes[cleanCode].usedBy = uid;
+        mockCodes[cleanCode] = { 
+          ...mockCodes[cleanCode],
+          used: true, 
+          usedBy: uid, 
+          assigned: true 
+        };
         saveMockBookCodes(mockCodes);
       }
 
@@ -202,12 +205,13 @@ export const firebaseService = {
         "No se pudo crear tu perfil de usuario en la base de datos (tiempo de espera agotado)."
       );
 
-      // 4. Mark code as used in Firestore (skip if admin)
+      // 4. Mark code as used and assigned in Firestore (skip if admin)
       if (!isAdminCode) {
         await withTimeout(
           updateDoc(codeRef, {
             used: true,
-            usedBy: uid
+            usedBy: uid,
+            assigned: true
           }),
           10000,
           "No se pudo marcar el código del libro como utilizado (tiempo de espera agotado)."
@@ -690,7 +694,7 @@ export const firebaseService = {
       const newCodes = [];
       for (let i = 0; i < count; i++) {
         const code = generateCode();
-        mockCodes[code] = { used: false, usedBy: null, createdAt: new Date().toISOString() };
+        mockCodes[code] = { used: false, usedBy: null, assigned: false, createdAt: new Date().toISOString() };
         newCodes.push(code);
       }
       saveMockBookCodes(mockCodes);
@@ -702,11 +706,29 @@ export const firebaseService = {
         await setDoc(doc(db, 'book_codes', code), {
           used: false,
           usedBy: null,
+          assigned: false,
           createdAt: new Date()
         });
         newCodes.push(code);
       }
       return newCodes;
+    }
+  },
+
+  /**
+   * Update assigned status of a book code
+   */
+  async updateBookCodeAssignedStatus(code, assigned) {
+    if (isMock) {
+      const mockCodes = getMockBookCodes();
+      if (mockCodes[code]) {
+        mockCodes[code].assigned = assigned;
+        saveMockBookCodes(mockCodes);
+      }
+    } else {
+      await updateDoc(doc(db, 'book_codes', code), {
+        assigned: assigned
+      });
     }
   },
 

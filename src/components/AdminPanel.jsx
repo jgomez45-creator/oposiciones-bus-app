@@ -626,6 +626,7 @@ service cloud.firestore {
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
                       <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase', background: 'rgba(0,0,0,0.1)' }}>
+                        <th style={{ padding: '10px 16px', textAlign: 'center', width: '95px' }}>Asignado</th>
                         <th style={{ padding: '10px 16px' }}>Código de Activación</th>
                         <th style={{ padding: '10px 16px' }}>Estado</th>
                         <th style={{ padding: '10px 16px' }}>Activado Por</th>
@@ -634,7 +635,7 @@ service cloud.firestore {
                     <tbody>
                       {filteredCodes.length === 0 ? (
                         <tr>
-                          <td colSpan="3" style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                          <td colSpan="4" style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                             Ningún código coincide con el filtro seleccionado.
                           </td>
                         </tr>
@@ -642,7 +643,30 @@ service cloud.firestore {
                         filteredCodes.map((c) => {
                           const userWhoActivated = c.used ? users.find(u => u.uid === c.usedBy) : null;
                           return (
-                            <tr key={c.code} style={{ borderBottom: '1px solid var(--border-color)', fontSize: '0.8' }}>
+                            <tr key={c.code} style={{ borderBottom: '1px solid var(--border-color)', fontSize: '0.8rem' }}>
+                              <td style={{ padding: '10px 16px', textAlign: 'center' }}>
+                                <input
+                                  type="checkbox"
+                                  checked={!!c.assigned || !!c.used}
+                                  disabled={!!c.used}
+                                  onChange={async (e) => {
+                                    const isAssigned = e.target.checked;
+                                    try {
+                                      await firebaseService.updateBookCodeAssignedStatus(c.code, isAssigned);
+                                    } catch (err) {
+                                      console.error(err);
+                                      alert("No se pudo actualizar el estado de asignación.");
+                                    }
+                                  }}
+                                  style={{
+                                    width: '16px',
+                                    height: '16px',
+                                    cursor: c.used ? 'not-allowed' : 'pointer',
+                                    accentColor: 'var(--secondary)'
+                                  }}
+                                  title={c.used ? "Este código ya ha sido registrado por un alumno" : "Marcar como entregado con el manual impreso"}
+                                />
+                              </td>
                               <td style={{ padding: '10px 16px', fontFamily: 'monospace', fontWeight: 'bold', letterSpacing: '0.05em' }}>
                                 {c.code}
                               </td>
