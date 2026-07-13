@@ -86,6 +86,7 @@ export default function Login({ onLogin }) {
       onLogin(result.user, result.sessionId);
     } catch (err) {
       console.error("Error creating demo session online, using offline fallback", err);
+      alert("Aviso: No se pudo conectar la demo con el servidor (" + err.message + "). Entrarás en modo local (offline).");
       // Guest bypass profile fallback
       const guestUser = {
         uid: 'guest_profile',
