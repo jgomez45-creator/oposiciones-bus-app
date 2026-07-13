@@ -1074,7 +1074,7 @@ export default function TopicViewer({
               <div className="nav-buttons-left">
                 <button onClick={() => setCurrentTab('dashboard')} className="back-to-dashboard-btn">
                   <ChevronLeft size={16} />
-                  <span className="nav-btn-text">Dashboard</span>
+                  <span className="nav-btn-text">Volver al Dashboard</span>
                 </button>
                 <button 
                   onClick={() => setShowMobileSidebar(true)} 
@@ -1088,10 +1088,10 @@ export default function TopicViewer({
                   onClick={() => setIsFocusMode(!isFocusMode)} 
                   className={`focus-toggle-btn glow-btn-secondary ${isFocusMode ? 'active' : ''}`}
                   style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
-                  title={isFocusMode ? "Salir de pantalla completa" : "Ver en pantalla completa"}
+                  title={isFocusMode ? "Mostrar lista de temas" : "Ocultar menú para enfocarse en la lectura"}
                 >
-                  {isFocusMode ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
-                  <span className="nav-btn-text">{isFocusMode ? "Salir" : "Enfoque"}</span>
+                  {isFocusMode ? <List size={14} /> : <Maximize2 size={14} />}
+                  <span className="nav-btn-text">{isFocusMode ? "Ver Menú Temas" : "Enfoque de Lectura"}</span>
                 </button>
                 {isFocusMode && (
                   <button 
@@ -1109,7 +1109,7 @@ export default function TopicViewer({
               <div className="topic-header-status-controls">
                 {timerRunning && (
                   <span className="badge badge-blue focus-mode-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(59, 130, 246, 0.15)', borderColor: 'rgba(59, 130, 246, 0.3)', color: 'var(--primary-light)', padding: '6px 12px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', marginRight: '12px' }}>
-                    <span className="pulse-dot"></span> Modo Enfoque Activo
+                    <span className="pulse-dot"></span> Sesión de Estudio Activa
                   </span>
                 )}
                 <span className="text-muted">Estado del tema:</span>
@@ -1224,7 +1224,7 @@ export default function TopicViewer({
                     type="button" 
                     onClick={stopAudio} 
                     className="glow-btn-secondary"
-                    style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justify: 'center' }}
+                    style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     title="Detener"
                     disabled={!isPlayingAudio && !isPausedAudio && audioProgress === 0}
                   >
