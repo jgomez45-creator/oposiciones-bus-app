@@ -2410,9 +2410,219 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   .reading-ruler-fixed::after {
     right: 8px;
   }
+@media screen and (max-width: 768px) {
+  .reading-ruler-fixed::before {
+    left: 8px;
+    font-size: 1rem;
+  }
+  .reading-ruler-fixed::after {
+    right: 8px;
+  }
 }
 
-/* Theme adaptation for widgets inside topic viewer (audio player, settings, etc.) */
+/* ============================================================ */
+/* FULL-SCREEN READING MODE                                     */
+/* ============================================================ */
+
+/* Full-screen overlay that covers everything */
+.reading-fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-main, #0a0f1e);
+  animation: fadeInReading 0.25s ease;
+}
+
+@keyframes fadeInReading {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Floating control bar */
+.reading-fullscreen-bar {
+  position: relative;
+  z-index: 2010;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  background: rgba(10, 15, 30, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.reading-bar-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.reading-bar-topic-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted, #8899b0);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.reading-bar-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.reading-bar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reading-bar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: var(--text-main, #e2e8f0);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.reading-bar-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.reading-bar-btn--active {
+  background: rgba(29, 78, 216, 0.25);
+  border-color: var(--primary-light, #3b82f6);
+  color: var(--primary-light, #3b82f6);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+.reading-bar-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reading-bar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted, #8899b0);
+  letter-spacing: 0.05em;
+}
+
+.reading-bar-speed-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(234, 179, 8, 0.9);
+  width: 26px;
+  text-align: left;
+}
+
+.reading-bar-exit-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  background: rgba(244, 63, 94, 0.08);
+  color: rgba(244, 63, 94, 0.9);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.reading-bar-exit-btn:hover {
+  background: rgba(244, 63, 94, 0.18);
+  border-color: rgba(244, 63, 94, 0.6);
+  color: #ff4d6d;
+}
+
+/* Scrollable content area inside the overlay */
+.reading-fullscreen-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px min(6vw, 80px);
+  scroll-behavior: smooth;
+}
+
+/* Content scrollbar in reading mode */
+.reading-fullscreen-content::-webkit-scrollbar {
+  width: 6px;
+}
+.reading-fullscreen-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.reading-fullscreen-content::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 3px;
+}
+
+/* Max-width for comfortable reading line length */
+.reading-fullscreen-content .markdown-rendered-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Light reading theme in fullscreen */
+.reading-fullscreen-overlay.theme-light-reading,
+body.reading-fullscreen-mode .reading-fullscreen-overlay {
+  background: #ffffff;
+}
+
+/* Sepia theme in fullscreen */
+.reading-fullscreen-overlay.theme-sepia {
+  background: #f4ecd8;
+}
+
+/* On mobile: tighter padding */
+@media screen and (max-width: 768px) {
+  .reading-fullscreen-content {
+    padding: 20px 16px;
+  }
+
+  .reading-bar-topic-label {
+    display: none; /* save space on mobile */
+  }
+
+  .reading-bar-left {
+    display: none;
+  }
+
+  .reading-bar-center {
+    gap: 8px;
+  }
+
+  .reading-bar-btn,
+  .reading-bar-exit-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Autoscroll in reading mode targets the fullscreen content div */
+body.reading-fullscreen-mode .markdown-body-container {
+  /* prevent autoscroll from affecting hidden normal view */
+  overflow: hidden;
+}
+
+
 
 /* Light Reading Theme overrides */
 .theme-light-reading .audiobook-player-card {

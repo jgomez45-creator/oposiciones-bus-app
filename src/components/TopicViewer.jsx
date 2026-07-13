@@ -55,6 +55,7 @@ export default function TopicViewer({
   const [isAutoscrolling, setIsAutoscrolling] = useState(false);
   const [autoscrollSpeed, setAutoscrollSpeed] = useState(3);
   const [showReadingRuler, setShowReadingRuler] = useState(false);
+  const [isReadingMode, setIsReadingMode] = useState(false); // Full-screen reading overlay
   
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'multi-print'
   const [selectedPrintTopicIds, setSelectedPrintTopicIds] = useState([]);
@@ -567,11 +568,39 @@ export default function TopicViewer({
     };
   }, [timerRunning, isFocusMode]);
 
-  // Autoscroll effect
+  // Activate/deactivate reading mode body class
+  useEffect(() => {
+    if (isReadingMode) {
+      document.body.classList.add('reading-fullscreen-mode');
+    } else {
+      document.body.classList.remove('reading-fullscreen-mode');
+    }
+    return () => {
+      document.body.classList.remove('reading-fullscreen-mode');
+    };
+  }, [isReadingMode]);
+
+  // Auto-enter reading mode when autoscroll or ruler is toggled on
+  useEffect(() => {
+    if (isAutoscrolling || showReadingRuler) {
+      setIsReadingMode(true);
+    }
+  }, [isAutoscrolling, showReadingRuler]);
+
+  // Exit reading mode when both autoscroll and ruler are off
+  useEffect(() => {
+    if (!isAutoscrolling && !showReadingRuler) {
+      setIsReadingMode(false);
+    }
+  }, [isAutoscrolling, showReadingRuler]);
+
   useEffect(() => {
     if (!isAutoscrolling) return;
 
-    const container = document.querySelector('.markdown-body-container');
+    // In reading mode, scroll the fullscreen content div; otherwise the normal markdown container
+    const container = isReadingMode
+      ? document.querySelector('.reading-fullscreen-content')
+      : document.querySelector('.markdown-body-container');
     if (!container) return;
 
     let lastTime = performance.now();
@@ -581,24 +610,15 @@ export default function TopicViewer({
       const delta = time - lastTime;
       lastTime = time;
 
-      // Speed 1 = 15px/s, Speed 10 = 150px/s
-      const pixelsPerSecond = autoscrollSpeed * 15;
+      // Speed 1 = 20px/s, Speed 10 = 200px/s
+      const pixelsPerSecond = autoscrollSpeed * 20;
       const step = (pixelsPerSecond * delta) / 1000;
 
-      // Try scrolling the container
-      const prevScrollTop = container.scrollTop;
       container.scrollTop += step;
 
-      // Fallback: If container didn't scroll (or isn't scrollable), scroll the window/html
-      if (container.scrollTop === prevScrollTop) {
-        window.scrollBy(0, step);
-      }
-
-      // Check if we reached the bottom of either the container or the document/window
-      const reachedContainerBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 5;
-      const reachedWindowBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5;
-
-      if (reachedContainerBottom && reachedWindowBottom) {
+      // Stop when we reach the bottom
+      const reachedBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 5;
+      if (reachedBottom) {
         setIsAutoscrolling(false);
         return;
       }
@@ -608,7 +628,8 @@ export default function TopicViewer({
 
     animationFrameId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isAutoscrolling, autoscrollSpeed]);
+  }, [isAutoscrolling, autoscrollSpeed, isReadingMode]);
+
 
   // Reset session timer on topic change
   useEffect(() => {
@@ -616,6 +637,7 @@ export default function TopicViewer({
     setTimerRunning(false);
     setIsAutoscrolling(false);
     setShowReadingRuler(false);
+    setIsReadingMode(false);
     
     // Load Markdown content
     setLoading(true);
@@ -702,13 +724,92 @@ export default function TopicViewer({
 
   return (
     <div className="topic-viewer-layout fade-in">
+      {/* ======================================================= */}
+      {/* FULL-SCREEN READING MODE OVERLAY                        */}
+      {/* Shown when autoscroll or reading ruler is active        */}
+      {/* ======================================================= */}
+      {isReadingMode && (
+        <div className={`reading-fullscreen-overlay theme-${readingTheme}`}>
+          {/* Floating control bar at the top */}
+          <div className="reading-fullscreen-bar">
+            <div className="reading-bar-left">
+              <span className="reading-bar-topic-label">
+                T{topic.id.toString().padStart(2, '0')} · {topic.title}
+              </span>
+            </div>
+            <div className="reading-bar-center">
+              <button
+                type="button"
+                onClick={() => setIsAutoscrolling(!isAutoscrolling)}
+                className={`reading-bar-btn ${isAutoscrolling ? 'reading-bar-btn--active' : ''}`}
+                title={isAutoscrolling ? 'Detener Autoscroll' : 'Iniciar Autoscroll'}
+              >
+                {isAutoscrolling ? <Pause size={14} /> : <Play size={14} />}
+                <span>{isAutoscrolling ? 'Detener' : 'Play'}</span>
+              </button>
+
+              <div className="reading-bar-speed">
+                <span className="reading-bar-label">Velocidad:</span>
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  value={autoscrollSpeed}
+                  onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
+                  style={{ accentColor: 'rgba(234,179,8,0.9)', width: '90px', cursor: 'pointer' }}
+                />
+                <span className="reading-bar-speed-val">{autoscrollSpeed}x</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowReadingRuler(!showReadingRuler)}
+                className={`reading-bar-btn ${showReadingRuler ? 'reading-bar-btn--active' : ''}`}
+                title="Guía de Lectura (línea)"
+              >
+                <span>👉 Guía</span>
+              </button>
+            </div>
+            <div className="reading-bar-right">
+              <button
+                type="button"
+                onClick={() => { setIsAutoscrolling(false); setShowReadingRuler(false); setIsReadingMode(false); }}
+                className="reading-bar-exit-btn"
+                title="Salir de lectura a pantalla completa"
+              >
+                <Minimize2 size={14} />
+                <span>Salir</span>
+              </button>
+            </div>
+          </div>
+
+          {/* The full-screen reading content */}
+          <div className="reading-fullscreen-content">
+            <div
+              className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
+              dangerouslySetInnerHTML={{
+                __html: activeSubTab === 'content'
+                  ? parsedSections.content
+                  : activeSubTab === 'outline'
+                  ? parsedSections.outline
+                  : parsedSections.concepts
+              }}
+            />
+          </div>
+
+          {/* Reading ruler in full-screen mode */}
+          {showReadingRuler && <div className="reading-ruler-fixed" />}
+        </div>
+      )}
+
       {/* Mobile Sidebar Overlay */}
       {showMobileSidebar && (
-        <div 
-          className="mobile-sidebar-overlay active" 
+        <div
+          className="mobile-sidebar-overlay active"
           onClick={() => setShowMobileSidebar(false)}
         />
       )}
+
 
       {/* Sidebar: Topics list */}
       <aside className={`topics-sidebar glass-panel ${showMobileSidebar ? 'mobile-open' : ''}`}>
