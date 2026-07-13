@@ -234,28 +234,46 @@ export const firebaseService = {
       const uid = userCredential.user.uid;
 
       // Fetch user profile name
-      const userSnap = await withTimeout(
-        getDoc(doc(db, 'users', uid)),
-        10000,
-        "No se pudo obtener la información de tu perfil de usuario (tiempo de espera agotado)."
-      );
-      if (!userSnap.exists()) {
-        throw new Error("No se ha encontrado el perfil del usuario.");
+      let userData = { name: email.split('@')[0], email: email.toLowerCase(), bookCode: 'UNKNOWN', role: 'student' };
+      try {
+        const userSnap = await withTimeout(
+          getDoc(doc(db, 'users', uid)),
+          5000,
+          "No se pudo obtener la información de tu perfil de usuario (tiempo de espera agotado)."
+        );
+        if (userSnap.exists()) {
+          userData = userSnap.data();
+        }
+      } catch (err) {
+        console.warn("Could not read user profile from Firestore, using cached/default details:", err.message);
+        const cachedUser = localStorage.getItem('opos_current_user');
+        if (cachedUser) {
+          try {
+            const parsed = JSON.parse(cachedUser);
+            if (parsed.uid === uid) {
+              userData = parsed;
+            }
+          } catch (e) {
+            console.error("Error reading cached user data:", e);
+          }
+        }
       }
 
-      const userData = userSnap.data();
-
       // Write session ID to Firestore to force logout other devices
-      await withTimeout(
-        updateDoc(doc(db, 'users', uid), {
-          currentSessionId: sessionId
-        }),
-        10000,
-        "No se pudo iniciar sesión de forma exclusiva en el servidor (tiempo de espera agotado)."
-      );
+      try {
+        await withTimeout(
+          updateDoc(doc(db, 'users', uid), {
+            currentSessionId: sessionId
+          }),
+          4000,
+          "Time out"
+        );
+      } catch (err) {
+        console.warn("Bypassing concurrent session restriction due to write lock/quota exceeded:", err.message);
+      }
 
       return {
-        user: { uid, name: userData.name, email: userData.email, bookCode: userData.bookCode },
+        user: { uid, name: userData.name, email: userData.email || email.toLowerCase(), bookCode: userData.bookCode || 'BUS-ACTIVATED' },
         sessionId
       };
     }
@@ -354,16 +372,27 @@ export const firebaseService = {
    * Save user's study progress
    */
   async saveUserProgress(uid, progressData) {
+    // Always save to local storage as a robust offline backup
+    localStorage.setItem(`local_backup_progress_${uid}`, JSON.stringify(progressData));
+
     if (isMock) {
       localStorage.setItem(`mock_progress_${uid}`, JSON.stringify(progressData));
       return;
     } else {
-      // Save to Firestore
-      const progressRef = doc(db, 'progress', uid);
-      await setDoc(progressRef, {
-        topicsProgress: progressData,
-        lastUpdated: new Date()
-      }, { merge: true });
+      // Save to Firestore (attempt it but catch and suppress errors/timeouts to prevent blocking)
+      try {
+        const progressRef = doc(db, 'progress', uid);
+        await withTimeout(
+          setDoc(progressRef, {
+            topicsProgress: progressData,
+            lastUpdated: new Date()
+          }, { merge: true }),
+          4000,
+          "Write timeout"
+        );
+      } catch (err) {
+        console.warn("Could not sync progress to Firestore (quota exceeded or offline). Progress saved locally.", err.message);
+      }
     }
   },
 
@@ -386,21 +415,36 @@ export const firebaseService = {
       return () => {}; // return empty unsubscribe
     } else {
       // REAL FIREBASE SNAPSHOT
+      // First, immediately load the local backup if it exists, so the UI is populated instantly
+      const localBackup = localStorage.getItem(`local_backup_progress_${uid}`);
+      if (localBackup) {
+        try {
+          onProgressUpdate(JSON.parse(localBackup));
+        } catch (e) {
+          console.error("Error parsing local backup progress:", e);
+        }
+      }
+
       const progressRef = doc(db, 'progress', uid);
       return onSnapshot(progressRef, (docSnap) => {
         if (docSnap.exists()) {
           const data = docSnap.data();
           if (data.topicsProgress) {
             onProgressUpdate(data.topicsProgress);
+            // Sync local backup with the latest from cloud
+            localStorage.setItem(`local_backup_progress_${uid}`, JSON.stringify(data.topicsProgress));
           } else {
-            onProgressUpdate({});
+            if (!localBackup) onProgressUpdate({});
           }
         } else {
-          onProgressUpdate({});
+          if (!localBackup) onProgressUpdate({});
         }
       }, (error) => {
         console.error("Error al obtener progreso de la nube:", error);
-        onProgressUpdate({}); // Desbloquea la UI cargando aunque falle la red
+        // If snapshot fails (e.g. quota exceeded), ensure we still have the local backup loaded
+        if (!localBackup) {
+          onProgressUpdate({});
+        }
       });
     }
   }
