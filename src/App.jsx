@@ -6,6 +6,7 @@ import QuizRunner from './components/QuizRunner';
 import Flashcards from './components/Flashcards';
 import Stats from './components/Stats';
 import Login from './components/Login';
+import AdminPanel from './components/AdminPanel';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
 import { ShieldAlert, RefreshCw } from 'lucide-react';
@@ -109,6 +110,25 @@ export default function App() {
       });
     }
   }, [progress, currentUser]);
+
+  // Update lastActive timestamp in the database periodically
+  useEffect(() => {
+    if (!currentUser) return;
+    
+    // Initial immediate call
+    firebaseService.updateUserActiveTime(currentUser.uid).catch((err) => {
+      console.warn("Could not update last active time:", err);
+    });
+    
+    // Set up interval every 2 minutes
+    const interval = setInterval(() => {
+      firebaseService.updateUserActiveTime(currentUser.uid).catch((err) => {
+        console.warn("Could not update last active time:", err);
+      });
+    }, 2 * 60 * 1000);
+    
+    return () => clearInterval(interval);
+  }, [currentUser, currentTab]);
 
   const handleLogin = (user, sessionId) => {
     localStorage.setItem('opos_current_user', JSON.stringify(user));
@@ -245,6 +265,11 @@ export default function App() {
             resetAllProgress={resetAllProgress}
           />
         );
+      case 'admin':
+        if (currentUser?.role === 'admin') {
+          return <AdminPanel topics={topicsData} />;
+        }
+        return <div>Página no encontrada</div>;
       default:
         return <div>Página no encontrada</div>;
     }

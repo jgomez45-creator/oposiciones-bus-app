@@ -12,7 +12,9 @@ import {
   setDoc, 
   getDoc, 
   updateDoc, 
-  onSnapshot 
+  onSnapshot,
+  collection,
+  getDocs
 } from 'firebase/firestore';
 
 // Check if we should run in Mock Simulator Mode
@@ -81,7 +83,24 @@ const saveMockBookCodes = (codes) => {
 
 const getMockUsers = () => {
   const saved = localStorage.getItem('mock_db_users');
-  return saved ? JSON.parse(saved) : {};
+  const users = saved ? JSON.parse(saved) : {};
+  // Enforce default mock admin credential
+  const adminEmail = 'a@a.com';
+  const adminUid = 'mock_admin_default';
+  if (!Object.values(users).some(u => u.email.toLowerCase() === adminEmail)) {
+    users[adminUid] = {
+      uid: adminUid,
+      name: 'Creador (Admin)',
+      email: adminEmail,
+      password: 'a',
+      bookCode: 'BUS-ADMIN-2026',
+      role: 'admin',
+      currentSessionId: null,
+      lastActive: new Date().toISOString()
+    };
+    localStorage.setItem('mock_db_users', JSON.stringify(users));
+  }
+  return users;
 };
 
 const saveMockUsers = (users) => {
@@ -122,7 +141,9 @@ export const firebaseService = {
         email: email.toLowerCase(),
         password, // Simulating, never store plaintext passwords in real production
         bookCode: cleanCode,
-        currentSessionId: null
+        currentSessionId: null,
+        role: isAdminCode ? 'admin' : 'student',
+        lastActive: new Date().toISOString()
       };
       
       mockUsers[uid] = newUser;
@@ -136,7 +157,7 @@ export const firebaseService = {
         saveMockBookCodes(mockCodes);
       }
 
-      return { uid, name, email: newUser.email, bookCode: cleanCode };
+      return { uid, name, email: newUser.email, bookCode: cleanCode, role: newUser.role };
     } else {
       // REAL FIREBASE LOGIC
       // 1. Verify book code in Firestore (skip if admin)
@@ -174,7 +195,8 @@ export const firebaseService = {
           email: email.toLowerCase(),
           bookCode: cleanCode,
           currentSessionId: null,
-          role: isAdminCode ? 'admin' : 'student'
+          role: isAdminCode ? 'admin' : 'student',
+          lastActive: new Date().toISOString()
         }),
         10000,
         "No se pudo crear tu perfil de usuario en la base de datos (tiempo de espera agotado)."
@@ -192,7 +214,7 @@ export const firebaseService = {
         );
       }
 
-      return { uid, name, email: email.toLowerCase(), bookCode: cleanCode };
+      return { uid, name, email: email.toLowerCase(), bookCode: cleanCode, role: isAdminCode ? 'admin' : 'student' };
     }
   },
 
@@ -201,6 +223,20 @@ export const firebaseService = {
    */
   async loginUser(email, password) {
     const sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
+
+    // Special bypass for quick developer admin access (works in both mock and real mode)
+    if (email.toLowerCase() === 'a@a.com' && password === 'a') {
+      return {
+        user: { 
+          uid: 'mock_admin_default', 
+          name: 'Creador (Admin)', 
+          email: 'a@a.com', 
+          bookCode: 'BUS-ADMIN-2026',
+          role: 'admin'
+        },
+        sessionId
+      };
+    }
 
     if (isMock) {
       const mockUsers = getMockUsers();
@@ -214,6 +250,7 @@ export const firebaseService = {
 
       // Set session ID to enforce single login
       matchedUser.currentSessionId = sessionId;
+      matchedUser.lastActive = new Date().toISOString();
       mockUsers[matchedUser.uid] = matchedUser;
       saveMockUsers(mockUsers);
 
@@ -221,7 +258,13 @@ export const firebaseService = {
       localStorage.setItem(`mock_session_changed_${matchedUser.uid}`, sessionId);
 
       return {
-        user: { uid: matchedUser.uid, name: matchedUser.name, email: matchedUser.email, bookCode: matchedUser.bookCode },
+        user: { 
+          uid: matchedUser.uid, 
+          name: matchedUser.name, 
+          email: matchedUser.email, 
+          bookCode: matchedUser.bookCode,
+          role: matchedUser.role || (matchedUser.bookCode === 'BUS-ADMIN-2026' ? 'admin' : 'student')
+        },
         sessionId
       };
     } else {
@@ -259,11 +302,12 @@ export const firebaseService = {
         }
       }
 
-      // Write session ID to Firestore to force logout other devices
+      // Write session ID and update last active to Firestore to force logout other devices
       try {
         await withTimeout(
           updateDoc(doc(db, 'users', uid), {
-            currentSessionId: sessionId
+            currentSessionId: sessionId,
+            lastActive: new Date().toISOString()
           }),
           4000,
           "Time out"
@@ -273,7 +317,13 @@ export const firebaseService = {
       }
 
       return {
-        user: { uid, name: userData.name, email: userData.email || email.toLowerCase(), bookCode: userData.bookCode || 'BUS-ACTIVATED' },
+        user: { 
+          uid, 
+          name: userData.name, 
+          email: userData.email || email.toLowerCase(), 
+          bookCode: userData.bookCode || 'BUS-ACTIVATED',
+          role: userData.role || 'student'
+        },
         sessionId
       };
     }
@@ -375,7 +425,7 @@ export const firebaseService = {
     // Always save to local storage as a robust offline backup
     localStorage.setItem(`local_backup_progress_${uid}`, JSON.stringify(progressData));
 
-    if (isMock) {
+    if (isMock || uid === 'mock_admin_default') {
       localStorage.setItem(`mock_progress_${uid}`, JSON.stringify(progressData));
       return;
     } else {
@@ -400,7 +450,7 @@ export const firebaseService = {
    * Listen to or fetch user's study progress
    */
   subscribeToUserProgress(uid, onProgressUpdate) {
-    if (isMock) {
+    if (isMock || uid === 'mock_admin_default') {
       const saved = localStorage.getItem(`mock_progress_${uid}`);
       if (saved) {
         try {
@@ -441,11 +491,234 @@ export const firebaseService = {
         }
       }, (error) => {
         console.error("Error al obtener progreso de la nube:", error);
-        // If snapshot fails (e.g. quota exceeded), ensure we still have the local backup loaded
         if (!localBackup) {
           onProgressUpdate({});
         }
       });
+    }
+  },
+
+  /**
+   * Listen to all users and their aggregated progress/activity
+   */
+  subscribeToAllUsers(onUpdate) {
+    const getProgressForUser = (userId) => {
+      const key = isMock ? `mock_progress_${userId}` : `local_backup_progress_${userId}`;
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      return {};
+    };
+
+    if (isMock) {
+      const updateFunc = () => {
+        const mockUsers = getMockUsers();
+        const userList = Object.values(mockUsers).map(u => {
+          const userProg = getProgressForUser(u.uid);
+          let totalStudyTime = 0;
+          let allScores = [];
+          let completedCount = 0;
+
+          Object.values(userProg).forEach(tp => {
+            if (tp.studyTime) totalStudyTime += tp.studyTime;
+            if (tp.status === 'Completado' || tp.status === 'Estudiado') completedCount++;
+            if (tp.quizScores && Array.isArray(tp.quizScores)) {
+              allScores.push(...tp.quizScores);
+            }
+          });
+
+          const avgScore = allScores.length ? (allScores.reduce((a, b) => a + b, 0) / allScores.length) : 0;
+
+          return {
+            ...u,
+            totalStudyTime,
+            averageQuizScore: avgScore,
+            completedCount,
+            quizzesTaken: allScores.length
+          };
+        });
+        onUpdate(userList);
+      };
+
+      updateFunc();
+      const interval = setInterval(updateFunc, 3000);
+      window.addEventListener('storage', updateFunc);
+      return () => {
+        clearInterval(interval);
+        window.removeEventListener('storage', updateFunc);
+      };
+    } else {
+      // REAL FIREBASE LOGIC
+      let usersSnapshot = [];
+      let progressSnapshot = {};
+
+      const combineAndEmit = () => {
+        const combined = usersSnapshot.map(u => {
+          const userProg = progressSnapshot[u.uid] || {};
+          let totalStudyTime = 0;
+          let allScores = [];
+          let completedCount = 0;
+
+          Object.values(userProg).forEach(tp => {
+            if (tp.studyTime) totalStudyTime += tp.studyTime;
+            if (tp.status === 'Completado' || tp.status === 'Estudiado') completedCount++;
+            if (tp.quizScores && Array.isArray(tp.quizScores)) {
+              allScores.push(...tp.quizScores);
+            }
+          });
+
+          const avgScore = allScores.length ? (allScores.reduce((a, b) => a + b, 0) / allScores.length) : 0;
+
+          return {
+            ...u,
+            totalStudyTime,
+            averageQuizScore: avgScore,
+            completedCount,
+            quizzesTaken: allScores.length
+          };
+        });
+        onUpdate(combined);
+      };
+
+      const unsubUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
+        usersSnapshot = [];
+        snapshot.forEach(doc => {
+          usersSnapshot.push({ uid: doc.id, ...doc.data() });
+        });
+        combineAndEmit();
+      }, (err) => console.error("Error subscribing to users", err));
+
+      const unsubProgress = onSnapshot(collection(db, 'progress'), (snapshot) => {
+        progressSnapshot = {};
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          if (data.topicsProgress) {
+            progressSnapshot[doc.id] = data.topicsProgress;
+          }
+        });
+        combineAndEmit();
+      }, (err) => console.error("Error subscribing to progress", err));
+
+      return () => {
+        unsubUsers();
+        unsubProgress();
+      };
+    }
+  },
+
+  /**
+   * Listen to all book codes
+   */
+  subscribeToAllBookCodes(onUpdate) {
+    if (isMock) {
+      const updateFunc = () => {
+        const mockCodes = getMockBookCodes();
+        const codesList = Object.entries(mockCodes).map(([code, data]) => ({
+          code,
+          ...data
+        }));
+        onUpdate(codesList);
+      };
+      updateFunc();
+      const interval = setInterval(updateFunc, 3000);
+      window.addEventListener('storage', updateFunc);
+      return () => {
+        clearInterval(interval);
+        window.removeEventListener('storage', updateFunc);
+      };
+    } else {
+      return onSnapshot(collection(db, 'book_codes'), (snapshot) => {
+        const codesList = [];
+        snapshot.forEach(doc => {
+          codesList.push({ code: doc.id, ...doc.data() });
+        });
+        onUpdate(codesList);
+      }, (err) => console.error("Error subscribing to book codes", err));
+    }
+  },
+
+  /**
+   * Kick out user session (resets currentSessionId to null)
+   */
+  async kickUserSession(uid) {
+    if (isMock) {
+      const mockUsers = getMockUsers();
+      if (mockUsers[uid]) {
+        mockUsers[uid].currentSessionId = null;
+        saveMockUsers(mockUsers);
+        localStorage.setItem(`mock_session_changed_${uid}`, 'kicked_' + Date.now());
+      }
+    } else {
+      await updateDoc(doc(db, 'users', uid), {
+        currentSessionId: null
+      });
+    }
+  },
+
+  /**
+   * Generate new book activation codes
+   */
+  async generateNewBookCodes(count) {
+    const generateCode = () => {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      const randomSegment = (len) => {
+        let segment = '';
+        for (let i = 0; i < len; i++) {
+          segment += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return segment;
+      };
+      return `BUS-${randomSegment(4)}-${randomSegment(4)}`;
+    };
+
+    if (isMock) {
+      const mockCodes = getMockBookCodes();
+      const newCodes = [];
+      for (let i = 0; i < count; i++) {
+        const code = generateCode();
+        mockCodes[code] = { used: false, usedBy: null, createdAt: new Date().toISOString() };
+        newCodes.push(code);
+      }
+      saveMockBookCodes(mockCodes);
+      return newCodes;
+    } else {
+      const newCodes = [];
+      for (let i = 0; i < count; i++) {
+        const code = generateCode();
+        await setDoc(doc(db, 'book_codes', code), {
+          used: false,
+          usedBy: null,
+          createdAt: new Date()
+        });
+        newCodes.push(code);
+      }
+      return newCodes;
+    }
+  },
+
+  /**
+   * Update last active time for user
+   */
+  async updateUserActiveTime(uid) {
+    if (isMock) {
+      const mockUsers = getMockUsers();
+      if (mockUsers[uid]) {
+        mockUsers[uid].lastActive = new Date().toISOString();
+        saveMockUsers(mockUsers);
+      }
+    } else {
+      try {
+        await updateDoc(doc(db, 'users', uid), {
+          lastActive: new Date().toISOString()
+        });
+      } catch (e) {
+        console.warn("Failed to update last active time", e.message);
+      }
     }
   }
 };

@@ -6,7 +6,8 @@ import {
   Layers, 
   BarChart3,
   Library,
-  LogOut
+  LogOut,
+  Shield
 } from 'lucide-react';
 
 export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout }) {
@@ -17,6 +18,10 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
     { id: 'flashcards', name: 'Flashcards', icon: Layers },
     { id: 'stats', name: 'Progreso', icon: BarChart3 }
   ];
+
+  if (currentUser && currentUser.role === 'admin') {
+    menuItems.push({ id: 'admin', name: 'Control', icon: Shield });
+  }
 
   return (
     <aside className="sidebar glass-panel">
