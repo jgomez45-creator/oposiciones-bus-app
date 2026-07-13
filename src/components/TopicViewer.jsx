@@ -1230,72 +1230,68 @@ export default function TopicViewer({
               </button>
             </div>
 
-            {/* Reading settings bar */}
-            {(!isFocusMode || showReadingControls) && (
-              <>
-                <div className="reading-settings-bar glass-panel">
-                  <div className="settings-group">
-                    <span className="settings-label">Letra:</span>
-                    <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
-                    <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
-                    <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
-                    <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
-                  </div>
-                  <div className="settings-group">
-                    <span className="settings-label">Fondo:</span>
-                    <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
-                    <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
-                    <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
-                  </div>
+            {/* Reading settings bar - always visible */}
+            <>
+              <div className="reading-settings-bar glass-panel">
+                <div className="settings-group">
+                  <span className="settings-label">Letra:</span>
+                  <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
+                  <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
+                  <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
+                  <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
                 </div>
+                <div className="settings-group">
+                  <span className="settings-label">Fondo:</span>
+                  <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
+                  <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
+                  <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
+                </div>
+              </div>
 
-                <div className="reading-settings-bar glass-panel" style={{ marginTop: '-10px', marginBottom: '20px' }}>
-                  <div className="settings-group">
-                    <span className="settings-label">Lectura Guiada:</span>
-                    <button 
-                      type="button"
-                      onClick={() => setIsAutoscrolling(!isAutoscrolling)} 
-                      className={`font-btn ${isAutoscrolling ? 'active' : ''}`}
-                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
-                    >
-                      {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
-                      <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
-                    </button>
-                    
-                    <button 
-                      type="button"
-                      onClick={() => setShowReadingRuler(!showReadingRuler)} 
-                      className={`font-btn ${showReadingRuler ? 'active' : ''}`}
-                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
-                    >
-                      <span>👉 Guía de Lectura</span>
-                    </button>
-                  </div>
+              <div className="reading-settings-bar glass-panel" style={{ marginTop: '-10px', marginBottom: '20px' }}>
+                <div className="settings-group">
+                  <span className="settings-label">Lectura Guiada:</span>
+                  <button 
+                    type="button"
+                    onClick={() => setIsAutoscrolling(!isAutoscrolling)} 
+                    className={`font-btn ${isAutoscrolling ? 'active' : ''}`}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                  >
+                    {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
+                    <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
+                  </button>
                   
-                  {isAutoscrolling && (
-                    <div className="settings-group" style={{ flexGrow: 1, justifyContent: 'flex-end', minWidth: '180px' }}>
-                      <span className="settings-label">Velocidad:</span>
-                      <input 
-                        type="range" 
-                        min="1" 
-                        max="10" 
-                        value={autoscrollSpeed} 
-                        onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
-                        style={{ 
-                          accentColor: 'var(--secondary)', 
-                          width: '100px', 
-                          height: '4px',
-                          cursor: 'pointer' 
-                        }} 
-                      />
-                      <span style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--text-muted)', width: '25px', textAlign: 'right' }}>
-                        {autoscrollSpeed}x
-                      </span>
-                    </div>
-                  )}
+                  <button 
+                    type="button"
+                    onClick={() => setShowReadingRuler(!showReadingRuler)} 
+                    className={`font-btn ${showReadingRuler ? 'active' : ''}`}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                  >
+                    <span>👉 Guía de Lectura</span>
+                  </button>
                 </div>
-              </>
-            )}
+                
+                <div className="settings-group" style={{ flexGrow: 1, justifyContent: 'flex-end', minWidth: '180px' }}>
+                  <span className="settings-label">Velocidad scroll:</span>
+                  <input 
+                    type="range" 
+                    min="1" 
+                    max="10" 
+                    value={autoscrollSpeed} 
+                    onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
+                    style={{ 
+                      accentColor: 'var(--secondary)', 
+                      width: '100px', 
+                      height: '4px',
+                      cursor: 'pointer' 
+                    }} 
+                  />
+                  <span style={{ fontSize: '0.75rem', fontWeight: '600', color: isAutoscrolling ? 'var(--secondary-light)' : 'var(--text-muted)', width: '25px', textAlign: 'right' }}>
+                    {autoscrollSpeed}x
+                  </span>
+                </div>
+              </div>
+            </>
 
             {/* Markdown Renderer Area */}
             <div className="markdown-body-wrapper" style={{ position: 'relative', flexGrow: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -1346,8 +1342,9 @@ export default function TopicViewer({
                   />
                 )}
               </div>
-              {showReadingRuler && <div className="reading-ruler" />}
             </div>
+            {/* Reading Ruler - rendered OUTSIDE the overflow:hidden wrapper so it stays visible */}
+            {showReadingRuler && <div className="reading-ruler-fixed" />}
           </>
         )}
       </div>

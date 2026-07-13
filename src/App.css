@@ -2342,35 +2342,73 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   overflow: hidden;
 }
 
+/* Old absolute ruler (kept for reference but replaced by fixed version) */
 .reading-ruler {
   position: absolute;
   left: 0;
-  right: 8px; /* Leave space for scrollbar padding */
+  right: 8px;
   top: 50%;
   height: 38px;
   transform: translateY(-50%);
-  background: rgba(234, 179, 8, 0.1); /* Seville Gold tint */
+  background: rgba(234, 179, 8, 0.1);
   border-top: 1px dashed rgba(234, 179, 8, 0.4);
   border-bottom: 1px dashed rgba(234, 179, 8, 0.4);
-  pointer-events: none; /* Let scroll/clicks pass through */
+  pointer-events: none;
   z-index: 10;
   border-radius: 4px;
-  transition: background var(--transition-fast);
 }
 
-.reading-ruler::before {
+/* Fixed reading ruler - uses position:fixed so it works over overflow:hidden parents */
+.reading-ruler-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50vh;
+  height: 42px;
+  transform: translateY(-50%);
+  background: rgba(234, 179, 8, 0.09);
+  border-top: 2px dashed rgba(234, 179, 8, 0.5);
+  border-bottom: 2px dashed rgba(234, 179, 8, 0.5);
+  pointer-events: none; /* clicks pass through */
+  z-index: 500;
+  border-radius: 0;
+  transition: background 0.2s ease;
+  animation: rulerPulse 3s ease-in-out infinite;
+}
+
+.reading-ruler-fixed::before {
   content: '👉';
   position: absolute;
-  left: -24px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.6));
+}
+
+.reading-ruler-fixed::after {
+  content: '📖';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+@keyframes rulerPulse {
+  0%, 100% { background: rgba(234, 179, 8, 0.07); }
+  50% { background: rgba(234, 179, 8, 0.13); }
 }
 
 @media screen and (max-width: 768px) {
-  .reading-ruler::before {
-    left: 4px; /* Inside the box on smaller screens */
-    opacity: 0.7;
+  .reading-ruler-fixed::before {
+    left: 8px;
+    font-size: 1rem;
+  }
+  .reading-ruler-fixed::after {
+    right: 8px;
   }
 }
 
