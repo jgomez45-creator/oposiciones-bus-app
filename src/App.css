@@ -2410,14 +2410,6 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   .reading-ruler-fixed::after {
     right: 8px;
   }
-@media screen and (max-width: 768px) {
-  .reading-ruler-fixed::before {
-    left: 8px;
-    font-size: 1rem;
-  }
-  .reading-ruler-fixed::after {
-    right: 8px;
-  }
 }
 
 /* ============================================================ */
