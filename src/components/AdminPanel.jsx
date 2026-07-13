@@ -24,6 +24,7 @@ export default function AdminPanel({ topics }) {
   const [users, setUsers] = useState([]);
   const [bookCodes, setBookCodes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState('');
   
   // Search and filters
   const [userSearch, setUserSearch] = useState('');
@@ -39,17 +40,31 @@ export default function AdminPanel({ topics }) {
   // Subscribe to real-time administrative data
   useEffect(() => {
     setLoading(true);
+    setErrorMsg('');
     
     // Subscribe to users and progress
-    const unsubUsers = firebaseService.subscribeToAllUsers((userList) => {
-      setUsers(userList);
-      setLoading(false);
-    });
+    const unsubUsers = firebaseService.subscribeToAllUsers(
+      (userList) => {
+        setUsers(userList);
+        setLoading(false);
+      },
+      (err) => {
+        console.error(err);
+        setErrorMsg('Error de permisos al acceder a los datos de la nube. Por favor, configura las Reglas de Seguridad en tu consola de Firebase para autorizar la lectura de usuarios y progreso.');
+        setLoading(false);
+      }
+    );
 
     // Subscribe to book activation codes
-    const unsubCodes = firebaseService.subscribeToAllBookCodes((codesList) => {
-      setBookCodes(codesList);
-    });
+    const unsubCodes = firebaseService.subscribeToAllBookCodes(
+      (codesList) => {
+        setBookCodes(codesList);
+      },
+      (err) => {
+        console.error(err);
+        setErrorMsg('Error de permisos al acceder a los datos de la nube. Por favor, configura las Reglas de Seguridad en tu consola de Firebase para autorizar la lectura de códigos de activación.');
+      }
+    );
 
     return () => {
       unsubUsers();
@@ -240,6 +255,50 @@ export default function AdminPanel({ topics }) {
           </button>
         </div>
       </div>
+
+      {errorMsg && (
+        <div className="glass-panel" style={{ padding: '20px', borderLeft: '4px solid var(--accent-rose)', background: 'rgba(244, 63, 94, 0.03)', borderRadius: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-rose)', fontWeight: 'bold' }}>
+            <ShieldAlert size={18} />
+            <span>Reglas de Seguridad Requeridas en Firestore</span>
+          </div>
+          <p style={{ color: 'var(--text-main)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
+            {errorMsg}
+          </p>
+          <div style={{ marginTop: '8px' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: 'var(--secondary-light)' }}>Solución:</span>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px', marginBottom: '8px', lineHeight: '1.4' }}>
+              Copia y pega la siguiente configuración en la pestaña <strong>Rules</strong> (Reglas) de tu base de datos Firestore en Firebase:
+            </p>
+            <pre style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.75rem', overflowX: 'auto', color: 'var(--text-muted)', border: '1px solid var(--border-color)', margin: 0 }}>
+{`rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && 
+        get(/databases/\$(database)/documents/users/\$(request.auth.uid)).data.role == 'admin';
+    }
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null && (request.auth.uid == userId || isAdmin());
+      allow list: if isAdmin();
+    }
+    
+    match /book_codes/{code} {
+      allow read: if true;
+      allow write, list: if isAdmin();
+    }
+    
+    match /progress/{userId} {
+      allow read, write: if request.auth != null && (request.auth.uid == userId || isAdmin());
+      allow list: if isAdmin();
+    }
+  }
+}`}
+            </pre>
+          </div>
+        </div>
+      )}
 
       {loading ? (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '40vh', gap: '16px' }}>

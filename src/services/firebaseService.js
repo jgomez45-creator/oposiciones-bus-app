@@ -501,7 +501,7 @@ export const firebaseService = {
   /**
    * Listen to all users and their aggregated progress/activity
    */
-  subscribeToAllUsers(onUpdate) {
+  subscribeToAllUsers(onUpdate, onError) {
     const getProgressForUser = (userId) => {
       const key = isMock ? `mock_progress_${userId}` : `local_backup_progress_${userId}`;
       const saved = localStorage.getItem(key);
@@ -591,7 +591,10 @@ export const firebaseService = {
           usersSnapshot.push({ uid: doc.id, ...doc.data() });
         });
         combineAndEmit();
-      }, (err) => console.error("Error subscribing to users", err));
+      }, (err) => {
+        console.error("Error subscribing to users", err);
+        if (onError) onError(err);
+      });
 
       const unsubProgress = onSnapshot(collection(db, 'progress'), (snapshot) => {
         progressSnapshot = {};
@@ -602,7 +605,10 @@ export const firebaseService = {
           }
         });
         combineAndEmit();
-      }, (err) => console.error("Error subscribing to progress", err));
+      }, (err) => {
+        console.error("Error subscribing to progress", err);
+        if (onError) onError(err);
+      });
 
       return () => {
         unsubUsers();
@@ -614,7 +620,7 @@ export const firebaseService = {
   /**
    * Listen to all book codes
    */
-  subscribeToAllBookCodes(onUpdate) {
+  subscribeToAllBookCodes(onUpdate, onError) {
     if (isMock) {
       const updateFunc = () => {
         const mockCodes = getMockBookCodes();
@@ -638,7 +644,10 @@ export const firebaseService = {
           codesList.push({ code: doc.id, ...doc.data() });
         });
         onUpdate(codesList);
-      }, (err) => console.error("Error subscribing to book codes", err));
+      }, (err) => {
+        console.error("Error subscribing to book codes", err);
+        if (onError) onError(err);
+      });
     }
   },
 
