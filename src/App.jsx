@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import TopicViewer from './components/TopicViewer';
@@ -18,6 +18,11 @@ export default function App() {
   const [timerActiveGlobally, setTimerActiveGlobally] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(false);
   const [sessionExpelled, setSessionExpelled] = useState(false);
+
+  // Throttled database saving refs
+  const lastSaveTimeRef = useRef(0);
+  const saveTimeoutRef = useRef(null);
+  const pendingProgressRef = useRef(null);
 
   // Authentication State
   const [currentUser, setCurrentUser] = useState(() => {
@@ -98,18 +103,58 @@ export default function App() {
     };
   }, [currentUser, localSessionId]);
 
-  // Save progress dynamically for current user
+  // Save progress dynamically for current user (throttled to avoid exhausting Firebase writes)
   useEffect(() => {
     if (!currentUser || Object.keys(progress).length === 0) return;
 
     if (currentUser.uid === 'guest_profile') {
       localStorage.setItem('bus_study_progress_guest', JSON.stringify(progress));
-    } else {
-      firebaseService.saveUserProgress(currentUser.uid, progress).catch((err) => {
+      return;
+    }
+
+    pendingProgressRef.current = progress;
+    const now = Date.now();
+    const timeSinceLastSave = now - lastSaveTimeRef.current;
+    const minSaveInterval = 30000; // 30 seconds
+
+    const performSave = async () => {
+      if (!pendingProgressRef.current || !currentUser) return;
+      const progressToSave = pendingProgressRef.current;
+      pendingProgressRef.current = null;
+      lastSaveTimeRef.current = Date.now();
+      
+      try {
+        await firebaseService.saveUserProgress(currentUser.uid, progressToSave);
+      } catch (err) {
         console.error("Failed to sync progress to cloud:", err);
-      });
+      }
+    };
+
+    if (timeSinceLastSave >= minSaveInterval) {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+        saveTimeoutRef.current = null;
+      }
+      performSave();
+    } else {
+      if (!saveTimeoutRef.current) {
+        const delay = minSaveInterval - timeSinceLastSave;
+        saveTimeoutRef.current = setTimeout(() => {
+          saveTimeoutRef.current = null;
+          performSave();
+        }, delay);
+      }
     }
   }, [progress, currentUser]);
+
+  // Clean up save timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Update lastActive timestamp in the database periodically
   useEffect(() => {
