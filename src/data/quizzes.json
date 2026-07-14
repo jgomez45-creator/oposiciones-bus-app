@@ -25588,15 +25588,15 @@
     },
     {
       "id": 2,
-      "question": "¿Ante qué órgano interno de la US se puede tramitar inicialmente la queja o solicitud de intervención por acoso?",
+      "question": "Según la Normativa de la US de 2024 (Acuerdo 9.1/CG 18-12-24), ¿a través de qué canal debe presentarse la solicitud de intervención por violencia, discriminación o acoso?",
       "options": [
-        "El Decanato de la Facultad de Matemáticas.",
-        "La Unidad de Igualdad o la Inspección de Servicios de la US.",
-        "El sindicato mayoritario únicamente.",
-        "La dirección técnica de la biblioteca de área."
+        "Directamente ante la Unidad de Igualdad o la Inspección de Servicios, mediante escrito en papel.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
+        "Ante el Decanato de la Facultad correspondiente o el Director/a del Departamento.",
+        "Mediante denuncia directa ante el Rector/a, sin intermediarios."
       ],
       "correctAnswer": 1,
-      "explanation": "La Unidad de Igualdad y la Inspección de Servicios de la US son los canales formales competentes encargados de iniciar la instrucción confidencial del protocolo.",
+      "explanation": "El Art. 16.1 de la Normativa de 2024 establece que 'la solicitud, comunicación y traslado de situaciones de violencia, discriminación y acoso se presentará a través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General'. Este es el único canal oficial de entrada, sustituyendo al sistema anterior de 2018.",
       "usage": "dossier"
     },
     {
@@ -25666,28 +25666,28 @@
     },
     {
       "id": 8,
-      "question": "En virtud de la legislación y normativa vigente del Tema 20 (Normativa de la US contra la violencia y el acoso), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'plazo de 10 días hábiles'?",
+      "question": "Según la Normativa de la US de 2024 (Art. 17), ¿de cuántos días hábiles dispone el Comité para analizar la información recibida y adoptar una primera decisión en la fase de indagación inicial?",
       "options": [
-        "Establece que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja.",
-        "Afirma erróneamente que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja salvo para el personal interino o estudiantes de doctorado con becas de colaboración."
+        "5 días hábiles.",
+        "15 días hábiles.",
+        "10 días hábiles (ampliables por el Comité según complejidad del caso).",
+        "30 días hábiles."
       ],
-      "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja.\". Esto se encuentra regulado de manera expresa en el marco del Estatutos de la US, el cual establece textualmente que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 2,
+      "explanation": "El Art. 17.1 de la Normativa de 2024 establece que 'el Comité se reunirá a fin de analizar la información disponible, recabar la que fuera necesaria y adoptar, en un plazo de 10 días hábiles, una decisión. Este plazo podrá ser ampliado por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes'. Este plazo sustituyó el plazo de 15 días del SEPRUS del protocolo de 2018.",
       "usage": "dossier"
     },
     {
       "id": 9,
-      "question": "En virtud de la legislación y normativa vigente del Tema 20 (Normativa de la US contra la violencia y el acoso), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'prórroga de 15 días hábiles'?",
+      "question": "Según la Normativa de la US de 2024 (Art. 19), ¿cuántos días hábiles tiene el Comité para realizar la indagación avanzada (segunda fase) una vez admitida la solicitud de intervención?",
       "options": [
-        "Establece que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación.",
-        "Afirma erróneamente que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación salvo para el personal interino o estudiantes de doctorado con becas de colaboración."
+        "10 días hábiles, improrrogables.",
+        "15 días hábiles, prorrogables por otros 15.",
+        "30 días hábiles, prorrogables excepcionalmente por otros 15.",
+        "20 días hábiles (ampliables por acuerdo del Comité según complejidad del caso)."
       ],
-      "correctAnswer": 1,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación.\". Esto se encuentra regulado de manera expresa en el marco del Protocolo de Acoso de la Universidad de Sevilla, el cual establece textualmente que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 3,
+      "explanation": "El Art. 19 de la Normativa de 2024 establece que 'La tramitación, desde que se admite la solicitud de intervención por violencia, discriminación o acoso, se desarrollará en 20 días hábiles, este plazo podrá ser ampliado por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes'. Este plazo de 20 días sustituye el plazo de 30 días del protocolo derogado de 2018.",
       "usage": "dossier"
     },
     {
@@ -25731,15 +25731,15 @@
     },
     {
       "id": 13,
-      "question": "Con relación al Tema 20 y el concepto de 'plazo de 30 días hábiles', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "Según la Normativa de la US de 2024, ¿cuántos días hábiles tiene el Comité para elaborar el informe final una vez realizada la última actuación del procedimiento de investigación?",
       "options": [
-        "Es crucial recordar que es el plazo máximo para resolver la fase de instrucción e investigación del acoso.",
-        "Resulta fundamental saber que es el plazo máximo para resolver la fase de instrucción e investigación del acoso siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que es el plazo máximo para resolver la fase de instrucción e investigación del acoso solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que es el plazo máximo para resolver la fase de instrucción e investigación del acoso únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "5 días hábiles.",
+        "10 días hábiles desde que se realiza la última actuación.",
+        "15 días hábiles.",
+        "30 días hábiles."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que es el plazo máximo para resolver la fase de instrucción e investigación del acoso.\". Esto se encuentra regulado de manera expresa en el marco del Estatutos de la US, el cual establece textualmente que es el plazo máximo para resolver la fase de instrucción e investigación del acoso. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El Art. 20.1 de la Normativa de 2024 establece: 'Una vez recabada toda la información necesaria para la aclaración de los hechos, en el plazo de 10 días hábiles, desde que se realiza la última actuación, el Comité elaborará un informe'. Este plazo se añade al de la indagación avanzada (20 días hábiles) para conformar el proceso completo.",
       "usage": "dossier"
     },
     {
@@ -25783,28 +25783,28 @@
     },
     {
       "id": 17,
-      "question": "Respecto a 'plazo de 10 días hábiles' dentro de las directrices y normas del Tema 20 (Normativa de la US contra la violencia y el acoso), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "Respecto al plazo de 10 días hábiles de la indagación inicial dentro de la Normativa de la US de 2024 (Art. 17.1), ¿cuál es el postulado correcto?",
       "options": [
-        "El reglamento dispone que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja.",
-        "El marco estatutario dicta que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja únicamente a partir del tercer año de antigüedad consolidada en el puesto."
+        "El reglamento dispone que es el plazo de que dispone el Comité para analizar la información y adoptar una primera decisión, ampliable por acuerdo del Comité.",
+        "El marco estatutario dicta que es el plazo de que dispone el Comité para adoptar una decisión siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
+        "La directiva europea prescribe que es el plazo para adoptar una decisión solo en aquellas provincias con más de dos universidades públicas.",
+        "El convenio aclara que es el plazo para adoptar una decisión únicamente a partir del tercer año de antigüedad consolidada en el puesto."
       ],
       "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja.\". Esto se encuentra regulado de manera expresa en el marco del Protocolo de Acoso de la Universidad de Sevilla, el cual establece textualmente que es el plazo máximo para emitir el **Informe de Valoración Inicial** desde la presentación de la queja. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "El Art. 17.1 de la Normativa de 2024 establece que el Comité dispone de 10 días hábiles para analizar la información y adoptar una primera decisión tras recibir la solicitud, ampliables por acuerdo del Comité. El plazo anterior de 15 días del SEPRUS del protocolo de 2018 ha sido derogado.",
       "usage": "dossier"
     },
     {
       "id": 18,
-      "question": "Respecto a 'prórroga de 15 días hábiles' dentro de las directrices y normas del Tema 20 (Normativa de la US contra la violencia y el acoso), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "Respecto a la posibilidad de ampliar los plazos del procedimiento dentro de las directrices y normas del Tema 20 (Normativa de la US de 2024), ¿cuál es el postulado legal o técnico correcto?",
       "options": [
-        "El reglamento dispone que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación.",
-        "El marco estatutario dicta que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación únicamente a partir del tercer año de antigüedad consolidada en el puesto."
+        "El reglamento dispone que tanto el plazo de 10 días de la indagación inicial como el de 20 días de la indagación avanzada pueden ampliarse por acuerdo del Comité, previa comunicación a las partes, sin un límite máximo fijo.",
+        "El marco estatutario dicta que el plazo de la investigación solo se puede ampliar con autorización del Rector/a.",
+        "La directiva europea prescribe que la prórroga es exactamente de 15 días hábiles adicionales y no puede superarse.",
+        "El convenio aclara que los plazos nunca pueden ampliarse bajo ningún concepto."
       ],
       "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación.\". Esto se encuentra regulado de manera expresa en el marco del Estatutos de la US, el cual establece textualmente que es el periodo de ampliación máxima excepcional que dispone el Comité de Investigación. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "El Art. 17.1 y el Art. 19 de la Normativa de 2024 establecen que tanto el plazo de 10 días de la indagación inicial como el de 20 días de la indagación avanzada 'podrán ser ampliados por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes'. No existe un límite máximo fijo de prórroga en la normativa de 2024, a diferencia del protocolo de 2018 (derogado) que fijaba una prórroga máxima de 15 días hábiles.",
       "usage": "dossier"
     },
     {
@@ -25848,15 +25848,15 @@
     },
     {
       "id": 22,
-      "question": "Según el temario oficial del Tema 20, cuando nos referimos a 'plazo de 30 días hábiles', es correcto afirmar que:",
+      "question": "Según la Normativa de la US de 2024, cuando se hace referencia al plazo de la indagación avanzada, es correcto afirmar que:",
       "options": [
-        "Implica que es el plazo máximo para resolver la fase de instrucción e investigación del acoso solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que es el plazo máximo para resolver la fase de instrucción e investigación del acoso exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que es el plazo máximo para resolver la fase de instrucción e investigación del acoso bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que es el plazo máximo para resolver la fase de instrucción e investigación del acoso."
+        "Es crucial recordar que es el plazo máximo (20 días hábiles) para realizar la indagación avanzada (segunda fase) del procedimiento.",
+        "Resulta fundamental saber que es el plazo máximo (20 días hábiles) para resolver la fase de instrucción e investigación del acoso siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
+        "Se ha de tener presente que es el plazo máximo (20 días hábiles) para resolver la fase de instrucción e investigación del acoso solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
+        "Es de interés recalcar que es el plazo máximo (20 días hábiles) para resolver la fase de instrucción e investigación del acoso únicamente si el afectado presenta reclamación en el registro general en 3 días."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que es el plazo máximo para resolver la fase de instrucción e investigación del acoso.\". Esto se encuentra regulado de manera expresa en el marco del Protocolo de Acoso de la Universidad de Sevilla, el cual establece textualmente que es el plazo máximo para resolver la fase de instrucción e investigación del acoso. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 0,
+      "explanation": "El Art. 19 de la Normativa de 2024 establece que la tramitación de la indagación avanzada (segunda fase) se desarrollará en 20 días hábiles (no 30 días como en el protocolo de 2018 derogado), ampliables por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes.",
       "usage": "dossier"
     },
     {
@@ -25952,28 +25952,28 @@
     },
     {
       "id": 30,
-      "question": "¿En qué órgano u oficina de la US se debe presentar formalmente la denuncia escrita de intervención por acoso?",
+      "question": "Según la Normativa de la US de 2024, ¿a través de qué canal se inicia formalmente el procedimiento de intervención por acoso?",
       "options": [
         "En el Decanato de la Facultad correspondiente.",
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "En la oficina de la Junta de Andalucía.",
-        "Exclusivamente en el registro único de estudiantes."
+        "Exclusivamente ante el Servicio de Prevención de Riesgos Laborales (SEPRUS)."
       ],
       "correctAnswer": 1,
-      "explanation": "El protocolo se inicia mediante una solicitud formal presentada por escrito y firmada ante la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de 2024 establece que 'la solicitud, comunicación y traslado de situaciones de violencia, discriminación y acoso se presentará a través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General'. Este es el único canal oficial de entrada, sustituyendo al sistema anterior de 2018.",
       "usage": "dossier"
     },
     {
       "id": 31,
-      "question": "¿Cuál es el plazo máximo para emitir el Informe de Valoración Inicial (Fase 1) en el protocolo de acoso de la US?",
+      "question": "¿Cuál es el plazo del que dispone el Comité para adoptar una primera decisión en la fase de indagación inicial del procedimiento de la US (Normativa 2024)?",
       "options": [
         "3 días hábiles",
         "5 días hábiles",
-        "10 días hábiles",
-        "15 días hábiles"
+        "15 días hábiles",
+        "10 días hábiles"
       ],
-      "correctAnswer": 2,
-      "explanation": "El Informe de Valoración Inicial de la Fase 1 debe emitirse en un plazo máximo de 15 días hábiles desde el registro de la solicitud.",
+      "correctAnswer": 3,
+      "explanation": "Según el Art. 17.1 de la Normativa de 2024, el Comité tiene 10 días hábiles para analizar la información y adoptar una decisión inicial. El plazo de 15 días era el plazo de valoración del SEPRUS en el protocolo de 2018, que ha sido derogado.",
       "usage": "dossier"
     },
     {
@@ -26004,28 +26004,28 @@
     },
     {
       "id": 34,
-      "question": "¿Cuál es el plazo de instrucción ordinario de que dispone el Comité de Investigación de la US para resolver el expediente?",
+      "question": "¿Cuál es el plazo del que dispone el Comité para realizar la indagación avanzada (segunda fase) del procedimiento de la US (Normativa 2024)?",
       "options": [
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles",
         "60 días hábiles"
       ],
-      "correctAnswer": 2,
-      "explanation": "La fase de instrucción e investigación (Fase 2) ordinaria tiene un plazo de resolución máximo de 30 días hábiles.",
+      "correctAnswer": 1,
+      "explanation": "El Art. 19 de la Normativa de 2024 establece que la tramitación de la indagación avanzada se desarrollará en 20 días hábiles, ampliables por acuerdo del Comité. El plazo de 30 días hábiles era el del protocolo de 2018, derogado.",
       "usage": "dossier"
     },
     {
       "id": 35,
-      "question": "¿Por cuánto tiempo extraordinario se puede prorrogar la fase de instrucción e investigación en casos de alta complejidad?",
+      "question": "Según la Normativa de la US de 2024, ¿qué ocurre cuando el Comité necesita más tiempo del establecido en la fase de indagación avanzada (segunda fase)?",
       "options": [
-        "5 días hábiles más",
-        "10 días hábiles más",
-        "15 días hábiles más",
-        "30 días hábiles más"
+        "El procedimiento se archiva automáticamente.",
+        "El Comité puede ampliar el plazo por acuerdo, previa comunicación a las partes.",
+        "Existe una prórroga fija y máxima de exactamente 15 días hábiles, sin posibilidad de más.",
+        "La Secretaría General asume el control del expediente."
       ],
-      "correctAnswer": 2,
-      "explanation": "En casos de alta complejidad y de forma fundamentada, la fase de instrucción puede prorrogarse de manera extraordinaria por 15 días hábiles adicionales.",
+      "correctAnswer": 1,
+      "explanation": "A diferencia del protocolo de 2018 (que fijaba una prórroga máxima de 15 días), la Normativa de 2024 establece en el Art. 19 que el plazo de 20 días hábiles 'podrá ser ampliado por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes', sin fijar un límite máximo de prórroga.",
       "usage": "dossier"
     },
     {
@@ -26095,15 +26095,15 @@
     },
     {
       "id": 41,
-      "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 16)",
+      "question": "¿A través de qué canal se inicia el procedimiento de intervención por acoso según la Normativa de la US de 2024? (Pregunta de control 16)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "dossier"
     },
     {
@@ -26178,7 +26178,7 @@
         "Instruir de manera formal el expediente y redactar la propuesta de sanción disciplinaria.",
         "Actuar como punto de contacto de proximidad y confianza para acoger informalmente consultas, sensibilizar y orientar sobre la derivación del caso.",
         "Adoptar las medidas cautelares provisionales de traslado del presunto acosador.",
-        "Sustituir el papel instructor del Comité Técnico CPEIA y del SEPRUS en la valoración inicial."
+        "Sustituir al Comité Técnico en la investigación formal de los casos de acoso."
       ],
       "correctAnswer": 1,
       "explanation": "Los referentes actúan como primer contacto de proximidad y confianza, realizando una labor preventiva y de orientación, pero no instruyen ni resuelven expedientes.",
@@ -26212,41 +26212,41 @@
     },
     {
       "id": 50,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 25)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 25)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "dossier"
     },
     {
       "id": 51,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 26)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "dossier"
     },
     {
       "id": 52,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 27)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 27)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "dossier"
     },
     {
@@ -26277,41 +26277,41 @@
     },
     {
       "id": 55,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 30)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 30)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "dossier"
     },
     {
       "id": 56,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 31)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "dossier"
     },
     {
       "id": 57,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 32)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 32)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "dossier"
     },
     {
@@ -26342,41 +26342,41 @@
     },
     {
       "id": 60,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 35)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 35)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "dossier"
     },
     {
       "id": 61,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 36)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "dossier"
     },
     {
       "id": 62,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 37)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 37)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "dossier"
     },
     {
@@ -26407,41 +26407,41 @@
     },
     {
       "id": 65,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 40)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 40)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "dossier"
     },
     {
       "id": 66,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 41)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "dossier"
     },
     {
       "id": 67,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 42)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 42)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "dossier"
     },
     {
@@ -26472,42 +26472,42 @@
     },
     {
       "id": 70,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 45)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 45)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "dossier"
     },
     {
       "id": 71,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 46)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "simulacro",
       "simulacroExamId": 1
     },
     {
       "id": 72,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 47)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 47)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "simulacro",
       "simulacroExamId": 1
     },
@@ -26541,15 +26541,15 @@
     },
     {
       "id": 75,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 50)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 50)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "simulacro",
       "simulacroExamId": 3
     },
@@ -26557,27 +26557,27 @@
       "id": 76,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 51)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "simulacro",
       "simulacroExamId": 3
     },
     {
       "id": 77,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 52)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 52)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "simulacro",
       "simulacroExamId": 4
     },
@@ -26611,15 +26611,15 @@
     },
     {
       "id": 80,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 55)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 55)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "simulacro",
       "simulacroExamId": 5
     },
@@ -26627,27 +26627,27 @@
       "id": 81,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 56)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "simulacro",
       "simulacroExamId": 6
     },
     {
       "id": 82,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 57)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 57)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "simulacro",
       "simulacroExamId": 6
     },
@@ -26681,15 +26681,15 @@
     },
     {
       "id": 85,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 60)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 60)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "simulacro",
       "simulacroExamId": 8
     },
@@ -26697,27 +26697,27 @@
       "id": 86,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 61)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "simulacro",
       "simulacroExamId": 8
     },
     {
       "id": 87,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 62)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 62)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "simulacro",
       "simulacroExamId": 9
     },
@@ -26751,15 +26751,15 @@
     },
     {
       "id": 90,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 65)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 65)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "simulacro",
       "simulacroExamId": 10
     },
@@ -26767,27 +26767,27 @@
       "id": 91,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 66)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "simulacro",
       "simulacroExamId": 11
     },
     {
       "id": 92,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 67)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 67)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "simulacro",
       "simulacroExamId": 11
     },
@@ -26821,15 +26821,15 @@
     },
     {
       "id": 95,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 70)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 70)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "simulacro",
       "simulacroExamId": 13
     },
@@ -26837,27 +26837,27 @@
       "id": 96,
       "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 71)",
       "options": [
-        "Ante la Unidad de Igualdad o la Inspección de Servicios.",
+        "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
         "Ante el Decano de la Facultad correspondiente.",
         "Ante los juzgados ordinarios directamente."
       ],
       "correctAnswer": 0,
-      "explanation": "El procedimiento del protocolo de la US se inicia mediante queja presentada en la Unidad de Igualdad o la Inspección de Servicios.",
+      "explanation": "El Art. 16.1 de la Normativa de la US de 2024 establece que el procedimiento se inicia a través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General. La vía anterior por la Unidad de Igualdad o Inspección de Servicios era del protocolo de 2018, derogado.",
       "usage": "simulacro",
       "simulacroExamId": 13
     },
     {
       "id": 97,
-      "question": "El plazo máximo de 15 días hábiles en el protocolo de acoso de la US corresponde a: (Pregunta de control 72)",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 72)",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
-        "La emisión del Informe de Valoración Inicial de la Fase 1.",
+        "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
         "El traslado del expediente al Ministerio Fiscal.",
         "El periodo de alegaciones del presunto acosador."
       ],
       "correctAnswer": 1,
-      "explanation": "La Fase 1 (valoración preliminar y admisión) debe finalizar con un Informe de Valoración Inicial en un plazo máximo de 15 días hábiles.",
+      "explanation": "La indagación inicial del Comité tiene un plazo de 10 días hábiles según el Art. 17.1 de la Normativa de la US de 2024 (no 15 días como en el protocolo derogado de 2018). El Comité analiza la información y adopta una primera decisión en ese plazo, ampliable por acuerdo del Comité.",
       "usage": "simulacro",
       "simulacroExamId": 14
     },
@@ -26891,15 +26891,15 @@
     },
     {
       "id": 100,
-      "question": "¿Qué plazo extraordinario de prórroga existe para la instrucción en caso de expedientes de acoso complejos en la US? (Pregunta de control 75)",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 75)",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
-        "15 días hábiles",
+        "20 días hábiles",
         "30 días hábiles"
       ],
       "correctAnswer": 2,
-      "explanation": "La instrucción tiene un plazo general de 30 días hábiles, prorrogable excepcionalmente por 15 días hábiles más.",
+      "explanation": "La indagación avanzada (segunda fase) tiene un plazo de 20 días hábiles según el Art. 19 de la Normativa de la US de 2024 (no 30 días como en el protocolo derogado de 2018). La ampliación es posible por acuerdo del Comité previa comunicación a las partes, sin límite máximo fijo.",
       "usage": "simulacro",
       "simulacroExamId": 15
     },
@@ -26920,13 +26920,13 @@
       "id": 102,
       "question": "En la estructura administrativa de la US, ¿qué siglas corresponden al Servicio de Prevención de Riesgos Laborales encargado de tramitar inicialmente la activación del protocolo?",
       "options": [
-        "CPEIA.",
-        "SEPRUS.",
         "CIVE.",
-        "DEVA."
+        "SEPRUS.",
+        "DEVA.",
+        "UNIA."
       ],
       "correctAnswer": 1,
-      "explanation": "SEPRUS es la denominación oficial del Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla.",
+      "explanation": "SEPRUS es la denominación oficial del Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla. Nota: 'CPEIA' era el acrónimo del antiguo Comité instructor del protocolo de 2018 (derogado), que en la Normativa vigente de 2024 se denomina simplemente 'el Comité'.",
       "usage": "dossier"
     },
     {
@@ -26944,98 +26944,98 @@
     },
     {
       "id": 104,
-      "question": "¿De qué plazo máximo e improrrogable dispone el SEPRUS para realizar las primeras indagaciones y emitir su Informe de Valoración Inicial?",
+      "question": "Según la Normativa de la US de 2024, ¿cuál es el plazo del que dispone el Comité Técnico para analizar la información disponible y adoptar una decisión en la fase de indagación inicial?",
       "options": [
         "5 días naturales.",
         "10 días hábiles.",
         "15 días hábiles.",
         "30 días hábiles."
       ],
-      "correctAnswer": 2,
-      "explanation": "El protocolo fija un plazo de 15 días hábiles a partir de la denuncia para que el SEPRUS concluya la valoración previa y decida sobre el archivo o derivación a el CPEIA.",
+      "correctAnswer": 1,
+      "explanation": "El Art. 17.1 de la Normativa de 2024 establece que el Comité dispondrá de 10 días hábiles para analizar la información y adoptar una decisión inicial. Este plazo es ampliable por acuerdo del Comité. Nótese que el plazo de 15 días hábiles era el que el protocolo de 2018 (derogado) asignaba al SEPRUS para su valoración inicial, que ya no existe en la normativa vigente.",
       "usage": "dossier"
     },
     {
       "id": 105,
-      "question": "¿Qué significan las siglas 'CPEIA' en el marco del protocolo contra el acoso de la Universidad de Sevilla?",
+      "question": "¿Cuál es el nombre completo del órgano técnico colegiado encargado de investigar y evaluar las situaciones de violencia, discriminación y acoso en la Universidad de Sevilla según la Normativa de 2024?",
       "options": [
-        "Comité de Inspección del Personal de Administración.",
-        "Comité Técnico para la Prevención, Evaluación e Intervención en situaciones de Violencia, Discriminación y Acoso.",
-        "Centro de Innovación y Preservación de Archivos.",
+        "Comisión de Inspección del Personal de Administración y Servicios.",
+        "Comité Técnico para la Prevención, Evaluación e Intervención en Situaciones de Violencia, Discriminación y Acoso.",
+        "Centro de Intervención y Valoración de Expedientes Administrativos.",
         "Comisión de Interpretación del Personal Académico."
       ],
       "correctAnswer": 1,
-      "explanation": "La CPEIA representa a la Comité Técnico para la Prevención, Evaluación e Intervención en situaciones de Violencia, Discriminación y Acoso, que es el órgano técnico colegiado instructor del protocolo en la US.",
+      "explanation": "La Normativa de la US de 2024 crea el 'Comité Técnico para la Prevención, Evaluación e Intervención en Situaciones de Violencia, Discriminación y Acoso', denominado en adelante simplemente 'el Comité' (Art. 9). El acrónimo CPEIA, que se usaba en el protocolo de 2018 para el antiguo comité (que solo abarcaba el acoso, sin incluir violencia y discriminación), ha desaparecido de la normativa vigente.",
       "usage": "dossier"
     },
     {
       "id": 106,
-      "question": "¿Por cuántos miembros con derecho a voto está compuesta con carácter general la Comité CPEIA de la US?",
+      "question": "Según la Normativa de la US de 2024 (Art. 10), ¿quién preside el Comité Técnico para la Prevención, Evaluación e Intervención en Situaciones de Violencia, Discriminación y Acoso?",
       "options": [
-        "4 miembros.",
-        "6 miembros.",
-        "8 miembros.",
-        "10 miembros."
+        "El Rector o Rectora de la Universidad de Sevilla.",
+        "El Vicerrector o Vicerrectora que asuma las competencias en materia de igualdad (o persona en quien delegue).",
+        "El Director o Directora del Servicio de Prevención de Riesgos Laborales (SEPRUS).",
+        "El Director o Directora de la Unidad para la Igualdad."
       ],
       "correctAnswer": 1,
-      "explanation": "La CPEIA está constituida formalmente por 6 miembros con derecho a voto (representantes de la universidad y de los trabajadores a partes iguales), asegurando un carácter paritario.",
+      "explanation": "El Art. 10.1 de la Normativa de 2024 establece que el Comité está presidido por el 'Vicerrector o Vicerrectora que asuma las competencias en materia de igualdad o persona en quien delegue'. El Comité está adscrito a este Vicerrectorado (Art. 9.3). Nótese que el nombramiento de todos los miembros se realiza por resolución rectoral (Art. 10.2), pero quien preside es el/la Vicerrector/a de Igualdad.",
       "usage": "dossier"
     },
     {
       "id": 107,
-      "question": "¿Quién tiene la competencia exclusiva para nombrar al Presidente/a de la Comité CPEIA de la Universidad de Sevilla?",
+      "question": "¿Quién forma parte del Comité Técnico de la US según la Normativa de 2024 (Art. 10) como experto/a en materia de prevención de riesgos?",
       "options": [
         "El Gerente de la Universidad.",
-        "El Rector de la Universidad.",
+        "El Director o Directora del Servicio de Prevención de Riesgos Laborales (SEPRUS).",
         "El Comité de Empresa de personal laboral.",
         "La Junta de Andalucía."
       ],
       "correctAnswer": 1,
-      "explanation": "La designación de la Presidencia de el CPEIA corresponde de forma directa a la máxima autoridad ejecutiva de la universidad, que es el Rector.",
+      "explanation": "El Art. 10.1 de la Normativa de 2024 incluye entre los miembros del Comité al 'Director o Directora del Servicio de Prevención de Riesgos Laborales', conocido como SEPRUS. Es importante destacar que en la nueva normativa el SEPRUS pasa de ser el receptor autónomo de denuncias (protocolo 2018) a ser un miembro técnico del Comité, cuya puerta de entrada ahora es el Buzón Único Electrónico gestionado por la Secretaría General.",
       "usage": "dossier"
     },
     {
       "id": 108,
-      "question": "En el seno de el CPEIA, ¿qué perfiles profesionales participan como asesores técnicos obligatorios con voz pero sin voto?",
+      "question": "Según la Normativa de la US de 2024 (Art. 10), ¿de qué listados pueden ser sorteados los representantes de los colectivos (PDI, PTGAS, estudiantes) para incorporarse al Comité Técnico?",
       "options": [
-        "El Secretario General y el Gerente de la US.",
-        "Un médico del trabajo del SEPRUS y un psicólogo/a especializado en riesgos psicosociales.",
-        "El Director de la BUS y un inspector de servicios.",
-        "Dos delegados sindicales del Comité de Empresa."
+        "Del claustro de profesores titulares y del Consejo Social.",
+        "De la Red de Referentes para la Convivencia y Buentrato, delegados/as de prevención, representación estudiantil (CADUS) o la Red de Voluntariado para Detección y Apoyo a Víctimas de Violencia de Género.",
+        "Del Director de la BUS y de los inspectores de servicios.",
+        "Exclusivamente de los delegados sindicales del Comité de Empresa."
       ],
       "correctAnswer": 1,
-      "explanation": "Para garantizar el rigor médico y psicológico en los casos, se incorporan con voz pero sin voto técnicos especializados en medicina del trabajo y psicología laboral.",
+      "explanation": "El Art. 10.1 de la Normativa de 2024 establece que los representantes del PDI, PTGAS o estudiantado que se incorporan al Comité 'podrán ser sorteadas de la lista de la Red de Referentes para la Convivencia y Buentrato de la Universidad de Sevilla, del listado de delegados y delegadas de prevención o de la lista actualizada de la representación estudiantil y de la Red Ciudadana de Voluntariado para la Detección y Apoyo a las Víctimas de Violencia de Género en la Universidad de Sevilla'. El sorteo se realiza al inicio de cada curso académico (Art. 11.1).",
       "usage": "dossier"
     },
     {
       "id": 109,
-      "question": "¿De qué plazo dispone el CPEIA para llevar a cabo la investigación formal de los hechos y emitir su Informe Final de Conclusiones?",
+      "question": "¿De qué plazo dispone el Comité para llevar a cabo la indagación avanzada (segunda fase) del procedimiento de investigación según la Normativa de la US de 2024 (Art. 19)?",
       "options": [
         "15 días hábiles.",
-        "30 días hábiles.",
-        "45 días naturales.",
+        "20 días hábiles.",
+        "30 días naturales.",
         "60 días hábiles."
       ],
       "correctAnswer": 1,
-      "explanation": "La fase de investigación formal e instrucción a cargo de el CPEIA está limitada a un plazo máximo de 30 días hábiles, prorrogable excepcionalmente por otros 15 días hábiles.",
+      "explanation": "El Art. 19 de la Normativa de 2024 establece que 'la tramitación, desde que se admite la solicitud de intervención por violencia, discriminación o acoso, se desarrollará en 20 días hábiles, este plazo podrá ser ampliado por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes'. El plazo de 30 días hábiles era del protocolo de 2018, derogado por la normativa vigente.",
       "usage": "dossier"
     },
     {
       "id": 110,
-      "question": "Si el CPEIA requiere más tiempo para la recopilación de pruebas o testimonios testificales, ¿cuál es el plazo máximo autorizado de prórroga?",
+      "question": "Según la Normativa de la US de 2024, ¿cómo se puede ampliar el plazo de la indagación avanzada (segunda fase) si el caso es complejo?",
       "options": [
-        "5 días hábiles.",
-        "10 días naturales.",
-        "15 días hábiles.",
-        "30 días hábiles."
+        "No puede ampliarse bajo ningún concepto.",
+        "Por acuerdo del Comité, previa comunicación a las partes (sin límite máximo fijo en la normativa).",
+        "La ampliación está limitada exactamente a 15 días hábiles adicionales y no puede superarse.",
+        "El Rector/a lo autoriza mediante resolución motivada con un máximo de 30 días más."
       ],
-      "correctAnswer": 2,
-      "explanation": "La prórroga excepcional del periodo de instrucción por el CPEIA se sitúa en un límite de 15 días hábiles adicionales.",
+      "correctAnswer": 1,
+      "explanation": "El Art. 19 de la Normativa de 2024 establece que el plazo de 20 días hábiles 'podrá ser ampliado por acuerdo del Comité en función de la complejidad del caso y previa comunicación a las partes', sin establecer un límite máximo fijo. Esto contrasta con el protocolo de 2018 (derogado), que sí fijaba una prórroga máxima de 15 días hábiles.",
       "usage": "dossier"
     },
     {
       "id": 111,
-      "question": "¿Qué medidas de urgencia puede proponer el CPEIA desde el inicio de la instrucción para separar a las partes y proteger la integridad física y mental de la presunta víctima?",
+      "question": "¿Qué medidas de urgencia puede proponer el Comité desde el inicio de la instrucción para separar a las partes y proteger la integridad física y mental de la presunta víctima?",
       "options": [
         "Sanciones de suspensión de empleo y sueldo definitivas.",
         "Medidas cautelares provisionales (como cambio temporal de turno, horario o traslado de sucursal de biblioteca).",
@@ -27043,20 +27043,20 @@
         "La denuncia directa ante el juzgado de lo contencioso."
       ],
       "correctAnswer": 1,
-      "explanation": "Las medidas cautelares provisionales se adoptan inmediatamente ante indicios de peligro para proteger a la víctima sin prejuzgar la resolución final del expediente.",
+      "explanation": "Las medidas cautelares provisionales se adoptan inmediatamente ante indicios de peligro para proteger a la víctima sin prejuzgar la resolución final del expediente. El Comité puede proponer este tipo de medidas desde el inicio.",
       "usage": "dossier"
     },
     {
       "id": 112,
-      "question": "Una vez recibido el Informe Final de el CPEIA, ¿quién ostenta la competencia exclusiva para dictar la resolución del expediente en la US?",
+      "question": "Una vez recibido el Informe Final del Comité, ¿a quién se remite para que actúe según la normativa disciplinaria aplicable?",
       "options": [
-        "El Gerente de la Universidad.",
-        "El Rector de la Universidad.",
-        "El Presidente de el CPEIA.",
-        "La Comisión de Dirección de la BUS."
+        "Al Gerente de la Universidad.",
+        "Al Rector o Rectora de la Universidad de Sevilla.",
+        "Al Presidente del Comité de Empresa.",
+        "A la Comisión de Dirección de la BUS."
       ],
       "correctAnswer": 1,
-      "explanation": "El Rector, como máxima autoridad unipersonal ejecutiva de la universidad, ostenta la firma y resolución definitiva de los expedientes de acoso.",
+      "explanation": "El Art. 20.3 de la Normativa de 2024 establece que el Informe será remitido a las partes interesadas, a la Secretaría General y, en su caso, al Rector o Rectora. Cuando el Comité detecta indicios de acoso o infracción disciplinaria, propone al Rector/a el inicio del expediente disciplinario. La normativa de 2024 no establece un plazo específico para que el Rector/a actúe (a diferencia del protocolo de 2018 que fijaba 5 días hábiles).",
       "usage": "dossier"
     },
     {
@@ -27074,15 +27074,15 @@
     },
     {
       "id": 114,
-      "question": "¿De qué plazo en días hábiles dispone el Rector para dictar la resolución formal una vez que el CPEIA le remite su informe final de conclusiones?",
+      "question": "¿Qué elemento completamente nuevo introduce la Normativa de la US de 2024 para proteger y apoyar a las víctimas una vez cerrado el caso?",
       "options": [
-        "3 días hábiles.",
-        "5 días hábiles.",
-        "10 días hábiles.",
-        "15 días naturales."
+        "Un plazo de 5 días hábiles para que el Rector/a dicte resolución.",
+        "Un Plan de Protección, Reparación y Recuperación, y una Comisión de Seguimiento que vigila su cumplimiento.",
+        "La creación de un expediente administrativo paralelo a cargo del SEPRUS.",
+        "La obligación del Rector/a de publicar el resultado del caso en el BOUS."
       ],
       "correctAnswer": 1,
-      "explanation": "La firma de la resolución por el Rectorado está sujeta a un plazo corto de 5 días hábiles tras recibir la propuesta instructora de el CPEIA.",
+      "explanation": "La Normativa de 2024 introduce en su Título IV dos elementos completamente nuevos: (1) El 'Plan de Protección, Reparación y Recuperación' (Art. 21), un plan anual con medidas psicológicas, sociales, académicas y laborales para las víctimas; y (2) la 'Comisión de Seguimiento' (Arts. 22-23), que vela por el cumplimiento de ese plan y porque no se produzcan hostilidades en el entorno. Ninguno de estos elementos existía en el protocolo de 2018.",
       "usage": "dossier"
     },
     {
@@ -27109,6 +27109,110 @@
       ],
       "correctAnswer": 2,
       "explanation": "El protocolo y normativa unificada de la US de 2024 define formalmente el mobbing o acoso moral continuado en el ámbito de las relaciones de trabajo con el término específico de acoso laboral.",
+      "usage": "dossier"
+    },
+    {
+      "id": 117,
+      "question": "Según la Normativa de la US de 2024 (Art. 16.1), ¿a través de qué canal único y exclusivo debe presentarse la solicitud de intervención por violencia, discriminación o acoso?",
+      "options": [
+        "Directamente ante el SEPRUS mediante escrito firmado en papel.",
+        "A través del buzón único electrónico para la convivencia, cuya gestión corresponde a la Secretaría General.",
+        "Ante la Unidad de Igualdad o la Inspección de Servicios por registro general.",
+        "Mediante correo electrónico al Rector o Rectora de la Universidad."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 16.1 de la Normativa de 2024 establece: 'La solicitud, comunicación y traslado de situaciones de violencia, discriminación y acoso se presentará a través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General'. Este es el único canal oficial, a diferencia del protocolo de 2018 (derogado) que contemplaba la presentación directamente ante el SEPRUS o la Unidad de Igualdad.",
+      "usage": "dossier"
+    },
+    {
+      "id": 118,
+      "question": "¿Es obligatorio acogerse al procedimiento interno de la US antes de iniciar cualquier acción legal ante los tribunales por una situación de acoso o violencia?",
+      "options": [
+        "Sí, es un requisito previo obligatorio agotar la vía interna antes de acudir a los tribunales.",
+        "No, el inicio del procedimiento interno es voluntario y no impide iniciar acciones legales de cualquier naturaleza.",
+        "Solo es obligatorio para el personal PTGAS, no para el PDI ni para los estudiantes.",
+        "Es obligatorio en casos de acoso laboral, pero no en casos de acoso sexual."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 16.3 de la Normativa de 2024 establece expresamente: 'El inicio de un procedimiento ante un caso de violencia, discriminación o acoso es voluntario, no siendo necesario acogerse al mismo para iniciar acciones legales de cualquier naturaleza'. Esto garantiza que la vía interna universitaria no bloquea ni condiciona el acceso a la tutela judicial efectiva.",
+      "usage": "dossier"
+    },
+    {
+      "id": 119,
+      "question": "Según la Normativa de la US de 2024 (Art. 16.4), ¿qué ocurre con el procedimiento interno del Comité si los hechos son objeto de un procedimiento judicial, disciplinario o administrativo paralelo?",
+      "options": [
+        "El Comité continúa su investigación de forma independiente y en paralelo.",
+        "El procedimiento se suspende de forma inmediata hasta la correspondiente resolución judicial o administrativa.",
+        "El Comité archiva definitivamente el caso sin posibilidad de reapertura.",
+        "El SEPRUS asume la tramitación hasta que concluya la vía penal."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 16.4 de la Normativa de 2024 establece que 'cuando los hechos trasladados al Comité sean objeto, total o parcialmente, de investigación en el ámbito de un procedimiento administrativo, disciplinario o judicial, o hayan sido objeto de denuncia ante los Cuerpos y Fuerzas de Seguridad, se procederá con carácter inmediato a la suspensión del procedimiento de investigación, hasta la correspondiente resolución judicial o administrativa'. Es el principio de prejudicialidad.",
+      "usage": "dossier"
+    },
+    {
+      "id": 120,
+      "question": "¿Qué expresa el Art. 9.2 de la Normativa de la US de 2024 respecto a las actuaciones realizadas por el Comité Técnico?",
+      "options": [
+        "Las actuaciones del Comité conforman un expediente administrativo formal con carácter vinculante.",
+        "Las actuaciones del Comité NO conforman un expediente administrativo.",
+        "Las actuaciones del Comité equivalen a una instrucción disciplinaria y generan derechos procesales plenos desde el inicio.",
+        "Las actuaciones del Comité son públicas y deben publicarse en el BOUS en el plazo de un mes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 9.2 de la Normativa de 2024 establece expresamente que 'las actuaciones que se realicen en su desarrollo no conformarán un expediente administrativo'. El Comité es un órgano técnico que actúa con independencia e imparcialidad y realiza propuestas de intervención, pero sin generar un expediente administrativo formal. La apertura del expediente disciplinario, si procede, corresponde al Rector/a.",
+      "usage": "dossier"
+    },
+    {
+      "id": 121,
+      "question": "Según la Normativa de la US de 2024, ¿con qué incompatibilidad expresa se regula la composición del Comité Técnico (Art. 10.6)?",
+      "options": [
+        "Los miembros del Comité no pueden pertenecer al mismo colectivo (PDI, PTGAS o estudiantes) que las partes implicadas.",
+        "Los miembros de la Comisión de Convivencia NO pueden formar parte del Comité.",
+        "Los miembros del Comité no pueden haber tenido relación laboral con el SEPRUS en los últimos 5 años.",
+        "Los miembros del Comité no pueden ser funcionarios de carrera."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 10.6 de la Normativa de 2024 establece con total claridad: 'No podrán formar parte del Comité los miembros de la Comisión de Convivencia'. Esta incompatibilidad expresa garantiza la independencia e imparcialidad del Comité respecto a la Comisión de Convivencia, que tiene funciones distintas en el ámbito de la convivencia universitaria.",
+      "usage": "dossier"
+    },
+    {
+      "id": 122,
+      "question": "¿Qué nuevo elemento del Título IV de la Normativa de la US de 2024 (Art. 21) está diseñado para apoyar la recuperación de las víctimas de violencia, discriminación y acoso?",
+      "options": [
+        "La apertura automática de un expediente penal por parte del Rector/a.",
+        "Un Plan de Protección, Reparación y Recuperación, con medidas en los ámbitos psicológico, social, académico y laboral.",
+        "La asignación de un abogado/a de oficio pagado por la Universidad.",
+        "El traslado obligatorio de la presunta víctima a otro campus durante un año."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 21 de la Normativa de 2024 introduce el 'Plan de Protección, Reparación y Recuperación', un elemento completamente nuevo que no existía en los protocolos anteriores (2013 y 2018). La US propondrá un plan que contempla medidas en los ámbitos psicológico, social, académico y laboral, con el objetivo de garantizar la continuidad de la trayectoria académica o profesional de las personas afectadas.",
+      "usage": "dossier"
+    },
+    {
+      "id": 123,
+      "question": "¿Cuál es la función principal de la Comisión de Seguimiento que puede constituirse según el Art. 22 de la Normativa de la US de 2024?",
+      "options": [
+        "Investigar los hechos en segunda instancia si el Comité no los ha esclarecido.",
+        "Realizar el seguimiento y control del Plan de Protección, Reparación y Recuperación adoptado para las víctimas.",
+        "Tramitar el expediente disciplinario contra la persona presuntamente responsable del acoso.",
+        "Asesorar al Rector/a en el plazo de 5 días hábiles tras recibir el informe del Comité."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 22 de la Normativa de 2024 establece que la Comisión de Seguimiento tiene como objeto 'realizar el seguimiento y control del Plan de Protección, Recuperación y Reparación adoptado'. Sus funciones (Art. 23) incluyen velar por el cumplimiento de las medidas, vigilar que no se produzcan situaciones de hostilidad y comunicar incidencias a la Secretaría General. La Comisión decae cuando se da por finalizado el Plan, elaborando un informe final.",
+      "usage": "dossier"
+    },
+    {
+      "id": 124,
+      "question": "Según la Declaración de Principios de la Normativa de la US de 2024, ¿qué puede hacer la Universidad en caso de acusaciones falsas de violencia, discriminación o acoso?",
+      "options": [
+        "La US no puede actuar contra quien hace una denuncia falsa, ya que esto podría disuadir a las víctimas reales.",
+        "La US podrá investigar las acusaciones falsas y determinar, en su caso, la incoación de un procedimiento disciplinario.",
+        "La acusación falsa solo tiene consecuencias civiles ante los juzgados ordinarios, nunca disciplinarias.",
+        "La US archivará el caso falso sin más trámites ni consecuencias para quien lo presentó."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El punto 11 de la Declaración de Principios de la Normativa de 2024 establece: 'La Universidad de Sevilla podrá investigar las acusaciones falsas de violencia, discriminación o acoso que pudieran producirse y determinar, en su caso, la incoación de un procedimiento disciplinario'. Esto equilibra la protección de las víctimas con la protección de quienes puedan ser falsamente acusados.",
       "usage": "dossier"
     }
   ]
