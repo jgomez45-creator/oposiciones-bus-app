@@ -20550,15 +20550,15 @@
   "16": [
     {
       "id": 1,
-      "question": "¿Cuál es el primer principio preventivo fundamental recogido en el artículo 15 de la Ley 31/1995 (LPRL)?",
+      "question": "¿Cuál es el objeto principal del Real Decreto 485/1997?",
       "options": [
-        "Planificar la prevención en la empresa.",
-        "Evitar los riesgos en su origen.",
-        "Sustituir lo peligroso por lo que entrañe poco peligro.",
-        "Facilitar Equipos de Protección Individual (EPI)."
+        "Establecer las disposiciones mínimas para la evaluación de riesgos del puesto.",
+        "Establecer las disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo.",
+        "Regular la jornada laboral del personal auxiliar de archivos y bibliotecas.",
+        "Regular las indemnizaciones por accidentes laborales graves."
       ],
       "correctAnswer": 1,
-      "explanation": "El primer principio de la acción preventiva es, lógicamente, evitar el riesgo; si el riesgo no existe, no hay posibilidad de accidente.",
+      "explanation": "El RD 485/1997 tiene como objeto establecer las disposiciones mínimas en materia de señalización de seguridad y salud en el trabajo en todas las actividades y centros de trabajo.",
       "usage": "dossier"
     },
     {
@@ -20602,15 +20602,15 @@
     },
     {
       "id": 5,
-      "question": "De acuerdo con la jerarquía preventiva, la protección colectiva frente a la protección individual (EPI):",
+      "question": "De acuerdo con el RD 485/1997, ¿cuándo tiene el empresario la obligación de señalizar un riesgo?",
       "options": [
-        "Son complementarias y se eligen por sorteo en el comité.",
-        "Debe anteponerse siempre la protección colectiva a la individual.",
-        "Debe priorizarse el EPI por ser más barato para la empresa.",
-        "La ley prohíbe el uso de EPIs en bibliotecas públicas."
+        "Siempre, con carácter meramente decorativo y sin evaluar la situación.",
+        "Cuando la existencia de riesgos no pueda evitarse o limitarse suficientemente por medios técnicos de protección colectiva o medidas organizativas.",
+        "Solo cuando se lo solicite el sindicato mayoritario o lo dicte una resolución judicial.",
+        "Únicamente cuando se produzcan accidentes laborales en esa zona del centro."
       ],
       "correctAnswer": 1,
-      "explanation": "La Ley 31/1995 obliga a anteponer las medidas de protección que protejan a todo el grupo (colectiva) antes de recurrir a protecciones individuales del trabajador.",
+      "explanation": "La señalización es obligatoria cuando los riesgos no se hayan podido evitar o limitar por medidas de protección colectiva u organización de trabajo. No sustituye a estas últimas.",
       "usage": "dossier"
     },
     {
@@ -20641,28 +20641,28 @@
     },
     {
       "id": 8,
-      "question": "En virtud de la legislación y normativa vigente del Tema 16 (Legislación sobre Prevención de Riesgos Laborales), ¿cuál de las siguientes opciones describe correctamente lo relativo a '17 °C a 27 °C'?",
+      "question": "¿Qué significado tiene el color de seguridad Rojo en una señal de panel que no se refiere a la lucha contra incendios?",
       "options": [
-        "Indica que es el rango de temperatura obligatorio en locales donde se realicen trabajos sedentarios como oficinas o mostradores de biblioteca.",
-        "Afirma erróneamente que es el rango de temperatura obligatorio en locales donde se realicen trabajos sedentarios como oficinas o mostradores de biblioteca solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es el rango de temperatura obligatorio en locales donde se realicen trabajos sedentarios como oficinas o mostradores de biblioteca salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que es el rango de temperatura obligatorio en locales donde se realicen trabajos sedentarios como oficinas o mostradores de biblioteca únicamente si se cuenta con la aprobación previa del Defensor Universitario."
+        "Obligatoriedad de realizar una acción de forma inmediata.",
+        "Prohibición de un comportamiento o señal de Peligro-Alarma (parada, corte, evacuación).",
+        "Advertencia de un riesgo de desprendimiento de carga.",
+        "Vuelta a la normalidad o situación de seguridad."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es el rango de temperatura obligatorio en locales donde se realicen trabajos sedentarios como oficinas o mostradores de biblioteca.\". Esto se encuentra regulado de manera expresa en el marco del Ley 31/1995 (LPRL), el cual establece textualmente que es el rango de temperatura obligatorio en locales donde se realicen trabajos sedentarios como oficinas o mostradores de biblioteca. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El color rojo en las señales de panel representa prohibición de conductas peligrosas o señal de peligro-alarma (como parada de emergencia o evacuación), además de equipos contra incendios.",
       "usage": "dossier"
     },
     {
       "id": 9,
-      "question": "En virtud de la legislación y normativa vigente del Tema 16 (Legislación sobre Prevención de Riesgos Laborales), ¿cuál de las siguientes opciones describe correctamente lo relativo a '2 Delegados de Prevención'?",
+      "question": "¿Qué significado tiene el color de seguridad Azul en la señalización de seguridad?",
       "options": [
-        "Indica que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores**.",
-        "Afirma erróneamente que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores** solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores** salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores** únicamente si se cuenta con la aprobación previa del Defensor Universitario."
+        "Vuelta a la normalidad y paso libre.",
+        "Obligación de un comportamiento o acción específica, como el uso de equipos de protección individual (EPI).",
+        "Advertencia de peligro por electricidad estática o campos magnéticos.",
+        "Localización de extintores y BIEs."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores**.\". Esto se encuentra regulado de manera expresa en el marco del RD 486/1997 sobre Lugares de Trabajo, el cual establece textualmente que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores**. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El color azul se considera color de seguridad únicamente cuando se usa en una señal en forma de panel circular, e indica la obligatoriedad de una conducta (ej. uso obligatorio de guantes).",
       "usage": "dossier"
     },
     {
@@ -20706,28 +20706,28 @@
     },
     {
       "id": 13,
-      "question": "Con relación al Tema 16 y el concepto de 'Comité de Seguridad y Salud', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "¿Qué significado tiene el color de seguridad Amarillo (o Amarillo-Anaranjado) en las señales?",
       "options": [
-        "Es crucial recordar que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente.",
-        "Resulta fundamental saber que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "Prohibición absoluta de acceso.",
+        "Advertencia de un riesgo o peligro (atención, precaución, verificación).",
+        "Obligación de silenciar dispositivos telefónicos.",
+        "Ubicación de un botiquín de primeros auxilios."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente.\". Esto se encuentra regulado de manera expresa en el marco del Ley 31/1995 (LPRL), el cual establece textualmente que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El amarillo o amarillo-anaranjado es el color de seguridad destinado a advertir sobre un peligro o riesgo (ej. riesgo de tropiezos o riesgo eléctrico).",
       "usage": "dossier"
     },
     {
       "id": 14,
-      "question": "Con relación al Tema 16 y el concepto de '3 Delegados de Prevención', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
+      "question": "¿Qué significado tiene el color de seguridad Verde en la señalización?",
       "options": [
-        "Es crucial recordar que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores**.",
-        "Resulta fundamental saber que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores** siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores** solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores** únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "Obligación de utilizar calzado antideslizante.",
+        "Señal de salvamento o socorro (puertas, salidas, primeros auxilios) o situación de seguridad.",
+        "Advertencia de presencia de agentes químicos nocivos.",
+        "Prohibición de paso a personal ajeno al servicio."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores**.\". Esto se encuentra regulado de manera expresa en el marco del RD 486/1997 sobre Lugares de Trabajo, el cual establece textualmente que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores**. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "El color verde indica vías de evacuación, salidas de emergencia, puestos de primeros auxilios (salvamento/socorro) y retorno a la normalidad (situación de seguridad).",
       "usage": "dossier"
     },
     {
@@ -20771,15 +20771,15 @@
     },
     {
       "id": 18,
-      "question": "Respecto a '2 Delegados de Prevención' dentro de las directrices y normas del Tema 16 (Legislación sobre Prevención de Riesgos Laborales), ¿cuál es el postulado legal o técnico correcto?",
+      "question": "¿Qué forma geométrica y distribución de colores corresponde a las señales de prohibición?",
       "options": [
-        "El reglamento dispone que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores**.",
-        "El marco estatutario dicta que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores** siempre que se cuente con un presupuesto extraordinario del Consejo Social.",
-        "La directiva europea prescribe que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores** solo en aquellas provincias con más de dos universidades públicas.",
-        "El convenio aclara que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores** únicamente a partir del tercer año de antigüedad consolidada en el puesto."
+        "Forma redonda. Pictograma blanco sobre fondo azul.",
+        "Forma redonda. Pictograma negro sobre fondo blanco, bordes y banda transversal rojos.",
+        "Forma triangular. Pictograma negro sobre fondo amarillo con bordes negros.",
+        "Forma rectangular. Pictograma blanco sobre fondo rojo."
       ],
-      "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"El reglamento dispone que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores**.\". Esto se encuentra regulado de manera expresa en el marco del Ley 31/1995 (LPRL), el cual establece textualmente que es la escala correspondiente para plantillas de entre **50 y 100 trabajadores**. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 1,
+      "explanation": "Las señales de prohibición son redondas, con pictograma negro sobre fondo blanco, bordes y banda transversal (descendente de izquierda a derecha a 45º) rojos.",
       "usage": "dossier"
     },
     {
@@ -20823,28 +20823,28 @@
     },
     {
       "id": 22,
-      "question": "Según el temario oficial del Tema 16, cuando nos referimos a 'Comité de Seguridad y Salud', es correcto afirmar que:",
+      "question": "¿Qué forma geométrica y distribución de colores corresponde a las señales de obligación?",
       "options": [
-        "Implica que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente."
+        "Forma redonda. Pictograma blanco sobre fondo azul.",
+        "Forma redonda. Pictograma negro sobre fondo blanco, bordes y banda rojos.",
+        "Forma triangular. Pictograma negro sobre fondo amarillo.",
+        "Forma rectangular. Pictograma blanco sobre fondo verde."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente.\". Esto se encuentra regulado de manera expresa en el marco del RD 485/1997 sobre Señalización, el cual establece textualmente que es obligatorio en centros de **50 o más trabajadores** y se reúne trimestralmente. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 0,
+      "explanation": "Las señales de obligación tienen forma redonda y pictograma blanco sobre fondo azul, debiendo el azul cubrir al menos el 50% de la superficie.",
       "usage": "dossier"
     },
     {
       "id": 23,
-      "question": "Según el temario oficial del Tema 16, cuando nos referimos a '3 Delegados de Prevención', es correcto afirmar que:",
+      "question": "¿Qué forma geométrica y distribución de colores corresponde a las señales de advertencia?",
       "options": [
-        "Implica que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores** solo durante los periodos no lectivos acordados en los calendarios oficiales.",
-        "Significa que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores** exclusivamente en las bibliotecas de campus periféricos de la Universidad de Sevilla.",
-        "Asegura que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores** bajo sanción administrativa de suspensión automática de la Junta de Andalucía.",
-        "Se fundamenta en que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores**."
+        "Forma redonda. Pictograma blanco sobre fondo azul.",
+        "Forma redonda. Pictograma negro sobre fondo blanco con bordes rojos.",
+        "Forma triangular. Pictograma negro sobre fondo amarillo con bordes negros.",
+        "Forma rectangular o cuadrada. Pictograma blanco sobre fondo verde."
       ],
-      "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Se fundamenta en que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores**.\". Esto se encuentra regulado de manera expresa en el marco del Ley 31/1995 (LPRL), el cual establece textualmente que es la escala correspondiente para plantillas de entre **101 y 500 trabajadores**. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "correctAnswer": 2,
+      "explanation": "Las señales de advertencia son triangulares, con pictograma negro sobre fondo amarillo y bordes negros. El amarillo debe cubrir al menos el 50% de la superficie.",
       "usage": "dossier"
     },
     {
@@ -20875,132 +20875,132 @@
     },
     {
       "id": 26,
-      "question": "¿A qué tipo de entidades se aplica la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales (LPRL)?",
+      "question": "¿Qué forma geométrica y distribución de colores corresponde a las señales de lucha contra incendios?",
       "options": [
-        "Exclusivamente a empresas privadas de más de 50 trabajadores.",
-        "Solo a Administraciones Públicas con régimen funcionarial.",
-        "Tanto a empresas privadas como a las Administraciones Públicas, incluyendo universidades públicas.",
-        "Únicamente a sectores industriales de alto riesgo."
+        "Forma redonda. Pictograma negro sobre fondo blanco y banda roja.",
+        "Forma rectangular o cuadrada. Pictograma blanco sobre fondo rojo.",
+        "Forma triangular. Pictograma negro sobre fondo amarillo.",
+        "Forma rectangular o cuadrada. Pictograma blanco sobre fondo verde."
       ],
-      "correctAnswer": 2,
-      "explanation": "La LPRL es el pilar básico de la seguridad laboral en España, aplicable tanto a las empresas privadas como a las Administraciones Públicas, incluyendo las universidades públicas, tal y como se establece en el inicio del apartado 1 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
+      "correctAnswer": 1,
+      "explanation": "Las señales destinadas a la localización y uso de equipos de lucha contra incendios tienen forma rectangular o cuadrada y pictograma blanco sobre fondo rojo.",
       "usage": "dossier"
     },
     {
       "id": 27,
-      "question": "Según el Artículo 15 de la LPRL sobre los principios de la acción preventiva, ¿cuál es el primer principio fundamental que debe aplicar el empresario?",
+      "question": "¿Qué forma geométrica y distribución de colores corresponde a las señales de salvamento o socorro?",
       "options": [
-        "Evaluar los riesgos que no se puedan evitar.",
-        "Combatir los riesgos en su origen.",
-        "Evitar los riesgos.",
-        "Adaptar el trabajo a la persona."
+        "Forma redonda. Pictograma blanco sobre fondo azul.",
+        "Forma rectangular o cuadrada. Pictograma blanco sobre fondo verde.",
+        "Forma triangular. Pictograma negro sobre fondo amarillo.",
+        "Forma rectangular o cuadrada. Pictograma blanco sobre fondo rojo."
       ],
-      "correctAnswer": 2,
-      "explanation": "El primer principio fundamental de la acción preventiva, según el Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales, es 'Evitar los riesgos'.",
+      "correctAnswer": 1,
+      "explanation": "Las señales de salvamento o socorro (salidas, puestos de primeros auxilios) tienen forma rectangular o cuadrada y pictograma blanco sobre fondo verde.",
       "usage": "dossier"
     },
     {
       "id": 28,
-      "question": "En el orden de prioridad de las medidas de seguridad, la LPRL establece que se deben adoptar medidas que antepongan la protección:",
+      "question": "Según el RD 485/1997, ¿cuál es el color de contraste obligatorio para las señales con color de seguridad amarillo?",
       "options": [
-        "Individual a la colectiva, como proporcionar EPIs.",
-        "Colectiva a la individual, como instalar un extractor de aire antes de dar una mascarilla.",
-        "Económica a la de seguridad, siempre que se justifique.",
-        "Técnica a la organizativa en todos los casos."
+        "El color blanco.",
+        "El color negro.",
+        "El color rojo.",
+        "Cualquier color reflectante de noche."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales establece entre los principios de la acción preventiva 'Adoptar medidas que antepongan la protección colectiva a la individual' (ej. colocar un extractor de aire antes de dar una mascarilla).",
+      "explanation": "El color de contraste obligatorio para el amarillo de seguridad es el negro, lo que asegura una visibilidad e interpretación óptima del pictograma.",
       "usage": "dossier"
     },
     {
       "id": 29,
-      "question": "En un centro de trabajo que cuenta con 35 trabajadores, ¿cuántos Delegados de Prevención deben ser designados?",
+      "question": "¿Cuál es el color de contraste obligatorio para las señales con color de seguridad azul?",
       "options": [
-        "0 (el Delegado de Personal asume la función).",
-        "1.",
-        "2.",
-        "3."
+        "El color negro.",
+        "El color blanco.",
+        "El color amarillo.",
+        "El color verde."
       ],
       "correctAnswer": 1,
-      "explanation": "Según el apartado 1.B del Tema 16 (LPRL Art. 34-39), en centros de trabajo 'De 31 a 49 trabajadores' se designa 1 Delegado de Prevención.",
+      "explanation": "El color de contraste obligatorio para el azul en las señales de seguridad y salud es el blanco, garantizando la nitidez del pictograma.",
       "usage": "dossier"
     },
     {
       "id": 30,
-      "question": "Si un centro de trabajo de la Universidad de Sevilla tiene una plantilla de 80 trabajadores, ¿cuántos Delegados de Prevención le corresponden?",
+      "question": "¿Cuál es el color de contraste para las señales de prohibición (cuyo color de seguridad es el rojo)?",
       "options": [
-        "1 Delegado de Prevención.",
-        "2 Delegados de Prevención.",
-        "3 Delegados de Prevención.",
-        "El Delegado de Personal asume la función."
+        "El color negro.",
+        "El color blanco.",
+        "El color amarillo.",
+        "El color verde."
       ],
       "correctAnswer": 1,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39) mencionada en el apartado 1.B del tema, para centros de trabajo 'De 50 a 100 trabajadores' corresponden 2 Delegados de Prevención.",
+      "explanation": "Tanto para el color de seguridad rojo como para el azul y el verde, el color de contraste exigido en las señales en forma de panel es el blanco.",
       "usage": "dossier"
     },
     {
       "id": 31,
-      "question": "En un centro de trabajo con 550 empleados, ¿cuántos Delegados de Prevención deben existir?",
+      "question": "¿Cuál es el porcentaje mínimo de la superficie de una señal de prohibición que debe cubrir el color de seguridad rojo?",
       "options": [
-        "3.",
-        "4.",
-        "5.",
-        "6."
+        "Al menos el 15%.",
+        "Al menos el 35%.",
+        "Al menos el 50%.",
+        "Debe cubrir el 100% de la superficie."
       ],
       "correctAnswer": 1,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39), para centros de trabajo 'De 501 a 1.000 trabajadores' corresponden 4 Delegados de Prevención.",
+      "explanation": "En las señales de prohibición, el color rojo de seguridad (los bordes y la banda transversal) debe cubrir como mínimo el 35% de la superficie total de la señal.",
       "usage": "dossier"
     },
     {
       "id": 32,
-      "question": "¿Cuántos Delegados de Prevención le corresponden a un centro de trabajo con 2.500 trabajadores?",
+      "question": "Para las señales de obligación, advertencia, salvamento e incendios, ¿qué porcentaje de la superficie debe cubrir como mínimo el color de seguridad?",
       "options": [
-        "4.",
-        "5.",
-        "6.",
-        "7."
+        "Al menos el 25%.",
+        "Al menos el 35%.",
+        "Al menos el 50%.",
+        "Debe cubrir el 75% de la superficie."
       ],
       "correctAnswer": 2,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39), para centros de trabajo 'De 2.001 a 3.000 trabajadores' corresponden 6 Delegados de Prevención.",
+      "explanation": "A diferencia de las señales de prohibición (mínimo 35%), en las de obligación, advertencia, salvamento y lucha contra incendios el color de seguridad debe cubrir al menos el 50% de la superficie.",
       "usage": "dossier"
     },
     {
       "id": 33,
-      "question": "El Comité de Seguridad y Salud es un órgano obligatorio en centros de trabajo que cuenten con un número mínimo de trabajadores de:",
+      "question": "¿Bajo qué forma geométrica y colores se representa una señal de panel de 'Prohibido fumar y encender fuego' en una biblioteca?",
       "options": [
-        "30.",
-        "49.",
-        "50.",
-        "100."
+        "Forma redonda, pictograma blanco sobre fondo azul.",
+        "Forma redonda, pictograma negro sobre fondo blanco, bordes y banda transversal rojos.",
+        "Forma triangular, pictograma negro sobre fondo amarillo con bordes negros.",
+        "Forma rectangular o cuadrada, pictograma blanco sobre fondo rojo."
       ],
-      "correctAnswer": 2,
-      "explanation": "Según el Artículo 38 de la LPRL, el Comité de Seguridad y Salud es de constitución obligatoria en todos los centros de trabajo que cuenten con '50 o más trabajadores'.",
+      "correctAnswer": 1,
+      "explanation": "Al ser una señal de prohibición, se representa con forma redonda, pictograma negro sobre fondo blanco, bordes y banda transversal rojos descendentes a 45º.",
       "usage": "dossier"
     },
     {
       "id": 34,
-      "question": "¿Cómo está compuesto el Comité de Seguridad y Salud, según la LPRL?",
+      "question": "¿Bajo qué forma geométrica y colores se representa una señal de panel de 'Dirección de evacuación'?",
       "options": [
-        "Exclusivamente por los Delegados de Prevención.",
-        "Por un 75% de Delegados de Prevención y un 25% de representantes de la Universidad.",
-        "De forma paritaria, con un 50% de Delegados de Prevención y un 50% de representantes designados por la Universidad.",
-        "Únicamente por representantes designados por la Universidad."
+        "Forma redonda, pictograma blanco sobre fondo azul.",
+        "Forma rectangular o cuadrada, pictograma blanco sobre fondo verde.",
+        "Forma triangular, pictograma negro sobre fondo amarillo con bordes negros.",
+        "Forma rectangular o cuadrada, pictograma blanco sobre fondo rojo."
       ],
-      "correctAnswer": 2,
-      "explanation": "El Comité de Seguridad y Salud es un órgano paritario colegiado compuesto en un '50% por los Delegados de Prevención y en un 50% por representantes designados por la Universidad', según el Artículo 38 de la LPRL.",
+      "correctAnswer": 1,
+      "explanation": "Las vías de evacuación y salidas de emergencia se señalizan mediante señales de salvamento, con forma rectangular o cuadrada y pictograma blanco sobre fondo verde.",
       "usage": "dossier"
     },
     {
       "id": 35,
-      "question": "¿Con qué periodicidad mínima debe reunirse el Comité de Seguridad y Salud?",
+      "question": "¿Bajo qué forma geométrica y colores se representa una señal de panel de 'Riesgo eléctrico'?",
       "options": [
-        "Una vez al mes.",
-        "Con carácter trimestral.",
-        "Una vez al año.",
-        "Solo cuando lo solicite la Universidad."
+        "Forma redonda, pictograma blanco sobre fondo azul.",
+        "Forma rectangular o cuadrada, pictograma blanco sobre fondo verde.",
+        "Forma triangular, pictograma negro sobre fondo amarillo con bordes negros.",
+        "Forma rectangular o cuadrada, pictograma blanco sobre fondo rojo."
       ],
-      "correctAnswer": 1,
-      "explanation": "El Comité de Seguridad y Salud se reunirá obligatoriamente con carácter trimestral como mínimo (al menos 1 vez al trimestre), y siempre que lo solicite alguna de las representaciones de forma justificada, según el Artículo 38 de la LPRL.",
+      "correctAnswer": 2,
+      "explanation": "Los riesgos eléctricos se señalizan mediante señales de advertencia, con forma triangular, pictograma negro sobre fondo amarillo y bordes negros.",
       "usage": "dossier"
     },
     {
@@ -21104,7 +21104,7 @@
         "Elementos que no requieren marcado CE."
       ],
       "correctAnswer": 2,
-      "explanation": "El Real Decreto 773/1997 sobre EPIs y la LPRL establecen que los EPIs son siempre la 'última barrera de defensa preventiva', priorizando las medidas de protección colectiva.",
+      "explanation": "El Real Decreto 773/1997 sobre EPIs establece que estos se emplearán cuando los riesgos no hayan podido evitarse o limitarse por medios técnicos de protección colectiva o medidas organizativas, por lo que constituyen la última barrera de defensa preventiva.",
       "usage": "dossier"
     },
     {
@@ -21226,93 +21226,93 @@
     },
     {
       "id": 53,
-      "question": "Uno de los principios de la acción preventiva del Artículo 15 de la LPRL es:",
+      "question": "Según el RD 485/1997, ¿qué color de seguridad debe emplearse para las señales de lucha contra incendios y qué forma geométrica tienen?",
       "options": [
-        "Priorizar la experiencia personal sobre la técnica.",
-        "Ignorar las innovaciones que puedan encarecer la prevención.",
-        "Tener en cuenta la evolución de la técnica.",
-        "Mantener los métodos de trabajo tradicionales."
+        "Azul y forma redonda.",
+        "Amarillo y forma triangular.",
+        "Rojo y forma rectangular o cuadrada.",
+        "Verde y forma rectangular o cuadrada."
       ],
       "correctAnswer": 2,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales incluye entre los principios de la acción preventiva 'Tener en cuenta la evolución de la técnica'.",
+      "explanation": "Las señales destinadas a la lucha contra incendios (ubicación de extintores, BIEs, etc.) tienen color de seguridad rojo, forma rectangular o cuadrada y el pictograma en blanco.",
       "usage": "dossier"
     },
     {
       "id": 54,
-      "question": "Según el Artículo 15 de la LPRL, ¿cuál de las siguientes es una acción preventiva?",
+      "question": "De acuerdo con el RD 485/1997, ¿cuál de los siguientes NO se considera un tipo de señal de seguridad y salud?",
       "options": [
-        "Reactuar ante los incidentes una vez ocurridos.",
-        "Delegar completamente la prevención en los trabajadores.",
-        "Planificar la prevención.",
-        "Minimizar los costes de prevención a toda costa."
+        "Señal luminosa.",
+        "Señal acústica.",
+        "Mensajería instantánea de texto.",
+        "Señal gestual."
       ],
       "correctAnswer": 2,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales incluye 'Planificar la prevención' como uno de los principios de la acción preventiva.",
+      "explanation": "El Real Decreto contempla como tipos de señalización la señal en forma de panel, luminosa, acústica, gestual y la comunicación verbal. No incluye la mensajería de texto.",
       "usage": "dossier"
     },
     {
       "id": 55,
-      "question": "El principio de la LPRL de 'Adaptar el trabajo a la persona' implica:",
+      "question": "¿Qué color de contraste se utiliza obligatoriamente para las señales de color de seguridad verde en el RD 485/1997?",
       "options": [
-        "Que la persona debe adaptarse a cualquier condición de trabajo.",
-        "Diseñar puestos y métodos de trabajo acordes a las capacidades del trabajador.",
-        "Excluir a personas con capacidades diferentes de ciertos puestos.",
-        "No realizar evaluaciones ergonómicas de los puestos."
+        "Negro.",
+        "Blanco.",
+        "Azul.",
+        "Rojo."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales establece 'Adaptar el trabajo a la persona' como un principio, lo que implica diseñar puestos y métodos de trabajo acordes a las capacidades del trabajador, buscando su bienestar y salud.",
+      "explanation": "El color de contraste obligatorio para el verde en señales de seguridad y salud es el blanco, lo que asegura una visibilidad idónea del pictograma.",
       "usage": "dossier"
     },
     {
       "id": 56,
-      "question": "La LPRL promueve el principio de 'Sustituir lo peligroso por lo que entrañe poco o ningún peligro'. Un ejemplo de aplicación de este principio sería:",
+      "question": "Según el RD 485/1997, ¿qué forma geométrica es obligatoria para las señales de advertencia de un riesgo o peligro?",
       "options": [
-        "Usar una escalera en mal estado si no hay otra.",
-        "Reemplazar un producto químico tóxico por uno menos nocivo.",
-        "Ignorar la existencia de equipos más seguros.",
-        "Mantener la maquinaria antigua por costumbre."
+        "Redonda.",
+        "Triangular.",
+        "Cuadrada.",
+        "Rectangular."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales establece el principio de 'Sustituir lo peligroso por lo que entrañe poco o ningún peligro', un ejemplo claro sería reemplazar un producto químico tóxico por una alternativa más segura.",
+      "explanation": "Las señales de advertencia de peligro tienen obligatoriamente forma triangular, con pictograma negro sobre fondo amarillo y bordes negros.",
       "usage": "dossier"
     },
     {
       "id": 57,
-      "question": "Los Delegados de Prevención son elegidos por y entre:",
+      "question": "¿En qué consiste una señal gestual en el marco del RD 485/1997?",
       "options": [
-        "Todos los trabajadores de la empresa.",
-        "Los miembros del Comité de Empresa o Junta de Personal.",
-        "El personal directivo de la empresa.",
-        "Los servicios de prevención externos."
+        "Un sonido codificado de aviso emitido de forma verbal.",
+        "Un movimiento o disposición de los brazos o de las manos en forma codificada para guiar maniobras.",
+        "Una señalización luminosa mediante destellos intermitentes.",
+        "La colocación de cintas de colores en las vías de evacuación."
       ],
       "correctAnswer": 1,
-      "explanation": "Según el apartado 1.B del Tema 16 (LPRL Art. 34-39), los Delegados de Prevención son 'Representantes de los trabajadores elegidos por y entre los representantes de personal (Comité de Empresa/Junta de Personal)'.",
+      "explanation": "Una señal gestual consiste en un movimiento o disposición de los brazos o manos de forma codificada para guiar a las personas que realizan maniobras con riesgo.",
       "usage": "dossier"
     },
     {
       "id": 58,
-      "question": "La Universidad de Sevilla (US) está sujeta a la Ley 31/1995 de Prevención de Riesgos Laborales porque:",
+      "question": "De acuerdo con el RD 485/1997, ¿cómo se señaliza de manera permanente un obstáculo que suponga riesgo de choques o caídas?",
       "options": [
-        "Es una empresa privada con más de 50 trabajadores.",
-        "Forma parte de las Administraciones Públicas a las que se aplica la LPRL.",
-        "Solo si tiene firmado un convenio colectivo específico de prevención.",
-        "Es una organización sin ánimo de lucro y por tanto cumple voluntariamente."
+        "Mediante señales acústicas permanentes.",
+        "Mediante franjas alternas amarillas y negras (o rojas y blancas) a 45 grados.",
+        "Pintando el obstáculo en color verde fosforescente.",
+        "Colocando una señal triangular azul en el centro."
       ],
       "correctAnswer": 1,
-      "explanation": "El texto indica claramente que la LPRL es aplicable 'tanto a las empresas privadas como a las Administraciones Públicas (incluyendo las universidades públicas)', por lo que la Universidad de Sevilla está sujeta a esta ley como Administración Pública.",
+      "explanation": "Las zonas con riesgo de choques, caídas de personas u objetos se señalizan permanentemente con franjas alternas amarillas y negras (o rojas y blancas) a 45º de inclinación.",
       "usage": "dossier"
     },
     {
       "id": 59,
-      "question": "¿Qué tipo de órgano es el Comité de Seguridad y Salud?",
+      "question": "Según las disposiciones comunes del RD 485/1997, ¿qué elemento debe contener una señal en forma de panel para transmitir la información?",
       "options": [
-        "Unipersonal y consultivo.",
-        "Paritario y colegiado.",
-        "Unilateral y ejecutivo.",
-        "Exclusivamente representativo de la dirección."
+        "Una descripción de texto de al menos tres líneas.",
+        "Un pictograma o símbolo sobre un fondo de color de seguridad y contraste.",
+        "Una bombilla de luz intermitente de baja tensión.",
+        "Una indicación sonora mediante pitidos codificados."
       ],
       "correctAnswer": 1,
-      "explanation": "El apartado 1.B del Tema 16 (LPRL Art. 38) describe el Comité de Seguridad y Salud como un 'Órgano paritario colegiado'.",
+      "explanation": "Una señal en forma de panel combina una forma geométrica, colores de seguridad y contraste, y un pictograma o símbolo representativo de la indicación.",
       "usage": "dossier"
     },
     {
@@ -21382,80 +21382,80 @@
     },
     {
       "id": 65,
-      "question": "¿Cuál es la diferencia fundamental entre un EPI y una medida de protección colectiva?",
+      "question": "¿Qué tipo de señal consiste en una señal sonora codificada, emitida y difundida por un dispositivo apropiado, sin intervención de voz humana?",
       "options": [
-        "El EPI protege a un grupo, la colectiva a un individuo.",
-        "El EPI es una medida secundaria, la colectiva es la prioritaria.",
-        "Los EPIs no requieren mantenimiento, las colectivas sí.",
-        "La protección colectiva es más barata que el EPI."
+        "Señal acústica.",
+        "Señal gestual.",
+        "Señal luminosa.",
+        "Comunicación verbal."
       ],
-      "correctAnswer": 1,
-      "explanation": "Según los 'Conceptos Clave' y los 'Principios de la Acción Preventiva' (Artículo 15 LPRL), la protección colectiva es prioritaria ('Adoptar medidas que antepongan la protección colectiva a la individual'), y el EPI es la 'última barrera de defensa preventiva', siendo una medida de seguridad personal del trabajador.",
+      "correctAnswer": 0,
+      "explanation": "La señal acústica es una señal sonora codificada que se emite mediante un dispositivo físico apropiado y no utiliza voz humana.",
       "usage": "dossier"
     },
     {
       "id": 66,
-      "question": "El principio de la LPRL de 'Combatir los riesgos en su origen' implica:",
+      "question": "Según el RD 485/1997, una señal luminosa intermitente, en comparación con una continua, indica:",
       "options": [
-        "Implementar medidas paliativas al final del proceso.",
-        "Identificar y eliminar la causa raíz de un riesgo.",
-        "Distribuir la responsabilidad del riesgo entre todos los trabajadores.",
-        "Aceptar los riesgos inherentes a cada puesto de trabajo."
+        "Un fallo técnico en la alimentación eléctrica.",
+        "Un nivel de peligro más elevado o una mayor urgencia de la acción requerida.",
+        "Un menor nivel de peligro para el personal del área.",
+        "El fin de una situación de alerta de evacuación."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales establece como principio 'Combatir los riesgos en su origen', lo que implica identificar y eliminar la causa raíz de un riesgo.",
+      "explanation": "Las señales luminosas intermitentes indican un nivel de peligro más elevado o una mayor urgencia que las señales continuas, debiendo regularse su frecuencia.",
       "usage": "dossier"
     },
     {
       "id": 67,
-      "question": "Según el Artículo 15 de la LPRL, ¿cuándo se deben evaluar los riesgos?",
+      "question": "¿Qué tipo de comunicación consiste en un mensaje verbal predeterminado en el que se utiliza voz humana o sintética?",
       "options": [
-        "Después de que ocurra un accidente.",
-        "Solo los riesgos que no se puedan evitar.",
-        "Todos los riesgos, sin excepción.",
-        "Únicamente los riesgos de alto impacto económico."
+        "Señal acústica.",
+        "Comunicación verbal.",
+        "Señal gestual.",
+        "Señal luminosa."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales establece el segundo principio fundamental como 'Evaluar los riesgos que no se puedan evitar', después de intentar evitarlos.",
+      "explanation": "La comunicación verbal se caracteriza por utilizar la voz humana (o sintética) para transmitir un mensaje verbal predeterminado.",
       "usage": "dossier"
     },
     {
       "id": 68,
-      "question": "La LPRL menciona la obligación de 'Dar las debidas instrucciones a los trabajadores'. Esto se refiere a:",
+      "question": "¿Qué tipo de señal consiste en un movimiento o disposición de los brazos o de las manos en forma codificada?",
       "options": [
-        "Asignarles tareas sin explicación.",
-        "Proporcionar información y formación adecuadas sobre los riesgos.",
-        "Limitar su acceso a la información de seguridad.",
-        "Exigirles que aprendan por su cuenta."
+        "Señal acústica.",
+        "Comunicación verbal.",
+        "Señal gestual.",
+        "Señal en forma de panel."
       ],
-      "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la Ley 31/1995 de Prevención de Riesgos Laborales incluye el principio de 'Dar las debidas instrucciones a los trabajadores', lo que implica proporcionar información y formación adecuadas sobre los riesgos y las medidas preventivas.",
+      "correctAnswer": 2,
+      "explanation": "La señal gestual es un movimiento o disposición codificada de brazos y manos que sirve para guiar de forma segura las maniobras que constituyen un riesgo.",
       "usage": "dossier"
     },
     {
       "id": 69,
-      "question": "Los Delegados de Prevención son representantes de los trabajadores elegidos por:",
+      "question": "¿Cómo deben señalizarse, según el Anexo VII, los desniveles, columnas u obstáculos que puedan provocar caídas o choques en el centro de trabajo?",
       "options": [
-        "La Dirección de la Universidad.",
-        "Los Servicios de Prevención.",
-        "Los Delegados de Personal o Comité de Empresa/Junta de Personal.",
-        "Votación directa de todos los empleados."
+        "Mediante señales de panel circulares azules de obligación de esquivar.",
+        "Mediante franjas alternas amarillas y negras (o rojas y blancas) a 45 grados de inclinación.",
+        "Mediante señalización acústica intermitente durante la jornada de trabajo.",
+        "Mediante pintura reflectante blanca uniforme sin pictogramas."
       ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 1.B del Tema 16 especifica que los Delegados de Prevención son 'elegidos por y entre los representantes de personal (Comité de Empresa/Junta de Personal)'.",
+      "correctAnswer": 1,
+      "explanation": "La señalización de obstáculos, zonas de peligro o desniveles que provoquen riesgo de choques o caídas se realizará con franjas alternas amarillas y negras (o rojas y blancas) inclinadas a 45º.",
       "usage": "dossier"
     },
     {
       "id": 70,
-      "question": "Además de la periodicidad mínima trimestral, ¿cuándo más debe reunirse el Comité de Seguridad y Salud?",
+      "question": "¿Cuál es la inclinación y alternancia recomendada para las franjas amarillas y negras en la señalización de obstáculos?",
       "options": [
-        "Solo si lo solicita la dirección de la Universidad.",
-        "Siempre que lo solicite alguna de las representaciones de forma justificada.",
-        "Una vez al mes para revisión de rutina.",
-        "Únicamente en caso de accidente grave."
+        "Aproximadamente 90 grados (verticales).",
+        "Aproximadamente 45 grados de inclinación.",
+        "Aproximadamente 30 grados (horizontales).",
+        "No hay una inclinación recomendada en el Real Decreto."
       ],
       "correctAnswer": 1,
-      "explanation": "Según el Artículo 38 de la LPRL, el Comité de Seguridad y Salud se reunirá 'siempre que lo solicite alguna de las representaciones de forma justificada'.",
+      "explanation": "El Anexo VII del RD 485/1997 prescribe que las franjas alternas de color tengan una inclinación de aproximadamente 45 grados y sean de dimensiones similares.",
       "usage": "dossier"
     },
     {
@@ -21530,71 +21530,71 @@
     },
     {
       "id": 76,
-      "question": "¿Qué ley es considerada el pilar básico de la seguridad laboral en España?",
+      "question": "¿Qué color de seguridad identifica a los extintores, BIEs y demás equipamientos de lucha contra incendios en el RD 485/1997?",
       "options": [
-        "El Estatuto de los Trabajadores.",
-        "La Ley de Prevención de Riesgos Laborales (LPRL).",
-        "El Real Decreto de Higiene Industrial.",
-        "La Ley de Contratos del Sector Público."
+        "El color amarillo.",
+        "El color rojo.",
+        "El color verde.",
+        "El color azul."
       ],
       "correctAnswer": 1,
-      "explanation": "El apartado 1 del Tema 16 establece que la 'LPRL es el pilar básico de la seguridad laboral en España'.",
+      "explanation": "El color rojo es el color de seguridad empleado para la señalización y localización de los equipos de lucha contra incendios.",
       "usage": "simulacro",
       "simulacroExamId": 3
     },
     {
       "id": 77,
-      "question": "Según la LPRL, ¿quién debe aplicar las medidas de seguridad bajo un orden de prioridad riguroso?",
+      "question": "¿Cuál es el color de seguridad que define una situación de seguridad o de vuelta a la normalidad?",
       "options": [
-        "Los Delegados de Prevención.",
-        "El empresario (en este caso, la US).",
-        "Los propios trabajadores.",
-        "Los servicios médicos de la empresa."
+        "El color azul.",
+        "El color verde.",
+        "El color amarillo.",
+        "El color blanco."
       ],
       "correctAnswer": 1,
-      "explanation": "El apartado 1 del Tema 16, bajo 'Principios de la Acción Preventiva (Artículo 15)', indica que 'El empresario (en este caso, la US) debe aplicar las medidas de seguridad bajo un orden de prioridad riguroso'.",
+      "explanation": "El color verde, además de salvamento y socorro, identifica la situación de seguridad o de vuelta a la normalidad en el centro de trabajo.",
       "usage": "simulacro",
       "simulacroExamId": 4
     },
     {
       "id": 78,
-      "question": "En una plantilla de 1.000 trabajadores, ¿cuántos Delegados de Prevención deben ser designados?",
+      "question": "Según el RD 485/1997, ¿cuándo se considera el color azul como un color de seguridad?",
       "options": [
-        "3.",
-        "4.",
-        "5.",
-        "6."
+        "Siempre, en cualquier tipo de señalización luminosa o de panel.",
+        "Únicamente cuando se utiliza en una señal en forma de panel de tipo obligatorio (circular).",
+        "Solo cuando se utiliza en las vías de evacuación de uso ocasional.",
+        "En la identificación de recipientes de sustancias corrosivas."
       ],
       "correctAnswer": 1,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39), para centros de trabajo 'De 501 a 1.000 trabajadores' corresponden 4 Delegados de Prevención.",
+      "explanation": "El color azul es color de seguridad solo cuando se utiliza en una señal en forma de panel circular de carácter obligatorio.",
       "usage": "simulacro",
       "simulacroExamId": 4
     },
     {
       "id": 79,
-      "question": "¿Cuántos Delegados de Prevención corresponden a un centro de trabajo con 3.500 trabajadores?",
+      "question": "¿De qué color de seguridad son las señales indicativas de la ubicación de un desfibrilador (DESA) o un botiquín?",
       "options": [
-        "5.",
-        "6.",
-        "7.",
-        "8."
+        "Rojo.",
+        "Verde.",
+        "Azul.",
+        "Amarillo."
       ],
-      "correctAnswer": 2,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39), para centros de trabajo 'De 3.001 a 4.000 trabajadores' corresponden 7 Delegados de Prevención.",
+      "correctAnswer": 1,
+      "explanation": "Tanto el desfibrilador como el botiquín de primeros auxilios son elementos de salvamento y socorro, por lo que su color de seguridad es el verde.",
       "usage": "simulacro",
       "simulacroExamId": 5
     },
     {
       "id": 80,
-      "question": "Si un centro de trabajo de la Universidad de Sevilla cuenta con 45 trabajadores, ¿qué ocurre con el Comité de Seguridad y Salud?",
+      "question": "¿De qué color de seguridad son las señales indicativas de la ubicación de un pulsador de alarma de incendios?",
       "options": [
-        "Se constituye con 1 Delegado de Prevención y 1 representante de la US.",
-        "No es obligatorio constituir un Comité de Seguridad y Salud.",
-        "La LPRL exige la constitución de un Comité de Seguridad y Salud en cualquier caso.",
-        "Se sustituye por un delegado de personal con plenas competencias."
+        "Verde.",
+        "Rojo.",
+        "Azul.",
+        "Amarillo."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 38 de la LPRL establece que el Comité de Seguridad y Salud es obligatorio en centros de trabajo que cuenten con '50 o más trabajadores'. Por debajo de este umbral, no es obligatorio.",
+      "explanation": "Los pulsadores de alarma forman parte del material de lucha contra incendios, por lo que su señalización requiere el color de seguridad rojo.",
       "usage": "simulacro",
       "simulacroExamId": 5
     },
@@ -21670,71 +21670,71 @@
     },
     {
       "id": 86,
-      "question": "¿Cuál de los siguientes principios de la acción preventiva, según la LPRL, se considera de máxima prioridad?",
+      "question": "¿De qué color de seguridad es una señal de panel que obliga a utilizar guantes protectores en el taller de restauración?",
       "options": [
-        "Dar instrucciones a los trabajadores.",
-        "Sustituir lo peligroso por lo que entrañe poco peligro.",
-        "Planificar la prevención.",
-        "Evitar los riesgos."
+        "Rojo.",
+        "Azul.",
+        "Amarillo.",
+        "Verde."
       ],
-      "correctAnswer": 3,
-      "explanation": "El apartado 1.A del Tema 16, 'Principios de la Acción Preventiva (Artículo 15)', establece que 'Evitar los riesgos' es el 'primer principio fundamental'.",
+      "correctAnswer": 1,
+      "explanation": "La señal de panel que obliga a realizar un comportamiento o llevar un EPI (ej. guantes) es de color azul y forma redonda.",
       "usage": "simulacro",
       "simulacroExamId": 8
     },
     {
       "id": 87,
-      "question": "¿Quién es el responsable de la planificación de la prevención en el contexto de la LPRL?",
+      "question": "¿Qué requisitos de intensidad debe cumplir una señal luminosa según el RD 485/1997?",
       "options": [
-        "Exclusivamente los Delegados de Prevención.",
-        "La Administración Pública empleadora (ej. US).",
-        "Los trabajadores de forma autónoma.",
-        "Organismos externos sin intervención del empresario."
+        "Debe tener la máxima potencia posible, sin importar el deslumbramiento.",
+        "Debe ser adecuada a su entorno de uso, garantizando su visibilidad pero sin producir deslumbramiento.",
+        "Debe ser intermitente en todos los casos ordinarios de iluminación.",
+        "Debe apagarse automáticamente al cabo de 5 segundos."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la LPRL establece que el 'empresario (en este caso, la US) debe aplicar las medidas de seguridad', incluyendo 'Planificar la prevención'.",
+      "explanation": "La intensidad de la señal luminosa debe asegurar su percepción en función del contraste del entorno, pero sin llegar a provocar un deslumbramiento molesto.",
       "usage": "simulacro",
       "simulacroExamId": 9
     },
     {
       "id": 88,
-      "question": "La representación de los trabajadores en materia de prevención se articula a través de:",
+      "question": "¿Cómo se debe señalizar el área destinada a almacenamiento de sustancias inflamables o combustibles en el centro?",
       "options": [
-        "Un comité de empresa general.",
-        "Los Delegados de Prevención y el Comité de Seguridad y Salud.",
-        "La dirección de recursos humanos.",
-        "Los servicios médicos de la Universidad."
+        "Mediante señal de prohibición redonda de fondo azul.",
+        "Mediante señal de advertencia triangular de materias inflamables (pictograma negro sobre fondo amarillo).",
+        "Mediante señal de salvamento cuadrada verde.",
+        "Mediante franjas verticales rojas y blancas de desniveles."
       ],
       "correctAnswer": 1,
-      "explanation": "El apartado 1.B del Tema 16 se titula 'Representación de los Trabajadores en Prevención: Delegados y Comités (LPRL Art. 34-39)', detallando a los Delegados de Prevención y al Comité de Seguridad y Salud como los órganos de representación.",
+      "explanation": "El riesgo por materias inflamables se señaliza con la señal de advertencia correspondiente: forma triangular, pictograma de llama negro y fondo amarillo.",
       "usage": "simulacro",
       "simulacroExamId": 9
     },
     {
       "id": 89,
-      "question": "Si un centro de trabajo tiene 25 trabajadores, ¿cuántos Delegados de Prevención deben ser designados?",
+      "question": "¿Qué significa una señal en forma de panel redonda con fondo azul y pictograma de una mascarilla?",
       "options": [
-        "0 (el Delegado de Personal es el Delegado de Prevención).",
-        "1.",
-        "2.",
-        "Depende de la voluntad de la plantilla."
+        "Advertencia de presencia de polvo en suspensión en el depósito.",
+        "Obligación de utilizar equipos de protección respiratoria (mascarilla).",
+        "Prohibición de introducir mascarillas en la sala de estudio.",
+        "Ubicación de un puesto de primeros auxilios sanitarios."
       ],
-      "correctAnswer": 0,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39), para centros de trabajo 'Hasta 30 trabajadores', 'El Delegado de Personal es el Delegado de Prevención'.",
+      "correctAnswer": 1,
+      "explanation": "Al ser redonda y azul indica obligación. El pictograma de mascarilla concreta que es obligatorio el uso de protección respiratoria en esa zona.",
       "usage": "simulacro",
       "simulacroExamId": 10
     },
     {
       "id": 90,
-      "question": "Si una de las representaciones del Comité de Seguridad y Salud solicita una reunión fuera de la periodicidad trimestral, ¿cuál es la condición para que se celebre?",
+      "question": "¿Qué significa una señal en forma de panel redonda con borde y banda roja y pictograma de un cigarrillo?",
       "options": [
-        "Que la dirección de la Universidad lo apruebe sin condiciones.",
-        "Que la solicitud esté justificada.",
-        "Que haya ocurrido un accidente laboral grave.",
-        "No se pueden celebrar reuniones fuera de la periodicidad establecida."
+        "Zona habilitada para fumadores.",
+        "Prohibido fumar en esa área del centro de trabajo.",
+        "Advertencia de riesgo de incendio por colillas.",
+        "Obligación de apagar los cigarrillos en el mostrador."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 38 de la LPRL establece que el Comité de Seguridad y Salud se reunirá 'siempre que lo solicite alguna de las representaciones de forma justificada'.",
+      "explanation": "La forma redonda, borde y banda transversal rojas con pictograma negro de cigarrillo indica la prohibición de fumar en ese sector.",
       "usage": "simulacro",
       "simulacroExamId": 10
     },
@@ -21810,43 +21810,43 @@
     },
     {
       "id": 96,
-      "question": "El principio de 'Adaptar el trabajo a la persona' busca:",
+      "question": "Según el RD 485/1997, la eficacia de la señalización no debe verse afectada por:",
       "options": [
-        "Que el trabajador se ajuste a cualquier condición laboral.",
-        "Optimizar las condiciones de trabajo para la salud del trabajador.",
-        "Eliminar la necesidad de formación preventiva.",
-        "Reducir la plantilla para adaptarse a los recursos."
+        "La falta de luz solar directa durante el día.",
+        "La presencia de demasiadas señales muy próximas entre sí, evitando la saturación.",
+        "El uso de bombillas LED de bajo consumo.",
+        "La ausencia de personal de seguridad en las inmediaciones."
       ],
       "correctAnswer": 1,
-      "explanation": "El Artículo 15 de la LPRL, al establecer 'Adaptar el trabajo a la persona', busca optimizar las condiciones de trabajo, equipos y métodos para que se ajusten a las capacidades y necesidades de los trabajadores, promoviendo su salud y bienestar.",
+      "explanation": "Para asegurar la eficacia de la señalización, debe evitarse la colocación de un número excesivo de señales próximas entre sí, ya que esto confunde y satura la atención del trabajador.",
       "usage": "simulacro",
       "simulacroExamId": 13
     },
     {
       "id": 97,
-      "question": "La Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales, se considera una ley:",
+      "question": "¿Qué obligación tiene el empresario respecto a los dispositivos de señalización luminosa o acústica?",
       "options": [
-        "Meramente consultiva para las empresas.",
-        "De aplicación exclusiva a los funcionarios públicos.",
-        "De carácter vinculante y pilar básico de la seguridad laboral.",
-        "Enfocada únicamente en los riesgos psicosociales."
+        "Retirarlos de forma progresiva para abaratar costes.",
+        "Garantizar su correcto funcionamiento, mantenimiento, limpieza y restablecimiento tras su uso.",
+        "Sustituirlos por señales gestuales manuales permanentes.",
+        "Utilizarlos exclusivamente de noche de forma intermitente."
       ],
-      "correctAnswer": 2,
-      "explanation": "El inicio del tema establece que la 'LPRL es el pilar básico de la seguridad laboral en España, aplicable tanto a las empresas privadas como a las Administraciones Públicas', lo que implica su carácter vinculante.",
+      "correctAnswer": 1,
+      "explanation": "El empresario debe garantizar el correcto funcionamiento y el mantenimiento periódico de los dispositivos de señalización para asegurar su eficacia.",
       "usage": "simulacro",
       "simulacroExamId": 14
     },
     {
       "id": 98,
-      "question": "Para un centro de trabajo con 4.500 trabajadores, ¿cuántos Delegados de Prevención se requieren?",
+      "question": "¿Qué tipo de señal requiere que el emisor de la señal conozca los gestos codificados y el receptor tenga la capacidad de interpretarlos con seguridad?",
       "options": [
-        "6.",
-        "7.",
-        "8.",
-        "9."
+        "Señal acústica.",
+        "Señal gestual.",
+        "Señal en forma de panel.",
+        "Comunicación verbal."
       ],
-      "correctAnswer": 2,
-      "explanation": "Según la escala de Delegados de Prevención de la LPRL (Art. 34-39), para centros de trabajo 'De 4.001 trabajadores en adelante' corresponden 8 Delegados de Prevención.",
+      "correctAnswer": 1,
+      "explanation": "La señal gestual requiere una sincronización y entrenamiento tanto de la persona que realiza los gestos (emisor) como del operador de la maniobra (receptor).",
       "usage": "simulacro",
       "simulacroExamId": 14
     },
@@ -21866,29 +21866,29 @@
     },
     {
       "id": 100,
-      "question": "¿Cuál es la función principal de los Reales Decretos (RD) mencionados en relación con la LPRL?",
+      "question": "Según el Artículo 29 de la Ley 31/1995 (LPRL), ¿cuál es la obligación del trabajador respecto a los Equipos de Protección Individual (EPI) y los medios de señalización?",
       "options": [
-        "Modificar los principios fundamentales de la LPRL.",
-        "Ampliar el ámbito de aplicación de la LPRL a nuevos sectores.",
-        "Desarrollar reglamentos específicos para la aplicación de la LPRL.",
-        "Sustituir completamente la LPRL en aspectos concretos."
+        "Utilizarlos únicamente en caso de simulacro de emergencia programado.",
+        "Utilizarlos correctamente y de manera adecuada de conformidad con las instrucciones del empresario.",
+        "Rechazar su uso si considera que reducen su ritmo de trabajo habitual.",
+        "Facilitarlos por su cuenta si la Universidad no dispone de presupuesto."
       ],
-      "correctAnswer": 2,
-      "explanation": "El apartado 2 del Tema 16 explica que 'La LPRL se desarrolla en reglamentos específicos mediante Reales Decretos (RD)'.",
+      "correctAnswer": 1,
+      "explanation": "El Artículo 29 de la LPRL impone al trabajador la obligación de velar por su propia seguridad y la de terceros, debiendo utilizar correctamente los medios de señalización y los Equipos de Protección Individual (EPI) facilitados por el empresario.",
       "usage": "simulacro",
       "simulacroExamId": 15
     },
     {
       "id": 101,
-      "question": "Según el artículo 22 de la Ley 31/1995 (LPRL), ¿cuál de las siguientes situaciones constituye una excepción donde la vigilancia de la salud pasa de ser voluntaria a obligatoria?",
+      "question": "¿De qué color de seguridad es la señalización de panel de un lavaojos o ducha de emergencia?",
       "options": [
-        "Cuando el trabajador preste servicios en una biblioteca con más de 100.000 volúmenes.",
-        "Cuando sea imprescindible para evaluar los efectos de las condiciones de trabajo sobre la salud o verificar si el estado de salud del trabajador puede constituir un peligro para él o terceros.",
-        "Siempre que el Comité de Seguridad y Salud lo acuerde por mayoría simple de su parte patronal.",
-        "Cuando lo solicite por escrito el sindicato mayoritario de la Junta de Personal."
+        "Azul.",
+        "Verde.",
+        "Rojo.",
+        "Amarillo."
       ],
       "correctAnswer": 1,
-      "explanation": "El artículo 22 de la LPRL establece que la vigilancia de la salud es voluntaria excepto cuando sea imprescindible para evaluar efectos de condiciones laborales sobre la salud, verificar si el estado de salud puede ser un peligro para el trabajador o terceros, o esté establecido por ley para riesgos específicos.",
+      "explanation": "Tanto el lavaojos como la ducha de seguridad forman parte de los equipos de primeros auxilios y socorro, por lo que se representan en color verde y forma rectangular o cuadrada.",
       "usage": "dossier"
     },
     {
@@ -21932,41 +21932,41 @@
     },
     {
       "id": 105,
-      "question": "Según la escala del artículo 35 de la LPRL, ¿cuántos Delegados de Prevención corresponden a una empresa o administración que tiene una plantilla de entre 50 y 100 trabajadores?",
+      "question": "¿Qué tipo de señal de panel advierte sobre el riesgo de tropiezos o caídas al mismo nivel?",
       "options": [
-        "1 Delegado de Prevención.",
-        "2 Delegados de Prevención.",
-        "3 Delegados de Prevención.",
-        "4 Delegados de Prevención."
+        "Redonda con fondo azul y pictograma de calzado de seguridad.",
+        "Triangular con pictograma de caída a mismo nivel sobre fondo amarillo y bordes negros.",
+        "Rectangular de color verde con flecha indicativa.",
+        "Redonda con borde y banda roja transversal."
       ],
       "correctAnswer": 1,
-      "explanation": "La escala del artículo 35 de la Ley 31/1995 establece que para plantillas de 50 a 100 trabajadores corresponden 2 Delegados de Prevención.",
+      "explanation": "Al ser una advertencia de peligro (riesgo de caídas al mismo nivel), se utiliza la forma triangular, pictograma negro de caída y fondo amarillo con borde negro.",
       "usage": "dossier"
     },
     {
       "id": 106,
-      "question": "En relación con el Comité de Seguridad y Salud regulado en el artículo 38 de la LPRL, ¿cuál es su composición?",
+      "question": "¿Qué color de seguridad y forma se utiliza para indicar la ubicación de una camilla de rescate en el centro?",
       "options": [
-        "Órgano integrado exclusivamente por los Delegados de Prevención.",
-        "Órgano integrado en un 60% por los representantes de la empresa y en un 40% por los trabajadores.",
-        "Órgano paritario colegiado compuesto en un 50% por los Delegados de Prevención y en un 50% por los representantes del empresario.",
-        "Órgano colegiado compuesto por el Rector de la Universidad y los Directores de los centros de trabajo."
+        "Rojo y forma rectangular.",
+        "Verde y forma rectangular o cuadrada.",
+        "Azul y forma redonda.",
+        "Amarillo y forma triangular."
       ],
-      "correctAnswer": 2,
-      "explanation": "El Comité de Seguridad y Salud es un órgano paritario y colegiado compuesto en un 50% por Delegados de Prevención y en el otro 50% por representantes designados por el empresario.",
+      "correctAnswer": 1,
+      "explanation": "La camilla de rescate es un equipamiento de socorro/primeros auxilios, por lo que su señalización requiere el color verde y forma rectangular o cuadrada.",
       "usage": "dossier"
     },
     {
       "id": 107,
-      "question": "¿Con qué periodicidad mínima obligatoria debe reunirse el Comité de Seguridad y Salud según la Ley 31/1995?",
+      "question": "¿De qué color de seguridad es la señal de panel circular que nos obliga a mantener cerradas las puertas cortafuegos?",
       "options": [
-        "Mensualmente.",
-        "Bimensualmente.",
-        "Trimestralmente.",
-        "Semestralmente."
+        "Rojo.",
+        "Azul.",
+        "Verde.",
+        "Amarillo."
       ],
-      "correctAnswer": 2,
-      "explanation": "El Comité de Seguridad y Salud se reunirá obligatoriamente con una periodicidad mínima trimestral, y siempre que lo solicite alguna de sus representaciones de forma justificada.",
+      "correctAnswer": 1,
+      "explanation": "La obligación de realizar una conducta (mantener cerrada la puerta cortafuegos) se representa mediante una señal circular con color de seguridad azul.",
       "usage": "dossier"
     },
     {
@@ -22062,15 +22062,15 @@
     },
     {
       "id": 115,
-      "question": "Según el artículo 4 de la Ley 31/1995 (LPRL), ¿cómo se define la prevención?",
+      "question": "¿Qué significado tienen las franjas rojas y blancas alternas en la señalización de seguridad?",
       "options": [
-        "El conjunto de técnicas médicas destinadas a curar al trabajador accidentado.",
-        "El conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa con el fin de evitar o disminuir los riesgos derivados del trabajo.",
-        "La sanción administrativa impuesta a la empresa que incumple las normas de seguridad.",
-        "El pago de primas de seguro de accidentes de trabajo para indemnizar daños."
+        "Delimitación de pasillos de lectura permanentes.",
+        "Señalización de obstáculos o zonas de peligro temporal (ej. obras).",
+        "Indicación del sentido de las salidas de emergencia.",
+        "Zonas autorizadas para el almacenamiento de libros del expurgo."
       ],
       "correctAnswer": 1,
-      "explanation": "El artículo 4.1 de la LPRL define la prevención como el conjunto de actividades o medidas adoptadas o previstas en todas las fases de la actividad de la empresa con el fin de evitar o disminuir los riesgos del trabajo.",
+      "explanation": "Las franjas alternas rojas y blancas (al igual que las amarillas y negras) a 45º sirven para señalizar obstáculos o zonas de peligro temporal y caídas.",
       "usage": "dossier"
     },
     {
