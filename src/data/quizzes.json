@@ -22209,13 +22209,13 @@
       "id": 10,
       "question": "En virtud de la legislación y normativa vigente del Tema 17 (Estatutos de la Universidad de Sevilla), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'sufragio del PTGAS'?",
       "options": [
-        "Afirma erróneamente que cuenta con una ponderación del **12%** en la elección directa del Rector de la US solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
-        "Determina que cuenta con una ponderación del **12%** en la elección directa del Rector de la US salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
-        "Establece que cuenta con una ponderación del **12%** en la elección directa del Rector de la US únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
-        "Indica que cuenta con una ponderación del **12%** en la elección directa del Rector de la US."
+        "Afirma erróneamente que cuenta con una ponderación del **10%** en la elección directa del Rector de la US solo en casos de excepcional urgencia decretada por el Ministerio de Educación.",
+        "Determina que cuenta con una ponderación del **10%** en la elección directa del Rector de la US salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
+        "Establece que cuenta con una ponderación del **10%** en la elección directa del Rector de la US únicamente si se cuenta con la aprobación previa del Defensor Universitario.",
+        "Indica que cuenta con una ponderación del **10%** en la elección directa del Rector de la US."
       ],
       "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Indica que cuenta con una ponderación del **12%** en la elección directa del Rector de la US.\". Esto se encuentra regulado de manera expresa en el marco del Ley Orgánica del Sistema Universitario (LOSU), el cual establece textualmente que cuenta con una ponderación del **12%** en la elección directa del Rector de la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La respuesta correcta es la opción que indica: \"Indica que cuenta con una ponderación del **10%** en la elección directa del Rector de la US.\". Esto se encuentra regulado de manera expresa en el marco de los Estatutos de la US (Decreto 98/2025, Art. 25.3.d), el cual establece textualmente que cuenta con una ponderación del 10% en la elección directa del Rector de la US.",
       "usage": "dossier"
     },
     {
@@ -22235,13 +22235,13 @@
       "id": 12,
       "question": "Con relación al Tema 17 y el concepto de 'Consejo Social', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
       "options": [
-        "Es crucial recordar que órgano de participación de la sociedad, encargado de la aprobación de los presupuestos anuales de la US.",
-        "Resulta fundamental saber que órgano de participación de la sociedad, encargado de la aprobación de los presupuestos anuales de la US siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que órgano de participación de la sociedad, encargado de la aprobación de los presupuestos anuales de la US solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que órgano de participación de la sociedad, encargado de la aprobación de los presupuestos anuales de la US únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "Es crucial recordar que es el órgano de participación de la sociedad, encargado de la aprobación del presupuesto anual y las cuentas de la US.",
+        "Resulta fundamental saber que es el órgano de participación de la sociedad, encargado de la aprobación del presupuesto anual y las cuentas de la US siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
+        "Se ha de tener presente que es el órgano de participación de la sociedad, encargado de la aprobación del presupuesto anual y las cuentas de la US solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
+        "Es de interés recalcar que es el órgano de participación de la sociedad, encargado de la aprobación del presupuesto anual y las cuentas de la US únicamente si el afectado presenta reclamación en el registro general en 3 días."
       ],
       "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que órgano de participación de la sociedad, encargado de la aprobación de los presupuestos anuales de la US.\". Esto se encuentra regulado de manera expresa en el marco del Decreto 98/2025 de los Estatutos US, el cual establece textualmente que órgano de participación de la sociedad, encargado de la aprobación de los presupuestos anuales de la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que es el órgano de participación de la sociedad, encargado de la aprobación del presupuesto anual y las cuentas de la US.\". Esto se encuentra regulado de manera expresa en el marco del Decreto 98/2025 de los Estatutos US, el cual establece que es el órgano de participación de la sociedad, encargado de aprobar el presupuesto a propuesta del Consejo de Gobierno y las cuentas anuales.",
       "usage": "dossier"
     },
     {
@@ -22261,26 +22261,26 @@
       "id": 14,
       "question": "Con relación al Tema 17 y el concepto de 'sufragio del PDI Permanente', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
       "options": [
-        "Resulta fundamental saber que tiene una ponderación del **51%** en la elección directa del Rector y en el Claustro siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que tiene una ponderación del **51%** en la elección directa del Rector y en el Claustro solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que tiene una ponderación del **51%** en la elección directa del Rector y en el Claustro únicamente si el afectado presenta reclamación en el registro general en 3 días.",
-        "Es crucial recordar que tiene una ponderación del **51%** en la elección directa del Rector y en el Claustro."
+        "Resulta fundamental saber que tiene una ponderación del **53%** en la elección directa del Rector y el **51%** de representación en el Claustro siempre y cuando afecte de forma directa al profesorado de la US.",
+        "Se ha de tener presente que tiene una ponderación del **53%** en la elección directa del Rector y el **51%** de representación en el Claustro solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
+        "Es de interés recalcar que tiene una ponderación del **53%** en la elección directa del Rector y el **51%** de representación en el Claustro únicamente si el afectado presenta reclamación en el registro general en 3 días.",
+        "Es crucial recordar que tiene una ponderación del **53%** en la elección directa del Rector y el **51%** de representación en el Claustro."
       ],
       "correctAnswer": 3,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que tiene una ponderación del **51%** en la elección directa del Rector y en el Claustro.\". Esto se encuentra regulado de manera expresa en el marco del Decreto 98/2025 de los Estatutos US, el cual establece textualmente que tiene una ponderación del **51%** en la elección directa del Rector y en el Claustro. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que tiene una ponderación del **53%** en la elección directa del Rector y el **51%** de representación en el Claustro.\". Esto se encuentra regulado de manera expresa en el marco del Decreto 98/2025 de los Estatutos US, el cual establece una ponderación de voto del 53% para el Rector y un 51% de claustrales.",
       "usage": "dossier"
     },
     {
       "id": 15,
       "question": "Con relación al Tema 17 y el concepto de 'sufragio de los Estudiantes', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
       "options": [
-        "Es crucial recordar que tiene asignada una ponderación del **25%** en las votaciones del Rector de la US.",
-        "Resulta fundamental saber que tiene asignada una ponderación del **25%** en las votaciones del Rector de la US siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
-        "Se ha de tener presente que tiene asignada una ponderación del **25%** en las votaciones del Rector de la US solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
-        "Es de interés recalcar que tiene asignada una ponderación del **25%** en las votaciones del Rector de la US únicamente si el afectado presenta reclamación en el registro general en 3 días."
+        "Es crucial recordar que tiene asignada una ponderación del **30%** en las votaciones del Rector de la US.",
+        "Resulta fundamental saber que tiene asignada una ponderación del **30%** en las votaciones del Rector de la US siempre y cuando afecte de forma directa al profesorado de la US.",
+        "Se ha de tener presente que tiene asignada una ponderación del **30%** en las votaciones del Rector de la US solo de forma supletoria si no existe regulación estatal del Ministerio de Trabajo.",
+        "Es de interés recalcar que tiene asignada una ponderación del **30%** en las votaciones del Rector de la US únicamente si el afectado presenta reclamación en el registro general en 3 días."
       ],
       "correctAnswer": 0,
-      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que tiene asignada una ponderación del **25%** en las votaciones del Rector de la US.\". Esto se encuentra regulado de manera expresa en el marco del Ley Orgánica del Sistema Universitario (LOSU), el cual establece textualmente que tiene asignada una ponderación del **25%** en las votaciones del Rector de la US. Las demás opciones contienen modificaciones falsas u órganos sin competencias sobre esta materia.",
+      "explanation": "La respuesta correcta es la opción que indica: \"Es crucial recordar que tiene asignada una ponderación del **30%** en las votaciones del Rector de la US.\". Esto se encuentra regulado de manera expresa en los Estatutos de la US (Decreto 98/2025, Art. 25.3.c), los cuales establecen una ponderación del 30% del voto ponderado para los estudiantes.",
       "usage": "dossier"
     },
     {
@@ -22708,8 +22708,8 @@
         "4 años",
         "5 años"
       ],
-      "correctAnswer": 2,
-      "explanation": "La sección 2.C de los Estatutos establece que 'El mandato de los representantes del PDI y PTGAS en el Claustro es de 4 años'.",
+      "correctAnswer": 0,
+      "explanation": "El Artículo 15.4 de los Estatutos establece expresamente que 'Los miembros del Claustro serán elegidos por un periodo de seis años salvo los y las estudiantes, que lo serán por dos años'.",
       "usage": "dossier"
     },
     {
@@ -23014,15 +23014,15 @@
     },
     {
       "id": 72,
-      "question": "En la elección del Rector/a por sufragio universal ponderado, ¿qué porcentaje de voto corresponde al Profesorado Doctor con vinculación permanente (PDI Permanente)?",
+      "question": "En la elección del Rector/a por sufragio universal ponderado, ¿qué porcentaje de voto corresponde al Profesorado con vinculación permanente (PDI Permanente)?",
       "options": [
         "25%",
         "12%",
-        "51%",
+        "53%",
         "36%"
       ],
       "correctAnswer": 2,
-      "explanation": "La sección 2.C de los Estatutos detalla la ponderación oficial: 'Sector A: Profesorado Doctor con vinculación permanente (PDI Permanente): 51%'.",
+      "explanation": "El Artículo 25.3.a de los Estatutos (Decreto 98/2025) detalla la ponderación oficial en la elección del Rector/a: 'Personal de los cuerpos docentes universitarios funcionarios y profesorado permanente laboral de la Universidad, el 53 por ciento'.",
       "usage": "simulacro",
       "simulacroExamId": 1
     },
@@ -23031,12 +23031,12 @@
       "question": "¿Qué porcentaje de voto se asigna al Personal Docente e Investigador no permanente (Sector B) en la elección del Rector/a?",
       "options": [
         "51%",
-        "12%",
+        "7%",
         "25%",
         "36%"
       ],
       "correctAnswer": 1,
-      "explanation": "Según la sección 2.C de los Estatutos, 'Sector B: Personal Docente e Investigador no permanente: 12%'.",
+      "explanation": "El Artículo 25.3.b de los Estatutos (Decreto 98/2025) establece que el voto del personal docente e investigador no permanente cuenta con una ponderación del 7% en las elecciones a Rector/a.",
       "usage": "simulacro",
       "simulacroExamId": 2
     },
@@ -23046,11 +23046,11 @@
       "options": [
         "51%",
         "12%",
-        "25%",
+        "30%",
         "36%"
       ],
       "correctAnswer": 2,
-      "explanation": "La sección 2.C de los Estatutos establece que 'Sector C: Estudiantes (Grado y Postgrado): 25%'.",
+      "explanation": "El Artículo 25.3.c de los Estatutos (Decreto 98/2025) establece que los Estudiantes de Grado y Posgrado tienen asignada una ponderación del 30% en las votaciones del Rector de la US.",
       "usage": "simulacro",
       "simulacroExamId": 2
     },
@@ -23059,12 +23059,12 @@
       "question": "¿Cuál es la ponderación asignada al Personal Técnico, de Gestión y de Administración y Servicios (PTGAS) en la elección del Rector/a de la Universidad de Sevilla?",
       "options": [
         "51%",
-        "12%",
+        "10%",
         "25%",
         "36%"
       ],
       "correctAnswer": 1,
-      "explanation": "De acuerdo con la sección 2.C de los Estatutos, 'Sector D: Personal Técnico, de Gestión y de Administración y Servicios (PTGAS): 12%'.",
+      "explanation": "De acuerdo con el Artículo 25.3.d de los Estatutos (Decreto 98/2025), la ponderación asignada al Personal Técnico, de Gestión y de Administración y Servicios (PTGAS) es del 10% en las elecciones de Rector.",
       "usage": "simulacro",
       "simulacroExamId": 3
     },
@@ -23459,41 +23459,41 @@
     },
     {
       "id": 104,
-      "question": "¿Cuál es el porcentaje mínimo de representación que corresponde a los Estudiantes (Sector C) en el Claustro de la Universidad de Sevilla según la LOSU y sus Estatutos?",
+      "question": "¿Cuál es el porcentaje de representación y número de claustrales que corresponde a los Estudiantes (Sector C) en el Claustro de la Universidad de Sevilla según el Decreto 98/2025?",
       "options": [
-        "10%.",
-        "15%.",
-        "20%.",
-        "25%."
+        "10% (30 claustrales).",
+        "15% (45 claustrales).",
+        "20% (60 claustrales).",
+        "30% (90 claustrales)."
       ],
       "correctAnswer": 3,
-      "explanation": "La LOSU exige que la representación estudiantil en el Claustro no sea inferior al 25%. En los Estatutos de la US se fijó exactamente en el 25% (que equivale a 75 representantes).",
+      "explanation": "El Artículo 15.2.c del Decreto 98/2025 fija en el 30% la representación de los Estudiantes en el Claustro, lo que equivale exactamente a 90 de los 300 miembros electos.",
       "usage": "dossier"
     },
     {
       "id": 105,
-      "question": "¿Qué porcentaje de representación y cuántos claustrales corresponden al Sector D, que agrupa al PTGAS (Personal Técnico, de Gestión y de Administración y Servicios) de la US?",
+      "question": "¿Qué porcentaje de representación y cuántos claustrales corresponden al Sector D, que agrupa al PTGAS (Personal Técnico, de Gestión y de Administración y Servicios) de la US en el Claustro?",
       "options": [
         "5% de representación (15 claustrales).",
-        "10% de representación (30 claustrales).",
+        "11% de representación (33 claustrales).",
         "15% de representación (45 claustrales).",
         "20% de representación (60 claustrales)."
       ],
       "correctAnswer": 1,
-      "explanation": "Al PTGAS le corresponde un porcentaje de representación en el Claustro fijado en el 10% (que equivale a 30 claustrales), cumpliendo con el mínimo legal de la LOSU.",
+      "explanation": "Al PTGAS le corresponde un porcentaje de representación en el Claustro de la US del 11% (que equivale exactamente a 33 de los 300 claustrales electos), de acuerdo con el Artículo 15.2.d de los Estatutos.",
       "usage": "dossier"
     },
     {
       "id": 106,
-      "question": "El Consejo de Gobierno de la Universidad de Sevilla, como órgano ejecutivo y de gestión ordinaria, está integrado por un máximo de:",
+      "question": "El Consejo de Gobierno de la Universidad de Sevilla, de acuerdo con el Decreto 98/2025 (Art. 17.2), se compone del Rector/a, Secretario/a General, Gerente y cuántos miembros adicionales:",
       "options": [
         "30 miembros.",
-        "50 miembros.",
+        "53 miembros.",
         "100 miembros.",
-        "El Claustro completo en sesión ordinaria."
+        "50 miembros."
       ],
       "correctAnswer": 1,
-      "explanation": "De acuerdo con el Decreto 98/2025, el Consejo de Gobierno de la US se compone del Rector, Secretario General, Gerente y una representación proporcional de los sectores del Claustro hasta un límite máximo de 50 miembros.",
+      "explanation": "De acuerdo con el Artículo 17.2 de los Estatutos de la US (Decreto 98/2025), el Consejo de Gobierno está compuesto por el Rector/a, Secretario/a General, Gerente y cincuenta y tres (53) miembros adicionales.",
       "usage": "dossier"
     },
     {
