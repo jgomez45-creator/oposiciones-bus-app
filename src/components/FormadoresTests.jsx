@@ -84,6 +84,11 @@ export default function FormadoresTests({ currentUser }) {
   const startTest = () => {
     if (!selectedBattery) return;
     
+    if (testMode === 'print' && (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile')) {
+      alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir las baterías de test de formadores en PDF.');
+      return;
+    }
+    
     // Shuffle and slice questions based on limit
     let rawQuestions = [...selectedBattery.data];
     // Shuffle logic (Fisher-Yates)

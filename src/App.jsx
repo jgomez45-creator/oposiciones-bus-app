@@ -8,6 +8,7 @@ import Stats from './components/Stats';
 import Login from './components/Login';
 import AdminPanel from './components/AdminPanel';
 import FormadoresTests from './components/FormadoresTests';
+import UserManual from './components/UserManual';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
 import { ShieldAlert, RefreshCw, Clock } from 'lucide-react';
@@ -402,6 +403,7 @@ export default function App() {
             updateTopicStatus={updateTopicStatus}
             incrementTimeForTopic={incrementTimeForTopic}
             setCurrentTab={setCurrentTab}
+            currentUser={currentUser}
           />
         );
       case 'quizzes':
@@ -411,6 +413,7 @@ export default function App() {
             progress={progress}
             recordQuizScore={recordQuizScore}
             activeTopicId={activeTopicId}
+            currentUser={currentUser}
           />
         );
       case 'formadores':
@@ -434,6 +437,8 @@ export default function App() {
             resetAllProgress={resetAllProgress}
           />
         );
+      case 'manual':
+        return <UserManual />;
       case 'admin':
         if (currentUser?.role === 'admin') {
           return <AdminPanel topics={topicsData} />;

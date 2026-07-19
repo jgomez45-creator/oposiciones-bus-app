@@ -14,7 +14,15 @@ import quizzesData from '../data/quizzes.json';
 import examen2019Data from '../data/examen_2019.json';
 import examen2022Data from '../data/examen_2022.json';
 
-export default function QuizRunner({ topics, progress, recordQuizScore, activeTopicId }) {
+export default function QuizRunner({ topics, progress, recordQuizScore, activeTopicId, currentUser }) {
+  const handlePrintClick = () => {
+    if (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile') {
+      alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir los cuestionarios en PDF.');
+      return;
+    }
+    window.print();
+  };
+
   // Config state
   const [selectedTopicMode, setSelectedTopicMode] = useState('single'); // 'single' | 'custom' | 'simulacro-40' | 'simulacro-oficial' | 'test-book' | 'examen-real-2019' | 'examen-real-2022'
   const [selectedSimulacroNums, setSelectedSimulacroNums] = useState(['1']);
@@ -705,7 +713,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Volver a Configurar
               </button>
               <button 
-                onClick={() => window.print()} 
+                onClick={handlePrintClick} 
                 className="glow-btn" 
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Printer size={16} />
@@ -807,7 +815,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Volver a Configurar
               </button>
               <button 
-                onClick={() => window.print()} 
+                onClick={handlePrintClick} 
                 className="glow-btn" 
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Printer size={16} />
@@ -951,7 +959,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Volver a Configurar
               </button>
               <button 
-                onClick={() => window.print()} 
+                onClick={handlePrintClick} 
                 className="glow-btn" 
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Printer size={16} />

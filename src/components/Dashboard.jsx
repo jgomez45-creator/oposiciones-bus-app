@@ -229,10 +229,12 @@ export default function Dashboard({ topics, progress, updateTopicStatus, selectT
                       <td>
                         <button 
                           onClick={() => selectTopic(topic.id)}
-                          className="icon-btn-action"
+                          className="glow-btn-secondary"
+                          style={{ padding: '6px 12px', fontSize: '0.75rem', borderRadius: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
                           title="Estudiar Tema"
                         >
-                          <ChevronRight size={18} />
+                          <span>Estudiar</span>
+                          <ChevronRight size={14} />
                         </button>
                       </td>
                     </tr>

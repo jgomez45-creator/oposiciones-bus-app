@@ -18,7 +18,8 @@ import {
   Square,
   Maximize2,
   Minimize2,
-  Sliders
+  Sliders,
+  Settings
 } from 'lucide-react';
 import quizzesData from '../data/quizzes.json';
 
@@ -39,14 +40,24 @@ export default function TopicViewer({
   progress, 
   updateTopicStatus, 
   incrementTimeForTopic,
-  setCurrentTab 
+  setCurrentTab,
+  currentUser
 }) {
+  const handlePrintClick = () => {
+    if (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile') {
+      alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir el temario en PDF.');
+      return;
+    }
+    window.print();
+  };
+
   const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [showReadingControls, setShowReadingControls] = useState(false);
+  const [showSettingsPanel, setShowSettingsPanel] = useState(false);
   const [fontSize, setFontSize] = useState('medium'); // 'small' | 'medium' | 'large' | 'extra-large'
-  const [readingTheme, setReadingTheme] = useState('default'); // 'default' | 'light-reading' | 'sepia'
+  const [readingTheme, setReadingTheme] = useState('light-reading'); // 'default' | 'light-reading' | 'sepia'
   const [markdownContent, setMarkdownContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -944,7 +955,7 @@ export default function TopicViewer({
                     <button onClick={() => setCompiledPrintContent('')} className="glow-btn-secondary" style={{ padding: '8px 16px' }}>
                       Modificar Selección
                     </button>
-                    <button onClick={() => window.print()} className="glow-btn" style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <button onClick={handlePrintClick} className="glow-btn" style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <Printer size={16} />
                       Imprimir Temario (PDF)
                     </button>
@@ -1124,10 +1135,18 @@ export default function TopicViewer({
                   <option value="Memorizado">Memorizado</option>
                   <option value="Repasado">Repasado</option>
                 </select>
-                
-                <button onClick={() => window.print()} className="print-btn" title="Descargar PDF">
+                <button onClick={handlePrintClick} className="print-btn" title="Imprimir o Descargar PDF">
                   <Printer size={14} />
-                  <span>Descargar PDF</span>
+                  <span>Imprimir / PDF</span>
+                </button>
+                
+                <button 
+                  onClick={() => setShowSettingsPanel(!showSettingsPanel)} 
+                  className={`reading-settings-toggle-btn ${showSettingsPanel ? 'active' : ''}`}
+                  title="Ajustes de Lectura (Letra, Fondo, Autoscroll, etc.)"
+                >
+                  <Settings size={14} className={showSettingsPanel ? 'spin-icon' : ''} />
+                  <span>Ajustes de Lectura</span>
                 </button>
               </div>
             </div>
@@ -1143,7 +1162,7 @@ export default function TopicViewer({
 
             {/* Study Timer Bar */}
             {(!isFocusMode || showReadingControls) && (
-              <div className="focus-controls-collapsible-group" style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
+              <div className="focus-controls-collapsible-group" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
                 <div className="study-timer-bar">
               <div className="timer-info">
                 <Clock size={16} className="text-primary-light" />
@@ -1168,7 +1187,7 @@ export default function TopicViewer({
             </div>
 
             {/* Audiobook Player Widget */}
-            <div className="audiobook-player-card glass-panel fade-in" style={{ padding: '16px 20px', borderRadius: '14px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="audiobook-player-card glass-panel fade-in" style={{ padding: '10px 16px', borderRadius: '12px', marginBottom: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <div className="audiobook-player-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Volume2 size={18} className="text-gradient-gold" style={{ color: 'var(--secondary)' }} />
@@ -1388,78 +1407,82 @@ export default function TopicViewer({
               </button>
             </div>
 
-            {/* Reading settings bar - always visible */}
-            <>
-              <div className="reading-settings-bar glass-panel">
-                <div className="settings-group">
-                  <span className="settings-label">Letra:</span>
-                  <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
-                  <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
-                  <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
-                  <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
-                </div>
-                <div className="settings-group">
-                  <span className="settings-label">Fondo:</span>
-                  <button onClick={() => setReadingTheme('default')} className={`theme-dot theme-default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro"></button>
-                  <button onClick={() => setReadingTheme('light-reading')} className={`theme-dot theme-light ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro"></button>
-                  <button onClick={() => setReadingTheme('sepia')} className={`theme-dot theme-sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia"></button>
-                </div>
-              </div>
+            {/* Reading settings bar - shown only when settings panel is open */}
+            {showSettingsPanel && (
+              <div className="reading-settings-dropdown glass-panel fade-in">
+                {/* Upper block: MODO DE LECTURA and VELOCIDAD SCROLL */}
+                <div className="reading-settings-row" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
+                  <div className="settings-group" style={{ flexWrap: 'wrap', gap: '8px' }}>
+                    <span className="settings-label">Modo de Lectura:</span>
+                    <button 
+                      type="button"
+                      onClick={() => setIsReadingMode(!isReadingMode)} 
+                      className={`font-btn reading-mode-btn ${isReadingMode && !isAutoscrolling && !showReadingRuler ? 'active' : ''}`}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                      title="Lectura a pantalla completa"
+                    >
+                      <span>📖 Lectura Manual (Pantalla Completa)</span>
+                    </button>
 
-              <div className="reading-settings-bar glass-panel" style={{ marginTop: '-10px', marginBottom: '20px' }}>
-                <div className="settings-group" style={{ flexWrap: 'wrap', gap: '8px' }}>
-                  <span className="settings-label">Modo de Lectura:</span>
-                  <button 
-                    type="button"
-                    onClick={() => setIsReadingMode(!isReadingMode)} 
-                    className={`font-btn ${isReadingMode && !isAutoscrolling && !showReadingRuler ? 'active' : ''}`}
-                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
-                    title="Lectura a pantalla completa"
-                  >
-                    <span>📖 Lectura Manual (Pantalla Completa)</span>
-                  </button>
-
-                  <button 
-                    type="button"
-                    onClick={() => setIsAutoscrolling(!isAutoscrolling)} 
-                    className={`font-btn ${isAutoscrolling ? 'active' : ''}`}
-                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
-                  >
-                    {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
-                    <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
-                  </button>
+                    <button 
+                      type="button"
+                      onClick={() => setIsAutoscrolling(!isAutoscrolling)} 
+                      className={`font-btn reading-mode-btn ${isAutoscrolling ? 'active' : ''}`}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                    >
+                      {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
+                      <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
+                    </button>
+                    
+                    <button 
+                      type="button"
+                      onClick={() => setShowReadingRuler(!showReadingRuler)} 
+                      className={`font-btn reading-mode-btn ${showReadingRuler ? 'active' : ''}`}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
+                    >
+                      <span>👉 Guía de Lectura</span>
+                    </button>
+                  </div>
                   
-                  <button 
-                    type="button"
-                    onClick={() => setShowReadingRuler(!showReadingRuler)} 
-                    className={`font-btn ${showReadingRuler ? 'active' : ''}`}
-                    style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
-                  >
-                    <span>👉 Guía de Lectura</span>
-                  </button>
+                  <div className="settings-group" style={{ flexGrow: 1, justifyContent: 'flex-end', minWidth: '180px' }}>
+                    <span className="settings-label">Velocidad scroll:</span>
+                    <input 
+                      type="range" 
+                      min="1" 
+                      max="10" 
+                      value={autoscrollSpeed} 
+                      onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
+                      style={{ 
+                        accentColor: 'var(--secondary)', 
+                        width: '100px', 
+                        height: '4px',
+                        cursor: 'pointer' 
+                      }} 
+                    />
+                    <span style={{ fontSize: '0.75rem', fontWeight: '600', color: isAutoscrolling ? 'var(--secondary-light)' : 'var(--text-muted)', width: '25px', textAlign: 'right' }}>
+                      {autoscrollSpeed}x
+                    </span>
+                  </div>
                 </div>
-                
-                <div className="settings-group" style={{ flexGrow: 1, justifyContent: 'flex-end', minWidth: '180px' }}>
-                  <span className="settings-label">Velocidad scroll:</span>
-                  <input 
-                    type="range" 
-                    min="1" 
-                    max="10" 
-                    value={autoscrollSpeed} 
-                    onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
-                    style={{ 
-                      accentColor: 'var(--secondary)', 
-                      width: '100px', 
-                      height: '4px',
-                      cursor: 'pointer' 
-                    }} 
-                  />
-                  <span style={{ fontSize: '0.75rem', fontWeight: '600', color: isAutoscrolling ? 'var(--secondary-light)' : 'var(--text-muted)', width: '25px', textAlign: 'right' }}>
-                    {autoscrollSpeed}x
-                  </span>
+
+                {/* Lower block: LETRA and FONDO */}
+                <div className="reading-settings-row" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '12px' }}>
+                  <div className="settings-group">
+                    <span className="settings-label">Letra:</span>
+                    <button onClick={() => setFontSize('small')} className={`font-btn ${fontSize === 'small' ? 'active' : ''}`}>A-</button>
+                    <button onClick={() => setFontSize('medium')} className={`font-btn ${fontSize === 'medium' ? 'active' : ''}`}>A</button>
+                    <button onClick={() => setFontSize('large')} className={`font-btn ${fontSize === 'large' ? 'active' : ''}`}>A+</button>
+                    <button onClick={() => setFontSize('extra-large')} className={`font-btn ${fontSize === 'extra-large' ? 'active' : ''}`}>A++</button>
+                  </div>
+                  <div className="settings-group">
+                    <span className="settings-label">Fondo:</span>
+                    <button onClick={() => setReadingTheme('light-reading')} className={`theme-pill-btn light-reading ${readingTheme === 'light-reading' ? 'active' : ''}`} title="Tema Claro">Claro</button>
+                    <button onClick={() => setReadingTheme('default')} className={`theme-pill-btn default ${readingTheme === 'default' ? 'active' : ''}`} title="Tema Oscuro">Oscuro</button>
+                    <button onClick={() => setReadingTheme('sepia')} className={`theme-pill-btn sepia ${readingTheme === 'sepia' ? 'active' : ''}`} title="Tema Sepia">Sepia</button>
+                  </div>
                 </div>
               </div>
-            </>
+            )}
 
             {/* Markdown Renderer Area */}
             <div className="markdown-body-wrapper" style={{ position: 'relative', flexGrow: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>

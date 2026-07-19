@@ -8,21 +8,41 @@ import {
   Library,
   LogOut,
   Shield,
-  ClipboardList
+  ClipboardList,
+  HelpCircle
 } from 'lucide-react';
 
 export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout }) {
-  const menuItems = [
-    { id: 'dashboard', name: 'Dashboard', icon: LayoutDashboard },
-    { id: 'topics', name: 'Temario', icon: BookOpen },
-    { id: 'quizzes', name: 'Tests', icon: GraduationCap },
-    { id: 'formadores', name: 'Test formadores', icon: ClipboardList },
-    { id: 'flashcards', name: 'Flashcards', icon: Layers },
-    { id: 'stats', name: 'Progreso', icon: BarChart3 }
+  const menuGroups = [
+    {
+      label: 'Aprendizaje',
+      items: [
+        { id: 'dashboard', name: 'Dashboard', icon: LayoutDashboard },
+        { id: 'topics', name: 'Temario', icon: BookOpen },
+        { id: 'flashcards', name: 'Flashcards', icon: Layers }
+      ]
+    },
+    {
+      label: 'Evaluación',
+      items: [
+        { id: 'quizzes', name: 'Tests', icon: GraduationCap },
+        { id: 'formadores', name: 'Test formadores', icon: ClipboardList }
+      ]
+    },
+    {
+      label: 'Seguimiento',
+      items: [
+        { id: 'stats', name: 'Progreso', icon: BarChart3 },
+        { id: 'manual', name: 'Manual de Uso', icon: HelpCircle }
+      ]
+    }
   ];
 
   if (currentUser && currentUser.role === 'admin') {
-    menuItems.push({ id: 'admin', name: 'Control', icon: Shield });
+    menuGroups.push({
+      label: 'Administración',
+      items: [{ id: 'admin', name: 'Control', icon: Shield }]
+    });
   }
 
   return (
@@ -36,31 +56,36 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       </div>
       
       <nav className="sidebar-menu">
-        {menuItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = currentTab === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => setCurrentTab(item.id)}
-              className={`menu-item ${isActive ? 'active' : ''}`}
-            >
-              <Icon size={20} className="menu-icon" />
-              <span>{item.name}</span>
-              {isActive && <span className="active-indicator" />}
-            </button>
-          );
-        })}
+        {menuGroups.map((group) => (
+          <div key={group.label} className="menu-group">
+            <span className="menu-group-label">{group.label}</span>
+            {group.items.map((item) => {
+              const Icon = item.icon;
+              const isActive = currentTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setCurrentTab(item.id)}
+                  className={`menu-item ${isActive ? 'active' : ''}`}
+                >
+                  <Icon size={18} className="menu-icon" />
+                  <span>{item.name}</span>
+                  {isActive && <span className="active-indicator" />}
+                </button>
+              );
+            })}
+          </div>
+        ))}
       </nav>
 
       {currentUser && (
-        <div className="sidebar-user-profile" style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '12px 16px', borderTop: '1px solid var(--border-color)', margin: '10px 0 5px 0' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.8rem', color: 'var(--bg-dark)' }}>
+        <div className="sidebar-user-profile" style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '14px 16px', borderTop: '1px solid var(--border-color)', margin: '10px 0 5px 0', background: 'rgba(255,255,255,0.01)', borderRadius: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '1rem', color: '#070a13', boxShadow: '0 2px 8px rgba(234, 179, 8, 0.2)' }}>
               {currentUser.name.charAt(0).toUpperCase()}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: '600', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name}</span>
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name}</span>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ID: {currentUser.code ? currentUser.code.split('_')[0] : 'DEMO'}</span>
             </div>
           </div>
