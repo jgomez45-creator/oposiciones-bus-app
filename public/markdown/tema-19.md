@@ -1,80 +1,86 @@
-# Tema 19: Ley Orgánica 3/2007 para la igualdad efectiva
-## Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres. Título Preliminar y Título I. El principio de igualdad y la tutela contra la discriminación
+# Tema 19: Políticas de igualdad y conciliación en la administración pública
+## Ley Orgánica 3/2007 para la igualdad efectiva. Principio de igualdad, tutela contra la discriminación, planes de igualdad y conciliación en la US
 
 ---
 
-## 1. Contexto y Objeto de la Ley Orgánica 3/2007
-La **Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres (LOIMH)** es la norma marco estatal en España cuyo objeto es hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres, en particular mediante la eliminación de la discriminación de la mujer, sea cual sea su circunstancia o condición, en todos los ámbitos de la vida.
+## 1. Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres (LOIMH)
+La **LOIMH** es la norma estatal en España cuyo objeto es hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres, en particular mediante la eliminación de la discriminación de la mujer en todos los ámbitos.
+
+### A. El Título Preliminar: Objeto y Ámbito (Art. 1 y 2)
+*   **Artículo 1 (Objeto):** Las mujeres y los hombres son iguales en dignidad humana, e iguales en derechos y deberes. El objeto de la ley es hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres, en particular mediante la eliminación de la discriminación de la mujer, **sea cual fuere su circunstancia o condición** (o *sea cual fuera sus circunstancias o condición*, de acuerdo con la literalidad evaluada en exámenes oficiales), **en cualquiera de los ámbitos de la vida**.
+*   **Artículo 2 (Ámbito):** La ley es aplicable a **todas las personas, físicas y jurídicas**, tanto en el sector público como en el sector privado, vinculando especialmente a los poderes públicos del Estado, incluidas las Universidades Públicas.
+
+### B. El Título I: El Principio de Igualdad y Discriminación (Art. 3 al 13)
+*   **Artículo 3 (Principio de Igualdad de Trato):** Supone la **ausencia de toda discriminación, directa o indirecta, por razón de sexo**, y, especialmente, las derivadas de la maternidad, la asunción de obligaciones familiares y el estado civil.
+*   **Artículo 8 (Discriminación Directa e Indirecta):**
+    *   *Discriminación Directa:* Situación en que se encuentra una persona que sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera **menos favorable** que otra en situación comparable.
+    *   *Discriminación Indirecta:* Situación en que una disposición, criterio o práctica **aparentemente neutros**, pone a personas de un sexo en **desventaja particular** con respecto a personas del otro, salvo que se justifique objetivamente con una finalidad legítima y adecuada.
+*   **Artículo 9 (Discriminación por Embarazo o Maternidad):** Constituye **discriminación directa por razón de sexo** todo trato desfavorable a las mujeres relacionado con el embarazo o la maternidad en el ámbito del empleo.
+*   **Artículo 10 (Consecuencias jurídicas de la discriminación):** Los actos y las cláusulas de los negocios jurídicos que constituyan o causen discriminación por razón de sexo se considerarán **nulos y sin efecto**, dando lugar a responsabilidad a través de un sistema de indemnizaciones que deberá ser real, efectivo y proporcionado al perjuicio sufrido.
+*   **Artículo 11 (Acciones Positivas):** Medidas específicas temporales en favor de las mujeres para corregir situaciones patentes de desigualdad de hecho colectiva.
+*   **Artículo 12 (Tutela judicial efectiva):** Cualquier persona podrá recabar de los tribunales la tutela del derecho a la igualdad de trato y de oportunidades entre mujeres y hombres, de acuerdo con los procedimientos previstos por las leyes.
+*   **Artículo 13 (Inversión de la carga de la prueba):** En los procesos judiciales en que las alegaciones de la parte actora se fundamenten en actuaciones discriminatorias, corresponderá a la parte demandada probar la justificación objetiva y razonable de las medidas adoptadas y de su proporcionalidad. **IMPORTANTE: Esta inversión de la carga de la prueba NO será de aplicación a los procesos penales**.
+*   **Artículo 51 (Criterios de actuación de las Administraciones Públicas):** En el ejercicio de sus competencias, las Administraciones Públicas (incluyendo las Universidades) integrarán de forma activa el principio de igualdad en su actuación, mediante los siguientes criterios:
+    1.  **Remover los obstáculos** que impidan o dificulten la igualdad real entre hombres y mujeres (evitando la pervivencia de cualquier discriminación).
+    2.  **Facilitar la conciliación** de la vida personal, familiar y laboral, sin menoscabo de la promoción profesional.
+    3.  **Fomentar la formación en igualdad**, tanto en el acceso al empleo público como a lo largo de la carrera profesional.
+    4.  **Promover la presencia equilibrada** de mujeres y hombres en los órganos de selección y valoración.
+    5.  **Establecer medidas efectivas de protección** frente al acoso sexual y al acoso por razón de sexo.
+    6.  **Establecer medidas efectivas para eliminar cualquier discriminación retributiva**, directa o indirecta, por razón de sexo.
+    7.  **Evaluar periódicamente** la efectividad del principio de igualdad en sus respectivos ámbitos de actuación.
+
+### C. Presencia Equilibrada (Regla del 60/40)
+*   Se entiende por composición equilibrada aquella presencia de mujeres y hombres en los órganos de representación o decisión (como los Tribunales de Oposición de la US) de forma que las personas de cada sexo no superen el **60%** ni sean menos del **40%** del total de miembros de dicho órgano.
 
 ---
 
-## 2. El Título Preliminar: Objeto y Ámbito de la Ley
-El Título Preliminar consta de dos artículos clave que delimitan el marco de actuación de la ley:
+## 2. Políticas de Igualdad y Conciliación en la Universidad de Sevilla
+La Universidad de Sevilla cuenta con instrumentos propios para velar por la igualdad real de oportunidades de sus trabajadores y estudiantes.
 
-*   **Artículo 1 (Objeto de la Ley):** Declara que las mujeres y los hombres son iguales en dignidad humana, e iguales en derechos y deberes. El objeto de la ley es la prevención y corrección de las conductas discriminatorias, estableciendo políticas activas para hacer efectivo este derecho constitucional (artículo 14 de la Constitución Española).
-*   **Artículo 2 (Ámbito de Aplicación):** La ley es de carácter general y aplicable a **todas las personas, físicas y jurídicas**, tanto en el sector público como en el sector privado (empresas, asociaciones). Asimismo, vincula especialmente a todos los poderes públicos del Estado (Administración General del Estado, Comunidades Autónomas, Ayuntamientos y Universidades Públicas).
+### A. El III Plan de Igualdad de la Universidad de Sevilla (2024-2028)
+Es el instrumento estratégico de la US para erradicar las brechas de género en la comunidad universitaria, estructurado en varios ejes de acción:
+*   **Igualdad en el empleo y promoción profesional:** Garantizar la no discriminación en los procesos selectivos de PTGAS y PDI y en las evaluaciones curriculares.
+*   **Prevención de la brecha salarial:** Analizar sistemáticamente las retribuciones del personal para corregir desigualdades indirectas en los complementos específicos.
+*   **Transversalidad de género:** Integración de la perspectiva de género en la docencia, la investigación y la gestión interna de la universidad.
+*   **La Unidad de Igualdad de la US:** Órgano encargado de coordinar, evaluar y hacer el seguimiento de las medidas del Plan de Igualdad en toda la universidad.
 
----
-
-## 3. El Título I: El Principio de Igualdad y la Tutela contra la Discriminación
-El Título I (artículos 3 al 13) define técnicamente los conceptos jurídicos de igualdad y discriminación, estableciendo las herramientas de defensa frente a vulneraciones:
-
-### A. Artículo 3: El Principio de Igualdad de Trato
-*   **Definición:** El principio de igualdad de trato entre mujeres y hombres supone la **ausencia de toda discriminación, directa o indirecta, por razón de sexo**, y, especialmente, las derivadas de la maternidad, la asunción de obligaciones familiares y el estado civil.
-
-### B. Artículo 5: Igualdad de Trato en el Acceso al Empleo
-*   El principio de igualdad de trato y de oportunidades entre mujeres y hombres se garantizará, en los términos previstos en la normativa aplicable, en el acceso al empleo, incluso al trabajo por cuenta propia, a la formación profesional, a la promoción profesional, a las condiciones de trabajo, incluidas las retributivas y las de despido, y a la afiliación y participación en las organizaciones sindicales y empresariales.
-
-### C. Artículo 8: Discriminación Directa e Indirecta
-La LOIMH distingue con precisión jurídica estas dos categorías básicas de discriminación:
-*   **Discriminación Directa por Razón de Sexo:** Se considera aquella situación en que se encuentra una persona que sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera **menos favorable** que otra en situación comparable. *(Ejemplo: No contratar a un candidato masculino o femenino para una biblioteca indicando expresamente que se prefiere al otro sexo).*
-*   **Discriminación Indirecta por Razón de Sexo:** Se considera aquella situación en que una disposición, criterio o práctica **aparentemente neutros**, pone a personas de un sexo en **desventaja particular** con respecto a personas del otro, salvo que dicha disposición, criterio o práctica puedan justificarse objetivamente con una finalidad legítima y que los medios para alcanzar dicha finalidad sean necesarios y adecuados. *(Nota de examen: Esta definición fue objeto de pregunta literal en el examen de 2019).* *(Ejemplo: Exigir un requisito físico de altura mínima no justificado técnicamente para ser Auxiliar de Biblioteca, lo que indirectamente excluye a una proporción mayor de mujeres).*
-
-### D. Artículo 9: Discriminación por Embarazo o Maternidad
-*   **Definición:** Constituye discriminación directa por razón de sexo todo trato desfavorable a las mujeres relacionado con el **embarazo o la maternidad** en el ámbito del empleo y el desarrollo profesional.
-
-### E. Artículo 11: Acciones Positivas
-*   **Definición:** Para hacer efectivo el derecho constitucional de la igualdad, los Poderes Públicos podrán adoptar medidas específicas en favor de las mujeres para corregir situaciones patentes de desigualdad de hecho colectiva.
-*   **Características:** Estas medidas, que podrán consistir en establecer un trato diferenciado o preferencias temporales, deben ser razonables y proporcionadas en relación con el fin perseguido, y solo serán aplicables mientras subsistan dichas desigualdades.
+### B. Medidas de Conciliación de la Vida Laboral, Familiar y Personal en la US
+La US aplica medidas de conciliación y flexibilidad laboral, especialmente reguladas para su PTGAS:
+*   **Flexibilidad Horaria:** El personal técnico (PTGAS) dispone de una parte de su jornada diaria de carácter flexible para facilitar la atención a menores de 12 años, personas mayores o familiares dependientes.
+*   **Permiso de Corresponsabilidad:** Fomento de la asunción compartida de las tareas de cuidado familiar.
+*   **Teletrabajo en la US:** Regulación del trabajo no presencial para determinados puestos del PTGAS compatibles con la distancia física, facilitando la conciliación de la vida personal y laboral mediante jornadas híbridas de prestación de servicios, garantizándose la seguridad y protección de datos.
 
 ---
 
-## 4. El Principio de Presencia Equilibrada (Regla del 60/40)
-La LOIMH introduce en la legislación española el concepto de **composición o presencia equilibrada** en los órganos y cargos públicos, tribunales de selección de oposiciones, y consejos de administración:
-
-*   **La Regla del 60/40:** Se entiende por composición equilibrada aquella presencia de mujeres y hombres en los órganos de representación o decisión de forma que las personas de cada sexo no superen el **60%** ni sean menos del **40%** del total de miembros de dicho órgano. (Esta regla rige de forma obligatoria en la composición de los Tribunales de Oposición para las plazas de la Universidad de Sevilla).
-
----
-
-## 5. Esquema de Repaso Rápido
+## 3. Esquema de Repaso Rápido
 *   **LOIMH 3/2007:** Publicada el **22 de marzo de 2007**.
-*   **Título Preliminar:** Objeto (Art. 1) y Ámbito (Art. 2 - vincula a todos, público y privado).
-*   **Discriminación Directa (Art. 8):** Trato menos favorable explícito por razón de sexo.
-*   **Discriminación Indirecta (Art. 8):** Norma o criterio neutro con impacto desproporcionado perjudicial para un sexo.
-*   **Embarazo/Maternidad (Art. 9):** Su discriminación se considera siempre **discriminación directa por razón de sexo**.
-*   **Presencia Equilibrada:** Ningún sexo por encima del **60%** ni por debajo del **40%** en órganos públicos y tribunales.
+*   **Ámbito (Art. 2):** Vincula a personas físicas y jurídicas, públicas y privadas.
+*   **Discriminación por Maternidad (Art. 9):** Calificada siempre como **discriminación directa**.
+*   **Presencia Equilibrada:** Rango de composición **60% / 40%**.
+*   **Tribunales selectivos US:** Deben cumplir estrictamente el principio de presencia equilibrada.
+*   **Órgano Evaluador US:** Unidad de Igualdad.
 
 ---
 
-## 6. Reglas Mnemotécnicas para el Examen
-Para memorizar fácilmente los conceptos y artículos clave de la Ley de Igualdad, utiliza estas reglas:
-
-*   **La Regla de la Presencia Equilibrada: "Sesenta/Cuarenta = Cien":**
-    *   *Mnemónico:* *"En un tribunal de la US, las mujeres y hombres bailan en una franja equilibrada: el máximo es **60** y el mínimo es **40** (la suma de ambos da 100)".*
-*   **Discriminación Directa vs. Indirecta: "La Flecha Directa y la Curva Indirecta":**
-    *   Directa es una **flecha** que da de lleno al sexo (se ve claro: "no contrato mujeres").
-    *   Indirecta da una **curva**, parece neutral pero acaba golpeando a un sexo (ej. "exijo fuerza de 90kg para mover carros de libros", parece técnico pero perjudica indirectamente al sector femenino).
-*   **El Embarazo es Directo (Art. 9): "La Maternidad no da Rodeos":**
-    *   Cualquier discriminación por embarazo es directa, nunca indirecta.
-    *   *Mnemónico:* *"El embarazo se ve **directamente** en el vientre; por tanto, su discriminación es **Directa**".*
+## 4. Reglas Mnemotécnicas para el Examen
+*   **La Regla de la Presencia Equilibrada: "Sesenta/Cuarenta":**
+    *   *Mnemónico:* *"En los tribunales de la US, las personas de cada sexo no superan el **60%** ni bajan del **40%**".*
+*   **El Embarazo es Directo (Art. 9): "La Maternidad se ve de Frente":**
+    *   *Mnemónico:* *"El embarazo se ve **directamente**; por tanto, su discriminación es **Directa**".*
 *   **Artículos Importantes: "El Ocho es la Discriminación y el Once es la Acción":**
     *   Artículo **8**: **O**cho = **O**posición o discriminación.
-    *   Artículo **11**: **O**nce = **O**portunidad de **A**cción Positiva (los dos unos del 11 caminan juntos hacia la igualdad).
+    *   Artículo **11**: **O**nce = **O**portunidad de **A**cción Positiva.
 
 ---
 
-## 7. Conceptos Clave
-*   **Composición Equilibrada:** Presencia proporcional de mujeres y hombres en órganos colegiados de forma que ninguno de los sexos supere el 60% ni baje del 40%.
-*   **Acción Positiva:** Conjunto de medidas provisionales de carácter protector orientadas a eliminar las desigualdades de hecho que sufren colectivos tradicionalmente discriminados.
-*   **Discriminación Directa:** Trato peyorativo injustificado que recibe un trabajador en comparación con otro debido a su sexo.
-*   **Discriminación Indirecta:** Aplicación de condiciones laborales en apariencia iguales para todos pero que producen un efecto desfavorable desproporcionado en un sexo concreto sin justificación objetiva.
+## 5. Conceptos Clave
+*   **Acción Positiva:** Medidas provisionales destinadas a compensar las desventajas sociales que impiden la igualdad real de oportunidades.
+*   **Conciliación Co-responsable:** Coordinación de la vida familiar y laboral que promueve el reparto equilibrado de tareas domésticas y de cuidados entre hombres y mujeres.
+*   **Discriminación Indirecta:** Criterio aparentemente neutro que coloca a un colectivo de un sexo determinado en desventaja frente al otro sin justificación objetiva.
+
+---
+
+## 6. Bibliografía
+*   **Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres**.
+*   **III Plan de Igualdad de la Universidad de Sevilla (2024-2028)**.
+*   **Medidas y planes de conciliación de la vida laboral y familiar para el PTGAS de la Universidad de Sevilla**.

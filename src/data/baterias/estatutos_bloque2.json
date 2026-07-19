@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "question": "Según el EUS, artículo 15, ¿cuántos miembros del personal técnico, de gestión y de administración y servicios componen el Claustro?",
+    "options": [
+      "Treinta y tres miembros.",
+      "Veinticuatro miembros distribuidos por campus.",
+      "Quince miembros elegidos por sufragio directo.",
+      "Cuarenta miembros en representación de los servicios."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Treinta y tres miembros.\". Esto se establece de forma expresa en el Artículo 15 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 2,
+    "question": "Según el EUS, artículo 16, ¿qué plazo debe transcurrir para reiterar una iniciativa de elecciones a Rector si fue rechazada?",
+    "options": [
+      "Seis meses desde la fecha de la última votación.",
+      "Un año desde su votación.",
+      "Dos años coincidiendo con el periodo lectivo.",
+      "No podrá reiterarse durante el mismo mandato claustral."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Un año desde su votación.\". Esto se establece de forma expresa en el Artículo 16 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 3,
+    "question": "Según el EUS, artículo 17, ¿qué sector elige a los cuatro miembros de la comunidad universitaria que deben ser Decanos o Directores de Escuela?",
+    "options": [
+      "El propio Claustro Universitario mediante votación secreta.",
+      "El Rector o Rectora entre los titulares de los centros.",
+      "Elegidos por los Decanos o Decanas y Directores o Directoras de Escuela de entre ellos.",
+      "La Conferencia de Decanos en sesión plenaria extraordinaria."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Elegidos por los Decanos o Decanas y Directores o Directoras de Escuela de entre ellos.\". Esto se establece de forma expresa en el Artículo 17 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 4,
+    "question": "Según el EUS, artículo 18, ¿qué competencia tiene el Consejo de Gobierno sobre los planes de estudio oficiales?",
+    "options": [
+      "Sancionar las memorias de verificación enviadas por los centros.",
+      "Informar al Consejo Social sobre la viabilidad de los mismos.",
+      "Proponer su supresión al Claustro por razones de baja demanda.",
+      "Aprobar los planes de estudios y los programas de doctorado conducentes a títulos universitarios oficiales."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Aprobar los planes de estudios y los programas de doctorado conducentes a títulos universitarios oficiales.\". Esto se establece de forma expresa en el Artículo 18 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 5,
+    "question": "Según el EUS, artículo 19, ¿quién elige al tercer miembro de la comunidad universitaria que forma parte del Consejo Social?",
+    "options": [
+      "Elegido por el Consejo de Alumnos y Alumnas de la Universidad de Sevilla de entre sus miembros.",
+      "El Claustro Universitario entre los representantes del sector C.",
+      "El Rectorado mediante decreto de libre designación estudiantil.",
+      "La Delegación del CADUS mediante votación universal ponderada."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Elegido por el Consejo de Alumnos y Alumnas de la Universidad de Sevilla de entre sus miembros.\". Esto se establece de forma expresa en el Artículo 19 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 6,
+    "question": "Según el EUS, artículo 20, ¿qué tipo de plan debe elaborar el Consejo Social para su evaluación y seguimiento anual?",
+    "options": [
+      "El Plan Plurianual de Financiación de la Institución hispalense.",
+      "Elaborar y aprobar un plan trienal de actuaciones para fomentar la colaboración entre la Universidad de Sevilla, sus antiguos alumnos y alumnas y su entorno.",
+      "El programa anual de captación de recursos externos de empresas.",
+      "La memoria de supervisión de actividades de carácter económico."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Elaborar y aprobar un plan trienal de actuaciones para fomentar la colaboración entre la Universidad de Sevilla, sus antiguos alumnos y alumnas y su entorno.\". Esto se establece de forma expresa en el Artículo 20 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 7,
+    "question": "Según el EUS, artículo 21, ¿a quién corresponde la coordinación de las acciones de los representantes estudiantiles en defensa de sus intereses?",
+    "options": [
+      "A las Delegaciones de Estudiantes de cada facultad o escuela.",
+      "Al Consejo Social en su función de enlace con la sociedad civil.",
+      "Son funciones del CADUS: ... Coordinar las acciones de los y las representantes del estudiantado en los órganos de gobierno de la Universidad de Sevilla en defensa de sus intereses.",
+      "Al Vicerrectorado con competencias en materia de estudiantes."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Son funciones del CADUS: ... Coordinar las acciones de los y las representantes del estudiantado en los órganos de gobierno de la Universidad de Sevilla en defensa de sus intereses.\". Esto se establece de forma expresa en el Artículo 21 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 8,
+    "question": "Según el EUS, artículo 22, ¿qué debe evaluar esta Conferencia en relación con la formación académica?",
+    "options": [
+      "El cumplimiento de las guías docentes en todos los títulos de grado.",
+      "La tasa de abandono escolar en el primer curso de las titulaciones.",
+      "La calidad de las infraestructuras de los centros universitarios.",
+      "Evaluar la adecuación entre la formación académica que recibe el estudiantado y la demanda profesional o laboral."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Evaluar la adecuación entre la formación académica que recibe el estudiantado y la demanda profesional o laboral.\". Esto se establece de forma expresa en el Artículo 22 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 9,
+    "question": "Según el EUS, artículo 23, ¿cuál es el objeto de evaluación de esta Conferencia respecto a las plantillas?",
+    "options": [
+      "Evaluar la adecuación entre las plantillas de profesorado y las necesidades docentes.",
+      "Fiscalizar el cumplimiento horario del personal técnico de gestión.",
+      "Proponer la transformación de plazas de profesorado asociado.",
+      "Determinar el número de becarios de colaboración en los centros."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Evaluar la adecuación entre las plantillas de profesorado y las necesidades docentes.\". Esto se establece de forma expresa en el Artículo 23 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 10,
+    "question": "Según el EUS, artículo 24, ¿qué límite máximo de personal eventual puede nombrar el Rector?",
+    "options": [
+      "Un máximo de cinco asesores con rango de Director.",
+      "Dos cargos de confianza para la Secretaría General.",
+      "El Rector o la Rectora podrá nombrar personal eventual hasta un máximo de tres.",
+      "Diez personas para el Gabinete de Comunicación y Protocolo."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El Rector o la Rectora podrá nombrar personal eventual hasta un máximo de tres.\". Esto se establece de forma expresa en el Artículo 24 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 11,
+    "question": "Según el EUS, artículo 25, ¿cuál es el porcentaje de ponderación del voto del estudiantado en las elecciones a Rector?",
+    "options": [
+      "El veinte por ciento del voto válidamente emitido.",
+      "El veinticinco por ciento de los votos totales del censo.",
+      "El treinta por ciento.",
+      "El quince por ciento computado sobre los votos emitidos."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El treinta por ciento.\". Esto se establece de forma expresa en el Artículo 25 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 12,
+    "question": "Según el EUS, artículo 26, ¿a quién corresponde ejecutar los acuerdos del Consejo Social?",
+    "options": [
+      "Al Secretario General en su calidad de fedatario público.",
+      "Al Gerente en materia de gestión económica y administrativa.",
+      "A la Comisión Permanente del Claustro Universitario.",
+      "Corresponden al Rector o Rectora las siguientes competencias: ... Ejecutar los acuerdos del Claustro Universitario, del Consejo de Gobierno y del Consejo Social."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Corresponden al Rector o Rectora las siguientes competencias: ... Ejecutar los acuerdos del Claustro Universitario, del Consejo de Gobierno y del Consejo Social.\". Esto se establece de forma expresa en el Artículo 26 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 13,
+    "question": "Según el EUS, artículo 27, ¿cuál es el número máximo de Directores o Directoras de Secretariado?",
+    "options": [
+      "Treinta cargos unipersonales dependientes del Rectorado.",
+      "Cuarenta plazas distribuidas por áreas de gestión superior.",
+      "El número máximo de Directores o Directoras de Secretariado no podrá exceder de cincuenta.",
+      "Veinticinco para garantizar la eficiencia de la estructura técnica."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El número máximo de Directores o Directoras de Secretariado no podrá exceder de cincuenta.\". Esto se establece de forma expresa en el Artículo 27 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 14,
+    "question": "Según el EUS, artículo 28, ¿de quién depende el Registro de la Universidad de Sevilla?",
+    "options": [
+      "El Registro de la Universidad de Sevilla es único y depende funcionalmente de la Secretaría General.",
+      "Depende orgánicamente de la Gerencia para su fiscalización.",
+      "Se integra en el Vicerrectorado de Transformación Digital.",
+      "Es una unidad autónoma supervisada por la Inspección de Servicios."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"El Registro de la Universidad de Sevilla es único y depende funcionalmente de la Secretaría General.\". Esto se establece de forma expresa en el Artículo 28 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 15,
+    "question": "Según el EUS, artículo 29, ¿qué requisito de dedicación se exige para el ejercicio del cargo de Gerente?",
+    "options": [
+      "Dedicación exclusiva compatible con la investigación de campo.",
+      "El ejercicio del cargo de Gerente requiere dedicación a tiempo completo y será incompatible con funciones docentes e investigadoras.",
+      "Dedicación preferente con posibilidad de impartir un máximo de 60 horas.",
+      "Tiempo completo con reserva de puesto en la escala técnica superior."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"El ejercicio del cargo de Gerente requiere dedicación a tiempo completo y será incompatible con funciones docentes e investigadoras.\". Esto se establece de forma expresa en el Artículo 29 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 16,
+    "question": "Según el EUS, artículo 30, ¿quién acuerda la creación de las facultades y escuelas?",
+    "options": [
+      "El Consejo de Gobierno de la Universidad de Sevilla mediante acuerdo.",
+      "El Claustro Universitario tras informe de la Consejería competente.",
+      "El Rectorado mediante decreto publicado en el Boletín del centro.",
+      "Será acordada por la Comunidad Autónoma de Andalucía."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Será acordada por la Comunidad Autónoma de Andalucía.\". Esto se establece de forma expresa en el Artículo 30 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 17,
+    "question": "Según el EUS, artículo 31, ¿qué porcentaje de representación tiene el PDI o personal investigador no permanente en la Junta de Centro?",
+    "options": [
+      "Un siete por ciento de los miembros electivos del órgano colegiado.",
+      "Un once por ciento de personal docente e investigador o personal investigador censado en el centro no incluido en el apartado a) anterior.",
+      "Un quince por ciento para fomentar la participación del personal temporal.",
+      "Un diez por ciento calculado sobre la totalidad de los miembros natos."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Un once por ciento de personal docente e investigador o personal investigador censado en el centro no incluido en el apartado a) anterior.\". Esto se establece de forma expresa en el Artículo 31 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 18,
+    "question": "Según el EUS, artículo 32, ¿qué mayoría se requiere para proponer la revocación del titular del Decanato?",
+    "options": [
+      "La propuesta debe ser realizada por la mayoría absoluta de la Junta.",
+      "La iniciativa debe contar con el voto favorable del Rectorado.",
+      "A propuesta de un tercio de los miembros de la Junta de Centro.",
+      "Por solicitud motivada de dos quintas partes de los claustrales."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"A propuesta de un tercio de los miembros de la Junta de Centro.\". Esto se establece de forma expresa en el Artículo 32 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 19,
+    "question": "Según el EUS, artículo 33, ¿quién nombra al Decano o a la Decana de Facultad?",
+    "options": [
+      "Será nombrado por el Rector o Rectora, previa elección.",
+      "La Junta de Facultad tras proclamación de los resultados oficiales.",
+      "El Consejo de Gobierno a propuesta de los departamentos del centro.",
+      "La Comunidad Autónoma a través de la Consejería de Universidades."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Será nombrado por el Rector o Rectora, previa elección.\". Esto se establece de forma expresa en el Artículo 33 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 20,
+    "question": "Según el EUS, artículo 34, ¿qué puede proponer el Decano respecto a los nombramientos del centro?",
+    "options": [
+      "Designar libremente a los directores de los servicios administrativos.",
+      "Proponer al Rector o Rectora los nombramientos de los miembros del Equipo de Gobierno del Centro.",
+      "Elegir al Secretario de la Facultad tras audiencia a la Junta.",
+      "Nombrar a los coordinadores de los grupos de investigación de la sede."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Proponer al Rector o Rectora los nombramientos de los miembros del Equipo de Gobierno del Centro.\". Esto se establece de forma expresa en el Artículo 34 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 21,
+    "question": "Según el EUS, artículo 35, ¿quién propone a los Vicedecanos de Facultad?",
+    "options": [
+      "La Junta de Centro mediante votación secreta por mayoría simple.",
+      "El Consejo de Gobierno tras verificar su currículo académico.",
+      "El Rectorado de entre los profesores permanentes del área.",
+      "Propuestos por el Decano o la Decana de Facultad o el Director o Directora de Escuela."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Propuestos por el Decano o la Decana de Facultad o el Director o Directora de Escuela.\". Esto se establece de forma expresa en el Artículo 35 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 22,
+    "question": "Según el EUS, artículo 36, ¿qué competencia tiene la Secretaría de Facultad sobre las calificaciones?",
+    "options": [
+      "Validar los cambios de notas solicitados por los departamentos.",
+      "Supervisar la publicidad de las actas en el tablón electrónico único.",
+      "Custodiará asimismo las actas de calificaciones de los y las estudiantes del centro.",
+      "Certificar la veracidad de los expedientes enviados a otras universidades."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Custodiará asimismo las actas de calificaciones de los y las estudiantes del centro.\". Esto se establece de forma expresa en el Artículo 36 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 23,
+    "question": "Según el EUS, artículo 37, ¿quién nombra al titular de la Dirección de la Escuela Internacional de Doctorado?",
+    "options": [
+      "La persona titular de la Dirección de la Escuela será nombrada por el Rector o Rectora entre el profesorado de la Universidad de reconocido prestigio.",
+      "El Consejo de Gobierno de entre los coordinadores de programas.",
+      "La Comisión de Investigación tras proceso público de selección.",
+      "El Claustro Universitario a propuesta de la Mesa directiva."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"La persona titular de la Dirección de la Escuela será nombrada por el Rector o Rectora entre el profesorado de la Universidad de reconocido prestigio.\". Esto se establece de forma expresa en el Artículo 37 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 24,
+    "question": "Según el EUS, artículo 40, ¿quién autoriza la adscripción temporal de un profesor a otro departamento?",
+    "options": [
+      "El Director del Departamento de destino previo informe favorable.",
+      "El Rector o Rectora mediante decreto motivado por necesidades.",
+      "El Consejo de Gobierno podrá autorizar la adscripción temporal al mismo de profesorado perteneciente a otros departamentos.",
+      "La Junta de Centro a la que pertenezcan las áreas integradas."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El Consejo de Gobierno podrá autorizar la adscripción temporal al mismo de profesorado perteneciente a otros departamentos.\". Esto se establece de forma expresa en el Artículo 40 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 25,
+    "question": "Según el EUS, artículo 41, ¿con qué periodicidad se renuevan los representantes del PTGAS en el Consejo de Departamento?",
+    "options": [
+      "Elegidos cada tres años.",
+      "Renovación anual coincidiendo con el curso académico oficial.",
+      "Cada dos años de acuerdo con el reglamento electoral del centro.",
+      "Cuatrienal vinculada al mandato del Director del Departamento."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Elegidos cada tres años.\". Esto se establece de forma expresa en el Artículo 41 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 26,
+    "question": "Según el EUS, artículo 42, ¿qué competencia presupuestaria tiene el Consejo de Departamento?",
+    "options": [
+      "Aprobar la liquidación de cuentas anuales de los grupos del área.",
+      "Aprobar la distribución de los recursos presupuestarios asignados al departamento.",
+      "Fiscalizar los gastos de viaje de los investigadores predoctorales.",
+      "Autorizar las transferencias de crédito entre capítulos de inversión."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Aprobar la distribución de los recursos presupuestarios asignados al departamento.\". Esto se establece de forma expresa en el Artículo 42 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 27,
+    "question": "Según el EUS, artículo 43, ¿por qué mayoría puede el Consejo de Departamento revocar a su Director?",
+    "options": [
+      "Por mayoría de dos tercios de los votos emitidos en sesión extraordinaria.",
+      "Por acuerdo adoptado por mayoría absoluta de sus miembros.",
+      "Mediante resolución del Rector tras solicitud de la mitad docente.",
+      "Por mayoría simple en segunda votación de los miembros presentes."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Por acuerdo adoptado por mayoría absoluta de sus miembros.\". Esto se establece de forma expresa en el Artículo 43 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 28,
+    "question": "Según el EUS, artículo 44, ¿qué competencia económica tiene el Director de Departamento?",
+    "options": [
+      "Elaborar el presupuesto plurianual de investigación del área básica.",
+      "Ordenar y autorizar los gastos del departamento.",
+      "Recaudar los beneficios derivados de contratos de transferencia propia.",
+      "Auditarlas cuentas de los proyectos financiados con fondos privados."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Ordenar y autorizar los gastos del departamento.\". Esto se establece de forma expresa en el Artículo 44 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 29,
+    "question": "Según el EUS, artículo 45, ¿quién es el secretario del Consejo de Departamento?",
+    "options": [
+      "Un funcionario de la escala técnica adscrito a la secretaría administrativa.",
+      "El miembro de menor edad del Consejo con vinculación permanente.",
+      "El Secretario o la Secretaria del Departamento, lo será también de su Consejo.",
+      "Un profesor elegido por sorteo público entre los miembros electivos."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El Secretario o la Secretaria del Departamento, lo será también de su Consejo.\". Esto se establece de forma expresa en el Artículo 45 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 30,
+    "question": "Según el EUS, artículo 90, ¿qué derecho tienen los miembros de la comunidad universitaria respecto a los órganos de gobierno?",
+    "options": [
+      "A ser exonerados de responsabilidades en sus funciones de representación.",
+      "La participación en los órganos de gobierno y de representación en los términos establecidos en los presentes Estatutos.",
+      "A percibir dietas por la asistencia a sesiones extraordinarias y ordinarias.",
+      "A decidir el orden del día de las asambleas mediante sufragio universal."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"La participación en los órganos de gobierno y de representación en los términos establecidos en los presentes Estatutos.\". Esto se establece de forma expresa en el Artículo 90 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 31,
+    "question": "Según el EUS, artículo 15, ¿cuál es el número total de miembros del Claustro Universitario (incluidos natos y electivos)?",
+    "options": [
+      "Trescientos miembros exactos por sectores.",
+      "Trescientos tres miembros contando al Rector, Secretario y Gerente.",
+      "Doscientos noventa y siete miembros más el Equipo de Gobierno.",
+      "Trescientos diez miembros según el reglamento de régimen electoral."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Trescientos tres miembros contando al Rector, Secretario y Gerente.\". Esto se establece de forma expresa en el Artículo 15 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 32,
+    "question": "Según el EUS, artículo 16, ¿qué competencia tiene el Claustro sobre los doctorados honoris causa?",
+    "options": [
+      "Proponer a los candidatos al Consejo de Gobierno para su informe.",
+      "Ratificar la propuesta económica para el acto solemne de investidura.",
+      "Aprobar las propuestas de nombramiento de doctores y doctoras honoris causa.",
+      "Elaborar el listado de méritos necesarios para la obtención del título."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Aprobar las propuestas de nombramiento de doctores y doctoras honoris causa.\". Esto se establece de forma expresa en el Artículo 16 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 33,
+    "question": "Según el EUS, artículo 17, ¿cuántos representantes del estudiantado forman parte del Consejo de Gobierno?",
+    "options": [
+      "Diez miembros elegidos por el Consejo de Alumnos.",
+      "Tres miembros de grado y tres miembros de postgrado.",
+      "Seis miembros del estudiantado, de los cuales uno será el Delegado o Delegada del CADUS.",
+      "Cuatro miembros titulares y dos suplentes por cada sector."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Seis miembros del estudiantado, de los cuales uno será el Delegado o Delegada del CADUS.\". Esto se establece de forma expresa en el Artículo 17 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 34,
+    "question": "Según el EUS, artículo 18, ¿qué planes de captación y promoción debe definir el Consejo de Gobierno?",
+    "options": [
+      "El plan de inversiones en capital humano del personal técnico de gestión.",
+      "Definir e impulsar, en coordinación con la Unidad de Igualdad, un plan de igualdad.",
+      "Los programas de becas de formación para alumnos de nuevo ingreso.",
+      "Definir y aprobar planes de captación, estabilización y promoción del personal docente e investigador."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Definir y aprobar planes de captación, estabilización y promoción del personal docente e investigador.\". Esto se establece de forma expresa en el Artículo 18 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 35,
+    "question": "Según el EUS, artículo 19, ¿quiénes son miembros natos del Consejo Social por parte de la Universidad?",
+    "options": [
+      "El Rector o la Rectora, el Secretario o la Secretaria General y el o la Gerente.",
+      "El Rector, el Presidente del CADUS y el titular de la Inspección.",
+      "El Rector y los Vicerrectores con competencias económicas y sociales.",
+      "Los Decanos de las tres facultades con mayor presupuesto asignado."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"El Rector o la Rectora, el Secretario o la Secretaria General y el o la Gerente.\". Esto se establece de forma expresa en el Artículo 19 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 36,
+    "question": "Según el EUS, artículo 20, ¿qué debe velar el Consejo Social en relación con la integridad?",
+    "options": [
+      "La publicación trimestral de las actas de inspección de servicios centrales.",
+      "Velar por el cumplimiento de los principios éticos y de integridad académica, así como de las directrices antifraude.",
+      "El seguimiento de los contratos de patrocinio publicitario institucional.",
+      "La veracidad de los currículos de los candidatos a órganos unipersonales."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Velar por el cumplimiento de los principios éticos y de integridad académica, así como de las directrices antifraude.\". Esto se establece de forma expresa en el Artículo 20 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 37,
+    "question": "Según el EUS, artículo 21, ¿qué reglamento del CADUS debe ser ratificado por el Consejo de Gobierno?",
+    "options": [
+      "Las normas de convivencia de las delegaciones de estudiantes de centro.",
+      "El código ético de las asociaciones de alumnos legalmente inscritas.",
+      "Reglamento de funcionamiento del CADUS y el reglamento de elecciones a órganos de representación del estudiantado.",
+      "El régimen de gestión económica de las aulas de cultura del Pabellón de Uruguay."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Reglamento de funcionamiento del CADUS y el reglamento de elecciones a órganos de representación del estudiantado.\". Esto se establece de forma expresa en el Artículo 21 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 38,
+    "question": "Según el EUS, artículo 25, ¿qué sucede si en una elección a Rector solo se presenta una candidatura?",
+    "options": [
+      "Únicamente se celebrará la primera vuelta en la que se requerirá la mayoría simple de votos.",
+      "Se ampliará el plazo de presentación de candidaturas por siete días hábiles.",
+      "Será proclamado Rector automáticamente sin necesidad de votación presencial.",
+      "El Claustro deberá ratificar la candidatura por mayoría absoluta de sus miembros."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Únicamente se celebrará la primera vuelta en la que se requerirá la mayoría simple de votos.\". Esto se establece de forma expresa en el Artículo 25 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 39,
+    "question": "Según el EUS, artículo 26, ¿en qué momento debe el Rector informar de su gestión al Claustro?",
+    "options": [
+      "Al finalizar el año natural mediante una memoria de actividades escrita.",
+      "Durante la sesión solemne de apertura del curso académico universitario.",
+      "El Rector o la Rectora informará de su gestión al Consejo de Gobierno y al Claustro Universitario en cada una de sus sesiones ordinarias.",
+      "Trimestralmente de acuerdo con el calendario fijado por el Consejo Social."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El Rector o la Rectora informará de su gestión al Consejo de Gobierno y al Claustro Universitario en cada una de sus sesiones ordinarias.\". Esto se establece de forma expresa en el Artículo 26 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 40,
+    "question": "Según el EUS, artículo 31, ¿qué porcentaje de representación tiene el estudiantado en la Junta de Centro?",
+    "options": [
+      "Un veinticinco por ciento de los miembros totales de la asamblea de facultad.",
+      "Un veinte por ciento calculado sobre el censo de alumnos matriculados.",
+      "Un quince por ciento para garantizar la representación de los departamentos.",
+      "Un treinta por ciento del estudiantado matriculado en el centro."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Un treinta por ciento del estudiantado matriculado en el centro.\". Esto se establece de forma expresa en el Artículo 31 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 41,
+    "question": "Según el EUS, artículo 32, ¿qué debe aprobar la Junta de Centro para las prácticas externas?",
+    "options": [
+      "El listado de empresas que cuentan con convenio vigente con la Universidad.",
+      "Los criterios de evaluación de los tutores externos de los alumnos de grado.",
+      "Comisiones que velarán por el seguimiento de los planes de estudio..., incluyendo la organización y control de las prácticas curriculares en empresas e instituciones.",
+      "La remuneración mínima de los becarios que realicen estancias profesionales."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Comisiones que velarán por el seguimiento de los planes de estudio..., incluyendo la organización y control de las prácticas curriculares en empresas e instituciones.\". Esto se establece de forma expresa en el Artículo 32 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 42,
+    "question": "Según el EUS, artículo 33, ¿qué derecho tiene el Decano respecto a sus obligaciones docentes?",
+    "options": [
+      "A ser eximido totalmente de la realización de exámenes y tutorías de grado.",
+      "A percibir una gratificación económica que sustituya su carga lectiva habitual.",
+      "Tendrá derecho a ser exonerado parcialmente de sus obligaciones docentes.",
+      "A la reserva de su plaza de profesor en el departamento sin impartir clases."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Tendrá derecho a ser exonerado parcialmente de sus obligaciones docentes.\". Esto se establece de forma expresa en el Artículo 33 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 43,
+    "question": "Según el EUS, artículo 34, ¿qué puede proponer el Decano respecto a los convenios?",
+    "options": [
+      "Proponer la celebración de convenios de colaboración académica y cooperación cultural con otros centros o instituciones y entidades.",
+      "Suscribir contratos de prestación de servicios con empresas de seguridad privada.",
+      "Autorizar el uso gratuito de las instalaciones para asociaciones políticas externas.",
+      "Firmar convenios de reciprocidad de títulos con universidades extranjeras."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Proponer la celebración de convenios de colaboración académica y cooperación cultural con otros centros o instituciones y entidades.\". Esto se establece de forma expresa en el Artículo 34 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 44,
+    "question": "Según el EUS, artículo 35, ¿en quién puede delegar el Decano sus competencias propias?",
+    "options": [
+      "En el Secretario de la Facultad para la gestión ordinaria de los expedientes.",
+      "En el Director de Departamento con mayor antigüedad en la sede del centro.",
+      "Podrá delegar en los Vicedecanos o Vicedecanas de Facultad o Subdirectores o Subdirectoras de Escuela.",
+      "En el Delegado de Estudiantes del centro para la organización de actos."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Podrá delegar en los Vicedecanos o Vicedecanas de Facultad o Subdirectores o Subdirectoras de Escuela.\". Esto se establece de forma expresa en el Artículo 35 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 45,
+    "question": "Según el EUS, artículo 36, ¿quién preside la Junta Electoral de Centro?",
+    "options": [
+      "El Decano o la Decana en su condición de máximo representante unipersonal.",
+      "El miembro de la Junta de mayor antigüedad en el desempeño de la docencia.",
+      "Un alumno elegido por sorteo público ante la secretaría administrativa.",
+      "El Secretario o la Secretaria de Facultad o de Escuela."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"El Secretario o la Secretaria de Facultad o de Escuela.\". Esto se establece de forma expresa en el Artículo 36 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 46,
+    "question": "Según el EUS, artículo 40, ¿de qué medios proveerá la Universidad a los departamentos?",
+    "options": [
+      "De una partida presupuestaria fija e independiente de los planes de investigación.",
+      "Proveerá a los departamentos de un espacio físico adecuado a sus miembros, así como de los medios humanos y materiales necesarios.",
+      "De vehículos oficiales para el desplazamiento del profesorado a sedes externas.",
+      "De personal de seguridad técnica para la vigilancia de los laboratorios del área."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Proveerá a los departamentos de un espacio físico adecuado a sus miembros, así como de los medios humanos y materiales necesarios.\". Esto se establece de forma expresa en el Artículo 40 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 47,
+    "question": "Según el EUS, artículo 41, ¿con qué periodicidad se renuevan los representantes del estudiantado en el Consejo de Departamento?",
+    "options": [
+      "Cada tres años coincidiendo con la renovación de los miembros electivos.",
+      "Bianual de acuerdo con el calendario electoral general de la Universidad.",
+      "Serán renovados con periodicidad anual.",
+      "Al finalizar el periodo lectivo del segundo cuatrimestre de cada curso."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Serán renovados con periodicidad anual.\". Esto se establece de forma expresa en el Artículo 41 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 48,
+    "question": "Según el EUS, artículo 42, ¿qué competencia académica tiene el Consejo de Departamento sobre las guías?",
+    "options": [
+      "Redactar los contenidos técnicos de las asignaturas para su validación por el centro.",
+      "Aprobar las guías docentes de las asignaturas de los títulos oficiales.",
+      "Supervisar que las guías docentes se ajusten a los criterios del Consejo Social.",
+      "Publicar las guías docentes en el tablón electrónico una vez sancionadas por el Rector."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Aprobar las guías docentes de las asignaturas de los títulos oficiales.\". Esto se establece de forma expresa en el Artículo 42 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 49,
+    "question": "Según el EUS, artículo 43, ¿cuál es la duración del mandato de los Directores de Departamento?",
+    "options": [
+      "Cuatro años renovables por un periodo de igual duración si el Consejo lo aprueba.",
+      "Tendrá una duración de seis años improrrogables y no renovables.",
+      "Seis años con posibilidad de reelección por una sola vez tras el primero.",
+      "Indefinida mientras mantenga la condición de profesor de cuerpos docentes."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Tendrá una duración de seis años improrrogables y no renovables.\". Esto se establece de forma expresa en el Artículo 43 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 50,
+    "question": "Según el EUS, artículo 44, ¿qué debe incluir el orden del día del Consejo de Departamento fijado por el Director?",
+    "options": [
+      "Los temas de carácter investigador que cuenten con el visto bueno previo del área.",
+      "Deberá incluir los puntos propuestos por, al menos, un diez por ciento de sus miembros.",
+      "Únicamente los asuntos de organización docente aprobados por la mayoría absoluta.",
+      "Las propuestas de gasto que superen el límite anual fijado por la Gerencia central."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Deberá incluir los puntos propuestos por, al menos, un diez por ciento de sus miembros.\". Esto se establece de forma expresa en el Artículo 44 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 51,
+    "question": "Según el EUS, artículo 90, ¿cuál es un deber de los miembros de la comunidad universitaria sobre el patrimonio?",
+    "options": [
+      "Registrar todas las donaciones recibidas por parte de entidades privadas externas.",
+      "Contribuir económicamente a la restauración de los edificios históricos del campus.",
+      "Conservar el patrimonio y hacer un uso adecuado de los bienes, instalaciones y espacios de la Universidad de Sevilla.",
+      "Denunciar ante la Inspección de Servicios cualquier desperfecto en el mobiliario."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Conservar el patrimonio y hacer un uso adecuado de los bienes, instalaciones y espacios de la Universidad de Sevilla.\". Esto se establece de forma expresa en el Artículo 90 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 52,
+    "question": "Según el EUS, artículo 15, ¿en qué condición asisten los titulares de la presidencia de los órganos unitarios de representación del personal?",
+    "options": [
+      "Como miembros natos con pleno derecho de voz y voto en las sesiones del Claustro.",
+      "Podrán asistir a las sesiones del Claustro con voz, pero sin voto.",
+      "Únicamente mediante invitación expresa de la Mesa del Claustro por temas de interés.",
+      "Como observadores externos sin posibilidad de intervenir en los debates de la cámara."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Podrán asistir a las sesiones del Claustro con voz, pero sin voto.\". Esto se establece de forma expresa en el Artículo 15 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 53,
+    "question": "Según el EUS, artículo 16, ¿quiénes eligen a los miembros de la Comisión de Reclamaciones?",
+    "options": [
+      "El Consejo de Gobierno mediante votación secreta de una terna del Rector.",
+      "El Claustro Universitario a propuesta de los Decanos y Directores de Escuela.",
+      "Elegir a propuesta del Rector o Rectora y revocar, en su caso, a los miembros de la Comisión de Reclamaciones.",
+      "La Junta Electoral General entre los catedráticos con mayor antigüedad docente."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Elegir a propuesta del Rector o Rectora y revocar, en su caso, a los miembros de la Comisión de Reclamaciones.\". Esto se establece de forma expresa en el Artículo 16 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 54,
+    "question": "Según el EUS, artículo 17, ¿cuántos miembros del personal docente e investigador no permanente forman parte del Consejo de Gobierno?",
+    "options": [
+      "Cinco representantes elegidos por el sector B de la asamblea claustral.",
+      "Tres miembros del personal docente e investigador no permanente y personal investigador no permanente.",
+      "Dos miembros por cada una de las facultades que integren el campus principal.",
+      "Seis representantes distribuidos proporcionalmente entre ayudantes y asociados."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Tres miembros del personal docente e investigador no permanente y personal investigador no permanente.\". Esto se establece de forma expresa en el Artículo 17 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 55,
+    "question": "Según el EUS, artículo 18, ¿qué normativa debe aprobar el Consejo de Gobierno para la Inspección?",
+    "options": [
+      "El reglamento sancionador aplicable exclusivamente al personal técnico funcionario.",
+      "Los criterios de evaluación de la productividad del personal docente doctor del área.",
+      "Aprobar la Normativa de funcionamiento de la Inspección de Servicios.",
+      "La norma de selección de los inspectores externos procedentes de otras instituciones."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Aprobar la Normativa de funcionamiento de la Inspección de Servicios.\". Esto se establece de forma expresa en el Artículo 18 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 56,
+    "question": "Según el EUS, artículo 19, ¿quién elige al representante del profesorado en el Consejo Social?",
+    "options": [
+      "Las secciones sindicales con mayor implantación en el censo de la Universidad.",
+      "Elegidos por el Consejo de Gobierno.",
+      "Los miembros del sector A del Claustro mediante votación directa y secreta.",
+      "El Rectorado de entre los catedráticos que posean al menos tres sexenios activos."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Elegidos por el Consejo de Gobierno.\". Esto se establece de forma expresa en el Artículo 19 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 57,
+    "question": "Según el EUS, artículo 20, ¿a quién corresponde aprobar la asignación de complementos ligados a méritos individuales?",
+    "options": [
+      "Al Consejo de Gobierno tras informe favorable de la Inspección de Servicios.",
+      "Al Claustro Universitario mediante acuerdo de la mayoría absoluta de presentes.",
+      "Corresponde al Consejo Social: ... Aprobar la asignación de complementos retributivos ligados a méritos individuales.",
+      "Al Rectorado en el ejercicio de su potestad de gestión de recursos humanos."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Corresponde al Consejo Social: ... Aprobar la asignación de complementos retributivos ligados a méritos individuales.\". Esto se establece de forma expresa en el Artículo 20 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 58,
+    "question": "Según el EUS, artículo 21, ¿qué debe asignar y dotar la Universidad al CADUS?",
+    "options": [
+      "Personal funcionario de la escala técnica para su gestión administrativa central.",
+      "Asignará espacios y dotará de recursos materiales y presupuestarios al CADUS.",
+      "Un presupuesto fijo equivalente al uno por ciento de las tasas académicas anuales.",
+      "Vehículos oficiales para el desempeño de las funciones de representación externa."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Asignará espacios y dotará de recursos materiales y presupuestarios al CADUS.\". Esto se establece de forma expresa en el Artículo 21 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 59,
+    "question": "Según el EUS, artículo 31, ¿con qué frecuencia se renuevan los miembros electivos (no estudiantes) de la Junta de Centro?",
+    "options": [
+      "Cada tres años de acuerdo con el calendario electoral fijado por la Junta de Centro.",
+      "Los miembros electivos se renovarán cada seis años salvo en el caso del estudiantado.",
+      "Bianual, coincidiendo con la renovación de los representantes en el Claustro.",
+      "Indefinida mientras mantengan su vinculación administrativa con la estructura sede."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Los miembros electivos se renovarán cada seis años salvo en el caso del estudiantado.\". Esto se establece de forma expresa en el Artículo 31 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 60,
+    "question": "Según el EUS, artículo 32, ¿qué comisiones se constituirán obligatoriamente en los centros de la Universidad?",
+    "options": [
+      "Una Comisión de Asuntos Económicos y una Comisión de Relaciones Institucionales.",
+      "Se constituirán en los centros una Comisión Académica, una Comisión de Infraestructura y una Comisión de Calidad.",
+      "Una Comisión de Igualdad y una Comisión de Prevención de Riesgos del Centro.",
+      "Una Comisión de Selección de Profesorado y una Comisión de Atención al Alumno."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Se constituirán en los centros una Comisión Académica, una Comisión de Infraestructura y una Comisión de Calidad.\". Esto se establece de forma expresa en el Artículo 32 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 61,
+    "question": "Según el EUS, artículo 34, ¿quién coordina las actividades de los servicios del centro?",
+    "options": [
+      "El Secretario de la Facultad por delegación expresa de la Gerencia de la Universidad.",
+      "Son competencias de los Decanos o Decanas de Facultad y Directores o Directoras de Escuela... Coordinar las actividades de los servicios del centro.",
+      "El Director del Departamento que cuente con mayor número de PTGAS adscrito.",
+      "La Comisión de Infraestructura de la Junta de Centro mediante acuerdo ordinario."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Son competencias de los Decanos o Decanas de Facultad y Directores o Directoras de Escuela... Coordinar las actividades de los servicios del centro.\". Esto se establece de forma expresa en el Artículo 34 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 62,
+    "question": "Según el EUS, artículo 35, ¿quién nombra a los Vicedecanos o Vicedecanas de Facultad?",
+    "options": [
+      "El Decano mediante resolución interna que será notificada al Claustro Universitario.",
+      "Nombrados por el Rector o Rectora.",
+      "La Junta de Centro a propuesta del Equipo de Gobierno saliente tras votación.",
+      "El Consejo de Gobierno previa verificación de sus méritos de gestión académica."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Nombrados por el Rector o Rectora.\". Esto se establece de forma expresa en el Artículo 35 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 63,
+    "question": "Según el EUS, artículo 41, ¿qué porcentaje de miembros del Consejo de Departamento debe ser profesorado permanente?",
+    "options": [
+      "Un cincuenta por ciento para asegurar el equilibrio con el resto de sectores del área.",
+      "Supondrá al menos el cincuenta y uno por ciento de los miembros del Consejo de Departamento.",
+      "El sesenta por ciento para garantizar la estabilidad de las líneas de investigación.",
+      "Dos tercios de la totalidad de los miembros con derecho a voz y voto en el órgano."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Supondrá al menos el cincuenta y uno por ciento de los miembros del Consejo de Departamento.\". Esto se establece de forma expresa en el Artículo 41 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 64,
+    "question": "Según el EUS, artículo 42, ¿qué uso compete regular al Consejo de Departamento?",
+    "options": [
+      "El acceso de personas ajenas a la Institución a las aulas de teoría de la facultad.",
+      "Regular el uso de las instalaciones, equipos y medios materiales adscritos al departamento.",
+      "La distribución de los despachos de los profesores según su antigüedad y cuerpo.",
+      "El uso de las cuentas de correo corporativas asignadas al personal docente del área."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Regular el uso de las instalaciones, equipos y medios materiales adscritos al departamento.\". Esto se establece de forma expresa en el Artículo 42 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 65,
+    "question": "Según el EUS, artículo 90, ¿qué deben potenciar los miembros de la comunidad universitaria?",
+    "options": [
+      "La internacionalización de sus investigaciones mediante publicaciones en inglés.",
+      "Potenciar el prestigio de la Universidad de Sevilla y su vinculación a la sociedad.",
+      "La creación de empresas tecnológicas que reviertan beneficios directos al área.",
+      "La participación en procesos electorales de carácter externo y representación social."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Potenciar el prestigio de la Universidad de Sevilla y su vinculación a la sociedad.\". Esto se establece de forma expresa en el Artículo 90 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 66,
+    "question": "Según el EUS, artículo 15, ¿cuándo se convocan elecciones parciales en el Claustro Universitario?",
+    "options": [
+      "Al finalizar cada año natural para asegurar que todos los sectores estén completos.",
+      "Siempre que el número de vacantes en un sector supere el treinta por ciento total.",
+      "Durante el primer cuatrimestre del curso académico se convocarán elecciones parciales para cubrir las vacantes.",
+      "Al inicio del segundo cuatrimestre por resolución de la Junta Electoral General."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Durante el primer cuatrimestre del curso académico se convocarán elecciones parciales para cubrir las vacantes.\". Esto se establece de forma expresa en el Artículo 15 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 67,
+    "question": "Según el EUS, artículo 16, ¿a quién corresponde debatir y valorar el informe anual de gobierno?",
+    "options": [
+      "Al Consejo de Gobierno tras su presentación en la apertura oficial del curso lectivo.",
+      "Corresponden al Claustro Universitario las siguientes competencias: ... Debatir y valorar el informe anual de gobierno.",
+      "Al Consejo Social en su función de supervisión de la actividad estratégica hispalense.",
+      "A la Comisión Permanente del Claustro previa remisión a todos los sectores elegidos."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Corresponden al Claustro Universitario las siguientes competencias: ... Debatir y valorar el informe anual de gobierno.\". Esto se establece de forma expresa en el Artículo 16 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 68,
+    "question": "Según el EUS, artículo 17, ¿por qué periodo es elegido el Rector o la Rectora (artículo referenciado en composición)?",
+    "options": [
+      "Un periodo de cuatro años renovable por un único mandato de igual duración legal.",
+      "Seis años con posibilidad de reelección por una sola vez tras finalizar el primero.",
+      "Indefinida mientras cuente con la confianza mayoritaria del Claustro Universitario.",
+      "La duración del mandato del Rector o Rectora será de seis años improrrogables y no renovables."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"La duración del mandato del Rector o Rectora será de seis años improrrogables y no renovables.\". Esto se establece de forma expresa en el Artículo 17 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 69,
+    "question": "Según el EUS, artículo 18, ¿qué planes de igualdad debe impulsar el Consejo de Gobierno?",
+    "options": [
+      "Definir e impulsar, en coordinación con la Unidad de Igualdad, un plan de igualdad de género del conjunto de la comunidad universitaria.",
+      "El programa de becas destinadas exclusivamente a mujeres en áreas tecnológicas.",
+      "Los criterios de evaluación docente que incluyan indicadores de impacto de género.",
+      "El plan de igualdad negociado únicamente con la representación sindical del PTGAS."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Definir e impulsar, en coordinación con la Unidad de Igualdad, un plan de igualdad de género del conjunto de la comunidad universitaria.\". Esto se establece de forma expresa en el Artículo 18 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 70,
+    "question": "Según el EUS, artículo 19, ¿qué tres figuras unipersonales son miembros natos del Consejo de Gobierno?",
+    "options": [
+      "El Rector, el Presidente del Consejo Social y el titular de la Defensoría Universitaria.",
+      "El Rector o la Rectora, el Secretario o la Secretaria General y el o la Gerente.",
+      "El Rector, el Vicerrector de Académica y el Director de la Inspección de Servicios.",
+      "El Rector, el Delegado del CADUS y el Secretario del Consejo Social universitario."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"El Rector o la Rectora, el Secretario o la Secretaria General y el o la Gerente.\". Esto se establece de forma expresa en el Artículo 19 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 71,
+    "question": "Según el EUS, artículo 21, ¿a quién debe comunicar el CADUS la renovación de sus órganos?",
+    "options": [
+      "Al Claustro Universitario en la primera sesión ordinaria que se celebre tras el acto.",
+      "Al Boletín Oficial de la Universidad de Sevilla para su general conocimiento y efectos.",
+      "Al Consejo Social para que proceda a la actualización de su representación propia.",
+      "Comunicará la renovación de su Delegación y de las Delegaciones de Estudiantes a los órganos unipersonales de gobierno de la Universidad y de los centros."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Comunicará la renovación de su Delegación y de las Delegaciones de Estudiantes a los órganos unipersonales de gobierno de la Universidad y de los centros.\". Esto se establece de forma expresa en el Artículo 21 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 72,
+    "question": "Según el EUS, artículo 25, ¿qué méritos de gestión debe acreditar un candidato a Rector?",
+    "options": [
+      "Haber sido Decano o Director de Escuela durante al menos dos años consecutivos.",
+      "Acreditar el ejercicio de cargos académicos durante un periodo mínimo de cinco años.",
+      "Cuatro años de experiencia de gestión universitaria en algún cargo unipersonal.",
+      "Haber formado parte del Consejo de Gobierno durante dos mandatos completos."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Cuatro años de experiencia de gestión universitaria en algún cargo unipersonal.\". Esto se establece de forma expresa en el Artículo 25 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 73,
+    "question": "Según el EUS, artículo 26, ¿cuál es el porcentaje de miembros necesario para proponer un punto en el orden del día del Claustro?",
+    "options": [
+      "El cinco por ciento de los claustrales pertenecientes al sector docente permanente.",
+      "Incluir los puntos propuestos por, al menos, el diez por ciento de los miembros del órgano o la totalidad de miembros de un sector.",
+      "Un tercio de la cámara computado sobre los miembros que asistan a la sesión fija.",
+      "La mayoría simple del sector estudiantil representado a través de la Mesa claustral."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Incluir los puntos propuestos por, al menos, el diez por ciento de los miembros del órgano o la totalidad de miembros de un sector.\". Esto se establece de forma expresa en el Artículo 26 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 74,
+    "question": "Según el EUS, artículo 27, ¿cuál es el número máximo de Vicerrectores sin aprobación cualificada del Claustro?",
+    "options": [
+      "No podrá superar diez cargos para garantizar la agilidad en la toma de decisiones.",
+      "Doce órganos unipersonales con competencias delegadas por el Rectorado central.",
+      "El número máximo de Vicerrectorados o asimilados a estos, no podrá superar quince.",
+      "Ocho estructuras de gestión superior que integren el Equipo de Gobierno titular."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El número máximo de Vicerrectorados o asimilados a estos, no podrá superar quince.\". Esto se establece de forma expresa en el Artículo 27 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 75,
+    "question": "Según el EUS, artículo 28, ¿entre quiénes se nombra al Secretario o Secretaria General?",
+    "options": [
+      "Entre el personal PDI funcionario doctor o el PTGAS funcionario con titulación universitaria.",
+      "Únicamente entre el profesorado doctor con dedicación exclusiva y cinco años de labor.",
+      "De entre los funcionarios de carrera pertenecientes a la escala técnica de gestión única.",
+      "De entre cualquier miembro de la comunidad universitaria que posea la condición doctora."
+    ],
+    "correctAnswer": 0,
+    "explanation": "La respuesta correcta es la opción A: \"Entre el personal PDI funcionario doctor o el PTGAS funcionario con titulación universitaria.\". Esto se establece de forma expresa en el Artículo 28 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 76,
+    "question": "Según el EUS, artículo 31, ¿cuál es el número máximo de miembros de la Junta de Facultad?",
+    "options": [
+      "Estará constituida por un máximo de cincuenta representantes de los diversos sectores.",
+      "Ochenta miembros incluidos los natos y los elegidos por sufragio directo en el área.",
+      "Setenta y cinco miembros para asegurar la operatividad en la toma de decisiones fijas.",
+      "Estará constituida por un máximo de cien miembros en representación de los distintos sectores."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Estará constituida por un máximo de cien miembros en representación de los distintos sectores.\". Esto se establece de forma expresa en el Artículo 31 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 77,
+    "question": "Según el EUS, artículo 32, ¿qué plan de organización debe aprobar la Junta de Centro anualmente?",
+    "options": [
+      "El plan de inversiones en infraestructuras y mantenimiento preventivo de la facultad.",
+      "El calendario de actividades culturales y de extensión académica para el curso lectivo.",
+      "Aprobar anualmente, antes del comienzo del curso académico, el plan de organización docente de los títulos oficiales adscritos al centro.",
+      "La memoria de actividades de investigación de los departamentos con sede en el centro."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Aprobar anualmente, antes del comienzo del curso académico, el plan de organización docente de los títulos oficiales adscritos al centro.\". Esto se establece de forma expresa en el Artículo 32 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 78,
+    "question": "Según el EUS, artículo 33, ¿cuál es la duración del mandato de un Decano de Facultad?",
+    "options": [
+      "Cuatro años de acuerdo con el ciclo de planificación estratégica de la Universidad.",
+      "Seis años renovables por un único periodo de igual duración administrativa si procede.",
+      "Indefinida mientras cuente con el apoyo de la mayoría absoluta de la Junta de Centro.",
+      "Será de seis años improrrogables y no renovables."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Será de seis años improrrogables y no renovables.\". Esto se establece de forma expresa en el Artículo 33 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 79,
+    "question": "Según el EUS, artículo 34, ¿qué puede proponer el Decano respecto a la disciplina?",
+    "options": [
+      "La imposición inmediata de multas coercitivas a los estudiantes que dañen la sede.",
+      "La expulsión temporal de los miembros del Claustro pertenecientes a su facultad.",
+      "El archivo de los expedientes sancionadores instruidos por la Inspección de Servicios.",
+      "Proponer la iniciación del procedimiento disciplinario respecto de cualquier miembro de la comunidad universitaria perteneciente al centro."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Proponer la iniciación del procedimiento disciplinario respecto de cualquier miembro de la comunidad universitaria perteneciente al centro.\". Esto se establece de forma expresa en el Artículo 34 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 80,
+    "question": "Según el EUS, artículo 37, ¿cuál es el objeto de la Escuela Internacional de Doctorado?",
+    "options": [
+      "La gestión administrativa de las matrículas y títulos de todos los alumnos de grado.",
+      "El fomento de la investigación en áreas de salud y biotecnología aplicada del centro.",
+      "La expedición de los títulos de Doctor Honoris Causa aprobados por el Rectorado.",
+      "Organización y coordinación de las enseñanzas y las actividades propias de los estudios contemplados en los programas de doctorado."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Organización y coordinación de las enseñanzas y las actividades propias de los estudios contemplados en los programas de doctorado.\". Esto se establece de forma expresa en el Artículo 37 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 81,
+    "question": "Según el EUS, artículo 40, ¿a cuántos departamentos debe estar adscrito el personal investigador?",
+    "options": [
+      "A dos departamentos si imparte docencia en áreas de carácter interdisciplinar fijo.",
+      "A tantos departamentos como centros tengan su sede en el campus donde trabaje.",
+      "No existe límite siempre que cuente con la autorización del Vicerrector de PDI.",
+      "El personal docente e investigador y el personal investigador estará adscrito a un único departamento."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"El personal docente e investigador y el personal investigador estará adscrito a un único departamento.\". Esto se establece de forma expresa en el Artículo 40 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 82,
+    "question": "Según el EUS, artículo 41, ¿qué condición tienen los profesores del departamento (no del Consejo) al asistir?",
+    "options": [
+      "Tienen derecho de palabra únicamente en los puntos relativos a organización docente.",
+      "No tienen permitida la entrada para garantizar la reserva de los debates del área.",
+      "Pueden asistir como observadores previa solicitud escrita y motivada a la dirección.",
+      "Podrá asistir con voz y sin voto a las sesiones del órgano."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Podrá asistir con voz y sin voto a las sesiones del órgano.\". Esto se establece de forma expresa en el Artículo 41 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 83,
+    "question": "Según el EUS, artículo 42, ¿qué competencia académica tiene el Consejo de Departamento sobre el profesorado?",
+    "options": [
+      "Redactar los informes de idoneidad para la contratación de profesorado asociado fijo.",
+      "Sancionar al personal que incumpla sus obligaciones de tutoría de forma reiterada.",
+      "Fiscalizar los proyectos de investigación financiados íntegramente con fondos de la UE.",
+      "Elaborar el plan de asignación de su profesorado a los planes de organización docente."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Elaborar el plan de asignación de su profesorado a los planes de organización docente.\". Esto se establece de forma expresa en el Artículo 42 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 84,
+    "question": "Según el EUS, artículo 44, ¿cuál es la primera competencia enumerada del Director de Departamento?",
+    "options": [
+      "Autorizar las licencias y permisos del personal docente e investigador adscrito al área.",
+      "Presidir los tribunales de tesis doctorales que se celebren en el propio departamento.",
+      "Informar anualmente al Claustro sobre la actividad investigadora de sus grupos base.",
+      "Representar al departamento y ejercer su dirección y gestión ordinaria."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Representar al departamento y ejercer su dirección y gestión ordinaria.\". Esto se establece de forma expresa en el Artículo 44 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 85,
+    "question": "Según el EUS, artículo 45, ¿quién propone al Secretario del Departamento?",
+    "options": [
+      "El Consejo de Departamento mediante votación secreta de entre sus miembros permanentes.",
+      "El Director de forma unilateral tras informe de la secretaría administrativa de sede.",
+      "El Decano de la Facultad donde el departamento tenga su base de gestión de recursos.",
+      "Será nombrado o nombrada por el Rector o Rectora, a propuesta de la Dirección del Departamento."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Será nombrado o nombrada por el Rector o Rectora, a propuesta de la Dirección del Departamento.\". Esto se establece de forma expresa en el Artículo 45 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 86,
+    "question": "Según el EUS, artículo 90, ¿cuál es la finalidad de contribuir a una cultura inclusiva?",
+    "options": [
+      "Fomentar el mecenazgo privado en el ámbito de la innovación tecnológica del centro.",
+      "Asegurar el cumplimiento de los objetivos económicos fijados en el presupuesto anual.",
+      "Potenciar el prestigio de la Institución en los rankings internacionales de excelencia.",
+      "Contribuir a la consecución de una cultura igualitaria y equitativa, respetuosa con la conservación de la naturaleza, inclusiva y solidaria."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Contribuir a la consecución de una cultura igualitaria y equitativa, respetuosa con la conservación de la naturaleza, inclusiva y solidaria.\". Esto se establece de forma expresa en el Artículo 90 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 87,
+    "question": "Según el EUS, artículo 15, ¿quién asiste a la Presidencia del Claustro Universitario?",
+    "options": [
+      "El Consejo de Gobierno actuando como órgano de asesoramiento técnico y académico.",
+      "Una Secretaría General Técnica delegada para la redacción de actas de la asamblea.",
+      "La Presidencia estará asistida por una Mesa.",
+      "Una Comisión Permanente integrada exclusivamente por los Decanos de las facultades."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"La Presidencia estará asistida por una Mesa.\". Esto se establece de forma expresa en el Artículo 15 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 88,
+    "question": "Según el EUS, artículo 16, ¿quién tiene competencia para aprobar la reforma de los Estatutos?",
+    "options": [
+      "El Consejo Social tras informe preceptivo de la Consejería de Universidades de la Junta.",
+      "El Claustro Universitario.",
+      "El Rectorado mediante decreto sancionador de los acuerdos de la mayoría absoluta.",
+      "La Mesa del Claustro tras el control de legalidad de la Comisión de Proyectos Normativos."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"El Claustro Universitario.\". Esto se establece de forma expresa en el Artículo 16 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 89,
+    "question": "Según el EUS, artículo 17, ¿cuántos miembros componen el Consejo de Gobierno además de los cargos natos?",
+    "options": [
+      "Trescientos miembros distribuidos proporcionalmente por los sectores de la comunidad.",
+      "Cuarenta y cinco representantes elegidos por sufragio universal ponderado de los centros.",
+      "Cincuenta y tres miembros.",
+      "Treinta miembros nombrados libremente por el Rector de la Universidad de Sevilla."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Cincuenta y tres miembros.\". Esto se establece de forma expresa en el Artículo 17 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 90,
+    "question": "Según el EUS, artículo 18, ¿qué propuesta de plazas debe aprobar el Consejo de Gobierno?",
+    "options": [
+      "El listado de plazas de profesorado emérito para su ratificación por el Claustro central.",
+      "La oferta de plazas para las oposiciones de personal funcionario de la escala técnica.",
+      "El catálogo de plazas de movilidad internacional financiadas con cargo a fondos propios.",
+      "Aprobar la propuesta de plazas para estudiantes de nuevo ingreso."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Aprobar la propuesta de plazas para estudiantes de nuevo ingreso.\". Esto se establece de forma expresa en el Artículo 18 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 91,
+    "question": "Según el EUS, artículo 20, ¿qué tipo de actividades económicas supervisa el Consejo Social?",
+    "options": [
+      "Las liquidaciones presupuestarias trimestrales emitidas por la Gerencia y la Intervención.",
+      "Los balances de situación y pérdidas de las empresas adjudicatarias de servicios locales.",
+      "La supervisión de las actividades de carácter económico de la Universidad.",
+      "Únicamente las inversiones en infraestructuras superiores al millón de euros anuales."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"La supervisión de las actividades de carácter económico de la Universidad.\". Esto se establece de forma expresa en el Artículo 20 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 92,
+    "question": "Según el EUS, artículo 21, ¿qué coordinación compete al CADUS respecto a las asambleas?",
+    "options": [
+      "Redactar los reglamentos de convivencia de cada una de las facultades y las escuelas.",
+      "Coordinar y ejecutar las iniciativas emanadas de las asambleas de los centros y de la Universidad.",
+      "Financiar los gastos de desplazamiento de los delegados a foros nacionales e internos.",
+      "Autorizar la suspensión de las actividades docentes para huelgas estudiantiles fijas."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Coordinar y ejecutar las iniciativas emanadas de las asambleas de los centros y de la Universidad.\". Esto se establece de forma expresa en el Artículo 21 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 93,
+    "question": "Según el EUS, artículo 25, ¿cuál es el porcentaje de ponderación del voto del PTGAS en las elecciones a Rector?",
+    "options": [
+      "El siete por ciento del voto válidamente emitido en la jornada electoral del centro.",
+      "El quince por ciento computado sobre los votos emitidos por los funcionarios activos.",
+      "El cinco por ciento para asegurar el equilibrio con el sector de profesores asociados.",
+      "El diez por ciento."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"El diez por ciento.\". Esto se establece de forma expresa en el Artículo 25 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 94,
+    "question": "Según el EUS, artículo 31, ¿qué porcentaje de representación tiene el profesorado permanente en la Junta de Centro?",
+    "options": [
+      "Un cincuenta por ciento calculado sobre el número total de miembros electivos de sede.",
+      "Un cincuenta y dos por ciento.",
+      "Un sesenta por ciento para garantizar la estabilidad de las líneas académicas de facultad.",
+      "Un cuarenta y ocho por ciento, debiendo completarse con el personal técnico de gestión."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Un cincuenta y dos por ciento.\". Esto se establece de forma expresa en el Artículo 31 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 95,
+    "question": "Según el EUS, artículo 33, ¿qué sucede en caso de dimisión del Decano de Facultad?",
+    "options": [
+      "El Vicedecano asumirá el cargo automáticamente hasta el final del mandato ordinario.",
+      "La Junta de Centro elegirá a un sustituto en un plazo máximo de quince días hábiles.",
+      "El Rectorado nombrará un Decano o Decana de Facultad o Director o Directora de Escuela en funciones.",
+      "Se convocarán elecciones parciales limitadas exclusivamente al sector de profesorado."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"El Rectorado nombrará un Decano o Decana de Facultad o Director o Directora de Escuela en funciones.\". Esto se establece de forma expresa en el Artículo 33 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 96,
+    "question": "Según el EUS, artículo 40, ¿quiénes son miembros de un departamento respecto al personal técnico?",
+    "options": [
+      "Todo el personal funcionario que preste servicios en el edificio donde se ubique el área.",
+      "El personal técnico, de gestión y de administración y servicios adscrito al departamento.",
+      "Únicamente los técnicos de laboratorio que posean la categoría de funcionario superior.",
+      "Los auxiliares administrativos que colaboren en la gestión de las tutorías del centro."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"El personal técnico, de gestión y de administración y servicios adscrito al departamento.\". Esto se establece de forma expresa en el Artículo 40 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 97,
+    "question": "Según el EUS, artículo 41, ¿qué porcentaje máximo de miembros del Consejo de Departamento corresponde al personal investigador no permanente?",
+    "options": [
+      "Un diez por ciento calculado sobre la suma total de los miembros natos de la asamblea.",
+      "Un quince por ciento para fomentar la participación de los contratados predoctorales.",
+      "Número igual como máximo al catorce por ciento del número total de miembros del Consejo.",
+      "El cinco por ciento de acuerdo con el número de plazas ocupadas en el censo actual."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La respuesta correcta es la opción C: \"Número igual como máximo al catorce por ciento del número total de miembros del Consejo.\". Esto se establece de forma expresa en el Artículo 41 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 98,
+    "question": "Según el EUS, artículo 43, ¿qué mayoría se requiere en primera votación para elegir al Director de Departamento?",
+    "options": [
+      "Mayoría simple de los miembros presentes en la sesión del Consejo de Departamento.",
+      "Dicha elección requerirá mayoría absoluta en primera votación.",
+      "Dos tercios de los votos favorables del profesorado con vinculación permanente al área.",
+      "Un tercio de los votos emitidos siempre que superen la mitad de los catedráticos censados."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Dicha elección requerirá mayoría absoluta en primera votación.\". Esto se establece de forma expresa en el Artículo 43 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 99,
+    "question": "Según el EUS, artículo 44, ¿qué competencia de coordinación tiene el Director de Departamento?",
+    "options": [
+      "Las sesiones de evaluación de los títulos de máster oficial adscritos al centro sede.",
+      "Coordinar las actividades docentes, investigadoras y de gestión, administración y servicios.",
+      "Las actividades de representación de la Universidad en el extranjero delegadas por Rector.",
+      "Las tutorías externas de los estudiantes que realizan sus prácticas en entidades privadas."
+    ],
+    "correctAnswer": 1,
+    "explanation": "La respuesta correcta es la opción B: \"Coordinar las actividades docentes, investigadoras y de gestión, administración y servicios.\". Esto se establece de forma expresa en el Artículo 44 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  },
+  {
+    "id": 100,
+    "question": "Según el EUS, artículo 90, ¿qué derecho tienen los miembros de la comunidad sobre el trato?",
+    "options": [
+      "A ser exonerados de responsabilidades disciplinarias en el ejercicio de su función.",
+      "A obtener una indemnización económica por trato inadecuado de las autoridades locales.",
+      "A decidir quién debe ser el funcionario técnico encargado de sus expedientes de grado.",
+      "Recibir un trato respetuoso, no sexista y no discriminatorio."
+    ],
+    "correctAnswer": 3,
+    "explanation": "La respuesta correcta es la opción D: \"Recibir un trato respetuoso, no sexista y no discriminatorio.\". Esto se establece de forma expresa en el Artículo 90 de los Estatutos de la Universidad de Sevilla (Decreto 98/2025)."
+  }
+]

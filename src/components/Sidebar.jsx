@@ -7,7 +7,8 @@ import {
   BarChart3,
   Library,
   LogOut,
-  Shield
+  Shield,
+  ClipboardList
 } from 'lucide-react';
 
 export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout }) {
@@ -15,6 +16,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
     { id: 'dashboard', name: 'Dashboard', icon: LayoutDashboard },
     { id: 'topics', name: 'Temario', icon: BookOpen },
     { id: 'quizzes', name: 'Tests', icon: GraduationCap },
+    { id: 'formadores', name: 'Test formadores', icon: ClipboardList },
     { id: 'flashcards', name: 'Flashcards', icon: Layers },
     { id: 'stats', name: 'Progreso', icon: BarChart3 }
   ];

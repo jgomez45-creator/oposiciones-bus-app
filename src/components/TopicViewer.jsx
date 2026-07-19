@@ -100,14 +100,14 @@ export default function TopicViewer({
               if (topicQuestions.length > 0) {
                 const qListHtml = topicQuestions.map((q, idx) => {
                   const optionsList = q.options.map((opt, oIdx) => `
-                    <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 9pt;">
-                      <div style="width: 12px; height: 12px; border: 1px solid black; border-radius: 2px; margin-top: 3px; flex-shrink: 0;"></div>
+                    <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 13pt; line-height: 1.4;">
+                      <div class="option-checkbox-box" style="width: 14px; height: 14px; border: 1px solid black; border-radius: 2px; margin-top: 3px; flex-shrink: 0; display: inline-block; box-sizing: border-box;">&#8203;</div>
                       <span><strong>${['A', 'B', 'C', 'D'][oIdx]})</strong> ${opt}</span>
                     </div>
                   `).join('');
                   return `
-                    <div style="margin-bottom: 18px; page-break-inside: avoid;">
-                      <div style="font-weight: 600; margin-bottom: 6px; font-size: 10pt;">${idx + 1}. ${q.question}</div>
+                    <div style="margin-bottom: 18px; page-break-inside: avoid; break-inside: avoid;">
+                      <div style="font-weight: bold; margin-bottom: 8px; font-size: 13pt; line-height: 1.4;">${idx + 1}. ${q.question}</div>
                       <div style="padding-left: 10px;">${optionsList}</div>
                     </div>
                   `;
@@ -116,9 +116,9 @@ export default function TopicViewer({
                 const aListHtml = topicQuestions.map((q, idx) => {
                   const correctLetter = ['A', 'B', 'C', 'D'][q.correctAnswer];
                   return `
-                    <div style="margin-bottom: 12px; page-break-inside: avoid; font-size: 9.5pt;">
-                      <div style="font-weight: 700;">Pregunta ${idx + 1}: Respuesta Correcta <span style="text-decoration: underline; font-size: 10pt;">${correctLetter}</span></div>
-                      <div style="font-size: 8.5pt; color: #444; margin-top: 3px; padding-left: 10px; border-left: 2px solid #aaa;">
+                    <div style="margin-bottom: 16px; page-break-inside: avoid; break-inside: avoid; font-size: 13pt; line-height: 1.4;">
+                      <div style="font-weight: bold;">Pregunta ${idx + 1}: Respuesta Correcta <span style="text-decoration: underline; font-size: 13pt;">${correctLetter}</span></div>
+                      <div style="font-size: 13pt; color: #333333; margin-top: 4px; padding-left: 10px; border-left: 2px solid #004B93; line-height: 1.4;">
                         <strong>Explicación:</strong> ${q.explanation}
                       </div>
                     </div>
@@ -128,10 +128,10 @@ export default function TopicViewer({
                 questionsHtml = `
                   <div class="print-page-break"></div>
                   <div class="printable-exam-sheet" style="padding-top: 20px;">
-                    <div style="border-bottom: 2px solid black; padding-bottom: 8px; margin-bottom: 16px; text-align: left;">
-                      <span style="font-size: 9pt; font-weight: bold; color: #555; text-transform: uppercase;">Autoevaluación de Control</span>
-                      <h2 style="margin: 4px 0 0 0; font-size: 15pt; font-weight: 700; color: black;">Cuestionario Escrito: Tema ${id}</h2>
-                      <p style="margin: 2px 0 0 0; font-size: 9pt; color: #666;">Responde a las siguientes ${topicQuestions.length} preguntas de opción múltiple.</p>
+                    <div style="border-bottom: 3px solid #000000; padding-bottom: 8px; margin-bottom: 16px; text-align: left;">
+                      <span style="font-size: 12pt; font-weight: normal; color: #555555; text-transform: uppercase;">Autoevaluación de Control</span>
+                      <h2 style="margin: 4px 0 0 0; font-size: 22pt; font-weight: bold; color: #000000;">Cuestionario Escrito: Tema ${id}</h2>
+                      <p style="margin: 2px 0 0 0; font-size: 13pt; color: #555555; line-height: 1.4;">Responde a las siguientes ${topicQuestions.length} preguntas de opción múltiple.</p>
                     </div>
                     <div style="margin-top: 15px;">
                       ${qListHtml}
@@ -142,10 +142,10 @@ export default function TopicViewer({
                 answersHtml = `
                   <div class="print-page-break"></div>
                   <div class="printable-answers-section" style="padding-top: 20px;">
-                    <div style="border-bottom: 2px solid black; padding-bottom: 8px; margin-bottom: 16px; text-align: left;">
-                      <span style="font-size: 9pt; font-weight: bold; color: #555; text-transform: uppercase;">Solucionario de Autoevaluación</span>
-                      <h2 style="margin: 4px 0 0 0; font-size: 15pt; font-weight: 700; color: black;">Respuestas y Explicaciones: Tema ${id}</h2>
-                      <p style="margin: 2px 0 0 0; font-size: 9pt; color: #666;">Hoja de corrección y fundamentos legislativos.</p>
+                    <div style="border-bottom: 3px solid #000000; padding-bottom: 8px; margin-bottom: 16px; text-align: left;">
+                      <span style="font-size: 12pt; font-weight: normal; color: #555555; text-transform: uppercase;">Solucionario de Autoevaluación</span>
+                      <h2 style="margin: 4px 0 0 0; font-size: 22pt; font-weight: bold; color: #000000;">Respuestas y Explicaciones: Tema ${id}</h2>
+                      <p style="margin: 2px 0 0 0; font-size: 13pt; color: #555555; line-height: 1.4;">Hoja de corrección y fundamentos legislativos.</p>
                     </div>
                     <div style="margin-top: 15px;">
                       ${aListHtml}
@@ -157,10 +157,10 @@ export default function TopicViewer({
 
             return `
               <section class="print-topic-block">
-                <div style="border-bottom: 2px solid black; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
-                  <span style="font-size: 10pt; text-transform: uppercase; font-weight: bold; color: #555;">Dossier de Apoyo Didáctico &bull; Tema ${id}</span>
-                  <h1 style="margin: 5px 0 0 0; color: black; font-size: 20pt; font-weight: 700;">${topicMeta.title}</h1>
-                  <p style="margin: 5px 0 0 0; color: #444; font-size: 11pt; font-style: italic;">${topicMeta.subtitle}</p>
+                <div class="print-topic-header">
+                  <span class="print-superheader">Dossier de Apoyo Didáctico &bull; Tema ${id}</span>
+                  <h1 class="print-topic-title">${topicMeta.title}</h1>
+                  <p class="print-topic-subtitle">${topicMeta.subtitle}</p>
                 </div>
                 <div class="markdown-rendered-content">
                   ${parsedHtml}
@@ -179,41 +179,41 @@ export default function TopicViewer({
         const indexItemsHtml = sortedIds.map(id => {
           const tMeta = topics.find(t => t.id === id);
           return `
-            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #ccc; padding: 6px 0; font-size: 10pt;">
-              <span style="font-weight: 600; color: #1e3a8a;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
-              <span style="color: #666; font-weight: bold;">Tema ${id}</span>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #b0c4de; padding: 6px 0; font-size: 13pt; line-height: 1.4;">
+              <span style="font-weight: bold; color: #004B93;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
+              <span style="color: #555555; font-weight: bold;">Tema ${id}</span>
             </div>
           `;
         }).join('');
 
         manualHeaderHtml = `
           <!-- Portada -->
-          <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 15mm 30px 15mm 30px; border: 4px double #1e3a8a; height: 235mm; text-align: center; font-family: 'Inter', sans-serif; margin: 0 auto; max-width: 600px;">
-            <div style="color: #1e3a8a; font-weight: 800; font-size: 13pt; letter-spacing: 3px; text-transform: uppercase;">Dossier de Preparación de Oposiciones</div>
-            <div style="width: 60px; height: 3px; background-color: #3b82f6; margin: 15px auto 25px auto;"></div>
-            <h1 style="font-size: 24pt; font-weight: 800; color: #000; line-height: 1.25; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
-            <h2 style="font-size: 15pt; font-weight: 700; color: #2563eb; margin: 0 0 25px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-            <div style="font-size: 9.5pt; color: #333; max-width: 500px; line-height: 1.5; margin: 0 auto 15px auto; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb; text-align: justify; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20mm 40px 20mm 40px; border: 4px double #004B93; height: 250mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 650px;">
+            <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase;">Dossier de Preparación de Oposiciones</div>
+            <div style="width: 80px; height: 3px; background-color: #004B93; margin: 20px auto 30px auto;"></div>
+            <h1 style="font-size: 32pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
+            <h2 style="font-size: 16pt; font-weight: bold; color: #004B93; margin: 0 0 30px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+            <div style="font-size: 15pt; color: #333333; max-width: 550px; line-height: 1.45; margin: 0 auto 20px auto; padding: 24px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
               <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
               <br/><br/>
               Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
               <br/><br/>
               Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
             </div>
-            <div style="font-size: 10pt; color: #555; font-weight: bold; display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+            <div style="font-size: 14pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
               <span>© 2026 Jgg. Todos los derechos reservados.</span>
             </div>
           </div>
           <div class="print-page-break"></div>
           
           <!-- Ficha de la Convocatoria Oficial -->
-          <div class="print-manual-convocatoria" style="padding: 20px 0; font-family: 'Inter', sans-serif;">
-            <div style="border-bottom: 2px solid black; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
-              <h1 style="margin: 0; color: black; font-size: 18pt; font-weight: 700; text-transform: uppercase;">Ficha Resumen de la Convocatoria</h1>
-              <p style="margin: 4px 0 0 0; color: #666; font-size: 10pt;">Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
+          <div class="print-manual-convocatoria" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
+            <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
+              <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Ficha Resumen de la Convocatoria</h1>
+              <p style="margin: 4px 0 0 0; color: #555555; font-size: 12pt;">Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
             </div>
             
-            <div style="display: flex; flex-direction: column; gap: 16px; font-size: 10pt; line-height: 1.6; color: #111; text-align: justify;">
+            <div style="display: flex; flex-direction: column; gap: 16px; font-size: 13pt; line-height: 1.4; color: #000000; text-align: justify;">
               <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
               <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
               <div><strong>Requisitos Académicos:</strong> Título de Graduado en Educación Secundaria Obligatoria (ESO), Graduado Escolar, Bachillerato Elemental, Formación Profesional de Primer Grado (FP1) o equivalente. De manera alternativa, se puede acreditar una experiencia laboral equivalente de al menos 6 meses en la misma categoría o área profesional.</div>
@@ -225,13 +225,13 @@ export default function TopicViewer({
           <div class="print-page-break"></div>
 
           <!-- Índice de Contenidos -->
-          <div class="print-manual-index" style="padding: 20px 0; font-family: 'Inter', sans-serif;">
-            <div style="border-bottom: 2px solid black; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
-              <h1 style="margin: 0; color: black; font-size: 18pt; font-weight: 700; text-transform: uppercase;">Índice de Contenidos</h1>
-              <p style="margin: 4px 0 0 0; color: #666; font-size: 10pt;">Dossier completo de preparación para Auxiliar de Biblioteca - US</p>
+          <div class="print-manual-index" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
+            <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
+              <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Índice de Contenidos</h1>
+              <p style="margin: 4px 0 0 0; color: #555555; font-size: 12pt;">Dossier completo de preparación para Auxiliar de Biblioteca - US</p>
             </div>
             
-            <h3 style="color: #1e3a8a; font-size: 12pt; border-bottom: 1px solid #1e3a8a; padding-bottom: 4px; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase;">Temas Seleccionados en este Volumen</h3>
+            <h3 style="color: #004B93; font-size: 14pt; border-bottom: 1px solid #b0c4de; padding-bottom: 4px; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase; font-weight: bold;">Temas Seleccionados en este Volumen</h3>
             <div style="margin-bottom: 30px;">
               ${indexItemsHtml}
             </div>

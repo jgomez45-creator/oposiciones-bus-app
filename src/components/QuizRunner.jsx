@@ -742,7 +742,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                       <div className="printable-options-list">
                         {q.options.map((opt, idx) => (
                           <div key={idx} className="printable-option-item">
-                            <div className="option-checkbox-box"></div>
+                            <div className="option-checkbox-box">&#8203;</div>
                             <span><strong>{['A', 'B', 'C', 'D'][idx]})</strong> {opt}</span>
                           </div>
                         ))}
@@ -818,13 +818,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           
           <div className="print-preview-content">
             {/* Portada del Dossier de Simulacros */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '15mm 30px 15mm 30px', border: '4px double #1e3a8a', height: '235mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '600px', pageBreakAfter: 'always', breakAfter: 'page' }}>
-              <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '13pt', letterSpacing: '3px', textTransform: 'uppercase' }}>Dossier de Preparación de Oposiciones</div>
-              <div style={{ width: '60px', height: '3px', backgroundColor: '#3b82f6', margin: '15px auto 25px auto' }}></div>
-              <h1 style={{ fontSize: '22pt', fontWeight: '800', color: '#000', lineHeight: '1.25', margin: '0 0 10px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
-              <h2 style={{ fontSize: '14pt', fontWeight: '700', color: '#2563eb', margin: '0 0 25px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '20mm 40px 20mm 40px', border: '4px double #1e3a8a', height: '250mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '650px', pageBreakAfter: 'always', breakAfter: 'page' }}>
+              <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '14pt', letterSpacing: '3px', textTransform: 'uppercase' }}>Dossier de Preparación de Oposiciones</div>
+              <div style={{ width: '80px', height: '3px', backgroundColor: '#3b82f6', margin: '20px auto 30px auto' }}></div>
+              <h1 style={{ fontSize: '32pt', fontWeight: '800', color: '#000', lineHeight: '1.25', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
+              <h2 style={{ fontSize: '16pt', fontWeight: '700', color: '#2563eb', margin: '0 0 30px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
               
-              <div style={{ fontSize: '9.5pt', color: '#333', maxWidth: '500px', lineHeight: '1.5', margin: '0 auto 15px auto', padding: '20px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid #2563eb', textAlign: 'justify', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+              <div style={{ fontSize: '15pt', color: '#333', maxWidth: '550px', lineHeight: '1.45', margin: '0 auto 20px auto', padding: '24px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
                 <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier recopila una serie de simulacros de examen predefinidos y equilibrados para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla. 
                 <br/><br/>
                 Cada simulacro consta de **40 preguntas de opción múltiple** con una distribución paritaria de **2 preguntas por cada uno de los 20 temas** del programa de la convocatoria. Se incluye al final de cada examen su correspondiente solucionario y hoja de justificaciones basadas en las normativas aplicables.
@@ -832,12 +832,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
               {/* Índice de Simulacros Incluidos */}
               <div style={{ marginTop: '20px', width: '100%', textAlign: 'left', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '11pt', color: '#1e3a8a', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', textTransform: 'uppercase', fontWeight: 'bold', margin: '0 0 10px 0' }}>
+                <h3 style={{ fontSize: '13pt', color: '#1e3a8a', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', textTransform: 'uppercase', fontWeight: 'bold', margin: '0 0 10px 0' }}>
                   Índice de Simulacros Incluidos
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginTop: '10px' }}>
                   {compiledExamsContent.map(examBlock => (
-                    <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '9pt' }}>
+                    <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '12pt' }}>
                       <span style={{ fontWeight: '600', color: '#1e3a8a' }}>Simulacro Predefinido Nº {examBlock.examNum}</span>
                       <span style={{ color: '#666', fontWeight: 'bold' }}>40 preguntas</span>
                     </div>
@@ -845,7 +845,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 </div>
               </div>
 
-              <div style={{ fontSize: '9.5pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
+              <div style={{ fontSize: '14pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
                 <span>© 2026 Jgg. Todos los derechos reservados.</span>
               </div>
             </div>
@@ -882,7 +882,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         <div className="printable-options-list">
                           {q.options.map((opt, oIdx) => (
                             <div key={oIdx} className="printable-option-item">
-                              <div className="option-checkbox-box"></div>
+                              <div className="option-checkbox-box">&#8203;</div>
                               <span><strong>{['A', 'B', 'C', 'D'][oIdx]})</strong> {opt}</span>
                             </div>
                           ))}
@@ -962,13 +962,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           
           <div className="print-preview-content">
             {/* Cover page for the Test Book PDF */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '15mm 30px 15mm 30px', border: '4px double #1e3a8a', height: '235mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '600px', pageBreakAfter: 'always', breakAfter: 'page' }}>
-              <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '13pt', letterSpacing: '3px', textTransform: 'uppercase' }}>Dossier de Preparación de Oposiciones</div>
-              <div style={{ width: '60px', height: '3px', backgroundColor: '#3b82f6', margin: '15px auto 25px auto' }}></div>
-              <h1 style={{ fontSize: '22pt', fontWeight: '800', color: '#000', lineHeight: '1.25', margin: '0 0 10px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
-              <h2 style={{ fontSize: '14pt', fontWeight: '700', color: '#2563eb', margin: '0 0 25px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '20mm 40px 20mm 40px', border: '4px double #1e3a8a', height: '250mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '650px', pageBreakAfter: 'always', breakAfter: 'page' }}>
+              <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '14pt', letterSpacing: '3px', textTransform: 'uppercase' }}>Dossier de Preparación de Oposiciones</div>
+              <div style={{ width: '80px', height: '3px', backgroundColor: '#3b82f6', margin: '20px auto 30px auto' }}></div>
+              <h1 style={{ fontSize: '32pt', fontWeight: '800', color: '#000', lineHeight: '1.25', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
+              <h2 style={{ fontSize: '16pt', fontWeight: '700', color: '#2563eb', margin: '0 0 30px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
               
-              <div style={{ fontSize: '9.5pt', color: '#333', maxWidth: '500px', lineHeight: '1.5', margin: '0 auto 15px auto', padding: '20px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid #2563eb', textAlign: 'justify', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+              <div style={{ fontSize: '15pt', color: '#333', maxWidth: '550px', lineHeight: '1.45', margin: '0 auto 20px auto', padding: '24px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
                 <strong>Introducción y Exención de Responsabilidad:</strong> Este cuaderno de autoevaluación ha sido elaborado de forma independiente como material de apoyo didáctico para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV) de la Universidad de Sevilla. 
                 <br/><br/>
                 Contiene una selección de cuestionarios tipo test por temas extraídos del pool de preparación, con sus correspondientes plantillas de soluciones y justificaciones redactadas a partir de normativas vigentes (Convenio Colectivo, LOSU, Ley de Prevención de Riesgos Laborales, etc.). El uso de este material es responsabilidad exclusiva del opositor en su proceso de estudio.
@@ -976,12 +976,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
               {/* Index of included topics */}
               <div style={{ marginTop: '20px', width: '100%', textAlign: 'left', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '11pt', color: '#1e3a8a', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', textTransform: 'uppercase', fontWeight: 'bold', margin: '0 0 10px 0' }}>
+                <h3 style={{ fontSize: '13pt', color: '#1e3a8a', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', textTransform: 'uppercase', fontWeight: 'bold', margin: '0 0 10px 0' }}>
                   Índice de Cuestionarios Incluidos
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxHeight: '75mm', overflow: 'hidden' }}>
                   {testBookContent.map(block => (
-                    <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '9pt' }}>
+                    <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '11pt' }}>
                       <span style={{ fontWeight: '600', color: '#1e3a8a', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '380px' }}>
                         Tema {block.topicId.toString().padStart(2, '0')}: {block.topicTitle}
                       </span>
@@ -991,7 +991,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 </div>
               </div>
 
-              <div style={{ fontSize: '9.5pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
+              <div style={{ fontSize: '14pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
                 <span>© 2026 Jgg. Todos los derechos reservados.</span>
               </div>
             </div>
@@ -1022,7 +1022,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         <div className="printable-options-list">
                           {q.options.map((opt, oIdx) => (
                             <div key={oIdx} className="printable-option-item">
-                              <div className="option-checkbox-box"></div>
+                              <div className="option-checkbox-box">&#8203;</div>
                               <span><strong>{['A', 'B', 'C', 'D'][oIdx]})</strong> {opt}</span>
                             </div>
                           ))}

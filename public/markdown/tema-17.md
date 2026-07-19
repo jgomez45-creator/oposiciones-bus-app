@@ -1,160 +1,262 @@
-# Tema 17: Estatutos de la Universidad de Sevilla
-## Decreto 98/2025: Órganos de gobierno, centros y personal técnico (PTGAS)
+# Tema 17: Estatutos de la Universidad de Sevilla (Decreto 98/2025)
+## Título I (Capítulos I y II, Secciones 1ª, 2ª y 3ª) y Título III (Capítulo I, Art. 90)
 
 ---
 
-## 1. Los Estatutos de la Universidad de Sevilla: Decreto 98/2025
-Los **Estatutos de la Universidad de Sevilla (US)** representan la norma fundamental de autogobierno de la institución. La versión vigente fue aprobada mediante el **Decreto 98/2025, de 30 de abril** del Consejo de Gobierno de la Junta de Andalucía (publicado en el BOJA extraordinario de 2 de mayo de 2025). 
+## 1. Estructura Orgánica de la Universidad de Sevilla
 
-Esta norma adapta la estructura y el funcionamiento interno de la Universidad de Sevilla a las directrices básicas estatales fijadas por la **LOSU (Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario)**.
+El siguiente esquema representa la jerarquía y relaciones entre los órganos generales de gobierno y las estructuras académicas y de representación de la Universidad de Sevilla:
 
----
-
-## 2. Estructura Orgánica de la US: Órganos de Gobierno
-De acuerdo con los Estatutos, la estructura de gobierno y representación de la US se divide en órganos colegiados (de participación colectiva) y órganos unipersonales (de gestión ejecutiva):
-
-### A. Órganos Colegiados Generales (Puntos Clave y Ponderaciones)
-
-#### 1. El Claustro Universitario (Art. 15)
-Es el máximo órgano de representación y participación de la comunidad universitaria. Está presidido por el Rector/a y compuesto por el Rector/a, el Secretario/a General, el o la Gerente y **300 claustrales electos** elegidos en representación de los distintos sectores de la comunidad universitaria:
-*   **Sector A (Cuerpos docentes y profesores permanentes laborales):** Representación mayoritaria obligatoria del **51%** (**153 miembros**, incluidos Decanos/as de Facultad y Directores/as de Escuela).
-*   **Sector B (PDI no permanente y personal investigador no permanente):** **8%** (**24 miembros**).
-*   **Sector C (Estudiantado):** **30%** (**90 miembros**, de los cuales uno será el Delegado/a del CADUS).
-*   **Sector D (PTGAS - Personal Técnico, de Gestión y de Administración y Servicios):** **11%** (**33 miembros**).
-*   **Duración del mandato:** **6 años** para todos los sectores, salvo los **estudiantes**, que se eligen por **2 años** (Art. 15.4).
-
-#### 2. El Consejo de Gobierno (Art. 17)
-Es el máximo órgano de gobierno de la Universidad. Establece las líneas estratégicas en políticas docentes, de investigación, transferencia e innovación, de calidad, de gestión financiera, de personal, de estudiantado, de cultura e internacionalización.
-*   **Composición:** Integrado por el Rector/a (que lo preside), el Secretario/a General, el o la Gerente y **53 miembros** con voz y voto distribuidos de la siguiente forma:
-    *   **15 miembros** elegidos por el Rector o Rectora.
-    *   **29 miembros** en representación de la comunidad universitaria elegidos en el Claustro por y entre los claustrales de su sector: 15 del PDI permanente (4 de ellos Decanos/as o Directores/as de Escuela), 3 de PDI/investigadores no permanentes, 5 de PTGAS y 6 del estudiantado (incluyendo al Delegado/a del CADUS).
-    *   **1 miembro** del Consejo Social.
-    *   **3 Decanos/as de Facultad y Directores/as de Escuela** elegidos por y de entre ellos.
-    *   **4 Directores/as de Departamento** elegidos por y de entre ellos.
-    *   **1 Director/a de Instituto Universitario de Investigación** elegido por y de entre ellos.
-*   **Periodicidad:** Se convoca al menos **una vez cada dos meses en periodo lectivo**.
-
-#### 3. El Consejo Social (Art. 19-20)
-Es el órgano de participación y representación de la sociedad en la Universidad de Sevilla. Es el responsable de aprobar el Plan Plurianual de Financiación, el presupuesto de la universidad (a propuesta del Consejo de Gobierno) y las cuentas anuales de la US.
-*   **Composición:** Regulada por la legislación autonómica andaluza. No obstante, forman parte del mismo obligatoriamente (miembros de la comunidad universitaria):
-    *   El Rector/a, el Secretario/a General y el o la Gerente (miembros natos).
-    *   **1 representante del profesorado** y **1 del PTGAS** elegidos por el Consejo de Gobierno.
-    *   **1 representante del estudiantado** elegido por el CADUS de entre sus miembros.
-
-### B. Órganos Unipersonales Generales (Art. 24-29)
-
-*   **Rector/a (Art. 24-26):** Máxima autoridad académica y de representación de la Universidad. Ostenta la dirección, gobierno y gestión ordinaria. Preside el Claustro y el Consejo de Gobierno, y es miembro nato del Consejo Social.
-    *   *Requisitos del cargo (Art. 25.2):* Debe ser personal docente e investigador permanente doctor a tiempo completo en la Universidad de Sevilla que reúna, como mínimo, los siguientes méritos:
-        1. **3 sexenios de investigación** reconocidos.
-        2. **3 quinquenios docentes** reconocidos.
-        3. **4 años de experiencia de gestión universitaria** en cargos unipersonales contemplados en la LOSU o en los propios Estatutos.
-    *   *Mandato:* Elegido por sufragio universal ponderado de toda la comunidad universitaria. Su mandato es de **6 años improrrogables y no renovables** (Art. 25.6).
-    *   *Ponderación del voto para elegir al Rector (Art. 25.3):* Cuerpos docentes y PDI permanente 53%, PDI no permanente 7%, Estudiantes 30%, PTGAS 10%.
-*   **Vicerrectores/as (Art. 27):** Nombrados por el Rector entre el PDI permanente de la US. El número máximo de Vicerrectorados no puede superar **15** (salvo aprobación del Claustro por mayoría cualificada).
-*   **Secretario/a General (Art. 28):** Fedatario de los actos y acuerdos de los órganos colegiados (Claustro y Consejo de Gobierno) y custodio del Archivo y del sello de la US. Es nombrado por el Rector entre el **personal docente e investigador funcionario doctor** o el **PTGAS funcionario con titulación universitaria** que preste servicios en la Universidad. Preside la Junta Electoral General.
-*   **Gerente (Art. 29):** Responsable de la gestión de los servicios administrativos, económicos y de recursos humanos de la US, bajo la inmediata supervisión del Rector/a. Es propuesto y nombrado por el Rector de acuerdo con el Consejo Social. Su mandato es de **6 años renovables**. El ejercicio del cargo requiere dedicación a tiempo completo y es **incompatible con funciones docentes e investigadoras**.
-
----
-
-## 3. Centros, Departamentos e Institutos de la US
-
-La Universidad de Sevilla se estructura territorialmente y académicamente en:
-
-#### 1. Facultades y Escuelas Universitarias (Centros) (Art. 30-36)
-Encargadas de la organización de las enseñanzas y los procesos académicos conducentes a los títulos oficiales de Grado y Máster.
-*   **Dirección:** Decano/a o Director/a de Escuela. Mandato de **6 años improrrogables y no renovables**. Elegido por sufragio universal ponderado en el centro: PDI permanente 53%, PDI no permanente 10%, Estudiantes 30%, PTGAS 7% (Art. 33.3).
-*   **Junta de Centro (Junta de Facultad o Escuela) (Art. 31):** Órgano de gobierno colegiado (máximo 100 miembros), presidido por el Decano/a o Director/a. Su composición electiva se distribuye en:
-    *   **52%** de profesorado permanente (cuerpos docentes y laborales permanentes).
-    *   **11%** de PDI no permanente censado en el centro.
-    *   **30%** de estudiantes matriculados en el centro (renovación anual).
-    *   **7%** de PTGAS adscrito al centro.
-*   **Competencia clave (Art. 32.h):** Corresponde a la Junta de Centro aprobar el **calendario de exámenes** y pruebas de evaluación, previo acuerdo del Decanato con la Delegación de Estudiantes.
-
-#### 2. Departamentos (Art. 40-41)
-Unidades que coordinan las enseñanzas de una o varias áreas de conocimiento en uno o varios centros y apoyan las actividades docentes e investigadoras de su personal.
-*   **Consejo de Departamento (Art. 41):** Órgano colegiado de gobierno del departamento, presidido por su Director/a. Su composición comprende:
-    *   Todo el profesorado permanente (mínimo el **51%** de los miembros del Consejo).
-    *   Representantes del resto de PDI.
-    *   Representantes del estudiantado.
-    *   Representantes del PTGAS adscrito al departamento.
-
-#### 3. Institutos Universitarios de Investigación (Art. 46-48)
-Centros dedicados de forma prioritaria a la investigación científica o técnica. Contarán con un/a Director/a (nombrado por el Rector/a de entre el PDI doctor con prestigiosa actividad investigadora) y un/a Secretario/a.
-
----
-
-## 4. El Personal Técnico, de Gestión y de Administración y Servicios (PTGAS)
-Regulado en el **Título IV, Capítulo IV (Arts. 128 a 140)** de los Estatutos. Corresponde al PTGAS el soporte técnico, administrativo y de gestión a la docencia, investigación y funcionamiento de la US.
-
-*   **Régimen Jurídico (Art. 129):**
-    *   **Personal Funcionario:** Se rige por la LOSU, la legislación de función pública del Estado y de la Junta de Andalucía, los presentes Estatutos y el reglamento general del PTGAS. Se clasifica en los grupos de titulación **A1, A2, B, C1 y C2**.
-    *   **Personal Laboral:** Se rige por la LOSU, la legislación laboral (Estatuto de los Trabajadores), el convenio colectivo aplicable, los presentes Estatutos y el reglamento general del PTGAS. Se clasifica en Grupos Profesionales del I al IV (ej. la plaza de Auxiliar de Biblioteca se sitúa en el **Grupo IV**).
-*   **Selección (Art. 136):**
-    *   La convocatoria de las pruebas selectivas es realizada por el **Rector o Rectora**, quien ordena su publicación en el **BOE** y en el **BOJA** (Art. 136.3).
-    *   Los tribunales de selección están presididos por el **Rector o Rectora o persona en quien delegue** y todos sus miembros son nombrados por el Rector o Rectora (Art. 136.4).
-*   **Provisión de Puestos (Art. 138):**
-    *   Con carácter general, los puestos de personal funcionario se proveerán por **concurso** (Art. 138.1).
-    *   La **libre designación** es excepcional y se reserva para los puestos de naturaleza directiva o de especial responsabilidad determinados en la relación de puestos de trabajo (RPT), previa negociación (Art. 138.2).
-    *   La provisión para el personal laboral se rige por el convenio colectivo.
-*   **Promoción Interna (Art. 137.4):**
-    *   En las convocatorias para cubrir plazas vacantes en la RPT se reservará el **máximo porcentaje legalmente permitido en cada caso** para promoción, mediante concurso o concurso-oposición restringido, del personal funcionario de carrera o laboral fijo de la plantilla.
-*   **Estructura y Jefatura (Art. 147 y 29):**
-    *   La administración de la US se estructura en áreas de gestión, servicios, secciones y unidades administrativas bajo la dirección de la **Gerencia** (Art. 147.1).
-    *   Corresponde a la **Gerencia**, bajo la inmediata supervisión del Rector/a, la gestión de los servicios administrativos y económicos y de recursos humanos de la US, ejerciendo la dirección del PTGAS (Art. 29.1).
+<div style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-card);padding:24px;border-radius:16px;border:2px solid var(--border-color);margin-bottom:24px;color:var(--text-main);page-break-inside:avoid;break-inside:avoid;">
+<div style="text-align:center;margin-bottom:20px;border-bottom:2px solid var(--border-color);padding-bottom:12px;">
+<h2 style="color:#d4a359;margin:0 0 4px 0;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;">Estructura Organizativa de la Universidad de Sevilla</h2>
+<span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">Guía de Gobierno, Participación y Estructuras (Decreto 98/2025)</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;">
+<div style="background:rgba(139,92,246,0.03);border:1px solid rgba(139,92,246,0.15);padding:12px;border-radius:10px;">
+<div style="font-size:0.8rem;font-weight:800;color:#8b5cf6;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(139,92,246,0.1);padding-bottom:4px;">Nivel 1: Órganos Generales de la Universidad</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">El Claustro Universitario</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Máximo órgano de representación de la comunidad. Elabora Estatutos y elige al Defensor Universitario.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Consejo de Gobierno</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órgano ejecutivo y administrativo. Aprueba reglamentos internos, planes estratégicos y RPT.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Consejo Social</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Participación de la sociedad. Aprueba el presupuesto, plan plurianual y cuentas anuales de la US.</p>
+</div>
+</div>
+</div>
+<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
+<div style="background:rgba(234,179,8,0.03);border:1px solid rgba(234,179,8,0.15);padding:12px;border-radius:10px;">
+<div style="font-size:0.8rem;font-weight:800;color:#eab308;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(234,179,8,0.1);padding-bottom:4px;">Nivel 2: Dirección y Gestión General (Rectorado)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;">
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #eab308;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">El Rector o Rectora</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Máxima autoridad académica y representante legal de la US. Dirige la acción de gobierno y preside el Claustro y el Consejo de Gobierno.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #eab308;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Equipo de Gobierno Central</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;"><strong>Vicerrectores:</strong> delegación de áreas. <strong>Secretario General:</strong> fedatario de acuerdos y actas. <strong>Gerente:</strong> servicios económicos y del PTGAS.</p>
+</div>
+</div>
+</div>
+<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
+<div style="background:rgba(59,130,246,0.03);border:1px solid rgba(59,130,246,0.15);padding:12px;border-radius:10px;">
+<div style="font-size:0.8rem;font-weight:800;color:#3b82f6;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(59,130,246,0.1);padding-bottom:4px;">Nivel 3: Estructura de Centros (Facultades y Escuelas)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Junta de Centro</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órgano colegiado. 52% PDI Perm, 11% PDI No Perm, 30% Alumnos, 7% PTGAS. Aprueba el POD y calendario de exámenes.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Decanos y Directores</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órganos unipersonales de gestión y dirección ordinaria del centro. Ordenan el gasto y coordinan servicios.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Escuelas de Doctorado / Posgrado</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;"><strong>EIDUS:</strong> organiza y coordina los doctorados y actas. <strong>EIP:</strong> coordina los títulos propios y posgrados oficiales.</p>
+</div>
+</div>
+</div>
+<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
+<div style="background:rgba(16,185,129,0.03);border:1px solid rgba(16,185,129,0.15);padding:12px;border-radius:10px;">
+<div style="font-size:0.8rem;font-weight:800;color:#10b981;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(16,185,129,0.1);padding-bottom:4px;">Nivel 4: Estructura de Departamentos (Docencia e Investigación)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;">
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #10b981;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">El Consejo de Departamento</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órgano colegiado. Mínimo 51% PDI Permanente, 30% estudiantes. Aprueba guías docentes de las asignaturas oficiales.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #10b981;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Director y Secretario de Departamento</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;"><strong>Director:</strong> representa y autoriza los gastos del departamento. <strong>Secretario:</strong> custodia actas de acuerdos y libros oficiales.</p>
+</div>
+</div>
+</div>
+<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
+<div style="background:rgba(244,63,94,0.03);border:1px solid rgba(244,63,94,0.15);padding:12px;border-radius:10px;">
+<div style="font-size:0.8rem;font-weight:800;color:#f43f5e;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(244,63,94,0.1);padding-bottom:4px;">Nivel 5: Estructuras y Servicios de Apoyo</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Institutos de Investigación</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Centros para la investigación científica y técnica (propios, adscritos, mixtos o concertados).</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Centros Adscritos y Hospitales</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Docencia de centros externos y centros concertados de salud para la formación práctica.</p>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
+<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Servicios de Apoyo (Biblioteca / CITIUS)</div>
+<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Biblioteca Universitaria (BUS): recursos documentales. CITIUS: servicios de investigación científica.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 ---
 
-## 5. Procedimiento de Reforma de los Estatutos de la US
-La reforma o modificación de los Estatutos de la US requiere un quórum y procedimiento rígidos (Arts. 16.a y 179-180):
-1.  **Iniciativa (Art. 179):** Puede ser solicitada por el Rector, por el Consejo de Gobierno (por acuerdo de mayoría absoluta), o por una tercera parte (**1/3**) de los claustrales.
-2.  **Aprobación (Art. 180):** Requiere el debate del proyecto de reforma y su aprobación por **mayoría absoluta del Claustro Universitario**.
-3.  **Ratificación:** Se eleva al Consejo de Gobierno de la Junta de Andalucía para su control de legalidad y posterior publicación en el BOJA.
+## 2. Tablas Comparativas de Órganos y Cargos
+
+### Tabla I: Órganos Colegiados Generales de la US
+
+| Órgano | Composición | Presidencia y Asistencia | Reuniones / Frecuencia | Competencias Principales |
+| :--- | :--- | :--- | :--- | :--- |
+| **Claustro Universitario** *(Art. 15-16)* | **303 miembros**: Rector/a, Secretario/a General, Gerente y **300 claustrales electos**:<br>• 51% PDI Permanente (153)<br>• 8% PDI No Permanente (24)<br>• 30% Estudiantes (90)<br>• 11% PTGAS (33) | Presidido por el **Rector/a**.<br>Asistencia con voz pero sin voto de miembros del Equipo de Gobierno no claustrales y presidentes de órganos unitarios de personal. | Ordinaria: al menos **dos veces al año**.<br>Extraordinaria: a iniciativa del Rector o a petición de **1/4** de claustrales. | • Elaborar y aprobar los Estatutos y su reforma.<br>• Elegir al Defensor/a Universitario.<br>• Elegir representantes para el Consejo de Gobierno.<br>• Proponer elecciones extraordinarias a Rector (1/3 firmas, aprueba 2/3). |
+| **Consejo de Gobierno** *(Art. 17-18)* | **56 miembros**: Rector/a, Secretario/a General, Gerente y **53 miembros**:<br>• 15 elegidos por Rector/a<br>• 29 representación comunitaria (15 PDI perm, 3 PDI no-perm, 5 PTGAS, 6 estudiantes)<br>• 1 del Consejo Social<br>• 3 Decanos/as<br>• 4 Directores/as de Dept.<br>• 1 Director/a de Instituto. | Presidido por el **Rector/a**.<br>Asisten con voz pero sin voto presidentes de representación del personal y 8 Decanos no consejeros. | Ordinaria: al menos **una vez cada dos meses en periodo lectivo**.<br>Extraordinaria: por el Rector o a petición de **1/4** de miembros. | • Establecer las líneas estratégicas y directrices de aplicación.<br>• Aprobar la propuesta de creación/supresión de centros.<br>• Aprobar la oferta de enseñanzas propias y RPT.<br>• Aprobar normativas de Inspección de Servicios e Igualdad. |
+| **Consejo Social** *(Art. 19-20)* | Composición determinada por legislación autonómica.<br>Incluye: **Rector/a, Secretario/a General, Gerente**, y representación de la comunidad (1 PDI, 1 PTGAS por Consejo de Gobierno y 1 estudiante por CADUS). | Determinado por la ley (personalidad ajena a la universidad). | Ordinaria: según reglamento.<br>Sesión conjunta con Consejo de Gobierno en el **primer cuatrimestre** del curso para plan trienal. | • Aprobar presupuesto de la US y plan plurianual.<br>• Aprobar las cuentas anuales de la US y dependencias.<br>• Aprobar asignación de complementos individuales por méritos.<br>• Fomentar la colaboración social y el plan trienal. |
+| **CADUS** *(Art. 21)* | **Todos los miembros** de las delegaciones de estudiantes de los centros. | Presidido por el/la **Delegado/a del CADUS** (elegido de entre sus miembros). | Ordinaria y extraordinaria según su reglamento. | • Coordinar e impulsar iniciativas estudiantiles.<br>• Elaborar y aprobar su reglamento de funcionamiento y electoral (ratificados por el Consejo de Gobierno).<br>• Administrar y distribuir los recursos presupuestarios estudiantiles. |
+
+### Tabla II: Órganos Colegiados de Estructuras Académicas
+
+| Órgano | Composición y Sectores | Mandato y Renovación | Competencias Principales |
+| :--- | :--- | :--- | :--- |
+| **Junta de Facultad o Escuela** *(Art. 31-32)* | **Máximo 100 miembros**: Decano/a (preside), Secretario/a del Centro, Delegado/a de Estudiantes del Centro y electivos:<br>• **52% PDI Permanente**<br>• **11% PDI No Permanente / Investigador**<br>• **30% Estudiantado**<br>• **7% PTGAS** | Miembros electivos: **6 años**.<br>Estudiantado: **anual**.<br>Elecciones parciales por vacantes en el **primer cuatrimestre**. | • Aprobar anualmente el Plan de Organización Docente (POD).<br>• Aprobar el calendario de exámenes coordinado con Delegación.<br>• Aprobar la distribución de fondos del Centro.<br>• Revocación de Decano/a (mayoría de **2/3** propuesta por **1/3**). |
+| **Consejo de Departamento** *(Art. 41-42)* | Director/a (preside), Secretario/a del Dept. y miembros:<br>• **Todo el PDI Permanente** (mínimo el **51%** del total)<br>• PDI No Permanente / Investigador (máximo **14%**)<br>• Estudiantado (**30%**)<br>• PTGAS (si lo hay, **5%**) | Miembros electivos (no alumnos): **3 años**.<br>Estudiantado: **anual**. | • Elegir y revocar al Director/a (revocación por mayoría absoluta).<br>• Aprobar guías docentes de asignaturas oficiales.<br>• Asignar docencia al profesorado e informar de créditos.<br>• Proponer dotación de plazas PDI y características de PTGAS. |
+
+### Tabla III: Órganos Unipersonales y de Gestión
+
+| Cargo | Requisitos del Cargo | Forma de Nombramiento | Mandato / Duración | Funciones Claves |
+| :--- | :--- | :--- | :--- | :--- |
+| **Rector/a** *(Art. 24-26)* | Docente permanente doctor a tiempo completo. Acreditar:<br>• **3 sexenios** de investigación.<br>• **3 quinquenios** de docencia.<br>• **4 años de gestión** en cargo unipersonal. | Elección directa por sufragio universal ponderado:<br>• PDI Perm: 53%<br>• PDI No-perm: 7%<br>• Alumnos: 30%<br>• PTGAS: 10% | **6 años**.<br>**Improrrogable y no renovable** (mandato único). | • Dirección, gestión ordinaria y representación de la US.<br>• Potestad reglamentaria y disciplinaria.<br>• Convocar y presidir Claustro y Consejo de Gobierno.<br>• Expedir títulos oficiales en nombre del Rey. |
+| **Secretario/a General** *(Art. 28)* | PDI doctor funcionario O funcionario de carrera del PTGAS titulado. | Nombrado por el Rector/a. | Vinculado al mandato del Rector/a. | • Fedatario público de los actos y acuerdos colegiados.<br>• Custodia de libros de actas, sello y Archivo de la US.<br>• Presidir la Junta Electoral General y coordinar Gabinete Jurídico. |
+| **Gerente** *(Art. 29)* | Dedicación a tiempo completo.<br>Incompatible con docencia o investigación. | Propuesto y nombrado por el Rector/a **de acuerdo con el Consejo Social**. | **6 años**.<br>**Renovable** por iguales periodos. | • Gestión económica, presupuestos, Hacienda y RPT.<br>• Elaboración de presupuesto anual y plan plurianual.<br>• Dirección y gestión de recursos humanos y PTGAS. |
+| **Decano/a o Director/a de Escuela** *(Art. 33-34)* | Profesorado permanente censado en el Centro. | Nombrado por Rector/a previa elección (sufragio universal ponderado en el centro). | **6 años**.<br>**Improrrogable y no renovable**. | • Representación oficial, dirección y gasto del Centro.<br>• Proponer nombramiento de Vicedecanos/as y Secretario/a.<br>• Proponer inicio de expedientes disciplinarios de miembros del Centro. |
+| **Director/a de Departamento** *(Art. 43-44)* | Profesorado permanente doctor del departamento. | Nombrado por Rector/a previa elección por el Consejo de Dept. (mayoría absoluta en 1ª vuelta). | **6 años**.<br>**Improrrogable y no renovable**. | • Representar al departamento y su gestión ordinaria.<br>• Ordenar y autorizar gastos del departamento.<br>• Fijar orden del día del Consejo (debe incluir propuestas del 10%). |
 
 ---
 
-## 6. Esquema de Repaso Rápido
-*   **Estatutos US:** Aprobados por **Decreto 98/2025, de 30 de abril** (BOJA extraordinario de 2 de mayo de 2025). Adaptados a la **LOSU**.
-*   **Claustro:** Presidente: Rector/a. 300 claustrales electos.
-    *   *Sector A:* PDI permanente = **51%** (153 miembros).
-    *   *Sector B:* PDI no permanente = **8%** (24 miembros).
-    *   *Sector C:* Estudiantes = **30%** (90 miembros).
-    *   *Sector D:* PTGAS = **11%** (33 miembros).
-*   **Consejo de Gobierno:** Rector, Secretario/a General, Gerente y **53 miembros** (15 elegidos por el Rector, 29 por el Claustro, 1 por el Consejo Social, 3 Decanos/as, 4 Directores/as de Departamento, 1 Director/a de Instituto). Periodicidad: **1 vez cada 2 meses** en periodo lectivo.
-*   **Junta de Centro:** Máximo 100 miembros: PDI permanente **52%**, PDI no permanente **11%**, Estudiantes **30%**, PTGAS **7%**.
-*   **Rector:** Requisitos: Doctor permanente, **3 sexenios, 3 quinquenios y 4 años de gestión universitaria**. Mandato de **6 años improrrogables** y no renovables. Ponderación del voto: PDI perm. 53%, PDI no perm. 7%, Estudiantes 30%, PTGAS 10%.
-*   **Gerente:** Gestiona los servicios administrativos, económicos y de RRHH. Nombrado por el Rector de acuerdo con el Consejo Social. Mandato de **6 años renovables**. Incompatible con funciones docentes **e investigadoras**.
-*   **PTGAS:** Pruebas selectivas convocadas por el **Rector/a** (publicadas en **BOE** y **BOJA**). Provisión ordinaria de funcionarios por **concurso**. Máxima reserva de plazas para promoción interna.
-*   **Reforma de Estatutos:** Iniciativa: Rector, Consejo de Gobierno (por mayoría absoluta) o 1/3 del Claustro. Aprobación: **Mayoría Absoluta del Claustro**.
+## 3. Desarrollo Detallado por Capítulos y Artículos
+
+### Título I. Órganos de Gobierno, Representación y Participación
+
+#### Capítulo I: Órganos Generales de la Universidad
+
+*   **Disposiciones Generales (Art. 12 a 14):**
+    *   *Artículo 12:* Los órganos de gobierno actúan bajo los principios de legalidad, transparencia, eficacia y servicio.
+    *   *Artículo 13:* Los acuerdos de los órganos colegiados obligan a todos los miembros de la comunidad y del propio órgano. Las actas deben reflejar de forma fehaciente los debates y votaciones.
+    *   *Artículo 14 (Delegación):* El Rector y los órganos colegiados pueden delegar competencias en otros órganos de la universidad, excepto las de especial relevancia constitucional o estatutaria.
+
+*   **El Claustro Universitario (Art. 15 y 16):**
+    *   Se configura como el **máximo órgano de representación** política e institucional.
+    *   Sus **300 miembros electos** se dividen rígidamente por sectores. Los estudiantes ejercen su mandato por **2 años**, el resto por **6 años**.
+    *   El Rector/a tiene el deber de convocar ordinariamente al Claustro al menos **dos veces al año**.
+    *   **Revocación y Elecciones Extraordinarias (Art. 16.2):** Para forzar el cese del Rector/a mediante elecciones extraordinarias, la iniciativa la debe firmar al menos **1/3** de los claustrales, y debe incluir obligatoriamente el **30%** de los docentes del Sector A. Para prosperar en sesión extraordinaria, requiere la **mayoría de 2/3 del Claustro**. De aprobarse, se disuelve el Claustro y cesa el Rector/a (quien queda en funciones). De fallar, los firmantes no podrán reiterar una iniciativa igual hasta transcurrido **1 año**.
+
+*   **El Consejo de Gobierno (Art. 17 y 18):**
+    *   Es el **órgano ejecutivo de control y gestión ordinaria** de la universidad.
+    *   Su composición combina miembros de designación directa del Rector (15), representantes comunitarios elegidos en el Claustro (29), un miembro del Consejo Social y miembros por razón de cargo académico (Decanos, Directores de Departamento e Instituto).
+    *   Es el responsable de elaborar y modificar las normativas específicas y reglamentos de la US, que son ratificados o aprobados en su seno antes de su publicación en el BOUS.
+
+*   **El Consejo Social (Art. 19 y 20):**
+    *   Representa la **fiscalización externa** de la sociedad civil en la Universidad.
+    *   Su principal potestad reside en el control presupuestario: aprueba el presupuesto propuesto por el Consejo de Gobierno y supervisa el inventario patrimonial.
+    *   Es el único competente para asignar los complementos retributivos singulares a nivel individual del profesorado.
+
+> [!IMPORTANT]
+> **El Eje del Estudiantado: El CADUS (Art. 21)**
+> El CADUS es el órgano colegiado superior estudiantil. Sus reglamentos internos electorales y de funcionamiento deben pasar un control de legalidad y ser **ratificados por el Consejo de Gobierno** para entrar en vigor. La US tiene la obligación legal de dotarle de espacios propios y asignación presupuestaria independiente para garantizar su autonomía.
+
+*   **Rector o Rectora (Art. 24 a 26):**
+    *   Ostenta la representación legal y ejerce la máxima dirección académica y de gestión.
+    *   **Voto Ponderado (Art. 25.3):** Su elección se realiza por sufragio universal ponderado, donde los votos del profesorado permanente (Sector A) valen el **53%**, el PDI no permanente el **7%**, los estudiantes el **30%** y el PTGAS el **10%**.
+    *   El Rectorado nombra un máximo de **3 empleados de confianza (personal eventual)** cuyas retribuciones deben ser públicas.
+    *   Para ser proclamado en primera vuelta necesita la mayoría absoluta de los votos ponderados. En segunda vuelta (concurren las dos candidaturas más votadas) basta la mayoría simple. Su mandato de **6 años es improrrogable e irrenovable** (no cabe reelección).
+
+*   **Vicerrectores/as y Secretariados (Art. 27):**
+    *   El Rectorado puede crear un **máximo de 15 Vicerrectores** para gestionar las distintas áreas docentes y de investigación de la US.
+    *   El límite máximo de Directores o Directoras de Secretariado se fija en **50**.
+
+*   **Secretario o Secretaria General (Art. 28):**
+    *   Funciona como el **fedatario del Claustro y del Consejo de Gobierno**.
+    *   Custodia el sello y Archivo General de la universidad y dirige el Boletín Oficial (BOUS). Su registro único es la ventanilla administrativa funcional de la Secretaría General.
+
+*   **Gerente (Art. 29):**
+    *   Nombramiento condicionado a la aprobación conjunta del **Rector/a y el Consejo Social**.
+    *   Mandato de **6 años renovables**. Su incompatibilidad docente y de investigación es total. Dirige el PTGAS y se encarga del inventario físico y la hacienda universitaria.
 
 ---
 
-## 7. Reglas Mnemotécnicas para el Examen
-*   **Los Sectores del Claustro: "51 - 8 - 30 - 11" (El Claustro de Sevilla):**
-    *   Sector A (PDI permanente): **51%** (153 claustrales — mayoría absoluta).
-    *   Sector B (PDI no permanente): **8%** (24 claustrales).
-    *   Sector C (Estudiantes): **30%** (90 claustrales — casi un tercio).
-    *   Sector D (PTGAS): **11%** (33 claustrales).
-    *   *Mnemónico:* *"En el Claustro, los permanentes tienen la absoluta (**51%**), los estudiantes casi un tercio (**30%**), los auxiliares superan la décima parte (**11%**) y el resto son el **8%**".*
-*   **Los Sectores de la Junta de Centro: "52 - 11 - 30 - 7" (El Centro de Sevilla):**
-    *   PDI permanente: **52%**.
-    *   PDI no permanente: **11%**.
-    *   Estudiantes: **30%**.
-    *   PTGAS: **7%**.
-    *   *Mnemónico:* *"En la Junta, el PDI permanente gana un punto (**52%**), el temporal sube al **11%**, los estudiantes mantienen su tercio (**30%**) y el PTGAS baja al **7%**".*
-*   **Los Números del Rector: "3 - 3 - 4 - 6" (La carrera del Rector):**
-    *   **3** sexenios de investigación.
-    *   **3** quinquenios de docencia.
-    *   **4** años de experiencia en gestión unipersonal.
-    *   **6** años de mandato único improrrogables.
-    *   *Mnemónico:* *"El Rector tiene una regla de progresión: **3** (investigación), **3** (docencia), **4** (gestión) y manda **6** (mandato)".*
-*   **Iniciativa de Reforma: "Un Rector, un Consejo o un tercio de Claustro":**
-    *   *Mnemónico:* *"Para cambiar los Estatutos hace falta una de estas tres llaves: el Rector (1), el Consejo (1) o un tercio del Claustro (1/3)".*
+#### Capítulo II: De los Centros y Estructuras Académicas
+
+#### Sección 1ª: De las Facultades y Escuelas
+*   **Definición y Creación (Art. 30):** Estructuras encargadas de organizar las enseñanzas y títulos de grado y posgrado. Su creación o supresión se realiza por decreto del Consejo de Gobierno de la Junta de Andalucía, a propuesta del Consejo de Gobierno de la US.
+*   **Junta de Centro (Art. 31 y 32):**
+    *   Órgano colegiado de gobierno del centro de un máximo de **100 miembros**.
+    *   Su reparto sectorial es: **52% PDI Permanente**, **11% PDI No Permanente**, **30% Estudiantes** (renovación anual) y **7% PTGAS**.
+    *   Los miembros electivos no estudiantes se eligen por **6 años**.
+    *   **Voto de Censura al Decano/a (Art. 32.2):** La Junta de Centro puede revocar al Decano/a por mayoría de **2/3** a propuesta de al menos **1/3** de sus integrantes.
+*   **Decanos/as y Directores/as de Escuela (Art. 33 y 34):**
+    *   Dirección y gestión del centro. Nombrados por el Rector/a tras elección por sufragio universal ponderado en el centro. Mandato único de **6 años improrrogables**.
+    *   Tienen la competencia de **ordenar y autorizar el gasto del centro** dentro del presupuesto asignado y proponer el inicio de expedientes disciplinarios de miembros del centro.
+*   **Equipo de Dirección del Centro (Art. 35 y 36):**
+    *   *Vicedecanos/as:* Apoyar en la dirección. Nombrados por el Rector/a a propuesta del Decano/a, oída la Junta de Centro.
+    *   *Secretario/a de Centro (Art. 36):* Propuesto por el Decano/a (oída la Junta) de entre el personal del centro y nombrado por el Rector/a. Custodia las actas de calificación de los estudiantes del centro y preside la **Junta Electoral de Centro**.
 
 ---
 
-## 8. Conceptos Clave
-*   **Claustro Universitario:** Máximo órgano colegiado de representación de la comunidad universitaria compuesto por el Rector, Secretario General, Gerente y 300 claustrales.
-*   **PTGAS:** Nueva denominación establecida por la LOSU para referirse al Personal Técnico, de Gestión y de Administración y Servicios (antiguo PAS).
-*   **Órganos Colegiados:** Órganos de participación colectiva cuya toma de decisiones se realiza mediante deliberación y quórum de votaciones (Claustro, Consejo de Gobierno, Junta de Centro).
-*   **Decano:** Órgano unipersonal ejecutivo al frente de una Facultad de la Universidad de Sevilla.
-*   **Consejo Social:** Órgano de representación y participación de la sociedad civil encargado del control económico y de presupuesto de la US.
+#### Sección 2ª: De los Departamentos
+*   **Definición y Adscripción (Art. 40):** Unidades encargadas de coordinar la docencia de áreas de conocimiento. El profesorado e investigadores se adscriben a un **único departamento**.
+*   **Consejo de Departamento (Art. 41 y 42):**
+    *   Órgano colegiado del departamento. Composición: **Todo el PDI Permanente** (mínimo el **51%**), PDI no permanente (máx. **14%**), Estudiantes (**30%**, renovación anual) y PTGAS (si lo hay, **5%**).
+    *   Los no estudiantes se renuevan cada **3 años**. Los no pertenecientes asisten con voz y sin voto.
+    *   *Competencias:* Aprobar las guías docentes de las asignaturas oficiales; elegir/revocar al Director/a; proponer dotación de plazas.
+*   **Director/a de Departamento (Art. 43 y 44):**
+    *   Representación y gestión. Elegido por el Consejo de Departamento. Mandato único de **6 años improrrogables**.
+    *   Requiere **mayoría absoluta en primera votación** (o simple en segunda). Puede ser revocado por mayoría absoluta del Consejo de Departamento.
+    *   Elabora el proyecto de distribución financiera del departamento y autoriza y ordena sus gastos.
+
+---
+
+#### Sección 3ª: De los Institutos Universitarios y Otras Estructuras
+*   **Institutos Universitarios de Investigación:** Centros dedicados a la investigación científica y técnica. Su creación y reglamentos se aprueban en el Consejo de Gobierno.
+*   **Escuela Internacional de Doctorado (EIDUS) (Art. 37):**
+    *   Centro interdisciplinar de doctorados de la US. Gobernado por un Comité de Dirección (Director/a, coordinadores de programas, entidades colaboradoras y estudiantes).
+    *   El titular de la Secretaría de la EIDUS custodia las calificaciones y libra certificaciones oficiales.
+*   **Escuela Internacional de Posgrado (EIP) (Art. 39):**
+    *   Fomenta las enseñanzas de posgrado (másteres y títulos propios) y la proyección internacional de la US.
+
+---
+
+### Título III. La Comunidad Universitaria
+
+#### Capítulo I: Disposición General (Artículo 90)
+
+*   **Composición de la Comunidad (Art. 90.1):** Integrada por cuatro sectores:
+    1.  Personal docente e investigador (PDI).
+    2.  Personal investigador.
+    3.  Estudiantado.
+    4.  Personal técnico, de gestión y de administración y servicios (PTGAS).
+
+*   **Derechos Fundamentales (Art. 90.2):**
+    *   Libertad de expresión, reunión, manifestación y asociación.
+    *   Sindicación y participación en órganos de representación, garantizando la compatibilidad de sus funciones universitarias con el cargo representativo.
+    *   Participación en actividades culturales, solidarias y voluntariado.
+    *   **Principio de Igualdad de Oportunidades (Art. 90.2.e):** Ausencia de discriminación basada en una lista cerrada de **15 causales**:
+        1. Nacimiento.
+        2. Origen racial o étnico.
+        3. Sexo.
+        4. Orientación sexual.
+        5. Identidad de género.
+        6. Religión.
+        7. Convicción u opinión.
+        8. Edad.
+        9. Discapacidad.
+        10. Nacionalidad.
+        11. Enfermedad.
+        12. Condición socioeconómica.
+        13. Lingüística.
+        14. Afinidad política y sindical.
+        15. Apariencia.
+    *   Recibir un trato respetuoso, no sexista y no discriminatorio.
+
+*   **Deberes Fundamentales (Art. 90.3):**
+    *   Cumplir los Estatutos, disposiciones de desarrollo, reglamentos y acuerdos de gobierno.
+    *   Ejercer con dedicación y asumiendo responsabilidad los cargos de representación para los que fueren elegidos.
+    *   Contribuir a los fines y mejora del servicio de la Universidad de Sevilla.
+    *   **Potenciar el prestigio de la Universidad de Sevilla** y su vinculación con la sociedad civil.
+    *   Respetar las normas de convivencia y la disciplina aplicable.
+    *   Proferir un trato respetuoso y no discriminatorio a todos los miembros de la comunidad.

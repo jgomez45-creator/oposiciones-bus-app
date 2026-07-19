@@ -7,6 +7,7 @@ import Flashcards from './components/Flashcards';
 import Stats from './components/Stats';
 import Login from './components/Login';
 import AdminPanel from './components/AdminPanel';
+import FormadoresTests from './components/FormadoresTests';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
 import { ShieldAlert, RefreshCw, Clock } from 'lucide-react';
@@ -410,6 +411,12 @@ export default function App() {
             progress={progress}
             recordQuizScore={recordQuizScore}
             activeTopicId={activeTopicId}
+          />
+        );
+      case 'formadores':
+        return (
+          <FormadoresTests 
+            currentUser={currentUser}
           />
         );
       case 'flashcards':
