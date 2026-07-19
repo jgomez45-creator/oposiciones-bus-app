@@ -462,7 +462,7 @@ service cloud.firestore {
 
           {/* USERS & SESSIONS LIST VIEW */}
           {activeSubTab === 'users' && (
-            <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '100%', minWidth: 0 }}>
               
               {/* Toolbar */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
@@ -480,19 +480,19 @@ service cloud.firestore {
                   Mostrando <strong>{sortedUsers.length}</strong> de <strong>{users.length}</strong> usuarios
                 </div>
               </div>
-
+ 
               {/* Table / List */}
-              <div style={{ overflowX: 'auto' }}>
+              <div style={{ overflowX: 'auto', width: '100%', maxWidth: '100%' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '1000px' }}>
                   <thead>
                     <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      <th style={{ padding: '12px 10px' }}>Alumno / Correo</th>
-                      <th style={{ padding: '12px 10px' }}>Rol / Código</th>
-                      <th style={{ padding: '12px 10px' }}>Estado</th>
-                      <th style={{ padding: '12px 10px' }}>Estudio</th>
-                      <th style={{ padding: '12px 10px' }}>Nota Tests</th>
-                      <th style={{ padding: '12px 10px' }}>Última Actividad</th>
-                      <th style={{ padding: '12px 10px', textAlign: 'center', width: '220px', minWidth: '220px' }}>Acciones</th>
+                      <th style={{ padding: '12px 10px', width: '26%' }}>Alumno / Correo</th>
+                      <th style={{ padding: '12px 10px', width: '15%' }}>Rol / Código</th>
+                      <th style={{ padding: '12px 10px', width: '11%' }}>Estado</th>
+                      <th style={{ padding: '12px 10px', width: '12%' }}>Estudio</th>
+                      <th style={{ padding: '12px 10px', width: '11%' }}>Nota Tests</th>
+                      <th style={{ padding: '12px 10px', width: '13%' }}>Última Actividad</th>
+                      <th style={{ padding: '12px 10px', textAlign: 'left', width: '12%', minWidth: '150px' }}>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -589,8 +589,8 @@ service cloud.firestore {
                             </td>
 
                             {/* Kicking Action */}
-                            <td style={{ padding: '12px 10px', textAlign: 'center', width: '220px', minWidth: '220px' }}>
-                              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', alignItems: 'center' }}>
+                            <td style={{ padding: '12px 10px', textAlign: 'left', width: '12%', minWidth: '150px' }}>
+                              <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 {online && !isAdmin && (
                                   <button
                                     onClick={() => handleKickUser(u.uid, u.name)}
