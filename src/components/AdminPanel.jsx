@@ -483,16 +483,16 @@ service cloud.firestore {
 
               {/* Table / List */}
               <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '1000px' }}>
                   <thead>
                     <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      <th style={{ padding: '12px 16px' }}>Alumno / Correo</th>
-                      <th style={{ padding: '12px 16px' }}>Rol / Código</th>
-                      <th style={{ padding: '12px 16px' }}>Estado</th>
-                      <th style={{ padding: '12px 16px' }}>Estudio</th>
-                      <th style={{ padding: '12px 16px' }}>Nota Tests</th>
-                      <th style={{ padding: '12px 16px' }}>Última Actividad</th>
-                      <th style={{ padding: '12px 16px', textAlign: 'center', width: '220px', minWidth: '220px' }}>Acciones</th>
+                      <th style={{ padding: '12px 10px' }}>Alumno / Correo</th>
+                      <th style={{ padding: '12px 10px' }}>Rol / Código</th>
+                      <th style={{ padding: '12px 10px' }}>Estado</th>
+                      <th style={{ padding: '12px 10px' }}>Estudio</th>
+                      <th style={{ padding: '12px 10px' }}>Nota Tests</th>
+                      <th style={{ padding: '12px 10px' }}>Última Actividad</th>
+                      <th style={{ padding: '12px 10px', textAlign: 'center', width: '220px', minWidth: '220px' }}>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -514,7 +514,7 @@ service cloud.firestore {
                           <tr key={u.uid} style={{ borderBottom: '1px solid var(--border-color)', fontSize: '0.85rem', background: online ? 'rgba(16, 185, 129, 0.02)' : 'transparent', transition: 'var(--transition-fast)' }}>
                             
                             {/* User details */}
-                            <td style={{ padding: '14px 16px' }}>
+                            <td style={{ padding: '12px 10px' }}>
                               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: isAdmin ? 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)' : u.role === 'guest' ? 'linear-gradient(135deg, var(--accent-rose) 0%, #fb7185 100%)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.85rem', color: isAdmin ? 'var(--bg-dark)' : 'white' }}>
                                   {(u.name || 'U').charAt(0).toUpperCase()}
@@ -527,7 +527,7 @@ service cloud.firestore {
                             </td>
 
                             {/* Role / Code */}
-                            <td style={{ padding: '14px 16px' }}>
+                            <td style={{ padding: '12px 10px' }}>
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                                 <span className={`badge ${isAdmin ? 'badge-gold' : u.role === 'guest' ? 'badge-rose' : 'badge-blue'}`} style={{ width: 'fit-content', padding: '2px 6px', fontSize: '0.65rem' }}>
                                   {isAdmin ? 'Creador' : u.role === 'guest' ? 'Invitado (Demo)' : 'Alumno'}
@@ -537,7 +537,7 @@ service cloud.firestore {
                             </td>
 
                             {/* Connection Status */}
-                            <td style={{ padding: '14px 16px' }}>
+                            <td style={{ padding: '12px 10px' }}>
                               {online ? (
                                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--accent-emerald)', fontWeight: '700', fontSize: '0.75rem' }}>
                                   <span className="pulse-indicator" style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-emerald)' }} />
@@ -552,7 +552,7 @@ service cloud.firestore {
                             </td>
 
                             {/* Study progress */}
-                            <td style={{ padding: '14px 16px' }}>
+                            <td style={{ padding: '12px 10px' }}>
                               <div style={{ display: 'flex', flexDirection: 'column' }}>
                                 <span style={{ fontWeight: '600' }}>{formatStudyTime(u.totalStudyTime)}</span>
                                 <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.completedCount || 0} temas listos</span>
@@ -560,7 +560,7 @@ service cloud.firestore {
                             </td>
 
                             {/* Average Quiz Score */}
-                            <td style={{ padding: '14px 16px' }}>
+                            <td style={{ padding: '12px 10px' }}>
                               {u.quizzesTaken > 0 ? (
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                   <span style={{ fontWeight: '600', color: u.averageQuizScore >= 50 ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>
@@ -574,12 +574,12 @@ service cloud.firestore {
                             </td>
 
                             {/* Last active time */}
-                            <td style={{ padding: '14px 16px', color: 'var(--text-muted)' }}>
+                            <td style={{ padding: '12px 10px', color: 'var(--text-muted)' }}>
                               {lastActiveStr}
                             </td>
 
                             {/* Kicking Action */}
-                            <td style={{ padding: '14px 16px', textAlign: 'center', width: '220px', minWidth: '220px' }}>
+                            <td style={{ padding: '12px 10px', textAlign: 'center', width: '220px', minWidth: '220px' }}>
                               <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', alignItems: 'center' }}>
                                 {online && !isAdmin && (
                                   <button
