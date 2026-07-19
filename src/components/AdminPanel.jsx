@@ -506,8 +506,11 @@ service cloud.firestore {
                       sortedUsers.map((u) => {
                         const online = isUserOnline(u);
                         const isAdmin = u.role === 'admin';
-                        const lastActiveStr = u.lastActive 
+                        const lastActiveTime = u.lastActive 
                           ? new Date(u.lastActive).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                          : '';
+                        const lastActiveDate = u.lastActive 
+                          ? new Date(u.lastActive).toLocaleDateString([], { day: '2-digit', month: '2-digit', year: 'numeric' })
                           : 'Nunca';
 
                         return (
@@ -575,7 +578,14 @@ service cloud.firestore {
 
                             {/* Last active time */}
                             <td style={{ padding: '12px 10px', color: 'var(--text-muted)' }}>
-                              {lastActiveStr}
+                              {u.lastActive ? (
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                  <span style={{ color: 'var(--text-main)', fontWeight: '600' }}>{lastActiveTime}</span>
+                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{lastActiveDate}</span>
+                                </div>
+                              ) : (
+                                <span style={{ color: 'var(--text-dark)' }}>Nunca</span>
+                              )}
                             </td>
 
                             {/* Kicking Action */}
