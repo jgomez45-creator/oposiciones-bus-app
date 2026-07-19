@@ -1021,7 +1021,7 @@ export default function TopicViewer({
                 </div>
                 
                 {/* Print parameters form */}
-                <div style={{ marginTop: '20px', padding: '16px', background: 'rgba(255, 255, 255, 0.01)', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'left' }}>
+                <div className="print-options-card" style={{ marginTop: '20px', padding: '16px', background: 'rgba(255, 255, 255, 0.01)', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'left' }}>
                   <h4 style={{ margin: '0 0 12px 0', fontSize: '0.95rem', fontWeight: '700' }}>Opciones adicionales del dossier:</h4>
                   
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

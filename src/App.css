@@ -4461,3 +4461,197 @@ body.reading-fullscreen-mode .markdown-body-container {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
 }
 
+/* Claro Theme - Print Config Panel and Multiple Print Section Overrides */
+.theme-light-reading .print-config-panel h3.text-gradient {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.theme-light-reading .print-config-panel p.text-muted {
+  color: #475569 !important;
+}
+
+.theme-light-reading .bulk-action-link {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+}
+
+.theme-light-reading .bulk-action-link:hover {
+  color: var(--primary-light) !important;
+}
+
+.theme-light-reading .topics-bulk-actions span.text-muted {
+  color: #cbd5e1 !important;
+}
+
+.theme-light-reading .print-topic-select-label {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light-reading .print-topic-select-label:hover {
+  background: #f1f5f9 !important;
+  border-color: var(--primary) !important;
+}
+
+.theme-light-reading .print-topic-select-label.selected {
+  background: #eff6ff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15) !important;
+}
+
+.theme-light-reading .print-topic-select-num {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+.theme-light-reading .print-topic-select-title {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+.theme-light-reading .print-options-card {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light-reading .print-config-panel label {
+  color: #334155 !important;
+}
+
+.theme-light-reading .print-config-panel label strong {
+  color: #0f172a !important;
+}
+
+.theme-light-reading .limit-chip-btn {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.theme-light-reading .limit-chip-btn:hover {
+  background: #e2e8f0 !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+.theme-light-reading .limit-chip-btn.active {
+  background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+.theme-light-reading .print-topic-select-label input[type="checkbox"] {
+  accent-color: var(--primary) !important;
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+/* Sepia Theme - Print Config Panel and Multiple Print Section Overrides */
+.theme-sepia .print-config-panel h3.text-gradient {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: #433422 !important;
+  font-weight: 800 !important;
+}
+
+.theme-sepia .print-config-panel p.text-muted {
+  color: #5b4a3a !important;
+}
+
+.theme-sepia .bulk-action-link {
+  color: #855e3a !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+}
+
+.theme-sepia .bulk-action-link:hover {
+  color: #a07a56 !important;
+}
+
+.theme-sepia .topics-bulk-actions span.text-muted {
+  color: #dfd3b8 !important;
+}
+
+.theme-sepia .print-topic-select-label {
+  background: #f5edd6 !important;
+  border-color: #dfd3b8 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-sepia .print-topic-select-label:hover {
+  background: #ede2c4 !important;
+  border-color: #855e3a !important;
+}
+
+.theme-sepia .print-topic-select-label.selected {
+  background: #e4d8bc !important;
+  border-color: #855e3a !important;
+  box-shadow: 0 0 0 2px rgba(133, 94, 58, 0.15) !important;
+}
+
+.theme-sepia .print-topic-select-num {
+  color: #5b4a3a !important;
+  font-weight: 700 !important;
+}
+
+.theme-sepia .print-topic-select-title {
+  color: #433422 !important;
+  font-weight: 700 !important;
+}
+
+.theme-sepia .print-options-card {
+  background: #f5edd6 !important;
+  border-color: #dfd3b8 !important;
+}
+
+.theme-sepia .print-config-panel label {
+  color: #5b4a3a !important;
+}
+
+.theme-sepia .print-config-panel label strong {
+  color: #433422 !important;
+}
+
+.theme-sepia .limit-chip-btn {
+  background: #e4d8bc !important;
+  border-color: #dfd3b8 !important;
+  color: #5b4a3a !important;
+}
+
+.theme-sepia .limit-chip-btn:hover {
+  background: #dfd3b8 !important;
+  border-color: #855e3a !important;
+  color: #855e3a !important;
+}
+
+.theme-sepia .limit-chip-btn.active {
+  background: linear-gradient(180deg, #a07a56 0%, #855e3a 100%) !important;
+  border-color: #855e3a !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(133, 94, 58, 0.25) !important;
+}
+
+.theme-sepia .print-topic-select-label input[type="checkbox"] {
+  accent-color: #855e3a !important;
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+/* Global button disable style */
+.glow-btn:disabled {
+  background: #475569 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  opacity: 0.6 !important;
+}
+
+
