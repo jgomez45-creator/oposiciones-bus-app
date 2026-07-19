@@ -492,7 +492,7 @@ service cloud.firestore {
                       <th style={{ padding: '12px 16px' }}>Estudio</th>
                       <th style={{ padding: '12px 16px' }}>Nota Tests</th>
                       <th style={{ padding: '12px 16px' }}>Última Actividad</th>
-                      <th style={{ padding: '12px 16px', textAlign: 'center' }}>Acciones</th>
+                      <th style={{ padding: '12px 16px', textAlign: 'center', width: '220px', minWidth: '220px' }}>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -579,7 +579,7 @@ service cloud.firestore {
                             </td>
 
                             {/* Kicking Action */}
-                            <td style={{ padding: '14px 16px', textAlign: 'center' }}>
+                            <td style={{ padding: '14px 16px', textAlign: 'center', width: '220px', minWidth: '220px' }}>
                               <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', alignItems: 'center' }}>
                                 {online && !isAdmin && (
                                   <button
