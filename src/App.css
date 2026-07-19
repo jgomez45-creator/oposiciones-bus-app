@@ -1714,7 +1714,7 @@ body.study-focus-mode .study-timer-bar {
   /* Document Typography Hierarchy (Escala Compacta Estilizada) */
   .markdown-rendered-content {
     color: #000000 !important;
-    font-size: 13pt !important;
+    font-size: 13.5pt !important;
     line-height: 1.4 !important;
     font-family: Arial, Calibri, Helvetica, sans-serif !important;
     -webkit-print-color-adjust: exact !important;
@@ -1748,7 +1748,7 @@ body.study-focus-mode .study-timer-bar {
   }
 
   .print-topic-subtitle {
-    font-size: 14pt !important;
+    font-size: 14.5pt !important;
     font-style: italic !important;
     color: #555555 !important;
     margin: 0 !important;
@@ -1781,7 +1781,7 @@ body.study-focus-mode .study-timer-bar {
 
   .markdown-rendered-content h3 {
     color: #008080 !important; /* Verde Azulado / Teal */
-    font-size: 14pt !important; /* Subapartados Internos (H3) */
+    font-size: 14.5pt !important; /* Subapartados Internos (H3) */
     font-weight: bold !important;
     margin-top: 14pt !important;
     margin-bottom: 7pt !important;
@@ -1790,7 +1790,7 @@ body.study-focus-mode .study-timer-bar {
   }
 
   .markdown-rendered-content p {
-    font-size: 13pt !important; /* Cuerpo de Texto / Párrafos Generales */
+    font-size: 13.5pt !important; /* Cuerpo de Texto / Párrafos Generales */
     line-height: 1.4 !important;
     text-align: justify !important; /* Estilo de alineación justificado */
     margin-bottom: 10pt !important;
@@ -1799,14 +1799,14 @@ body.study-focus-mode .study-timer-bar {
   /* Listas y Viñetas */
   .markdown-rendered-content ul,
   .markdown-rendered-content ol {
-    font-size: 13pt !important;
+    font-size: 13.5pt !important;
     line-height: 1.4 !important;
     padding-left: 25px !important; /* Con sangría izquierda estándar (25px) */
     margin-bottom: 10pt !important;
   }
 
   .markdown-rendered-content li {
-    font-size: 13pt !important;
+    font-size: 13.5pt !important;
     line-height: 1.4 !important;
     margin-bottom: 6px !important;
     break-inside: avoid !important;
@@ -2102,7 +2102,7 @@ body.study-focus-mode .study-timer-bar {
 .printable-question-text {
   font-weight: 600;
   margin-bottom: 8px;
-  font-size: 1rem;
+  font-size: 13.5pt;
 }
 
 .printable-options-list {
@@ -2116,7 +2116,7 @@ body.study-focus-mode .study-timer-bar {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 0.9rem;
+  font-size: 13.5pt;
 }
 
 .option-checkbox-box {
@@ -2154,12 +2154,12 @@ body.study-focus-mode .study-timer-bar {
 
 .printable-answer-num {
   font-weight: 700;
-  font-size: 13pt;
+  font-size: 13.5pt;
   margin-bottom: 4px;
 }
 
 .printable-answer-explanation {
-  font-size: 13pt;
+  font-size: 13.5pt;
   color: #444;
   margin-top: 4px;
   padding-left: 12px;
@@ -4164,12 +4164,12 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   .printable-answer-num {
-    font-size: 13pt !important;
+    font-size: 13.5pt !important;
     font-weight: bold !important;
   }
 
   .printable-answer-explanation {
-    font-size: 13pt !important;
+    font-size: 13.5pt !important;
     line-height: 1.4 !important;
     border-left: 3px solid #004B93 !important;
     background-color: #f4f8fc !important;
@@ -4214,7 +4214,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 .print-preview-content .markdown-rendered-content {
   font-family: Arial, Calibri, Helvetica, sans-serif !important;
   line-height: 1.4 !important;
-  font-size: 13pt !important;
+  font-size: 13.5pt !important;
   color: #000000 !important;
 }
 
@@ -4245,7 +4245,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 }
 
 .print-preview-content .print-topic-subtitle {
-  font-size: 14pt !important;
+  font-size: 14.5pt !important;
   font-style: italic !important;
   color: #555555 !important;
   margin: 0 !important;
@@ -4274,14 +4274,14 @@ body.reading-fullscreen-mode .markdown-body-container {
 
 .print-preview-content .markdown-rendered-content h3 {
   color: #008080 !important;
-  font-size: 14pt !important;
+  font-size: 14.5pt !important;
   font-weight: bold !important;
   margin-top: 14pt !important;
   margin-bottom: 7pt !important;
 }
 
 .print-preview-content .markdown-rendered-content p {
-  font-size: 13pt !important;
+  font-size: 13.5pt !important;
   line-height: 1.4 !important;
   text-align: justify !important;
   margin-bottom: 10pt !important;
@@ -4289,14 +4289,14 @@ body.reading-fullscreen-mode .markdown-body-container {
 
 .print-preview-content .markdown-rendered-content ul,
 .print-preview-content .markdown-rendered-content ol {
-  font-size: 13pt !important;
+  font-size: 13.5pt !important;
   line-height: 1.4 !important;
   padding-left: 25px !important;
   margin-bottom: 10pt !important;
 }
 
 .print-preview-content .markdown-rendered-content li {
-  font-size: 13pt !important;
+  font-size: 13.5pt !important;
   line-height: 1.4 !important;
   margin-bottom: 6px !important;
 }

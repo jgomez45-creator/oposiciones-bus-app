@@ -199,12 +199,12 @@ export default function TopicViewer({
 
         manualHeaderHtml = `
           <!-- Portada -->
-          <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20mm 40px 20mm 40px; border: 4px double #004B93; height: 250mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 650px;">
+          <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20mm 40px 20mm 40px; border: 4px double #004B93; height: 250mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px;">
             <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase;">Dossier de Preparación de Oposiciones</div>
             <div style="width: 80px; height: 3px; background-color: #004B93; margin: 20px auto 30px auto;"></div>
             <h1 style="font-size: 32pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
             <h2 style="font-size: 16pt; font-weight: bold; color: #004B93; margin: 0 0 30px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-            <div style="font-size: 15pt; color: #333333; max-width: 550px; line-height: 1.45; margin: 0 auto 20px auto; padding: 24px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+            <div style="font-size: 15.5pt; color: #333333; max-width: 720px; line-height: 1.45; margin: 0 auto 20px auto; padding: 24px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
               <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
               <br/><br/>
               Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
