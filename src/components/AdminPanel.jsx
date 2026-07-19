@@ -107,6 +107,19 @@ export default function AdminPanel({ topics }) {
     }
   };
 
+  // Handle deleting a user
+  const handleDeleteUser = async (uid, name) => {
+    if (window.confirm(`¿Estás seguro de que deseas ELIMINAR permanentemente el perfil y progreso de ${name}? Esta acción es definitiva.`)) {
+      try {
+        await firebaseService.deleteUser(uid);
+        alert(`Usuario ${name} eliminado correctamente.`);
+      } catch (err) {
+        console.error(err);
+        alert("No se pudo eliminar el usuario.");
+      }
+    }
+  };
+
   // Handle generating new activation codes
   const handleGenerateCodes = async (e) => {
     e.preventDefault();
@@ -567,19 +580,46 @@ service cloud.firestore {
 
                             {/* Kicking Action */}
                             <td style={{ padding: '14px 16px', textAlign: 'center' }}>
-                              {online && !isAdmin ? (
-                                <button
-                                  onClick={() => handleKickUser(u.uid, u.name)}
-                                  className="glow-btn-secondary"
-                                  style={{ padding: '6px 12px', border: '1px solid var(--accent-rose)', color: 'var(--accent-rose)', borderRadius: '6px', cursor: 'pointer', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
-                                  title="Cerrar sesión activa de este usuario"
-                                >
-                                  <ShieldAlert size={12} />
-                                  <span>Expulsar</span>
-                                </button>
-                              ) : (
-                                <span style={{ color: 'var(--text-dark)', fontSize: '0.75rem' }}>-</span>
-                              )}
+                              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', alignItems: 'center' }}>
+                                {online && !isAdmin && (
+                                  <button
+                                    onClick={() => handleKickUser(u.uid, u.name)}
+                                    className="glow-btn-secondary"
+                                    style={{ padding: '6px 12px', border: '1px solid var(--accent-rose)', color: 'var(--accent-rose)', borderRadius: '6px', cursor: 'pointer', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                                    title="Cerrar sesión activa de este usuario"
+                                  >
+                                    <ShieldAlert size={12} />
+                                    <span>Expulsar</span>
+                                  </button>
+                                )}
+                                
+                                {!isAdmin && (
+                                  <button
+                                    onClick={() => handleDeleteUser(u.uid, u.name)}
+                                    className="glow-btn-secondary"
+                                    style={{ 
+                                      padding: '6px 12px', 
+                                      border: '1px solid rgba(244, 63, 94, 0.4)', 
+                                      color: '#fb7185', 
+                                      borderRadius: '6px', 
+                                      cursor: 'pointer', 
+                                      fontSize: '0.75rem', 
+                                      display: 'inline-flex', 
+                                      alignItems: 'center', 
+                                      gap: '4px',
+                                      background: 'rgba(244, 63, 94, 0.05)'
+                                    }}
+                                    title="Eliminar usuario permanentemente"
+                                  >
+                                    <Trash2 size={12} />
+                                    <span>Eliminar</span>
+                                  </button>
+                                )}
+
+                                {isAdmin && (
+                                  <span style={{ color: 'var(--text-dark)', fontSize: '0.75rem' }}>-</span>
+                                )}
+                              </div>
                             </td>
 
                           </tr>

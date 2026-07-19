@@ -13,6 +13,7 @@ import {
   setDoc, 
   getDoc, 
   updateDoc, 
+  deleteDoc,
   onSnapshot,
   collection,
   getDocs
@@ -671,6 +672,27 @@ export const firebaseService = {
       await updateDoc(doc(db, 'users', uid), {
         currentSessionId: null
       });
+    }
+  },
+
+  /**
+   * Delete user profile (from Firestore or Mock storage)
+   */
+  async deleteUser(uid) {
+    if (isMock) {
+      const mockUsers = getMockUsers();
+      if (mockUsers[uid]) {
+        delete mockUsers[uid];
+        saveMockUsers(mockUsers);
+      }
+      localStorage.removeItem(`local_backup_progress_${uid}`);
+    } else {
+      await deleteDoc(doc(db, 'users', uid));
+      try {
+        await deleteDoc(doc(db, 'progress', uid));
+      } catch (e) {
+        console.warn('Progress document not found or could not be deleted:', e);
+      }
     }
   },
 
