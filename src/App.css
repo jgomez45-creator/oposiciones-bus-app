@@ -4072,7 +4072,7 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   /* Prevent list items, blocks, tables, images, and custom diagrams/boxes from breaking across pages */
-  li, tr, blockquote, pre, .printable-question-item, .printable-answer-row,
+  li, tr, blockquote, pre, .printable-question-item, .printable-answer-row, .paper-exam-question,
   .markdown-rendered-content table,
   .markdown-rendered-content img,
   .markdown-rendered-content svg,
