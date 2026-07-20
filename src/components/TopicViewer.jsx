@@ -48,7 +48,14 @@ export default function TopicViewer({
       alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir el temario en PDF.');
       return;
     }
-    window.print();
+    if (viewMode === 'single') {
+      setSelectedPrintTopicIds([activeTopicId.toString()]);
+      setIsManualFormat(true);
+      setViewMode('multi-print');
+      setTriggerAutocompile(true);
+    } else {
+      window.print();
+    }
   };
 
   const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
@@ -75,6 +82,7 @@ export default function TopicViewer({
   const [includeQuestionsInPrint, setIncludeQuestionsInPrint] = useState(false);
   const [printQuestionsCount, setPrintQuestionsCount] = useState(10);
   const [isManualFormat, setIsManualFormat] = useState(false);
+  const [triggerAutocompile, setTriggerAutocompile] = useState(false);
 
   const handleCompilePrint = async () => {
     if (selectedPrintTopicIds.length === 0) return;
@@ -313,6 +321,14 @@ export default function TopicViewer({
       setIsCompilingPrint(false);
     }
   };
+
+  // Auto-compile when triggered from the single-topic print button
+  useEffect(() => {
+    if (triggerAutocompile && viewMode === 'multi-print' && selectedPrintTopicIds.length === 1 && selectedPrintTopicIds[0] === activeTopicId.toString()) {
+      setTriggerAutocompile(false);
+      handleCompilePrint();
+    }
+  }, [triggerAutocompile, viewMode, selectedPrintTopicIds, activeTopicId]);
   
   // Local session study timer
   const [sessionTime, setSessionTime] = useState(0);

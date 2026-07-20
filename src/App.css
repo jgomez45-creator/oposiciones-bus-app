@@ -4071,8 +4071,13 @@ body.reading-fullscreen-mode .markdown-body-container {
     page-break-after: avoid !important;
   }
 
-  /* Prevent list items and blocks from breaking across pages */
-  li, tr, blockquote, pre, .printable-question-item, .printable-answer-row {
+  /* Prevent list items, blocks, tables, images, and custom diagrams/boxes from breaking across pages */
+  li, tr, blockquote, pre, .printable-question-item, .printable-answer-row,
+  .markdown-rendered-content table,
+  .markdown-rendered-content img,
+  .markdown-rendered-content svg,
+  .markdown-rendered-content div[style*="border"],
+  .markdown-rendered-content div[style*="background"] {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }

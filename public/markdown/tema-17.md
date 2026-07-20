@@ -7,90 +7,90 @@
 
 El siguiente esquema representa la jerarquía y relaciones entre los órganos generales de gobierno y las estructuras académicas y de representación de la Universidad de Sevilla:
 
-<div style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-card);padding:24px;border-radius:16px;border:2px solid var(--border-color);margin-bottom:24px;color:var(--text-main);page-break-inside:avoid;break-inside:avoid;">
-<div style="text-align:center;margin-bottom:20px;border-bottom:2px solid var(--border-color);padding-bottom:12px;">
-<h2 style="color:#d4a359;margin:0 0 4px 0;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;">Estructura Organizativa de la Universidad de Sevilla</h2>
-<span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">Guía de Gobierno, Participación y Estructuras (Decreto 98/2025)</span>
+<div style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#FFF8E7;padding:14px;border-radius:12px;border:2px solid #7C101A;margin-top:10px;margin-bottom:10px;color:#211A16;page-break-before:always;break-before:page;page-break-inside:avoid;break-inside:avoid;print-color-adjust:exact;-webkit-print-color-adjust:exact;">
+<div style="text-align:center;margin-bottom:12px;border-bottom:2px solid #7C101A;padding-bottom:8px;">
+<h2 style="color:#7C101A !important;margin:0 0 4px 0 !important;font-size:1.15rem !important;font-weight:800 !important;text-transform:uppercase;letter-spacing:0.5px;">ESTRUCTURA ORGANIZATIVA DE LA UNIVERSIDAD DE SEVILLA</h2>
+<span style="font-size:0.75rem !important;color:#9A6F0F !important;font-weight:700 !important;text-transform:uppercase;">Guía de Gobierno, Participación y Estructuras (Decreto 98/2025)</span>
 </div>
-<div style="display:flex;flex-direction:column;gap:16px;">
-<div style="background:rgba(139,92,246,0.03);border:1px solid rgba(139,92,246,0.15);padding:12px;border-radius:10px;">
-<div style="font-size:0.8rem;font-weight:800;color:#8b5cf6;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(139,92,246,0.1);padding-bottom:4px;">Nivel 1: Órganos Generales de la Universidad</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">El Claustro Universitario</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Máximo órgano de representación de la comunidad. Elabora Estatutos y elige al Defensor Universitario.</p>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="border:1px solid #7C101A;padding:8px;border-radius:8px;background:transparent;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-size:0.75rem !important;font-weight:800 !important;color:#9A6F0F !important;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;text-align:center;border-bottom:1px solid #7C101A;padding-bottom:2px;">NIVEL 1: ÓRGANOS GENERALES DE LA UNIVERSIDAD</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;">
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">El Claustro Universitario</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Máximo órgano de representación de la comunidad. Elabora Estatutos y elige al Defensor Universitario.</div>
 </div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Consejo de Gobierno</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órgano ejecutivo y administrativo. Aprueba reglamentos internos, planes estratégicos y RPT.</p>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Consejo de Gobierno</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Órgano ejecutivo y administrativo. Aprueba reglamentos internos, planes estratégicos y RPT.</div>
 </div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Consejo Social</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Participación de la sociedad. Aprueba el presupuesto, plan plurianual y cuentas anuales de la US.</p>
-</div>
-</div>
-</div>
-<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
-<div style="background:rgba(234,179,8,0.03);border:1px solid rgba(234,179,8,0.15);padding:12px;border-radius:10px;">
-<div style="font-size:0.8rem;font-weight:800;color:#eab308;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(234,179,8,0.1);padding-bottom:4px;">Nivel 2: Dirección y Gestión General (Rectorado)</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;">
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #eab308;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">El Rector o Rectora</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Máxima autoridad académica y representante legal de la US. Dirige la acción de gobierno y preside el Claustro y el Consejo de Gobierno.</p>
-</div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #eab308;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Equipo de Gobierno Central</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;"><strong>Vicerrectores:</strong> delegación de áreas. <strong>Secretario General:</strong> fedatario de acuerdos y actas. <strong>Gerente:</strong> servicios económicos y del PTGAS.</p>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Consejo Social</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Participación de la sociedad. Aprueba el presupuesto, plan plurianual y cuentas anuales de la US.</div>
 </div>
 </div>
 </div>
-<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
-<div style="background:rgba(59,130,246,0.03);border:1px solid rgba(59,130,246,0.15);padding:12px;border-radius:10px;">
-<div style="font-size:0.8rem;font-weight:800;color:#3b82f6;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(59,130,246,0.1);padding-bottom:4px;">Nivel 3: Estructura de Centros (Facultades y Escuelas)</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Junta de Centro</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órgano colegiado. 52% PDI Perm, 11% PDI No Perm, 30% Alumnos, 7% PTGAS. Aprueba el POD y calendario de exámenes.</p>
+<div style="text-align:center;color:#7C101A;font-size:1.1rem;line-height:1;margin:-10px 0;page-break-inside:avoid;break-inside:avoid;">↓</div>
+<div style="border:1px solid #7C101A;padding:8px;border-radius:8px;background:transparent;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-size:0.75rem !important;font-weight:800 !important;color:#9A6F0F !important;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;text-align:center;border-bottom:1px solid #7C101A;padding-bottom:2px;">NIVEL 2: DIRECCIÓN Y GESTIÓN GENERAL (RECTORADO)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;">
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;border-left:4px solid #7C101A;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">El Rector o Rectora</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Máxima autoridad académica y representative legal de la US. Dirige la acción de gobierno y preside el Claustro y el Consejo de Gobierno.</div>
 </div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Decanos y Directores</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órganos unipersonales de gestión y dirección ordinaria del centro. Ordenan el gasto y coordinan servicios.</p>
-</div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Escuelas de Doctorado / Posgrado</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;"><strong>EIDUS:</strong> organiza y coordina los doctorados y actas. <strong>EIP:</strong> coordina los títulos propios y posgrados oficiales.</p>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;border-left:4px solid #7C101A;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Equipo de Gobierno Central</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;"><strong>Vicerrectores:</strong> delegación de áreas. <strong>Secretario General:</strong> fedatario de acuerdos y actas. <strong>Gerente:</strong> servicios económicos y del PTGAS.</div>
 </div>
 </div>
 </div>
-<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
-<div style="background:rgba(16,185,129,0.03);border:1px solid rgba(16,185,129,0.15);padding:12px;border-radius:10px;">
-<div style="font-size:0.8rem;font-weight:800;color:#10b981;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(16,185,129,0.1);padding-bottom:4px;">Nivel 4: Estructura de Departamentos (Docencia e Investigación)</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;">
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #10b981;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">El Consejo de Departamento</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Órgano colegiado. Mínimo 51% PDI Permanente, 30% estudiantes. Aprueba guías docentes de las asignaturas oficiales.</p>
+<div style="text-align:center;color:#7C101A;font-size:1.1rem;line-height:1;margin:-10px 0;page-break-inside:avoid;break-inside:avoid;">↓</div>
+<div style="border:1px solid #7C101A;padding:8px;border-radius:8px;background:transparent;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-size:0.75rem !important;font-weight:800 !important;color:#9A6F0F !important;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;text-align:center;border-bottom:1px solid #7C101A;padding-bottom:2px;">NIVEL 3: ESTRUCTURA DE CENTROS (FACULTADES Y ESCUELAS)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;">
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Junta de Centro</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Órgano colegiado. 52% PDI Perm, 11% PDI No Perm, 30% Alumnos, 7% PTGAS. Aprueba el POD y calendario de exámenes.</div>
 </div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;border-left:4px solid #10b981;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Director y Secretario de Departamento</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;"><strong>Director:</strong> representa y autoriza los gastos del departamento. <strong>Secretario:</strong> custodia actas de acuerdos y libros oficiales.</p>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Decanos y Directores</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Órganos unipersonales de gestión y dirección ordinaria del centro. Ordenan el gasto y coordinan servicios.</div>
+</div>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Escuelas de Doctorado / Posgrado</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;"><strong>EIDUS:</strong> organiza y coordina los doctorados y actas. <strong>EIP:</strong> coordina los títulos propios y posgrados oficiales.</div>
 </div>
 </div>
 </div>
-<div style="text-align:center;color:var(--text-muted);font-size:1.2rem;line-height:1;margin:-6px 0;">↓</div>
-<div style="background:rgba(244,63,94,0.03);border:1px solid rgba(244,63,94,0.15);padding:12px;border-radius:10px;">
-<div style="font-size:0.8rem;font-weight:800;color:#f43f5e;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;border-bottom:1px solid rgba(244,63,94,0.1);padding-bottom:4px;">Nivel 5: Estructuras y Servicios de Apoyo</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Institutos de Investigación</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Centros para la investigación científica y técnica (propios, adscritos, mixtos o concertados).</p>
+<div style="text-align:center;color:#7C101A;font-size:1.1rem;line-height:1;margin:-10px 0;page-break-inside:avoid;break-inside:avoid;">↓</div>
+<div style="border:1px solid #7C101A;padding:8px;border-radius:8px;background:transparent;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-size:0.75rem !important;font-weight:800 !important;color:#9A6F0F !important;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;text-align:center;border-bottom:1px solid #7C101A;padding-bottom:2px;">NIVEL 4: ESTRUCTURA DE DEPARTAMENTOS (DOCENCIA E INVESTIGACIÓN)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;">
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;border-left:4px solid #7C101A;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">El Consejo de Departamento</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Órgano colegiado. Mínimo 51% PDI Permanente, 30% estudiantes. Aprueba guías docentes de las asignaturas oficiales.</div>
 </div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Centros Adscritos y Hospitales</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Docencia de centros externos y centros concertados de salud para la formación práctica.</p>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;border-left:4px solid #7C101A;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Director y Secretario de Departamento</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;"><strong>Director:</strong> representa y autoriza los gastos del departamento. <strong>Secretario:</strong> custodia actas de acuerdos y libros oficiales.</div>
 </div>
-<div style="background:var(--bg-card);border:1px solid var(--border-color);padding:10px;border-radius:8px;text-align:center;">
-<div style="font-weight:700;font-size:0.85rem;color:var(--text-main);margin-bottom:4px;">Servicios de Apoyo (Biblioteca / CITIUS)</div>
-<p style="font-size:0.75rem;color:var(--text-muted);margin:0;line-height:1.4;">Biblioteca Universitaria (BUS): recursos documentales. CITIUS: servicios de investigación científica.</p>
+</div>
+</div>
+<div style="text-align:center;color:#7C101A;font-size:1.1rem;line-height:1;margin:-10px 0;page-break-inside:avoid;break-inside:avoid;">↓</div>
+<div style="border:1px solid #7C101A;padding:8px;border-radius:8px;background:transparent;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-size:0.75rem !important;font-weight:800 !important;color:#9A6F0F !important;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;text-align:center;border-bottom:1px solid #7C101A;padding-bottom:2px;">NIVEL 5: ESTRUCTURAS Y SERVICIOS DE APOYO</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;">
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Institutos de Investigación</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Centros para la investigación científica y técnica (propios, adscritos, mixtos o concertados).</div>
+</div>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Centros Adscritos y Hospitales</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Docencia de centros externos y centros concertados de salud para la formación práctica.</div>
+</div>
+<div style="background:#FFFFFF;border:1px solid #7C101A;padding:6px 8px;border-radius:6px;text-align:center;page-break-inside:avoid;break-inside:avoid;">
+<div style="font-weight:700 !important;font-size:0.78rem !important;color:#1A1A1A !important;margin-bottom:2px !important;">Servicios de Apoyo (Biblioteca / CITIUS)</div>
+<div style="font-size:0.68rem !important;color:#000000 !important;margin:0 !important;line-height:1.3 !important;">Biblioteca Universitaria (BUS): recursos documentales. CITIUS: servicios de investigación científica.</div>
 </div>
 </div>
 </div>
