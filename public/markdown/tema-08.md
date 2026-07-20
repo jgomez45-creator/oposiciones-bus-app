@@ -86,3 +86,4 @@ Es el sistema más moderno y normalizado según el estándar internacional **ISO
 ## 7. Bibliografía
 *   **Norma ISO 28560: Tecnologías de identificación por radiofrecuencia (RFID) en bibliotecas**.
 *   **Manuales de usuario de las estaciones de autopréstamo de la BUS**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.

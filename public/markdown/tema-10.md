@@ -26,10 +26,35 @@ La **entrevista de referencia** es el proceso de comunicación interactiva entre
 ## 3. Tipología de Fuentes de Información de Referencia
 Las fuentes de información se clasifican según su nivel de elaboración:
 
-*   **Fuentes Primarias:** Contienen información original e inédita (ej. monografías científicas, artículos de revistas, tesis doctorales, patentes y **Normas Técnicas** como las UNE de AENOR o las ISO).
-*   **Fuentes Secundarias:** Contienen información organizada que remite o describe a las fuentes primarias (ej. catálogos de bibliotecas como **FAMA**, bases de datos bibliográficas, diccionarios, enciclopedias y anuarios).
-*   **Fuentes Terciarias:** Listados y guías que indexan y agrupan fuentes secundarias (ej. bibliografías de bibliografías).
-*   **Literatura Gris:** Documentos e informaciones que no se difunden ni publican a través de los canales de distribución comercial habituales (ej. tesis doctorales, patentes, actas de congresos, informes técnicos de organismos oficiales).
+*   **Fuentes Primarias:** Contienen información original e inédita, sin elaboración interpretativa previa. Ejemplos en el contexto BUS:
+    *   Artículo original publicado en una revista indexada en Scopus o WoS.
+    *   Tesis doctoral depositada en el repositorio **IdUS** de la US.
+    *   Patentes y **Normas Técnicas** (UNE de AENOR o ISO).
+    *   Ponencias y comunicaciones a congresos científicos.
+    *   Datos brutos de investigación (datasets depositados en repositorios de datos).
+
+*   **Fuentes Secundarias:** Contienen información organizada que describe, resume o remite a fuentes primarias. Ejemplos en el contexto BUS:
+    *   El catálogo **FAMA** (describe y localiza los documentos de la BUS).
+    *   Bases de datos bibliográficas como **Dialnet**, Scopus o WoS (indexan y resumen artículos).
+    *   Diccionarios temáticos, enciclopedias y anuarios estadísticos disponibles en la sala de referencia.
+    *   Bibliografías y repertorios de publicaciones.
+
+*   **Fuentes Terciarias:** Listados y guías que indexan y agrupan fuentes secundarias (ej. bibliografías de bibliografías, directorios de bases de datos).
+
+*   **Literatura Gris:** Documentos que no se difunden por los canales comerciales habituales. Ejemplos en el contexto BUS:
+    *   Informes técnicos internos (ej. memorias del SEPRUS o del CITIUS).
+    *   Actas de congresos y jornadas no publicadas en editorial comercial.
+    *   Trabajos Fin de Grado (TFG) y Trabajos Fin de Máster (TFM) depositados en IdUS.
+    *   Proyectos de investigación no publicados y documentos de trabajo (*working papers*).
+
+### Las Guías BUS (LibGuides)
+La BUS dispone de las **Guías BUS**, elaboradas con la plataforma **LibGuides** (Springshare), como herramienta de referencia virtual proactiva:
+*   Son guías temáticas o por asignatura elaboradas por el personal especialista de cada biblioteca de campus.
+*   Organizan y seleccionan los recursos más relevantes (bases de datos, libros electrónicos, revistas de referencia, páginas web) para cada área de conocimiento.
+*   Accesibles en **https://guiasbus.us.es/** y enlazadas desde los Servicios de Referencia de FAMA.
+*   Permiten al usuario acceder directamente a los recursos recomendados sin necesidad de buscar en el catálogo general.
+
+
 
 ---
 
@@ -69,3 +94,4 @@ El concepto de **Biblioteca 2.0** nace de la aplicación de la Web 2.0 al ámbit
 ## 8. Bibliografía
 *   **Servicio de Información, Atención y Referencia de la BUS**.
 *   **Catálogo FAMA de la Universidad de Sevilla y bases de datos del Consorcio de Bibliotecas Universitarias de Andalucía (CBUA)**.
+*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.

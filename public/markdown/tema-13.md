@@ -88,3 +88,5 @@ El uso del correo institucional está sujeto a las directrices de seguridad del 
 ## 6. Bibliografía
 *   **Guías de soporte oficial de Microsoft 365 (Outlook, OneDrive, SharePoint, Teams, Word, Excel)**.
 *   **Normas de uso de recursos informáticos de la Universidad de Sevilla**.
+*   **Guías de Microsoft 365 en la Universidad de Sevilla (SIC)**: Disponible en https://m365.us.es/es (Sección Guías).
+*   **Normativa de uso del correo electrónico de la Universidad de Sevilla (SIC)**: Disponible en https://sic.us.es/sites/default/files/seguridad/normativa_uso_correo_us.pdf.

@@ -92,3 +92,5 @@ Al iniciar sesión con las credenciales del **UVUS**, FAMA ofrece un portal pers
 ## 7. Bibliografía
 *   **Alma: Plataforma de Servicios de Biblioteca (Ex Libris)**.
 *   **Primo VE: Catálogo integrado de la BUS - FAMA (Ex Libris)**.
+*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.

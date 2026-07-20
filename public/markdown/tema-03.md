@@ -107,3 +107,4 @@ La luz degrada químicamente la celulosa del papel y descolora las tintas de for
 *   **Pautas y recomendaciones para los espacios y el mobiliario de las bibliotecas universitarias (REBIUN)**.
 *   **Normas para el uso y conservación de los fondos antiguos y valiosos de la Biblioteca de la Universidad de Sevilla**.
 *   **Reglamento de organización y funcionamiento de los archivos y del patrimonio documental de la Universidad de Sevilla**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.

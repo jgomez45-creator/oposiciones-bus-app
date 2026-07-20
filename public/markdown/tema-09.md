@@ -111,3 +111,5 @@ La **Objetoteca** es un servicio de préstamo de soportes especiales, dispositiv
 ## 9. Bibliografía
 *   **Normas de Préstamo a Domicilio de la Biblioteca de la Universidad de Sevilla**.
 *   **Reglamento y normas de uso del servicio de Objetoteca de la Biblioteca de la Universidad de Sevilla**.
+*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+*   **Plataforma de Libros Electrónicos PRESTO (Odilo)**: Preguntas frecuentes y guía de uso, disponible en http://www.tuodilotk.es/ayuda/odilotk/ES/faq.htm.

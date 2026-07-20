@@ -53,10 +53,37 @@ Modificado en 2022, el **Artículo 37 (Difusión en acceso abierto)** establece 
 ## 5. Evaluación Científica y Métricas de Impacto
 La biblioteca apoya al PDI en la obtención de los indicios de calidad de sus publicaciones:
 
-### Métricas Tradicionales de Impacto
+### A. Métricas Tradicionales de Impacto (Bibliometría)
 *   **Factor de Impacto (Journal Impact Factor - JIF / JCR):** Calculado por Clarivate Web of Science (WoS) en su informe anual *Journal Citation Reports (JCR)*. Mide la frecuencia media con la que los artículos de una revista han sido citados en los dos años precedentes.
 *   **SJR (SCImago Journal Rank):** Métrica de impacto basada en la base de datos Scopus de Elsevier, que pondera la relevancia de las citas recibidas según el prestigio de la revista citante.
 *   **Índice h (h-index):** Indicador propuesto por Jorge Hirsch que evalúa conjuntamente la productividad (número de artículos) y el impacto (número de citas) de un autor. Un científico tiene un índice *h* si ha publicado *h* trabajos que han recibido al menos *h* citas cada uno.
+
+### B. Altmetrics (Métricas Alternativas)
+Las **Altmetrics** (Alternative Metrics) son indicadores de impacto que miden la difusión y la repercusión de las publicaciones científicas más allá de las citas tradicionales en revistas académicas:
+*   **Qué miden:** Menciones en redes sociales (Twitter/X, ResearchGate), descargas, guardados en gestores de referencias (Mendeley, Zotero), reseñas en blogs científicos y noticias en medios de comunicación.
+*   **Ventaja clave:** Ofrecen una medición **inmediata** (en días o semanas tras la publicación), frente al tiempo de espera que requieren las citas tradicionales (meses o años).
+*   **El Altmetric Donut:** Herramienta visual en forma de rosca de colores que aparece junto a los artículos en plataformas como Scopus, WoS o las webs de las revistas. Cada color representa un tipo de fuente de impacto (rojo = noticias, azul = Twitter, amarillo = blogs…). En el centro aparece la puntuación global de Altmetric (**Altmetric Attention Score**).
+*   **Complementariedad:** Las Altmetrics no sustituyen a las métricas tradicionales; las complementan midiendo el impacto social y divulgativo de la investigación.
+
+> [!TIP]
+> **Regla mnemónica Altmetrics:** *"Las Altmetrics miden el **ruido** que hace un artículo en las redes antes de que lo citen en los libros"*
+
+---
+
+## 5.5. Las Cuatro Vías del Acceso Abierto (Open Access)
+La literatura científica puede llegar al acceso abierto a través de cuatro rutas o vías principales:
+
+| Vía | Nombre | Descripción | Coste para el autor |
+|:---:|:---|:---|:---:|
+| 🟢 **Verde** | *Green OA* | El autor deposita una copia del artículo (versión aceptada o postprint) en un repositorio institucional o temático (ej. **IdUS**, arXiv). La revista puede poner un período de embargo. | Gratuito |
+| 🟡 **Dorada** | *Gold OA* | El artículo se publica directamente en una revista de acceso abierto. El autor o su institución pagan las **APC** *(Article Processing Charges)* a la editorial. | APC (tasas) |
+| 🔵 **Híbrida** | *Hybrid OA* | La revista es de suscripción, pero el autor paga una APC adicional para que su artículo concreto sea de acceso abierto dentro de ella. Cubierto por los **Acuerdos Transformativos** de la CRUE. | APC (tasas) |
+| 💎 **Diamante** | *Diamond OA* | El artículo se publica en abierto en una revista financiada por instituciones, sociedades científicas u organismos públicos. **Ni el autor paga APC ni el lector paga suscripción.** Es el modelo más equitativo e ideal para la ciencia pública. | **Gratuito** |
+
+> [!IMPORTANT]
+> **La Vía Diamante** es la única modalidad en la que **no hay coste ni para el autor ni para el lector**. Es el modelo promovido por la Comisión Europea para la investigación financiada con fondos públicos europeos.
+
+
 
 ---
 
@@ -68,6 +95,10 @@ La biblioteca apoya al PDI en la obtención de los indicios de calidad de sus pu
 *   **IdUS:** Repositorio institucional abierto de la US para albergar tesis, TFG/TFM y artículos (Vía Verde).
 *   **JCR (WoS):** Contiene el Factor de Impacto (Clarivate).
 *   **SJR (Scopus):** Métrica alternativa de prestigio de revistas (SCImago/Elsevier).
+*   **Vías del Acceso Abierto:** Verde (repositorio, gratuito), Dorada (revista OA, paga APC), Híbrida (revista mixta, paga APC), **Diamante** (sin coste para nadie, financiada institucionalmente).
+*   **Altmetrics:** Métricas alternativas de impacto inmediato (redes sociales, descargas, menciones). Visualizadas con el **Altmetric Donut** (rosca de colores). Complementan (no sustituyen) a las citas tradicionales.
+
+
 
 ---
 
@@ -85,8 +116,14 @@ La biblioteca apoya al PDI en la obtención de los indicios de calidad de sus pu
 ## 8. Conceptos Clave
 *   **ORCID:** Identificador numérico persistente de 16 caracteres utilizado para la unificación del perfil digital del investigador.
 *   **Acceso Abierto (Open Access):** Disponibilidad digital libre de barreras económicas y restricciones de copyright de los resultados de investigación científica.
+*   **Vía Verde (Green OA):** Modalidad de acceso abierto en la que el autor deposita el artículo en un repositorio (ej. IdUS). Gratuita para el autor.
+*   **Vía Dorada (Gold OA):** El artículo se publica en una revista 100% en abierto; el autor paga las APC (Article Processing Charges).
+*   **Vía Diamante (Diamond OA):** El artículo se publica en abierto en una revista financiada institucionalmente. **Ni autor ni lector pagan**. Modelo promovido por la Comisión Europea para la investigación pública.
+*   **Altmetrics:** Métricas alternativas de impacto que miden la repercusión de una publicación en redes sociales, descargas y medios. Se visualizan mediante el **Altmetric Donut** (rosca de colores).
+*   **Altmetric Attention Score:** Puntuación numérica global de Altmetric que aparece en el centro del Donut y resume el impacto online de un artículo.
 *   **IdUS:** Repositorio oficial en abierto de la Universidad de Sevilla para cumplir con las directrices de depósito legal y ciencia abierta.
 *   **PRISMA:** Sistema de información científica de la US que integra los perfiles de los docentes investigadores.
+
 
 ---
 
@@ -94,3 +131,4 @@ La biblioteca apoya al PDI en la obtención de los indicios de calidad de sus pu
 *   **Directrices del Repositorio Institucional idUS (Depósito de Investigación de la Universidad de Sevilla)**.
 *   **Política de Acceso Abierto de la Universidad de Sevilla**.
 *   **Portal de Producción Científica PRISMA (Universidad de Sevilla)**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.

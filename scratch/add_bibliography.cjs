@@ -6,61 +6,83 @@ const bibliographies = {
     "**Reglamento de la Biblioteca de la Universidad de Sevilla** (Aprobado por Acuerdo del Consejo de Gobierno de la Universidad de Sevilla de 4 de marzo de 2011, modificado por Acuerdo de 24 de julio de 2014).",
     "**Normas de Préstamo a Domicilio de la Biblioteca de la Universidad de Sevilla** (Aprobadas por la Comisión de Biblioteca de la US).",
     "**Plan Director de la Biblioteca de la Universidad de Sevilla (2022-2026)**.",
-    "**Decreto 98/2025, por el que se aprueban los Estatutos de la Universidad de Sevilla**."
+    "**Decreto 98/2025, por el que se aprueban los Estatutos de la Universidad de Sevilla**.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.",
+    "**Bibliografía orientativa para opositores de la Biblioteca Nacional de España (BNE)**: Disponible en https://guias.bne.es/guiaopositor/bibliografia."
   ],
   2: [
     "**Carta de Servicios de la Biblioteca de la Universidad de Sevilla**.",
     "**Modelo EFQM de Excelencia (European Foundation for Quality Management)**.",
-    "**Plan Estratégico de la Universidad de Sevilla**."
+    "**Plan Estratégico de la Universidad de Sevilla**.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/."
   ],
   3: [
     "**Pautas y recomendaciones para los espacios y el mobiliario de las bibliotecas universitarias (REBIUN)**.",
     "**Normas para el uso y conservación de los fondos antiguos y valiosos de la Biblioteca de la Universidad de Sevilla**.",
-    "**Reglamento de organización y funcionamiento de los archivos y del patrimonio documental de la Universidad de Sevilla**."
+    "**Reglamento de organización y funcionamiento de los archivos y del patrimonio documental de la Universidad de Sevilla**.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/."
   ],
   4: [
     "**Programa de Gestión de la Colección de la Biblioteca de la Universidad de Sevilla**.",
     "**Guías de recursos y acceso remoto de la BUS (VPN, UVUS, OpenAthens)**.",
-    "**Plan Director de la BUS (Estrategias de adquisición de recursos electrónicos)**."
+    "**Plan Director de la BUS (Estrategias de adquisición de recursos electrónicos)**.",
+    "**Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación informativa de CCOO, Biblioteca ETSA, Universidad de Sevilla.",
+    "**Varo Ortega, Miguel (2021). Introducción a los recursos-e de la BUS y Dialnet en la BUS**: Presentación de formación de usuarios de la BUS, disponible en https://figshare.com/articles/presentation/Introducci_n_a_los_recursos-e_y_Dialnet_en_la_BUS_pdf/14496126.",
+    "**Proquest Training (2015-2018). Ebook Central Bookshelf, Reader & Search Tutorials**: Guías en video oficiales de Ebook Central de la BUS.",
+    "**UOC (2020). Webinar Biblioteca: nueva Plataforma de libros electrónicos eLibro**: Guía de uso oficial de la plataforma eLibro de la BUS."
   ],
   5: [
     "**Directrices para el expurgo de las colecciones de la Biblioteca de la Universidad de Sevilla**.",
     "**Formato MARC 21 para datos bibliográficos (Library of Congress)**.",
     "**Directrices de catalogación RDA (Resource Description and Access)**.",
-    "**Reglas de Catalogación españolas (Ministerio de Cultura)**."
+    "**Reglas de Catalogación españolas (Ministerio de Cultura)**.",
+    "**Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla."
   ],
   6: [
     "**Clasificación Decimal Universal (CDU): Tablas oficiales (edición abreviada de AENOR)**.",
-    "**Manuales y pautas de ordenación física de fondos en salas y depósitos de la BUS**."
+    "**Manuales y pautas de ordenación física de fondos en salas y depósitos de la BUS**.",
+    "**San Segundo Manuel, R., & Asociación Española de Normalización y Certificación, ed. (2016). Clasificación Decimal Universal (CDU): edición abreviada 2016 (Ed. abreviada)**. AENOR.",
+    "**Dionisio Millán (2022). Prácticas de CDU (Auxiliares y números principales): Supuestos y Correcciones**. Práctica de oposiciones, Biblioteca de la Escuela Técnica Superior de Arquitectura (ETSA), Universidad de Sevilla.",
+    "**Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla."
   ],
   7: [
     "**Alma: Plataforma de Servicios de Biblioteca (Ex Libris)**.",
-    "**Primo VE: Catálogo integrado de la BUS - FAMA (Ex Libris)**."
+    "**Primo VE: Catálogo integrado de la BUS - FAMA (Ex Libris)**.",
+    "**Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/."
   ],
   8: [
     "**Norma ISO 28560: Tecnologías de identificación por radiofrecuencia (RFID) en bibliotecas**.",
-    "**Manuales de usuario de las estaciones de autopréstamo de la BUS**."
+    "**Manuales de usuario de las estaciones de autopréstamo de la BUS**.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/."
   ],
   9: [
     "**Normas de Préstamo a Domicilio de la Biblioteca de la Universidad de Sevilla**.",
-    "**Reglamento y normas de uso del servicio de Objetoteca de la Biblioteca de la Universidad de Sevilla**."
+    "**Reglamento y normas de uso del servicio de Objetoteca de la Biblioteca de la Universidad de Sevilla**.",
+    "**Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.",
+    "**Plataforma de Libros Electrónicos PRESTO (Odilo)**: Preguntas frecuentes y guía de uso, disponible en http://www.tuodilotk.es/ayuda/odilotk/ES/faq.htm."
   ],
   10: [
     "**Servicio de Información, Atención y Referencia de la BUS**.",
-    "**Catálogo FAMA de la Universidad de Sevilla y bases de datos del Consorcio de Bibliotecas Universitarias de Andalucía (CBUA)**."
+    "**Catálogo FAMA de la Universidad de Sevilla y bases de datos del Consorcio de Bibliotecas Universitarias de Andalucía (CBUA)**.",
+    "**Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla."
   ],
   11: [
     "**Plan ALFIN/CODI (Alfabetización Informacional y Competencia Digital) de la BUS**.",
-    "**Marco Europeo de Competencia Digital para los Ciudadanos (DigComp)**."
+    "**Marco Europeo de Competencia Digital para los Ciudadanos (DigComp)**.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/."
   ],
   12: [
     "**Directrices del Repositorio Institucional idUS (Depósito de Investigación de la Universidad de Sevilla)**.",
     "**Política de Acceso Abierto de la Universidad de Sevilla**.",
-    "**Portal de Producción Científica PRISMA (Universidad de Sevilla)**."
+    "**Portal de Producción Científica PRISMA (Universidad de Sevilla)**.",
+    "**Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/."
   ],
   13: [
     "**Guías de soporte oficial de Microsoft 365 (Outlook, OneDrive, SharePoint, Teams, Word, Excel)**.",
-    "**Normas de uso de recursos informáticos de la Universidad de Sevilla**."
+    "**Normas de uso de recursos informáticos de la Universidad de Sevilla**.",
+    "**Guías de Microsoft 365 en la Universidad de Sevilla (SIC)**: Disponible en https://m365.us.es/es (Sección Guías).",
+    "**Normativa de uso del correo electrónico de la Universidad de Sevilla (SIC)**: Disponible en https://sic.us.es/sites/default/files/seguridad/normativa_uso_correo_us.pdf."
   ],
   14: [
     "**Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla**.",

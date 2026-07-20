@@ -125,3 +125,6 @@ Al alfabetizar revistas por título en las estanterías de la BUS:
 ## 8. Bibliografía
 *   **Clasificación Decimal Universal (CDU): Tablas oficiales (edición abreviada de AENOR)**.
 *   **Manuales y pautas de ordenación física de fondos en salas y depósitos de la BUS**.
+*   **San Segundo Manuel, R., & Asociación Española de Normalización y Certificación, ed. (2016). Clasificación Decimal Universal (CDU): edición abreviada 2016 (Ed. abreviada)**. AENOR.
+*   **Dionisio Millán (2022). Prácticas de CDU (Auxiliares y números principales): Supuestos y Correcciones**. Práctica de oposiciones, Biblioteca de la Escuela Técnica Superior de Arquitectura (ETSA), Universidad de Sevilla.
+*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.

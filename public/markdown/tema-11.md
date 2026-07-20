@@ -85,3 +85,4 @@ La BUS implementa una oferta estructurada de cursos teóricos y prácticos segú
 ## 8. Bibliografía
 *   **Plan ALFIN/CODI (Alfabetización Informacional y Competencia Digital) de la BUS**.
 *   **Marco Europeo de Competencia Digital para los Ciudadanos (DigComp)**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.

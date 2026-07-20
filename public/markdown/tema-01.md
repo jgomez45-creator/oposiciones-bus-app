@@ -41,19 +41,28 @@ La BUS opera de forma cooperativa integrándose en redes que multiplican la capa
 ## 3. Estructura y Organigrama de la BUS
 La BUS se rige por un principio de **unidad funcional**, lo que significa que, a pesar de estar distribuida físicamente por múltiples campus, opera bajo directrices técnicas únicas dirigidas centralmente.
 
-### Órganos de Gobierno y Asesoramiento
-*   **Dirección de la Biblioteca:** Órgano unipersonal de dirección técnica y administrativa del servicio. Se encarga de planificar, coordinar y gestionar los recursos humanos, materiales y el presupuesto.
-*   **La Comisión de la Biblioteca Universitaria:** Órgano superior colegiado de carácter consultivo, deliberante y de participación. Está presidida por el Rector o Vicerrector en quien delegue, y cuenta con representación de docentes (PDI), investigadores, estudiantes, personal técnico (PTGAS) y la dirección de la BUS.
-*   **La Junta Técnica de la Biblioteca:** Órgano colegiado de carácter técnico y asesor de la Dirección de la BUS, constituido por los responsables de los Servicios Centrales y de las Bibliotecas de Área o Centro.
-*   **Las Comisiones de las Bibliotecas de Área o Centro:** Órganos colegiados de consulta e interlocución en cada una de las grandes áreas o campus para canalizar las necesidades de las facultades asociadas.
-
-### Unidades de Gestión
-1.  **Servicios Centrales:** Unidades transversales que diseñan las directrices técnicas comunes (ej. Adquisición y Procesamiento Técnico, Recursos Electrónicos, Tecnologías, Apoyo a la Investigación, Acceso al Documento).
-2.  **Bibliotecas de Área y de Centro:** Unidades operativas distribuidas geográficamente que gestionan la atención presencial, el préstamo a domicilio, las salas de lectura y la formación directa al usuario de cada facultad o campus.
+<div style="font-family:'Segoe UI',Arial,sans-serif;padding:8px 0 16px 0;max-width:780px;margin:0 auto;">
+<div style="text-align:center;margin-bottom:4px;"><div style="display:inline-block;background:linear-gradient(135deg,#1a237e,#283593);color:#fff;border-radius:12px;padding:12px 28px;font-weight:700;font-size:1em;box-shadow:0 4px 12px rgba(26,35,126,0.35);">🏛️ RECTOR / VICERRECTOR DE INVESTIGACIÓN<div style="font-size:.78em;font-weight:400;margin-top:4px;opacity:.88;">Presidencia de la Comisión de Biblioteca · BUS depende del Vicerrectorado de Investigación</div></div></div>
+<div style="text-align:center;"><div style="display:inline-block;width:2px;height:24px;background:#1a237e;"></div></div>
+<div style="text-align:center;margin-bottom:4px;"><div style="display:inline-block;background:linear-gradient(135deg,#0d47a1,#1565c0);color:#fff;border-radius:10px;padding:10px 24px;font-weight:600;font-size:.93em;box-shadow:0 3px 10px rgba(13,71,161,0.3);max-width:420px;">📋 COMISIÓN DE LA BIBLIOTECA UNIVERSITARIA<div style="font-size:.76em;font-weight:400;margin-top:3px;opacity:.88;">Órgano colegiado superior · Consultivo y deliberante<br>Representación: PDI, estudiantes, PTGAS y Dirección BUS</div></div></div>
+<div style="text-align:center;"><div style="display:inline-block;width:2px;height:24px;background:#1565c0;"></div></div>
+<div style="text-align:center;margin-bottom:4px;"><div style="display:inline-block;background:linear-gradient(135deg,#00695c,#00796b);color:#fff;border-radius:10px;padding:12px 32px;font-weight:700;font-size:1em;box-shadow:0 4px 14px rgba(0,105,92,0.35);">👤 DIRECCIÓN DE LA BIBLIOTECA<div style="font-size:.77em;font-weight:400;margin-top:4px;opacity:.9;">Órgano unipersonal · Gestión técnica, presupuestaria y de RRHH</div></div></div>
+<div style="text-align:center;"><div style="display:inline-block;width:2px;height:24px;background:#00796b;"></div></div>
+<div style="text-align:center;margin-bottom:12px;"><div style="display:inline-block;background:linear-gradient(135deg,#e65100,#ef6c00);color:#fff;border-radius:10px;padding:10px 24px;font-weight:600;font-size:.92em;box-shadow:0 3px 10px rgba(230,81,0,0.3);max-width:420px;">⚙️ JUNTA TÉCNICA DE LA BIBLIOTECA<div style="font-size:.76em;font-weight:400;margin-top:3px;opacity:.88;">Órgano colegiado asesor de la Dirección<br>Integrada por responsables de Servicios Centrales y Bibliotecas de Área</div></div></div>
+<table style="width:100%;border-collapse:separate;border-spacing:12px 0;"><tr>
+<td style="width:50%;vertical-align:top;background:linear-gradient(135deg,#1565c0,#1976d2);color:#fff;border-radius:10px;padding:10px 14px;font-weight:600;font-size:.88em;box-shadow:0 3px 8px rgba(21,101,192,0.3);text-align:center;">🏢 SERVICIOS CENTRALES<div style="font-size:.75em;font-weight:400;margin-top:6px;text-align:left;line-height:1.7;opacity:.9;">• Adquisición y Proceso Técnico<br>• Recursos Electrónicos<br>• Tecnologías de la Información<br>• Apoyo a la Investigación (SAI)<br>• Acceso al Documento (PIB/ILL)</div><div style="font-size:.7em;margin-top:6px;font-style:italic;opacity:.8;">Directrices técnicas comunes para toda la BUS</div></td>
+<td style="width:50%;vertical-align:top;background:linear-gradient(135deg,#00695c,#00897b);color:#fff;border-radius:10px;padding:10px 14px;font-weight:600;font-size:.88em;box-shadow:0 3px 8px rgba(0,105,92,0.3);text-align:center;">📚 BIBLIOTECAS DE ÁREA / CENTRO<div style="font-size:.75em;font-weight:400;margin-top:6px;text-align:left;line-height:1.7;opacity:.9;">• Humanidades · Comunicación · Bellas Artes<br>• Ingeniería · Politécnica<br>• Ciencias de la Salud<br>• Ciencias Económicas y Jurídicas<br>• Arquitectura (ETSA) · y más…</div><div style="font-size:.7em;margin-top:6px;font-style:italic;opacity:.8;">Atención presencial, préstamo y formación al usuario</div></td>
+</tr></table>
+<div style="text-align:center;margin-top:14px;"><div style="display:inline-block;background:#f3f4f6;border:2px dashed #9e9e9e;border-radius:10px;padding:8px 20px;font-size:.8em;color:#444;max-width:520px;">📌 <strong>COMISIONES DE LAS BIBLIOTECAS DE ÁREA O CENTRO</strong><br><span style="font-size:.92em;">Órganos colegiados de consulta locales · Canalizan las necesidades de cada facultad hacia la Dirección</span></div></div>
+<div style="margin-top:16px;background:#f8f9fa;border-left:4px solid #1a237e;border-radius:6px;padding:10px 14px;font-size:.8em;color:#333;"><strong>🔑 Cadena jerárquica:</strong> <span style="color:#1a237e;">■</span> <strong>Rector/Vicerrector</strong> (preside la Comisión) → <span style="color:#00796b;">■</span> <strong>Dirección</strong> (órgano ejecutivo) → <span style="color:#ef6c00;">■</span> <strong>Junta Técnica</strong> (asesora) → <span style="color:#1976d2;">■</span> <strong>Servicios Centrales</strong> y <span style="color:#00897b;">■</span> <strong>Bibliotecas de Área</strong> (unidades operativas)</div>
+</div>
 
 ---
 
+
+
 ## 4. Marco Normativo de la BUS
+
 El marco normativo de la BUS regula las condiciones de uso, acceso y deberes para garantizar la conservación de sus fondos y la convivencia pacífica.
 
 ### A. Reglamento de la BUS
@@ -108,3 +117,5 @@ La BUS incluye un servicio de **Objetoteca** enfocado al préstamo de equipamien
 *   **Normas de Préstamo a Domicilio de la Biblioteca de la Universidad de Sevilla** (Aprobadas por la Comisión de Biblioteca de la US).
 *   **Plan Director de la Biblioteca de la Universidad de Sevilla (2022-2026)**.
 *   **Decreto 98/2025, por el que se aprueban los Estatutos de la Universidad de Sevilla**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
+*   **Bibliografía orientativa para opositores de la Biblioteca Nacional de España (BNE)**: Disponible en https://guias.bne.es/guiaopositor/bibliografia.

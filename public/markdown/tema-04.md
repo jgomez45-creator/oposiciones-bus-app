@@ -31,6 +31,19 @@ La colección digital de la BUS constituye actualmente la mayor parte del presup
 En el ámbito de las universidades públicas de Andalucía, la adquisición de grandes paquetes de recursos electrónicos se gestiona de forma conjunta para abaratar costes:
 *   **El CBUA (Consorcio de Bibliotecas Universitarias de Andalucía):** Creado en el año **2001**, agrupa a las 9 universidades públicas andaluzas bajo la coordinación de la Junta de Andalucía para la negociación unificada de licencias compartidas y préstamo intercampus (PICA).
 
+### Préstamo de Libros Electrónicos: PRESTO (Odilo)
+La BUS dispone de un servicio de **préstamo digital de libros electrónicos** a través de la plataforma **PRESTO**, desarrollada por la empresa española **Odilo**:
+
+*   **Acceso:** Se realiza desde el catálogo **FAMA**, previa identificación con las credenciales **UVUS**. También existe una aplicación móvil oficial.
+*   **Copias concurrentes:** Cada título tiene un número limitado de copias digitales disponibles simultáneamente. Si todas están en préstamo, el usuario puede apuntarse a una lista de espera.
+*   **DRM (Digital Rights Management):** Los libros descargados están protegidos con gestión digital de derechos. Esto significa que el archivo caduca automáticamente al vencer el plazo de préstamo, sin necesidad de devolución manual por parte del usuario.
+*   **Formatos de libro electrónico:**
+    *   **EPUB** (*Electronic Publication*): Formato adaptable que reajusta el texto al tamaño de pantalla del dispositivo. Permite cambiar el tamaño de letra, fuente y color de fondo. Es el formato estándar para novelas y ensayos.
+    *   **PDF** (*Portable Document Format*): Mantiene el diseño original de maquetación fija de la página, idéntico al libro impreso. Más adecuado para libros técnicos, científicos o con tablas y gráficos que deben conservar su disposición visual.
+
+> [!TIP]
+> **Regla mnemónica PRESTO/formatos:** *"**E**PUB se **E**stira (adaptable a pantalla), **P**DF es **P**etrificado (diseño fijo)"*
+
 ### Modelos de Adquisición y Licenciamiento
 A diferencia del libro en papel, el recurso electrónico se rige mediante licencias de acceso sujetas a derechos de autor:
 *   **Suscripción anual y "Big Deals":** Pago periódico anual por el derecho a acceder a los contenidos de un paquete de revistas.
@@ -104,3 +117,7 @@ El **UVUS** es la credencial única de identidad (par usuario/contraseña) que i
 *   **Programa de Gestión de la Colección de la Biblioteca de la Universidad de Sevilla**.
 *   **Guías de recursos y acceso remoto de la BUS (VPN, UVUS, OpenAthens)**.
 *   **Plan Director de la BUS (Estrategias de adquisición de recursos electrónicos)**.
+*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación informativa de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+*   **Varo Ortega, Miguel (2021). Introducción a los recursos-e de la BUS y Dialnet en la BUS**: Presentación de formación de usuarios de la BUS, disponible en https://figshare.com/articles/presentation/Introducci_n_a_los_recursos-e_y_Dialnet_en_la_BUS_pdf/14496126.
+*   **Proquest Training (2015-2018). Ebook Central Bookshelf, Reader & Search Tutorials**: Guías en video oficiales de Ebook Central de la BUS.
+*   **UOC (2020). Webinar Biblioteca: nueva Plataforma de libros electrónicos eLibro**: Guía de uso oficial de la plataforma eLibro de la BUS.

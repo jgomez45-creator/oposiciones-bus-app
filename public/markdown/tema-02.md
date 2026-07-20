@@ -93,3 +93,4 @@ Si la biblioteca incumple alguno de los compromisos declarados en la Carta de Se
 *   **Carta de Servicios de la Biblioteca de la Universidad de Sevilla**.
 *   **Modelo EFQM de Excelencia (European Foundation for Quality Management)**.
 *   **Plan Estratégico de la Universidad de Sevilla**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.

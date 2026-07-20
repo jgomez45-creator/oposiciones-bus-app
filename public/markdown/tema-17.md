@@ -260,3 +260,9 @@ El siguiente esquema representa la jerarquía y relaciones entre los órganos ge
     *   **Potenciar el prestigio de la Universidad de Sevilla** y su vinculación con la sociedad civil.
     *   Respetar las normas de convivencia y la disciplina aplicable.
     *   Proferir un trato respetuoso y no discriminatorio a todos los miembros de la comunidad.
+
+---
+
+## 4. Bibliografía
+*   **Estatutos de la Universidad de Sevilla (Decreto 98/2025)**.
+*   **Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario (LOSU)**.

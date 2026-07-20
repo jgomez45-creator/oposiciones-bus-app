@@ -46,8 +46,11 @@ MARC21 (*MAchine-Readable Cataloging*) es el estándar que estructura los metada
 
 | Campo | Nombre del Campo MARC21 | Subcampos Principales | Ejemplos y Uso |
 | :---: | :--- | :--- | :--- |
-| **`020`** | **ISBN** (International Standard Book Number) | **`$a`** Número de ISBN <br> **`$q`** Calificador de soporte | `020  $a 9788437604947 $q rústica` |
+| **`001`** | **Número de control del registro** | — | Identificador único del registro en la base de datos de la biblioteca. |
+| **`008`** | **Información de longitud fija (Datos del libro)** | — | Campo de control de 40 caracteres que codifica datos como: *fecha de publicación, país de publicación, idioma de la obra, tipo de material.* Sin subcampos; se lee por posición de carácter. Ej: posiciones 35-37 = código de idioma (`spa` para español). |
+| **`020`** | **ISBN** (International Standard Book Number) | **`$a`** Número de ISBN válido <br> **`$q`** Calificador de soporte <br> **`$z`** ISBN cancelado o incorrecto | **ISBN-13** (13 dígitos, empieza por `978` o `979`): `020 $a 9788437604947 $q rústica` <br> **ISBN-10** (10 dígitos, formato anterior a 2007): `020 $z 8437604940` — Se conserva en `$z` como ISBN cancelado al transcribir al nuevo formato. |
 | **`022`** | **ISSN** (International Standard Serial Number) | **`$a`** Número de ISSN | `022  $a 0210-4466` (Revista de Filología) |
+| **`040`** | **Fuente de catalogación** | **`$a`** Agencia catalogadora original <br> **`$b`** Idioma de catalogación <br> **`$e`** Convención de descripción aplicada | `040 $a SpMaBN $b spa $e rda` — Indica que catalogó la Biblioteca Nacional de España, en español y según normas RDA. |
 | **`080`** | **CDU** (Número de Clasificación Decimal Universal) | **`$a`** Notación de la CDU <br> **`$x`** Auxiliar común | `080  $a 821.134.2-31` (Novela en español) |
 | **`100`** | **Asiento Principal - Nombre de Persona** | **`$a`** Nombre personal <br> **`$d`** Fechas asociadas (nacim./muerte) | `100 1# $a Cervantes Saavedra, Miguel de, $d 1547-1616` |
 | **`110`** | **Asiento Principal - Nombre de Entidad** | **`$a`** Nombre de la corporación | `110 2# $a Universidad de Sevilla` |
@@ -59,6 +62,9 @@ MARC21 (*MAchine-Readable Cataloging*) es el estándar que estructura los metada
 | **`500`** | **Nota General** | **`$a`** Texto de la nota | `500  $a Bibliografía: p. 800-830.` |
 | **`650`** | **Punto de Acceso de Materia - Término** | **`$a`** Término de materia (materia principal) <br> **`$v`** Subdivisión de forma | `650 #4 $a Novela de caballerías $v Crítica e interpretación` |
 | **`700`** | **Asiento Secundario - Nombre de Persona** | **`$a`** Nombre personal <br> **`$e`** Término de relación (tr., ed., il.) | `700 1# $a Rico, Francisco, $e ed. lit.` |
+
+> [!TIP]
+> **Claves MARC21 para el examen:** El campo **008** (longitud fija, sin subcampos, se lee por posición) codifica el idioma (posiciones 35-37), país y tipo de recurso. El campo **040** identifica quién catalogó y con qué norma (`$e rda`). En el campo **020**, el **ISBN-13** va en `$a` y el **ISBN-10** antiguo (o ISBNs inválidos) va en `$z`.
 
 ### C. El Estándar RDA y el Modelo Conceptual IFLA LRM
 Las directrices **RDA (Resource Description and Access)** sustituyeron a las Reglas de Catalogación españolas tradicionales. RDA está fundamentado teóricamente en el modelo conceptual **IFLA LRM (Library Reference Model)**. 
@@ -106,30 +112,71 @@ Medidas orientadas a retrasar el deterioro físico y químico del patrimonio doc
 
 ---
 
-## 6. Esquema de Repaso Rápido
+## 6. Principales Bases de Datos de Apoyo
+
+El personal de la BUS utiliza habitualmente las siguientes bases de datos para verificar registros bibliográficos y asistir a investigadores:
+
+### A. Dialnet (Universidad de La Rioja)
+*   **Naturaleza:** Plataforma cooperativa hispana de acceso abierto financiada por un consorcio de bibliotecas españolas. La **BUS es biblioteca cooperadora de Dialnet**, contribuyendo activamente a la revisión y creación de registros bibliográficos.
+*   **Cobertura:** Indexa artículos de revistas científicas españolas e hispanoamericanas, tesis doctorales, libros y capítulos de libros.
+*   **Acceso:** La plataforma básica es **gratuita**. **Dialnet Plus** (texto completo, alertas y estadísticas ampliadas) requiere suscripción institucional.
+*   **Alertas bibliográficas:** Permite configurar avisos automáticos para recibir índices de nuevos números de revistas directamente en el correo.
+
+### B. Web of Science (WoS) — Clarivate Analytics
+*   **Naturaleza:** Base de datos multidisciplinar de referencia mundial para la literatura científica de mayor impacto. Accesible desde la BUS a través del CBUA.
+*   **Sus tres índices principales de citación:**
+    *   **SCI-E** *(Science Citation Index Expanded)*: Ciencias exactas, naturales y bioquímica.
+    *   **SSCI** *(Social Sciences Citation Index)*: Ciencias sociales, economía y educación.
+    *   **AHCI** *(Arts & Humanities Citation Index)*: Humanidades, filosofía, lingüística y artes.
+*   **Herramienta clave:** El **JCR (Journal Citation Reports)** proporciona el Factor de Impacto de las revistas científicas.
+
+### C. PubMed / MEDLINE — NLM (EE.UU.)
+*   **Naturaleza:** Base de datos bibliográfica especializada en ciencias de la salud y biomedicina de **acceso totalmente gratuito**.
+*   **Gestionada por:** La Biblioteca Nacional de Medicina de EE.UU. (NLM) a través de los NIH.
+*   **Cobertura:** Más de 34 millones de citas de literatura biomédica internacional. Acceso al texto completo de artículos en abierto a través de **PubMed Central (PMC)**.
+*   **Vocabulario Controlado:** Usa el **MeSH** *(Medical Subject Headings)* como tesauro médico estandarizado.
+
+> [!TIP]
+> **Regla mnemónica para bases de datos:** *"**W**oS mide el **I**mpacto, **D**ialnet es **H**ispana y **P**ubMed es **M**edical gratuita"*
+
+---
+
+## 7. Esquema de Repaso Rápido
 *   **Selección:** Decisión sobre qué materiales añadir a la colección.
 *   **Norma Matrícula BUS:** Más de 800 alumnos = Mínimo de **15 ejemplares** en biblioteca.
 *   **Expurgo Excluye:** Manuscritos e incunables (nunca se expurgan).
 *   **Conservación Formatos Grandes:** Posición **horizontal** y no apilados.
 *   **Ingresos:** Compra, Donación y Canje (intercambio institucional).
-*   **MARC21:** 245 es título (subcampos `$a` título propiamente dicho, `$b` subtítulo, `$c` mención de responsabilidad). 264 es publicación (subcampos `$a` lugar, `$b` editor, `$c` fecha). 300 es descripción física (`$a` páginas, `$b` ilustraciones, `$c` dimensiones en cm).
-*   **RDA (IFLA LRM):** Relación jerárquica **Obra** (idea abstracta) &rarr; **Expresión** (idioma/código) &rarr; **Manifestación** (edición comercial/soporte) &rarr; **Ítem** (ejemplar único con signatura y código de barras).
+*   **MARC21 campo 008:** Longitud fija (40 caracteres, sin subcampos). Posiciones 35-37 = código de idioma (`spa`).
+*   **MARC21 campo 040:** Fuente de catalogación (`$a` agencia, `$b` idioma, `$e` norma aplicada, ej. `rda`).
+*   **MARC21 campo 020:** ISBN-13 en `$a`; ISBN-10 antiguo o inválido en `$z`.
+*   **WoS índices:** SCI-E (ciencias exactas), SSCI (ciencias sociales), AHCI (humanidades).
+*   **Dialnet:** La BUS es biblioteca **cooperadora** (contribuye a crear registros).
+*   **PubMed/MEDLINE:** Base de datos biomédica **gratuita** (NLM/NIH de EE.UU.), usa vocabulario MeSH.
+*   **RDA (IFLA LRM):** Relación jerárquica **Obra** → **Expresión** → **Manifestación** → **Ítem**.
 
 ---
 
-## 7. Conceptos Clave
+## 8. Conceptos Clave
 *   **MUSTIE:** Método normalizado internacionalmente que condensa en seis siglas los criterios objetivos para la retirada o descarte de libros.
 *   **Desiderata:** Solicitud formal de compra de un documento realizada por un usuario a la biblioteca a través de FAMA o formulario web.
 *   **MARC21:** Formato de codificación de datos bibliográficos estandarizado internacionalmente para su lectura por ordenador.
+*   **Campo 008 MARC21:** Campo de control de longitud fija (40 caracteres) que codifica metadatos básicos: idioma (pos. 35-37), país y tipo de material. Sin subcampos; se lee por posición de carácter.
+*   **ISBN-13:** Identificador internacional de libro de 13 dígitos (formato vigente desde 2007, empieza por 978 o 979). El ISBN-10 anterior se registra en el subcampo `$z` del campo 020 de MARC21.
+*   **Campo 040 MARC21:** Identifica la agencia catalogadora original (`$a`), el idioma de catalogación (`$b`) y la norma de descripción aplicada (`$e`, ej. `rda`).
 *   **RDA (Resource Description and Access):** Estándar de catalogación estructurado para describir recursos en el entorno digital y bases de datos modernas.
 *   **Canje:** Intercambio mutuo y cooperativo de publicaciones propias entre universidades u organismos científicos.
 *   **Expurgo:** Operación técnica de retirada o descarte de fondos sobrantes u obsoletos para desatascar las salas de libre acceso de la biblioteca.
 *   **Incunables:** Libros impresos con caracteres móviles desde la invención de la imprenta (c. 1450) hasta el 31 de diciembre del año 1500 inclusive.
+*   **Dialnet:** Portal bibliográfico cooperativo hispano en el que la BUS participa como biblioteca cooperadora, contribuyendo a mantener y enriquecer sus registros.
+*   **PubMed/MEDLINE:** Base de datos biomédica de acceso gratuito gestionada por la NLM (NIH, EE.UU.) que indexa más de 34 millones de referencias usando el vocabulario MeSH.
+*   **WoS (Web of Science):** Base de datos multidisciplinar de Clarivate Analytics con tres índices: SCI-E (ciencias exactas), SSCI (ciencias sociales) y AHCI (humanidades).
 
 ---
 
-## 8. Bibliografía
+## 9. Bibliografía
 *   **Directrices para el expurgo de las colecciones de la Biblioteca de la Universidad de Sevilla**.
 *   **Formato MARC 21 para datos bibliográficos (Library of Congress)**.
 *   **Directrices de catalogación RDA (Resource Description and Access)**.
 *   **Reglas de Catalogación españolas (Ministerio de Cultura)**.
+*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
