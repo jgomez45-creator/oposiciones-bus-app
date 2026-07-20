@@ -251,7 +251,60 @@ export default function TopicViewer({
         `;
       }
       
-      const combinedHtml = manualHeaderHtml + results.join('\n');
+      let combinedHtml = manualHeaderHtml + results.join('\n');
+      
+      if (isManualFormat && currentUser?.role === 'admin') {
+        combinedHtml += `
+          <div class="print-page-break"></div>
+          <div class="print-manual-admin-info" style="box-sizing: border-box; padding: 20mm 40px; font-family: Arial, Calibri, Helvetica, sans-serif; max-width: 820px; margin: 0 auto; line-height: 1.5; color: #000000; text-align: justify; font-size: 13pt; page-break-before: always; break-before: page;">
+            <div style="border-bottom: 3px solid #004B93; padding-bottom: 10px; margin-bottom: 24px; text-align: center;">
+              <h1 style="margin: 0; color: #004B93; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Acceso y Registro en la Aplicación Web</h1>
+              <p style="margin: 6px 0 0 0; color: #555555; font-size: 12pt; font-style: italic;">Instrucciones para el Alumno - Activación de Licencia</p>
+            </div>
+            
+            <h3 style="color: #004B93; font-size: 14pt; border-bottom: 1px solid #b0c4de; padding-bottom: 4px; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase; font-weight: bold;">1. Utilidades y Funciones de la Plataforma</h3>
+            <p>Junto con este manual impreso, dispones de acceso completo a la <strong>Plataforma Web interactiva de Oposiciones BUS</strong>, diseñada específicamente para maximizar la eficiencia en tu preparación:</p>
+            <ul style="margin-top: 8px; margin-bottom: 16px; padding-left: 20px; line-height: 1.6;">
+              <li><strong>Temario Digital Interactivo:</strong> Lectura cómoda adaptada a cualquier pantalla (ordenador, tablet o móvil), con modo lectura nocturno y audiolibro integrado.</li>
+              <li><strong>Audiotemas (TTS & MP3):</strong> Escucha la explicación de cada tema mediante síntesis de voz inteligente o con los archivos de audio oficiales para optimizar tus tiempos de estudio.</li>
+              <li><strong>Batería de Tests Completa:</strong> Realiza cuestionarios específicos por tema o simulacros combinados con justificaciones legislativas extraídas de la plantilla de soluciones.</li>
+              <li><strong>Modo Simulacro e Interactivo en Papel:</strong> Simula las condiciones de un examen real de 40 preguntas equilibradas, con corrección instantánea y cálculo de penalización.</li>
+              <li><strong>Estadísticas Avanzadas:</strong> Controla tu progreso de estudio, tiempo acumulado y media de aciertos para enfocar tus repasos donde más lo necesitas.</li>
+              <li><strong>Tarjetas de Repaso (Flashcards):</strong> Memoriza plazos, números y conceptos clave con el método de repetición espaciada.</li>
+            </ul>
+
+            <h3 style="color: #004B93; font-size: 14pt; border-bottom: 1px solid #b0c4de; padding-bottom: 4px; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase; font-weight: bold;">2. Cómo Acceder y Registrarse</h3>
+            <p>Sigue estos sencillos pasos para crear tu cuenta y activar tu temario digital:</p>
+            <ol style="margin-top: 8px; margin-bottom: 24px; padding-left: 20px; line-height: 1.6;">
+              <li>Entra en el portal de acceso a través del navegador web utilizando la siguiente dirección:
+                <div style="font-family: monospace; font-weight: bold; background: #f1f5f9; padding: 8px; border-radius: 6px; text-align: center; margin: 8px 0; border: 1px solid #cbd5e1; font-size: 12pt;">
+                  https://oposiciones-bus-app.web.app
+                </div>
+              </li>
+              <li>En la pantalla de acceso, haz clic en el botón <strong>"Registrarse"</strong> (o introduce directamente los datos en la sección de registro).</li>
+              <li>Rellena el formulario con tu nombre completo, correo electrónico y contraseña.</li>
+              <li>Introduce tu <strong>código de acceso personal e intransferible</strong> que encontrarás pegado en la etiqueta inferior. Este código validará tu licencia y activará todo el contenido Premium.</li>
+              <li>Haz clic en <strong>"Crear cuenta"</strong>. ¡Ya puedes empezar a estudiar y hacer tests!</li>
+            </ol>
+
+            <div style="margin-top: 40px; border: 2px dashed #004B93; border-radius: 12px; padding: 20px; background-color: #fafbfc; text-align: center; page-break-inside: avoid; break-inside: avoid;">
+              <h4 style="margin: 0 0 10px 0; color: #000000; font-size: 12pt; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">CÓDIGO DE ACTIVACIÓN DE LICENCIA PERSONAL</h4>
+              <p style="margin: 0 0 15px 0; font-size: 10pt; color: #666666;">Espacio reservado para la etiqueta del código del temario impreso</p>
+              
+              <!-- Recuadro para etiqueta de 3.5cm x 8cm -->
+              <div style="width: 80mm; height: 35mm; border: 2px dashed #004B93; border-radius: 6px; background-color: #ffffff; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11pt; color: #999999; font-weight: bold;">
+                <span>Pegar etiqueta aquí</span>
+                <span style="font-size: 9pt; font-weight: normal; margin-top: 4px; color: #bbb;">(3.5 cm x 8 cm)</span>
+              </div>
+              
+              <p style="margin: 15px 0 0 0; font-size: 9.5pt; color: #ef4444; font-weight: bold; line-height: 1.3;">
+                ⚠️ Este código es de un solo uso y quedará vinculado a tu correo electrónico al registrarte. No lo compartas con nadie.
+              </p>
+            </div>
+          </div>
+        `;
+      }
+      
       setCompiledPrintContent(combinedHtml);
     } catch (err) {
       console.error(err);
