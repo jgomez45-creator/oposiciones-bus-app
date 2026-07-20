@@ -838,27 +838,33 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Cada simulacro consta de **40 preguntas de opción múltiple** con una distribución paritaria de **2 preguntas por cada uno de los 20 temas** del programa de la convocatoria. Se incluye al final de cada examen su correspondiente solucionario y hoja de justificaciones basadas en las normativas aplicables.
               </div>
 
-              {/* Índice de Simulacros Incluidos */}
-              <div style={{ marginTop: '20px', width: '100%', textAlign: 'left', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '13pt', color: '#1e3a8a', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', textTransform: 'uppercase', fontWeight: 'bold', margin: '0 0 10px 0' }}>
-                  Índice de Simulacros Incluidos
-                </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginTop: '10px' }}>
-                  {compiledExamsContent.map(examBlock => (
-                    <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '12pt' }}>
-                      <span style={{ fontWeight: '600', color: '#1e3a8a' }}>Simulacro Predefinido Nº {examBlock.examNum}</span>
-                      <span style={{ color: '#666', fontWeight: 'bold' }}>40 preguntas</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               <div style={{ fontSize: '14pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
                 <span>© 2026 Jgg. Todos los derechos reservados.</span>
               </div>
             </div>
             
             {/* Salto de página tras la portada */}
+            <div className="print-page-break"></div>
+
+            {/* Índice de Simulacros Incluidos (en la segunda página) */}
+            <div className="print-manual-index printable-exam-sheet" style={{ padding: '20px 0', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakBefore: 'always', breakBefore: 'page' }}>
+              <div style={{ borderBottom: '3px solid #000000', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
+                <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Índice de Simulacros Incluidos</h1>
+                <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Dossier completo de simulacros para Auxiliar de Biblioteca - US</p>
+              </div>
+              
+              <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Simulacros Seleccionados</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginTop: '10px' }}>
+                {compiledExamsContent.map(examBlock => (
+                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
+                    <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>Simulacro Predefinido Nº {examBlock.examNum}</span>
+                    <span style={{ color: '#555555', fontWeight: 'bold' }}>40 preguntas</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Salto de página tras la relación de simulacros */}
             <div className="print-page-break"></div>
 
             {/* Loop through each compiled exam */}
@@ -982,29 +988,35 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Contiene una selección de cuestionarios tipo test por temas extraídos del pool de preparación, con sus correspondientes plantillas de soluciones y justificaciones redactadas a partir de normativas vigentes (Convenio Colectivo, LOSU, Ley de Prevención de Riesgos Laborales, etc.). El uso de este material es responsabilidad exclusiva del opositor en su proceso de estudio.
               </div>
 
-              {/* Index of included topics */}
-              <div style={{ marginTop: '20px', width: '100%', textAlign: 'left', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '13pt', color: '#1e3a8a', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', textTransform: 'uppercase', fontWeight: 'bold', margin: '0 0 10px 0' }}>
-                  Índice de Cuestionarios Incluidos
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxHeight: '75mm', overflow: 'hidden' }}>
-                  {testBookContent.map(block => (
-                    <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '11pt' }}>
-                      <span style={{ fontWeight: '600', color: '#1e3a8a', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '380px' }}>
-                        Tema {block.topicId.toString().padStart(2, '0')}: {block.topicTitle}
-                      </span>
-                      <span style={{ color: '#666', fontWeight: 'bold', whiteSpace: 'nowrap' }}>{block.questions.length} preguntas</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               <div style={{ fontSize: '14pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
                 <span>© 2026 Jgg. Todos los derechos reservados.</span>
               </div>
             </div>
             
-            {/* Page break before starting the content */}
+            {/* Salto de página tras la portada */}
+            <div className="print-page-break"></div>
+
+            {/* Índice de Cuestionarios Incluidos (en la segunda página) */}
+            <div className="print-manual-index printable-exam-sheet" style={{ padding: '20px 0', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakBefore: 'always', breakBefore: 'page' }}>
+              <div style={{ borderBottom: '3px solid #000000', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
+                <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Índice de Cuestionarios Incluidos</h1>
+                <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Dossier completo de tests por temas para Auxiliar de Biblioteca - US</p>
+              </div>
+              
+              <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {testBookContent.map(block => (
+                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
+                    <span style={{ fontWeight: 'bold', color: '#1e3a8a', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '580px' }}>
+                      Tema {block.topicId.toString().padStart(2, '0')}: {block.topicTitle}
+                    </span>
+                    <span style={{ color: '#555555', fontWeight: 'bold', whiteSpace: 'nowrap' }}>{block.questions.length} preguntas</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Salto de página tras la relación de cuestionarios */}
             <div className="print-page-break"></div>
 
             {testBookContent.map((block, bIdx) => (
