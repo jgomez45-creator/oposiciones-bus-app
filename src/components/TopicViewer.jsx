@@ -338,8 +338,23 @@ export default function TopicViewer({
     if (!compiledPrintContent || !isManualFormat || selectedPrintTopicIds.length === 0) return;
 
     const calculateIndexPages = () => {
+      // Create a temporary sandbox container with the exact print width to measure content wrapping accurately
+      const sandbox = document.createElement('div');
+      sandbox.className = 'print-preview-content';
+      sandbox.style.position = 'absolute';
+      sandbox.style.top = '-99999px';
+      sandbox.style.left = '-99999px';
+      sandbox.style.width = '180mm'; // A4 width (210mm) minus 15mm left and 15mm right margins
+      sandbox.style.boxSizing = 'border-box';
+      sandbox.style.background = 'white';
+      sandbox.style.color = 'black';
+      
+      // Inject compiled content so we can measure elements layouted at 180mm width
+      sandbox.innerHTML = compiledPrintContent;
+      document.body.appendChild(sandbox);
+
       const pageHeightHelper = document.createElement('div');
-      pageHeightHelper.style.height = '257mm';
+      pageHeightHelper.style.height = '257mm'; // A4 height (297mm) minus 15mm top and 25mm bottom margins
       pageHeightHelper.style.position = 'absolute';
       pageHeightHelper.style.visibility = 'hidden';
       document.body.appendChild(pageHeightHelper);
@@ -351,31 +366,36 @@ export default function TopicViewer({
 
       sortedIds.forEach(id => {
         const pageSpan = document.querySelector(`.index-topic-page-num[data-topic-id="${id}"]`);
-        if (pageSpan) {
-          pageSpan.textContent = `Página ${currentPage}`;
-        }
-
-        const topicEl = document.querySelector(`.print-topic-block[data-topic-id="${id}"]`);
+        
+        // Measure heights of sections rendered inside the 180mm sandbox
+        const topicEl = sandbox.querySelector(`.print-topic-block[data-topic-id="${id}"]`);
         let topicPages = 1;
         if (topicEl) {
           const h = topicEl.offsetHeight;
           topicPages = Math.max(1, Math.ceil(h / pagePx));
         }
 
-        const qEl = document.querySelector(`[data-topic-questions="${id}"]`);
+        const qEl = sandbox.querySelector(`[data-topic-questions="${id}"]`);
         let qPages = 0;
         if (qEl) {
           qPages = Math.max(1, Math.ceil(qEl.offsetHeight / pagePx));
         }
 
-        const aEl = document.querySelector(`[data-topic-answers="${id}"]`);
+        const aEl = sandbox.querySelector(`[data-topic-answers="${id}"]`);
         let aPages = 0;
         if (aEl) {
           aPages = Math.max(1, Math.ceil(aEl.offsetHeight / pagePx));
         }
 
+        if (pageSpan) {
+          pageSpan.textContent = `Página ${currentPage}`;
+        }
+
         currentPage += topicPages + qPages + aPages;
       });
+
+      // Cleanup
+      document.body.removeChild(sandbox);
     };
 
     const t1 = setTimeout(calculateIndexPages, 50);
