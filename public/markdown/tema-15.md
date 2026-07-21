@@ -1,4 +1,10 @@
 # Tema 15: Riesgos generales y específicos del puesto de trabajo
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las distancias de pantalla PVD, pausas obligatorias, pesos máximos y riesgos biológicos en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Riesgos asociados al auxiliar de biblioteca y directrices técnicas del SEPRUS
 
 ---
@@ -10,6 +16,10 @@ El puesto de **Técnico/a Auxiliar de Biblioteca, Archivo y Museo** en la Univer
 *   **Manipulación manual de cargas:** Levantamiento de libros, ordenación de estanterías y empuje de carritos de transporte.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las distancias de pantalla PVD, pausas obligatorias, pesos máximos y riesgos biológicos? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. Ergonomía en Puestos con Pantallas de Visualización de Datos (PVD)
 Las directrices técnicas del **SEPRUS** detallan que la fatiga visual y los riesgos musculoesqueléticos en oficinas se previenen mediante una correcta configuración espacial:
@@ -78,3 +88,13 @@ Para trasladar libros mediante carros móviles de biblioteca:
 ## 7. Bibliografía
 *   **Guía Preventiva para los Empleados Públicos de la Universidad de Sevilla (SEPRUS)**.
 *   **Fichas preventivas y recomendaciones posturales del Servicio de Prevención de Riesgos Laborales de la US (SEPRUS)**.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

@@ -1,10 +1,20 @@
 # Tema 1: Las bibliotecas universitarias y la BUS
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las competencias de los órganos de la BUS, reglamentos y plazos de préstamo en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Concepto, estructura, funciones, organigrama y marco normativo (Reglamento, normas de préstamo y uso)
 
 ---
 
 ## 1. Concepto y Evolución de las Bibliotecas Universitarias
 Las **bibliotecas universitarias** son unidades clave en el engranaje de la educación superior. Tradicionalmente centradas en la conservación física de textos y la consulta presencial, han evolucionado para dar respuesta al entorno digital y las nuevas metodologías docentes de la educación superior (Espacio Europeo de Educación Superior - EEES).
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las competencias de los órganos de la BUS, reglamentos y plazos de préstamo? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### El Modelo CRAI (Centro de Recursos para el Aprendizaje y la Investigación)
 La transición digital e institucional ha llevado al surgimiento del **CRAI**. Este modelo integra en un único espacio físico y virtual:
@@ -119,3 +129,13 @@ La BUS incluye un servicio de **Objetoteca** enfocado al préstamo de equipamien
 *   **Decreto 98/2025, por el que se aprueban los Estatutos de la Universidad de Sevilla**.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
 *   **Bibliografía orientativa para opositores de la Biblioteca Nacional de España (BNE)**: Disponible en https://guias.bne.es/guiaopositor/bibliografia.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

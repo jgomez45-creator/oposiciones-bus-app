@@ -1,4 +1,10 @@
 # Tema 5: Gestión de la colección
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las fases del tratamiento técnico y los criterios MUSTIE del expurgo en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Selección, adquisición, tratamiento técnico, inventario, expurgo y preservación
 
 ---
@@ -16,6 +22,10 @@ El ciclo de vida de los documentos consta de fases interrelacionadas representad
 ```
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las fases del tratamiento técnico y los criterios MUSTIE del expurgo? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. Selección y Adquisición
 
@@ -180,3 +190,13 @@ El personal de la BUS utiliza habitualmente las siguientes bases de datos para v
 *   **Directrices de catalogación RDA (Resource Description and Access)**.
 *   **Reglas de Catalogación españolas (Ministerio de Cultura)**.
 *   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

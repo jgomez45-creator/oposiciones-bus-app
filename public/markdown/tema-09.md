@@ -1,10 +1,20 @@
 # Tema 9: Servicios a los usuarios I: Préstamo y Objetoteca
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los plazos y límites de préstamo por tipo de usuario y las de sanciones por demora en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## El servicio de préstamo en la BUS y la Objetoteca
 
 ---
 
 ## 1. El Servicio de Préstamo a Domicilio en la BUS
 El **préstamo a domicilio** es el servicio a través del cual la BUS autoriza la salida temporal de materiales bibliográficos e informativos fuera del recinto físico de la biblioteca. Es de carácter personal e intransferible.
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los plazos y límites de préstamo por tipo de usuario y las de sanciones por demora? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### A. Tipologías de Préstamo
 1.  **Préstamo Ordinario (Monografías):** Para manuales y libros de estudio de la colección.
@@ -113,3 +123,13 @@ La **Objetoteca** es un servicio de préstamo de soportes especiales, dispositiv
 *   **Reglamento y normas de uso del servicio de Objetoteca de la Biblioteca de la Universidad de Sevilla**.
 *   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
 *   **Plataforma de Libros Electrónicos PRESTO (Odilo)**: Preguntas frecuentes y guía de uso, disponible en http://www.tuodilotk.es/ayuda/odilotk/ES/faq.htm.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

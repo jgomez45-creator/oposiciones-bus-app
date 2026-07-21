@@ -1,4 +1,10 @@
 # Tema 10: Servicios a los usuarios II: Información y referencia
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los niveles de referencia de la BUS y las diferencias entre obras primarias y secundarias en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Información, atención y referencia
 
 ---
@@ -12,6 +18,10 @@ En la estructura organizativa de la **Biblioteca de la Universidad de Sevilla (B
 *   **Referencia Especializada (Tercer Nivel):** Consultas complejas orientadas a la investigación y el postgrado (búsquedas avanzadas en Scopus o Web of Science, índices de impacto). Atendido por personal especializado.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los niveles de referencia de la BUS y las diferencias entre obras primarias y secundarias? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. La Entrevista de Referencia: Fases de la Interacción
 La **entrevista de referencia** es el proceso de comunicación interactiva entre el bibliotecario y el usuario con el fin de determinar con precisión qué información necesita realmente el usuario. Consta de las siguientes fases:
@@ -95,3 +105,13 @@ El concepto de **Biblioteca 2.0** nace de la aplicación de la Web 2.0 al ámbit
 *   **Servicio de Información, Atención y Referencia de la BUS**.
 *   **Catálogo FAMA de la Universidad de Sevilla y bases de datos del Consorcio de Bibliotecas Universitarias de Andalucía (CBUA)**.
 *   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

@@ -1,4 +1,10 @@
 # Tema 17: Estatutos de la Universidad de Sevilla (Decreto 98/2025)
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los requisitos del Rector, sectores del Claustro y competencias del Consejo Social en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Título I (Capítulos I y II, Secciones 1ª, 2ª y 3ª) y Título III (Capítulo I, Art. 90)
 
 ---
@@ -6,6 +12,10 @@
 ## 📌 1. Resumen Ejecutivo (Conceptos Clave)
 
 El presente tema regula la estructura orgánica de gobierno, representación y participación de la **Universidad de Sevilla (US)** conforme a sus Estatutos vigentes (aprobados por el Decreto 98/2025), adaptados a la Ley Orgánica del Sistema Universitario (LOSU).
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los requisitos del Rector, sectores del Claustro y competencias del Consejo Social? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### Ejes Vertebradores de la Organización:
 1. **Doble Naturaleza Orgánica:** Los órganos de gobierno de la US se dividen estrictamente en:
@@ -190,3 +200,13 @@ El artículo 90.2.e consagra la prohibición de discriminación basada en una li
 15. **Apariencia**
 
 *Deber Fundamental del Personal (Art. 90.3.d):* **"Potenciar el prestigio de la Universidad de Sevilla"** y su vinculación con el tejido social y empresarial.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

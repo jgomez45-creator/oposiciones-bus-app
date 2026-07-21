@@ -1,4 +1,10 @@
 # Tema 6: Clasificación de fondos: la CDU
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las clases principales de la CDU y el significado de los signos de relación en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Clasificación Decimal Universal. Organización y control de fondos
 
 ---
@@ -9,6 +15,10 @@ La **Clasificación Bibliográfica** es el proceso técnico mediante el cual se 
 *   Facilitar el libre acceso y el hojeado de libros a los usuarios en las salas de lectura.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las clases principales de la CDU y el significado de los signos de relación? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. La Clasificación Decimal Universal (CDU)
 La **CDU** es el sistema de clasificación por materias más extendido en las bibliotecas de la US. Es un sistema decimal (divide el conocimiento en 10 clases, del 0 al 9) y universal (abarca todas las áreas del conocimiento).
@@ -128,3 +138,13 @@ Al alfabetizar revistas por título en las estanterías de la BUS:
 *   **San Segundo Manuel, R., & Asociación Española de Normalización y Certificación, ed. (2016). Clasificación Decimal Universal (CDU): edición abreviada 2016 (Ed. abreviada)**. AENOR.
 *   **Dionisio Millán (2022). Prácticas de CDU (Auxiliares y números principales): Supuestos y Correcciones**. Práctica de oposiciones, Biblioteca de la Escuela Técnica Superior de Arquitectura (ETSA), Universidad de Sevilla.
 *   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

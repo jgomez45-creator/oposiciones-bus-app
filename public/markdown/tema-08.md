@@ -1,10 +1,20 @@
 # Tema 8: Tecnologías aplicadas en bibliotecas
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las frecuencias de radio, tecnologías RFID y funcionamiento de las estaciones de autopréstamo en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## RFID, autopréstamo y sistemas de seguridad
 
 ---
 
 ## 1. La Tecnología RFID en Bibliotecas
 La tecnología **RFID** (Radio Frequency Identification / Identificación por Radiofrecuencia) ha sustituido progresivamente al tradicional código de barras y a las electromagnéticas en la BUS para la gestión física de la colección.
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las frecuencias de radio, tecnologías RFID y funcionamiento de las estaciones de autopréstamo? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### A. ¿Cómo funciona el RFID?
 Consiste en la transmisión inalámbrica de datos a través de ondas de radio. El sistema funciona en la banda de **Alta Frecuencia (HF) a 13.56 MHz** (regulada por la norma internacional **ISO 15693** e **ISO 18000-3**). Se compone de tres elementos principales:
@@ -87,3 +97,13 @@ Es el sistema más moderno y normalizado según el estándar internacional **ISO
 *   **Norma ISO 28560: Tecnologías de identificación por radiofrecuencia (RFID) en bibliotecas**.
 *   **Manuales de usuario de las estaciones de autopréstamo de la BUS**.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

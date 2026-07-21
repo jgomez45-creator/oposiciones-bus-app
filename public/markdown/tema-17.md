@@ -1,4 +1,10 @@
 # Tema 17: Estatutos de la Universidad de Sevilla (Decreto 98/2025)
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los requisitos del Rector, sectores del Claustro y competencias del Consejo Social en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Título I (Capítulos I y II, Secciones 1ª, 2ª y 3ª) y Título III (Capítulo I, Art. 90)
 
 ---
@@ -98,6 +104,10 @@ El siguiente esquema representa la jerarquía y relaciones entre los órganos ge
 </div>
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los requisitos del Rector, sectores del Claustro y competencias del Consejo Social? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. Tablas Comparativas de Órganos y Cargos
 
@@ -266,3 +276,13 @@ El siguiente esquema representa la jerarquía y relaciones entre los órganos ge
 ## 4. Bibliografía
 *   **Estatutos de la Universidad de Sevilla (Decreto 98/2025)**.
 *   **Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario (LOSU)**.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

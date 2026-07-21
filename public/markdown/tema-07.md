@@ -1,10 +1,20 @@
 # Tema 7: Sistemas de gestión bibliotecaria y plataformas. FAMA
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las diferencias entre Alma (LSP) y Primo (descubrimiento) junto con las facetas de búsqueda en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Plataformas de servicios de biblioteca y el catálogo FAMA de la US
 
 ---
 
 ## 1. Evolución de los Sistemas de Gestión Bibliotecaria
 La automatización de las bibliotecas universitarias ha transitado por dos grandes etapas de desarrollo tecnológico:
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las diferencias entre Alma (LSP) y Primo (descubrimiento) junto con las facetas de búsqueda? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### A. Sistemas Integrados de Gestión Bibliotecaria (SIGB) Tradicionales
 Eran sistemas surgidos en los años 80 y 90 (ej. Absys, Millennium, Unicornio) diseñados para gestionar la colección física. Estaban estructurados en módulos estancos (Adquisiciones, Catalogación, Circulación/Préstamo, Control de Seriadas y el OPAC o catálogo público). No integraban de forma nativa la gestión de los recursos electrónicos, que requerían sistemas externos.
@@ -94,3 +104,13 @@ Al iniciar sesión con las credenciales del **UVUS**, FAMA ofrece un portal pers
 *   **Primo VE: Catálogo integrado de la BUS - FAMA (Ex Libris)**.
 *   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

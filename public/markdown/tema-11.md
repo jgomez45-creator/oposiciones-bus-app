@@ -1,4 +1,10 @@
 # Tema 11: Servicios a los usuarios III: Apoyo al aprendizaje
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las directrices del plagio académico, estilos de cita (APA/Vancouver) y Mendeley en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Apoyo al aprendizaje y formación en competencias informacionales y digitales (ALFIN/CODI)
 
 ---
@@ -14,6 +20,10 @@ El servicio clásico de "formación de usuarios" ha evolucionado hacia dos de lo
 *   **CODI (Competencias Digitales):** Habilidades operativas que complementan la ALFIN mediante el uso de tecnologías de la información, herramientas de software académico, almacenamiento seguro de datos, ciberseguridad, y creación de materiales digitales.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las directrices del plagio académico, estilos de cita (APA/Vancouver) y Mendeley? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. El Marco de Competencias Digitales de la Unión Europea (DigComp)
 El marco **DigComp** (Digital Competence Framework) es la referencia europea oficial que describe y clasifica las habilidades que componen la competencia digital. En las universidades, la BUS basa el diseño pedagógico de sus cursos en esta estructura, la cual se divide en **5 áreas principales** y **21 competencias específicas**:
@@ -86,3 +96,13 @@ La BUS implementa una oferta estructurada de cursos teóricos y prácticos segú
 *   **Plan ALFIN/CODI (Alfabetización Informacional y Competencia Digital) de la BUS**.
 *   **Marco Europeo de Competencia Digital para los Ciudadanos (DigComp)**.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

@@ -1,10 +1,20 @@
 # Tema 13: Herramientas digitales: Microsoft 365
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las herramientas de Microsoft 365 (Teams, OneDrive, SharePoint) y atajos de teclado esenciales en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Correo electrónico (Outlook) y herramientas de Microsoft 365 (OneDrive, SharePoint, Teams, Word, Excel, etc.)
 
 ---
 
 ## 1. El Entorno Colaborativo Microsoft 365 en la Universidad de Sevilla
 La Universidad de Sevilla ofrece a toda la comunidad universitaria (PDI, PTGAS y estudiantes) acceso a la suite **Microsoft 365** como plataforma principal de comunicación, ofimática y almacenamiento en la nube, gestionada por el Servicio de Informática y Comunicaciones (SIC).
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las herramientas de Microsoft 365 (Teams, OneDrive, SharePoint) y atajos de teclado esenciales? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### Identidad Digital y Gestión del UVUS
 El **UVUS** (Usuario Virtual de la Universidad de Sevilla) es la credencial electrónica indispensable para acceder a los servicios informáticos de la US, correo Outlook, redes inalámbricas y el catálogo FAMA. 
@@ -90,3 +100,13 @@ El uso del correo institucional está sujeto a las directrices de seguridad del 
 *   **Normas de uso de recursos informáticos de la Universidad de Sevilla**.
 *   **Guías de Microsoft 365 en la Universidad de Sevilla (SIC)**: Disponible en https://m365.us.es/es (Sección Guías).
 *   **Normativa de uso del correo electrónico de la Universidad de Sevilla (SIC)**: Disponible en https://sic.us.es/sites/default/files/seguridad/normativa_uso_correo_us.pdf.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

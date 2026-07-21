@@ -1,10 +1,20 @@
 # Tema 4: La colección impresa y electrónica en la BUS y acceso remoto
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza las vías de acceso abierto (verde/dorada/híbrida) y tecnologías de acceso remoto en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Gestión, tipologías y acceso a los recursos fuera del campus
 
 ---
 
 ## 1. La Colección Impresa en la BUS
 A pesar de la primacía de los recursos digitales, la **colección impresa** sigue siendo un pilar fundamental en las bibliotecas de campus de la US, especialmente en las áreas de Humanidades y Ciencias Sociales. Según el **Reglamento de la BUS**, la colección (o fondo documental) está integrada por todos los recursos de información, con independencia de su soporte material, adquiridos para cumplir con los objetivos de docencia, aprendizaje, investigación y extensión cultural.
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar las vías de acceso abierto (verde/dorada/híbrida) y tecnologías de acceso remoto? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### Tipologías
 1.  **Colección de Libre Acceso:** Monografías y manuales dispuestos en las salas de lectura ordenados sistemáticamente por la Clasificación Decimal Universal (CDU). Son libros disponibles para préstamo directo.
@@ -121,3 +131,13 @@ El **UVUS** es la credencial única de identidad (par usuario/contraseña) que i
 *   **Varo Ortega, Miguel (2021). Introducción a los recursos-e de la BUS y Dialnet en la BUS**: Presentación de formación de usuarios de la BUS, disponible en https://figshare.com/articles/presentation/Introducci_n_a_los_recursos-e_y_Dialnet_en_la_BUS_pdf/14496126.
 *   **Proquest Training (2015-2018). Ebook Central Bookshelf, Reader & Search Tutorials**: Guías en video oficiales de Ebook Central de la BUS.
 *   **UOC (2020). Webinar Biblioteca: nueva Plataforma de libros electrónicos eLibro**: Guía de uso oficial de la plataforma eLibro de la BUS.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

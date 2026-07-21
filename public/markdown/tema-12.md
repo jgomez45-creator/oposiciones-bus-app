@@ -1,4 +1,10 @@
 # Tema 12: Servicios a los usuarios IV: Apoyo a la investigación
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los identificadores de investigador (ORCID), agencias evaluadoras (ANECA) y factor de impacto en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Apoyo a los investigadores, bases de datos y evaluación científica
 
 ---
@@ -12,6 +18,10 @@ Este servicio es un pilar estratégico dentro del modelo de biblioteca universit
 *   Garantizar la conservación, archivo y libre acceso a la producción académica de la US.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los identificadores de investigador (ORCID), agencias evaluadoras (ANECA) y factor de impacto? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. Identificadores de Firma Científica
 Para evitar la confusión de autores debido a la coincidencia de nombres (homonimia), así como las variantes de firmas que dificultan la correcta atribución de las citas de los trabajos en los índices de impacto, la BUS promueve y asiste en el uso de los siguientes **identificadores digitales persistentes**:
@@ -132,3 +142,13 @@ La literatura científica puede llegar al acceso abierto a través de cuatro rut
 *   **Política de Acceso Abierto de la Universidad de Sevilla**.
 *   **Portal de Producción Científica PRISMA (Universidad de Sevilla)**.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

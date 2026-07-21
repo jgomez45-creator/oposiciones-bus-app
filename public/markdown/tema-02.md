@@ -1,4 +1,10 @@
 # Tema 2: Sistema de gestión de la calidad en la BUS
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los principios del modelo EFQM y los compromisos de las Cartas de Servicios en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Modelo EFQM, propósito, visión, valores y cartas de servicios
 
 ---
@@ -13,6 +19,10 @@ La BUS concibe la calidad no como un fin en sí mismo, sino como una herramienta
 *   Fomentar la mejora continua en la eficiencia en el uso de los recursos públicos.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los principios del modelo EFQM y los compromisos de las Cartas de Servicios? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. El Modelo EFQM de Excelencia
 El **Modelo EFQM** (desarrollado por la Fundación Europea para la Gestión de la Calidad) es la herramienta principal que la BUS utiliza como marco de autoevaluación, diagnóstico y mejora de su gestión.
@@ -94,3 +104,13 @@ Si la biblioteca incumple alguno de los compromisos declarados en la Carta de Se
 *   **Modelo EFQM de Excelencia (European Foundation for Quality Management)**.
 *   **Plan Estratégico de la Universidad de Sevilla**.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

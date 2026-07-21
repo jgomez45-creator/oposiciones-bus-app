@@ -1,10 +1,20 @@
 # Tema 14: Sistema de Gestión de Prevención de Riesgos de la US
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza los plazos de notificación de accidentes (SEPRUS) y la composición del Comité de Seguridad y Salud en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Política preventiva, guía del empleado, actuación ante accidentes y obligaciones
 
 ---
 
 ## 1. La Política Preventiva de la Universidad de Sevilla y la LPRL
 La **Universidad de Sevilla (US)** asume la prevención de riesgos laborales como un principio transversal a toda su actividad docente, investigadora y administrativa, de conformidad con la **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales (LPRL)**.
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar los plazos de notificación de accidentes (SEPRUS) y la composición del Comité de Seguridad y Salud? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ### A. El Manual de Prevención de Riesgos Laborales (MPRL-US)
 La política de la US se articula a través del **Manual de Prevención de Riesgos Laborales de la Universidad de Sevilla (MPRL-US)**, aprobado por el Consejo de Gobierno de la Universidad. Este manual consagra dos principios organizativos fundamentales:
@@ -90,3 +100,13 @@ En caso de detectar un incendio o emergencia de evacuación en las instalaciones
 *   **Manual de Prevención de Riesgos Laborales de la US**.
 *   **Circular de la Gerencia de la Universidad de Sevilla de 24 de mayo de 2018, sobre procedimiento en caso de accidente de trabajo**.
 *   **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales**.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---

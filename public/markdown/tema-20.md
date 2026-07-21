@@ -1,4 +1,10 @@
 # Tema 20: Normativa de la US contra violencia, acoso y discriminación
+
+> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
+> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
+> * 🎴 **Flashcards:** Memoriza el ámbito de aplicación de las denuncias de acoso, medidas cautelares y plazos de resolución en minutos.
+> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
 ## Normativa para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso en la Universidad de Sevilla
 
 ---
@@ -10,6 +16,10 @@ La Universidad de Sevilla cuenta con una regulación específica para erradicar 
 *   **Tratamiento del Riesgo:** El acoso y la violencia laboral se consideran un **riesgo psicosocial** grave en el entorno de la seguridad y salud laboral.
 
 ---
+
+
+> 💡 **REPASO RÁPIDO EN LA APP:**  
+> ¿Te cuesta memorizar el ámbito de aplicación de las denuncias de acoso, medidas cautelares y plazos de resolución? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
 
 ## 2. Ámbito de Aplicación (Artículo 2)
 La Normativa es aplicable a las conductas que desarrollen los **miembros de la comunidad universitaria** frente a otros miembros o colaboradores en las instalaciones o actividades de la US:
@@ -98,3 +108,13 @@ El **Comité Técnico para la Prevención, Evaluación e Intervención en Situac
 ## 10. Bibliografía
 *   **Normativa para la prevención, evaluación e intervención ante la violencia, la discriminación y el acoso en la Universidad de Sevilla** (Aprobada por Acuerdo del Consejo de Gobierno de la Universidad de Sevilla de 17 de diciembre de 2024, publicada en BOUS de 12 de febrero de 2025).
 *   **Ley 3/2022, de 25 de febrero, de Convivencia Universitaria**.
+
+
+---
+### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
+Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
+1. **Repaso de Flashcards:** Revisa las tarjetas de este tema en la sección *Flashcards*.
+2. **Simulacro de Examen:** Realiza un test de autoevaluación en la sección *Tests*.
+
+🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
+---
