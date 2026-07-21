@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Exámenes oficiales y temporales
+examenes_oficiales_grupo_iv/*.pdf
+scratch/*.html
+scratch/*.pdf
+scratch/test_*
+muestra_tipografias_temario.pdf
