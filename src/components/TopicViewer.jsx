@@ -358,7 +358,10 @@ export default function TopicViewer({
       pageHeightHelper.style.position = 'absolute';
       pageHeightHelper.style.visibility = 'hidden';
       document.body.appendChild(pageHeightHelper);
-      const pagePx = pageHeightHelper.offsetHeight || 970;
+      // Calibrate using the physical browser print scale factor.
+      // Chrome's print engine translates CSS layout pixels to physical points using a scale factor of ~0.75 (96dpi vs 72pt).
+      // Combined with sandbox padding, the calibrated page height divisor is 1.648x the screen layout height.
+      const pagePx = (pageHeightHelper.offsetHeight || 970) * 1.648;
       document.body.removeChild(pageHeightHelper);
 
       const sortedIds = [...selectedPrintTopicIds].map(Number).sort((a, b) => a - b);
