@@ -201,9 +201,8 @@ export default function TopicViewer({
         const indexItemsHtml = sortedIds.map(id => {
           const tMeta = topics.find(t => t.id === id);
           return `
-            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #b0c4de; padding: 6px 0; font-size: 13pt; line-height: 1.4;">
+            <div style="border-bottom: 1px dashed #b0c4de; padding: 8px 0; font-size: 13pt; line-height: 1.4; text-align: left;">
               <span style="font-weight: bold; color: #004B93;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
-              <span class="index-topic-page-num" data-topic-id="${id}" style="color: #004B93; font-weight: bold;">Página --</span>
             </div>
           `;
         }).join('');
@@ -333,82 +332,7 @@ export default function TopicViewer({
     }
   }, [triggerAutocompile, viewMode, selectedPrintTopicIds, activeTopicId]);
 
-  // Calculate dynamic start pages for the table of contents in the printed manual
-  useEffect(() => {
-    if (!compiledPrintContent || !isManualFormat || selectedPrintTopicIds.length === 0) return;
 
-    const calculateIndexPages = () => {
-      // Create a temporary sandbox container with the exact print width to measure content wrapping accurately
-      const sandbox = document.createElement('div');
-      sandbox.className = 'print-preview-content';
-      sandbox.style.position = 'absolute';
-      sandbox.style.top = '-99999px';
-      sandbox.style.left = '-99999px';
-      sandbox.style.width = '180mm'; // A4 width (210mm) minus 15mm left and 15mm right margins
-      sandbox.style.boxSizing = 'border-box';
-      sandbox.style.background = 'white';
-      sandbox.style.color = 'black';
-      
-      // Inject compiled content so we can measure elements layouted at 180mm width
-      sandbox.innerHTML = compiledPrintContent;
-      document.body.appendChild(sandbox);
-
-      const pageHeightHelper = document.createElement('div');
-      pageHeightHelper.style.height = '257mm'; // A4 height (297mm) minus 15mm top and 25mm bottom margins
-      pageHeightHelper.style.position = 'absolute';
-      pageHeightHelper.style.visibility = 'hidden';
-      document.body.appendChild(pageHeightHelper);
-      // Calibrate using the physical browser print scale factor.
-      // Chrome's print engine translates CSS layout pixels to physical points using a scale factor of ~0.75 (96dpi vs 72pt).
-      // Combined with sandbox padding, the calibrated page height divisor is 1.648x the screen layout height.
-      const pagePx = (pageHeightHelper.offsetHeight || 970) * 1.648;
-      document.body.removeChild(pageHeightHelper);
-
-      const sortedIds = [...selectedPrintTopicIds].map(Number).sort((a, b) => a - b);
-      let currentPage = 4; // Page 1 = Cover, Page 2 = Convocatoria Ficha, Page 3 = Index
-
-      sortedIds.forEach(id => {
-        const pageSpan = document.querySelector(`.index-topic-page-num[data-topic-id="${id}"]`);
-        
-        // Measure heights of sections rendered inside the 180mm sandbox
-        const topicEl = sandbox.querySelector(`.print-topic-block[data-topic-id="${id}"]`);
-        let topicPages = 1;
-        if (topicEl) {
-          const h = topicEl.offsetHeight;
-          topicPages = Math.max(1, Math.ceil(h / pagePx));
-        }
-
-        const qEl = sandbox.querySelector(`[data-topic-questions="${id}"]`);
-        let qPages = 0;
-        if (qEl) {
-          qPages = Math.max(1, Math.ceil(qEl.offsetHeight / pagePx));
-        }
-
-        const aEl = sandbox.querySelector(`[data-topic-answers="${id}"]`);
-        let aPages = 0;
-        if (aEl) {
-          aPages = Math.max(1, Math.ceil(aEl.offsetHeight / pagePx));
-        }
-
-        if (pageSpan) {
-          pageSpan.textContent = `Página ${currentPage}`;
-        }
-
-        currentPage += topicPages + qPages + aPages;
-      });
-
-      // Cleanup
-      document.body.removeChild(sandbox);
-    };
-
-    const t1 = setTimeout(calculateIndexPages, 50);
-    const t2 = setTimeout(calculateIndexPages, 350);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, [compiledPrintContent, isManualFormat, selectedPrintTopicIds]);
   
   // Local session study timer
   const [sessionTime, setSessionTime] = useState(0);
