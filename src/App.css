@@ -1714,7 +1714,7 @@ body.study-focus-mode .study-timer-bar {
   /* Document Typography Hierarchy (Escala Compacta Estilizada) */
   .markdown-rendered-content {
     color: #000000 !important;
-    font-size: 13.5pt !important;
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     font-family: Arial, Calibri, Helvetica, sans-serif !important;
     -webkit-print-color-adjust: exact !important;
@@ -1790,7 +1790,7 @@ body.study-focus-mode .study-timer-bar {
   }
 
   .markdown-rendered-content p {
-    font-size: 13.5pt !important; /* Cuerpo de Texto / Párrafos Generales */
+    font-size: 14pt !important; /* Cuerpo de Texto / Párrafos Generales */
     line-height: 1.4 !important;
     text-align: justify !important; /* Estilo de alineación justificado */
     margin-bottom: 10pt !important;
@@ -1799,14 +1799,14 @@ body.study-focus-mode .study-timer-bar {
   /* Listas y Viñetas */
   .markdown-rendered-content ul,
   .markdown-rendered-content ol {
-    font-size: 13.5pt !important;
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     padding-left: 25px !important; /* Con sangría izquierda estándar (25px) */
     margin-bottom: 10pt !important;
   }
 
   .markdown-rendered-content li {
-    font-size: 13.5pt !important;
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     margin-bottom: 6px !important;
     break-inside: avoid !important;
@@ -1849,6 +1849,7 @@ body.study-focus-mode .study-timer-bar {
     text-align: left !important;
     border: 1px solid #004B93 !important;
     padding: 8px 10px !important;
+    font-size: 13pt !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -1856,6 +1857,7 @@ body.study-focus-mode .study-timer-bar {
   .markdown-rendered-content td {
     border: 1px solid #cbd5e1 !important;
     padding: 8px 10px !important;
+    font-size: 13pt !important;
   }
 
   .markdown-rendered-content tr:nth-child(even) {
@@ -4219,7 +4221,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 .print-preview-content .markdown-rendered-content {
   font-family: Arial, Calibri, Helvetica, sans-serif !important;
   line-height: 1.4 !important;
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   color: #000000 !important;
 }
 
@@ -4286,7 +4288,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 }
 
 .print-preview-content .markdown-rendered-content p {
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   line-height: 1.4 !important;
   text-align: justify !important;
   margin-bottom: 10pt !important;
@@ -4294,14 +4296,14 @@ body.reading-fullscreen-mode .markdown-body-container {
 
 .print-preview-content .markdown-rendered-content ul,
 .print-preview-content .markdown-rendered-content ol {
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   line-height: 1.4 !important;
   padding-left: 25px !important;
   margin-bottom: 10pt !important;
 }
 
 .print-preview-content .markdown-rendered-content li {
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   line-height: 1.4 !important;
   margin-bottom: 6px !important;
 }
@@ -4334,11 +4336,13 @@ body.reading-fullscreen-mode .markdown-body-container {
   text-align: left !important;
   border: 1px solid #004B93 !important;
   padding: 8px 10px !important;
+  font-size: 13pt !important;
 }
 
 .print-preview-content .markdown-rendered-content td {
   border: 1px solid #cbd5e1 !important;
   padding: 8px 10px !important;
+  font-size: 13pt !important;
 }
 
 .print-preview-content .markdown-rendered-content tr:nth-child(even) {
