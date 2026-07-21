@@ -174,8 +174,11 @@ export default function TopicViewer({
               }
             }
 
+            const qSection = questionsHtml ? `<div data-topic-questions="${id}">${questionsHtml}</div>` : '';
+            const aSection = answersHtml ? `<div data-topic-answers="${id}">${answersHtml}</div>` : '';
+
             return `
-              <section class="print-topic-block">
+              <section class="print-topic-block" data-topic-id="${id}">
                 <div class="print-topic-header">
                   <span class="print-superheader">Dossier de Apoyo Didáctico &bull; Tema ${id}</span>
                   <h1 class="print-topic-title">${topicMeta.title}</h1>
@@ -185,8 +188,8 @@ export default function TopicViewer({
                   ${parsedHtml}
                 </div>
               </section>
-              ${questionsHtml}
-              ${answersHtml}
+              ${qSection}
+              ${aSection}
             `;
           });
       });
@@ -200,7 +203,7 @@ export default function TopicViewer({
           return `
             <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #b0c4de; padding: 6px 0; font-size: 13pt; line-height: 1.4;">
               <span style="font-weight: bold; color: #004B93;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
-              <span style="color: #555555; font-weight: bold;">Tema ${id}</span>
+              <span class="index-topic-page-num" data-topic-id="${id}" style="color: #004B93; font-weight: bold;">Página --</span>
             </div>
           `;
         }).join('');
@@ -329,6 +332,60 @@ export default function TopicViewer({
       handleCompilePrint();
     }
   }, [triggerAutocompile, viewMode, selectedPrintTopicIds, activeTopicId]);
+
+  // Calculate dynamic start pages for the table of contents in the printed manual
+  useEffect(() => {
+    if (!compiledPrintContent || !isManualFormat || selectedPrintTopicIds.length === 0) return;
+
+    const calculateIndexPages = () => {
+      const pageHeightHelper = document.createElement('div');
+      pageHeightHelper.style.height = '257mm';
+      pageHeightHelper.style.position = 'absolute';
+      pageHeightHelper.style.visibility = 'hidden';
+      document.body.appendChild(pageHeightHelper);
+      const pagePx = pageHeightHelper.offsetHeight || 970;
+      document.body.removeChild(pageHeightHelper);
+
+      const sortedIds = [...selectedPrintTopicIds].map(Number).sort((a, b) => a - b);
+      let currentPage = 4; // Page 1 = Cover, Page 2 = Convocatoria Ficha, Page 3 = Index
+
+      sortedIds.forEach(id => {
+        const pageSpan = document.querySelector(`.index-topic-page-num[data-topic-id="${id}"]`);
+        if (pageSpan) {
+          pageSpan.textContent = `Página ${currentPage}`;
+        }
+
+        const topicEl = document.querySelector(`.print-topic-block[data-topic-id="${id}"]`);
+        let topicPages = 1;
+        if (topicEl) {
+          const h = topicEl.offsetHeight;
+          topicPages = Math.max(1, Math.ceil(h / pagePx));
+        }
+
+        const qEl = document.querySelector(`[data-topic-questions="${id}"]`);
+        let qPages = 0;
+        if (qEl) {
+          qPages = Math.max(1, Math.ceil(qEl.offsetHeight / pagePx));
+        }
+
+        const aEl = document.querySelector(`[data-topic-answers="${id}"]`);
+        let aPages = 0;
+        if (aEl) {
+          aPages = Math.max(1, Math.ceil(aEl.offsetHeight / pagePx));
+        }
+
+        currentPage += topicPages + qPages + aPages;
+      });
+    };
+
+    const t1 = setTimeout(calculateIndexPages, 50);
+    const t2 = setTimeout(calculateIndexPages, 350);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [compiledPrintContent, isManualFormat, selectedPrintTopicIds]);
   
   // Local session study timer
   const [sessionTime, setSessionTime] = useState(0);
