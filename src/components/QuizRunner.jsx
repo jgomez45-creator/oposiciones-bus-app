@@ -808,6 +808,21 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   })}
                 </div>
               </div>
+              {/* PAGE BREAK FOR DOUBLE-SIDED PRINTING */}
+              <div className="print-page-break"></div>
+
+              {/* PAGE 3: HOJA DE EXAMEN OFICIAL OMR (COLOR) */}
+              <div className="print-manual-omr-sheet" style={{ pageBreakBefore: 'always', breakBefore: 'page', paddingTop: '20px', textAlign: 'center' }}>
+                <div style={{ borderBottom: '3px solid #c8102e', paddingBottom: '8px', marginBottom: '16px', textAlign: 'left' }}>
+                  <span style={{ fontSize: '11pt', fontWeight: 'bold', color: '#c8102e', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Anexo de Apoyo Didáctico &bull; Plantilla OMR Oficial</span>
+                  <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '11pt', color: '#555555', lineHeight: '1.4' }}>Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
+                </div>
+                
+                <div style={{ margin: '15px auto', textAlign: 'center', maxWidth: '100%' }}>
+                  <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style={{ maxWidth: '100%', height: 'auto', maxHeight: '220mm', border: '1px solid #cbd5e1', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: '4px', display: 'block', margin: '0 auto' }} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -959,6 +974,20 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 {eIdx < compiledExamsContent.length - 1 && <div className="print-page-break"></div>}
               </React.Fragment>
             ))}
+
+            {/* Hoja de Examen Oficial OMR al final */}
+            <div className="print-page-break"></div>
+            <div className="print-manual-omr-sheet" style={{ boxSizing: 'border-box', padding: '12mm 30px', fontFamily: 'Arial, Calibri, Helvetica, sans-serif', maxWidth: '820px', margin: '0 auto', pageBreakBefore: 'always', breakBefore: 'page', textAlign: 'center' }}>
+              <div style={{ borderBottom: '3px solid #c8102e', paddingBottom: '8px', marginBottom: '16px', textAlign: 'left' }}>
+                <span style={{ fontSize: '11pt', fontWeight: 'bold', color: '#c8102e', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Anexo de Apoyo Didáctico &bull; Plantilla OMR Oficial</span>
+                <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
+                <p style={{ margin: '2px 0 0 0', fontSize: '11pt', color: '#555555', lineHeight: '1.4' }}>Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
+              </div>
+              
+              <div style={{ margin: '15px auto', textAlign: 'center', maxWidth: '100%' }}>
+                <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style={{ maxWidth: '100%', height: 'auto', maxHeight: '220mm', border: '1px solid #cbd5e1', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: '4px', display: 'block', margin: '0 auto' }} />
+              </div>
+            </div>
           </div>
         </div>
       ) : isTestBookPrintMode ? (
@@ -1103,6 +1132,20 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <div className="print-page-break"></div>
               </React.Fragment>
             ))}
+
+            {/* Hoja de Examen Oficial OMR al final */}
+            <div className="print-page-break"></div>
+            <div className="print-manual-omr-sheet" style={{ boxSizing: 'border-box', padding: '12mm 30px', fontFamily: 'Arial, Calibri, Helvetica, sans-serif', maxWidth: '820px', margin: '0 auto', pageBreakBefore: 'always', breakBefore: 'page', textAlign: 'center' }}>
+              <div style={{ borderBottom: '3px solid #c8102e', paddingBottom: '8px', marginBottom: '16px', textAlign: 'left' }}>
+                <span style={{ fontSize: '11pt', fontWeight: 'bold', color: '#c8102e', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Anexo de Apoyo Didáctico &bull; Plantilla OMR Oficial</span>
+                <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
+                <p style={{ margin: '2px 0 0 0', fontSize: '11pt', color: '#555555', lineHeight: '1.4' }}>Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
+              </div>
+              
+              <div style={{ margin: '15px auto', textAlign: 'center', maxWidth: '100%' }}>
+                <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style={{ maxWidth: '100%', height: 'auto', maxHeight: '220mm', border: '1px solid #cbd5e1', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: '4px', display: 'block', margin: '0 auto' }} />
+              </div>
+            </div>
           </div>
         </div>
       ) : isPaperInteractiveMode ? (

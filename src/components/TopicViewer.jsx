@@ -374,6 +374,23 @@ export default function TopicViewer({
           </div>
         `;
       }
+
+      if (isManualFormat) {
+        combinedHtml += `
+          <div class="print-page-break"></div>
+          <div class="print-manual-omr-sheet" style="box-sizing: border-box; padding: 12mm 30px; font-family: Arial, Calibri, Helvetica, sans-serif; max-width: 820px; margin: 0 auto; page-break-before: always; break-before: page; text-align: center;">
+            <div style="border-bottom: 3px solid #c8102e; padding-bottom: 8px; margin-bottom: 16px; text-align: left;">
+              <span style="font-size: 11pt; font-weight: bold; color: #c8102e; text-transform: uppercase; letter-spacing: 1.5px;">Anexo de Apoyo Didáctico &bull; Plantilla OMR Oficial</span>
+              <h1 style="margin: 4px 0 0 0; font-size: 20pt; font-weight: bold; color: #000000; text-transform: uppercase;">Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
+              <p style="margin: 2px 0 0 0; font-size: 11pt; color: #555555; line-height: 1.4;">Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
+            </div>
+            
+            <div style="margin: 15px auto; text-align: center; max-width: 100%;">
+              <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style="max-width: 100%; height: auto; max-height: 220mm; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 4px; display: block; margin: 0 auto;" />
+            </div>
+          </div>
+        `;
+      }
       
       setCompiledPrintContent(combinedHtml);
     } catch (err) {

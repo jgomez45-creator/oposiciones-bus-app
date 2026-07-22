@@ -242,3 +242,196 @@ a:hover {
   color: #fb7185;
   border: 1px solid rgba(244, 63, 94, 0.3);
 }
+
+/* OMR Answer Sheet Styles */
+.omr-sheet-container {
+  background: #ffffff;
+  color: #1e293b;
+  border-radius: 12px;
+  border: 2px solid #fee2e2;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.omr-sheet-header {
+  background: #c8102e; /* Seville University Corporate Red */
+  color: #ffffff;
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 2px solid #b91c1c;
+}
+
+.omr-sheet-header h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.omr-sheet-header span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 4px;
+  display: block;
+  font-style: italic;
+}
+
+.omr-sheet-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #ffffff;
+}
+
+.omr-grid-area {
+  max-height: 420px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-right: 4px;
+}
+
+/* Custom scrollbar for OMR grid */
+.omr-grid-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.omr-grid-area::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.omr-grid-area::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.omr-question-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+  border-bottom: 1px solid #fee2e2;
+  background: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.omr-question-row:hover {
+  background: #fff5f5;
+}
+
+.omr-question-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c8102e;
+  width: 32px;
+  text-align: left;
+}
+
+.omr-bubble-group {
+  display: flex;
+  gap: 6px;
+}
+
+.omr-bubble {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #c8102e;
+  background: #ffffff;
+  color: #c8102e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+  outline: none;
+  padding: 0;
+}
+
+.omr-bubble:hover:not(:disabled) {
+  background: #fee2e2;
+  transform: scale(1.08);
+}
+
+/* Marked (filled in) state: dark slate/blue-black pen simulation */
+.omr-bubble.marked {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+/* Correct answer state */
+.omr-bubble.correct {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+/* Incorrect choice state */
+.omr-bubble.incorrect {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+}
+
+.omr-submit-btn {
+  background: #c8102e;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(200, 16, 46, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.omr-submit-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px -2px rgba(200, 16, 46, 0.4);
+}
+
+.omr-submit-btn:active {
+  transform: translateY(0);
+}
+
+.omr-review-btn {
+  background: #475569;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.omr-review-btn:hover {
+  background: #334155;
+}

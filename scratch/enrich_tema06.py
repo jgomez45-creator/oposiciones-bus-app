@@ -1,4 +1,6 @@
-# Tema 6: Clasificación de los fondos bibliográficos. La Clasificación Decimal Universal (CDU). Organización, ordenación y control de fondos
+import json
+
+content = """# Tema 6: Clasificación de los fondos bibliográficos. La Clasificación Decimal Universal (CDU). Organización, ordenación y control de fondos
 
 <div class="app-promo-banner header-promo">
 
@@ -244,3 +246,10 @@ Al alfabetizar revistas por título en las estanterías o listas de control:
 * **San Segundo Manuel, R. & AENOR (2016).** *Clasificación Decimal Universal (CDU): Edición abreviada 2016*. Madrid: AENOR.
 * **Dionisio Millán (2022).** *Prácticas de CDU y Gestión de Colecciones*. Biblioteca ETSA, Universidad de Sevilla.
 * **Normas y Reglamentos de Préstamo y Servicios de la BUS (2024).** Universidad de Sevilla.
+"""
+
+filepath = "public/markdown/tema-06.md"
+with open(filepath, "w", encoding="utf-8") as f:
+    f.write(content)
+
+print("Enrichment of public/markdown/tema-06.md completed successfully!")

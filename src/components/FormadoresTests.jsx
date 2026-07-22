@@ -836,108 +836,74 @@ export default function FormadoresTests({ currentUser }) {
 
             {/* Right Column: Floating Answer grid sheet */}
             <div style={{ position: 'sticky', top: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div className="glass-panel" style={{ padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)', background: 'rgba(20,20,25,0.7)' }}>
-                <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '14px', textAlign: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '10px' }}>
-                  Hoja de Respuestas
-                </h4>
-                
-                {/* Scrollable grid area */}
-                <div style={{ maxHeight: '420px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '4px' }}>
-                  {questions.map((q, idx) => {
-                    const userSelection = paperAnswers[q.id];
-                    return (
-                      <div key={q.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 8px', borderRadius: '6px', background: 'rgba(255,255,255,0.02)' }}>
-                        <span style={{ fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-muted)' }}>
-                          {idx + 1}.
-                        </span>
-                        
-                        <div style={{ display: 'flex', gap: '4px' }}>
-                          {['A', 'B', 'C', 'D'].map((letter, oIdx) => {
-                            const isChosen = userSelection === oIdx;
-                            const isCorrect = q.correctAnswer === oIdx;
-                            
-                            let btnStyle = {
-                              width: '26px',
-                              height: '26px',
-                              borderRadius: '4px',
-                              border: '1px solid var(--border-color)',
-                              background: 'transparent',
-                              color: 'var(--text-muted)',
-                              fontSize: '0.75rem',
-                              fontWeight: '700',
-                              cursor: paperSubmitted ? 'default' : 'pointer',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              transition: 'all 0.15s'
-                            };
-
-                            if (!paperSubmitted) {
-                              if (isChosen) {
-                                btnStyle.background = 'var(--secondary)';
-                                btnStyle.color = 'var(--bg-dark)';
-                                btnStyle.border = '1px solid var(--secondary)';
-                              }
-                            } else {
-                              if (isCorrect) {
-                                btnStyle.background = '#10b981';
-                                btnStyle.color = '#fff';
-                                btnStyle.border = '1px solid #10b981';
-                              } else if (isChosen) {
-                                btnStyle.background = '#ef4444';
-                                btnStyle.color = '#fff';
-                                btnStyle.border = '1px solid #ef4444';
-                              }
-                            }
-
-                            return (
-                              <button
-                                key={letter}
-                                onClick={() => handlePaperAnswer(q.id, oIdx)}
-                                style={btnStyle}
-                                disabled={paperSubmitted}
-                              >
-                                {letter}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                  })}
+              <div className="omr-sheet-container">
+                <div className="omr-sheet-header">
+                  <h4>Hoja de Respuestas</h4>
+                  <span>Marque la opción correcta</span>
                 </div>
+                
+                <div className="omr-sheet-content">
+                  {/* Scrollable grid area */}
+                  <div className="omr-grid-area">
+                    {questions.map((q, idx) => {
+                      const userSelection = paperAnswers[q.id];
+                      return (
+                        <div key={q.id} className="omr-question-row">
+                          <span className="omr-question-number">
+                            {idx + 1}.
+                          </span>
+                          
+                          <div className="omr-bubble-group">
+                            {['A', 'B', 'C', 'D'].map((letter, oIdx) => {
+                              const isChosen = userSelection === oIdx;
+                              const isCorrect = q.correctAnswer === oIdx;
+                              
+                              let bubbleClass = "omr-bubble";
+                              if (!paperSubmitted) {
+                                if (isChosen) {
+                                  bubbleClass += " marked";
+                                }
+                              } else {
+                                if (isCorrect) {
+                                  bubbleClass += " correct";
+                                } else if (isChosen) {
+                                  bubbleClass += " incorrect";
+                                }
+                              }
 
-                {!paperSubmitted ? (
-                  <button
-                    onClick={submitPaperExam}
-                    className="glow-btn"
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      borderRadius: '8px',
-                      fontWeight: '700',
-                      fontSize: '0.9rem',
-                      marginTop: '16px'
-                    }}
-                  >
-                    Entregar Examen
-                  </button>
-                ) : (
-                  <button
-                    onClick={resetTest}
-                    className="glow-btn-secondary"
-                    style={{
-                      width: '100%',
-                      padding: '12px',
-                      borderRadius: '8px',
-                      fontWeight: '700',
-                      fontSize: '0.9rem',
-                      marginTop: '16px'
-                    }}
-                  >
-                    Finalizar Revisión
-                  </button>
-                )}
+                              return (
+                                <button
+                                  key={letter}
+                                  onClick={() => handlePaperAnswer(q.id, oIdx)}
+                                  className={bubbleClass}
+                                  disabled={paperSubmitted}
+                                >
+                                  {letter}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {!paperSubmitted ? (
+                    <button
+                      onClick={submitPaperExam}
+                      className="omr-submit-btn"
+                    >
+                      Entregar Examen
+                    </button>
+                  ) : (
+                    <button
+                      onClick={resetTest}
+                      className="omr-review-btn"
+                    >
+                      Finalizar Revisión
+                    </button>
+                  )}
+                </div>
 
               </div>
             </div>

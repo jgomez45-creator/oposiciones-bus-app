@@ -1,0 +1,35 @@
+{
+  "name": "generador_tests_estilo_ccoo_4140",
+  "description": "Especificación de reglas de prompt engineering para generar preguntas de examen estilo CCOO para el Código 4140 de la Universidad de Sevilla",
+  "version": "1.0.0",
+  "targetCategory": "Código 4140 - Técnico/a Auxiliar de Biblioteca, Archivo y Museo (US)",
+  "rules": {
+    "literalnessPercentage": 100,
+    "negativeQuestionsPercentage": 4.0,
+    "wildcardOptionsAllowed": false,
+    "optionsCount": 4,
+    "distractorPattern": [
+      "literal_correct",
+      "time_limit_or_days_type_trap",
+      "competent_organ_inversion_trap",
+      "majority_or_severity_trap"
+    ]
+  },
+  "scopeRules": {
+    "tema17": "Estatutos US: Título I (Arts. 12-45) y Título III (Art. 90 únicamente)",
+    "tema18": "IV Convenio Colectivo: Grupo IV, derechos, licencias, permisos y régimen disciplinario (prescripción vs cancelación)",
+    "tema19": "Ley Orgánica 3/2007: Principios informadores (Art. 4), carga de la prueba (Art. 13), presencia equilibrada 40-60% (Art. 14) y Planes de Igualdad"
+  },
+  "jsonSchema": {
+    "id": "string",
+    "question": "string",
+    "options": [
+      "string",
+      "string",
+      "string",
+      "string"
+    ],
+    "correctAnswer": "number (0-3)",
+    "explanation": "string"
+  }
+}
