@@ -1,9 +1,13 @@
 # Tema 3: Instalaciones, espacios y equipamiento
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza los valores recomendados de iluminación, temperatura y humedad en salas y depósitos en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Espacios y equipamiento en las bibliotecas universitarias. Distribución de espacios y áreas de servicio. Condiciones ambientales y conservación de las colecciones
 
@@ -23,8 +27,12 @@ Los principios generales para el diseño y planificación de espacios en las bib
 ---
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar los valores recomendados de iluminación, temperatura y humedad en salas y depósitos? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ## 2. Distribución de Espacios y Áreas de Servicio
 Para un correcto funcionamiento y bienestar de los usuarios, las áreas se estructuran en diferentes zonas clasificadas por su nivel de ruido aceptable:
@@ -120,6 +128,8 @@ La luz degrada químicamente la celulosa del papel y descolora las tintas de for
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -128,3 +138,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

@@ -1,9 +1,13 @@
 # Tema 15: Riesgos generales y específicos del puesto de trabajo
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza las distancias de pantalla PVD, pausas obligatorias, pesos máximos y riesgos biológicos en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Riesgos asociados al auxiliar de biblioteca y directrices técnicas del SEPRUS
 
@@ -18,8 +22,12 @@ El puesto de **Técnico/a Auxiliar de Biblioteca, Archivo y Museo** en la Univer
 ---
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar las distancias de pantalla PVD, pausas obligatorias, pesos máximos y riesgos biológicos? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ## 2. Ergonomía en Puestos con Pantallas de Visualización de Datos (PVD)
 Las directrices técnicas del **SEPRUS** detallan que la fatiga visual y los riesgos musculoesqueléticos en oficinas se previenen mediante una correcta configuración espacial:
@@ -90,6 +98,8 @@ Para trasladar libros mediante carros móviles de biblioteca:
 *   **Fichas preventivas y recomendaciones posturales del Servicio de Prevención de Riesgos Laborales de la US (SEPRUS)**.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -98,3 +108,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

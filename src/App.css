@@ -3988,9 +3988,9 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   .print-manual-cover {
-    height: 250mm !important;
-    min-height: 250mm !important;
-    max-height: 250mm !important;
+    height: 235mm !important;
+    min-height: 235mm !important;
+    max-height: 235mm !important;
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
@@ -4203,6 +4203,19 @@ body.reading-fullscreen-mode .markdown-body-container {
     font-size: 0px !important;
     line-height: 0px !important;
   }
+
+  .app-promo-banner {
+    display: block !important;
+  }
+}
+
+/* App Promo Banners (CTAs) styling */
+.app-promo-banner {
+  display: none !important; /* Hidden on screen by default (study mode) */
+}
+
+.print-preview-content .app-promo-banner {
+  display: block !important; /* Visible in print preview */
 }
 
 /* Screen Print Preview Styling (Matches Print Hierarchy) */

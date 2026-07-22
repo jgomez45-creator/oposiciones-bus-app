@@ -1,9 +1,13 @@
 # Tema 13: Herramientas digitales: Microsoft 365
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza las herramientas de Microsoft 365 (Teams, OneDrive, SharePoint) y atajos de teclado esenciales en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Correo electrónico (Outlook) y herramientas de Microsoft 365 (OneDrive, SharePoint, Teams, Word, Excel, etc.)
 
@@ -13,8 +17,12 @@
 La Universidad de Sevilla ofrece a toda la comunidad universitaria (PDI, PTGAS y estudiantes) acceso a la suite **Microsoft 365** como plataforma principal de comunicación, ofimática y almacenamiento en la nube, gestionada por el Servicio de Informática y Comunicaciones (SIC).
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar las herramientas de Microsoft 365 (Teams, OneDrive, SharePoint) y atajos de teclado esenciales? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ### Identidad Digital y Gestión del UVUS
 El **UVUS** (Usuario Virtual de la Universidad de Sevilla) es la credencial electrónica indispensable para acceder a los servicios informáticos de la US, correo Outlook, redes inalámbricas y el catálogo FAMA. 
@@ -102,6 +110,8 @@ El uso del correo institucional está sujeto a las directrices de seguridad del 
 *   **Normativa de uso del correo electrónico de la Universidad de Sevilla (SIC)**: Disponible en https://sic.us.es/sites/default/files/seguridad/normativa_uso_correo_us.pdf.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -110,3 +120,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

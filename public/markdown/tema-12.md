@@ -1,9 +1,13 @@
 # Tema 12: Servicios a los usuarios IV: Apoyo a la investigación
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza los identificadores de investigador (ORCID), agencias evaluadoras (ANECA) y factor de impacto en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Apoyo a los investigadores, bases de datos y evaluación científica
 
@@ -20,8 +24,12 @@ Este servicio es un pilar estratégico dentro del modelo de biblioteca universit
 ---
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar los identificadores de investigador (ORCID), agencias evaluadoras (ANECA) y factor de impacto? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ## 2. Identificadores de Firma Científica
 Para evitar la confusión de autores debido a la coincidencia de nombres (homonimia), así como las variantes de firmas que dificultan la correcta atribución de las citas de los trabajos en los índices de impacto, la BUS promueve y asiste en el uso de los siguientes **identificadores digitales persistentes**:
@@ -144,6 +152,8 @@ La literatura científica puede llegar al acceso abierto a través de cuatro rut
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -152,3 +162,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

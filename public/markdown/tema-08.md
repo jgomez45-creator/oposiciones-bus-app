@@ -1,9 +1,13 @@
 # Tema 8: Tecnologías aplicadas en bibliotecas
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza las frecuencias de radio, tecnologías RFID y funcionamiento de las estaciones de autopréstamo en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## RFID, autopréstamo y sistemas de seguridad
 
@@ -13,8 +17,12 @@
 La tecnología **RFID** (Radio Frequency Identification / Identificación por Radiofrecuencia) ha sustituido progresivamente al tradicional código de barras y a las electromagnéticas en la BUS para la gestión física de la colección.
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar las frecuencias de radio, tecnologías RFID y funcionamiento de las estaciones de autopréstamo? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ### A. ¿Cómo funciona el RFID?
 Consiste en la transmisión inalámbrica de datos a través de ondas de radio. El sistema funciona en la banda de **Alta Frecuencia (HF) a 13.56 MHz** (regulada por la norma internacional **ISO 15693** e **ISO 18000-3**). Se compone de tres elementos principales:
@@ -99,6 +107,8 @@ Es el sistema más moderno y normalizado según el estándar internacional **ISO
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -107,3 +117,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

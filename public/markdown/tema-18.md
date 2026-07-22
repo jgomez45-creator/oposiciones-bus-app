@@ -1,9 +1,13 @@
 # Tema 18: IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza los días de vacaciones por antigüedad, licencias matrimoniales y plazos de prescripción de faltas en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Normas de organización, clasificación, vacaciones, permisos y régimen disciplinario
 
@@ -20,8 +24,12 @@ El **IV Convenio Colectivo del Personal Laboral de las Universidades Públicas d
 ---
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar los días de vacaciones por antigüedad, licencias matrimoniales y plazos de prescripción de faltas? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ## 2. Clasificación Profesional y Organización
 *   **Organización del Trabajo (Art. 13):** Es facultad y responsabilidad de las **Gerencias de las Universidades**, quienes deben respetar los cauces de participación. Existe la voluntad de aunar esfuerzos para la mejora en cantidad y calidad del servicio público, bajo criterios de racionalización y mejora de métodos, profesionalización y fomento de responsabilidad e iniciativa. Las **modificaciones sustanciales de las condiciones de trabajo** que no sean aceptadas por los representantes se someterán a un **arbitraje**, el cual no interrumpirá los plazos y procedimientos.
@@ -158,6 +166,8 @@ Previa justificación, el trabajador tiene derecho a ausentarse con derecho a su
 *   **Texto Refundido de la Ley del Estatuto de los Trabajadores (Real Decreto Legislativo 2/2015, de 23 de octubre)**.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -166,3 +176,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

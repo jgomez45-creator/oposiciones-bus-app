@@ -1,9 +1,13 @@
 # Tema 14: Sistema de Gestión de Prevención de Riesgos de la US
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza los plazos de notificación de accidentes (SEPRUS) y la composición del Comité de Seguridad y Salud en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Política preventiva, guía del empleado, actuación ante accidentes y obligaciones
 
@@ -13,8 +17,12 @@
 La **Universidad de Sevilla (US)** asume la prevención de riesgos laborales como un principio transversal a toda su actividad docente, investigadora y administrativa, de conformidad con la **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales (LPRL)**.
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar los plazos de notificación de accidentes (SEPRUS) y la composición del Comité de Seguridad y Salud? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ### A. El Manual de Prevención de Riesgos Laborales (MPRL-US)
 La política de la US se articula a través del **Manual de Prevención de Riesgos Laborales de la Universidad de Sevilla (MPRL-US)**, aprobado por el Consejo de Gobierno de la Universidad. Este manual consagra dos principios organizativos fundamentales:
@@ -102,6 +110,8 @@ En caso de detectar un incendio o emergencia de evacuación en las instalaciones
 *   **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales**.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -110,3 +120,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

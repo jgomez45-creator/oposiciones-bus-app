@@ -1,9 +1,13 @@
 # Tema 7: Sistemas de gestión bibliotecaria y plataformas. FAMA
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza las diferencias entre Alma (LSP) y Primo (descubrimiento) junto con las facetas de búsqueda en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Plataformas de servicios de biblioteca y el catálogo FAMA de la US
 
@@ -13,8 +17,12 @@
 La automatización de las bibliotecas universitarias ha transitado por dos grandes etapas de desarrollo tecnológico:
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar las diferencias entre Alma (LSP) y Primo (descubrimiento) junto con las facetas de búsqueda? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ### A. Sistemas Integrados de Gestión Bibliotecaria (SIGB) Tradicionales
 Eran sistemas surgidos en los años 80 y 90 (ej. Absys, Millennium, Unicornio) diseñados para gestionar la colección física. Estaban estructurados en módulos estancos (Adquisiciones, Catalogación, Circulación/Préstamo, Control de Seriadas y el OPAC o catálogo público). No integraban de forma nativa la gestión de los recursos electrónicos, que requerían sistemas externos.
@@ -106,6 +114,8 @@ Al iniciar sesión con las credenciales del **UVUS**, FAMA ofrece un portal pers
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -114,3 +124,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

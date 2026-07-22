@@ -1,9 +1,13 @@
 # Tema 17: Estatutos de la Universidad de Sevilla (Decreto 98/2025)
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza los requisitos del Rector, sectores del Claustro y competencias del Consejo Social en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Título I (Capítulos I y II, Secciones 1ª, 2ª y 3ª) y Título III (Capítulo I, Art. 90)
 
@@ -14,8 +18,12 @@
 Para evitar el hacinamiento de texto en celdas y facilitar tu estudio visual, las competencias en la siguiente tabla se han categorizado estrictamente en cuatro bloques funcionales:
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar los requisitos del Rector, sectores del Claustro y competencias del Consejo Social? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ### Tabla de Órganos Colegiados de la Universidad de Sevilla
 
@@ -140,6 +148,8 @@ Además de acatar Estatutos y reglamentos, el artículo 90.3.d impone a todos lo
 > 📱 **REPASO RÁPIDO EN LA APP:** *Fija las 15 causales de no discriminación y el deber de potenciar el prestigio de la US con las flashcards interactivas de la aplicación.*
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -148,3 +158,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>

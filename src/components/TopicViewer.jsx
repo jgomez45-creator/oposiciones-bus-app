@@ -196,74 +196,134 @@ export default function TopicViewer({
       
       const results = await Promise.all(promises);
       
-      let manualHeaderHtml = '';
-      if (isManualFormat) {
-        const indexItemsHtml = sortedIds.map(id => {
-          const tMeta = topics.find(t => t.id === id);
-          return `
-            <div style="border-bottom: 1px dashed #b0c4de; padding: 8px 0; font-size: 13pt; line-height: 1.4; text-align: left;">
-              <span style="font-weight: bold; color: #004B93;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
-            </div>
-          `;
-        }).join('');
-
-        manualHeaderHtml = `
-          <!-- Portada -->
-          <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20mm 40px 20mm 40px; border: 4px double #004B93; height: 250mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px;">
-            <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase;">Dossier de Preparación de Oposiciones</div>
-            <div style="width: 80px; height: 3px; background-color: #004B93; margin: 20px auto 30px auto;"></div>
-            <h1 style="font-size: 32pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
-            <h2 style="font-size: 16pt; font-weight: bold; color: #004B93; margin: 0 0 30px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-            <div style="font-size: 15.5pt; color: #333333; max-width: 720px; line-height: 1.45; margin: 0 auto 20px auto; padding: 24px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
-              <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
-              <br/><br/>
-              Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
-              <br/><br/>
-              Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
-            </div>
-            <div style="font-size: 14pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
-              <span>© 2026 Jgg. Todos los derechos reservados.</span>
-            </div>
-          </div>
-          <div class="print-page-break"></div>
-          
-          <!-- Ficha de la Convocatoria Oficial -->
-          <div class="print-manual-convocatoria" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
-            <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
-              <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Ficha Resumen de la Convocatoria</h1>
-              <p style="margin: 4px 0 0 0; color: #555555; font-size: 12pt;">Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px; font-size: 13pt; line-height: 1.4; color: #000000; text-align: justify;">
-              <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
-              <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
-              <div><strong>Requisitos Académicos:</strong> Título de Graduado en Educación Secundaria Obligatoria (ESO), Graduado Escolar, Bachillerato Elemental, Formación Profesional de Primer Grado (FP1) o equivalente. De manera alternativa, se puede acreditar una experiencia laboral equivalente de al menos 6 meses en la misma categoría o área profesional.</div>
-              <div><strong>Plazo de Inscripción:</strong> 10 días hábiles a contar desde el día siguiente al de la publicación de la convocatoria en el Boletín Oficial del Estado (BOE).</div>
-              <div><strong>Fase de Oposición (65% de la nota final):</strong> Cuestionario tipo test teórico-práctico de 4 opciones alternativas (los fallos restan 1/4 del valor de una correcta). Contiene además 5 preguntas de reserva. Es necesario obtener una puntuación mínima de <strong>32,5 puntos</strong> sobre 65 para aprobar el examen. La fecha de examen no será antes del 1 de septiembre de 2026.</div>
-              <div><strong>Fase de Concurso (35% de la nota final):</strong> Suma de méritos exclusiva para los aspirantes que hayan aprobado la fase de oposición. Se valorará la experiencia profesional previa (principalmente en la Universidad de Sevilla) y cursos de formación homologados. El plazo de presentación de méritos (autobaremo) es de 10 días hábiles desde la publicación de notas definitivas de examen.</div>
-            </div>
-          </div>
-          <div class="print-page-break"></div>
-
-          <!-- Índice de Contenidos -->
-          <div class="print-manual-index" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
-            <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
-              <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Índice de Contenidos</h1>
-              <p style="margin: 4px 0 0 0; color: #555555; font-size: 12pt;">Dossier completo de preparación para Auxiliar de Biblioteca - US</p>
-            </div>
-            
-            <h3 style="color: #004B93; font-size: 14pt; border-bottom: 1px solid #b0c4de; padding-bottom: 4px; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase; font-weight: bold;">Temas Seleccionados en este Volumen</h3>
-            <div style="margin-bottom: 30px;">
-              ${indexItemsHtml}
-            </div>
-          </div>
-          <div class="print-page-break"></div>
-        `;
+      let prologoHtml = '';
+      if (isManualFormat && sortedIds.length > 1) {
+        try {
+          const prologoRes = await fetch('/markdown/prologo_narrativo.md');
+          if (prologoRes.ok) {
+            const prologoText = await prologoRes.text();
+            const parsedPrologo = marked.parse(prologoText);
+            prologoHtml = `
+              <section class="print-topic-block" data-topic-id="prologo">
+                <div class="print-topic-header">
+                  <span class="print-superheader">Dossier de Apoyo Didáctico &bull; Introducción</span>
+                  <h1 class="print-topic-title">Prólogo Narrativo</h1>
+                  <p class="print-topic-subtitle">Un Día en la Vida del Bibliotecario de la US</p>
+                </div>
+                <div class="markdown-rendered-content">
+                  ${parsedPrologo}
+                </div>
+              </section>
+            `;
+          }
+        } catch (err) {
+          console.error("Error al cargar el prólogo:", err);
+        }
       }
       
-      let combinedHtml = manualHeaderHtml + results.join('\n');
+      let manualHeaderHtml = '';
+      if (isManualFormat) {
+        if (sortedIds.length === 1) {
+          // Tema Único Cover (Página 1)
+          const singleTopicId = sortedIds[0];
+          const singleTopicMeta = topics.find(t => t.id === singleTopicId);
+          const topicIdFormatted = singleTopicId.toString().padStart(2, '0');
+
+          manualHeaderHtml = `
+            <!-- Portada del Tema Único -->
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-after: always; break-after: page;">
+              <div style="color: #004B93; font-weight: normal; font-size: 13pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
+              <div style="width: 80px; height: 3px; background-color: #004B93; margin: 12px auto 20px auto;"></div>
+              
+              <span style="font-size: 13pt; text-transform: uppercase; color: #555555; font-weight: bold; letter-spacing: 1px; display: block; margin-bottom: 6px;">Tema ${topicIdFormatted}</span>
+              <h1 style="font-size: 22pt; font-weight: bold; color: #000000; line-height: 1.2; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">${singleTopicMeta.title}</h1>
+              <h2 style="font-size: 14pt; font-weight: bold; color: #004B93; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+              
+              <div style="font-size: 11pt; color: #333333; max-width: 720px; line-height: 1.4; margin: 0 auto; padding: 16px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
+                <br/><br/>
+                Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
+                <br/><br/>
+                Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+              </div>
+              
+              <div style="font-size: 11pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 4px; margin-top: auto; margin-bottom: 10px;">
+                <span>Biblioteca de la Universidad de Sevilla</span>
+                <span>© 2026 Jgg. Todos los derechos reservados.</span>
+              </div>
+            </div>
+            <div class="print-page-break"></div>
+          `;
+        } else {
+          // Manual Completo Cover (Página 1), Convocatoria (Página 2), Índice (Página 3)
+          const indexItemsHtml = sortedIds.map(id => {
+            const tMeta = topics.find(t => t.id === id);
+            return `
+              <div style="border-bottom: 1px dashed #b0c4de; padding: 8px 0; font-size: 13pt; line-height: 1.4; text-align: left;">
+                <span style="font-weight: bold; color: #004B93;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
+              </div>
+            `;
+          }).join('');
+
+          manualHeaderHtml = `
+            <!-- Portada -->
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-after: always; break-after: page;">
+              <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
+              <div style="width: 80px; height: 3px; background-color: #004B93; margin: 15px auto 25px auto;"></div>
+              <h1 style="font-size: 30pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
+              <h2 style="font-size: 15pt; font-weight: bold; color: #004B93; margin: 0 0 25px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+              
+              <div style="font-size: 12pt; color: #333333; max-width: 720px; line-height: 1.4; margin: 0 auto 15px auto; padding: 16px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
+                <br/><br/>
+                Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccioncionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
+                <br/><br/>
+                Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+              </div>
+              <div style="font-size: 12pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 6px; margin-top: auto; margin-bottom: 10px;">
+                <span>© 2026 Jgg. Todos los derechos reservados.</span>
+              </div>
+            </div>
+            <div class="print-page-break"></div>
+            
+            <!-- Ficha de la Convocatoria Oficial -->
+            <div class="print-manual-convocatoria" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
+              <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
+                <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Ficha Resumen de la Convocatoria</h1>
+                <p style="margin: 4px 0 0 0; color: #555555; font-size: 12pt;">Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
+              </div>
+              
+              <div style="display: flex; flex-direction: column; gap: 16px; font-size: 13pt; line-height: 1.4; color: #000000; text-align: justify;">
+                <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
+                <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
+                <div><strong>Requisitos Académicos:</strong> Título de Graduado en Educación Secundaria Obligatoria (ESO), Graduado Escolar, Bachillerato Elemental, Formación Profesional de Primer Grado (FP1) o equivalente. De manera alternativa, se puede acreditar una experiencia laboral equivalente de al menos 6 meses en la misma categoría o área profesional.</div>
+                <div><strong>Plazo de Inscripción:</strong> 10 días hábiles a contar desde el día siguiente al de la publicación de la convocatoria en el Boletín Oficial del Estado (BOE).</div>
+                <div><strong>Fase de Oposición (65% de la nota final):</strong> Cuestionario tipo test teórico-práctico de 4 opciones alternativas (los fallos restan 1/4 del valor de una correcta). Contiene además 5 preguntas de reserva. Es necesario obtener una puntuación mínima de <strong>32,5 puntos</strong> sobre 65 para aprobar el examen. La fecha de examen no será antes del 1 de septiembre de 2026.</div>
+                <div><strong>Fase de Concurso (35% de la nota final):</strong> Suma de méritos exclusiva para los aspirantes que hayan aprobado la fase de oposición. Se valorará la experiencia profesional previa (principalmente en la Universidad de Sevilla) y cursos de formación homologados. El plazo de presentación de méritos (autobaremo) es de 10 días hábiles desde la publicación de notas definitivas de examen.</div>
+              </div>
+            </div>
+            <div class="print-page-break"></div>
+
+            <!-- Índice de Contenidos -->
+            <div class="print-manual-index" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
+              <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
+                <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Índice de Contenidos</h1>
+                <p style="margin: 4px 0 0 0; color: #555555; font-size: 12pt;">Dossier completo de preparación para Auxiliar de Biblioteca - US</p>
+              </div>
+              
+              <h3 style="color: #004B93; font-size: 14pt; border-bottom: 1px solid #b0c4de; padding-bottom: 4px; margin-top: 20px; margin-bottom: 12px; text-transform: uppercase; font-weight: bold;">Temas Seleccionados en este Volumen</h3>
+              <div style="margin-bottom: 30px;">
+                ${indexItemsHtml}
+              </div>
+            </div>
+            <div class="print-page-break"></div>
+          `;
+        }
+      }
       
-      if (isManualFormat && currentUser?.role === 'admin') {
+      let combinedHtml = manualHeaderHtml + prologoHtml + results.join('\n');
+      
+      if (isManualFormat && sortedIds.length > 1 && currentUser?.role === 'admin') {
         combinedHtml += `
           <div class="print-page-break"></div>
           <div class="print-manual-admin-info" style="box-sizing: border-box; padding: 20mm 40px; font-family: Arial, Calibri, Helvetica, sans-serif; max-width: 820px; margin: 0 auto; line-height: 1.5; color: #000000; text-align: justify; font-size: 13pt; page-break-before: always; break-before: page;">

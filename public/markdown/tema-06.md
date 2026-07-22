@@ -1,9 +1,13 @@
 # Tema 6: Clasificación de fondos: la CDU
 
+<div class="app-promo-banner header-promo">
+
 > 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
 > Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
 > * 🎴 **Flashcards:** Memoriza las clases principales de la CDU y el significado de los signos de relación en minutos.
 > * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
+
+</div>
 
 ## Clasificación Decimal Universal. Organización y control de fondos
 
@@ -17,8 +21,12 @@ La **Clasificación Bibliográfica** es el proceso técnico mediante el cual se 
 ---
 
 
+<div class="app-promo-banner mid-promo">
+
 > 💡 **REPASO RÁPIDO EN LA APP:**  
 > ¿Te cuesta memorizar las clases principales de la CDU y el significado de los signos de relación? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
+
+</div>
 
 ## 2. La Clasificación Decimal Universal (CDU)
 La **CDU** es el sistema de clasificación por materias más extendido en las bibliotecas de la US. Es un sistema decimal (divide el conocimiento en 10 clases, del 0 al 9) y universal (abarca todas las áreas del conocimiento).
@@ -140,6 +148,8 @@ Al alfabetizar revistas por título en las estanterías de la BUS:
 *   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
 
 
+<div class="app-promo-banner footer-promo">
+
 ---
 ### 🎯 ¡Ponte a prueba antes de pasar al siguiente tema!
 Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
@@ -148,3 +158,5 @@ Has completado la lectura teórica. Ahora es momento de consolidar lo aprendido:
 
 🔗 **Accede ahora a la app:** [Abrir oposiciones-bus-app](https://oposiciones-bus-app.vercel.app)
 ---
+
+</div>
