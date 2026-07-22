@@ -1,0 +1,10 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="44" stroke="#DC2626" stroke-width="8" fill="#FFFFFF"/>
+  <!-- Fuego -->
+  <path d="M 46 62 Q 50 48 45 42 Q 52 52 55 62 Z" fill="#000000"/>
+  <!-- Cubo -->
+  <rect x="28" y="32" width="10" height="12" rx="1" fill="#000000" transform="rotate(-30 33 38)"/>
+  <!-- Agua salpicando -->
+  <path d="M38 38 Q45 42 43 48" stroke="#000000" stroke-width="2.5" fill="none"/>
+  <line x1="18.9" y1="18.9" x2="81.1" y2="81.1" stroke="#DC2626" stroke-width="8"/>
+</svg>

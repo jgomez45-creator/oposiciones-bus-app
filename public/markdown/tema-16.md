@@ -59,12 +59,14 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
 
 ### Tipos de Señales de Panel (Formas, Diseños y Porcentajes):
 
+<div class="print-page-break"></div>
+
 1.  **Señales de Prohibición (Obligatoriamente redondas):**
     *   **Diseño:** Pictograma negro sobre fondo blanco, bordes y banda transversal (que desciende de izquierda a derecha a 45° respecto a la horizontal) rojos.
     *   **Área mínima de color:** El rojo debe cubrir al menos el **35%** de la superficie de la señal.
     *   *Ejemplos concretos:* Prohibido fumar, prohibido el paso a peatones, prohibido el paso a vehículos motorizados.
 
-<div class="safety-signals-container cols-4 prohibicion">
+<div class="safety-signals-container prohibicion">
   <div class="safety-signal-card">
     <img src="/images/signals/prohibido_fumar.svg" alt="Prohibido fumar" />
     <span>Prohibido fumar</span>
@@ -81,14 +83,24 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
     <img src="/images/signals/prohibido_entrada.svg" alt="Entrada prohibida" />
     <span>Entrada prohibida</span>
   </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/prohibido_apagar_con_agua.svg" alt="Prohibido apagar con agua" />
+    <span>Prohibido apagar con agua</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/prohibido_vehiculos_manutencion.svg" alt="Vehículos de manutención" />
+    <span>Sin carretillas</span>
+  </div>
 </div>
+
+<div class="print-page-break"></div>
 
 2.  **Señales de Obligación (Obligatoriamente redondas):**
     *   **Diseño:** Pictograma blanco sobre fondo azul.
     *   **Área mínima de color:** El azul debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Uso obligatorio de gafas, uso obligatorio de calzado de seguridad, uso obligatorio de mascarilla.
 
-<div class="safety-signals-container cols-5 obligacion">
+<div class="safety-signals-container obligacion">
   <div class="safety-signal-card">
     <img src="/images/signals/uso_obligatorio_gafas.svg" alt="Gafas de seguridad" />
     <span>Gafas obligatorias</span>
@@ -109,14 +121,24 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
     <img src="/images/signals/uso_obligatorio_proteccion_auditiva.svg" alt="Protección auditiva" />
     <span>Protección auditiva</span>
   </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_mascarilla.svg" alt="Mascarilla de seguridad" />
+    <span>Mascarilla obligatoria</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_arnes.svg" alt="Arnés anticaídas" />
+    <span>Arnés obligatorio</span>
+  </div>
 </div>
+
+<div class="print-page-break"></div>
 
 3.  **Señales de Advertencia (Obligatoriamente triangulares):**
     *   **Diseño:** Pictograma negro sobre fondo amarillo con bordes negros.
     *   **Área mínima de color:** El amarillo debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Atención: riesgo eléctrico, advertencia de materias inflamables, peligro de caída a distinto nivel.
 
-<div class="safety-signals-container cols-5 advertencia">
+<div class="safety-signals-container advertencia">
   <div class="safety-signal-card">
     <img src="/images/signals/riesgo_electrico.svg" alt="Riesgo eléctrico" />
     <span>Peligro eléctrico</span>
@@ -137,14 +159,24 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
     <img src="/images/signals/materias_toxicas.svg" alt="Sustancias tóxicas" />
     <span>Materias tóxicas</span>
   </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/riesgo_tropezar.svg" alt="Riesgo de tropezar" />
+    <span>Riesgo de tropezar</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/riesgo_biologico.svg" alt="Riesgo biológico" />
+    <span>Riesgo biológico</span>
+  </div>
 </div>
+
+<div class="print-page-break"></div>
 
 4.  **Señales de Salvamento o Socorro (Rectangulares o cuadradas):**
     *   **Diseño:** Pictograma blanco sobre fondo verde.
     *   **Área mínima de color:** El verde debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Dirección de salida de emergencia (flecha), botiquín de primeros auxilios, camilla.
 
-<div class="safety-signals-container cols-4 salvamento">
+<div class="safety-signals-container salvamento">
   <div class="safety-signal-card">
     <img src="/images/signals/salida_emergencia.svg" alt="Salida de emergencia" />
     <span>Salida de emergencia</span>
@@ -161,14 +193,24 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
     <img src="/images/signals/lavaojos.svg" alt="Lavaojos de emergencia" />
     <span>Lavaojos socorro</span>
   </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/camilla.svg" alt="Camilla de rescate" />
+    <span>Camilla de rescate</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/flecha_salvamento.svg" alt="Dirección de evacuación" />
+    <span>Dirección salida</span>
+  </div>
 </div>
+
+<div class="print-page-break"></div>
 
 5.  **Señales de Equipos de Lucha Contra Incendios (Rectangulares o cuadradas):**
     *   **Diseño:** Pictograma blanco sobre fondo rojo.
     *   **Área mínima de color:** El rojo debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Extintor portátil, manguera contra incendios (BIE), pulsador de alarma de incendio.
 
-<div class="safety-signals-container cols-4 incendio">
+<div class="safety-signals-container incendio">
   <div class="safety-signal-card">
     <img src="/images/signals/extintor.svg" alt="Extintor" />
     <span>Extintor</span>
@@ -184,6 +226,14 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
   <div class="safety-signal-card">
     <img src="/images/signals/telefono_emergencia.svg" alt="Teléfono de emergencia" />
     <span>Teléfono de alarma</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/escalera_incendio.svg" alt="Escalera de incendios" />
+    <span>Escalera de incendios</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/flecha_incendio.svg" alt="Dirección de equipo" />
+    <span>Dirección equipos</span>
   </div>
 </div>
 
