@@ -4676,4 +4676,114 @@ body.reading-fullscreen-mode .markdown-body-container {
   opacity: 0.6 !important;
 }
 
+/* Safety Signals Grid layout for Tema 16 */
+.safety-signals-container {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 15px !important;
+  margin: 15px 0 25px 0 !important;
+  padding: 15px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  background: #f9fafb !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+@media screen and (max-width: 768px) {
+  .safety-signals-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+.safety-signals-container.cols-5 {
+  grid-template-columns: repeat(5, 1fr) !important;
+}
+@media screen and (max-width: 768px) {
+  .safety-signals-container.cols-5 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+.safety-signals-container.cols-4 {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+.safety-signals-container.prohibicion {
+  border-left: 5px solid #dc2626 !important;
+}
+.safety-signals-container.obligacion {
+  border-left: 5px solid #004b93 !important;
+}
+.safety-signals-container.advertencia {
+  border-left: 5px solid #fbbf24 !important;
+}
+.safety-signals-container.salvamento {
+  border-left: 5px solid #15803d !important;
+}
+.safety-signals-container.incendio {
+  border-left: 5px solid #dc2626 !important;
+}
+
+.safety-signal-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 10px !important;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  box-sizing: border-box !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.safety-signal-card img {
+  width: 75px !important;
+  height: 75px !important;
+  margin-bottom: 8px !important;
+  object-fit: contain !important;
+}
+
+.safety-signal-card span {
+  font-size: 10pt !important;
+  font-weight: bold !important;
+  color: #1f2937 !important;
+  line-height: 1.25 !important;
+  margin-top: 4px !important;
+}
+
+/* In print, keep the category block together and scale down card sizes */
+@media print {
+  .safety-signals-container {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    gap: 10px !important;
+    padding: 10px !important;
+    background: transparent !important;
+    border: 1px solid #cccccc !important;
+    margin: 10px 0 15px 0 !important;
+  }
+  .safety-signals-container.cols-5 {
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
+  .safety-signals-container.cols-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  .safety-signal-card {
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    padding: 8px !important;
+  }
+  .safety-signal-card img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .safety-signal-card span {
+    font-size: 9pt !important;
+  }
+}
+
+
 

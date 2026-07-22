@@ -64,35 +64,128 @@ Establece las disposiciones mínimas para la señalización en los centros de tr
     *   **Área mínima de color:** El rojo debe cubrir al menos el **35%** de la superficie de la señal.
     *   *Ejemplos concretos:* Prohibido fumar, prohibido el paso a peatones, prohibido el paso a vehículos motorizados.
 
-![Ejemplos de señales de PROHIBICIÓN: círculo rojo con banda diagonal sobre fondo blanco](/images/senales_prohibicion.png)
+<div class="safety-signals-container cols-4 prohibicion">
+  <div class="safety-signal-card">
+    <img src="/images/signals/prohibido_fumar.svg" alt="Prohibido fumar" />
+    <span>Prohibido fumar</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/prohibido_pasar.svg" alt="Prohibido el paso" />
+    <span>Prohibido el paso</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/prohibido_agua_no_potable.svg" alt="Agua no potable" />
+    <span>Agua no potable</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/prohibido_entrada.svg" alt="Entrada prohibida" />
+    <span>Entrada prohibida</span>
+  </div>
+</div>
 
 2.  **Señales de Obligación (Obligatoriamente redondas):**
     *   **Diseño:** Pictograma blanco sobre fondo azul.
     *   **Área mínima de color:** El azul debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Uso obligatorio de gafas, uso obligatorio de calzado de seguridad, uso obligatorio de mascarilla.
 
-![Ejemplos de señales de OBLIGACIÓN: círculo azul con pictograma blanco](/images/senales_obligacion.png)
+<div class="safety-signals-container cols-5 obligacion">
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_gafas.svg" alt="Gafas de seguridad" />
+    <span>Gafas obligatorias</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_casco.svg" alt="Protección de cabeza" />
+    <span>Casco obligatorio</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_botas.svg" alt="Calzado de seguridad" />
+    <span>Calzado obligatorio</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_guantes.svg" alt="Protección de manos" />
+    <span>Guantes obligatorios</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/uso_obligatorio_proteccion_auditiva.svg" alt="Protección auditiva" />
+    <span>Protección auditiva</span>
+  </div>
+</div>
 
 3.  **Señales de Advertencia (Obligatoriamente triangulares):**
     *   **Diseño:** Pictograma negro sobre fondo amarillo con bordes negros.
     *   **Área mínima de color:** El amarillo debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Atención: riesgo eléctrico, advertencia de materias inflamables, peligro de caída a distinto nivel.
 
-![Ejemplos de señales de ADVERTENCIA: triángulo amarillo con borde negro y pictograma negro](/images/senales_advertencia.png)
+<div class="safety-signals-container cols-5 advertencia">
+  <div class="safety-signal-card">
+    <img src="/images/signals/riesgo_electrico.svg" alt="Riesgo eléctrico" />
+    <span>Peligro eléctrico</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/riesgo_inflamable.svg" alt="Materias inflamables" />
+    <span>Materias inflamables</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/peligro_general.svg" alt="Peligro general" />
+    <span>Peligro general</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/carga_suspendida.svg" alt="Carga suspendida" />
+    <span>Carga suspendida</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/materias_toxicas.svg" alt="Sustancias tóxicas" />
+    <span>Materias tóxicas</span>
+  </div>
+</div>
 
 4.  **Señales de Salvamento o Socorro (Rectangulares o cuadradas):**
     *   **Diseño:** Pictograma blanco sobre fondo verde.
     *   **Área mínima de color:** El verde debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Dirección de salida de emergencia (flecha), botiquín de primeros auxilios, camilla.
 
-![Ejemplos de señales de SALVAMENTO Y SOCORRO: fondo verde con pictograma blanco (salida de emergencia, primeros auxilios)](/images/senales_salvamento.png)
+<div class="safety-signals-container cols-4 salvamento">
+  <div class="safety-signal-card">
+    <img src="/images/signals/salida_emergencia.svg" alt="Salida de emergencia" />
+    <span>Salida de emergencia</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/primeros_auxilios.svg" alt="Primeros auxilios" />
+    <span>Primeros auxilios</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/ducha_seguridad.svg" alt="Ducha de seguridad" />
+    <span>Ducha de seguridad</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/lavaojos.svg" alt="Lavaojos de emergencia" />
+    <span>Lavaojos socorro</span>
+  </div>
+</div>
 
 5.  **Señales de Equipos de Lucha Contra Incendios (Rectangulares o cuadradas):**
     *   **Diseño:** Pictograma blanco sobre fondo rojo.
     *   **Área mínima de color:** El rojo debe cubrir al menos el **50%** de la superficie de la señal.
     *   *Ejemplos concretos:* Extintor portátil, manguera contra incendios (BIE), pulsador de alarma de incendio.
 
-![Ejemplos de señales de LUCHA CONTRA INCENDIOS: fondo rojo con pictograma blanco (extintor, manguera BIE, pulsador de alarma)](/images/senales_incendio.png)
+<div class="safety-signals-container cols-4 incendio">
+  <div class="safety-signal-card">
+    <img src="/images/signals/extintor.svg" alt="Extintor" />
+    <span>Extintor</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/manguera_incendio.svg" alt="Manguera de incendios" />
+    <span>Manguera de incendios</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/pulsador_alarma.svg" alt="Pulsador de alarma" />
+    <span>Pulsador de alarma</span>
+  </div>
+  <div class="safety-signal-card">
+    <img src="/images/signals/telefono_emergencia.svg" alt="Teléfono de emergencia" />
+    <span>Teléfono de alarma</span>
+  </div>
+</div>
 
 ### Otras Señales e Indicadores Importantes para el Examen:
 *   **Señalización de Obstáculos y Lugares Peligrosos:** Se utiliza para advertir zonas de caída de objetos, choques o caídas de personas. Consiste en franjas alternas **amarillas y negras** (o rojas y blancas) inclinadas a unos 45°.
