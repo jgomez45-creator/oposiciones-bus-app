@@ -61,7 +61,7 @@ export default function FormadoresTests({ currentUser }) {
     }
   ];
 
-  const [selectedBattery, setSelectedBattery] = useState(null);
+  const [selectedBattery, setSelectedBattery] = useState(batteries[0]);
   const [testMode, setTestMode] = useState('interactive'); // 'interactive' | 'paper' | 'print'
   const [questionLimit, setQuestionLimit] = useState(50); // 10, 20, 50, 100, 'all'
   const [quizStarted, setQuizStarted] = useState(false);
@@ -196,25 +196,25 @@ export default function FormadoresTests({ currentUser }) {
     <div className="tab-container fade-in">
       {/* Test Setup Header */}
       {!quizStarted && (
-        <div className="tab-header">
+        <div className="tab-header" style={{ marginBottom: '12px' }}>
           <div className="header-info">
-            <h1 className="text-gradient-gold">Material de Formadores</h1>
-            <p>Baterías oficiales de cuestionarios teóricos y simulaciones proporcionadas por el Sindicato (CCOO).</p>
+            <h1 className="text-gradient-gold" style={{ fontSize: '1.5rem', margin: 0 }}>Material de Formadores</h1>
+            <p style={{ margin: 0, fontSize: '0.85rem' }}>Baterías oficiales de cuestionarios teóricos y simulaciones proporcionadas por el Sindicato (CCOO).</p>
           </div>
         </div>
       )}
 
-      {/* Main Grid View: Selection Panel */}
+      {/* Main 2-Column Split View: Selection & Options Panel */}
       {!quizStarted && (
-        <div className="quiz-setup-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px' }}>
+        <div className="quiz-setup-split-view">
           
-          {/* Battery Cards Selector */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '4px' }}>
+          {/* Left Column: Battery Cards Selector */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <h3 style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-main)', margin: 0 }}>
               1. Selecciona la batería de test
             </h3>
             
-            <div className="battery-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            <div className="battery-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
               {batteries.map((b) => {
                 const isSelected = selectedBattery?.id === b.id;
                 return (
@@ -224,33 +224,33 @@ export default function FormadoresTests({ currentUser }) {
                     onClick={() => setSelectedBattery(b)}
                     style={{ 
                       cursor: 'pointer', 
-                      padding: '20px', 
-                      borderRadius: '16px', 
+                      padding: '14px', 
+                      borderRadius: '12px', 
                       border: isSelected ? '2px solid var(--secondary)' : '1px solid var(--border-color)',
-                      background: isSelected ? 'rgba(212,163,89,0.06)' : 'rgba(20,20,25,0.4)',
-                      transition: 'all 0.25s ease'
+                      background: isSelected ? 'rgba(212,163,89,0.1)' : 'rgba(20,20,25,0.4)',
+                      transition: 'all 0.2s ease'
                     }}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <span style={{ 
-                        fontSize: '0.75rem', 
+                        fontSize: '0.7rem', 
                         fontWeight: '700', 
-                        padding: '4px 8px', 
-                        borderRadius: '6px', 
+                        padding: '2px 6px', 
+                        borderRadius: '4px', 
                         background: b.color, 
                         color: '#fff' 
                       }}>
                         {b.theme}
                       </span>
-                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                        {b.questionsCount} preguntas
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                        {b.questionsCount} pregs.
                       </span>
                     </div>
                     
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '8px' }}>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: '600', color: 'var(--text-main)', margin: '0 0 4px 0' }}>
                       {b.title}
                     </h3>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: '1.3', margin: 0 }}>
                       {b.subtitle}
                     </p>
                   </div>
@@ -259,41 +259,48 @@ export default function FormadoresTests({ currentUser }) {
             </div>
           </div>
 
-          {/* Test Mode & Options Panel */}
+          {/* Right Column: Test Mode & Options Panel */}
           {selectedBattery && (
-            <div className="glass-panel fade-in" style={{ padding: '24px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
+            <div className="glass-panel fade-in" style={{ padding: '16px', borderRadius: '14px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', marginBottom: '24px' }}>
+              {/* Selected battery banner */}
+              <div style={{ background: 'rgba(212,163,89,0.08)', padding: '10px 14px', borderRadius: '8px', borderLeft: '3px solid var(--secondary)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <span style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: 'var(--secondary)', fontWeight: 'bold' }}>Batería Seleccionada</span>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{selectedBattery.title} ({selectedBattery.questionsCount} preguntas)</div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {/* Options Selection */}
                 <div>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '12px' }}>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '8px' }}>
                     2. Modalidad de Práctica
                   </h4>
                   
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <button 
                       onClick={() => setTestMode('interactive')}
                       className={`mode-selector-btn ${testMode === 'interactive' ? 'active' : ''}`}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '12px',
-                        padding: '12px',
+                        gap: '10px',
+                        padding: '8px 12px',
                         borderRadius: '8px',
                         border: '1px solid var(--border-color)',
                         background: testMode === 'interactive' ? 'var(--secondary)' : 'transparent',
                         color: testMode === 'interactive' ? 'var(--bg-dark)' : 'var(--text-main)',
                         fontWeight: '600',
-                        fontSize: '0.9rem',
+                        fontSize: '0.85rem',
                         cursor: 'pointer',
-                        textAlign: 'left',
-                        transition: 'all 0.2s'
+                        textAlign: 'left'
                       }}
                     >
-                      <Play size={18} />
+                      <Play size={16} />
                       <div>
                         <div>Práctica Interactiva</div>
-                        <span style={{ fontSize: '0.75rem', opacity: 0.8, fontWeight: '400' }}>Pregunta por pregunta con explicaciones al instante</span>
+                        <span style={{ fontSize: '0.7rem', opacity: 0.8, fontWeight: '400' }}>Pregunta por pregunta con explicaciones</span>
                       </div>
                     </button>
 
@@ -303,23 +310,22 @@ export default function FormadoresTests({ currentUser }) {
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '12px',
-                        padding: '12px',
+                        gap: '10px',
+                        padding: '8px 12px',
                         borderRadius: '8px',
                         border: '1px solid var(--border-color)',
                         background: testMode === 'paper' ? 'var(--secondary)' : 'transparent',
                         color: testMode === 'paper' ? 'var(--bg-dark)' : 'var(--text-main)',
                         fontWeight: '600',
-                        fontSize: '0.9rem',
+                        fontSize: '0.85rem',
                         cursor: 'pointer',
-                        textAlign: 'left',
-                        transition: 'all 0.2s'
+                        textAlign: 'left'
                       }}
                     >
-                      <BookOpen size={18} />
+                      <BookOpen size={16} />
                       <div>
-                        <div>Simulacro en Papel (Pantalla)</div>
-                        <span style={{ fontSize: '0.75rem', opacity: 0.8, fontWeight: '400' }}>Examen completo y cuadrícula interactiva al final</span>
+                        <div>Simulacro en Papel</div>
+                        <span style={{ fontSize: '0.7rem', opacity: 0.8, fontWeight: '400' }}>Examen completo y cuadrícula al final</span>
                       </div>
                     </button>
 
@@ -329,23 +335,22 @@ export default function FormadoresTests({ currentUser }) {
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '12px',
-                        padding: '12px',
+                        gap: '10px',
+                        padding: '8px 12px',
                         borderRadius: '8px',
                         border: '1px solid var(--border-color)',
                         background: testMode === 'print' ? 'var(--secondary)' : 'transparent',
                         color: testMode === 'print' ? 'var(--bg-dark)' : 'var(--text-main)',
                         fontWeight: '600',
-                        fontSize: '0.9rem',
+                        fontSize: '0.85rem',
                         cursor: 'pointer',
-                        textAlign: 'left',
-                        transition: 'all 0.2s'
+                        textAlign: 'left'
                       }}
                     >
-                      <Printer size={18} />
+                      <Printer size={16} />
                       <div>
                         <div>Imprimir Examen (PDF)</div>
-                        <span style={{ fontSize: '0.75rem', opacity: 0.8, fontWeight: '400' }}>Formato limpio optimizado para papel con solucionario</span>
+                        <span style={{ fontSize: '0.7rem', opacity: 0.8, fontWeight: '400' }}>Formato impreso con solucionario</span>
                       </div>
                     </button>
                   </div>
@@ -353,13 +358,13 @@ export default function FormadoresTests({ currentUser }) {
 
                 {/* Limit selection */}
                 <div>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '12px' }}>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '8px' }}>
                     3. Límite de Preguntas
                   </h4>
                   
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '6px' }}>
                     {[10, 20, 50, 100, 'all'].map((limit) => {
-                      const limitLabel = limit === 'all' ? 'Todas' : `${limit} Pregs.`;
+                      const limitLabel = limit === 'all' ? 'Todas' : `${limit}`;
                       const isLimitSelected = questionLimit === limit;
                       return (
                         <button
@@ -367,15 +372,15 @@ export default function FormadoresTests({ currentUser }) {
                           onClick={() => setQuestionLimit(limit)}
                           className={`glow-btn-secondary ${isLimitSelected ? 'active' : ''}`}
                           style={{
-                            padding: '10px',
-                            borderRadius: '8px',
+                            padding: '6px 4px',
+                            borderRadius: '6px',
                             border: '1px solid var(--border-color)',
                             background: isLimitSelected ? 'var(--secondary)' : 'rgba(255,255,255,0.02)',
                             color: isLimitSelected ? 'var(--bg-dark)' : 'var(--text-main)',
                             fontWeight: '600',
-                            fontSize: '0.85rem',
+                            fontSize: '0.8rem',
                             cursor: 'pointer',
-                            transition: 'all 0.2s'
+                            textAlign: 'center'
                           }}
                         >
                           {limitLabel}
@@ -383,27 +388,24 @@ export default function FormadoresTests({ currentUser }) {
                       );
                     })}
                   </div>
-                  
-                  <div style={{ marginTop: '16px', display: 'flex', gap: '8px', alignItems: 'flex-start', background: 'rgba(255,255,255,0.02)', padding: '10px', borderRadius: '8px', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-                    <Info size={16} className="text-secondary" style={{ flexShrink: 0, marginTop: '1px' }} />
-                    <span>Las preguntas se seleccionan y ordenan aleatoriamente cada vez que inicias un nuevo cuestionario.</span>
-                  </div>
                 </div>
               </div>
 
-              {/* Start Trigger */}
-              <div style={{ display: 'flex', justifyContent: 'flex-end', borderTop: '1px solid var(--border-color)', paddingTop: '16px' }}>
+              {/* Start Trigger - Always visible Above the Fold */}
+              <div style={{ display: 'flex', justifyContent: 'flex-end', borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: 'auto' }}>
                 <button
                   onClick={startTest}
                   className="glow-btn"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '8px',
-                    padding: '12px 28px',
-                    fontSize: '1rem',
+                    width: '100%',
+                    padding: '12px 20px',
+                    fontSize: '0.95rem',
                     fontWeight: '700',
-                    borderRadius: '10px'
+                    borderRadius: '8px'
                   }}
                 >
                   <span>Iniciar Examen</span>

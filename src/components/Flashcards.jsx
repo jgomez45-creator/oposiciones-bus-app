@@ -198,7 +198,8 @@ export default function Flashcards({ topics, activeTopicId }) {
                   <h3>{cards[currentIndex].front}</h3>
                 </div>
                 <div className="card-footer-tip">
-                  <RefreshCw size={14} /> Haz clic para ver la respuesta
+                  <RefreshCw size={16} />
+                  <span>Haz clic para ver la respuesta</span>
                 </div>
               </div>
 
@@ -212,7 +213,8 @@ export default function Flashcards({ topics, activeTopicId }) {
                   <p>{cards[currentIndex].back}</p>
                 </div>
                 <div className="card-footer-tip">
-                  Haz clic para volver a la pregunta
+                  <RefreshCw size={16} />
+                  <span>Haz clic para volver a la pregunta</span>
                 </div>
               </div>
 

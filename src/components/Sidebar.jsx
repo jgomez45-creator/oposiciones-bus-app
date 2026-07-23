@@ -9,10 +9,11 @@ import {
   LogOut,
   Shield,
   ClipboardList,
-  HelpCircle
+  HelpCircle,
+  Sparkles
 } from 'lucide-react';
 
-export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout }) {
+export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri }) {
   const menuGroups = [
     {
       label: 'Aprendizaje',
@@ -27,6 +28,12 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       items: [
         { id: 'quizzes', name: 'Tests', icon: GraduationCap },
         { id: 'formadores', name: 'Test formadores', icon: ClipboardList }
+      ]
+    },
+    {
+      label: 'Asistente IA',
+      items: [
+        { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri }
       ]
     },
     {
@@ -61,11 +68,17 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
             <span className="menu-group-label">{group.label}</span>
             {group.items.map((item) => {
               const Icon = item.icon;
-              const isActive = currentTab === item.id;
+              const isActive = item.id !== 'agente_bus' && currentTab === item.id;
               return (
                 <button
                   key={item.id}
-                  onClick={() => setCurrentTab(item.id)}
+                  onClick={() => {
+                    if (item.onClick) {
+                      item.onClick();
+                    } else {
+                      setCurrentTab(item.id);
+                    }
+                  }}
                   className={`menu-item ${isActive ? 'active' : ''}`}
                 >
                   <Icon size={18} className="menu-icon" />

@@ -82,7 +82,58 @@ Previa justificación, el trabajador tiene derecho a ausentarse con derecho a su
 *   **Guarda legal:** Quien cuide de un menor de seis años o persona con discapacidad física o psíquica tiene derecho a reducción de jornada con disminución proporcional del salario entre **un tercio y la mitad**.
 *   **Parto:** **Dieciséis semanas** de suspensión ininterrumpidas.
 
-### C. Licencias no Retribuidas (Art. 34)
+### C. Grados de Parentesco (Consanguinidad y Afinidad)
+
+El parentesco determina la concesión y la duración de la mayoría de los permisos por motivos familiares (enfermedad, accidente, hospitalización o fallecimiento) en el IV Convenio Colectivo.
+
+#### 1. Conceptos Fundamentales
+*   **Consanguinidad:** Es el parentesco natural por lazos de sangre o adopción legal. Vincula a personas que descienden de un tronco común.
+*   **Afinidad:** Es el parentesco político que nace del matrimonio o de la unión como pareja de hecho legalmente constituida. Une a un cónyuge o miembro de la pareja de hecho con los familiares consanguíneos de la otra parte.
+*   **Línea Directa (o Recta):** Une a personas que descienden unas de otras (ascendente: padres, abuelos; descendente: hijos, nietos).
+*   **Línea Colateral:** Une a personas que no descienden unas de otras pero comparten un tronco común (hermanos, tíos, sobrinos, primos).
+
+#### Regla Práctica de Cálculo (Mnemotecnia del "Paso a Paso")
+Para averiguar el grado de parentesco con cualquier familiar sin equivocarse en el examen, aplica la **Regla de los Pasos (o Saltos de Generación)**:
+1.  **Dibuja un árbol mental en forma de V:**
+    *   Si es familiar **directo** (padre, hijo, abuelo), subes o bajas en línea recta. Cada generación es 1 grado (1 paso).
+    *   Si es familiar **colateral** (hermano, tío, primo), debes subir hasta el **ancestro común** y luego bajar hasta el familiar.
+2.  **Cuenta los "pasos" (saltos) necesarios:**
+    *   **Hijo:** De ti a tu hijo. Total = **1 paso = 1º Grado**.
+    *   **Hermano:** De ti a tus padres (1 paso) y de tus padres a tu hermano (1 paso). Total = **2 pasos = 2º Grado**.
+    *   **Nieto:** De ti a tu hijo (1 paso) y de tu hijo a tu nieto (1 paso). Total = **2 pasos = 2º Grado**.
+    *   **Tío:** De ti a tus padres (1 paso), de tus padres a tus abuelos (ancestro común, 1 paso) y de tus abuelos a tu tío (1 paso). Total = **3 pasos = 3º Grado**.
+    *   **Sobrinó:** De ti a tus padres (1 paso), de tus padres a tu hermano (1 paso) y de tu hermano a tu sobrino (1 paso). Total = **3 pasos = 3º Grado**.
+    *   **Primo Hermano:** De ti a tus padres (1 paso), de tus padres a tus abuelos (ancestro común, 1 paso), de tus abuelos a tus tíos (1 paso) y de tus tíos a tu primo (1 paso). Total = **4 pasos = 4º Grado**.
+3.  **Afinidad = Mismo camino con tu cónyuge:**
+    *   Para familiares políticos (afinidad), calcula primero el grado de consanguinidad que tiene tu cónyuge/pareja de hecho con ese familiar. **Tu grado de afinidad será exactamente el mismo.** (Ej. El hermano de tu esposa es 2º grado de consanguinidad de ella, por tanto, es tu 2º grado de afinidad).
+
+#### 2. Tabla de Grados de Parentesco (1º a 4º Grado)
+
+| Grado | Consanguinidad | Afinidad |
+| :---: | :--- | :--- |
+| **1º Grado** | • Padres<br>• Hijos | • Suegros (padres del cónyuge/pareja)<br>• Yernos y Nueras (cónyuges de los hijos)<br>• Cónyuge / Pareja de hecho |
+| **2º Grado** | • Abuelos<br>• Nietos<br>• Hermanos (línea colateral) | • Cuñados (hermanos del cónyuge/pareja)<br>• Abuelos del cónyuge/pareja |
+| **3º Grado** | • Bisabuelos<br>• Biznietos<br>• Tíos (hermanos de padres)<br>• Sobrinos (hijos de hermanos) | • Tíos del cónyuge/pareja<br>• Sobrinos del cónyuge/pareja |
+| **4º Grado** | • Primos hermanos | • Primos hermanos del cónyuge/pareja |
+
+#### 3. Aplicación Práctica a Permisos y Licencias del Convenio
+La concesión de días según el IV Convenio Colectivo se regula de la siguiente manera por motivos de **fallecimiento, accidente, enfermedad grave u hospitalización**:
+
+*   **Fallecimiento de Familiar:**
+    *   **5 días naturales:** Cónyuge, pareja de hecho, hijos, padres (1º Grado Consanguinidad).
+    *   **4 días naturales:** Suegros, yernos, nueras (1º Grado Afinidad) y hermanos (2º Grado Consanguinidad colateral).
+    *   **3 días naturales:** Abuelos, nietos, cuñados (2º Grado Consanguinidad/Afinidad).
+*   **Enfermedad grave o intervención quirúrgica con hospitalización o reposo domiciliario:**
+    *   **4 días hábiles:** Cónyuge, pareja de hecho, hijos, padres (1º Grado Consanguinidad).
+    *   **3 días hábiles:** Suegros, yernos, nueras (1º Grado Afinidad) y hermanos (2º Grado Consanguinidad colateral).
+    *   **2 días hábiles:** Abuelos, nietos, cuñados (2º Grado Consanguinidad/Afinidad).
+
+> 💡 **OJO EXAMEN - PARENTESCO Y PERMISOS**
+> * **Equiparación de Pareja de Hecho:** En el IV Convenio Colectivo, las parejas de hecho legalmente constituidas están **totalmente equiparadas** al matrimonio para la generación de afinidad y concesión de todos los permisos retribuidos.
+> * **Límite de Permisos:** Los permisos habituales por hospitalización o enfermedad cubren de forma estándar hasta el **2º grado** de consanguinidad o afinidad. El **3º grado** (como tíos o sobrinos) y el **4º grado** (primos) **no** dan derecho a permiso retribuido general por enfermedad o fallecimiento.
+> * **Diferencia de Grado Colateral:** Un hermano es **2º grado colateral** (consanguinidad), mientras que un tío es **3º grado colateral** (consanguinidad) y un primo hermano es **4º grado colateral** (consanguinidad). Esto es objeto constante de preguntas trampa.
+
+### D. Licencias no Retribuidas (Art. 34)
 *   Para personal con al menos **1 año** de antigüedad. Duración mínima de **15 días** y máxima de **3 meses**, solicitables una vez cada **2 años** (siempre que se haya agotado el plazo anterior).
 
 ---

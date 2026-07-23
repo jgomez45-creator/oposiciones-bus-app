@@ -382,21 +382,23 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
       {!quizStarted ? (
         /* Configuration view */
-        <div className="quiz-config-card glass-panel" style={{ maxWidth: '750px' }}>
-          <div className="config-icon-header">
-            <GraduationCap size={48} className="text-gradient-gold" />
-            <h3>Configurar Cuestionario</h3>
-            <p className="text-muted">Personaliza tu examen seleccionando temas y número de preguntas.</p>
+        <div className="quiz-config-card glass-panel" style={{ maxWidth: '900px', padding: '20px' }}>
+          <div className="config-icon-header" style={{ marginBottom: '16px', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <GraduationCap size={32} className="text-gradient-gold" style={{ flexShrink: 0 }} />
+            <div>
+              <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Configurar Cuestionario</h3>
+              <p className="text-muted" style={{ margin: 0, fontSize: '0.8rem' }}>Personaliza tu examen seleccionando temas y número de preguntas.</p>
+            </div>
           </div>
 
           <div className="config-form">
             {/* Mode selector */}
-            <div className="quiz-mode-toggles" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
+            <div className="compact-mode-bar" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
               <button 
                 type="button"
                 onClick={() => setSelectedTopicMode('single')}
                 className={`mode-btn ${selectedTopicMode === 'single' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Tema Único
               </button>
@@ -404,7 +406,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('custom')}
                 className={`mode-btn ${selectedTopicMode === 'custom' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Simulacro Personalizado
               </button>
@@ -412,7 +414,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('simulacro-40')}
                 className={`mode-btn ${selectedTopicMode === 'simulacro-40' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Simulacro Aleatorio (40)
               </button>
@@ -420,7 +422,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('simulacro-oficial')}
                 className={`mode-btn ${selectedTopicMode === 'simulacro-oficial' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 15 Simulacros Predefinidos
               </button>
@@ -428,7 +430,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('examen-real-2019')}
                 className={`mode-btn ${selectedTopicMode === 'examen-real-2019' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Examen Real 2019
               </button>
@@ -436,7 +438,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('examen-real-2022')}
                 className={`mode-btn ${selectedTopicMode === 'examen-real-2022' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Examen Real 2022
               </button>
@@ -444,19 +446,20 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('test-book')}
                 className={`mode-btn ${selectedTopicMode === 'test-book' ? 'active' : ''}`}
-                style={{ flex: '1 1 120px' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Cuaderno de Tests
               </button>
             </div>
 
             {selectedTopicMode === 'single' && (
-              <div className="form-group">
-                <label>Selecciona el tema:</label>
+              <div className="form-group" style={{ marginBottom: '14px' }}>
+                <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>Selecciona el tema:</label>
                 <select
                   value={singleTopicId}
                   onChange={(e) => setSingleTopicId(e.target.value)}
                   className="config-select"
+                  style={{ padding: '8px 12px', fontSize: '0.9rem' }}
                 >
                   {topics.map(t => {
                     const hasQuestions = availableTopicIds.includes(t.id.toString());
@@ -475,18 +478,19 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             )}
 
             {(selectedTopicMode === 'custom' || selectedTopicMode === 'test-book') && (
-              <div className="form-group">
-                <label>
+              <div className="form-group" style={{ marginBottom: '14px' }}>
+                <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>
                   {selectedTopicMode === 'test-book' 
                     ? 'Elige los temas para compilar en tu Cuaderno de Tests:' 
                     : 'Elige los temas para el simulacro:'}
                 </label>
                 
-                <div className="topics-bulk-actions">
+                <div className="topics-bulk-actions" style={{ marginBottom: '6px' }}>
                   <button 
                     type="button"
                     onClick={() => setCustomSelectedTopicIds(availableTopicIds)}
                     className="bulk-action-link"
+                    style={{ fontSize: '0.75rem' }}
                   >
                     Seleccionar todos
                   </button>
@@ -494,12 +498,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     type="button"
                     onClick={() => setCustomSelectedTopicIds(availableTopicIds.length > 0 ? [availableTopicIds[0]] : [])}
                     className="bulk-action-link"
+                    style={{ fontSize: '0.75rem' }}
                   >
                     Deseleccionar todos
                   </button>
                 </div>
 
-                <div className="topics-checkbox-grid">
+                <div className="topics-checkbox-grid" style={{ maxHeight: '200px', overflowY: 'auto', paddingRight: '4px' }}>
                   {topics.map(t => {
                     const hasQuestions = availableTopicIds.includes(t.id.toString());
                     const isChecked = customSelectedTopicIds.includes(t.id.toString());
@@ -521,6 +526,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         onClick={handleCheckboxToggle}
                         className={`topic-checkbox-label ${isChecked ? 'selected' : ''} ${!hasQuestions ? 'disabled' : ''}`}
                         title={!hasQuestions ? 'Tema sin preguntas desarrolladas aún' : t.title}
+                        style={{ padding: '6px 8px' }}
                       >
                         <span style={{ fontWeight: 'bold' }}>T{t.id.toString().padStart(2, '0')}</span>
                         <span style={{ fontSize: '0.75rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -534,48 +540,31 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             )}
 
             {selectedTopicMode === 'simulacro-40' && (
-              <div style={{ padding: '16px', background: 'rgba(59, 130, 246, 0.05)', borderLeft: '4px solid var(--text-primary)', borderRadius: '6px', margin: '20px 0', fontSize: '0.9rem', lineHighlight: '1.5', textAlign: 'left' }}>
-                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: 'var(--text-primary)' }}>Simulacro Tipo de Examen (40 Preguntas):</h5>
-                Este examen selecciona de forma totalmente aleatoria y de manera equilibrada exactamente **2 preguntas de cada uno de los 20 temas** de la oposición (40 preguntas totales). Las preguntas se barajan para simular las condiciones de un examen real.
+              <div style={{ padding: '12px', background: 'rgba(59, 130, 246, 0.05)', borderLeft: '4px solid var(--text-primary)', borderRadius: '6px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
+                <h5 style={{ margin: '0 0 4px 0', fontWeight: 'bold', color: 'var(--text-primary)' }}>Simulacro Tipo de Examen (40 Preguntas):</h5>
+                Este examen selecciona de forma totalmente aleatoria exactamente <strong>2 preguntas de cada uno de los 20 temas</strong> (40 preguntas totales).
               </div>
             )}
 
             {selectedTopicMode === 'examen-real-2019' && (
-              <div style={{ padding: '16px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid var(--accent-emerald)', borderRadius: '6px', margin: '20px 0', fontSize: '0.9rem', lineHighlight: '1.5', textAlign: 'left' }}>
-                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>Examen Oficial 2019 (40 Preguntas):</h5>
-                Este cuestionario contiene las **40 preguntas reales de la convocatoria de 2019** para Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla. Se incluyen las explicaciones y justificaciones de la plantilla oficial de respuestas.
+              <div style={{ padding: '12px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid var(--accent-emerald)', borderRadius: '6px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
+                <h5 style={{ margin: '0 0 4px 0', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>Examen Oficial 2019 (40 Preguntas):</h5>
+                Contiene las <strong>40 preguntas reales de la convocatoria 2019</strong> para Auxiliar de Biblioteca de la US con justificaciones legales.
               </div>
             )}
 
             {selectedTopicMode === 'examen-real-2022' && (
-              <div style={{ padding: '16px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid var(--accent-emerald)', borderRadius: '6px', margin: '20px 0', fontSize: '0.9rem', lineHighlight: '1.5', textAlign: 'left' }}>
-                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>Examen Oficial de la Convocatoria 2022 (realizado en 2024):</h5>
-                Este cuestionario contiene las **preguntas reales del examen oficial de la convocatoria 2022** (celebrado el 20 de enero de 2024) para Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla, junto con sus opciones oficiales de respuesta y justificaciones de la plantilla.
+              <div style={{ padding: '12px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid var(--accent-emerald)', borderRadius: '6px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
+                <h5 style={{ margin: '0 0 4px 0', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>Examen Oficial Convocatoria 2022 (realizado en 2024):</h5>
+                Contiene las <strong>preguntas reales del examen oficial 2022</strong> de Auxiliar de Biblioteca de la US.
               </div>
             )}
 
             {selectedTopicMode === 'simulacro-oficial' && (
-              <div className="form-group">
-                <label>Selecciona los Simulacros de Examen predefinidos (40 preguntas):</label>
+              <div className="form-group" style={{ marginBottom: '14px' }}>
+                <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>Selecciona los Simulacros de Examen predefinidos (40 preguntas):</label>
                 
-                <div className="topics-bulk-actions">
-                  <button 
-                    type="button"
-                    onClick={() => setSelectedSimulacroNums(Array.from({ length: 15 }, (_, i) => (i + 1).toString()))}
-                    className="bulk-action-link"
-                  >
-                    Seleccionar todos
-                  </button>
-                  <button 
-                    type="button"
-                    onClick={() => setSelectedSimulacroNums(['1'])}
-                    className="bulk-action-link"
-                  >
-                    Deseleccionar todos
-                  </button>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '8px', marginTop: '8px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: '6px', marginTop: '6px' }}>
                   {Array.from({ length: 15 }, (_, i) => i + 1).map(num => {
                     const isChecked = selectedSimulacroNums.includes(num.toString());
                     const handleSimulacroToggle = () => {
@@ -594,27 +583,19 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         type="button"
                         onClick={handleSimulacroToggle}
                         className={`limit-chip-btn ${isChecked ? 'active' : ''}`}
-                        style={{ padding: '10px', fontSize: '0.85rem', fontWeight: '600' }}
+                        style={{ padding: '6px 8px', fontSize: '0.8rem', fontWeight: '600' }}
                       >
                         Simulacro {num}
                       </button>
                     );
                   })}
                 </div>
-                <div style={{ padding: '12px', background: 'rgba(245, 158, 11, 0.05)', borderLeft: '4px solid var(--text-secondary)', borderRadius: '6px', margin: '16px 0 0 0', fontSize: '0.8rem', textAlign: 'left' }}>
-                  <strong>Examen de 40 preguntas equilibrado</strong>: Cada simulacro predefinido incluye exactamente **2 preguntas de cada uno de los 20 temas** (preguntas 71 a 100 de cada tema). Ninguna pregunta se repite entre los 15 simulacros.
-                  {selectedSimulacroNums.length > 1 && (
-                    <div style={{ marginTop: '6px', color: 'var(--text-primary)', fontWeight: 'bold' }}>
-                      * Has seleccionado {selectedSimulacroNums.length} simulacros. Si inicias el examen online, se cargará el Simulacro {selectedSimulacroNums[0]}. Para imprimirlos todos en un único PDF con portada, haz clic en "Imprimir Examen".
-                    </div>
-                  )}
-                </div>
               </div>
             )}
 
             {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && (
-              <div className="form-group">
-                <label>
+              <div className="form-group" style={{ marginBottom: '14px' }}>
+                <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>
                   {selectedTopicMode === 'test-book'
                     ? 'Cantidad de preguntas por cada tema seleccionado:'
                     : 'Cantidad de preguntas:'}
@@ -626,21 +607,23 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                       type="button"
                       onClick={() => setQuestionLimit(limit)}
                       className={`limit-chip-btn ${questionLimit === limit ? 'active' : ''}`}
+                      style={{ padding: '6px 12px', fontSize: '0.8rem' }}
                     >
-                      {limit === 120 ? 'Todas (120)' : `${limit} preguntas`}
+                      {limit === 120 ? 'Todas (120)' : `${limit} pregs.`}
                     </button>
                   ))}
                 </div>
               </div>
             )}
 
-            <div style={{ display: 'flex', gap: '12px', marginTop: '24px', flexWrap: 'wrap' }}>
+            {/* Always Visible Action Footer */}
+            <div style={{ display: 'flex', gap: '10px', marginTop: '16px', paddingTop: '12px', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
               {selectedTopicMode === 'test-book' ? (
                 <button 
                   onClick={handlePrepareTestBook} 
                   className="glow-btn start-quiz-btn"
                   disabled={customSelectedTopicIds.length === 0}
-                  style={{ flex: 1, minWidth: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                  style={{ flex: 1, minWidth: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '10px 16px', fontSize: '0.9rem' }}
                 >
                   <Printer size={18} />
                   Preparar Cuaderno de Tests para Impresión (PDF)
@@ -651,28 +634,28 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     onClick={() => handleStartQuiz(false)} 
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: '1 1 200px' }}
+                    style={{ flex: '1 1 180px', padding: '10px 14px', fontSize: '0.85rem' }}
                   >
-                    Test Clásico (Pregunta a Pregunta)
-                    <ArrowRight size={18} />
+                    Test Clásico
+                    <ArrowRight size={16} style={{ marginLeft: '4px' }} />
                   </button>
                   <button 
                     onClick={() => handleStartQuiz(true)} 
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: '1 1 200px', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', borderColor: 'var(--secondary-light)' }}
+                    style={{ flex: '1 1 180px', padding: '10px 14px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', borderColor: 'var(--secondary-light)' }}
                   >
-                    Simulacro en Papel (Interactivo)
-                    <BookOpen size={18} style={{ marginLeft: '8px' }} />
+                    Simulacro en Papel
+                    <BookOpen size={16} style={{ marginLeft: '4px' }} />
                   </button>
                   <button 
                     type="button"
                     onClick={handlePreparePrintExam} 
                     className="glow-btn-secondary"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: '1 1 200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                    style={{ flex: '1 1 180px', padding: '10px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
                   >
-                    <Printer size={16} />
+                    <Printer size={15} />
                     Imprimir Examen (PDF)
                   </button>
                 </>

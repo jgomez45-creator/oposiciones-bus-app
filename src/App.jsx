@@ -11,12 +11,14 @@ import FormadoresTests from './components/FormadoresTests';
 import UserManual from './components/UserManual';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
-import { ShieldAlert, RefreshCw, Clock } from 'lucide-react';
+import { ShieldAlert, RefreshCw, Clock, Sparkles } from 'lucide-react';
+import SiriAssistant from './components/SiriAssistant';
 import './App.css';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('dashboard');
   const [activeTopicId, setActiveTopicId] = useState(1);
+  const [showSiriModal, setShowSiriModal] = useState(false);
   const [timerActiveGlobally, setTimerActiveGlobally] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(false);
   const [sessionExpelled, setSessionExpelled] = useState(false);
@@ -489,6 +491,7 @@ export default function App() {
           setCurrentTab={setCurrentTab} 
           currentUser={currentUser}
           handleLogout={handleLogout}
+          onOpenSiri={() => setShowSiriModal(true)}
         />
         <main className="main-content">
           {loadingProgress ? (
@@ -501,6 +504,44 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {/* Floating Siri BUS Assistant Button */}
+      {!showSiriModal && (
+        <button
+          type="button"
+          onClick={() => setShowSiriModal(true)}
+          className="siri-trigger-btn glow-btn"
+          style={{
+            position: 'fixed',
+            bottom: '24px',
+            right: '24px',
+            zIndex: 9999,
+            borderRadius: '30px',
+            padding: '10px 18px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)',
+            color: '#ffffff',
+            fontWeight: 'bold',
+            fontSize: '0.85rem',
+            boxShadow: '0 8px 25px rgba(212, 163, 89, 0.4), 0 0 15px rgba(212, 163, 89, 0.3)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            cursor: 'pointer'
+          }}
+          title="Preguntar al Agente BUS (Asistente de Contenidos)"
+        >
+          <Sparkles size={18} />
+          <span>Agente BUS</span>
+        </button>
+      )}
+
+      {/* Siri BUS Virtual Assistant Drawer Component */}
+      <SiriAssistant 
+        activeTopicId={activeTopicId}
+        isOpen={showSiriModal}
+        onClose={() => setShowSiriModal(false)}
+      />
 
       {showInactivityWarning && (
         <div className="login-screen-overlay" style={{ zIndex: 9999 }}>

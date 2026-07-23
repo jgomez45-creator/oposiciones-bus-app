@@ -2433,6 +2433,31 @@
       "id": 25,
       "front": "Sanción por cometer una falta leve",
       "back": "Amonestación verbal o por escrito."
+    },
+    {
+      "id": 26,
+      "front": "¿En qué grado de consanguinidad se encuentra un nieto?",
+      "back": "En el 2º grado de consanguinidad (línea directa descendente)."
+    },
+    {
+      "id": 27,
+      "front": "¿En qué grado y línea se encuentra un hermano?",
+      "back": "En el 2º grado de consanguinidad en línea colateral."
+    },
+    {
+      "id": 28,
+      "front": "¿Un cuñado es un familiar de qué grado y tipo de parentesco?",
+      "back": "2º grado de afinidad (parentesco político por matrimonio o pareja de hecho, en línea colateral)."
+    },
+    {
+      "id": 29,
+      "front": "¿En qué grado de parentesco se encuentran los suegros?",
+      "back": "En el 1º grado de afinidad (padres del cónyuge o pareja de hecho)."
+    },
+    {
+      "id": 30,
+      "front": "¿Los tíos y sobrinos consanguíneos dan derecho a licencias generales por enfermedad o fallecimiento?",
+      "back": "No, son familiares de 3º grado colateral. Las licencias por enfermedad o fallecimiento del convenio sólo cubren hasta el 2º grado."
     }
   ],
   "19": [

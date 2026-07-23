@@ -457,6 +457,7 @@ export default function TopicViewer({
   // Check if MP3 file exists & reset audio state on topic change
   useEffect(() => {
     stopAudio();
+    setAudioMode('tts'); // Lector Dinámico (TTS) por defecto
     
     const formattedNum = topic.id.toString().padStart(2, '0');
     const audioUrl = `/audio/tema-${formattedNum}.mp3`;
@@ -465,15 +466,12 @@ export default function TopicViewer({
       .then(res => {
         if (res.ok) {
           setHasLocalMp3(true);
-          setAudioMode('mp3');
         } else {
           setHasLocalMp3(false);
-          setAudioMode('tts');
         }
       })
       .catch(() => {
         setHasLocalMp3(false);
-        setAudioMode('tts');
       });
   }, [activeTopicId]);
 
@@ -1267,13 +1265,13 @@ export default function TopicViewer({
                 )}
               </div>
               
-              <div className="topic-header-status-controls">
+              <div className="topic-header-status-controls" style={{ marginLeft: 'auto', paddingLeft: '16px', gap: '10px' }}>
                 {timerRunning && (
                   <span className="badge badge-blue focus-mode-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(59, 130, 246, 0.15)', borderColor: 'rgba(59, 130, 246, 0.3)', color: 'var(--primary-light)', padding: '6px 12px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', marginRight: '12px' }}>
                     <span className="pulse-dot"></span> Sesión de Estudio Activa
                   </span>
                 )}
-                <span className="text-muted">Estado del tema:</span>
+                <span className="text-muted" style={{ marginLeft: '8px', whiteSpace: 'nowrap' }}>Estado del tema:</span>
                 <select
                   value={topicProgress.status}
                   onChange={(e) => updateTopicStatus(topic.id, e.target.value)}
@@ -1286,7 +1284,7 @@ export default function TopicViewer({
                   <option value="Repasado">Repasado</option>
                 </select>
                 <button onClick={handlePrintClick} className="print-btn" title="Imprimir o Descargar PDF">
-                  <Printer size={14} />
+                  <Printer size={15} />
                   <span>Imprimir / PDF</span>
                 </button>
                 
