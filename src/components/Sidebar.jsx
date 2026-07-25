@@ -33,7 +33,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
     {
       label: 'Asistente IA',
       items: [
-        { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri }
+        { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri, isBlueButton: true }
       ]
     },
     {
@@ -69,6 +69,37 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
             {group.items.map((item) => {
               const Icon = item.icon;
               const isActive = item.id !== 'agente_bus' && currentTab === item.id;
+              
+              if (item.isBlueButton) {
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={item.onClick}
+                    className="menu-item glow-btn"
+                    style={{
+                      width: '100%',
+                      margin: '4px 0',
+                      padding: '8px 12px',
+                      borderRadius: '10px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+                      color: '#ffffff',
+                      fontWeight: '700',
+                      fontSize: '0.82rem',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
+                      boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <Sparkles size={16} style={{ color: '#fbbf24' }} />
+                    <span>Agente BUS</span>
+                  </button>
+                );
+              }
+
               return (
                 <button
                   key={item.id}
@@ -98,8 +129,8 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
               {currentUser.name.charAt(0).toUpperCase()}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name}</span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ID: {currentUser.code ? currentUser.code.split('_')[0] : 'DEMO'}</span>
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name || 'Alumno Registrado'}</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ID: {currentUser.bookCode || currentUser.code || (currentUser.role === 'admin' ? 'ADMIN' : 'REGISTRADO')}</span>
             </div>
           </div>
           <button 

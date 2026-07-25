@@ -34,6 +34,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   
   // Available topics for quizzes (topics that actually have questions in quizzes.json)
   const availableTopicIds = Object.keys(quizzesData);
+  const totalQuizzesCount = Object.values(quizzesData).reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0);
 
   const [customSelectedTopicIds, setCustomSelectedTopicIds] = useState(
     activeTopicId && availableTopicIds.includes(activeTopicId.toString()) 
@@ -42,6 +43,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   );
   
   const [questionLimit, setQuestionLimit] = useState(10);
+  const [isCustomLimitInput, setIsCustomLimitInput] = useState(false);
+  const [customLimitValue, setCustomLimitValue] = useState('15');
   const [quizStarted, setQuizStarted] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [isPrintPreviewMode, setIsPrintPreviewMode] = useState(false);
@@ -76,7 +79,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const generateSimulacro40Questions = () => {
     let qPool = [];
     availableTopicIds.forEach(topicId => {
-      const topicQs = (quizzesData[topicId] || []).filter(q => q.usage !== 'simulacro');
+      const topicQs = (quizzesData[topicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
       if (topicQs.length > 0) {
         const selectedQs = [...topicQs]
           .sort(() => 0.5 - Math.random())
@@ -96,7 +99,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const generateSimulacroOficialQuestions = (examId) => {
     let qPool = [];
     availableTopicIds.forEach(topicId => {
-      const topicQs = quizzesData[topicId] || [];
+      const topicQs = (quizzesData[topicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0);
       const examQs = topicQs.filter(q => q.usage === 'simulacro' && q.simulacroExamId === Number(examId));
       
       // Fallback if metadata is not generated yet (e.g. if db is not fully generated)
@@ -132,15 +135,23 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     return qPool;
   };
 
+  const getEffectiveLimit = () => {
+    if (!isCustomLimitInput && questionLimit === 'all') return 999999;
+    const val = isCustomLimitInput ? customLimitValue : questionLimit;
+    const parsed = parseInt(val, 10);
+    return isNaN(parsed) || parsed <= 0 ? 10 : parsed;
+  };
+
   const handlePrepareTestBook = () => {
     let compiledQuestions = [];
     const sortedIds = [...customSelectedTopicIds].map(Number).sort((a, b) => a - b);
+    const limit = getEffectiveLimit();
     
     sortedIds.forEach(topicId => {
-      const allTopicQs = (quizzesData[topicId.toString()] || []).filter(q => q.usage !== 'simulacro');
+      const allTopicQs = (quizzesData[topicId.toString()] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
       const selectedQs = [...allTopicQs]
         .sort(() => 0.5 - Math.random())
-        .slice(0, questionLimit);
+        .slice(0, limit);
       
       const mappedQs = selectedQs.map(q => ({
         ...q,
@@ -185,15 +196,15 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       setQuizStarted(true);
       return;
     } else if (selectedTopicMode === 'single') {
-      const topicQs = (quizzesData[singleTopicId] || []).filter(q => q.usage !== 'simulacro');
+      const topicQs = (quizzesData[singleTopicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
       qPool = topicQs.map(q => ({
         ...q,
         topicId: Number(singleTopicId)
-      })).sort(() => 0.5 - Math.random()).slice(0, questionLimit);
+      })).sort(() => 0.5 - Math.random()).slice(0, getEffectiveLimit());
     } else {
       // Gather questions from selected custom topics
       customSelectedTopicIds.forEach(topicId => {
-        const topicQs = (quizzesData[topicId] || []).filter(q => q.usage !== 'simulacro');
+        const topicQs = (quizzesData[topicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
         const mappedQs = topicQs.map(q => ({
           ...q,
           topicId: Number(topicId)
@@ -201,7 +212,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
         qPool = [...qPool, ...mappedQs];
       });
       qPool.sort(() => 0.5 - Math.random());
-      qPool = qPool.slice(0, questionLimit);
+      qPool = qPool.slice(0, getEffectiveLimit());
     }
 
     if (qPool.length === 0) {
@@ -236,15 +247,15 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       const firstExamNum = selectedSimulacroNums[0] || '1';
       qPool = generateSimulacroOficialQuestions(firstExamNum);
     } else if (selectedTopicMode === 'single') {
-      const topicQs = (quizzesData[singleTopicId] || []).filter(q => q.usage !== 'simulacro');
+      const topicQs = (quizzesData[singleTopicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
       qPool = topicQs.map(q => ({
         ...q,
         topicId: Number(singleTopicId)
-      })).sort(() => 0.5 - Math.random()).slice(0, questionLimit);
+      })).sort(() => 0.5 - Math.random()).slice(0, getEffectiveLimit());
     } else {
       // Gather questions from selected custom topics
       customSelectedTopicIds.forEach(topicId => {
-        const topicQs = (quizzesData[topicId] || []).filter(q => q.usage !== 'simulacro');
+        const topicQs = (quizzesData[topicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
         const mappedQs = topicQs.map(q => ({
           ...q,
           topicId: Number(topicId)
@@ -252,7 +263,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
         qPool = [...qPool, ...mappedQs];
       });
       qPool.sort(() => 0.5 - Math.random());
-      qPool = qPool.slice(0, questionLimit);
+      qPool = qPool.slice(0, getEffectiveLimit());
     }
 
     if (qPool.length === 0) {
@@ -446,9 +457,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('test-book')}
                 className={`mode-btn ${selectedTopicMode === 'test-book' ? 'active' : ''}`}
-                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem' }}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
               >
-                Cuaderno de Tests
+                <span>Cuaderno de Tests</span>
+                <span style={{ fontSize: '0.72rem', opacity: 0.65, fontWeight: 500, background: 'rgba(255, 255, 255, 0.12)', padding: '1px 6px', borderRadius: '10px' }}>
+                  ({totalQuizzesCount.toLocaleString()})
+                </span>
               </button>
             </div>
 
@@ -600,18 +614,60 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     ? 'Cantidad de preguntas por cada tema seleccionado:'
                     : 'Cantidad de preguntas:'}
                 </label>
-                <div className="question-limit-selector">
-                  {(selectedTopicMode === 'test-book' ? [5, 10, 20, 30, 50, 120] : [5, 10, 15, 20, 30]).map(limit => (
+                <div className="question-limit-selector" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+                  {[5, 10, 20, 30, 50, 100].map(limit => (
                     <button
                       key={limit}
                       type="button"
-                      onClick={() => setQuestionLimit(limit)}
-                      className={`limit-chip-btn ${questionLimit === limit ? 'active' : ''}`}
+                      onClick={() => {
+                        setIsCustomLimitInput(false);
+                        setQuestionLimit(limit);
+                      }}
+                      className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === limit ? 'active' : ''}`}
                       style={{ padding: '6px 12px', fontSize: '0.8rem' }}
                     >
-                      {limit === 120 ? 'Todas (120)' : `${limit} pregs.`}
+                      {`${limit} pregs.`}
                     </button>
                   ))}
+
+                  {/* Opción Elegir Número Personalizada */}
+                  <button
+                    type="button"
+                    onClick={() => setIsCustomLimitInput(true)}
+                    className={`limit-chip-btn ${isCustomLimitInput ? 'active' : ''}`}
+                    style={{ padding: '6px 12px', fontSize: '0.8rem' }}
+                  >
+                    Elegir número
+                  </button>
+
+                  {isCustomLimitInput && (
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(99, 102, 241, 0.15)', padding: '2px 10px', borderRadius: '8px', border: '1px solid var(--accent-color, #6366f1)' }}>
+                      <input
+                        type="number"
+                        min="1"
+                        max="1000"
+                        value={customLimitValue}
+                        onChange={(e) => setCustomLimitValue(e.target.value)}
+                        style={{ width: '55px', background: 'transparent', border: 'none', color: '#fff', fontSize: '0.85rem', textAlign: 'center', fontWeight: 'bold', outline: 'none' }}
+                      />
+                      <span style={{ fontSize: '0.75rem', opacity: 0.85 }}>pregs.</span>
+                    </div>
+                  )}
+
+                  {/* Opción 'Todas' dinámica con contador real */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCustomLimitInput(false);
+                      setQuestionLimit('all');
+                    }}
+                    className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === 'all' ? 'active' : ''}`}
+                    style={{ padding: '6px 12px', fontSize: '0.8rem' }}
+                  >
+                    {selectedTopicMode === 'single' && quizzesData[singleTopicId]
+                      ? `Todas (${quizzesData[singleTopicId].length})`
+                      : 'Todas'}
+                  </button>
                 </div>
               </div>
             )}
@@ -980,7 +1036,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             <div>
               <h4 style={{ margin: 0 }}>Vista Previa del Cuaderno de Tests</h4>
               <p className="text-muted" style={{ fontSize: '0.8rem', margin: 0 }}>
-                Compilación de cuestionarios de autoevaluación por temas. Cantidad de preguntas por tema: {questionLimit === 120 ? 'Todas (120)' : questionLimit}.
+                Compilación de cuestionarios de autoevaluación por temas. Cantidad de preguntas por tema: {!isCustomLimitInput && questionLimit === 'all' ? 'Todas' : (isCustomLimitInput ? customLimitValue : questionLimit)}.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '10px' }}>

@@ -15,6 +15,47 @@ import { ShieldAlert, RefreshCw, Clock, Sparkles } from 'lucide-react';
 import SiriAssistant from './components/SiriAssistant';
 import './App.css';
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null, errorInfo: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("ErrorBoundary caught an error", error, errorInfo);
+    this.setState({ errorInfo });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '30px', color: '#f87171', background: '#0f172a', borderRadius: '12px', margin: '20px', border: '1px solid rgba(248, 113, 113, 0.3)' }}>
+          <h2 style={{ margin: '0 0 10px 0', fontSize: '1.2rem' }}>⚠️ Se ha producido un error al cargar este módulo</h2>
+          <p style={{ color: '#e2e8f0', fontSize: '0.9rem', marginBottom: '12px' }}>{this.state.error && this.state.error.toString()}</p>
+          <pre style={{ color: '#94a3b8', fontSize: '0.78rem', overflowX: 'auto', background: '#020617', padding: '12px', borderRadius: '6px', maxHeight: '200px' }}>
+            {this.state.errorInfo && this.state.errorInfo.componentStack}
+          </pre>
+          <button 
+            type="button"
+            onClick={() => {
+              this.setState({ hasError: false, error: null, errorInfo: null });
+              window.location.reload();
+            }} 
+            style={{ padding: '8px 16px', background: '#6366f1', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', marginTop: '14px', fontWeight: 'bold' }}
+          >
+            Reintentar / Recargar
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function App() {
   const [currentTab, setCurrentTab] = useState('dashboard');
   const [activeTopicId, setActiveTopicId] = useState(1);
@@ -22,6 +63,11 @@ export default function App() {
   const [timerActiveGlobally, setTimerActiveGlobally] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(false);
   const [sessionExpelled, setSessionExpelled] = useState(false);
+
+  // Auto-close Agente BUS drawer whenever active option/tab changes
+  useEffect(() => {
+    setShowSiriModal(false);
+  }, [currentTab]);
 
   // Throttled database saving refs
   const lastSaveTimeRef = useRef(0);
@@ -500,41 +546,12 @@ export default function App() {
               <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Actualizando tu progreso...</span>
             </div>
           ) : (
-            renderContent()
+            <ErrorBoundary>
+              {renderContent()}
+            </ErrorBoundary>
           )}
         </main>
       </div>
-
-      {/* Floating Siri BUS Assistant Button */}
-      {!showSiriModal && (
-        <button
-          type="button"
-          onClick={() => setShowSiriModal(true)}
-          className="siri-trigger-btn glow-btn"
-          style={{
-            position: 'fixed',
-            bottom: '24px',
-            right: '24px',
-            zIndex: 9999,
-            borderRadius: '30px',
-            padding: '10px 18px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)',
-            color: '#ffffff',
-            fontWeight: 'bold',
-            fontSize: '0.85rem',
-            boxShadow: '0 8px 25px rgba(212, 163, 89, 0.4), 0 0 15px rgba(212, 163, 89, 0.3)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            cursor: 'pointer'
-          }}
-          title="Preguntar al Agente BUS (Asistente de Contenidos)"
-        >
-          <Sparkles size={18} />
-          <span>Agente BUS</span>
-        </button>
-      )}
 
       {/* Siri BUS Virtual Assistant Drawer Component */}
       <SiriAssistant 

@@ -19,6 +19,7 @@ import estatutosBloque1 from '../data/baterias/estatutos_bloque1.json';
 import estatutosBloque2 from '../data/baterias/estatutos_bloque2.json';
 import convenio2026 from '../data/baterias/convenio_2026.json';
 import igualdad2007 from '../data/baterias/igualdad_2007.json';
+import codigo2001Validadas from '../data/examenes_oficiales/codigo_2001_validadas.json';
 
 export default function FormadoresTests({ currentUser }) {
   // Available batteries
@@ -58,6 +59,15 @@ export default function FormadoresTests({ currentUser }) {
       data: igualdad2007,
       color: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)', // Teal
       theme: 'Tema 19'
+    },
+    {
+      id: 'oficial_2001_4140',
+      title: 'Examen Oficial US (Código 2001)',
+      subtitle: 'Preguntas oficiales validadas y auditadas 100% para el Código 4140',
+      questionsCount: codigo2001Validadas.length,
+      data: codigo2001Validadas,
+      color: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', // Amber/Gold
+      theme: 'Oficial US'
     }
   ];
 
@@ -89,8 +99,15 @@ export default function FormadoresTests({ currentUser }) {
       return;
     }
     
-    // Shuffle and slice questions based on limit
-    let rawQuestions = [...selectedBattery.data];
+    // Normalize and filter raw questions defensively
+    let rawQuestions = (selectedBattery.data || []).map(q => ({
+      ...q,
+      question: q.question || q.enunciado || '',
+      options: q.options || q.opciones || [],
+      correctAnswer: q.correctAnswer !== undefined ? q.correctAnswer : (q.respuesta_correcta !== undefined ? q.respuesta_correcta : 0),
+      explanation: q.explanation || q.explicacion_vigente || ''
+    })).filter(q => q.question && Array.isArray(q.options) && q.options.length > 0);
+
     // Shuffle logic (Fisher-Yates)
     for (let i = rawQuestions.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

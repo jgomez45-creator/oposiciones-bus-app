@@ -1,0 +1,145 @@
+[
+  {
+    "id": "us_2001_q62",
+    "question": "En la Universidad de Sevilla ¿se dispone de una política de prevención de riesgos laborales?",
+    "options": [
+      "A) Sí, la firma el Servicio de Prevención de riesgos laborales, que establece los principios de la acción preventiva.",
+      "B) No como tal, lo que existe es un Comité de Seguridad y Salud que establece que la responsabilidad en materia de política preventiva lo tiene el Rector.",
+      "C) Sí, firmado por el Rector y establece un compromiso de la Universidad de Sevilla por reconocer la prevención como una de sus máximas prioridades en su gestión.",
+      "D) Sí, firmado por el Director de Recursos Humanos y establece el compromiso de la Universidad de Sevilla por reconocer la prevención como una de sus máximas prioridades en su gestión."
+    ],
+    "correctAnswer": 2,
+    "explanation": "La Declaración de la Política de Prevención de Riesgos Laborales de la Universidad de Sevilla está aprobada y firmada expresamente por el Rector como máxima autoridad de la institución, asumiendo el compromiso de integrar la prevención en la gestión universitaria.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q63",
+    "question": "Según la ley 31/1995, de prevención de Riesgos Laborales, cada trabajador tiene la obligación de:",
+    "options": [
+      "A) Utilizar los equipos de protección de acuerdo a su criterio en cada actividad que realice, de acuerdo a las instrucciones que se le haya dado.",
+      "B) Utilizar correctamente los medios y equipos de protección facilitados por el empresario y de acuerdo con las instrucciones recibidas de éste.",
+      "C) Poner fuera de funcionamiento y utilizar correctamente los dispositivos de seguridad existente o que se instalen en los medios relacionados con su actividad o en los lugares de trabajo en los que tenga lugar.",
+      "D) Velar por que el empresario cumpla y pueda garantizar unas condiciones de trabajo que sean seguras."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Artículo 29.2.2º de la Ley 31/1995 de Prevención de Riesgos Laborales (LPRL). Dispone expresamente que los trabajadores deberán usar adecuadamente los medios y equipos de protección facilitados por el empresario siguiendo las instrucciones de este.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q64",
+    "question": "Según la píldora informativa del SEPRUS sobre prevención de accidentes por caída al mismo nivel, si en el puesto de trabajo se tiene el riesgo de tener un accidente por caída al mismo nivel, ¿a quién debe comunicar el trabajador lo antes posible esta situación de riesgo?",
+    "options": [
+      "A) Al trabajador designado en su centro en temas de prevención de riesgos laborales.",
+      "B) Al representante de los trabajadores en su departamento.",
+      "C) Al director del grupo de investigación.",
+      "D) No hay nadie establecido como tal, sino al primero que pueda resolver la situación."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Según las pautas operativas de comunicación de riesgos del SEPRUS, ante la detección de anomalías o riesgos de caída al mismo nivel en el centro de trabajo, se debe notificar con celeridad al trabajador designado de prevención del centro.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q65",
+    "question": "Según las instrucciones ergonómicas del Servicio de Prevención de Riesgos Laborales, en las píldoras de ergonomía: postura sentada ante el ordenador, en un puesto de trabajo ante el ordenador, se debe adoptar una postura correcta ¿cuál de las siguientes afirmaciones es correcta?",
+    "options": [
+      "A) El antebrazo, muñeca y mano deben permanecer alineados.",
+      "B) Los brazos y antebrazos deben formar un ángulo recto, manteniendo los codos separados lo más posible del cuerpo.",
+      "C) Los muslos deben quedar formando ángulos rectos con la pierna y cruce las piernas para una mejor estabilidad.",
+      "D) Ajuste la altura de la silla de tal forma que los codos queden por debajo de la mesa."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Recomendación ergonómica fundamental en PVD (Pantallas de Visualización de Datos): mantener el conjunto antebrazo, muñeca y mano alineados en eje neutro evita desviaciones carpianas y lesiones por esfuerzo repetido.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q66",
+    "question": "Según el RD 486/1997 sobre disposiciones mínimas de seguridad y salud en los lugares de trabajo, la instalación eléctrica en el espacio de trabajo debe:",
+    "options": [
+      "A) Tener en cuenta la potencia y los factores externos condicionantes.",
+      "B) Asegurarse que toda la instalación supere los 380V.",
+      "C) Tener la competencia de las personas que tengan acceso a las partes del centro de alta, no requiriéndose para centros de baja.",
+      "D) Tener en cuenta que pueden entrañar riesgo de incendio o explosión."
+    ],
+    "correctAnswer": 3,
+    "explanation": "Real Decreto 486/1997, Anexo I (apartado 7.1º). Establece que las instalaciones eléctricas de los lugares de trabajo deberán estar concebidas para evitar riesgos de contacto directo o indirecto, así como riesgos de incendio o explosión.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q68",
+    "question": "Según el RD 485/1997, cuando el color de seguridad rojo necesite un color de contraste que enmarque o alterne con el color de seguridad, aquel será:",
+    "options": [
+      "A) Negro.",
+      "B) Amarillo.",
+      "C) Blanco.",
+      "D) Azul."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Real Decreto 485/1997 sobre señalización de seguridad y salud en el trabajo, Anexo III (Colores de seguridad y de contraste). Asigna el color blanco como contraste para el color de seguridad rojo.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q69",
+    "question": "Según el R.D 488/97, sobre disposiciones mínimas de seguridad y salud relativas al trabajo con equipos que incluyan pantallas de visualización de datos, es cierto que:",
+    "options": [
+      "A) El teclado deberá ser inclinable y dependiente de la pantalla para permitir que el trabajador adopte una postura cómoda.",
+      "B) Las superficies del teclado deberán ser lo más claras posible para evitar los reflejos.",
+      "C) Tendrá que haber espacio suficiente delante del teclado para que el usuario pueda apoyar los brazos y las manos.",
+      "D) Se deben establecer pausas y al mismo tiempo alternar tareas cuando sean posibles las pausas."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Real Decreto 488/1997, Anexo (apartado 1.c - Teclado). El teclado debe ser independiente y contar con espacio suficiente en su parte delantera para que el usuario pueda apoyar brazos y manos descansadamente.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q78",
+    "question": "Según lo que establece el artículo 17.5 del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía, los trabajos realizados en puestos de categoría de grupo superior:",
+    "options": [
+      "A) Podrán alegarse como mérito a los efectos de promoción laboral.",
+      "B) No podrán alegarse como mérito a los efectos de promoción laboral.",
+      "C) Podrán alegarse como mérito a los efectos de promoción laboral, solo si se trata de trabajos en categorías de Grupo II.",
+      "D) Podrán alegarse como mérito a los efectos de promoción laboral, solo si se trata de trabajos en categorías de Grupo I."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Artículo 17.5 del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía. Garantiza expresamente que el desempeño de funciones de grupo superior se valore como mérito en los baremos de concurso para promoción laboral.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q79",
+    "question": "Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres en su artículo 6.1. \"Se considera discriminación directa por razón de sexo la situación en que se encuentra una persona que sea, haya sido, o pudiera ser tratada, __________, de manera menos favorable que otra en situación comparable\"",
+    "options": [
+      "A) en atención a su sexo",
+      "B) en atención a su género",
+      "C) en atención a su sexo y su género",
+      "D) con diferencia"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Artículo 6.1 de la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres. Define literalmente la discriminación directa por razón de sexo como el trato menos favorable a una persona 'en atención a su sexo'.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q80",
+    "question": "Según la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres en su artículo 51. \"Las Administraciones públicas, en el ámbito de sus respectivas competencias y en aplicación del principio de igualdad entre mujeres y hombres, deberán: e) Establecer medidas efectivas para eliminar cualquier discriminación retributiva, ________, por razón de sexo\"",
+    "options": [
+      "A) directa o indirecta",
+      "B) directa y manifiesta",
+      "C) siempre que sea significativa",
+      "D) siempre que sea directa"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Artículo 51 letra e) de la Ley Orgánica 3/2007. Obliga a las Administraciones Públicas a erradicar cualquier tipo de discriminación retributiva 'directa o indirecta' entre mujeres y hombres.",
+    "theme": "Oficial US (Código 2001)"
+  },
+  {
+    "id": "us_2001_q81",
+    "question": "Según la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres en su artículo 51 \"Las Administraciones públicas, en el ámbito de sus respectivas competencias y en aplicación del principio de igualdad entre mujeres y hombres, deberán: a) Remover los obstáculos que impliquen la pervivencia de ___________con el fin de ofrecer condiciones de igualdad efectiva entre mujeres y hombres en el acceso al empleo público y en el desarrollo de la carrera profesional\"",
+    "options": [
+      "A) las discriminaciones directas",
+      "B) cualquier tipo de discriminación",
+      "C) algunos elementos",
+      "D) dificultades laborales"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Artículo 51 letra a) de la Ley Orgánica 3/2007. Dispone que las AAPP removerán los obstáculos que perpetúen 'cualquier tipo de discriminación' para garantizar la igualdad en el acceso al empleo público y la carrera administrativa.",
+    "theme": "Oficial US (Código 2001)"
+  }
+]
