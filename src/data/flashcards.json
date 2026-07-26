@@ -43,7 +43,7 @@
     {
       "id": 9,
       "front": "¿De qué Vicerrectorado depende funcional y orgánicamente la BUS?",
-      "back": "Del Vicerrectorado con competencias en materia de Investigación (actualmente el Vicerrectorado de Investigación)."
+      "back": "Del Vicerrectorado con competencias en materia de Investigación, conforme al Reglamento de la BUS."
     },
     {
       "id": 10,
@@ -2552,7 +2552,7 @@
     {
       "id": 16,
       "front": "Cancelación de sanciones por faltas muy graves en el expediente",
-      "back": "Se cancelan automáticamente transcurridos 6 años desde el cumplimiento de la sanción."
+      "back": "Se cancelan automáticamente transcurridos 5 años desde el cumplimiento de la sanción."
     },
     {
       "id": 17,

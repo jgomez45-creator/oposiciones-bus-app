@@ -141,11 +141,37 @@ El **UVUS** es la credencial única de identidad (par usuario/contraseña) que i
 *   **UOC (2020). Webinar Biblioteca: nueva Plataforma de libros electrónicos eLibro**: Guía de uso oficial de la plataforma eLibro de la BUS.
 
 
-<div class="app-promo-banner footer-promo" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%); border: 2px solid #6366f1; border-radius: 12px; padding: 24px; color: #ffffff; margin-top: 30px; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); text-align: center;">
+<div class="app-promo-banner footer-promo" style="background: #ffffff; border: 2px solid #2563eb; border-radius: 10px; padding: 14px 18px; color: #1e293b; margin-top: 24px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(37, 99, 235, 0.1); text-align: center; page-break-inside: avoid; break-inside: avoid;">
 
-  <div style="font-size: 1.4rem; font-weight: 800; color: #fbbf24; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">
-    🚀 ¡LLEVA TU PREPARACIÓN AL SIGUIENTE NIVEL EN LA APP ONLINE! 🚀
+  <div style="font-size: 1.15rem; font-weight: 800; color: #1e40af; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
+    🚀 ¡COMPLEMENTA TU ESTUDIO EN LA APP ONLINE! 🚀
   </div>
+
+  <p style="font-size: 0.88rem; line-height: 1.4; color: #475569; margin-bottom: 10px; font-weight: 500;">
+    Pon a prueba tus conocimientos de este tema en nuestra plataforma interactiva de test:
+  </p>
+
+  <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-left: 4px solid #2563eb; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; text-align: left;">
+    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: #334155;">
+      <li style="margin-bottom: 3px;">🎯 <strong>15 Simulacros Predefinidos (600 Preguntas Únicas):</strong> Entrenamientos de 40 preguntas sin repetir.</li>
+      <li style="margin-bottom: 3px;">📝 <strong>Batería de +2.000 Preguntas por Tema:</strong> Test específicos de cada tema para medir tu nivel.</li>
+      <li style="margin-bottom: 3px;">📜 <strong>Exámenes Reales de Convocatorias Anteriores:</strong> Practica con exámenes oficiales (2019, 2022).</li>
+      <li style="margin-bottom: 3px;">🎴 <strong>Tarjetas de Memorización (Flashcards):</strong> Memoriza plazos de leyes, frecuencias y fórmulas en minutos.</li>
+      <li style="margin-bottom: 0px;">🖨️ <strong>Generador de Test Impresos:</strong> Compila y descarga tu examen en papel para simular la prueba real.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.92rem; padding: 9px 22px; border-radius: 50px; text-decoration: none; box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25); text-transform: uppercase;">
+      👉 ENTRAR AHORA A OPOSICIONES-BUS-APP 👈
+    </a>
+  </div>
+
+  <p style="font-size: 0.8rem; color: #64748b; margin-top: 8px; margin-bottom: 0; font-weight: 600;">
+    🌐 <strong>https://oposiciones-bus-app.vercel.app/</strong> — Acceso libre desde móvil, tablet u ordenador
+  </p>
+
+</div>
 
   <p style="font-size: 1rem; line-height: 1.6; color: #f3f4f6; margin-bottom: 16px;">
     No te quedes solo en la lectura teórica. Pon a prueba tus conocimientos en tiempo real con la plataforma interactiva de estudio:
