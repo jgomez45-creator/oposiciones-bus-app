@@ -15,12 +15,11 @@
 
 ## 1. Justificación y Declaración de Principios
 La Universidad de Sevilla cuenta con una regulación específica para erradicar las conductas de violencia, discriminación y acoso, de aplicación en todos sus centros y dependencias:
-*   **Aprobación y Vigencia:** Aprobada por el Consejo de Gobierno el **18 de diciembre de 2024** (Acuerdo 9.1/CG 18-12-24) y publicada en el BOUS el **12 de febrero de 2025**. Entró en vigor el **13 de febrero de 2025**, derogando formalmente los protocolos anteriores de 2013 y 2018.
+*   **Aprobación y Vigencia:** Aprobada por el Consejo de Gobierno el **18 de diciembre de 2024** (Acuerdo 9.1/CG 18-12-24) y publicada en el BOUS el **12 de febrero de 2025**. Entró en vigor el **13 de febrero de 2025**, derogando los protocolos anteriores.
 *   **Tolerancia Cero:** Principio rector de la universidad frente a cualquier forma de acoso, violencia o trato discriminatorio por razón de sexo, orientación sexual, identidad de género, raza o religión.
-*   **Tratamiento del Riesgo:** El acoso y la violencia laboral se consideran un **riesgo psicosocial** grave en el entorno de la seguridad y salud laboral.
+*   **Tratamiento del Riesgo:** El acoso y la violencia laboral se consideran un **riesgo psicosocial** grave en el marco de la seguridad y salud laboral.
 
 ---
-
 
 <div class="app-promo-banner mid-promo">
 
@@ -29,94 +28,90 @@ La Universidad de Sevilla cuenta con una regulación específica para erradicar 
 
 </div>
 
-## 2. Ámbito de Aplicación (Artículo 2)
-La Normativa es aplicable a las conductas que desarrollen los **miembros de la comunidad universitaria** frente a otros miembros o colaboradores en las instalaciones o actividades de la US:
+## 2. Tipología Legal de las Conductas Protegidas
+La normativa de la US distingue expresamente las siguientes figuras objetivas:
+*   **Acoso Moral (*Mobbing*):** Conducta hostil, reiterada y prolongada en el tiempo ejercida sobre un trabajador o estudiante que atenta contra su dignidad física o psíquica.
+*   **Acoso Sexual:** Cualquier comportamiento verbal, no verbal o físico no deseado de naturaleza sexual con el propósito o el efecto de atentar contra la dignidad de una persona.
+*   **Acoso por Razón de Sexo:** Cualquier comportamiento realizado en función del sexo, la orientación sexual o la identidad de género de una persona, con el propósito de crear un entorno intimidatorio, hostil u ofensivo.
+*   **Ciberacoso:** Conductas de acoso realizadas mediante el uso de medios tecnológicos, redes sociales o plataformas virtuales corporativas de la US (Enseñanza Virtual, correo corporativo).
+
+---
+
+## 3. Ámbito de Aplicación (Artículo 2)
+La Normativa es aplicable a las conductas que desarrollen los **miembros de la comunidad universitaria** en las instalaciones o actividades de la US:
 *   Personal Docente e Investigador (**PDI**).
 *   Personal Técnico de Gestión y de Administración y Servicios (**PTGAS**).
 *   Estudiantes.
-*   Becarios/as, personal en formación y personal contratado en proyectos de investigación.
-*   **Exclusiones:** Quedan fuera del ámbito subjetivo de aplicación directa de la normativa el **personal de empresas colaboradoras y entidades suministradoras** (como contratas de limpieza, cafetería o seguridad externa).
+*   Becarios/as, personal en formación y contratados de investigación.
+*   **Exclusiones:** Quedan fuera del ámbito subjetivo de aplicación directa el **personal de empresas contratistas externas** (como seguridad, cafetería o limpieza), cuya gestión se canaliza mediante la Coordinación de Actividades Empresariales de la LPRL.
 
 ---
 
-## 3. Estructura e Intervención: El Comité Técnico
-El **Comité Técnico para la Prevención, Evaluación e Intervención en Situaciones de Violencia, Discriminación y Acoso** (denominado "el Comité") es el órgano colegiado e independiente encargado de investigar y evaluar las solicitudes.
+## 4. Estructura e Intervención: El Comité Técnico
+El **Comité Técnico para la Prevención, Evaluación e Intervención en Situaciones de Violencia, Discriminación y Acoso** es el órgano colegiado e independiente encargado de investigar las solicitudes.
 *   **Adscripción:** Adscrito al **Vicerrectorado** con competencias en materia de igualdad.
-*   **Naturaleza:** Es un órgano de carácter técnico y asesor. Sus actuaciones **no conformarán un expediente administrativo** en sí mismas.
+*   **Naturaleza:** Órgano de carácter técnico y asesor. Sus actuaciones no conforman un expediente sancionador directo.
 *   **Composición:**
-    1.  El o la **Vicerrector/a de Igualdad** (que ejerce la presidencia).
+    1.  El o la **Vicerrector/a de Igualdad** (Presidencia).
     2.  El o la **Director/a de la Unidad para la Igualdad**.
-    3.  El o la **Director/a del Servicio de Prevención de Riesgos Laborales (SEPRUS)**.
+    3.  El o la **Director/a del SEPRUS**.
     4.  Una persona experta en factores de **riesgo psicosocial**.
     5.  Una persona experta en **materia jurídica**.
-    6.  **Representantes de colectivos** implicados (sorteados por curso de la Red de Referentes, representantes sindicales o estudiantiles).
-*   **Incompatibilidad:** No podrán formar parte del Comité los miembros de la **Comisión de Convivencia** de la US.
+    6.  **Representantes de colectivos** implicados.
+*   **Incompatibilidad:** Incompatible con formar parte de la **Comisión de Convivencia** de la US.
 
 ---
 
-## 4. El Procedimiento de Intervención: Fases y Plazos
+## 5. El Procedimiento de Intervención: Fases, Plazos y Medidas Cautelares
 
-### A. Canal de Entrada (Inicio)
-*   Las solicitudes de intervención se presentan telemáticamente a través del **Buzón Único Electrónico para la Convivencia** de la Universidad de Sevilla. La gestión de entrada corresponde a la **Secretaría General**, que lo deriva al Comité.
-*   **Compatibilidad:** El procedimiento interno es voluntario.
-*   **Paralización:** Si los hechos se denuncian penalmente o se inicia un procedimiento judicial, **el procedimiento interno se suspenderá de forma inmediata** en espera de la resolución judicial.
+### A. Canal de Entrada y Suspensión
+*   Las solicitudes se presentan electrónicamente en el **Buzón Único de Convivencia** de la US (Secretaría General).
+*   **Paralización por vía judicial:** Si se inicia un procedimiento penal o judicial sobre los mismos hechos, **el procedimiento interno se suspenderá de forma inmediata** hasta que recaiga resolución judicial firme.
 
-### B. Fase 1: Indagación Inicial (Plazo: 10 días hábiles)
-*   El Comité analiza la información en un plazo máximo de **10 días hábiles** (ampliables por causa motivada) y adopta una decisión:
-    *   *Cierre de la solicitud* (por no encajar en la normativa).
-    *   *Derivación* a otras unidades (para mediación o medidas organizativas).
-    *   *Elevación directa al órgano disciplinario* (por indicios claros de falta).
-    *   *Puesta en conocimiento del Rector/a* (por indicios de delito).
-    *   *Paso a la Fase 2* (Indagación Avanzada).
+### B. Medidas Cautelares Provisionales de Urgencia
+Durante cualquier fase de la tramitación, la Presidencia del Comité puede proponer motivadamente al Rectorado la adopción inmediata de **medidas cautelares**:
+*   Reordenación temporal de turnos o salarios de trabajo.
+*   Cambio provisional de puesto o adscripción de unidad para evitar coincidencia física.
+*   Exención temporal de presencialidad o paso a teletrabajo.
+*   Cambio de grupo de docencia en el caso de estudiantes.
 
-### C. Fase 2: Indagación Avanzada (Plazo: 20 días hábiles)
-*   Se convoca a las partes por separado, se realizan entrevistas y se solicitan informes técnicos o testimonios en un plazo máximo de **20 días hábiles**.
+### C. Fases del Procedimiento y Plazos del Comité
+*   **Fase 1: Indagación Inicial (Plazo: 10 días hábiles):** Análisis preliminar del caso para determinar si procede el archivo, la mediación o el paso a indagación avanzada.
+*   **Fase 2: Indagación Avanzada (Plazo: 20 días hábiles):** Entrevistas individuales con las partes, solicitud de pruebas técnicas y toma de declaración a testigos.
+*   **Informe Final (Plazo: 10 días hábiles):** Redacción de conclusiones desde el cierre de la indagación, elevándose a la Secretaría General y al Rectorado.
 
-### D. Finalización del Procedimiento e Informe (Plazo: 10 días hábiles)
-*   El Comité redacta el **Informe Final** con sus conclusiones en un plazo de **10 días hábiles** desde la última actuación. El informe se eleva a la Secretaría General y al Rector/a para que resuelvan (incoación de expediente disciplinario o medidas preventivas correctoras).
-
----
-
-## 5. Garantías del Procedimiento
-1.  **Confidencialidad:** Firma obligatoria de documento de sigilo de todos los participantes.
-2.  **Diligencia y celeridad:** Tramitación preferente y rápida.
-3.  **Garantía de Indemnidad (Protección):** La US garantiza la total protección de solicitantes, testigos y miembros del Comité frente a cualquier tipo de represalia o trato desfavorable.
-4.  **Acompañamiento:** Las partes pueden estar acompañadas en las entrevistas por cualquier persona de su elección (representante sindical, compañero o referente).
+### D. Conexión con el Régimen Disciplinario del IV Convenio Colectivo
+Si el Informe Final del Comité constata la existencia de indicios racionales de acoso o violencia:
+*   El Rectorado incoará de inmediato **expediente disciplinario sancionador** de acuerdo con el régimen de faltas y sanciones del **IV Convenio Colectivo** (para PTGAS laboral - Tema 18) o la legislación funcionarial aplicable.
 
 ---
 
-## 6. Planes de Recuperación y Comisión de Seguimiento
-*   **Plan de Protección, Reparación y Recuperación:** Novedad de la normativa de 2024. Plan anual personalizado para las víctimas en el plano psicológico, social, laboral y académico, garantizando la continuidad de su trayectoria en la US.
-*   **Comisión de Seguimiento:** Creada para vigilar la aplicación efectiva de las medidas del Plan de Recuperación y evitar la aparición de situaciones de hostilidad en el entorno.
+## 6. Garantías y Red de Referentes
+*   **Garantía de Indemnidad:** La US protege formalmente a denunciantes y testigos frente a cualquier represalia académica o profesional.
+*   **Red de Referentes para la Convivencia:** Red de voluntariado de campus con formación específica en mediación que asesora, orienta de forma cercana a los afectados y canaliza las denuncias al Buzón Único.
 
 ---
 
-## 7. La Red de Referentes para la Convivencia y el Buentrato
-*   Iniciativa pionera creada por la US en **2018** constituida por personal (PDI y PTGAS) voluntario de todos los campus con formación específica en mediación y género.
-*   **Funciones:** Puntos de información y acogida cercanos para asesorar en los departamentos y facultades, canalizar dudas, **atender a las personas que lo necesiten en los distintos procesos** y derivar casos al Buzón Único de Convivencia.
-
----
-
-## 8. Esquema de Repaso Rápido — Plazos del Comité
+## 7. Esquema de Repaso Rápido
+*   **Entrada en Vigor Normativa:** 13 de febrero de 2025 (BOUS 12 de febrero de 2025).
 *   **Indagación Inicial (Fase 1):** **10 días hábiles**.
 *   **Indagación Avanzada (Fase 2):** **20 días hábiles**.
-*   **Informe Final:** **10 días hábiles** desde la última actuación.
-*   **Buzón de Entrada:** Buzón Único de Convivencia (Secretaría General).
-*   **Suspensión:** Inmediata si interviene la vía judicial o policial.
+*   **Informe Final:** **10 días hábiles**.
+*   **Medidas Cautelares:** Dictadas por el Rectorado (cambio provisional de puesto/grupo).
+*   **Vía Judicial:** Paraliza automáticamente el procedimiento administrativo interno.
 
 ---
 
-## 9. Conceptos Clave
-*   **Buzón Único de Convivencia:** Pasarela telemática de la US que centraliza la recepción de solicitudes en materia de acoso y violencia.
-*   **Garantía de Indemnidad:** Principio preventivo que asegura que los testigos o denunciantes de acoso no sufran represalias académicas o profesionales.
-*   **Riesgo Psicosocial:** Factores organizativos del trabajo que pueden provocar daños a la salud física, social o mental de los trabajadores.
+## 8. Conceptos Clave
+*   **Garantía de Indemnidad:** Protección de denunciantes y testigos frente a represalias.
+*   **Buzón Único de Convivencia:** Canal telemático oficial de recepción de solicitudes de intervención.
+*   **Medidas Cautelares:** Disposiciones provisorias inmediatas para separar a las partes durante la indagación.
 
 ---
 
-## 10. Bibliografía
-*   **Normativa para la prevención, evaluación e intervención ante la violencia, la discriminación y el acoso en la Universidad de Sevilla** (Aprobada por Acuerdo del Consejo de Gobierno de la Universidad de Sevilla de 17 de diciembre de 2024, publicada en BOUS de 12 de febrero de 2025).
-*   **Ley 3/2022, de 25 de febrero, de Convivencia Universitaria**.
-
+## 9. Bibliografía
+*   **Normativa para la prevención, evaluación e intervención ante la violencia, la discriminación y el acoso en la Universidad de Sevilla** (BOUS de 12 de febrero de 2025).
+*   **IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía**.
 
 <div class="app-promo-banner footer-promo">
 

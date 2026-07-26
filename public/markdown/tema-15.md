@@ -15,12 +15,11 @@
 
 ## 1. Caracterización del Puesto de Trabajo
 El puesto de **Técnico/a Auxiliar de Biblioteca, Archivo y Museo** en la Universidad de Sevilla (US) comprende tareas multidisciplinares con riesgos ergonómicos específicos:
-*   **Trabajo administrativo en sedestación:** Uso de Pantallas de Visualización de Datos (PVD) para catalogación en Alma y búsquedas en FAMA.
-*   **Atención al usuario:** Alternancia de pie y sentado en mostradores.
-*   **Manipulación manual de cargas:** Levantamiento de libros, ordenación de estanterías y empuje de carritos de transporte.
+*   **Trabajo administrativo en sedestación:** Uso continuado de Pantallas de Visualización de Datos (PVD) para catalogación en Alma y atención en FAMA.
+*   **Atención al usuario:** Alternancia de trabajo de pie y sentado en mostradores.
+*   **Manipulación manual de cargas:** Levantamiento de monografías, movimiento de cajas de archivo, ordenación física de estanterías y empuje de carros de transporte.
 
 ---
-
 
 <div class="app-promo-banner mid-promo">
 
@@ -29,74 +28,76 @@ El puesto de **Técnico/a Auxiliar de Biblioteca, Archivo y Museo** en la Univer
 
 </div>
 
-## 2. Ergonomía en Puestos con Pantallas de Visualización de Datos (PVD)
-Las directrices técnicas del **SEPRUS** detallan que la fatiga visual y los riesgos musculoesqueléticos en oficinas se previenen mediante una correcta configuración espacial:
+## 2. Ergonomía en Puestos con Pantallas de Visualización de Datos (PVD - Guía Técnica INSST)
+Las directrices técnicas del **INSST** y del **SEPRUS** detallan que la prevención de la astenopía (fatiga visual) y los trastornos musculoesqueléticos en oficinas exige cumplir estrictos parámetros ergonómicos:
 
 ### A. Zonas de Alcance Espacial (Reach Zones)
-*   **Zona de Alcance Primario (Trabajo Frecuente):** Espacio al que se llega con los codos pegados al cuerpo. Aquí deben situarse el teclado y el ratón. Se debe dejar una distancia libre de **10 a 15 cm** entre el borde de la mesa y el teclado para apoyar las muñecas. Las directrices del SEPRUS aconsejan que el **antebrazo, la muñeca y la mano permanezcan perfectamente alineados** en línea recta.
-*   **Zona de Alcance Secundario (Trabajo Ocasional):** Al alcance de las manos con los brazos extendidos pero sin doblar el tronco. Aquí se ubican el monitor, el atril y el teléfono.
+*   **Zona de Alcance Primario (Trabajo Frecuente):** Espacio al que se llega con los codos pegados al cuerpo. Aquí deben situarse el teclado y el ratón. Se debe dejar una distancia libre de **10 a 15 cm** entre el borde de la mesa y el teclado para apoyar las muñecas. El antebrazo y la mano deben permanecer perfectamente alineados.
+*   **Zona de Alcance Secundario (Trabajo Ocasional):** Al alcance de las manos con los brazos extendidos sin doblar el tronco (donde se ubican el monitor y el atril de documentos).
 
 ### B. Configuración y Alineación del Monitor
-*   **Distancia visual:** El monitor debe estar a una distancia de entre **40 y 70 cm** de los ojos.
-*   **Altura del monitor:** El borde superior de la pantalla debe quedar al nivel de los ojos o ligeramente por debajo (ángulo de inclinación visual de **10° a 15°** hacia abajo) para evitar la sequedad ocular.
-*   **Orientación:** El puesto debe orientarse **perpendicularmente a las ventanas** para evitar deslumbramientos directos o reflejos. El SEPRUS aconseja el uso de **pantallas TFT** para optimizar la visualización y reducir el parpadeo.
+*   **Distancia visual:** El monitor debe situarse a una distancia de entre **40 y 70 cm** de los ojos (aproximadamente la longitud del brazo extendido).
+*   **Altura e inclinación del monitor:** El borde superior de la pantalla debe quedar a la altura de los ojos o ligeramente por debajo (ángulo de visión inclinado de **10° a 20°** hacia abajo).
+*   **Iluminación y Parpadeo:** La iluminación de la sala debe oscilar entre **300 y 500 lux**, orientando el puesto **perpendicularmente a las ventanas** para eliminar reflejos directos.
 
 ### C. Regulación de la Silla Ergonómica (Pautas SEPRUS)
-*   **Altura del asiento:** Regulada de forma que las rodillas formen un ángulo recto de **90°** y los pies apoyen completamente planos (usando reposapiés si fuera necesario).
-*   **Profundidad del asiento:** Es fundamental dejar una holgura libre de **2 a 4 dedos** (aproximadamente 5 cm) entre el borde anterior de la silla y la corva o hueco poplíteo para evitar la compresión mecánica de los vasos sanguíneos y nervios.
-*   **Soporte Lumbar:** Ajustable para encajar en la curva natural de la espalda baja (vértebras **L3 a L5**).
-*   **Espacio de maniobra:** Se debe disponer del espacio necesario para moverse con comodidad, procurando dejar **al menos 100 cm libres** detrás de la mesa para el retroceso de la silla.
+*   **Altura del asiento:** Regulada de forma que las rodillas formen un ángulo de **90°** con los pies apoyados planos en el suelo.
+*   **Profundidad del asiento:** Holgura libre de **2 a 4 dedos** (unos 5 cm) entre el borde de la silla y el hueco poplíteo para no oprimir los vasos sanguíneos.
+*   **Soporte Lumbar:** Regulable para sujetar la curvatura natural de la columna lumbar (vértebras **L3 a L5**).
+*   **Espacio de paso posterior:** Se deben dejar al menos **100 cm libres** detrás de la mesa para el movimiento seguro de la silla.
 
 ---
 
-## 3. Manipulación de Cargas e Higiene Postural (SEPRUS "Protege tu Espalda")
-El movimiento y ordenación de libros y cajas conlleva riesgos de sobreesfuerzo dorsolumbar que deben minimizarse aplicando las pautas del SEPRUS:
+## 3. Manipulación Manual de Cargas (Guía Técnica del INSST y SEPRUS)
 
-### A. Levantamiento Manual de Peso
-1.  **Base de sustentación:** Pies separados a la distancia de los hombros.
-2.  **Aproximación de la carga:** Colocarse lo más cerca posible del objeto para reducir el brazo de palanca.
-3.  **Flexión de rodillas:** Doblar las piernas manteniendo la columna vertebral recta y la pelvis estable. Nunca debe doblarse la espalda formando un arco.
-4.  **Agarre firme:** Sujetar la carga firmemente con las palmas de las manos (evitar los agarres en pinza al coger los libros, abarcándolos con toda la mano).
-5.  **Evitar giros:** Mover todo el cuerpo pivotando sobre los pies, **nunca realizar giros de tronco** mientras se sujeta el peso.
-6.  **Límite de peso:** El peso máximo recomendado para manipulación manual de cargas en condiciones ideales es de **25 kg**.
+### A. Límites de Peso de Referencia según la Guía Técnica del INSST
+Para la manipulación manual de cajas de libros o fondos de archivo se establecen los siguientes límites máximos recomendados:
+*   **Límite general máximo en condiciones ideales:** **25 kg**.
+*   **Límite para mayor protección (trabajadores jóvenes, mayores o de mayor sensibilidad):** **15 kg**.
+*   **Límite máximo excepcional (personal adiestrado en condiciones especiales):** **40 kg** (nunca superarlo de forma individual sin ayudas mecánicas o auxilio de un compañero).
 
-### B. Dinámica de Carritos de Libros (Cargas sobre Ruedas)
-Para trasladar libros mediante carros móviles de biblioteca:
-*   **Preferencia técnica:** El SEPRUS indica de forma prioritaria **empujar (push)** el carro en lugar de tirar o arrastrar (pull) de él.
-*   **Justificación biomecánica:** Al empujar se utiliza la fuerza de las piernas y el propio peso corporal como palanca de avance, manteniendo la columna en una posición recta y simétrica. Arrastrar obliga a realizar giros asimétricos del tronco y tensiona el hombro y los músculos de la espalda de forma inadecuada.
+### B. Factores de Corrección de la Carga
+El peso aceptable disminuye drásticamente si se dan factores desfavorables:
+1.  **Alejamiento de la carga:** Cuanto más lejos del cuerpo se sujete el libro o la caja, mayor será el brazo de palanca y la tensión sobre las vértebras L5-S1.
+2.  **Giro de tronco:** Levantar una carga girando la espalda reduce la capacidad de resistencia del disco intervertebral a la mitad. El giro debe hacerse pivotando con las piernas.
+3.  **Altura del levantamiento:** El agarre ideal se sitúa a la altura de los nudillos (entre caderas y codos). Evitar levantamientos desde el suelo o por encima de los hombros.
+4.  **Tipo de Agarre:** Agarre bueno (cajas con asas/caladados) frente a agarre malo (libros lisos o cajas sin agarre).
+
+### C. Dinámica de Carritos de Libros (Cargas sobre Ruedas)
+Para trasladar libros mediante carros móviles en la BUS:
+*   **Preferencia técnica:** El SEPRUS indica de forma prioritaria **empujar (push)** el carro en lugar de tirar o arrastrar (pull).
+*   **Justificación biomecánica:** Al empujar se aprovecha el peso del cuerpo como palanca de avance y la columna permanece recta y simétrica, mientras que tirar causa torsiones asimétricas peligrosas en hombros y espalda.
 
 ---
 
 ## 4. Pausas y Descansos del SEPRUS
-*   **Micro-pausas activas:** El SEPRUS aconseja paradas breves de **1 a 2 minutos cada 30 o 40 minutos** de sedestación continua (levantarse, estirar).
-*   **Pausas ordinarias de PVD:** Régimen consistente en pausas de **5 a 10 minutos por cada hora** de uso continuado con pantallas. Estas pausas no son acumulables y deben ser aprovechadas para realizar tareas que no impliquen pantallas (ej. ordenación física de estanterías).
-*   **Prevención de la Fatiga Ocular (Regla 20-20-20):** Cada 20 minutos, desviar la mirada de la pantalla durante 20 segundos enfocando un punto lejano a unos **20 pies (6 metros)** para relajar los músculos ciliares.
+*   **Micro-pausas activas:** Paradas breves de **1 a 2 minutos cada 30 o 40 minutos** de trabajo sentado.
+*   **Pausas ordinarias de PVD:** Pausas de **5 a 10 minutos por cada hora** de uso continuado con pantallas (no acumulables).
+*   **Regla 20-20-20 (Prevención de Fatiga Ocular):** Cada 20 minutos de pantalla, mirar a un punto distante a más de **6 metros (20 pies)** durante **20 segundos**.
 
 ---
 
 ## 5. Esquema de Repaso Rápido
-*   **Distancia mesa-teclado:** 10-15 cm con muñeca-mano alineados.
-*   **Distancia al monitor:** 40-70 cm (borde superior al nivel de los ojos).
-*   **Hueco poplíteo (corva):** Holgura de 2 a 4 dedos del borde de la silla.
-*   **Espacio detrás de la mesa:** Mínimo **100 cm** libres.
-*   **Cargas:** Espalda recta, flexionar rodillas, agarre completo (no pinza), peso máx. 25 kg.
-*   **Carros móviles:** Empujar (push) siempre preferible a arrastrar (pull).
-*   **Fatiga ocular:** Regla 20-20-20 (mirar a 6 metros durante 20 segundos cada 20 minutos).
+*   **Pantalla PVD:** Distancia **40–70 cm**, ángulo de visión **10°–20°** hacia abajo.
+*   **Luz en PVD:** Perpendicular a ventanas, **300–500 lux**.
+*   **Silla:** Ángulo de rodillas **90°**, holgura poplítea **2–4 dedos**, espacio trasero **100 cm**.
+*   **Cargas (INSST):** **25 kg** (máx. ideal general), **15 kg** (mayor protección), **40 kg** (máx. absoluto excepcional adiestrado).
+*   **Biomecánica de Carros:** **Empujar (push)** preferible a arrastrar (pull).
+*   **Fatiga Visual:** Regla 20-20-20 (mirar a 6 m durante 20 s cada 20 min).
 
 ---
 
 ## 6. Conceptos Clave
-*   **Hueco poplíteo:** Región anatómica detrás de la rodilla que contiene vasos sanguíneos y nervios. Su compresión prolongada por el borde de la silla deteriora la circulación.
-*   **Brazo de palanca:** Efecto de multiplicación de la carga sobre la columna lumbar cuando el peso se sujeta alejado del cuerpo.
-*   **Sedestación prolongada:** Mantenerse sentado por largos periodos de tiempo, lo que incrementa el riesgo cardiovascular y musculoesquelético.
-*   **Pausas activas:** Breve interrupción de la postura laboral para realizar estiramientos y reactivar la circulación.
+*   **Límite de Referencia de Carga (INSST):** Valor de peso máximo (25 kg) que garantiza la protección de la mayoría de la población trabajadora sana en condiciones ideales.
+*   **Hueco Poplíteo:** Zona posterior de la rodilla donde la presión mecánica de la silla puede causar trastornos circulatorios.
+*   **Astenopía Visual:** Cuadro de fatiga ocular (sequedad, picor, visión borrosa) derivado del uso continuado de PVD sin descansos.
 
 ---
 
 ## 7. Bibliografía
-*   **Guía Preventiva para los Empleados Públicos de la Universidad de Sevilla (SEPRUS)**.
-*   **Fichas preventivas y recomendaciones posturales del Servicio de Prevención de Riesgos Laborales de la US (SEPRUS)**.
-
+*   **Guía Técnica del INSST para la evaluación y prevención de los riesgos relativos a la Manipulación Manual de Cargas**.
+*   **Guía Técnica del INSST para la evaluación de los puestos de trabajo con Pantallas de Visualización de Datos (PVD)**.
+*   **Guía Preventiva para los Empleados Públicos de la US (SEPRUS)**.
 
 <div class="app-promo-banner footer-promo">
 

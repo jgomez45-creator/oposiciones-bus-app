@@ -17,12 +17,11 @@
 El **Servicio de Referencia** representa la asistencia personalizada que el personal técnico de la biblioteca presta a los usuarios para facilitarles la localización de información, la resolución de consultas y el uso óptimo de las colecciones y recursos electrónicos. 
 
 En la estructura organizativa de la **Biblioteca de la Universidad de Sevilla (BUS)**, este servicio se divide conceptualmente en tres niveles de atención progresivos:
-*   **Información General (Primer Nivel):** Resolución de consultas de respuesta rápida y baja complejidad (horarios, localización de salas). Prestado habitualmente de manera presencial desde el mostrador por personal auxiliar.
-*   **Información Bibliográfica (Segundo Nivel):** Asistencia técnica de complejidad media (búsqueda en FAMA, localización de bibliografía recomendada).
-*   **Referencia Especializada (Tercer Nivel):** Consultas complejas orientadas a la investigación y el postgrado (búsquedas avanzadas en Scopus o Web of Science, índices de impacto). Atendido por personal especializado.
+*   **Información General (Primer Nivel):** Resolución de consultas de respuesta rápida y baja complejidad (horarios, localización de salas, carné). Prestado habitualmente de manera presencial desde el mostrador por personal auxiliar.
+*   **Información Bibliográfica (Segundo Nivel):** Asistencia técnica de complejidad media (búsquedas en FAMA, localización de bibliografía recomendada, uso de catálogos consorciados).
+*   **Referencia Especializada (Tercer Nivel):** Consultas complejas orientadas a la investigación y el posgrado (búsquedas avanzadas en Scopus o Web of Science, análisis de métricas de impacto). Atendido por personal especialista del área de apoyo a la investigación.
 
 ---
-
 
 <div class="app-promo-banner mid-promo">
 
@@ -33,87 +32,78 @@ En la estructura organizativa de la **Biblioteca de la Universidad de Sevilla (B
 
 ## 2. La Entrevista de Referencia: Fases de la Interacción
 La **entrevista de referencia** es el proceso de comunicación interactiva entre el bibliotecario y el usuario con el fin de determinar con precisión qué información necesita realmente el usuario. Consta de las siguientes fases:
-1.  **Acogida y Contacto Inicial:** Actitud receptiva y comunicación no verbal.
-2.  **Clarificación y Negociación de la Demanda:** El bibliotecario indaga mediante el uso de *preguntas abiertas* (para permitir al usuario explicarse) y *preguntas cerradas* (para concretar idioma, años, etc.).
-3.  **Formulación de la Estrategia y Búsqueda:** Traducción al lenguaje documental (booleanos, descriptores).
-4.  **Presentación y Suministro de la Respuesta.**
-5.  **Evaluación y Cierre:** Verificación de si se ha satisfecho la necesidad informativa.
+1.  **Acogida y Contacto Inicial:** Actitud receptiva y comunicación no verbal proactiva.
+2.  **Clarificación y Negociación de la Demanda:** El bibliotecario indaga mediante el uso de *preguntas abiertas* (para permitir al usuario explicarse) y *preguntas cerradas* (para concretar idioma, rango de años y formato).
+3.  **Formulación de la Estrategia y Búsqueda:** Traducción de la consulta al lenguaje documental (operadores booleanos, descriptores e índices).
+4.  **Presentación y Suministro de la Respuesta:** Entrega de la información o bibliografía seleccionada.
+5.  **Evaluación y Cierre:** Verificación formal de si se ha satisfecho plenamente la necesidad informativa del usuario.
 
 ---
 
 ## 3. Tipología de Fuentes de Información de Referencia
 Las fuentes de información se clasifican según su nivel de elaboración:
 
-*   **Fuentes Primarias:** Contienen información original e inédita, sin elaboración interpretativa previa. Ejemplos en el contexto BUS:
-    *   Artículo original publicado en una revista indexada en Scopus o WoS.
-    *   Tesis doctoral depositada en el repositorio **IdUS** de la US.
+*   **Fuentes Primarias:** Contienen información original e inédita, sin elaboración interpretativa previa. Ejemplos en la BUS:
+    *   Artículo original publicado en una revista científica indexada.
+    *   Tesis doctoral defendida y depositada en el repositorio **idUS** de la US.
     *   Patentes y **Normas Técnicas** (UNE de AENOR o ISO).
-    *   Ponencias y comunicaciones a congresos científicos.
-    *   Datos brutos de investigación (datasets depositados en repositorios de datos).
-
-*   **Fuentes Secundarias:** Contienen información organizada que describe, resume o remite a fuentes primarias. Ejemplos en el contexto BUS:
+    *   Ponencias y comunicaciones a congresos.
+*   **Fuentes Secundarias:** Contienen información organizada que describe, resume o remite a fuentes primarias. Ejemplos en la BUS:
     *   El catálogo **FAMA** (describe y localiza los documentos de la BUS).
     *   Bases de datos bibliográficas como **Dialnet**, Scopus o WoS (indexan y resumen artículos).
-    *   Diccionarios temáticos, enciclopedias y anuarios estadísticos disponibles en la sala de referencia.
-    *   Bibliografías y repertorios de publicaciones.
-
+    *   Diccionarios temáticos, enciclopedias y repertorios.
 *   **Fuentes Terciarias:** Listados y guías que indexan y agrupan fuentes secundarias (ej. bibliografías de bibliografías, directorios de bases de datos).
-
-*   **Literatura Gris:** Documentos que no se difunden por los canales comerciales habituales. Ejemplos en el contexto BUS:
-    *   Informes técnicos internos (ej. memorias del SEPRUS o del CITIUS).
-    *   Actas de congresos y jornadas no publicadas en editorial comercial.
-    *   Trabajos Fin de Grado (TFG) y Trabajos Fin de Máster (TFM) depositados en IdUS.
-    *   Proyectos de investigación no publicados y documentos de trabajo (*working papers*).
-
-### Las Guías BUS (LibGuides)
-La BUS dispone de las **Guías BUS**, elaboradas con la plataforma **LibGuides** (Springshare), como herramienta de referencia virtual proactiva:
-*   Son guías temáticas o por asignatura elaboradas por el personal especialista de cada biblioteca de campus.
-*   Organizan y seleccionan los recursos más relevantes (bases de datos, libros electrónicos, revistas de referencia, páginas web) para cada área de conocimiento.
-*   Accesibles en **https://guiasbus.us.es/** y enlazadas desde los Servicios de Referencia de FAMA.
-*   Permiten al usuario acceder directamente a los recursos recomendados sin necesidad de buscar en el catálogo general.
-
-
+*   **Literatura Gris:** Documentos científicos no editados comercialmente. Ejemplos en la BUS:
+    *   Informes técnicos internos de institutos universitarios (CITIUS).
+    *   Trabajos Fin de Grado (TFG) y Trabajos Fin de Máster (TFM) depositados en idUS.
+    *   Documentos de trabajo (*working papers*).
 
 ---
 
-## 4. Canales y Herramientas del Servicio de Referencia Virtual
-La BUS emplea herramientas tecnológicas tanto para la interacción con el usuario como para la gestión interna de la información:
+## 4. Canales de Referencia Virtual y Gestión de Desideratas en la BUS
 
-*   **Servicio de Chat de la BUS:** Canal de mensajería instantánea para resolver de forma rápida dudas generales. Por motivos de seguridad y confidencialidad, a través del chat **no se atenderán renovaciones ni reservas de documentos, ni se actualizará ningún campo del registro o perfil del usuario**, debiendo realizar el usuario estas operaciones desde su cuenta personal de FAMA.
-*   **Formularios Web:** Para consultas complejas de investigación, garantizándose la respuesta en un plazo máximo de **2 días laborables** (Carta de Servicios).
-*   **Oculus:** Escritorio virtual de gestión de información de la BUS empleado por el personal técnico. Cuenta con un módulo para la edición de contenidos de actualidad donde las noticias se pueden **insertar, modificar, desactivar y clonar**.
+### A. Canales del Servicio de Referencia Virtual
+La BUS ofrece múltiples vías virtuales de asistencia:
+*   **Servicio de Chat de la BUS:** Canal de mensajería instantánea para resolver dudas rápidas. Por motivos de seguridad y confidencialidad, a través del chat **no se atenderán renovaciones ni reservas de documentos, ni se actualizará el registro o perfil del usuario**, debiendo realizarse desde "Mi Cuenta" en FAMA.
+*   **Servicio "Pregunte a la Biblioteca":** Formulario web oficial para enviar consultas técnicas y de apoyo a la investigación, garantizándose respuesta en un plazo máximo de **2 días laborables** (Carta de Servicios).
+*   **Plataforma LibGuides (Guías BUS):** Guías temáticas elaboradas en *Springshare* por bibliotecarios especialistas. Organizan y seleccionan los mejores recursos (bases de datos, libros e- e índices) de cada disciplina, accesibles en **https://guiasbus.us.es/**.
+
+### B. Procedimiento de Gestión de Desideratas (Sugerencias de Compra)
+La **desiderata** es la propuesta formal formulada por un usuario para que la biblioteca adquiera un documento que no figura en sus fondos:
+1.  **Presentación:** Se efectúa electrónicamente iniciando sesión en FAMA con el UVUS.
+2.  **Verificación de Duplicidad:** El personal técnico comprueba en Alma que el documento no esté ya en catálogo, en proceso de compra o disponible en formato electrónico.
+3.  **Valoración de Oportunidad:** Se evalúa si el título se adecua a las líneas docentes o investigadoras de la US y al presupuesto disponible del área.
+4.  **Notificación al Usuario:** Se comunica la aceptación o denegación motivada de la propuesta en un plazo máximo de **5 días laborables** (conforme a los compromisos de la Carta de Servicios de la BUS).
 
 ---
 
-## 5. La Biblioteca 2.0
-El concepto de **Biblioteca 2.0** nace de la aplicación de la Web 2.0 al ámbito de los servicios de información, transformando al usuario de un consumidor pasivo a un colaborador activo.
-*   **¿Qué define a la Biblioteca 2.0?** Lo que realmente define a la Biblioteca 2.0 es **la actitud hacia los usuarios** (participación, colaboración y horizontalidad), no la tecnología o el software empleados.
+## 5. La Biblioteca 2.0 y Plataformas Corporativas
+*   **Biblioteca 2.0:** Modelo de servicio basado en la Web 2.0 donde la clave que define al sistema es **la actitud participativa hacia los usuarios**, fomentando la colaboración horizontal.
+*   **Oculus:** Escritorio virtual corporativo de la BUS para la publicación de noticias e información de actualidad. Su módulo de gestión permite **insertar, modificar, desactivar y clonar** contenidos informativos.
 
 ---
 
 ## 6. Esquema de Repaso Rápido
-*   **Niveles de Referencia:** **General** (auxiliar, rápido), **Bibliográfica** (búsquedas en FAMA), **Especializada** (investigación, bases de datos).
-*   **Fuentes Primarias:** Artículos originales, patentes, normas UNE/ISO.
-*   **Fuentes Secundarias:** Catálogo FAMA, bases de datos referenciales, diccionarios.
-*   **Regla de Oro del Chat (BUS):** Prohibido tramitar reservas, renovaciones o modificar datos del registro de usuario.
-*   **Oculus (Noticias):** Permite **insertar, modificar, desactivar y clonar** contenidos.
-*   **Biblioteca 2.0:** Definida primordialmente por **la actitud hacia los usuarios**.
+*   **Niveles de Referencia:** **General** (primer nivel, auxiliar), **Bibliográfica** (segundo nivel), **Especializada** (tercer nivel, investigación).
+*   **Pregunte a la Biblioteca:** Respuesta a consultas complejas en **2 días laborables**.
+*   **Gestión de Desideratas:** Comprobación en Alma de no duplicidad y respuesta en **5 días laborables**.
+*   **Prohibición estricta en Chat:** No tramita reservas, renovaciones ni modificaciones del perfil de usuario.
+*   **LibGuides:** Guías temáticas web por materias elaboradas en la BUS (guiasbus.us.es).
+*   **Oculus:** Herramienta de noticias que permite **insertar, modificar, desactivar y clonar**.
 
 ---
 
 ## 7. Conceptos Clave
-*   **Servicio de Referencia:** Proceso interactivo de comunicación entre el usuario y el bibliotecario especializado con el propósito de resolver una necesidad informativa concreta.
-*   **Biblioteca 2.0:** Modelo de servicio bibliotecario interactivo y social basado en la colaboración y la retroalimentación del lector.
-*   **Oculus:** Herramienta digital corporativa de la BUS destinada al control, maquetación y publicación de noticias e información de actualidad.
-*   **Patente:** Título oficial que otorga monopolio temporal de explotación sobre una invención industrial, clasificado como fuente primaria.
+*   **Desiderata:** Solicitud de adquisición formulada por un usuario para incorporar una obra no disponible a la colección de la biblioteca.
+*   **LibGuides:** Herramienta de gestión de contenidos basada en web para la creación de guías de investigación y bibliografías temáticas.
+*   **Entrevista de Referencia:** Diálogo estructurado mediante preguntas abiertas y cerradas para definir la necesidad real del usuario.
 
 ---
 
 ## 8. Bibliografía
 *   **Servicio de Información, Atención y Referencia de la BUS**.
-*   **Catálogo FAMA de la Universidad de Sevilla y bases de datos del Consorcio de Bibliotecas Universitarias de Andalucía (CBUA)**.
-*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
-
+*   **Carta de Servicios de la Biblioteca de la Universidad de Sevilla**.
+*   **Guías de la Biblioteca de la Universidad de Sevilla (LibGuides BUS)**: Disponible en https://guiasbus.us.es/.
 
 <div class="app-promo-banner footer-promo">
 

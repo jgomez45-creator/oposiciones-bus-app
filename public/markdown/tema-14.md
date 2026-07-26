@@ -16,7 +16,6 @@
 ## 1. La Política Preventiva de la Universidad de Sevilla y la LPRL
 La **Universidad de Sevilla (US)** asume la prevención de riesgos laborales como un principio transversal a toda su actividad docente, investigadora y administrativa, de conformidad con la **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales (LPRL)**.
 
-
 <div class="app-promo-banner mid-promo">
 
 > 💡 **REPASO RÁPIDO EN LA APP:**  
@@ -59,17 +58,17 @@ La actuación ante un accidente laboral en la US se rige por la **Circular de 24
 *   **A (Avisar):** Comunicar la situación a los servicios de emergencia (**112**), conserjería del edificio de la US y llamar al SEPRUS.
 *   **S (Socorrer):** Atender a la persona lesionada aplicando primeros auxilios básicos.
 
-### B. Actuación ante Incendios y Evacuación
+### B. Actuación ante Incendios y Evacuación (Planes de Autoprotección)
 En caso de detectar un incendio o emergencia de evacuación en las instalaciones de la US:
-*   **Alerta inmediata:** Comunicar de forma rápida y prioritaria el suceso utilizando los **pulsadores de alarma** del edificio o avisando directamente a la **Conserjería** (centro de control interno de emergencias) para activar el plan de evacuación. Si no es posible, llamar al 112 (Emergencias).
-*   **Control del fuego:** Si el fuego es pequeño, no hay peligro personal y el empleado está capacitado, puede intentar apagarlo usando el extintor o BIE más cercana.
-*   **Evacuación:** Seguir las vías de evacuación señalizadas y las directrices del personal de emergencias. No usar los ascensores.
+*   **Fases de Emergencia:** Se distinguen tres niveles: *Prealarma/Alerta*, *Emergencia Parcial* (afecta a un sector del edificio) y *Emergencia General* (evacuación total del centro).
+*   **Alerta inmediata:** Comunicar de forma rápida el suceso utilizando los **pulsadores de alarma** o avisando directamente a la **Conserjería** (Centro de Control Interno).
+*   **Equipos de Intervención:** El personal del centro se organiza en **EPI (Equipos de Primera Intervención)** para atajar con extintores conatos iniciales, y **ESI (Equipos de Segunda Intervención)**.
+*   **Evacuación:** Seguir las vías de evacuación señalizadas hacia el punto de encuentro exterior sin utilizar ascensores ni montacargas.
 
 ### C. Asistencia Médica según Cobertura
 *   **Régimen General (PTGAS laboral, PDI laboral, interinos):**
     *   Debe comunicarse de inmediato al SEPRUS para la emisión del **Parte de Notificación de Accidente** (Volante de Asistencia).
     *   El trabajador debe acudir al centro de la mutua colaboradora de la US, que actualmente es el **Hospital de FREMAP**, situado en la *Avenida de Jerez, s/n (Los Bermejales, Sevilla)*.
-    *   En caso de urgencia grave o accidente fuera de horario habitual, se acudirá directamente al hospital de FREMAP o centro de urgencias más cercano.
 *   **Régimen de MUFACE (PDI funcionario):** Acudirán a los centros médicos de su entidad concertada (Adeslas, Asisa, etc.) utilizando sus partes y talonarios específicos de MUFACE.
 
 ### D. Plazos de Notificación (Circular de Gerencia)
@@ -81,34 +80,44 @@ En caso de detectar un incendio o emergencia de evacuación en las instalaciones
 ---
 
 ## 4. Estructura Organizativa de la Prevención en la US
-*   **Especialidades Técnicas del SEPRUS:** Cubre las cuatro áreas preventivas legales: *Seguridad en el Trabajo*, *Higiene Industrial*, *Ergonomía y Psicosociología Aplicada*, y *Medicina del Trabajo*.
-*   **Comité de Seguridad y Salud (CSS):** Órgano colegiado y paritario de participación destinado a la consulta regular y periódica de las actuaciones en materia de prevención. Está formado al 50% por los **Delegados de Prevención** (representantes sindicales de los trabajadores) y al 50% por **representantes de la Universidad** designados por el Rector. Se reúne de manera ordinaria al menos una vez al **trimestre**.
+
+### A. Especialidades Técnicas del SEPRUS
+Como Servicio de Prevención Propio, el SEPRUS cubre de manera integrada las cuatro especialidades preventivas reguladas por el RD 39/1997:
+1.  *Seguridad en el Trabajo.*
+2.  *Higiene Industrial.*
+3.  *Ergonomía y Psicosociología Aplicada.*
+4.  *Medicina del Trabajo / Vigilancia de la Salud.*
+
+### B. Delegados de Prevención y Comité de Seguridad y Salud (CSS)
+*   **Delegados de Prevención:** Son los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos laborales. Son designados por y entre los representantes del personal en los órganos de representación (Junta de Personal y Comité de Empresa) según la escala del Artículo 35 de la LPRL.
+*   **Comité de Seguridad y Salud (CSS):** Órgano colegiado y paritario de participación destinado a la consulta regular de las actuaciones preventivas de la US. Está compuesto al **50% por los Delegados de Prevención** y al **50% por representantes de la Universidad** designados por el Rector. Se reúne de manera ordinaria obligatoria al menos una vez al **trimestre**.
 
 ---
 
 ## 5. Esquema de Repaso Rápido
 *   **Fecha Creación SEPRUS:** 1 de octubre de 1999 (Resolución Rectoral).
-*   **Mutua Colaboradora US:** FREMAP (Hospital de referencia en Los Bermejales).
+*   **Mutua Colaboradora US:** FREMAP (Hospital en Avenida de Jerez / Los Bermejales).
 *   **Notificación Accidente al SEPRUS:** Inmediatamente o máximo **3 días**.
-*   **Vigilancia de la Salud:** Generalmente voluntaria; respeta la **intimidad, dignidad y confidencialidad**.
-*   **Comité de Seguridad y Salud:** Paritario (50/50), se reúne **trimestralmente**.
+*   **Accidentes Graves/Mortales:** Notificación urgente en **24 horas**.
+*   **Vigilancia de la Salud:** Generalmente voluntaria; exige estricta **intimidad, dignidad y confidencialidad**.
+*   **Comité de Seguridad y Salud:** Paritario (50/50), reunión ordinaria **trimestral**.
+*   **Equipos de Evacuación:** EPI (Primera Intervención) y ESI (Segunda Intervención).
 
 ---
 
 ## 6. Conceptos Clave
 *   **Accidente de Trabajo:** Toda lesión corporal que el trabajador sufra con ocasión o por consecuencia del trabajo ejecutado por cuenta ajena.
-*   **Accidente In Itinere:** Aquel que sufre el trabajador al ir o volver del lugar de trabajo, requiriendo idoneidad cronológica, geográfica y de medio de transporte.
-*   **Comité de Seguridad y Salud (CSS):** Órgano paritario de consulta regular sobre las políticas preventivas de la US.
-*   **Vigilancia de la Salud:** Control médico periódico voluntario destinado a identificar precozmente daños en la salud derivados de las condiciones de trabajo.
+*   **Comité de Seguridad y Salud (CSS):** Órgano paritario de consulta regular y periódica sobre las políticas preventivas en la US.
+*   **EPI (Equipo de Primera Intervención):** Personal capacitado en los centros para el control inicial de emergencias con extintores portátiles.
+*   **Vigilancia de la Salud:** Control médico periódico voluntario destinado a identificar precozmente daños en la salud derivados del trabajo.
 
 ---
 
 ## 7. Bibliografía
 *   **Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla**.
 *   **Manual de Prevención de Riesgos Laborales de la US**.
-*   **Circular de la Gerencia de la Universidad de Sevilla de 24 de mayo de 2018, sobre procedimiento en caso de accidente de trabajo**.
+*   **Circular de la Gerencia de la Universidad de Sevilla de 24 de mayo de 2018**.
 *   **Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales**.
-
 
 <div class="app-promo-banner footer-promo">
 

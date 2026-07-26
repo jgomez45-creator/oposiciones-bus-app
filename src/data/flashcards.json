@@ -251,6 +251,16 @@
       "id": 25,
       "front": "¿Qué evalúa el criterio 'Resultados en Clientes' del modelo EFQM?",
       "back": "Las medidas de percepción de los usuarios (alumnos, investigadores) respecto a los servicios que ofrece la biblioteca."
+    },
+    {
+      "id": 2501,
+      "front": "¿Cuál es la vigencia máxima legal de una Carta de Servicios según el Decreto 317/2003 andaluz?",
+      "back": "3 años, requiriendo revisión o prórroga tras dicho período e informes anuales de seguimiento."
+    },
+    {
+      "id": 2502,
+      "front": "¿Cuáles son los 3 bloques y la puntuación máxima del Modelo EFQM 2020?",
+      "back": "Dirección (20% / 200 ptos), Ejecución (40% / 400 ptos) y Resultados (40% / 400 ptos). Puntuación total: 1.000 puntos."
     }
   ],
   "3": [
@@ -378,6 +388,16 @@
       "id": 25,
       "front": "¿Cuál es el mnemónico para recordar la climatización idónea de libros de papel?",
       "back": "'Libro moderno a 20 °C con 50% de humedad' (un valor de humedad igual al doble de la temperatura)."
+    },
+    {
+      "id": 3501,
+      "front": "¿Qué valores de temperatura y humedad fija la norma UNE-ISO 11799 para depósitos de papel?",
+      "back": "Temperatura de 18°C a 21°C y Humedad Relativa del 45% al 55%."
+    },
+    {
+      "id": 3502,
+      "front": "¿Qué anchura mínima deben tener los pasillos de estanterías según la norma de accesibilidad UNE 170001?",
+      "back": "Mínimo 90 cm para permitir el paso de sillas de ruedas, recomendándose 120 cm en pasillos principales."
     }
   ],
   "4": [
@@ -961,6 +981,16 @@
       "id": 25,
       "front": "¿Qué es la exportación de registros desde FAMA?",
       "back": "La opción que permite a los alumnos enviar referencias a gestores como Mendeley o descargarlas en formatos estándar como BibTeX o RIS."
+    },
+    {
+      "id": 7501,
+      "front": "¿Cuáles son las 3 zonas de datos en la arquitectura de la plataforma Alma?",
+      "back": "Zona Institucional (IZ - local US), Zona de Red (NZ - consorcio CBUA) y Zona de Comunidad (CZ - global)."
+    },
+    {
+      "id": 7502,
+      "front": "¿Qué protocolo se utiliza para la recolección masiva de metadatos XML hacia idUS?",
+      "back": "OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting)."
     }
   ],
   "8": [
@@ -1088,6 +1118,16 @@
       "id": 25,
       "front": "¿Cuál es la vida útil estimada de una etiqueta RFID pasiva de libro?",
       "back": "Vida útil indefinida (superior a 10 años o 100.000 ciclos de lectura/escritura) ya que no contienen baterías internas y se alimentan de la señal del lector."
+    },
+    {
+      "id": 8501,
+      "front": "¿En qué frecuencia de radio opera el RFID bibliotecario según la norma ISO 15693?",
+      "back": "Alta Frecuencia (HF) a 13,56 MHz."
+    },
+    {
+      "id": 8502,
+      "front": "¿Qué código AFI (ISO 28560-2) se graba en los libros en sala para que salte la alarma antihurto?",
+      "back": "Código estándar 07 (o hexadecimal C2). Al prestarse cambia a C0 o 00 para permitir la salida."
     }
   ],
   "9": [
@@ -1342,6 +1382,11 @@
       "id": 25,
       "front": "¿Se pueden realizar consultas presenciales sobre patentes e investigación sin cita previa?",
       "back": "Para consultas profundas y personalizadas de investigación se aconseja solicitar el servicio de 'Cita con la Biblioteca'."
+    },
+    {
+      "id": 10501,
+      "front": "¿Cuál es el plazo máximo para notificar la resolución de una desiderata de compra en la BUS?",
+      "back": "5 días laborables (conforme a los compromisos de la Carta de Servicios de la BUS)."
     }
   ],
   "11": [
@@ -1469,6 +1514,16 @@
       "id": 25,
       "front": "Compromiso de formación ALFIN anual en el Plan Director",
       "back": "Impartir al menos una sesión de formación especializada a todos los alumnos matriculados en TFG de la Universidad de Sevilla."
+    },
+    {
+      "id": 11501,
+      "front": "¿Qué herramienta conecta la Enseñanza Virtual de la US (EVUS/Moodle) con Alma para gestionar listas de lectura?",
+      "back": "Leganto (plataforma de Ex Libris para bibliografías recomendadas en guías docentes)."
+    },
+    {
+      "id": 11502,
+      "front": "¿Cuántas áreas y competencias componen el marco europeo DigComp 2.2?",
+      "back": "5 áreas principales y 21 competencias específicas."
     }
   ],
   "12": [
@@ -1925,6 +1980,11 @@
       "id": 25,
       "front": "¿Qué es la Vigilancia de la Salud Colectiva en la US?",
       "back": "El análisis epidemiológico anónimo de los resultados de reconocimientos médicos para proponer mejoras preventivas generales."
+    },
+    {
+      "id": 14501,
+      "front": "¿Con qué periodicidad mínima ordinaria debe reunirse el Comité de Seguridad y Salud de la US?",
+      "back": "Una vez al trimestre."
     }
   ],
   "15": [
@@ -2052,6 +2112,16 @@
       "id": 25,
       "front": "Ubicación correcta del ratón y teclado",
       "back": "A unos 10 cm del borde de la mesa para permitir el apoyo cómodo de las muñecas y antebrazos durante su uso."
+    },
+    {
+      "id": 15501,
+      "front": "¿Cuál es el peso máximo recomendado por la Guía Técnica del INSST para la manipulación de cargas en condiciones ideales?",
+      "back": "25 kg (15 kg para mayor protección de colectivos sensibles; 40 kg máximo excepcional adiestrado)."
+    },
+    {
+      "id": 15502,
+      "front": "¿Qué distancia e inclinación visual recomienda el INSST para pantallas de visualización (PVD)?",
+      "back": "Distancia visual de 40 a 70 cm e inclinación del monitor de 10° a 20° por debajo de los ojos."
     }
   ],
   "16": [
@@ -2787,6 +2857,11 @@
       "id": 25,
       "front": "Rol del personal eventual o becarios ante el protocolo",
       "back": "Tienen exactamente los mismos derechos de protección y activación del protocolo de acoso que el personal funcionario de carrera."
+    },
+    {
+      "id": 20501,
+      "front": "¿Cuál es el plazo de la Fase 1 (Indagación Inicial) del Comité Técnico en la Normativa de Acoso de la US?",
+      "back": "10 días hábiles desde la recepción de la solicitud de intervención."
     }
   ]
 }

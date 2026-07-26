@@ -2189,6 +2189,32 @@
       "correctAnswer": 1,
       "explanation": "La Carta de Servicios de la BUS asume el compromiso medible de dar respuesta a las consultas de carácter especializado sobre investigación o recursos en un plazo no superior a 2 días laborables.",
       "usage": "dossier"
+    },
+    {
+      "id": 2001,
+      "question": "Conforme al Decreto 317/2003, de 18 de noviembre, por el que se regulan las Cartas de Servicios en la Administración Pública de la Junta de Andalucía, ¿cuál es la vigencia máxima legal establecida para una Carta de Servicios?",
+      "options": [
+        "1 año con renovación automática.",
+        "2 años sin posibilidad de prórroga.",
+        "3 años, debiendo ser objeto de revisión o prórroga tras dicho período.",
+        "5 años, con informes de seguimiento quinquenales."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Decreto 317/2003 establece que las Cartas de Servicios tienen una vigencia máxima de 3 años, tras los cuales deben revisarse o prorrogarse, requiriendo además informes de seguimiento anuales.",
+      "usage": "dossier"
+    },
+    {
+      "id": 2002,
+      "question": "En la estructura del Modelo EFQM 2020 de Excelencia, ¿cuál es la puntuación máxima asignada al conjunto de los 7 criterios y qué porcentaje representa el bloque de Ejecución?",
+      "options": [
+        "500 puntos en total; el bloque de Ejecución representa el 50%.",
+        "1.000 puntos en total; el bloque de Ejecución representa el 40% (400 puntos).",
+        "800 puntos en total; el bloque de Ejecución representa el 30%.",
+        "1.000 puntos en total; el bloque de Ejecución representa el 20%."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Modelo EFQM 2020 consta de 1.000 puntos totales repartidos en 3 bloques: Dirección (20% / 200 ptos), Ejecución (40% / 400 ptos en Criterios 3, 4 y 5) y Resultados (40% / 400 ptos).",
+      "usage": "dossier"
     }
   ],
   "3": [
@@ -3478,6 +3504,32 @@
       ],
       "correctAnswer": 3,
       "explanation": "Las directrices ambientales para la Sala de Investigadores de la BUS exigen una iluminación general de tipo indirecto de entre 200 y 600 luxes, junto con una climatización estable de entre 17º y 22º C para proteger los soportes antiguos.",
+      "usage": "dossier"
+    },
+    {
+      "id": 3001,
+      "question": "De acuerdo con los parámetros de conservación preventiva fijados por la norma UNE-ISO 11799 para el almacenamiento de colecciones de papel en depósitos bibliográficos, ¿cuáles son los rangos óptimos de temperatura y humedad relativa?",
+      "options": [
+        "Temperatura de 22°C a 26°C y Humedad Relativa del 60% al 70%.",
+        "Temperatura de 18°C a 21°C y Humedad Relativa del 45% al 55%.",
+        "Temperatura de 10°C a 14°C y Humedad Relativa del 20% al 30%.",
+        "Temperatura constante de 25°C e iluminación continua de 300 lux."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La norma UNE-ISO 11799 fija para depósitos con material en papel una temperatura de 18°C a 21°C y una humedad relativa constante de 45% a 55%.",
+      "usage": "dossier"
+    },
+    {
+      "id": 3002,
+      "question": "En el decálogo de cualidades arquitectónicas para el diseño de bibliotecas de Harry Faulkner-Brown, ¿cuál de los siguientes NO es uno de los principios recomendados?",
+      "options": [
+        "Flexible y compacto.",
+        "Rígido y monumental.",
+        "Accesible y ampliable (extendible).",
+        "Confortable y constante en condiciones ambientales."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El decálogo de Faulkner-Brown aboga por edificios flexibles, compactos, accesibles, ampliables, variados, organizados, confortables, constantes, seguros y económicos (en ningún caso rígidos o monumentales).",
       "usage": "dossier"
     }
   ],
@@ -8604,6 +8656,32 @@
       "correctAnswer": 0,
       "explanation": "Las facetas son filtros interactivos situados en los laterales de la pantalla de búsqueda de Fama que ayudan a acotar los resultados según criterios como tipo de recurso, fecha de publicación, autor o biblioteca.",
       "usage": "dossier"
+    },
+    {
+      "id": 7001,
+      "question": "En la arquitectura en la nube de la plataforma Alma (Ex Libris) empleada por la BUS, ¿qué zona contiene los registros de autoridades y carteras de publicaciones periódicas a nivel consorcial de las universidades públicas andaluzas (CBUA)?",
+      "options": [
+        "Zona de Comunidad (Community Zone).",
+        "Zona Institucional (Institutional Zone).",
+        "Zona de Red (Network Zone).",
+        "Zona Local de Servidor."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Zona de Red (Network Zone - NZ) de Alma es la base de datos compartida por las bibliotecas del consorcio CBUA en Andalucía para la catalogación cooperativa y préstamo consorciado.",
+      "usage": "dossier"
+    },
+    {
+      "id": 7002,
+      "question": "¿Qué protocolo estandarizado de la Web utiliza Alma para permitir la recolección masiva de metadatos bibliográficos en formato XML dirigidos al repositorio idUS?",
+      "options": [
+        "Z39.50 clásico.",
+        "OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting).",
+        "SIP2 (Standard Interchange Protocol).",
+        "FTP pasivo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El protocolo OAI-PMH es el estándar internacional empleado para la recolección distribuida e intercambio masivo de metadatos XML entre plataformas de gestión e idUS.",
+      "usage": "dossier"
     }
   ],
   "8": [
@@ -9672,6 +9750,32 @@
       ],
       "correctAnswer": 2,
       "explanation": "La alfombrilla lectora de RFID es un hardware externo que se conecta al equipo del mostrador para introducir datos de las etiquetas de los libros, actuando como un periférico de entrada en el sistema del SIGB.",
+      "usage": "dossier"
+    },
+    {
+      "id": 8001,
+      "question": "De acuerdo con la norma ISO 28560 para tecnología RFID en bibliotecas, ¿en qué banda de frecuencia operan las etiquetas pasivas (tags) colocadas en los libros de la BUS y cuál es el estándar de transmisión aplicable?",
+      "options": [
+        "Baja Frecuencia (LF) a 125 kHz bajo ISO 11784.",
+        "Alta Frecuencia (HF) a 13,56 MHz bajo la norma ISO 15693 / ISO 18000-3.",
+        "Ultra Alta Frecuencia (UHF) a 868 MHz.",
+        "Frecuencia microondas de 2,4 GHz."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las etiquetas RFID bibliotecarias normalizadas funcionan en Alta Frecuencia (HF) a 13.56 MHz de acuerdo con la norma ISO 15693 e ISO 18000-3.",
+      "usage": "dossier"
+    },
+    {
+      "id": 8002,
+      "question": "¿Qué código de 1 byte del estándar ISO 28560-2 (AFI - Application Family Identifier) se encuentra grabado en la etiqueta de un libro en sala para que los arcos detectores de la entrada activen la alarma antihurto?",
+      "options": [
+        "Código hexadecimal 00 o C0.",
+        "Código estándar 07 (o valor de biblioteca C2).",
+        "Código ASCII 99.",
+        "Código binario 00000000."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El código AFI grabado en libros en sala (seguridad activada) es 07 (o C2 en hexadecimal); al realizar el préstamo se cambia a C0 o 00 para desactivar la alarma de salida.",
       "usage": "dossier"
     }
   ],
@@ -12021,6 +12125,19 @@
       "correctAnswer": 1,
       "explanation": "Las GuÃ­as BUS son herramientas de referencia virtual proactiva que organizan y seleccionan recursos relevantes para cada Ã¡rea temÃ¡tica o asignatura, elaboradas por el personal especialista y accesibles desde FAMA y la web de la BUS.",
       "usage": "dossier"
+    },
+    {
+      "id": 10001,
+      "question": "Conforme a los compromisos asumidos en la Carta de Servicios de la BUS, ¿cuál es el plazo máximo obligatorio para notificar motivadamente al usuario la aceptación o denegación de una Desiderata (sugerencia de compra)?",
+      "options": [
+        "24 horas hábiles.",
+        "2 días laborables.",
+        "5 días laborables.",
+        "15 días naturales."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Carta de Servicios de la BUS establece un plazo máximo de 5 días laborables para elaborar el informe de respuesta y resolución de solicitudes y desideratas enviadas.",
+      "usage": "dossier"
     }
   ],
   "11": [
@@ -13338,6 +13455,32 @@
       ],
       "correctAnswer": 2,
       "explanation": "La Biblioteca 2.0 no es una definición tecnológica, sino una filosofía basada en la actitud abierta que busca involucrar activamente al usuario, permitiéndole interactuar, opinar y colaborar en los servicios.",
+      "usage": "dossier"
+    },
+    {
+      "id": 11001,
+      "question": "¿Qué plataforma tecnológica de Ex Libris se encuentra integrada en la Enseñanza Virtual de la US (EVUS/Moodle) y en Alma para permitir al profesorado y alumnado gestionar y consultar las bibliografías recomendadas de las guías docentes?",
+      "options": [
+        "Leganto.",
+        "Primo VE.",
+        "RefWorks.",
+        "Turnitin."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Leganto es la plataforma que conecta la Enseñanza Virtual de la US (EVUS) con el catálogo FAMA y Alma para la gestión de listas de lectura y bibliografía académica recomendada.",
+      "usage": "dossier"
+    },
+    {
+      "id": 11002,
+      "question": "El Marco de Competencias Informáticas e Informacionales (CI2), promovido conjuntamente por la CRUE y REBIUN para las universidades españolas, se estructura en:",
+      "options": [
+        "2 niveles (Teórico y Práctico).",
+        "3 niveles competitivos (Básico, Intermedio y Avanzado).",
+        "5 bloques de evaluación sumativa.",
+        "Un único nivel obligatorio para el PDI."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Marco CI2 de la CRUE/REBIUN define 3 niveles progresivos: Básico (acogida), Intermedio (búsqueda y citación) y Avanzado (investigación y TFG/TFM).",
       "usage": "dossier"
     }
   ],
@@ -16589,6 +16732,19 @@
       "correctAnswer": 2,
       "explanation": "La circular de Gerencia fija una obligación de celeridad ante accidentes laborales, exigiendo comunicar el hecho de forma inmediata o, a lo sumo, dentro de un plazo de 3 días siguientes al accidente.",
       "usage": "dossier"
+    },
+    {
+      "id": 14001,
+      "question": "De acuerdo con la regulación del Comité de Seguridad y Salud (CSS) de la Universidad de Sevilla, ¿con qué periodicidad mínima obligatoria debe reunirse con carácter ordinario este órgano paritario?",
+      "options": [
+        "Mensualmente.",
+        "Una vez al trimestre.",
+        "Semestralmente.",
+        "Una vez al año al aprobar la memoria."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Comité de Seguridad y Salud de la US (órgano paritario 50/50 de Delegados de Prevención y representantes de la Universidad) debe reunirse obligatoriamente con carácter ordinario una vez al trimestre.",
+      "usage": "dossier"
     }
   ],
   "15": [
@@ -17711,6 +17867,32 @@
       ],
       "correctAnswer": 1,
       "explanation": "Para evitar tendinitis y lesiones por esfuerzo repetitivo (como el síndrome del túnel carpiano), la directriz ergonómica de la US aconseja mantener una postura recta y alineada del antebrazo, muñeca y mano al teclear.",
+      "usage": "dossier"
+    },
+    {
+      "id": 15001,
+      "question": "Según la Guía Técnica del INSST para la evaluación y prevención de los riesgos relativos a la Manipulación Manual de Cargas, ¿cuál es el peso máximo recomendado de referencia para el levantamiento de cargas en condiciones ideales de trabajo?",
+      "options": [
+        "10 kg.",
+        "15 kg.",
+        "25 kg.",
+        "50 kg."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Guía Técnica del INSST establece un peso máximo recomendado de 25 kg en condiciones ideales para proteger a la mayoría de la población trabajadora sana.",
+      "usage": "dossier"
+    },
+    {
+      "id": 15002,
+      "question": "En el diseño ergonómico de un puesto de trabajo con Pantalla de Visualización de Datos (PVD), ¿cuál es la distancia recomendable entre los ojos del usuario y el monitor?",
+      "options": [
+        "Entre 10 y 25 cm.",
+        "Entre 40 y 70 cm.",
+        "Más de 100 cm.",
+        "La distancia es indiferente siempre que se use filtro."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las guías del INSST y el SEPRUS recomiendan ubicar la pantalla a una distancia visual comprendida entre 40 y 70 cm (aproximadamente la longitud del brazo).",
       "usage": "dossier"
     }
   ],
@@ -26210,6 +26392,19 @@
       ],
       "correctAnswer": 1,
       "explanation": "El punto 11 de la Declaración de Principios de la Normativa de 2024 establece: 'La Universidad de Sevilla podrá investigar las acusaciones falsas de violencia, discriminación o acoso que pudieran producirse y determinar, en su caso, la incoación de un procedimiento disciplinario'. Esto equilibra la protección de las víctimas con la protección de quienes puedan ser falsamente acusados.",
+      "usage": "dossier"
+    },
+    {
+      "id": 20001,
+      "question": "Según la Normativa para la prevención, evaluación e intervención ante la violencia, la discriminación y el acoso en la Universidad de Sevilla (BOUS de 12 de febrero de 2025), ¿cuál es el plazo máximo fijado para la Fase 1 (Indagación Inicial) del Comité Técnico?",
+      "options": [
+        "5 días hábiles.",
+        "10 días hábiles.",
+        "20 días hábiles.",
+        "1 mes natural."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El procedimiento de la US establece un plazo máximo de 10 días hábiles para la Fase 1 de Indagación Inicial del Comité Técnico desde la recepción de la solicitud.",
       "usage": "dossier"
     }
   ]

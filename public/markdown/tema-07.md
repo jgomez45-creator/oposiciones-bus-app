@@ -16,7 +16,6 @@
 ## 1. Evolución de los Sistemas de Gestión Bibliotecaria
 La automatización de las bibliotecas universitarias ha transitado por dos grandes etapas de desarrollo tecnológico:
 
-
 <div class="app-promo-banner mid-promo">
 
 > 💡 **REPASO RÁPIDO EN LA APP:**  
@@ -39,10 +38,22 @@ Son sistemas de nueva generación (ej. **Alma**, de Ex Libris; WorldShare) desar
 ## 2. Alma: La Plataforma Interna de Gestión de la BUS
 La **Biblioteca de la Universidad de Sevilla (BUS)** utiliza **Alma** (de la empresa *Ex Libris*) como su sistema de gestión interna (back-office), de uso exclusivo del personal de la biblioteca.
 
-### Las Tres Zonas de Datos en la Arquitectura de Alma
+### A. Las Tres Zonas de Datos en la Arquitectura de Alma
 *   **Zona Institucional (Institutional Zone - IZ):** Contiene los registros bibliográficos, de autoridades y de inventario locales y exclusivos de la Universidad de Sevilla.
 *   **Zona de Red (Network Zone - NZ):** Base de datos compartida por un consorcio de bibliotecas. En el caso de la BUS, está conectada a la Zona de Red del **CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)**. El catálogo colectivo de la CBUA permite recuperar de forma centralizada los fondos de las **bibliotecas universitarias públicas de Andalucía** (los 9 centros miembros) para catalogación cooperativa y préstamo consorciado.
 *   **Zona de Comunidad (Community Zone - CZ):** Base de datos global gestionada por *Ex Libris* que contiene registros de autoridad internacionales y carteras electrónicas provistas por las editoriales científicas a nivel mundial.
+
+### B. Módulos Operativos Principales de Alma
+1.  **Módulo de Recursos (Catalogación e Inventario):** Creación y edición de registros bibliográficos en MARC21/RDA, gestión del árbol de inventario (Registros de fondos y ejemplares/ítems) e importación de registros.
+2.  **Módulo de Adquisiciones:** Gestión de líneas de pedido (POL - Purchase Order Lines), proveedores, facturas, presupuestos e interconexión con el sistema de contabilidad de la US.
+3.  **Módulo de Servicios al Usuario (Circulación):** Mostrador de préstamo, devoluciones, reservas, aplicación de sanciones/suspensiones y configuración de políticas de circulación.
+4.  **Módulo Alma Analytics:** Herramienta de inteligencia de negocio basada en *Oracle BI* para la generación de informes estadísticos cualitativos y cuantitativos requeridos por la BUS y REBIUN.
+
+### C. Protocolos Técnicos de Interoperabilidad Bibliotecaria
+Alma interactúa con plataformas externas mediante protocolos estandarizados:
+*   **OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting):** Protocolo para la recolección masiva de metadatos XML, fundamental para la exportación de registros al repositorio idUS.
+*   **SIP2 / NCIP:** Protocolos de intercambio de datos de usuarios y transacciones de préstamo para la integración de estaciones de autopréstamo y arcos antihurto RFID.
+*   **SRU / SRW (Search/Retrieve via URL/Web):** Protocolos basados en XML y HTTP para la recuperación web de registros bibliográficos mediante consultas Z39.50 evolucionadas.
 
 ---
 
@@ -78,12 +89,13 @@ Al iniciar sesión con las credenciales del **UVUS**, FAMA ofrece un portal pers
 ---
 
 ## 4. Esquema de Repaso Rápido
-*   **Alma:** Back-office (trabajo del personal de la biblioteca, en la nube).
-*   **Primo VE:** Front-end (interfaz web del catálogo FAMA para los usuarios).
-*   **Las 3 Zonas de Alma:** **Institucional** (local US), **de Red** (consorcio CBUA) y **de Comunidad** (catálogos y recursos e- globales).
+*   **Alma:** Back-office (SaaS en la nube para personal técnico).
+*   **Primo VE:** Front-end (herramienta de descubrimiento del catálogo FAMA).
+*   **Las 3 Zonas de Alma:** **Institucional** (US), **de Red** (CBUA) y **de Comunidad** (Global).
+*   **Módulos de Alma:** Recursos, Adquisiciones (líneas POL), Servicios al Usuario y Analytics.
+*   **Protocolos Técnicos:** OAI-PMH (recolección de metadatos XML), SIP2/NCIP (autoestaciones), SRU/SRW.
 *   **Operadores Booleanos:** En mayúsculas obligatorias (`AND`, `OR`, `NOT`).
-*   **Comodines de búsqueda:** `*` para caracteres múltiples; `?` para carácter único. Frase exacta entre comillas `""`.
-*   **Mi Cuenta en FAMA:** Permite reservas, desideratas y renovaciones iniciando sesión con el **UVUS**.
+*   **Comodines de búsqueda:** `*` (múltiples caracteres), `?` (carácter único), `""` (frase exacta).
 
 ---
 
@@ -92,27 +104,25 @@ Al iniciar sesión con las credenciales del **UVUS**, FAMA ofrece un portal pers
     *   **I**nstitucional (IZ): Local (US).
     *   **N**etwork / Red (NZ): Regional (CBUA).
     *   **C**omunidad (CZ): Global (Ex Libris/Editoriales).
-    *   *Mnemónico:* *"**I**glesia **N**acional **C**atólica: **I**nstitucional, **N**etwork (Red), **C**omunidad".*
-*   **Mayúsculas en Booleanos: "El Booleano Grita" (AND, OR, NOT):**
-    *   En FAMA, los operadores lógicos deben ir obligatoriamente en MAYÚSCULAS.
-    *   *Mnemónico:* *"A Boole le gusta gritar: ¡AND! ¡OR! ¡NOT! Si lo escribes en minúsculas susurrando, FAMA lo ignorará".*
+*   **Los Protocolos Técnicos: "O-S-N" (OAI, SIP2, NCIP):**
+    *   **OAI**-PMH: Recolección para Repositorios (idUS).
+    *   **SIP2** / **NCIP**: Conexión de Máquinas y Autoestaciones con Alma.
 
 ---
 
 ## 6. Conceptos Clave
 *   **LSP (Library Services Platform):** Plataforma de servicios bibliotecarios en la nube que gestiona de manera unificada flujos de trabajo físicos y electrónicos (ej. Alma).
-*   **Herramienta de Descubrimiento:** Motor de búsqueda web (como Primo VE) que indexa y recupera de forma simultánea registros locales y colecciones de bases de datos globales.
-*   **Zona de Red (Network Zone):** Arquitectura compartida de Alma que permite al Consorcio CBUA compartir registros bibliográficos en tiempo real para optimizar tareas técnicas.
-*   **Faceta:** Elemento del menú lateral del catálogo que clasifica y filtra los resultados de búsqueda activos según metadatos específicos (idioma, biblioteca, soporte).
+*   **POL (Purchase Order Line):** Línea de orden de compra en el módulo de Adquisiciones de Alma que vincula un registro bibliográfico con la partida presupuestaria.
+*   **OAI-PMH:** Protocolo estandarizado para la recolección e intercambio distribuido de metadatos bibliográficos basados en XML.
+*   **Faceta:** Elemento del menú lateral del catálogo que clasifica y filtra los resultados de búsqueda activos.
 
 ---
 
 ## 7. Bibliografía
-*   **Alma: Plataforma de Servicios de Biblioteca (Ex Libris)**.
+*   **Alma: Plataforma de Servicios de Biblioteca (Ex Libris / Clarivate)**.
 *   **Primo VE: Catálogo integrado de la BUS - FAMA (Ex Libris)**.
-*   **Dionisio Millán (2022). Aspectos básicos en Colecciones, Clasificación y Gestión de Bibliotecas de la US**. Presentación de CCOO, Biblioteca ETSA, Universidad de Sevilla.
+*   **Especificaciones del Protocolo OAI-PMH v2.0 (Open Archives Initiative)**.
 *   **Guías de la Biblioteca de la Universidad de Sevilla (Guías BUS)**: Disponible en https://guiasbus.us.es/.
-
 
 <div class="app-promo-banner footer-promo">
 
