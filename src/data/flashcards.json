@@ -1853,6 +1853,26 @@
       "id": 40,
       "front": "Gestión de AntiSPAM en cuentas M365 de la US",
       "back": "La configuración detallada del filtro antiSPAM del buzón corporativo sólo puede gestionarse desde la OWA (Outlook Web App)."
+    },
+    {
+      "id": 13501,
+      "front": "¿Cuál es la función principal de Microsoft Forms y qué característica avanzada ofrece?",
+      "back": "Creación de encuestas, cuestionarios y votaciones en línea. Destaca por su bifurcación lógica de preguntas y exportación directa a Excel."
+    },
+    {
+      "id": 13502,
+      "front": "¿Cómo se estructura jerárquicamente la información dentro de Microsoft OneNote?",
+      "back": "En Blocs de notas -> Secciones -> Páginas."
+    },
+    {
+      "id": 13503,
+      "front": "¿Qué función cumple Microsoft To Do y con qué programa de M365 se sincroniza automáticamente?",
+      "back": "Gestión individual de tareas y listas diarias (vista Mi día). Se sincroniza automáticamente con Outlook."
+    },
+    {
+      "id": 13504,
+      "front": "¿En qué metodología visual de gestión de proyectos se basa Microsoft Planner?",
+      "back": "En la metodología Kanban (organización mediante tableros, columnas y tarjetas de trabajo de equipo)."
     }
   ],
   "14": [

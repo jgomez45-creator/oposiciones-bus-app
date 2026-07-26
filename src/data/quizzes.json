@@ -15570,6 +15570,58 @@
       "correctAnswer": 1,
       "explanation": "En el modo de selección ampliada de Word (F8), 2 pulsaciones seleccionan la palabra, 3 la frase, 4 el párrafo y 5 todo el documento.",
       "usage": "dossier"
+    },
+    {
+      "id": 13001,
+      "question": "En el ecosistema de Microsoft 365, ¿cuál es la función principal de Microsoft Forms y qué característica avanzada permite adaptar las preguntas según las respuestas previas del usuario?",
+      "options": [
+        "Creación de gráficos estadísticos en 3D; admite macros en VBA.",
+        "Creación de encuestas, cuestionarios y votaciones en línea; cuenta con la función de bifurcación lógica de preguntas.",
+        "Gestión de repositorios documentales; utiliza el control de versiones en tiempo real.",
+        "Diseño de diagramas de flujo de trabajo; utiliza conectores de red."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Microsoft Forms está diseñado para la recogida de datos mediante encuestas y cuestionarios en línea, incluyendo bifurcación lógica para mostrar u ocultar preguntas según la respuesta anterior y exportación a Excel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 13002,
+      "question": "¿Cómo se organiza la estructura jerárquica de la información dentro del bloc de notas digital Microsoft OneNote?",
+      "options": [
+        "Archivos -> Carpetas -> Subcarpetas.",
+        "Blocs de notas -> Secciones -> Páginas.",
+        "Proyectos -> Tableros -> Tarjetas.",
+        "Libros -> Hojas -> Celdas."
+      ],
+      "correctAnswer": 1,
+      "explanation": "OneNote organiza la información de forma jerárquica en Blocs de notas, divididos en Secciones temáticas, que a su vez contienen Páginas individuales de apuntes y actas.",
+      "usage": "dossier"
+    },
+    {
+      "id": 13003,
+      "question": "¿Qué herramienta de Microsoft 365 se encarga de la gestión individual de tareas y listas de pendientes, integrando la planificación inteligente denominada Mi día y la sincronización con Outlook?",
+      "options": [
+        "Microsoft Planner.",
+        "Microsoft To Do.",
+        "Microsoft Forms.",
+        "Microsoft Yammer."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Microsoft To Do es la aplicación orientada a la gestión personal diaria de tareas que incluye la vista personalizada Mi día y se sincroniza automáticamente con los correos marcados y tareas de Outlook.",
+      "usage": "dossier"
+    },
+    {
+      "id": 13004,
+      "question": "¿Qué metodología de trabajo visual utiliza Microsoft Planner para organizar y coordinar proyectos en equipo mediante tableros y tarjetas?",
+      "options": [
+        "Método Scrum avanzado.",
+        "Método Kanban.",
+        "Diagrama de Gantt estático.",
+        "Método PERT/CPM."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Microsoft Planner se basa en la metodología Kanban para organizar visualmente los proyectos de equipo en columnas y tarjetas asignables con estados (No iniciada, En curso, Completada).",
+      "usage": "dossier"
     }
   ],
   "14": [

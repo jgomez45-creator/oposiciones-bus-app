@@ -219,6 +219,34 @@ Outlook permite redactar **dos plantillas de mensaje independientes**:
 
 ---
 
+## EPÍGRAFE ADICIONAL: OTRAS HERRAMIENTAS CLAVE DE PRODUCTIVIDAD Y COLABORACIÓN
+
+### 1. Microsoft Forms
+*   **Uso principal:** Creación de encuestas, cuestionarios, votaciones y formularios de recogida de datos en línea.
+*   **Funciones clave:** Bifurcación lógica de preguntas, análisis automático de respuestas con gráficos en tiempo real y exportación de datos directos a Excel.
+*   **Utilidad en la administración/biblioteca:** Recopilación rápida de información sin necesidad de conocimientos de programación y con autenticación de usuarios de la organización.
+*   **Ejemplo práctico:** Formulario de evaluación de satisfacción de usuarios de la biblioteca tras la asistencia a una actividad formativa.
+
+### 2. Microsoft OneNote
+*   **Uso principal:** Bloc de notas digital estructurado para la captura, organización y consulta de apuntes, actas e información de trabajo.
+*   **Funciones clave:** Organización jerárquica (Blocs -> Secciones -> Páginas), integración de etiquetas (tareas pendientes, importante), búsqueda de texto en imágenes/manuscritos e integración con Outlook.
+*   **Utilidad en la administración/biblioteca:** Centralización de manuales de procedimiento, actas de reuniones del equipo bibliotecario e ideas de proyectos en un único lugar accesible.
+*   **Ejemplo práctico:** Creación de un bloc de notas compartido para el equipo de trabajo de la BUS donde se registran las incidencias diarias y los criterios de catalogación.
+
+### 3. Microsoft To Do
+*   **Uso principal:** Gestión individual de tareas diarias, listas de pendientes y recordatorios personales.
+*   **Funciones clave:** Planificación diaria inteligente ("Mi día"), asignación de fechas de vencimiento, avisos, pasos/subtareas y sincronización automática con las tareas marcadas de Outlook.
+*   **Utilidad en la administración/biblioteca:** Organización del flujo de trabajo diario de cada auxiliar administrativo o bibliotecario para evitar olvidos de tareas con plazo.
+*   **Ejemplo práctico:** Lista de comprobación diaria para la apertura del servicio de lectura (encendido de equipos, revisión de devoluciones, ordenación de salas).
+
+### 4. Microsoft Planner
+*   **Uso principal:** Planificación y gestión visual de proyectos y tareas en equipo mediante tableros de trabajo.
+*   **Funciones clave:** Organización mediante tarjetas y columnas (*método Kanban*), asignación de tareas a miembros del equipo, seguimiento de estados (No iniciada, En curso, Completada) y gráficos visuales de progreso.
+*   **Utilidad en la administración/biblioteca:** Coordinación transparente de proyectos departamentales sin necesidad de reuniones continuas de seguimiento.
+*   **Ejemplo práctico:** Tablero de planificación para la reorganización del depósito de fondos antiguos, asignando tareas específicas a cada auxiliar bibliotecario con plazos definidos.
+
+---
+
 ## 7. Esquema de Repaso Rápido
 *   **UVUS:** Credencial electrónica única para acceder a los servicios de la US (`https://identidad.us.es`).
 *   **Outlook CCO:** Obligatorio en envíos masivos conforme a la LOPDGDD para evitar revelar correos.
@@ -230,13 +258,17 @@ Outlook permite redactar **dos plantillas de mensaje independientes**:
 *   **Word Salto de Sección:** Necesario para aplicar orientaciones o encabezados diferentes.
 *   **Excel F4:** Alterna entre referencias relativas, absolutas y mixtas.
 *   **Excel Alt + Enter:** Inserta salto de línea dentro de la propia celda.
+*   **Forms:** Encuestas y cuestionarios con bifurcación lógica y análisis exportable a Excel.
+*   **OneNote:** Bloc de notas jerárquico (Blocs -> Secciones -> Páginas) para actas y manuales.
+*   **To Do:** Gestión de tareas individuales con la lista inteligente "Mi día" y sincronización con Outlook.
+*   **Planner:** Gestión visual de proyectos en equipo basada en tableros y tarjetas *Kanban*.
 
 ---
 
 ## 8. Bibliografía y Fuentes Oficiales
 *   **Guías de Microsoft 365 en la Universidad de Sevilla (SIC):** https://m365.us.es/es (Sección Guías).
 *   **Normativa de uso del correo electrónico de la Universidad de Sevilla (SIC):** https://sic.us.es.
-*   **Documentación Oficial de Microsoft 365:** Outlook, OneDrive, SharePoint, Teams, Word y Excel.
+*   **Documentación Oficial de Microsoft 365:** Outlook, OneDrive, SharePoint, Teams, Word, Excel, Forms, OneNote, To Do y Planner.
 
 <div class="app-promo-banner footer-promo">
 
