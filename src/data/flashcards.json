@@ -1723,6 +1723,81 @@
       "id": 25,
       "front": "¿Qué es el historial de versiones en OneDrive y SharePoint?",
       "back": "Función que registra todos los cambios y permite restaurar o consultar versiones anteriores del documento editado."
+    },
+    {
+      "id": 26,
+      "front": "Atajo Shift + F3 en Word 365",
+      "back": "Clásico de examen: alterna secuencialmente el texto seleccionado entre MAYÚSCULAS, minúsculas y Tipo oración."
+    },
+    {
+      "id": 27,
+      "front": "Atajo Alt + Enter en Excel 365",
+      "back": "Obliga a insertar un salto de línea manual dentro de la misma celda sin pasar a la fila inferior."
+    },
+    {
+      "id": 28,
+      "front": "Atajo F4 al escribir fórmulas en Excel",
+      "back": "Alterna de forma sucesiva los signos de fijación de dólar ($) entre referencias Relativas (A1), Absolutas ($A$1) y Mixtas ($A1 / A$1)."
+    },
+    {
+      "id": 29,
+      "front": "Atajo Shift + Espacio en Excel",
+      "back": "Selecciona de forma instantánea la fila completa correspondiente a la celda activa."
+    },
+    {
+      "id": 30,
+      "front": "Atajo Ctrl + Espacio en Excel",
+      "back": "Selecciona de forma instantánea la columna completa correspondiente a la celda activa."
+    },
+    {
+      "id": 31,
+      "front": "Obligatoriedad de CCO en correos masivos de Outlook",
+      "back": "Campo obligatorio para ocultar la lista de destinatarios y garantizar el cumplimiento de la LOPDGDD 3/2018 al enviar mensajes masivos."
+    },
+    {
+      "id": 32,
+      "front": "Opciones del botón 'Cargar' en SharePoint Online",
+      "back": "Ofrece las opciones 'Archivos' (para seleccionar ficheros sueltos) y 'Carpeta' (para subir estructuras completas de directorios)."
+    },
+    {
+      "id": 33,
+      "front": "Gestión de duplicados al subir archivos a SharePoint",
+      "back": "Permite elegir entre 'Reemplazar' (crea versión mayor), 'Conservar ambos' (renombra con sufijo numérico) o 'Cancelar'."
+    },
+    {
+      "id": 34,
+      "front": "Canal Privado en Microsoft Teams",
+      "back": "Canal restringido a un subgrupo de miembros del equipo con su propia colección de sitios e identidad independiente en SharePoint."
+    },
+    {
+      "id": 35,
+      "front": "Retención en Papelera de 1.er nivel de M365",
+      "back": "Los archivos eliminados permanecen durante 93 días globales en la papelera de 1.er nivel antes de pasar al 2.º nivel."
+    },
+    {
+      "id": 36,
+      "front": "Servicio Consigna US del SIC",
+      "back": "Plataforma web de la US para la transferencia segura de archivos de gran volumen que superan el límite de adjuntos del correo."
+    },
+    {
+      "id": 37,
+      "front": "Atajo Shift + Enter en Word 365",
+      "back": "Inserta un salto de línea manual dentro del mismo párrafo sin crear una nueva viñeta ni romper el estilo activo."
+    },
+    {
+      "id": 38,
+      "front": "Atajo Shift + F7 en Word 365",
+      "back": "Abre directamente el panel del Diccionario de Sinónimos."
+    },
+    {
+      "id": 39,
+      "front": "Atajo Alt + = en Excel 365",
+      "back": "Inserta automáticamente la fórmula de AutoSuma detectando el rango numérico continuo superior o izquierdo."
+    },
+    {
+      "id": 40,
+      "front": "Gestión de AntiSPAM en cuentas M365 de la US",
+      "back": "La configuración detallada del filtro antiSPAM del buzón corporativo sólo puede gestionarse desde la OWA (Outlook Web App)."
     }
   ],
   "14": [

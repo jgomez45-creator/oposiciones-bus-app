@@ -19,7 +19,10 @@ import {
   Maximize2,
   Minimize2,
   Sliders,
-  Settings
+  Settings,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw
 } from 'lucide-react';
 import quizzesData from '../data/quizzes.json';
 
@@ -65,6 +68,19 @@ export default function TopicViewer({
   const [showSettingsPanel, setShowSettingsPanel] = useState(false);
   const [fontSize, setFontSize] = useState('medium'); // 'small' | 'medium' | 'large' | 'extra-large'
   const [readingTheme, setReadingTheme] = useState('light-reading'); // 'default' | 'light-reading' | 'sepia'
+  const [zoomScale, setZoomScale] = useState(1.0); // 1.0 = 100% Zoom
+  
+  const handleZoomIn = () => {
+    setZoomScale(prev => Math.min(2.0, Number((prev + 0.1).toFixed(2))));
+  };
+
+  const handleZoomOut = () => {
+    setZoomScale(prev => Math.max(0.6, Number((prev - 0.1).toFixed(2))));
+  };
+
+  const handleResetZoom = () => {
+    setZoomScale(1.0);
+  };
   const [markdownContent, setMarkdownContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -964,6 +980,41 @@ export default function TopicViewer({
               >
                 <span>👉 Guía</span>
               </button>
+
+              <div className="reading-bar-zoom" style={{ display: 'flex', alignItems: 'center', gap: '3px', background: 'rgba(255,255,255,0.08)', padding: '2px 8px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.15)', marginLeft: '6px' }}>
+                <button
+                  type="button"
+                  onClick={handleZoomOut}
+                  className="reading-bar-btn"
+                  style={{ padding: '3px 6px' }}
+                  title="Reducir Zoom (-)"
+                >
+                  <ZoomOut size={13} />
+                </button>
+                <span style={{ fontSize: '0.78rem', fontWeight: 'bold', minWidth: '40px', textAlign: 'center', color: '#60a5fa' }}>
+                  {Math.round(zoomScale * 100)}%
+                </span>
+                <button
+                  type="button"
+                  onClick={handleZoomIn}
+                  className="reading-bar-btn"
+                  style={{ padding: '3px 6px' }}
+                  title="Aumentar Zoom (+)"
+                >
+                  <ZoomIn size={13} />
+                </button>
+                {zoomScale !== 1.0 && (
+                  <button
+                    type="button"
+                    onClick={handleResetZoom}
+                    className="reading-bar-btn"
+                    style={{ padding: '3px 6px', color: '#f87171' }}
+                    title="Restablecer Zoom (100%)"
+                  >
+                    <RotateCcw size={12} />
+                  </button>
+                )}
+              </div>
             </div>
             <div className="reading-bar-right">
               <button
@@ -982,6 +1033,7 @@ export default function TopicViewer({
           <div className="reading-fullscreen-content">
             <div
               className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
+              style={{ zoom: zoomScale, transformOrigin: 'top center' }}
               dangerouslySetInnerHTML={{
                 __html: activeSubTab === 'content'
                   ? parsedSections.content
@@ -1671,6 +1723,7 @@ export default function TopicViewer({
                 ) : (
                   <div 
                     className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
+                    style={{ zoom: zoomScale, transformOrigin: 'top center' }}
                     dangerouslySetInnerHTML={{ 
                       __html: activeSubTab === 'content' 
                         ? parsedSections.content 

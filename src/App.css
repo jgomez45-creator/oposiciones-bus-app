@@ -2765,7 +2765,7 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   to   { opacity: 1; }
 }
 
-/* Floating control bar */
+/* Floating control bar (Option 2: Modo Cristal Mapeado / Glassmorphic Claro Integrado) */
 .reading-fullscreen-bar {
   position: relative;
   z-index: 2010;
@@ -2774,10 +2774,10 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   justify-content: space-between;
   gap: 16px;
   padding: 10px 20px;
-  background: rgba(10, 15, 30, 0.92);
+  background: rgba(248, 250, 252, 0.95);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   flex-shrink: 0;
 }
 
@@ -2787,9 +2787,9 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
 }
 
 .reading-bar-topic-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted, #8899b0);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2813,30 +2813,30 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 7px 15px;
   border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #1e293b;
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
 }
 
 .reading-bar-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.9);
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .reading-bar-btn--active {
-  background: rgba(37, 99, 235, 0.35);
-  border: 2px solid #3b82f6;
-  color: #60a5fa;
-  box-shadow: 0 0 14px rgba(59, 130, 246, 0.45);
+  background: #1d4ed8 !important;
+  border-color: #1e40af !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(29, 78, 216, 0.3) !important;
 }
 
 .reading-bar-speed {
@@ -2847,16 +2847,16 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
 
 .reading-bar-label {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--text-muted, #8899b0);
+  color: #475569;
   letter-spacing: 0.05em;
 }
 
 .reading-bar-speed-val {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: rgba(234, 179, 8, 0.9);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1d4ed8;
   width: 26px;
   text-align: left;
 }
@@ -2865,24 +2865,24 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: 20px;
-  border: 2px solid #f43f5e;
-  background: rgba(244, 63, 94, 0.25);
-  color: #ffffff;
-  font-size: 0.85rem;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 0 14px rgba(244, 63, 94, 0.45);
+  box-shadow: 0 1px 4px rgba(220, 38, 38, 0.1);
   transition: all 0.2s ease;
   letter-spacing: 0.02em;
 }
 
 .reading-bar-exit-btn:hover {
-  background: #f43f5e;
-  border-color: #ff6b81;
+  background: #dc2626;
+  border-color: #b91c1c;
   color: #ffffff;
-  box-shadow: 0 0 22px rgba(244, 63, 94, 0.75);
+  box-shadow: 0 2px 12px rgba(220, 38, 38, 0.35);
   transform: translateY(-1px);
 }
 
@@ -4421,6 +4421,34 @@ body.reading-fullscreen-mode .markdown-body-container {
   background-color: #f8fafc !important;
 }
 
+/* Print Preview & Print Images Large Scale (50%+ A4 Page Height) */
+.print-preview-content .markdown-rendered-content p:has(img),
+.markdown-rendered-content p:has(img),
+.print-topic-block p:has(img) {
+  text-align: center !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  margin: 16px 0 !important;
+}
+
+.print-preview-content .markdown-rendered-content img,
+.print-topic-block img,
+.markdown-rendered-content img {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 125mm !important;
+  max-height: 145mm !important;
+  height: auto !important;
+  display: block !important;
+  margin: 18px auto !important;
+  object-fit: contain !important;
+  border: 1.5px solid #94a3b8 !important;
+  border-radius: 6px !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+
 /* Interactive Paper Exam Styles */
 .paper-option-item-container.hoverable-option:hover {
   background-color: #f8fafc !important;
@@ -4827,6 +4855,48 @@ body.reading-fullscreen-mode .markdown-body-container {
     font-size: 10.5pt !important;
   }
 }
+
+/* Markdown Content Image Styling for High Resolution & Large Print Display (50%+ Page Height) */
+.markdown-content img,
+.topic-viewer img,
+.prose img,
+.print-preview-content img,
+.markdown-rendered-content img,
+.print-topic-block img {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 125mm !important;
+  height: auto !important;
+  display: block !important;
+  margin: 22px auto !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  object-fit: contain !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+@media print {
+  .markdown-content img,
+  .topic-viewer img,
+  .prose img,
+  .print-preview-content img,
+  .markdown-rendered-content img,
+  .print-topic-block img {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 125mm !important;
+    height: auto !important;
+    object-fit: contain !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin: 15px auto !important;
+    border: 1px solid #94a3b8 !important;
+  }
+}
+
+
 
 
 

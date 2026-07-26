@@ -15102,6 +15102,331 @@
       "correctAnswer": 2,
       "explanation": "El portal de gestión de identidad de la US es https://identidad.us.es, el cual centraliza los servicios de cambio de claves, recuperación de credenciales y activación del UVUS de toda la comunidad universitaria.",
       "usage": "dossier"
+    },
+    {
+      "id": 32,
+      "question": "En Microsoft Word 365, ¿qué combinación de teclas permite alternar de forma secuencial el texto seleccionado entre Mayúsculas, Minúsculas y Tipo Oración?",
+      "options": [
+        "Ctrl + Shift + M",
+        "Shift + F3",
+        "Alt + F8",
+        "Ctrl + F3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shift + F3 es la combinación de teclas clásica de examen en Word para alternar el texto seleccionado entre MAYÚSCULAS, minúsculas y Tipo oración.",
+      "usage": "dossier"
+    },
+    {
+      "id": 33,
+      "question": "En Microsoft Excel 365, ¿qué atajo de teclado permite alternar entre referencias Relativas (A1), Absolutas ($A$1) y Mixtas ($A1 / A$1) en una fórmula?",
+      "options": [
+        "F2",
+        "F4",
+        "F8",
+        "F11"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La tecla de función F4 alterna sucesivamente el carácter de fijación de dólar ($) en las referencias de celda al redactar o editar fórmulas en Excel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 34,
+      "question": "¿Qué combinación de teclas se debe utilizar dentro de una celda de Microsoft Excel para insertar un salto de línea manual dentro de la propia celda?",
+      "options": [
+        "Ctrl + Enter",
+        "Shift + Enter",
+        "Alt + Enter",
+        "Tab + Enter"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Alt + Enter obliga a insertar un salto de línea dentro de la celda activa en Excel sin pasar a la celda inferior.",
+      "usage": "dossier"
+    },
+    {
+      "id": 35,
+      "question": "En Microsoft Excel, ¿qué atajo de teclado permite seleccionar la fila completa correspondiente a la celda activa?",
+      "options": [
+        "Ctrl + Espacio",
+        "Shift + Espacio",
+        "Alt + Espacio",
+        "Ctrl + Shift + F"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shift + Espacio selecciona la fila completa de la celda seleccionada, mientras que Ctrl + Espacio selecciona la columna completa.",
+      "usage": "dossier"
+    },
+    {
+      "id": 36,
+      "question": "Al redactar un correo electrónico masivo a múltiples usuarios externos en Outlook 365, ¿por qué es obligatorio utilizar el campo CCO (Copia de carbón oculta)?",
+      "options": [
+        "Para acelerar la velocidad de entrega en los servidores corporativos.",
+        "Para impedir que los destinatarios visualicen las direcciones de correo de los demás, garantizando el cumplimiento de la LOPDGDD 3/2018.",
+        "Para convertir automáticamente el mensaje en un archivo adjunto PDF.",
+        "Para solicitar un acuse de recibo de lectura obligatorio a cada usuario."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El campo CCO oculta la lista de destinatarios, impidiendo la revelación de correos personales a terceros y garantizando el cumplimiento normativo en protección de datos.",
+      "usage": "dossier"
+    },
+    {
+      "id": 37,
+      "question": "En SharePoint Online, al hacer clic en el botón 'Cargar' (Upload) de la barra superior de la biblioteca de documentos, ¿qué dos opciones principales despliega la interfaz?",
+      "options": [
+        "Archivos y Carpeta",
+        "Documento de Word y Libro de Excel",
+        "Enlace y Objeto OLE",
+        "Copiar y Mover"
+      ],
+      "correctAnswer": 0,
+      "explanation": "El menú desplegable del botón Cargar en SharePoint Online ofrece las opciones 'Archivos' (para seleccionar ficheros sueltos) y 'Carpeta' (para subir estructuras completas de directorios).",
+      "usage": "dossier"
+    },
+    {
+      "id": 38,
+      "question": "Si se sube un archivo a una biblioteca de SharePoint Online y ya existe un documento con el mismo nombre, ¿qué opciones ofrece el sistema?",
+      "options": [
+        "El sistema elimina el documento anterior sin solicitar confirmación.",
+        "El sistema muestra un aviso permitiendo elegir entre Reemplazar, Conservar ambos o Cancelar.",
+        "El sistema bloquea la cuenta del usuario durante 24 horas.",
+        "El sistema convierte automáticamente el archivo a formato ZIP."
+      ],
+      "correctAnswer": 1,
+      "explanation": "SharePoint Online gestiona los duplicados permitiendo Reemplazar (creando versión mayor), Conservar ambos (renombrando con sufijo numérico) o Cancelar.",
+      "usage": "dossier"
+    },
+    {
+      "id": 39,
+      "question": "¿Qué función cumple la opción 'Check-out' (Escanear salida) en una biblioteca de documentos de SharePoint Online?",
+      "options": [
+        "Elimina definitivamente el archivo del servidor de la Universidad.",
+        "Bloquea temporalmente la edición del archivo para que ningún otro usuario pueda modificarlo o sobrescribirlo mientras el usuario trabaja en él.",
+        "Envía el archivo directamente a la papelera de reciclaje de 2.º nivel.",
+        "Imprime una copia en papel en la impresora de la biblioteca."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Check-out bloquea el archivo dejándolo en solo lectura para el resto de usuarios, garantizando que nadie sobrescriba cambios simultáneamente.",
+      "usage": "dossier"
+    },
+    {
+      "id": 40,
+      "question": "En OneDrive para la Empresa (Files On-Demand), ¿qué indica el icono de la Nube Azul junto al nombre de un archivo?",
+      "options": [
+        "Que el archivo está dañado o corrupto.",
+        "Que el archivo se encuentra guardado exclusivamente en la nube, ocupa 0 bytes en el disco duro local y se descarga temporalmente al abrirlo.",
+        "Que el archivo ha sido compartido públicamente con todo internet.",
+        "Que el archivo está guardado con protección de clave secreta."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La nube azul indica que el archivo está en línea en la nube, no consume almacenamiento en el equipo local y se descarga solo cuando el usuario lo abre.",
+      "usage": "dossier"
+    },
+    {
+      "id": 41,
+      "question": "¿Cuál es el plazo general de retención de los archivos eliminados en la Papelera de reciclaje de 1.er nivel de SharePoint Online y OneDrive?",
+      "options": [
+        "15 días.",
+        "30 días.",
+        "93 días.",
+        "365 días."
+      ],
+      "correctAnswer": 2,
+      "explanation": "En Microsoft 365, los archivos eliminados permanecen en la papelera de 1.er nivel durante 93 días globales antes de pasar a la papelera de 2.º nivel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 42,
+      "question": "En Microsoft Teams, ¿qué característica diferencial define a un Canal Privado?",
+      "options": [
+        "Que no permite realizar videollamadas.",
+        "Que está restringido a un subgrupo de miembros del equipo y cuenta con su propia biblioteca de documentos e identidad independiente en SharePoint.",
+        "Que se elimina automáticamente a las 24 horas de crearse.",
+        "Que solo puede ser visto por los estudiantes de la US."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los canales privados en Teams restringen el acceso a una lista seleccionada de miembros y crean una colección de sitios independiente en SharePoint.",
+      "usage": "dossier"
+    },
+    {
+      "id": 43,
+      "question": "En Microsoft Word 365, ¿qué combinación de teclas permite insertar un salto de página manual en la posición del cursor?",
+      "options": [
+        "Ctrl + Enter",
+        "Shift + Enter",
+        "Alt + Enter",
+        "Ctrl + Shift + P"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ctrl + Enter fuerza un salto de página manual en Word enviando el texto a la página siguiente dentro de la misma sección.",
+      "usage": "dossier"
+    },
+    {
+      "id": 44,
+      "question": "En Microsoft Word, ¿cuál es la diferencia entre un salto de página (`Ctrl + Enter`) y un salto de sección?",
+      "options": [
+        "El salto de página cambia el idioma del documento y el de sección no.",
+        "El salto de página mantiene la misma sección, mientras que el salto de sección permite aplicar configuraciones independientes (orientación horizontal, márgenes o desvincular encabezados).",
+        "El salto de sección borra automáticamente las tablas.",
+        "No existe ninguna diferencia entre ambos tipos de salto."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los saltos de sección dividen el documento en bloques independientes que pueden tener orientación de página, márgenes y encabezados diferenciados.",
+      "usage": "dossier"
+    },
+    {
+      "id": 45,
+      "question": "En Microsoft Word, ¿qué tecla de función abre directamente el cuadro de diálogo 'Guardar como'?",
+      "options": [
+        "F1",
+        "F5",
+        "F7",
+        "F12"
+      ],
+      "correctAnswer": 3,
+      "explanation": "La tecla de función F12 abre inmediatamente el cuadro de diálogo Guardar como en Word y Excel para cambiar nombre, ruta o formato de exportación.",
+      "usage": "dossier"
+    },
+    {
+      "id": 46,
+      "question": "En Microsoft Word, ¿qué atajo de teclado inicia el asistente de revisión de Ortografía y Gramática?",
+      "options": [
+        "F7",
+        "Shift + F7",
+        "F2",
+        "Ctrl + F7"
+      ],
+      "correctAnswer": 0,
+      "explanation": "F7 abre el panel de verificación ortográfica y gramatical, mientras que Shift + F7 abre el diccionario de sinónimos.",
+      "usage": "dossier"
+    },
+    {
+      "id": 47,
+      "question": "En Microsoft Word, ¿qué atajo de teclado permite aplicar o quitar el formato de Doble Subrayado?",
+      "options": [
+        "Ctrl + S",
+        "Ctrl + Shift + D",
+        "Ctrl + Shift + W",
+        "Alt + S"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Shift + D aplica el formato de doble subrayado en Word, mientras que Ctrl + Shift + W subraya solo las palabras (omitiendo espacios).",
+      "usage": "dossier"
+    },
+    {
+      "id": 48,
+      "question": "En Microsoft Word, ¿qué atajo de teclado borra todo el formato manual del texto seleccionado restableciendo el estilo Normal?",
+      "options": [
+        "Ctrl + Supr",
+        "Ctrl + Barra Espaciadora",
+        "Ctrl + Shift + N",
+        "Alt + Borrar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Barra Espaciadora elimina todo el formato de carácter directo aplicado sobre el texto seleccionado en Word.",
+      "usage": "dossier"
+    },
+    {
+      "id": 49,
+      "question": "En Microsoft Excel 365, ¿qué atajo de teclado permite activar o desactivar los Filtros Automáticos en la tabla seleccionada?",
+      "options": [
+        "Ctrl + F",
+        "Ctrl + Shift + L",
+        "Alt + F4",
+        "Ctrl + Shift + F"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Shift + L es la combinación estándar de examen para conmutar los filtros automáticos en las cabeceras de tabla de Excel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 50,
+      "question": "En Microsoft Excel, ¿qué atajo de teclado abre la ventana completa de Formato de celdas (Número, Alineación, Bordes, Relleno)?",
+      "options": [
+        "Ctrl + 1",
+        "Ctrl + F1",
+        "Alt + 1",
+        "Shift + F1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ctrl + 1 abre el cuadro de diálogo Formato de celdas en Excel para ajustar numéricos, bordes y alineaciones.",
+      "usage": "dossier"
+    },
+    {
+      "id": 51,
+      "question": "En Microsoft Excel, ¿qué combinación de teclas permite insertar la función AutoSuma de forma automática en la celda activa?",
+      "options": [
+        "Alt + =",
+        "Ctrl + +",
+        "Shift + S",
+        "Alt + S"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Alt + = inserta la fórmula de AutoSuma detectando automáticamente el rango numérico superior o izquierdo en Excel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 52,
+      "question": "En el correo de Microsoft 365 de la US, ¿dónde se gestiona la configuración detallada del filtro antiSPAM del buzón?",
+      "options": [
+        "Únicamente a través de la OWA (Outlook Web App, interfaz web).",
+        "En la consola del sistema operativo Windows local.",
+        "En la aplicación de escritorio Word.",
+        "Llamando por teléfono al Decanato de la Facultad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La gestión avanzada del filtro antiSPAM corporativo de las cuentas de la US se realiza desde la interfaz web OWA (Outlook Web App).",
+      "usage": "dossier"
+    },
+    {
+      "id": 53,
+      "question": "¿Qué servicio institucional de la Universidad de Sevilla permite la transferencia de archivos de gran volumen que superan el límite de tamaño de adjuntos del correo?",
+      "options": [
+        "Consigna US",
+        "FAMA Nube",
+        "UVUS Direct",
+        "Buzón Postal US"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Consigna US es la plataforma institucional del SIC diseñada para enviar ficheros de gran tamaño mediante enlace seguro.",
+      "usage": "dossier"
+    },
+    {
+      "id": 54,
+      "question": "En Microsoft Word, ¿qué atajo de teclado realiza un salto de línea manual sin cambiar de párrafo ni romper el estilo activo?",
+      "options": [
+        "Ctrl + Enter",
+        "Shift + Enter",
+        "Alt + Enter",
+        "Ctrl + Shift + Enter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Shift + Enter salta de línea dentro del propio párrafo en Word, manteniendo las viñetas y el estilo de párrafo sin crear uno nuevo.",
+      "usage": "dossier"
+    },
+    {
+      "id": 55,
+      "question": "En Microsoft Excel, ¿cuál es el atajo de teclado para seleccionar la columna completa correspondiente a la celda activa?",
+      "options": [
+        "Shift + Espacio",
+        "Ctrl + Espacio",
+        "Alt + Espacio",
+        "Ctrl + Shift + C"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ctrl + Espacio selecciona la columna completa, mientras que Shift + Espacio selecciona la fila completa en Excel.",
+      "usage": "dossier"
+    },
+    {
+      "id": 56,
+      "question": "En Microsoft Word, ¿qué ocurre al pulsar la tecla F8 dos veces consecutivas sobre una palabra?",
+      "options": [
+        "Se elimina el documento entero.",
+        "Se selecciona la palabra donde se encuentra el cursor.",
+        "Se guarda el archivo en la nube.",
+        "Se convierte la palabra a mayúsculas."
+      ],
+      "correctAnswer": 1,
+      "explanation": "En el modo de selección ampliada de Word (F8), 2 pulsaciones seleccionan la palabra, 3 la frase, 4 el párrafo y 5 todo el documento.",
+      "usage": "dossier"
     }
   ],
   "14": [
