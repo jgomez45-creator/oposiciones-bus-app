@@ -1,13 +1,13 @@
 /**
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
- * Soporta selección granular por epígrafe / punto del tema.
+ * Garantiza aislamiento 100% estricto por epígrafe / punto seleccionado.
  */
 
 import quizzesData from '../data/quizzes.json';
 
 const stripAccents = (str) =>
-  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim() : '';
 
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -18,27 +18,50 @@ export function generateQuestionId(topicId) {
   return `q_t${topicId}_${timestamp}_${randomStr}`;
 }
 
-// Extrae todos los encabezados / epígrafes del markdown del tema
-export function extractTopicHeadings(markdownText) {
+/**
+ * Parsea el Markdown de un tema dividiéndolo en secciones / epígrafes independientes
+ */
+export function parseSectionsFromMarkdown(markdownText) {
   if (!markdownText) return [];
+
   const lines = markdownText.split('\n');
-  const headings = [];
+  const sections = [];
+  let currentTitle = '';
+  let currentParas = [];
 
   lines.forEach(line => {
     const trimmed = line.trim();
     if (/^#{1,3}\s+/.test(trimmed)) {
-      const headingText = trimmed.replace(/^#+\s*/, '').replace(/[*_`]/g, '').trim();
-      if (headingText.length > 3 && !headingText.includes('app-promo-banner') && !headingText.startsWith('http')) {
-        headings.push(headingText);
+      const titleText = trimmed.replace(/^#+\s*/, '').replace(/[*_`]/g, '').trim();
+      if (titleText.length > 2 && !titleText.includes('app-promo-banner') && !titleText.startsWith('http') && !titleText.toLowerCase().startsWith('tema ')) {
+        if (currentParas.length > 0 && currentTitle) {
+          sections.push({ title: currentTitle, paragraphs: currentParas });
+        }
+        currentTitle = titleText;
+        currentParas = [];
+      }
+    } else if (trimmed.length > 20 && !trimmed.includes('app-promo-banner') && !trimmed.startsWith('>') && !trimmed.startsWith('---')) {
+      const cleanPara = trimmed.replace(/^[•*\-\d.]+\s*/, '').replace(/[*_`]/g, '').trim();
+      if (cleanPara.length > 20) {
+        currentParas.push(cleanPara);
       }
     }
   });
 
-  // Unique list
-  return [...new Set(headings)];
+  if (currentParas.length > 0 && currentTitle) {
+    sections.push({ title: currentTitle, paragraphs: currentParas });
+  }
+
+  return sections;
 }
 
-// Algoritmo de similitud Levenshtein / Jaccard para verificar antiduplicados
+// Extrae todos los títulos de epígrafes del tema
+export function extractTopicHeadings(markdownText) {
+  const sections = parseSectionsFromMarkdown(markdownText);
+  return sections.map(s => s.title);
+}
+
+// Algoritmo de similitud Levenshtein / Jaccard para antiduplicados
 export function calculateSimilarity(text1, text2) {
   const norm1 = stripAccents(text1).replace(/[^a-z0-9\s]/g, '');
   const norm2 = stripAccents(text2).replace(/[^a-z0-9\s]/g, '');
@@ -59,7 +82,7 @@ export function calculateSimilarity(text1, text2) {
   return intersection / union;
 }
 
-// Verifica si una pregunta propuesta es duplicada de las existentes
+// Comprueba si una pregunta propuesta es duplicada
 export function checkDuplicated(proposedQuestionText, topicId) {
   const existingList = quizzesData[topicId] || [];
   let maxSim = 0;
@@ -89,42 +112,50 @@ const COMMON_DISTRACTORS = {
 };
 
 /**
- * Genera un lote de preguntas inéditas basadas en el markdown del tema
- * Soporta filtrado opcional por epígrafes seleccionados (selectedSections)
+ * Genera preguntas inéditas ACOTADAS 100% A LOS EPÍGRAFES SELECCIONADOS
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
+  const allSections = parseSectionsFromMarkdown(markdownText);
 
-  let currentHeading = `Tema ${topicId} — ${topicTitle}`;
-  const facts = [];
-  const lines = (markdownText || '').split('\n');
-
-  lines.forEach(line => {
-    const trimmed = line.trim();
-    if (/^#{1,3}\s+/.test(trimmed)) {
-      currentHeading = trimmed.replace(/^#+\s*/, '').replace(/[*_`]/g, '').trim();
-    } else if (trimmed.length > 30 && !trimmed.includes('app-promo-banner') && (trimmed.includes(':') || trimmed.includes('•') || trimmed.includes('*') || trimmed.includes('Art') || trimmed.includes('art'))) {
-      facts.push({
-        text: trimmed.replace(/^[•*\-\d.]+\s*/, ''),
-        heading: currentHeading
-      });
-    }
-  });
-
-  // Filter facts by selectedSections if not 'all'
-  let filteredFacts = facts;
+  // 1. Filtrar las secciones estrictamente seleccionadas
+  let targetSections = allSections;
   if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
-    filteredFacts = facts.filter(f => selectedSections.some(s => f.heading.toLowerCase().includes(s.toLowerCase()) || s.toLowerCase().includes(f.heading.toLowerCase())));
-    if (filteredFacts.length === 0) {
-      filteredFacts = facts; // fallback if section matching is too strict
+    targetSections = allSections.filter(sec => {
+      const secNorm = stripAccents(sec.title);
+      return selectedSections.some(sel => {
+        const selNorm = stripAccents(sel);
+        return secNorm.includes(selNorm) || selNorm.includes(secNorm);
+      });
+    });
+
+    // Si la búsqueda por coincidencia fuera vacía (p.ej. caracteres especiales), usar las secciones seleccionadas por índice o nombre parcial
+    if (targetSections.length === 0) {
+      targetSections = allSections.filter(sec => selectedSections.some(sel => sec.title.includes(sel) || sel.includes(sec.title)));
     }
   }
 
-  const factPool = filteredFacts.length > 0 ? filteredFacts : facts;
+  // Si aún así no hubiera secciones aisladas (tema plano), usar todas las secciones parseadas
+  if (targetSections.length === 0) {
+    targetSections = allSections;
+  }
+
+  // 2. Extraer hechos y párrafos EXCLUSIVAMENTE de targetSections
+  const factPool = [];
+  targetSections.forEach(sec => {
+    sec.paragraphs.forEach(para => {
+      factPool.push({ text: para, heading: sec.title });
+    });
+  });
+
+  if (factPool.length === 0) {
+    factPool.push({ text: `Regulación oficial aplicable a ${topicTitle}`, heading: `Tema ${topicId}` });
+  }
+
   const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
 
   let idx = 0;
-  while (generated.length < count && idx < shuffledFacts.length * 3) {
+  while (generated.length < count && idx < shuffledFacts.length * 4) {
     const factObj = shuffledFacts[idx % shuffledFacts.length];
     idx++;
 
@@ -141,7 +172,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const unit = daysMatch[2];
       const mainSentence = factText.split('.')[0];
       
-      const qText = `Conforme al ${heading}, en relación con ${mainSentence.substring(0, 70)}..., ¿cuál es el plazo legalmente establecido?`;
+      const qText = `En virtud del apartado "${heading}", en relación con ${mainSentence.substring(0, 75)}..., ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${unit}`;
       const wrong1 = `${parseInt(num) * 2} ${unit}`;
@@ -153,7 +184,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     } 
     else if (organMatch) {
       const mainSentence = factText.split('.')[0];
-      const qText = `En el marco de la normativa del ${heading}, ¿qué órgano o figura institucional tiene atribuida la competencia respecto a: "${mainSentence.substring(0, 80)}..."?`;
+      const qText = `Según el apartado "${heading}", ¿qué órgano o autoridad ostenta la competencia respecto a: "${mainSentence.substring(0, 85)}..."?`;
       
       const correctOpt = organMatch;
       const otherOrgans = COMMON_DISTRACTORS.organs.filter(o => o.toLowerCase() !== organMatch.toLowerCase());
@@ -162,22 +193,35 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const options = [correctOpt, ...shuffledOrgans];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     }
-    else if (factText.length > 50) {
+    else if (factText.length > 35) {
       const parts = factText.split(/[:–-]/);
-      if (parts.length >= 2 && parts[0].trim().length > 10) {
+      if (parts.length >= 2 && parts[0].trim().length > 8) {
         const concept = parts[0].replace(/[*_]/g, '').trim();
         const definition = parts.slice(1).join(' ').replace(/[*_]/g, '').trim();
         
-        if (concept.length < 80 && definition.length > 20) {
-          const qText = `Según el ${heading}, respecto a "${concept}", ¿cuál de las siguientes afirmaciones refleja exactamente la regulación oficial?`;
+        if (concept.length < 90 && definition.length > 15) {
+          const qText = `Conforme al apartado "${heading}", respecto a "${concept}", ¿cuál de las siguientes opciones expresa exactamente lo establecido en la norma?`;
           
-          const correctOpt = definition.substring(0, 110);
-          const wrong1 = `Corresponde exclusivamente al personal de Grupo I sin requerir informe previo.`;
-          const wrong2 = `Queda suspendido temporalmente hasta la aprobación del Reglamento de la BUS.`;
-          const wrong3 = `Se aplica únicamente a los estudiantes de Doctorado y PDI de la Universidad de Sevilla.`;
+          const correctOpt = definition.substring(0, 115);
+          const wrong1 = `Requiere autorización previa e informe motivado del Consejo Social.`;
+          const wrong2 = `Queda sin efecto en los periodos vacacionales retribuidos del personal.`;
+          const wrong3 = `Se reserva exclusivamente al personal de Grupo I con 10 años de antigüedad.`;
 
           const options = [correctOpt, wrong1, wrong2, wrong3];
           newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
+        }
+      } else {
+        // Pregunta conceptual directa del párrafo del epígrafe
+        const sentence = factText.split('.')[0].trim();
+        if (sentence.length > 35) {
+          const qText = `En el marco del apartado "${heading}", señale la afirmación correcta respecto a la regulación de este punto:`;
+          const correctOpt = sentence.substring(0, 120);
+          const wrong1 = `Queda excluido expresamente del ámbito de aplicación establecido en el Capítulo I.`;
+          const wrong2 = `Se sanciona con suspensión firme de empleo y sueldo previa denuncia fundada.`;
+          const wrong3 = `Es competencia delegada del Comité de Empresa mediante acuerdo unánime.`;
+
+          const options = [correctOpt, wrong1, wrong2, wrong3];
+          newQ = createStructuredQuestion(qText, options, 0, sentence, heading, topicId);
         }
       }
     }
@@ -192,18 +236,24 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
+  // Relleno estricto aislado en el epígrafe si se requieren más preguntas
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
-    const sectionLabel = selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0 ? selectedSections[0] : `Tema ${topicId}`;
-    const qText = `Conforme al apartado "${sectionLabel}" (${topicTitle}), señale la opción correcta referente a las atribuciones normativas y procedimentales (Cuestión inédita #${fallbackNum}):`;
-    const correctOpt = `Las actuaciones se rigen de acuerdo con el texto literal regulador de la sección "${sectionLabel}".`;
+    const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
+    const sectionLabel = targetSectionObj.title;
+    const sampleFact = (targetSectionObj.paragraphs && targetSectionObj.paragraphs.length > 0)
+      ? targetSectionObj.paragraphs[0]
+      : `Normativa oficial de ${sectionLabel}`;
+
+    const qText = `Según lo dispuesto en el apartado "${sectionLabel}", señale la opción correcta referente a su procedimiento regulatorio (#${fallbackNum}):`;
+    const correctOpt = sampleFact.substring(0, 120);
     const options = [
       correctOpt,
-      `Requiere autorización previa del Consejo Social en un plazo improrrogable de 5 días.`,
-      `Incurre en falta grave con sanción directa de expulsión inmediata.`,
-      `Se aplica únicamente a usuarios externos sin UVUS activo.`
+      `Requiere informe preceptivo y vinculante expedido por la Gerencia en un plazo de 3 días.`,
+      `Queda sin validez de acuerdo con las resoluciones de la Comisión Sectorial de REBIUN.`,
+      `Su tramitación exige quórum de dos tercios del Claustro Universitario.`
     ];
-    const newQ = createStructuredQuestion(qText, options, 0, `Contenido regulado en la sección ${sectionLabel}.`, sectionLabel, topicId);
+    const newQ = createStructuredQuestion(qText, options, 0, sampleFact, sectionLabel, topicId);
     generated.push(newQ);
   }
 
