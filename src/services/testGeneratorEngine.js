@@ -2,10 +2,10 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Garantiza:
+ * Cobertura completa y profesional para los 20 Temas de la Oposición:
  * 1. Purga 100% de HTML, banners de promoción y enlaces de marketing.
- * 2. Distractores 100% verosímiles y formales extraídos de otros conceptos del mismo tema o dominio legal/técnico.
- * 3. Cero opciones de descarte fácil o disparates fuera de ámbito.
+ * 2. Mapeo de distractores plausibles por dominio para CADA UNO de los 20 temas.
+ * 3. Cero descarte fácil o cruzado de dominios.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -146,33 +146,25 @@ export function checkDuplicated(proposedQuestionText, topicId) {
   };
 }
 
-// ── BANCO DE DISTRACTORES FORMALES Y PLAUSIBLES POR DOMINIO ──────────────────
+// ── BANCO DE DISTRACTORES FORMALES Y PLAUSIBLES PARA LOS 20 TEMAS ─────────────
 const DOMAIN_DISTRACTORS = {
-  // Dominio: Igualdad y Acoso (Tema 19)
-  igualdad: [
-    'Situación en que una disposición o práctica aparentemente neutra pone a personas de un sexo en desventaja particular.',
-    'Trato desfavorable o adverso dispensado a una persona como reacción ante una reclamación o recurso administrativo.',
-    'Cualquier comportamiento verbal o físico no deseado que tenga el propósito de atentar contra la dignidad personal.',
-    'Principio de presencia equilibrada garantizado mediante una representación entre el 40% y el 60% de ambos sexos.',
-    'Medidas específicas de acción positiva adoptadas para corregir situaciones patentes de desigualdad de hecho.'
+  // Temas 1-5: Derecho Administrativo y Normativa Universitaria (LOSU, LPAC, LRJSP)
+  derecho_admin: [
+    'Acto administrativo ejecutivo sujeto a recurso de alzada en el plazo de un mes ante el órgano superior jerárquico.',
+    'Resolución que agota la vía administrativa resolviendo la solicitud mediante silencio positivo regulado.',
+    'Disposición de carácter general notificada individualmente a los interesados dentro de los 10 días siguientes.',
+    'Procedimiento tramitado por la vía de urgencia reduciendo a la mitad los plazos normativos ordinarios.',
+    'Contrato menor que no requiere licitación pública por importe inferior al umbral legalmente regulado.'
   ],
-  // Dominio: Convenio y Empleo (Tema 17, 18)
-  convenio: [
-    'Desempeño de funciones de grupo superior por un periodo máximo e improrrogable de 12 meses continuados.',
-    'Adquisición de la condición de personal fijo mediante la superación de los procesos selectivos de turno libre.',
-    'Derecho a la concesión de licencias retribuidas de hasta 15 días naturales por matrimonio o pareja de hecho.',
-    'Modificación sustancial de las condiciones de trabajo sometida a informe previo del Comité de Empresa.',
-    'Prescripción de las faltas muy graves a los 60 días contados desde la fecha en que la Gerencia tuvo conocimiento.'
+  // Temas 6-12: Biblioteconomía, Servicios BUS, CDU, Catálogos, Fondo Antiguo y Preservación
+  biblioteconomia: [
+    'Servicio de Préstamo Interbibliotecario (PIB / ILL) orientado a localizar documentos no existentes en el catálogo FAMA.',
+    'Clasificación Decimal Universal (CDU) estructurada mediante tablas principales de números y auxiliares de relación.',
+    'Plataforma de gestión de servicios de información Alma integrada con el catálogo en línea de la Universidad.',
+    'Consulta restringida en sala para manuscritos e impresos del Fondo Antiguo anteriores a 1901.',
+    'Renovación automática del periodo de préstamo a través del espacio personal en la plataforma FAMA.'
   ],
-  // Dominio: Biblioteca y Servicios BUS (Temas 6 al 12)
-  biblioteca: [
-    'Consulta y préstamo de documentos restringido a usuarios con UVUS activo o carné oficial de la BUS.',
-    'Servicio de Préstamo Interbibliotecario (PIB) orientado a la obtención de fondos no existentes en el catálogo FAMA.',
-    'Clasificación Decimal Universal (CDU) organizada mediante tablas principales y auxiliares sistemáticas.',
-    'Catálogo en línea FAMA integrado en la plataforma de gestión de recursos de información Alma.',
-    'Fondo Antiguo y Archivo Histórico compuesto por manuscritos, incunables e impresos anteriores a 1901.'
-  ],
-  // Dominio: Informática / Microsoft 365 (Temas 13 a 16)
+  // Temas 13-16: Informática, Microsoft 365, Word, Excel, Teams, OneDrive, SharePoint
   informatica: [
     'Ctrl + Shift + L', 'Alt + F11', 'Ctrl + Alt + V', 'Ctrl + N',
     'Aplicar el formato de moneda con dos decimales a las celdas seleccionadas.',
@@ -180,24 +172,66 @@ const DOMAIN_DISTRACTORS = {
     'Abrir el cuadro de diálogo Buscar y Reemplazar dentro del libro activo.',
     'Sincronizar carpetas y archivos locales mediante el cliente de OneDrive para Empresa.',
     'Asignar permisos de visualización o edición restringidos a usuarios del espacio de trabajo de Teams.'
+  ],
+  // Tema 17: Estatutos de la Universidad de Sevilla
+  estatutos_us: [
+    'Máxima autoridad académica y de representación de la Universidad de Sevilla elegida por la comunidad universitaria.',
+    'Órgano colegiado de gobierno que aprueba la propuesta de presupuesto e imparte las directrices generales de la Universidad.',
+    'Órgano supremo de representación de la comunidad universitaria compuesto por representación del PDI, PTGAS y estudiantado.',
+    'Órgano encargado de supervisar las actividades de carácter económico y el rendimiento de los servicios de la Universidad.',
+    'Comisión delegada competente para dictaminar las reclamaciones en materia de profesorado y personal.'
+  ],
+  // Tema 18: IV Convenio Colectivo del Personal Laboral de Universidades
+  convenio_us: [
+    'Desempeño de funciones de grupo superior por un periodo máximo e improrrogable de 12 meses continuados.',
+    'Adquisición de la condición de personal fijo mediante la superación de los procesos selectivos de turno libre.',
+    'Derecho a la concesión de licencias retribuidas de hasta 15 días naturales por matrimonio o pareja de hecho.',
+    'Modificación sustancial de las condiciones de trabajo sometida a informe previo del Comité de Empresa.',
+    'Prescripción de las faltas muy graves a los 60 días contados desde la fecha en que la Gerencia tuvo conocimiento.'
+  ],
+  // Tema 19: Ley Orgánica 3/2007 e Igualdad
+  igualdad: [
+    'Situación en que una disposición o práctica aparentemente neutra pone a personas de un sexo en desventaja particular.',
+    'Trato desfavorable o adverso dispensado a una persona como reacción ante una reclamación o recurso administrativo.',
+    'Cualquier comportamiento verbal o físico no deseado que tenga el propósito de atentar contra la dignidad personal.',
+    'Principio de presencia equilibrada garantizado mediante una representación entre el 40% y el 60% de ambos sexos.',
+    'Medidas específicas de acción positiva adoptadas para corregir situaciones patentes de desigualdad de hecho.'
+  ],
+  // Tema 20: Prevención de Riesgos Laborales (LPRL 31/1995 y SEPRUS)
+  prl_seprus: [
+    'Órgano colegiado y paritario de participación destinado a la consulta regular de las actuaciones en materia de prevención.',
+    'Representante de los trabajadores con funciones específicas de prevención de riesgos en el centro de trabajo.',
+    'Evaluación inicial de los riesgos para la seguridad y salud de los trabajadores al comenzar una actividad.',
+    'Obligación del empresario de proporcionar equipos de protección individual (EPI) adecuados al puesto.',
+    'Vigilancia periódica del estado de salud de los trabajadores en función de los riesgos inherentes al trabajo.'
   ]
 };
+
+// Determina el grupo temático según el topicId
+function getDomainKeyForTopic(topicId, normContent) {
+  const topNum = parseInt(topicId, 10);
+  if (/igualdad|acoso|ciberacoso|sexo|género|violencia|discriminación/i.test(normContent) || topNum === 19) {
+    return 'igualdad';
+  }
+  if (/excel|word|m365|office|celda|hoja|documento|tabla|pantalla|ctrl|alt|shift|f\d|atajo/i.test(normContent) || (topNum >= 13 && topNum <= 16)) {
+    return 'informatica';
+  }
+  if (/prl|riesgo|seprus|prevención|seguridad y salud|delegado/i.test(normContent) || topNum === 20) {
+    return 'prl_seprus';
+  }
+  if (topNum === 18) return 'convenio_us';
+  if (topNum === 17) return 'estatutos_us';
+  if (topNum >= 6 && topNum <= 12) return 'biblioteconomia';
+  if (topNum >= 1 && topNum <= 5) return 'derecho_admin';
+  return 'convenio_us';
+}
 
 /**
  * Selecciona o sintetiza distractores 100% verosímiles y formales
  */
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
   const normContent = (heading + ' ' + factText + ' ' + correctOpt).toLowerCase();
-  
-  // Determinar dominio temático
-  let domainKey = 'convenio';
-  if (/igualdad|acoso|ciberacoso|sexo|género|violencia|discriminación/i.test(normContent)) {
-    domainKey = 'igualdad';
-  } else if (/excel|word|m365|office|celda|hoja|documento|tabla|pantalla|ctrl|alt|shift|f\d|atajo/i.test(normContent)) {
-    domainKey = 'informatica';
-  } else if (/prestamo|pib|fama|alma|cdu|biblioteca|bus|catalogo|fondo antiguo|rfid|cbua|rebiun/i.test(normContent)) {
-    domainKey = 'biblioteca';
-  }
+  const domainKey = getDomainKeyForTopic(topicId, normContent);
 
   const distractors = [];
   const used = new Set([correctOpt.toLowerCase().trim()]);
@@ -232,7 +266,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 
   // OP 3: Usar distractores formales del banco de dominio correspondiente
   if (distractors.length < 3) {
-    const domainPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio).sort(() => 0.5 - Math.random());
+    const domainPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us).sort(() => 0.5 - Math.random());
     domainPool.forEach(item => {
       if (distractors.length < 3 && !used.has(item.toLowerCase())) {
         distractors.push(item);
@@ -245,7 +279,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas ACOTADAS Y CON DISTRACTORES 100% PROFESIONALES
+ * Genera preguntas inéditas ACOTADAS Y CON DISTRACTORES 100% PROFESIONALES (20 Temas)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -355,7 +389,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES
+    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && parts[0].trim().length > 3) {
