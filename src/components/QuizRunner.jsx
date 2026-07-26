@@ -64,7 +64,11 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const [paperExamSubmitted, setPaperExamSubmitted] = useState(false);
   const [isPaperFullscreen, setIsPaperFullscreen] = useState(false);
 
+  const [quizzesVersion, setQuizzesVersion] = useState(0);
+
   useEffect(() => {
+    const handleUpdate = () => setQuizzesVersion(v => v + 1);
+    window.addEventListener('quizzes-updated', handleUpdate);
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isPaperFullscreen) {
         setIsPaperFullscreen(false);
@@ -72,6 +76,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
+      window.removeEventListener('quizzes-updated', handleUpdate);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isPaperFullscreen]);

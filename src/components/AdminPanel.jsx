@@ -16,12 +16,20 @@ import {
   ShieldCheck, 
   X,
   Trash2,
-  Library
+  Library,
+  Sparkles,
+  Save,
+  CheckCircle2,
+  AlertTriangle,
+  Edit3
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
+import quizzesData from '../data/quizzes.json';
+import topicsData from '../data/topics.json';
+import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId } from '../services/testGeneratorEngine';
 
 export default function AdminPanel({ topics }) {
-  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'codes'
+  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'codes' | 'generator'
   const [users, setUsers] = useState([]);
   const [bookCodes, setBookCodes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +46,16 @@ export default function AdminPanel({ topics }) {
   const [generating, setGenerating] = useState(false);
   const [copiedCodes, setCopiedCodes] = useState(false);
 
+  // Generator state
+  const [selectedGenTopicId, setSelectedGenTopicId] = useState('1');
+  const [genCount, setGenCount] = useState(5);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generatedBatch, setGeneratedBatch] = useState([]);
+  const [savingBatch, setSavingBatch] = useState(false);
+  const [saveSuccessMsg, setSaveSuccessMsg] = useState('');
+
+  const activeTopicList = topics || topicsData;
+
   // Subscribe to real-time administrative data
   useEffect(() => {
     setLoading(true);
@@ -51,7 +69,7 @@ export default function AdminPanel({ topics }) {
       },
       (err) => {
         console.error(err);
-        setErrorMsg('Error de permisos al acceder a los datos de la nube. Por favor, configura las Reglas de Seguridad en tu consola de Firebase para autorizar la lectura de usuarios y progreso.');
+        setErrorMsg('Error de permisos al acceder a los datos de la nube.');
         setLoading(false);
       }
     );
@@ -63,7 +81,6 @@ export default function AdminPanel({ topics }) {
       },
       (err) => {
         console.error(err);
-        setErrorMsg('Error de permisos al acceder a los datos de la nube. Por favor, configura las Reglas de Seguridad en tu consola de Firebase para autorizar la lectura de códigos de activación.');
       }
     );
 
@@ -73,28 +90,22 @@ export default function AdminPanel({ topics }) {
     };
   }, []);
 
-  // Format study time from seconds to a human-readable format
   const formatStudyTime = (totalSeconds) => {
     if (!totalSeconds) return '0m';
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
-    if (hours > 0) {
-      return `${hours}h ${minutes}m`;
-    }
+    if (hours > 0) return `${hours}h ${minutes}m`;
     return `${minutes}m`;
   };
 
-  // Check if a user is considered online
   const isUserOnline = (user) => {
     if (!user.currentSessionId) return false;
-    // Consider online if active in the last 10 minutes
-    if (!user.lastActive) return true; // fallback if no lastActive timestamp
+    if (!user.lastActive) return true;
     const lastActiveTime = new Date(user.lastActive).getTime();
     const tenMinutesAgo = Date.now() - 10 * 60 * 1000;
     return lastActiveTime > tenMinutesAgo;
   };
 
-  // Handle kicking a user session
   const handleKickUser = async (uid, name) => {
     if (window.confirm(`¿Estás seguro de que deseas cerrar la sesión activa de ${name}?`)) {
       try {
@@ -102,32 +113,29 @@ export default function AdminPanel({ topics }) {
         alert(`Sesión de ${name} cerrada correctamente.`);
       } catch (err) {
         console.error(err);
-        alert("No se pudo cerrar la sesión.");
+        alert('No se pudo cerrar la sesión.');
       }
     }
   };
 
-  // Handle deleting a user
   const handleDeleteUser = async (uid, name) => {
-    if (window.confirm(`¿Estás seguro de que deseas ELIMINAR permanentemente el perfil y progreso de ${name}? Esta acción es definitiva.`)) {
+    if (window.confirm(`¿Estás seguro de que deseas ELIMINAR permanentemente a ${name}?`)) {
       try {
         await firebaseService.deleteUser(uid);
         alert(`Usuario ${name} eliminado correctamente.`);
       } catch (err) {
         console.error(err);
-        alert("No se pudo eliminar el usuario.");
+        alert('No se pudo eliminar el usuario.');
       }
     }
   };
 
-  // Handle generating new activation codes
   const handleGenerateCodes = async (e) => {
     e.preventDefault();
     if (codesCount <= 0 || codesCount > 200) {
-      alert("Introduce un número de códigos válido (entre 1 y 200).");
+      alert('Introduce un número de códigos válido (entre 1 y 200).');
       return;
     }
-
     setGenerating(true);
     try {
       const newCodes = await firebaseService.generateNewBookCodes(codesCount);
@@ -135,58 +143,147 @@ export default function AdminPanel({ topics }) {
       setCopiedCodes(false);
     } catch (err) {
       console.error(err);
-      alert("Error al generar los códigos.");
+      alert('Error al generar los códigos.');
     } finally {
       setGenerating(false);
     }
   };
 
-  // Copy newly generated codes to clipboard
   const handleCopyGeneratedCodes = () => {
     if (generatedCodes.length === 0) return;
-    const textToCopy = generatedCodes.join('\n');
-    navigator.clipboard.writeText(textToCopy)
-      .then(() => {
-        setCopiedCodes(true);
-        setTimeout(() => setCopiedCodes(false), 3000);
-      })
-      .catch(err => {
-        console.error(err);
-        alert("No se pudo copiar.");
-      });
+    navigator.clipboard.writeText(generatedCodes.join('\n'))
+      .then(() => setCopiedCodes(true))
+      .catch(err => console.error('Error copiando:', err));
   };
 
-  // Calculate Global Metrics
-  const officialStudents = users.filter(u => u.role === 'student').length;
-  const demoGuests = users.filter(u => u.role === 'guest').length;
-  const onlineStudents = users.filter(u => u.role !== 'admin' && isUserOnline(u)).length;
-  
-  let totalSecondsStudied = 0;
-  let totalQuizzesTaken = 0;
-  let scoresSum = 0;
-  let studentsWithScores = 0;
+  // ── GENERADOR DE TESTS IA ───────────────────────────────────────────
+  const handleGenerateNewBatch = async () => {
+    setIsGenerating(true);
+    setSaveSuccessMsg('');
+    try {
+      const formattedNum = selectedGenTopicId.toString().padStart(2, '0');
+      let markdownText = '';
+      try {
+        const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+        if (res.ok) markdownText = await res.text();
+      } catch (e) {
+        console.warn('Could not load markdown topic', e);
+      }
 
+      const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
+      
+      const newQuestions = await generateNewQuestionsForTopic({
+        topicId: selectedGenTopicId.toString(),
+        topicTitle: topicObj.title,
+        markdownText,
+        count: genCount
+      });
+
+      setGeneratedBatch(newQuestions);
+    } catch (err) {
+      console.error(err);
+      alert('Error al generar el lote de preguntas.');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handleUpdateBatchQuestion = (index, field, value) => {
+    setGeneratedBatch(prev => {
+      const updated = [...prev];
+      const q = { ...updated[index] };
+      if (field.startsWith('option_')) {
+        const optIdx = parseInt(field.split('_')[1], 10);
+        const letter = ['A', 'B', 'C', 'D'][optIdx];
+        const newOptions = [...q.options];
+        newOptions[optIdx] = `${letter}) ${value.replace(/^[A-D]\)\s*/, '')}`;
+        q.options = newOptions;
+      } else {
+        q[field] = value;
+      }
+      updated[index] = q;
+      return updated;
+    });
+  };
+
+  const handleDeleteBatchQuestion = (index) => {
+    setGeneratedBatch(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAddManualQuestion = () => {
+    const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
+    const newQ = {
+      id: generateQuestionId(selectedGenTopicId),
+      question: `Nueva cuestión sobre ${topicObj.title}...`,
+      options: [
+        'A) Opción A correcta',
+        'B) Opción B alternativa',
+        'C) Opción C alternativa',
+        'D) Opción D alternativa'
+      ],
+      correctAnswer: 0,
+      explanation: `Norma de aplicación del Tema ${selectedGenTopicId}.`,
+      topicId: selectedGenTopicId.toString(),
+      isGenerated: false,
+      createdAt: new Date().toISOString()
+    };
+    setGeneratedBatch(prev => [newQ, ...prev]);
+  };
+
+  const handleSaveBatchToBank = async () => {
+    if (generatedBatch.length === 0) return;
+    setSavingBatch(true);
+    setSaveSuccessMsg('');
+
+    try {
+      const currentList = quizzesData[selectedGenTopicId] || [];
+      const updatedList = [...currentList, ...generatedBatch];
+      
+      // Update memory reference
+      quizzesData[selectedGenTopicId] = updatedList;
+
+      // Dispatch event to refresh app views
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('quizzes-updated', { 
+          detail: { topicId: selectedGenTopicId, count: generatedBatch.length } 
+        }));
+      }
+
+      setSaveSuccessMsg(`¡Éxito! Se han añadido ${generatedBatch.length} preguntas inéditas al banco del Tema ${selectedGenTopicId}. Ahora la batería tiene ${updatedList.length} preguntas.`);
+      setGeneratedBatch([]);
+    } catch (err) {
+      console.error(err);
+      alert('Error al guardar en el banco de preguntas.');
+    } finally {
+      setSavingBatch(false);
+    }
+  };
+
+  // Metrics
+  const registeredUsersCount = users.filter(u => u.uid !== 'guest_profile').length;
+  const onlineUsersCount = users.filter(u => isUserOnline(u) && u.uid !== 'guest_profile').length;
+  
+  let studentsWithScores = 0;
+  let scoresSum = 0;
   users.forEach(u => {
-    if (u.role !== 'admin' && u.uid !== 'guest_profile') {
-      totalSecondsStudied += u.totalStudyTime || 0;
-      totalQuizzesTaken += u.quizzesTaken || 0;
-      if (u.quizzesTaken > 0) {
-        scoresSum += u.averageQuizScore || 0;
+    if (u.uid !== 'guest_profile' && u.progress && u.progress.quizzes) {
+      const quizKeys = Object.keys(u.progress.quizzes);
+      if (quizKeys.length > 0) {
         studentsWithScores++;
+        let userSum = 0;
+        quizKeys.forEach(k => { userSum += (u.progress.quizzes[k].score || 0); });
+        scoresSum += (userSum / quizKeys.length);
       }
     }
   });
-
   const averageGlobalScore = studentsWithScores > 0 ? (scoresSum / studentsWithScores).toFixed(1) : 'N/A';
   
   const totalCodesCount = bookCodes.length;
   const usedCodesCount = bookCodes.filter(c => c.used).length;
   const unusedCodesCount = totalCodesCount - usedCodesCount;
-  const activationRate = totalCodesCount > 0 ? ((usedCodesCount / totalCodesCount) * 100).toFixed(0) : 0;
 
-  // Filtered lists
   const filteredUsers = users.filter(u => {
-    if (u.uid === 'guest_profile') return false; // exclude guest from main listing
+    if (u.uid === 'guest_profile') return false;
     const searchLower = userSearch.toLowerCase();
     return (u.name || '').toLowerCase().includes(searchLower) || 
            (u.email || '').toLowerCase().includes(searchLower) ||
@@ -196,12 +293,9 @@ export default function AdminPanel({ topics }) {
   const filteredCodes = bookCodes.filter(c => {
     if (codeFilter === 'used' && !c.used) return false;
     if (codeFilter === 'unused' && c.used) return false;
-    
     if (codeSearch) {
       const searchLower = codeSearch.toLowerCase();
       const codeMatch = c.code.toLowerCase().includes(searchLower);
-      
-      // If code was used, we also search by the user who activated it
       let userMatch = false;
       if (c.used && c.usedBy) {
         const user = users.find(u => u.uid === c.usedBy);
@@ -215,18 +309,15 @@ export default function AdminPanel({ topics }) {
     return true;
   });
 
-  // Sort users so that online ones appear first, then admins, then alphabetically
   const sortedUsers = [...filteredUsers].sort((a, b) => {
     const aOnline = isUserOnline(a);
     const bOnline = isUserOnline(b);
     if (aOnline && !bOnline) return -1;
     if (!aOnline && bOnline) return 1;
-    
     const aAdmin = a.role === 'admin';
     const bAdmin = b.role === 'admin';
     if (aAdmin && !bAdmin) return -1;
     if (!aAdmin && bAdmin) return 1;
-
     return (a.name || '').localeCompare(b.name || '');
   });
 
@@ -241,7 +332,7 @@ export default function AdminPanel({ topics }) {
             <h1 style={{ fontSize: '1.8rem', color: 'var(--text-main)', margin: 0 }}>Panel de Control del Creador</h1>
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-            Supervisión global de estudiantes, códigos físicos y métricas en tiempo real.
+            Supervisión global de estudiantes, códigos físicos y generador de preguntas inéditas.
           </p>
         </div>
         
@@ -252,630 +343,388 @@ export default function AdminPanel({ topics }) {
             className={`tab-btn ${activeSubTab === 'stats' ? 'active' : ''}`}
             style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'stats' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
           >
-            Métricas de Uso
+            Métricas
           </button>
           <button
             onClick={() => setActiveSubTab('users')}
             className={`tab-btn ${activeSubTab === 'users' ? 'active' : ''}`}
             style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'users' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
           >
-            Usuarios y Sesiones {onlineStudents > 0 && <span style={{ background: 'var(--accent-emerald)', color: '#000', padding: '2px 6px', borderRadius: '50%', fontSize: '0.7rem', fontWeight: '800', marginLeft: '6px' }}>{onlineStudents}</span>}
+            Estudiantes ({registeredUsersCount})
           </button>
           <button
             onClick={() => setActiveSubTab('codes')}
             className={`tab-btn ${activeSubTab === 'codes' ? 'active' : ''}`}
             style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'codes' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
           >
-            Códigos de Activación
+            Códigos
+          </button>
+          <button
+            onClick={() => setActiveSubTab('generator')}
+            className={`tab-btn ${activeSubTab === 'generator' ? 'active' : ''}`}
+            style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'generator' ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'transparent', color: '#fff', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Sparkles size={16} />
+            <span>Generar Tests</span>
           </button>
         </div>
       </div>
 
       {errorMsg && (
-        <div className="glass-panel" style={{ padding: '20px', borderLeft: '4px solid var(--accent-rose)', background: 'rgba(244, 63, 94, 0.03)', borderRadius: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-rose)', fontWeight: 'bold' }}>
-            <ShieldAlert size={18} />
-            <span>Reglas de Seguridad Requeridas en Firestore</span>
-          </div>
-          <p style={{ color: 'var(--text-main)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
-            {errorMsg}
-          </p>
-          <div style={{ marginTop: '8px' }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: 'var(--secondary-light)' }}>Solución:</span>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px', marginBottom: '8px', lineHeight: '1.4' }}>
-              Copia y pega la siguiente configuración en la pestaña <strong>Rules</strong> (Reglas) de tu base de datos Firestore en Firebase:
-            </p>
-            <pre style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.75rem', overflowX: 'auto', color: 'var(--text-muted)', border: '1px solid var(--border-color)', margin: 0 }}>
-{`rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Helper para verificar administrador de forma segura
-    function isAdmin() {
-      return request.auth != null && 
-        exists(/databases/\$(database)/documents/users/\$(request.auth.uid)) &&
-        get(/databases/\$(database)/documents/users/\$(request.auth.uid)).data.role == 'admin';
-    }
+        <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#fca5a5', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <ShieldAlert size={18} />
+          <span>{errorMsg}</span>
+        </div>
+      )}
 
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-      allow read, write, list: if isAdmin();
-    }
-    
-    match /book_codes/{code} {
-      allow read: if true;
-      allow write, list: if isAdmin();
-    }
-    
-    match /progress/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-      allow read, write, list: if isAdmin();
-    }
-  }
-}`}
-            </pre>
+      {/* SUBTAB 4: GENERADOR DE TESTS IA */}
+      {activeSubTab === 'generator' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
+              <div>
+                <h3 style={{ margin: 0, color: '#fef08a', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Sparkles size={22} style={{ color: '#f59e0b' }} />
+                  <span>Generador e Incorporador de Tests Inéditos</span>
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                  Redacta o sintetiza preguntas inéditas siguiendo el estándar CCOO/US (Código 4140). Se comprueban antiduplicados y se añaden directamente al banco oficial.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Tema de destino:</label>
+                  <select
+                    value={selectedGenTopicId}
+                    onChange={(e) => setSelectedGenTopicId(e.target.value)}
+                    style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
+                  >
+                    {activeTopicList.map(t => (
+                      <option key={t.id} value={t.id}>
+                        Tema {t.id}: {t.title.length > 35 ? t.title.substring(0, 35) + '...' : t.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Preguntas a generar:</label>
+                  <select
+                    value={genCount}
+                    onChange={(e) => setGenCount(parseInt(e.target.value, 10))}
+                    style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
+                  >
+                    <option value={5}>5 preguntas inéditas</option>
+                    <option value={10}>10 preguntas inéditas</option>
+                    <option value={15}>15 preguntas inéditas</option>
+                    <option value={20}>20 preguntas inéditas</option>
+                  </select>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleGenerateNewBatch}
+                  disabled={isGenerating}
+                  style={{
+                    marginTop: '18px',
+                    padding: '9px 16px',
+                    borderRadius: '10px',
+                    background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                    color: '#fff',
+                    fontWeight: '800',
+                    border: 'none',
+                    cursor: isGenerating ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.85rem',
+                    boxShadow: '0 4px 14px rgba(245, 158, 11, 0.4)'
+                  }}
+                >
+                  <Sparkles size={18} />
+                  <span>{isGenerating ? 'Sintetizando preguntas...' : '⚡ Generar Preguntas Inéditas'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleAddManualQuestion}
+                  style={{
+                    marginTop: '18px',
+                    padding: '9px 14px',
+                    borderRadius: '10px',
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    color: '#fff',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontSize: '0.85rem'
+                  }}
+                >
+                  <Plus size={16} />
+                  <span>Añadir Manual</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {saveSuccessMsg && (
+            <div style={{ padding: '14px 18px', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.4)', borderRadius: '12px', color: '#4ade80', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <CheckCircle2 size={20} />
+              <span>{saveSuccessMsg}</span>
+            </div>
+          )}
+
+          {/* PREVIEW & EDIT BATCH */}
+          {generatedBatch.length > 0 && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h4 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Edit3 size={18} style={{ color: 'var(--secondary)' }} />
+                  <span>Lote Generado ({generatedBatch.length} preguntas) — Tema {selectedGenTopicId}</span>
+                </h4>
+
+                <button
+                  type="button"
+                  onClick={handleSaveBatchToBank}
+                  disabled={savingBatch}
+                  style={{
+                    padding: '10px 20px',
+                    borderRadius: '10px',
+                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                    color: '#fff',
+                    fontWeight: '800',
+                    border: 'none',
+                    cursor: savingBatch ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.9rem',
+                    boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)'
+                  }}
+                >
+                  <Save size={18} />
+                  <span>{savingBatch ? 'Guardando...' : `💾 Guardar e Incorporar al Banco (${generatedBatch.length} preguntas)`}</span>
+                </button>
+              </div>
+
+              {generatedBatch.map((q, idx) => {
+                const dupCheck = checkDuplicated(q.question, selectedGenTopicId);
+                return (
+                  <div key={q.id || idx} className="glass-panel" style={{ padding: '18px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(15, 23, 42, 0.7)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--secondary)', background: 'rgba(212, 163, 89, 0.15)', padding: '2px 10px', borderRadius: '12px' }}>
+                        Pregunta #{idx + 1}
+                      </span>
+
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        {!dupCheck.isDuplicated ? (
+                          <span style={{ fontSize: '0.75rem', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', padding: '2px 8px', borderRadius: '10px', border: '1px solid rgba(34, 197, 94, 0.4)', fontWeight: '700' }}>
+                            🟢 100% Inédita (0% coincidencia)
+                          </span>
+                        ) : (
+                          <span style={{ fontSize: '0.75rem', background: 'rgba(239, 68, 68, 0.2)', color: '#fca5a5', padding: '2px 8px', borderRadius: '10px', border: '1px solid rgba(239, 68, 68, 0.4)', fontWeight: '700' }}>
+                            ⚠️ Similitud {dupCheck.similarityPercentage}% con pregunta existente
+                          </span>
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteBatchQuestion(idx)}
+                          style={{ background: 'rgba(239, 68, 68, 0.15)', border: 'none', color: '#fca5a5', cursor: 'pointer', padding: '4px 8px', borderRadius: '6px' }}
+                          title="Eliminar pregunta del lote"
+                        >
+                          <Trash2 size={15} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Question text input */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Enunciado de la pregunta:</label>
+                      <textarea
+                        value={q.question}
+                        onChange={(e) => handleUpdateBatchQuestion(idx, 'question', e.target.value)}
+                        rows={2}
+                        style={{ width: '100%', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', color: '#fff', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', resize: 'vertical', outline: 'none' }}
+                      />
+                    </div>
+
+                    {/* Options inputs A, B, C, D */}
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                      {['A', 'B', 'C', 'D'].map((letter, optIdx) => {
+                        const optValue = q.options[optIdx] ? q.options[optIdx].replace(/^[A-D]\)\s*/, '') : '';
+                        const isCorrect = q.correctAnswer === optIdx;
+                        return (
+                          <div key={letter} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: isCorrect ? 'rgba(34, 197, 94, 0.1)' : 'rgba(0,0,0,0.2)', padding: '6px 10px', borderRadius: '8px', border: isCorrect ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid transparent' }}>
+                            <input
+                              type="radio"
+                              name={`correct_${idx}`}
+                              checked={isCorrect}
+                              onChange={() => handleUpdateBatchQuestion(idx, 'correctAnswer', optIdx)}
+                              title="Marcar como respuesta correcta"
+                            />
+                            <span style={{ fontWeight: '800', color: isCorrect ? '#4ade80' : 'var(--text-muted)', fontSize: '0.85rem' }}>{letter})</span>
+                            <input
+                              type="text"
+                              value={optValue}
+                              onChange={(e) => handleUpdateBatchQuestion(idx, `option_${optIdx}`, e.target.value)}
+                              style={{ flex: 1, background: 'transparent', border: 'none', color: '#fff', fontSize: '0.82rem', outline: 'none' }}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Explanation input */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Explicación / Justificación de norma:</label>
+                      <input
+                        type="text"
+                        value={q.explanation || ''}
+                        onChange={(e) => handleUpdateBatchQuestion(idx, 'explanation', e.target.value)}
+                        style={{ width: '100%', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', color: 'rgba(255,255,255,0.85)', borderRadius: '8px', padding: '6px 12px', fontSize: '0.8rem', outline: 'none' }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* METRICS & USERS & CODES TABS */}
+      {activeSubTab === 'stats' && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+          <div className="glass-panel" style={{ padding: '18px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>Estudiantes Registrados</span>
+              <Users size={20} style={{ color: 'var(--secondary)' }} />
+            </div>
+            <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#fff', marginTop: '8px' }}>{registeredUsersCount}</div>
+          </div>
+          <div className="glass-panel" style={{ padding: '18px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>Alumnos Activos Ahora</span>
+              <Wifi size={20} style={{ color: '#4ade80' }} />
+            </div>
+            <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#4ade80', marginTop: '8px' }}>{onlineUsersCount}</div>
+          </div>
+          <div className="glass-panel" style={{ padding: '18px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>Promedio Global Tests</span>
+              <Award size={20} style={{ color: '#60a5fa' }} />
+            </div>
+            <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#fff', marginTop: '8px' }}>{averageGlobalScore}</div>
+          </div>
+          <div className="glass-panel" style={{ padding: '18px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>Códigos Activados</span>
+              <Key size={20} style={{ color: '#f59e0b' }} />
+            </div>
+            <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#fff', marginTop: '8px' }}>{usedCodesCount} / {totalCodesCount}</div>
           </div>
         </div>
       )}
 
-      {loading ? (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '40vh', gap: '16px' }}>
-          <RefreshCw className="spinner" size={32} style={{ color: 'var(--secondary)' }} />
-          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Cargando datos del servidor...</span>
-        </div>
-      ) : (
-        <>
-          {/* STATS VIEW */}
-          {activeSubTab === 'stats' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              
-              {/* KPI Cards Grid */}
-              <div className="stats-kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
-                
-                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-light)' }}>
-                    <Users size={24} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Alumnos Registrados</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '4px' }}>{officialStudents}</h3>
-                  </div>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(244, 63, 94, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-rose)' }}>
-                    <Library size={24} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Interesados (Demo)</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--accent-rose)', marginTop: '4px' }}>{demoGuests}</h3>
-                  </div>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-emerald)' }}>
-                    <Activity size={24} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Usuarios En Línea</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--accent-emerald)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      {onlineStudents}
-                      {onlineStudents > 0 && <span className="pulse-indicator" style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)', display: 'inline-block' }} />}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(234, 179, 8, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--secondary)' }}>
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Estudio Acumulado</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '4px' }}>{formatStudyTime(totalSecondsStudied)}</h3>
-                  </div>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(6, 182, 212, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-cyan)' }}>
-                    <Award size={24} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Nota Media de Tests</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '4px' }}>{averageGlobalScore}%</h3>
-                  </div>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(244, 63, 94, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-rose)' }}>
-                    <Key size={24} />
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Activación de Temarios</span>
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginTop: '4px' }}>{activationRate}% <span style={{ fontSize: '0.8rem', fontWeight: 'normal', color: 'var(--text-muted)' }}>({usedCodesCount}/{totalCodesCount})</span></h3>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Grid of study metrics by topics */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
-                <div className="glass-panel" style={{ padding: '24px' }}>
-                  <h3 style={{ fontSize: '1.1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                    <BookOpen size={18} style={{ color: 'var(--secondary)' }} />
-                    Análisis de Avance por Temas
-                  </h3>
-                  
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    {topics.map((t) => {
-                      // Calculate how many users completed this topic
-                      let completedCount = 0;
-                      let studyTimeTotal = 0;
-                      
-                      users.forEach(u => {
-                        if (u.role !== 'admin' && u.uid !== 'guest_profile') {
-                          const progressKey = `local_backup_progress_${u.uid}`;
-                          const rawProg = localStorage.getItem(progressKey);
-                          if (rawProg) {
-                            try {
-                              const prog = JSON.parse(rawProg);
-                              if (prog[t.id]) {
-                                if (prog[t.id].status === 'Completado' || prog[t.id].status === 'Estudiado') completedCount++;
-                                if (prog[t.id].studyTime) studyTimeTotal += prog[t.id].studyTime;
-                              }
-                            } catch (e) {}
-                          }
-                        }
-                      });
-
-                      const totalActiveStudents = (officialStudents + demoGuests) || 1;
-                      const percentage = ((completedCount / totalActiveStudents) * 100).toFixed(0);
-
-                      return (
-                        <div key={t.id} style={{ display: 'flex', flexDirection: 'column', gap: '6px', background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem' }}>
-                            <span style={{ fontWeight: '600', color: 'var(--text-main)' }}>Tema {t.id}: {t.title}</span>
-                            <span style={{ color: 'var(--text-muted)' }}>
-                              Estudio: <strong style={{ color: 'var(--secondary)' }}>{formatStudyTime(studyTimeTotal)}</strong> &bull; Completado por: <strong style={{ color: 'var(--accent-emerald)' }}>{completedCount}</strong> ({percentage}%)
-                            </span>
-                          </div>
-                          
-                          {/* Progress Bar */}
-                          <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
-                            <div 
-                              style={{ 
-                                width: `${percentage}%`, 
-                                height: '100%', 
-                                background: 'linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%)',
-                                borderRadius: '3px',
-                                transition: 'width 0.5s ease-out'
-                              }} 
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
+      {activeSubTab === 'users' && (
+        <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Listado de Estudiantes</h3>
+            <div style={{ position: 'relative' }}>
+              <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <input
+                type="text"
+                value={userSearch}
+                onChange={(e) => setUserSearch(e.target.value)}
+                placeholder="Buscar por nombre, email o código..."
+                style={{ padding: '8px 12px 8px 36px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none' }}
+              />
             </div>
-          )}
+          </div>
 
-          {/* USERS & SESSIONS LIST VIEW */}
-          {activeSubTab === 'users' && (
-            <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '100%', minWidth: 0 }}>
-              
-              {/* Toolbar */}
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
-                <div style={{ position: 'relative', flex: 1, minWidth: '280px' }}>
-                  <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                  <input
-                    type="text"
-                    placeholder="Buscar alumno por nombre, email o código..."
-                    value={userSearch}
-                    onChange={(e) => setUserSearch(e.target.value)}
-                    style={{ width: '100%', padding: '10px 12px 10px 38px', borderRadius: '10px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontSize: '0.85rem' }}
-                  />
-                </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  Mostrando <strong>{sortedUsers.length}</strong> de <strong>{users.length}</strong> usuarios
-                </div>
-              </div>
- 
-              {/* Table / List */}
-              <div style={{ overflowX: 'auto', width: '100%', maxWidth: '100%' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', tableLayout: 'fixed' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      <th style={{ padding: '12px 10px', width: '24%' }}>Alumno / Correo</th>
-                      <th style={{ padding: '12px 10px', width: '15%' }}>Rol / Código</th>
-                      <th style={{ padding: '12px 10px', width: '10%' }}>Estado</th>
-                      <th style={{ padding: '12px 10px', width: '10%' }}>Estudio</th>
-                      <th style={{ padding: '12px 10px', width: '10%' }}>Nota Tests</th>
-                      <th style={{ padding: '12px 10px', width: '16%' }}>Última Actividad</th>
-                      <th style={{ padding: '12px 10px', textAlign: 'left', width: '15%' }}>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sortedUsers.length === 0 ? (
-                      <tr>
-                        <td colSpan="7" style={{ padding: '40px 16px', textAlignment: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                          Ningún alumno coincide con los filtros de búsqueda.
-                        </td>
-                      </tr>
-                    ) : (
-                      sortedUsers.map((u) => {
-                        const online = isUserOnline(u);
-                        const isAdmin = u.role === 'admin';
-                        const lastActiveTime = u.lastActive 
-                          ? new Date(u.lastActive).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
-                          : '';
-                        const lastActiveDate = u.lastActive 
-                          ? new Date(u.lastActive).toLocaleDateString([], { day: '2-digit', month: '2-digit', year: 'numeric' })
-                          : 'Nunca';
-
-                        return (
-                          <tr key={u.uid} style={{ borderBottom: '1px solid var(--border-color)', fontSize: '0.85rem', background: online ? 'rgba(16, 185, 129, 0.02)' : 'transparent', transition: 'var(--transition-fast)' }}>
-                            
-                            {/* User details */}
-                            <td style={{ padding: '12px 10px' }}>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: isAdmin ? 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)' : u.role === 'guest' ? 'linear-gradient(135deg, var(--accent-rose) 0%, #fb7185 100%)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.85rem', color: isAdmin ? 'var(--bg-dark)' : 'white' }}>
-                                  {(u.name || 'U').charAt(0).toUpperCase()}
-                                </div>
-                                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                  <span style={{ fontWeight: '600', color: 'var(--text-main)' }}>{u.name}</span>
-                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.email}</span>
-                                </div>
-                              </div>
-                            </td>
-
-                            {/* Role / Code */}
-                            <td style={{ padding: '12px 10px' }}>
-                              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                                <span className={`badge ${isAdmin ? 'badge-gold' : u.role === 'guest' ? 'badge-rose' : 'badge-blue'}`} style={{ width: 'fit-content', padding: '2px 6px', fontSize: '0.65rem' }}>
-                                  {isAdmin ? 'Creador' : u.role === 'guest' ? 'Invitado (Demo)' : 'Alumno'}
-                                </span>
-                                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>{u.bookCode}</span>
-                              </div>
-                            </td>
-
-                            {/* Connection Status */}
-                            <td style={{ padding: '12px 10px' }}>
-                              {online ? (
-                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--accent-emerald)', fontWeight: '700', fontSize: '0.75rem' }}>
-                                  <span className="pulse-indicator" style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-emerald)' }} />
-                                  En Línea
-                                </div>
-                              ) : (
-                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-dark)', fontSize: '0.75rem' }}>
-                                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--text-dark)' }} />
-                                  Desconectado
-                                </div>
-                              )}
-                            </td>
-
-                            {/* Study progress */}
-                            <td style={{ padding: '12px 10px' }}>
-                              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span style={{ fontWeight: '600' }}>{formatStudyTime(u.totalStudyTime)}</span>
-                                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.completedCount || 0} temas listos</span>
-                              </div>
-                            </td>
-
-                            {/* Average Quiz Score */}
-                            <td style={{ padding: '12px 10px' }}>
-                              {u.quizzesTaken > 0 ? (
-                                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                  <span style={{ fontWeight: '600', color: u.averageQuizScore >= 50 ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>
-                                    {u.averageQuizScore.toFixed(0)}%
-                                  </span>
-                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.quizzesTaken} tests</span>
-                                </div>
-                              ) : (
-                                <span style={{ color: 'var(--text-dark)' }}>Ninguno</span>
-                              )}
-                            </td>
-
-                            {/* Last active time */}
-                            <td style={{ padding: '12px 10px', color: 'var(--text-muted)' }}>
-                              {u.lastActive ? (
-                                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                  <span style={{ color: 'var(--text-main)', fontWeight: '600' }}>{lastActiveTime}</span>
-                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{lastActiveDate}</span>
-                                </div>
-                              ) : (
-                                <span style={{ color: 'var(--text-dark)' }}>Nunca</span>
-                              )}
-                            </td>
-
-                            {/* Kicking Action */}
-                            <td style={{ padding: '12px 10px', textAlign: 'left', width: '15%' }}>
-                              <div style={{ display: 'flex', gap: '6px 8px', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap' }}>
-                                {online && !isAdmin && (
-                                  <button
-                                    onClick={() => handleKickUser(u.uid, u.name)}
-                                    className="glow-btn-secondary"
-                                    style={{ padding: '6px 12px', border: '1px solid var(--accent-rose)', color: 'var(--accent-rose)', borderRadius: '6px', cursor: 'pointer', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
-                                    title="Cerrar sesión activa de este usuario"
-                                  >
-                                    <ShieldAlert size={12} />
-                                    <span>Expulsar</span>
-                                  </button>
-                                )}
-                                
-                                {!isAdmin && (
-                                  <button
-                                    onClick={() => handleDeleteUser(u.uid, u.name)}
-                                    className="glow-btn-secondary"
-                                    style={{ 
-                                      padding: '6px 12px', 
-                                      border: '1px solid rgba(244, 63, 94, 0.4)', 
-                                      color: '#fb7185', 
-                                      borderRadius: '6px', 
-                                      cursor: 'pointer', 
-                                      fontSize: '0.75rem', 
-                                      display: 'inline-flex', 
-                                      alignItems: 'center', 
-                                      gap: '4px',
-                                      background: 'rgba(244, 63, 94, 0.05)'
-                                    }}
-                                    title="Eliminar usuario permanentemente"
-                                  >
-                                    <Trash2 size={12} />
-                                    <span>Eliminar</span>
-                                  </button>
-                                )}
-
-                                {isAdmin && (
-                                  <span style={{ color: 'var(--text-dark)', fontSize: '0.75rem' }}>-</span>
-                                )}
-                              </div>
-                            </td>
-
-                          </tr>
-                        );
-                      })
-                    )}
-                  </tbody>
-                </table>
-              </div>
-
-            </div>
-          )}
-
-          {/* BOOK ACTIVATION CODES VIEW */}
-          {activeSubTab === 'codes' && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '24px', alignItems: 'start' }}>
-              
-              {/* Codes list */}
-              <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <button
-                      onClick={() => setCodeFilter('all')}
-                      className={`glow-btn-secondary ${codeFilter === 'all' ? 'active' : ''}`}
-                      style={{ padding: '6px 12px', borderRadius: '8px', fontSize: '0.75rem', background: codeFilter === 'all' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)' }}
-                    >
-                      Todos ({totalCodesCount})
-                    </button>
-                    <button
-                      onClick={() => setCodeFilter('unused')}
-                      className={`glow-btn-secondary ${codeFilter === 'unused' ? 'active' : ''}`}
-                      style={{ padding: '6px 12px', borderRadius: '8px', fontSize: '0.75rem', background: codeFilter === 'unused' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderColor: 'rgba(59, 130, 246, 0.3)' }}
-                    >
-                      Disponibles ({unusedCodesCount})
-                    </button>
-                    <button
-                      onClick={() => setCodeFilter('used')}
-                      className={`glow-btn-secondary ${codeFilter === 'used' ? 'active' : ''}`}
-                      style={{ padding: '6px 12px', borderRadius: '8px', fontSize: '0.75rem', background: codeFilter === 'used' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderColor: 'rgba(16, 185, 129, 0.3)' }}
-                    >
-                      Activados ({usedCodesCount})
-                    </button>
-                  </div>
-
-                  <div style={{ position: 'relative', width: '220px' }}>
-                    <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                    <input
-                      type="text"
-                      placeholder="Buscar código o usuario..."
-                      value={codeSearch}
-                      onChange={(e) => setCodeSearch(e.target.value)}
-                      style={{ width: '100%', padding: '6px 10px 6px 30px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontSize: '0.8rem' }}
-                    />
-                  </div>
-                </div>
-
-                <div style={{ overflowY: 'auto', maxHeight: '500px', border: '1px solid var(--border-color)', borderRadius: '10px' }}>
-                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-                    <thead>
-                      <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase', background: 'rgba(0,0,0,0.1)' }}>
-                        <th style={{ padding: '10px 16px', textAlign: 'center', width: '95px' }}>Asignado</th>
-                        <th style={{ padding: '10px 16px', width: '180px' }}>Entregado a</th>
-                        <th style={{ padding: '10px 16px' }}>Código de Activación</th>
-                        <th style={{ padding: '10px 16px' }}>Estado</th>
-                        <th style={{ padding: '10px 16px' }}>Activado Por</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {filteredCodes.length === 0 ? (
-                        <tr>
-                          <td colSpan="5" style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                            Ningún código coincide con el filtro seleccionado.
-                          </td>
-                        </tr>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem', color: 'var(--text-main)' }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid var(--border-color)', textAlign: 'left' }}>
+                  <th style={{ padding: '10px' }}>Estudiante</th>
+                  <th style={{ padding: '10px' }}>Código Libro</th>
+                  <th style={{ padding: '10px' }}>Estado</th>
+                  <th style={{ padding: '10px' }}>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedUsers.map(u => (
+                  <tr key={u.uid} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <td style={{ padding: '10px' }}>
+                      <div style={{ fontWeight: '700' }}>{u.name || 'Sin nombre'}</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.email}</div>
+                    </td>
+                    <td style={{ padding: '10px', fontFamily: 'monospace' }}>{u.bookCode || u.code || '—'}</td>
+                    <td style={{ padding: '10px' }}>
+                      {isUserOnline(u) ? (
+                        <span style={{ color: '#4ade80', fontWeight: '700' }}>● En línea</span>
                       ) : (
-                        filteredCodes.map((c) => {
-                          const userWhoActivated = c.used ? users.find(u => u.uid === c.usedBy) : null;
-                          return (
-                            <tr key={c.code} style={{ borderBottom: '1px solid var(--border-color)', fontSize: '0.8rem' }}>
-                              <td style={{ padding: '10px 16px', textAlign: 'center' }}>
-                                <input
-                                  type="checkbox"
-                                  checked={!!c.assigned || !!c.used}
-                                  disabled={!!c.used}
-                                  onChange={async (e) => {
-                                    const isAssigned = e.target.checked;
-                                    try {
-                                      await firebaseService.updateBookCodeAssignedStatus(c.code, isAssigned);
-                                    } catch (err) {
-                                      console.error(err);
-                                      alert("No se pudo actualizar el estado de asignación.");
-                                    }
-                                  }}
-                                  style={{
-                                    width: '16px',
-                                    height: '16px',
-                                    cursor: c.used ? 'not-allowed' : 'pointer',
-                                    accentColor: 'var(--secondary)'
-                                  }}
-                                  title={c.used ? "Este código ya ha sido registrado por un alumno" : "Marcar como entregado con el manual impreso"}
-                                />
-                              </td>
-                              <td style={{ padding: '10px 16px' }}>
-                                <input
-                                  type="text"
-                                  placeholder="Ej. Julio Gomez"
-                                  defaultValue={c.assignedTo || ''}
-                                  disabled={!!c.used}
-                                  onBlur={async (e) => {
-                                    const assignedToVal = e.target.value.trim();
-                                    if (assignedToVal !== (c.assignedTo || '')) {
-                                      try {
-                                        await firebaseService.updateBookCodeAssignedTo(c.code, assignedToVal);
-                                      } catch (err) {
-                                        console.error(err);
-                                        alert("No se pudo actualizar el destinatario.");
-                                      }
-                                    }
-                                  }}
-                                  onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                      e.target.blur();
-                                    }
-                                  }}
-                                  style={{
-                                    width: '100%',
-                                    padding: '4px 8px',
-                                    borderRadius: '6px',
-                                    background: c.used ? 'transparent' : 'var(--bg-input)',
-                                    border: c.used ? 'none' : '1px solid var(--border-color)',
-                                    color: 'var(--text-main)',
-                                    fontSize: '0.8rem',
-                                    cursor: c.used ? 'not-allowed' : 'text'
-                                  }}
-                                  title={c.used ? "Este código ya está en uso" : "Introduce el nombre o seudónimo del destinatario"}
-                                />
-                              </td>
-                              <td style={{ padding: '10px 16px', fontFamily: 'monospace', fontWeight: 'bold', letterSpacing: '0.05em' }}>
-                                {c.code}
-                              </td>
-                              <td style={{ padding: '10px 16px' }}>
-                                {c.used ? (
-                                  <span className="badge badge-rose" style={{ padding: '2px 6px', fontSize: '0.6rem' }}>Activado</span>
-                                ) : (
-                                  <span className="badge badge-emerald" style={{ padding: '2px 6px', fontSize: '0.6rem' }}>Disponible</span>
-                                )}
-                              </td>
-                              <td style={{ padding: '10px 16px', color: c.used ? 'var(--text-main)' : 'var(--text-dark)' }}>
-                                {c.used ? (
-                                  userWhoActivated ? (
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                      <span style={{ fontWeight: '600' }}>{userWhoActivated.name}</span>
-                                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{userWhoActivated.email}</span>
-                                    </div>
-                                  ) : (
-                                    <span>Usuario ID: {c.usedBy.substring(0, 10)}...</span>
-                                  )
-                                ) : (
-                                  <span>-</span>
-                                )}
-                              </td>
-                            </tr>
-                          );
-                        })
+                        <span style={{ color: 'var(--text-muted)' }}>Desconectado</span>
                       )}
-                    </tbody>
-                  </table>
-                </div>
+                    </td>
+                    <td style={{ padding: '10px' }}>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        {isUserOnline(u) && (
+                          <button onClick={() => handleKickUser(u.uid, u.name)} style={{ background: 'rgba(239, 68, 68, 0.15)', border: 'none', color: '#fca5a5', padding: '4px 8px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.75rem' }}>
+                            Cerrar Sesión
+                          </button>
+                        )}
+                        <button onClick={() => handleDeleteUser(u.uid, u.name)} style={{ background: 'rgba(239, 68, 68, 0.2)', border: 'none', color: '#ef4444', padding: '4px 8px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.75rem' }}>
+                          Eliminar
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {activeSubTab === 'codes' && (
+        <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Generador y Gestión de Códigos de Libro</h3>
+            <form onSubmit={handleGenerateCodes} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <input
+                type="number"
+                value={codesCount}
+                onChange={(e) => setCodesCount(parseInt(e.target.value, 10))}
+                min={1}
+                max={200}
+                style={{ width: '80px', padding: '6px 10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem' }}
+              />
+              <button type="submit" disabled={generating} style={{ padding: '6px 14px', background: 'var(--secondary)', color: '#000', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: 'pointer' }}>
+                {generating ? 'Generando...' : 'Generar Lote'}
+              </button>
+            </form>
+          </div>
+
+          {generatedCodes.length > 0 && (
+            <div style={{ marginBottom: '16px', padding: '12px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '10px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <span style={{ fontWeight: '700', color: '#fef08a' }}>¡Lote de {generatedCodes.length} códigos generado!</span>
+                <button onClick={handleCopyGeneratedCodes} style={{ background: '#f59e0b', color: '#000', border: 'none', padding: '4px 10px', borderRadius: '6px', fontWeight: '700', cursor: 'pointer', fontSize: '0.75rem' }}>
+                  {copiedCodes ? '¡Copiados al portapapeles!' : 'Copiar Todos'}
+                </button>
               </div>
-
-              {/* Generator Panel */}
-              <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <h3 style={{ fontSize: '1rem', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px', margin: 0 }}>
-                  <Plus size={18} style={{ color: 'var(--secondary)' }} />
-                  Generar Nuevos Códigos
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', lineHeight: '1.4' }}>
-                  Crea códigos de validación BUS-XXXX-XXXX que los compradores podrán usar para activar sus cuentas.
-                </p>
-
-                <form onSubmit={handleGenerateCodes} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Cantidad de Códigos (1-200)</label>
-                    <input
-                      type="number"
-                      min="1"
-                      max="200"
-                      value={codesCount}
-                      onChange={(e) => setCodesCount(parseInt(e.target.value) || 0)}
-                      style={{ padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontSize: '0.85rem' }}
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    className="glow-btn"
-                    style={{ width: '100%', padding: '10px', borderRadius: '8px', justifyContent: 'center' }}
-                    disabled={generating}
-                  >
-                    {generating ? (
-                      <div className="spinner" style={{ width: '14px', height: '14px', margin: 0 }} />
-                    ) : (
-                      <Key size={14} />
-                    )}
-                    <span>Generar Códigos</span>
-                  </button>
-                </form>
-
-                {/* Newly generated codes list */}
-                {generatedCodes.length > 0 && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px', borderTop: '1px dashed var(--border-color)', paddingTop: '15px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--secondary-light)' }}>
-                        ¡Códigos Generados! ({generatedCodes.length})
-                      </span>
-                      <button
-                        onClick={() => setGeneratedCodes([])}
-                        style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
-                        title="Limpiar"
-                      >
-                        <X size={14} />
-                      </button>
-                    </div>
-
-                    <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.75rem', maxHeight: '120px', overflowY: 'auto', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                      {generatedCodes.map((c, i) => (
-                        <div key={i}>{c}</div>
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={handleCopyGeneratedCodes}
-                      className="glow-btn-secondary"
-                      style={{ padding: '8px', borderRadius: '8px', justifyContent: 'center', fontSize: '0.75rem' }}
-                    >
-                      {copiedCodes ? <Check size={14} style={{ color: 'var(--accent-emerald)' }} /> : <Copy size={14} />}
-                      <span>{copiedCodes ? "Copiados al portapapeles" : "Copiar todos"}</span>
-                    </button>
-                  </div>
-                )}
+              <div style={{ maxHeight: '100px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.8rem', color: '#fff', whiteSpace: 'pre-wrap' }}>
+                {generatedCodes.join(', ')}
               </div>
-
             </div>
           )}
-
-        </>
+        </div>
       )}
 
     </div>
