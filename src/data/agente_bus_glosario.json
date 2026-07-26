@@ -1,0 +1,289 @@
+[
+  {
+    "term": "bus",
+    "aliases": ["biblioteca de la universidad de sevilla", "biblioteca universitaria"],
+    "answer": "La Biblioteca de la Universidad de Sevilla (BUS) es un centro de recursos para el aprendizaje, la docencia, la investigación y la formación continua, constituido como una unidad funcional única e integrada por todos los fondos bibliográficos, documentales y archivísticos de la Universidad.",
+    "source": "Tema 1 — Definición y Marco Normativo (Reglamento de la BUS)",
+    "topicId": "1"
+  },
+  {
+    "term": "crai",
+    "aliases": [],
+    "answer": "CRAI (Centro de Recursos para el Aprendizaje y la Investigación) es un modelo integrador de biblioteca que reúne en un único espacio físico y virtual: recursos de información, soporte tecnológico, soporte a docencia, aprendizaje e investigación.",
+    "source": "Tema 1 — Concepto CRAI",
+    "topicId": "1"
+  },
+  {
+    "term": "fama",
+    "aliases": ["catálogo fama", "catalogo fama"],
+    "answer": "FAMA es el catálogo automatizado y buscador integrado de recursos impresos y electrónicos de la Biblioteca de la Universidad de Sevilla. Permite buscar, reservar y gestionar el préstamo de fondos.",
+    "source": "Tema 7 — Sistemas de gestión bibliotecaria y catálogo FAMA",
+    "topicId": "7"
+  },
+  {
+    "term": "alma",
+    "aliases": [],
+    "answer": "Alma es la plataforma de gestión bibliotecaria de nueva generación (Next Generation Library Services Platform) de Ex Libris utilizada por la BUS para la gestión integrada de fondos impresos y electrónicos.",
+    "source": "Tema 7 — Sistemas de gestión bibliotecaria y plataformas",
+    "topicId": "7"
+  },
+  {
+    "term": "primo",
+    "aliases": [],
+    "answer": "Primo es el descubridor (discovery) integrado con Alma que sirve de interfaz de búsqueda unificada del catálogo FAMA para los usuarios de la BUS.",
+    "source": "Tema 7 — Sistemas de gestión bibliotecaria y plataformas",
+    "topicId": "7"
+  },
+  {
+    "term": "rebiun",
+    "aliases": [],
+    "answer": "REBIUN (Red de Bibliotecas Universitarias Españolas) es una comisión sectorial de la CRUE (Conferencia de Rectores) que coordina las políticas de las bibliotecas universitarias estatales en España.",
+    "source": "Tema 1 — Redes de Cooperación y Consorcios",
+    "topicId": "1"
+  },
+  {
+    "term": "cbua",
+    "aliases": [],
+    "answer": "CBUA (Consorcio de Bibliotecas Universitarias de Andalucía) asocia a las universidades públicas andaluzas para la compra conjunta de recursos electrónicos y el préstamo intercampus (PICA).",
+    "source": "Tema 1 — Redes de Cooperación y Consorcios",
+    "topicId": "1"
+  },
+  {
+    "term": "dialnet",
+    "aliases": [],
+    "answer": "DIALNET es el mayor portal de difusión de producción científica en español, liderado por la Universidad de La Rioja. La BUS es miembro catalogador activo.",
+    "source": "Tema 12 — Apoyo a la Investigación / Bases de datos",
+    "topicId": "12"
+  },
+  {
+    "term": "seprus",
+    "aliases": ["servicio de prevención"],
+    "answer": "SEPRUS es el Servicio de Prevención de Riesgos Laborales de la Universidad de Sevilla, encargado de la evaluación de riesgos, vigilancia de la salud, formación preventiva y la coordinación de protocolos de emergencia.",
+    "source": "Tema 14 — Sistema de Gestión de Prevención de Riesgos de la US",
+    "topicId": "14"
+  },
+  {
+    "term": "pica",
+    "aliases": ["préstamo intercampus", "prestamo intercampus"],
+    "answer": "PICA (Préstamo Intercampus) es el servicio del consorcio CBUA que permite a los usuarios solicitar y recibir en préstamo documentos pertenecientes a otras universidades públicas andaluzas.",
+    "source": "Tema 9 — Servicios a los usuarios I: Préstamo y Acceso al Documento",
+    "topicId": "9"
+  },
+  {
+    "term": "objetoteca",
+    "aliases": [],
+    "answer": "La Objetoteca es el servicio de préstamo diario de equipamiento de apoyo (portátiles, cargadores, auriculares, calculadoras). Los materiales deben devolverse el mismo día antes del cierre. El retraso genera una sanción de 5 días de suspensión por día o fracción.",
+    "source": "Tema 9 — Servicios a los usuarios I: Préstamo y Objetoteca",
+    "topicId": "9"
+  },
+  {
+    "term": "sanción",
+    "aliases": ["sanciones", "suspension préstamo", "suspension prestamo"],
+    "answer": "Sanciones por retraso en la devolución de préstamos en la BUS:\n• Monografías ordinarias: 1 día de suspensión por cada día de retraso y documento.\n• Portátiles / Objetoteca: 5 días de suspensión por cada día o fracción de retraso.",
+    "source": "Tema 9 — Servicios a los usuarios I: Normas de Préstamo",
+    "topicId": "9"
+  },
+  {
+    "term": "plazos préstamo",
+    "aliases": ["plazos", "préstamo", "prestamo"],
+    "answer": "Plazos de préstamo en la BUS:\n• Grado y PTGAS: 10 documentos por 15 días.\n• Máster y Postgrado: 15 documentos por 30 días.\n• Doctorandos: 30 documentos por 60 días.\n• PDI: 60 documentos por 60 días.\n• Renovaciones: Máximo 3 veces consecutivas si no hay reservas pendientes.",
+    "source": "Tema 9 — Servicios a los usuarios I: Normas de Préstamo",
+    "topicId": "9"
+  },
+  {
+    "term": "reservas",
+    "aliases": [],
+    "answer": "Las reservas permiten solicitar un libro ya prestado a través de FAMA. Cuando esté disponible, el usuario recibe aviso y dispone de 2 días para recogerlo antes de que se anule la reserva.",
+    "source": "Tema 9 — Servicios a los usuarios I: Normas de Préstamo",
+    "topicId": "9"
+  },
+  {
+    "term": "renovaciones",
+    "aliases": [],
+    "answer": "Se permiten hasta 3 renovaciones consecutivas a través de FAMA antes del vencimiento del préstamo, siempre que el documento no tenga reservas pendientes.",
+    "source": "Tema 9 — Servicios a los usuarios I: Normas de Préstamo",
+    "topicId": "9"
+  },
+  {
+    "term": "examen",
+    "aliases": ["puntuación", "puntuacion", "fórmula corrección", "formula correccion"],
+    "answer": "El examen oficial de la US consta de 40 preguntas tipo test (4 opciones):\n• Acierto: +1 punto.\n• Fallo: -0.25 (penalización de 1/4 por error).\n• En blanco: 0 puntos.",
+    "source": "Convocatoria oficial de la US — Bases de la oposición (Código 4140)",
+    "topicId": "0"
+  },
+  {
+    "term": "losu",
+    "aliases": ["ley orgánica del sistema universitario", "ley orgánica 2/2023"],
+    "answer": "La LOSU (Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario) es la ley estatal orgánica que regula el marco general de las universidades españolas, sus funciones, órganos de gobierno y el estatuto del personal.",
+    "source": "Tema 17 — Estatutos de la Universidad de Sevilla (marco normativo estatal)",
+    "topicId": "17"
+  },
+  {
+    "term": "convenio colectivo",
+    "aliases": ["iv convenio", "convenio"],
+    "answer": "El IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía regula el régimen de trabajo, las categorías profesionales (Grupos I al V), los derechos laborales, licencias, permisos y el régimen disciplinario (Anexo III).",
+    "source": "Tema 18 — IV Convenio Colectivo del Personal Laboral",
+    "topicId": "18"
+  },
+  {
+    "term": "lprl",
+    "aliases": ["ley 31/1995", "ley de prevención de riesgos", "prevención riesgos laborales"],
+    "answer": "La Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales (LPRL), establece las obligaciones del empresario en materia de seguridad y salud laboral, e incluye el derecho de los trabajadores a la paralización de actividades ante riesgo grave e inminente (art. 21).",
+    "source": "Tema 16 — Legislación sobre Prevención de Riesgos Laborales",
+    "topicId": "16"
+  },
+  {
+    "term": "igualdad",
+    "aliases": ["lo 3/2007", "ley igualdad"],
+    "answer": "La Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres regula el principio de igualdad de trato, las acciones positivas, la presencia equilibrada en órganos de selección y la prevención del acoso sexual y por razón de sexo.",
+    "source": "Tema 19 — Ley Orgánica 3/2007 para la igualdad efectiva",
+    "topicId": "19"
+  },
+  {
+    "term": "uvus",
+    "aliases": [],
+    "answer": "El UVUS (Usuario Virtual de la Universidad de Sevilla) es la credencial electrónica de identificación necesaria para acceder a los servicios informáticos del campus y de la BUS, así como para el acceso remoto a recursos electrónicos suscritos.",
+    "source": "Tema 4 — La colección electrónica y acceso remoto",
+    "topicId": "4"
+  },
+  {
+    "term": "pib",
+    "aliases": ["ill", "préstamo interbibliotecario", "prestamo interbibliotecario"],
+    "answer": "El PIB / ILL (Préstamo Interbibliotecario / Inter-Library Loan) es el servicio que localiza y obtiene documentos que no se encuentran en el catálogo de la BUS, solicitándolos a otras bibliotecas nacionales o internacionales.",
+    "source": "Tema 9 — Servicios a los usuarios I: Acceso al Documento",
+    "topicId": "9"
+  },
+  {
+    "term": "alfin",
+    "aliases": ["alfabetización informacional"],
+    "answer": "ALFIN (Alfabetización Informacional) es el plan de formación de la BUS para dotar a los usuarios de las habilidades y destrezas necesarias para buscar, evaluar y usar información de manera eficaz y ética.",
+    "source": "Tema 11 — Servicios a los usuarios III: Apoyo al aprendizaje",
+    "topicId": "11"
+  },
+  {
+    "term": "sabius",
+    "aliases": [],
+    "answer": "SABIUS es la base de datos curricular de la producción científica de los investigadores y docentes de la Universidad de Sevilla, gestionada desde el SAI (Servicio de Apoyo a la Investigación) de la BUS.",
+    "source": "Tema 12 — Servicios a los usuarios IV: Apoyo a la investigación",
+    "topicId": "12"
+  },
+  {
+    "term": "pdi",
+    "aliases": ["personal docente e investigador"],
+    "answer": "El PDI (Personal Docente e Investigador) de la US tiene derecho a retirar hasta 60 documentos por un plazo de 60 días en préstamo domiciliario.",
+    "source": "Tema 9 — Normas de Préstamo de la BUS",
+    "topicId": "9"
+  },
+  {
+    "term": "ptgas",
+    "aliases": ["pas", "personal técnico de gestión"],
+    "answer": "El PTGAS (Personal Técnico, de Gestión y de Administración y Servicios) de la US tiene derecho a préstamo de 10 documentos por 15 días, igual que los estudiantes de Grado.",
+    "source": "Tema 9 — Normas de Préstamo de la BUS",
+    "topicId": "9"
+  },
+  {
+    "term": "fondo antiguo",
+    "aliases": ["fondos antiguos", "colección histórica"],
+    "answer": "El Fondo Antiguo de la BUS comprende todos los documentos impresos y manuscritos anteriores al año 1801, así como las obras singulares y de especial valor patrimonial hasta 1958.",
+    "source": "Tema 5 — Gestión de la colección: Preservación y Conservación",
+    "topicId": "5"
+  },
+  {
+    "term": "comisión de biblioteca",
+    "aliases": ["comision de biblioteca"],
+    "answer": "La Comisión de Biblioteca es el órgano colegiado superior, consultivo y deliberante de la BUS. Está integrada por el Rector o Vicerrector delegado, representantes del PDI, estudiantes, PTGAS y la Dirección de la BUS.",
+    "source": "Tema 1 — Órganos de gobierno de la BUS",
+    "topicId": "1"
+  },
+  {
+    "term": "junta técnica",
+    "aliases": ["junta tecnica"],
+    "answer": "La Junta Técnica es el órgano colegiado asesor de la Dirección de la BUS. Está formada por los responsables de los Servicios Centrales y los directores de las Bibliotecas de Área.",
+    "source": "Tema 1 — Órganos de gobierno de la BUS",
+    "topicId": "1"
+  },
+  {
+    "term": "parentesco",
+    "aliases": ["grados de parentesco"],
+    "answer": "Grados de parentesco según el IV Convenio Colectivo:\n\nCONSANGUINIDAD:\n• 1er Grado: Padres e hijos.\n• 2º Grado: Hermanos, abuelos, nietos.\n• 3er Grado: Tíos, sobrinos, bisabuelos.\n• 4º Grado: Primos hermanos.\n\nAFINIDAD:\n• 1er Grado: Cónyuge, suegros, yernos, nueras.\n• 2º Grado: Cuñados, abuelos del cónyuge.",
+    "source": "Tema 18 — IV Convenio Colectivo, permisos y parentesco",
+    "topicId": "18"
+  },
+  {
+    "term": "consanguinidad",
+    "aliases": [],
+    "answer": "Consanguinidad (vínculo de sangre o adopción):\n• 1er Grado: Padres e hijos.\n• 2º Grado: Hermanos, abuelos, nietos.\n• 3er Grado: Tíos, sobrinos, bisabuelos.\n• 4º Grado: Primos hermanos.",
+    "source": "Tema 18 — IV Convenio Colectivo, permisos y parentesco",
+    "topicId": "18"
+  },
+  {
+    "term": "afinidad",
+    "aliases": [],
+    "answer": "Afinidad (vínculo político por matrimonio o pareja de hecho con los familiares consanguíneos del cónyuge):\n• 1er Grado: Cónyuge, suegros, yernos, nueras.\n• 2º Grado: Cuñados, abuelos del cónyuge.",
+    "source": "Tema 18 — IV Convenio Colectivo, permisos y parentesco",
+    "topicId": "18"
+  },
+  {
+    "term": "prescripción faltas",
+    "aliases": ["prescripcion faltas", "prescripción", "prescripcion"],
+    "answer": "Prescripción de faltas según el IV Convenio Colectivo (Anexo III):\n• Faltas Leves: 10 días desde el conocimiento por la Administración.\n• Faltas Graves: 20 días desde el conocimiento por la Administración.\n• Faltas Muy Graves: 60 días (con límite absoluto de 6 meses desde su comisión).",
+    "source": "Tema 18 — Régimen Disciplinario, Anexo III del IV Convenio",
+    "topicId": "18"
+  },
+  {
+    "term": "cancelación sanciones",
+    "aliases": ["cancelación de sanciones", "cancelacion sanciones"],
+    "answer": "Cancelación de sanciones en el expediente disciplinario según el IV Convenio Colectivo (Anexo III):\n• Faltas Leves: al año desde el cumplimiento de la sanción.\n• Faltas Graves: a los 3 años desde el cumplimiento.\n• Faltas Muy Graves: a los 5 años desde el cumplimiento.",
+    "source": "Tema 18 — Régimen Disciplinario, Anexo III del IV Convenio",
+    "topicId": "18"
+  },
+  {
+    "term": "cdu",
+    "aliases": ["clasificación decimal universal", "clasificacion decimal universal"],
+    "answer": "La CDU (Clasificación Decimal Universal) es el sistema de clasificación bibliográfica utilizado en la BUS para organizar los fondos por materias. Divide el conocimiento en 10 clases principales (0 al 9) con subdivisiones mediante auxiliares.",
+    "source": "Tema 6 — Clasificación de fondos: la CDU",
+    "topicId": "6"
+  },
+  {
+    "term": "rfid",
+    "aliases": [],
+    "answer": "RFID (Radio Frequency IDentification) es la tecnología de identificación por radiofrecuencia utilizada en la BUS para el control antihurto, el autopréstamo y la realización de inventarios mediante escáner de estanterías.",
+    "source": "Tema 8 — Tecnologías aplicadas en bibliotecas",
+    "topicId": "8"
+  },
+  {
+    "term": "efqm",
+    "aliases": [],
+    "answer": "El modelo EFQM (European Foundation for Quality Management) es el marco de gestión de la calidad adoptado por la BUS para evaluar su rendimiento organizacional mediante criterios de agentes facilitadores y resultados.",
+    "source": "Tema 2 — Sistema de gestión de la calidad en la BUS",
+    "topicId": "2"
+  },
+  {
+    "term": "rector",
+    "aliases": [],
+    "answer": "El Rector es la máxima autoridad académica y de representación de la Universidad de Sevilla. Preside la Comisión de la Biblioteca Universitaria y ejerce funciones de gobierno según los Estatutos (Decreto 98/2025).",
+    "source": "Tema 17 — Estatutos de la Universidad de Sevilla, Decreto 98/2025",
+    "topicId": "17"
+  },
+  {
+    "term": "claustro",
+    "aliases": ["claustro universitario"],
+    "answer": "El Claustro Universitario es el máximo órgano colegiado de representación de la comunidad universitaria en la US. Es responsable de elaborar los Estatutos y aprobar las líneas generales de actuación de la universidad.",
+    "source": "Tema 17 — Estatutos de la Universidad de Sevilla",
+    "topicId": "17"
+  },
+  {
+    "term": "consejo de gobierno",
+    "aliases": [],
+    "answer": "El Consejo de Gobierno es el principal órgano colegiado de gobierno de la US. Establece las líneas estratégicas, normativas y presupuestarias, incluyendo la aprobación del Reglamento de la BUS.",
+    "source": "Tema 17 — Estatutos de la Universidad de Sevilla",
+    "topicId": "17"
+  },
+  {
+    "term": "marc21",
+    "aliases": ["marc 21", "formato marc"],
+    "answer": "MARC 21 (Machine Readable Cataloging) es el formato estándar de catalogación bibliográfica que estructura los datos mediante etiquetas numéricas de tres cifras y subcampos delimitados por el signo '$'.",
+    "source": "Tema 5 — Gestión de la colección: Tratamiento Técnico",
+    "topicId": "5"
+  }
+]
