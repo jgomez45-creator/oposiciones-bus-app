@@ -54,12 +54,30 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
 
   return (
     <aside className="sidebar glass-panel">
-      <div className="sidebar-logo">
-        <Library className="logo-icon text-gradient-gold" size={32} />
-        <div>
-          <h2>BUS Sevilla</h2>
-          <p>Téc. Auxiliar</p>
+      <div className="sidebar-logo" style={{ position: 'relative', width: '100%' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <Library className="logo-icon text-gradient-gold" size={32} />
+          <div>
+            <h2>BUS Sevilla</h2>
+            <p>Téc. Auxiliar</p>
+          </div>
         </div>
+        <span 
+          className="sidebar-copyright"
+          title="Copyright JGG"
+          style={{
+            position: 'absolute',
+            top: '2px',
+            right: '0',
+            fontSize: '0.7rem',
+            fontWeight: '700',
+            color: 'rgba(255, 255, 255, 0.45)',
+            letterSpacing: '0.5px',
+            userSelect: 'none'
+          }}
+        >
+          © JGG
+        </span>
       </div>
       
       <nav className="sidebar-menu">
