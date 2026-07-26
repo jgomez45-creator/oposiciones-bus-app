@@ -156,14 +156,13 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
   const [messages, setMessages] = useState([{
     id: 1,
     sender: 'bot',
-    text: '¡Hola! Soy el **Agente BUS** (Notebook Grounded v2.0).\n\nRespondo únicamente con información del temario oficial (Código 4140). Si un dato no consta en las fuentes verificadas, te lo haré saber explícitamente.\n\n¿Qué concepto del temario quieres consultar?',
+    text: '¡Hola! Soy el **Agente BUS**.\n\nRespondo únicamente con información del temario oficial (Código 4140). Si un dato no consta en las fuentes verificadas, te lo haré saber explícitamente.\n\n¿Qué concepto del temario quieres consultar?',
     timestamp: new Date()
   }]);
   const [inputText, setInputText] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voiceEnabled, setVoiceEnabled] = useState(false);
-  const [searchScope, setSearchScope] = useState('current');
   const [allMarkdowns, setAllMarkdowns] = useState({});
   const [markdownsLoaded, setMarkdownsLoaded] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
@@ -307,10 +306,12 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
       }
     }
 
-    // Respuestas afirmativas — «sí», «vale», «dale», «ok»…
+    // Respuestas afirmativas o solicitud explícita de test («sí», «vale», «hacer un test», «test»…)
     const affirmativeWords = ['si','sí','vale','acepto','venga','de acuerdo','ok','dale','claro','adelante','perfecto'];
     const isAffirmative = affirmativeWords.some(w => q === w || q === `¡${w}!` || q === `${w}.`);
-    if (isAffirmative) {
+    const isTestRequest = /(hacer|haz|hazme|pon|ponme|hacemos|quiero|dame|otro|otra)\s+(un\s+)?(test|pregunta|quiz|examen)/i.test(q) || q === 'test' || q === 'un test' || q === 'hacer un test' || q === 'hacer test' || q === 'hacer examen';
+
+    if (isAffirmative || isTestRequest) {
       const targetTopId = lastProposalRef.current?.targetTopicId || activeTopicId.toString();
       const keywords = lastProposalRef.current?.keywords || [];
       const topicQuizzes = (quizzesData[targetTopId] || quizzesData['18'] || quizzesData['1'] || []).filter(item => item?.question);
@@ -376,10 +377,10 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
       return `${theorySummary}\n\n📋 Fuente: Tema ${topId} — ${topicObj.title}\n\n${repreguntaTeoria.text}`;
     }
 
-    // ══ BÚSQUEDA EN LAS 3 FUENTES ══════════════════════════════════════════
+    // ══ BÚSQUEDA EN LAS 3 FUENTES (Siempre temario completo) ══════════════
     const glossaryResult = searchGlossary(qNorm, words);
-    const markdownResult = searchMarkdown(allMarkdowns, words, activeTopic, searchScope);
-    const quizResult     = searchQuizzes(words, activeTopic, searchScope);
+    const markdownResult = searchMarkdown(allMarkdowns, words, activeTopic, 'all');
+    const quizResult     = searchQuizzes(words, activeTopic, 'all');
 
     const allCandidates = [
       glossaryResult  && { ...glossaryResult,  priority: 1 },
@@ -392,10 +393,7 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
 
     // REGLA 0: SIN COBERTURA
     if (!best || best.score < SCORE_PARTIAL) {
-      const scopeHint = searchScope === 'current'
-        ? '\n\n💡 Tip: Cambia a "🌐 Todos los Temas" para ampliar la búsqueda a todo el temario.'
-        : '';
-      return `⚠️ Esta información NO CONSTA en el temario cargado de la oposición (Código 4140).\n\nNo puedo confirmar este dato sin fuente verificada.${scopeHint}\n\n¿Quieres preguntarme sobre otro concepto del temario?`;
+      return `⚠️ Esta información NO CONSTA en el temario cargado de la oposición (Código 4140).\n\nNo puedo confirmar este dato sin fuente verificada.\n\n¿Quieres preguntarme sobre otro concepto del temario?`;
     }
 
     const coverage = best.score >= SCORE_FULL ? 'full' : 'partial';
@@ -406,7 +404,7 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
   const handleClearChat = () => {
     if (isSpeaking) stopSpeaking();
     lastProposalRef.current = null;
-    setMessages([{ id: Date.now(), sender: 'bot', text: '¡Hola! He borrado la conversación. El Agente BUS (Notebook Grounded v2.0) sigue activo.\n\n¿Qué concepto del temario quieres consultar?', timestamp: new Date() }]);
+    setMessages([{ id: Date.now(), sender: 'bot', text: '¡Hola! He borrado la conversación. El Agente BUS sigue activo.\n\n¿Qué concepto del temario quieres consultar?', timestamp: new Date() }]);
   };
 
   const handleSendMessage = (textToSend = null) => {
@@ -452,7 +450,6 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
           <div>
             <div style={{ fontSize:'0.95rem', fontWeight:'bold', color:'#fff', display:'flex', alignItems:'center', gap:'6px' }}>
               <span>Agente BUS</span>
-              <span style={{ fontSize:'0.65rem', background:'var(--secondary)', color:'#000', padding:'1px 6px', borderRadius:'10px', fontWeight:'800' }}>NOTEBOOK</span>
             </div>
             <span style={{ fontSize:'0.72rem', color:'rgba(255,255,255,0.7)' }}>
               {markdownsLoaded ? '✅ Corpus cargado — Respuestas verificadas del temario' : '⏳ Cargando corpus del temario…'}
@@ -493,24 +490,12 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Scope Selector */}
-      <div style={{ display:'flex', padding:'10px 16px', gap:'12px', background:'rgba(0,0,0,0.45)', borderTop:'1px solid rgba(255,255,255,0.12)', borderBottom:'1px solid rgba(255,255,255,0.12)' }}>
-        <button type="button" onClick={() => setSearchScope('current')} style={{ flex:1, display:'flex', alignItems:'center', justifyContent:'center', gap:'8px', padding:'10px 14px', borderRadius:'24px', fontSize:'0.82rem', fontWeight:'800', cursor:'pointer', border: searchScope==='current' ? '2px solid var(--secondary)' : '2px solid rgba(255,255,255,0.2)', background: searchScope==='current' ? 'linear-gradient(135deg, rgba(212,163,89,0.3) 0%, rgba(217,119,6,0.3) 100%)' : 'rgba(255,255,255,0.05)', color: searchScope==='current' ? '#ffffff' : 'rgba(255,255,255,0.7)', boxShadow: searchScope==='current' ? '0 0 15px rgba(212,163,89,0.45)' : 'none', transition:'all 0.25s ease' }}>
-          <BookOpen size={16} style={{ color: searchScope==='current' ? 'var(--secondary)' : 'rgba(255,255,255,0.5)' }} />
-          <span>Tema {activeTopic.id} (Actual)</span>
-        </button>
-        <button type="button" onClick={() => setSearchScope('all')} style={{ flex:1, display:'flex', alignItems:'center', justifyContent:'center', gap:'8px', padding:'10px 14px', borderRadius:'24px', fontSize:'0.82rem', fontWeight:'800', cursor:'pointer', border: searchScope==='all' ? '2px solid #3b82f6' : '2px solid rgba(255,255,255,0.2)', background: searchScope==='all' ? 'linear-gradient(135deg, rgba(59,130,246,0.3) 0%, rgba(29,78,216,0.3) 100%)' : 'rgba(255,255,255,0.05)', color: searchScope==='all' ? '#ffffff' : 'rgba(255,255,255,0.7)', boxShadow: searchScope==='all' ? '0 0 15px rgba(59,130,246,0.45)' : 'none', transition:'all 0.25s ease' }}>
-          <Globe size={16} style={{ color: searchScope==='all' ? '#60a5fa' : 'rgba(255,255,255,0.5)' }} />
-          <span>Todos los Temas</span>
-        </button>
-      </div>
-
       {/* Input Bar */}
       <div style={{ padding:'12px 16px', borderTop:'1px solid rgba(255,255,255,0.1)', background:'rgba(15,23,42,0.95)', display:'flex', alignItems:'center', gap:'8px' }}>
         <button type="button" onClick={toggleListening} style={{ background: isListening ? '#ef4444' : 'rgba(255,255,255,0.08)', border: isListening ? '1px solid #dc2626' : '1px solid rgba(255,255,255,0.15)', color:'#fff', borderRadius:'50%', width:'38px', height:'38px', display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', flexShrink:0, transition:'all 0.2s ease', boxShadow: isListening ? '0 0 12px rgba(239,68,68,0.6)' : 'none' }} title={isListening ? 'Escuchando...' : 'Hablar por micrófono'}>
           {isListening ? <MicOff size={18} /> : <Mic size={18} />}
         </button>
-        <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} placeholder={isListening ? 'Escuchando tu voz...' : `Consulta (${searchScope==='current' ? `Tema ${activeTopic.id}` : 'Todo el Temario'})...`} style={{ flex:1, background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.15)', borderRadius:'20px', padding:'8px 14px', color:'#fff', fontSize:'0.85rem', outline:'none' }} />
+        <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} placeholder={isListening ? 'Escuchando tu voz...' : 'Consulta el temario de la oposición...'} style={{ flex:1, background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.15)', borderRadius:'20px', padding:'8px 14px', color:'#fff', fontSize:'0.85rem', outline:'none' }} />
         <button type="button" onClick={() => handleSendMessage()} disabled={!inputText.trim()} style={{ background:'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', border:'none', color:'#fff', borderRadius:'50%', width:'38px', height:'38px', display:'flex', alignItems:'center', justifyContent:'center', cursor: inputText.trim() ? 'pointer' : 'not-allowed', opacity: inputText.trim() ? 1 : 0.5, flexShrink:0 }} title="Enviar">
           <Send size={16} />
         </button>
