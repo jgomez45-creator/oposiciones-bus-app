@@ -148,7 +148,7 @@ function buildResponse(text, source, coverage, repregunta) {
   const warningBlock = coverage === 'partial'
     ? '\n⚠️ He encontrado información relacionada. Contrasta con el temario completo si necesitas el dato exacto.'
     : '';
-  return `${text}${sourceBlock}${warningBlock}\n\n${repregunta}`;
+  return `${text}${sourceBlock}${warningBlock}\n\n${repregunta.text}`;
 }
 
 // ── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────────
@@ -237,13 +237,15 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
 
   const stopSpeaking = () => { if (typeof window !== 'undefined' && window.speechSynthesis) { window.speechSynthesis.cancel(); setIsSpeaking(false); } };
 
+  // Devuelve { text, type } — type: 'quiz' | 'info'
+  // Solo cuando type==='quiz' el interceptor de afirmativas lanza el test.
   const getRepregunta = () => {
     repreguntaCounterRef.current += 1;
     const mode = repreguntaCounterRef.current % 4;
-    if (mode === 1) return '¿Quieres que hagamos una pregunta tipo test rápida sobre este apartado?';
-    if (mode === 2) return '¿Te gustaría ver cómo se conecta este concepto con otros artículos del temario?';
-    if (mode === 3) return '¿Quieres un ejemplo práctico de cómo suelen preguntar esto en el examen?';
-    return '¿Quieres profundizar en algún otro concepto de este tema?';
+    if (mode === 1) return { text: '¿Quieres que hagamos una pregunta tipo test rápida sobre este apartado?', type: 'quiz' };
+    if (mode === 2) return { text: '¿Quieres practicar con una pregunta de examen sobre este concepto?', type: 'quiz' };
+    if (mode === 3) return { text: '¿Quieres que hagamos un test sobre este punto para afianzarlo?', type: 'quiz' };
+    return { text: '¿Quieres profundizar en algún otro concepto del temario o hacer un test?', type: 'quiz' };
   };
 
   // ── MOTOR PRINCIPAL (Notebook Grounded) ─────────────────────────────────
@@ -369,7 +371,9 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
       } else {
         theorySummary += `Normativa oficial del Tema ${topId}: **${topicObj.title}** (Código 4140).`;
       }
-      return `${theorySummary}\n\n📋 Fuente: Tema ${topId} — ${topicObj.title}\n\n${getRepregunta()}`;
+      const repreguntaTeoria = getRepregunta();
+      lastProposalRef.current = { type: 'quiz_offer', targetTopicId: topId, keywords: [], repreguntaType: repreguntaTeoria.type };
+      return `${theorySummary}\n\n📋 Fuente: Tema ${topId} — ${topicObj.title}\n\n${repreguntaTeoria.text}`;
     }
 
     // ══ BÚSQUEDA EN LAS 3 FUENTES ══════════════════════════════════════════
@@ -395,7 +399,7 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
     }
 
     const coverage = best.score >= SCORE_FULL ? 'full' : 'partial';
-    lastProposalRef.current = { type: 'quiz_offer', targetTopicId: best.topicId || activeTopicId.toString(), keywords: words };
+    lastProposalRef.current = { type: 'quiz_offer', targetTopicId: best.topicId || activeTopicId.toString(), keywords: words, repreguntaType: repregunta.type };
     return buildResponse(best.text, best.source, coverage, repregunta);
   };
 
