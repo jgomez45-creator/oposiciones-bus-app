@@ -376,10 +376,10 @@ export default function TopicViewer({
               <h4 style="margin: 0 0 10px 0; color: #000000; font-size: 12pt; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">CÓDIGO DE ACTIVACIÓN DE LICENCIA PERSONAL</h4>
               <p style="margin: 0 0 15px 0; font-size: 10pt; color: #666666;">Espacio reservado para la etiqueta del código del temario impreso</p>
               
-              <!-- Recuadro para etiqueta de 3.5cm x 8cm -->
-              <div style="width: 80mm; height: 35mm; border: 2px dashed #004B93; border-radius: 6px; background-color: #ffffff; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11pt; color: #999999; font-weight: bold;">
+              <!-- Recuadro para etiqueta de 10cm x 4cm -->
+              <div style="width: 100mm; height: 40mm; border: 2px dashed #004B93; border-radius: 6px; background-color: #ffffff; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11pt; color: #999999; font-weight: bold;">
                 <span>Pegar etiqueta aquí</span>
-                <span style="font-size: 9pt; font-weight: normal; margin-top: 4px; color: #bbb;">(3.5 cm x 8 cm)</span>
+                <span style="font-size: 9pt; font-weight: normal; margin-top: 4px; color: #bbb;">(10 cm x 4 cm)</span>
               </div>
               
               <p style="margin: 15px 0 0 0; font-size: 9.5pt; color: #ef4444; font-weight: bold; line-height: 1.3;">
