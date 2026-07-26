@@ -1419,7 +1419,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 {/* Questions List */}
                 <div className="questions-print-list">
                   {questions.map((q, qIndex) => {
-                    const isAnswered = userAnswers[qIndex] !== undefined;
+                    const isAnswered = userAnswers[qIndex] !== undefined && userAnswers[qIndex] !== null;
                     const isQuestionCorrect = isAnswered && userAnswers[qIndex] === q.correctAnswer;
 
                     return (
