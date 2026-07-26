@@ -2,10 +2,11 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Cobertura completa y profesional para los 20 Temas de la Oposición:
- * 1. Purga 100% de HTML, banners de promoción y enlaces de marketing.
- * 2. Mapeo de distractores plausibles por dominio para CADA UNO de los 20 temas.
- * 3. Cero descarte fácil o cruzado de dominios.
+ * Cumplimiento Estricto de Formato Oficial de Examen:
+ * 1. CERO referencias a puntos o epígrafes del temario en el enunciado (los exámenes reales nunca citan apartados).
+ * 2. Enunciados con fórmulas oficiales ("De acuerdo con el IV Convenio...", "Según la Ley Orgánica 3/2007...", "En Microsoft Excel...").
+ * 3. Las referencias a epígrafes o secciones quedan RESTRINGIDAS ÚNICAMENTE a la Explicación/Justificación posterior.
+ * 4. Distractores 100% verosímiles del mismo dominio temático (0% descarte fácil).
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -19,7 +20,7 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export function sanitizeText(text) {
   if (!text) return '';
   return text
-    .replace(/<[^>]*>/g, '') // Elimina cualquier etiqueta HTML (<p style=..., <div...)
+    .replace(/<[^>]*>/g, '') // Elimina cualquier etiqueta HTML
     .replace(/https?:\/\/[^\s)]+/gi, '') // Elimina URLs
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convierte [texto](url) en texto
     .replace(/^>+\s*/gm, '') // Elimina blockquotes de markdown
@@ -51,6 +52,27 @@ export function cleanHeadingTitle(title) {
     .replace(/\(SÚPER PREGUNTADOS.*\)/i, '')
     .replace(/\(MÁXIMA IMPORTANCIA.*\)/i, '')
     .trim();
+}
+
+// Obtiene el nombre oficial de la norma o materia según el topicId/topicTitle (Sin número de tema ni apartados)
+function getOfficialNormName(topicId, topicTitle) {
+  const topNum = parseInt(topicId, 10);
+  if (topNum === 19 || /igualdad/i.test(topicTitle)) return 'la Ley Orgánica 3/2007 para la Igualdad Efectiva de Mujeres y Hombres';
+  if (topNum === 18 || /convenio/i.test(topicTitle)) return 'el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía';
+  if (topNum === 17 || /estatutos/i.test(topicTitle)) return 'los Estatutos de la Universidad de Sevilla';
+  if (topNum === 20 || /prevención|riesgos/i.test(topicTitle)) return 'la Ley 31/1995 de Prevención de Riesgos Laborales';
+  if (topNum === 1 || /reglamento/i.test(topicTitle)) return 'el Reglamento de la Biblioteca de la Universidad de Sevilla (BUS)';
+  if (topNum >= 13 && topNum <= 16) {
+    if (/excel/i.test(topicTitle)) return 'Microsoft Excel';
+    if (/word/i.test(topicTitle)) return 'Microsoft Word';
+    if (/teams/i.test(topicTitle)) return 'Microsoft Teams';
+    return 'el entorno de Microsoft 365';
+  }
+  if (topNum >= 6 && topNum <= 12) return 'la normativa de funcionamiento de la Biblioteca de la Universidad de Sevilla (BUS)';
+  if (topNum >= 2 && topNum <= 5) return 'la legislación aplicable a las Administraciones Públicas y la Universidad de Sevilla';
+
+  const clean = sanitizeText(topicTitle).replace(/^Tema\s+\d+:\s*/i, '');
+  return clean ? `la regulación sobre ${clean}` : 'la normativa aplicable';
 }
 
 // Generador de ID único
@@ -148,7 +170,6 @@ export function checkDuplicated(proposedQuestionText, topicId) {
 
 // ── BANCO DE DISTRACTORES FORMALES Y PLAUSIBLES PARA LOS 20 TEMAS ─────────────
 const DOMAIN_DISTRACTORS = {
-  // Temas 1-5: Derecho Administrativo y Normativa Universitaria (LOSU, LPAC, LRJSP)
   derecho_admin: [
     'Acto administrativo ejecutivo sujeto a recurso de alzada en el plazo de un mes ante el órgano superior jerárquico.',
     'Resolución que agota la vía administrativa resolviendo la solicitud mediante silencio positivo regulado.',
@@ -156,7 +177,6 @@ const DOMAIN_DISTRACTORS = {
     'Procedimiento tramitado por la vía de urgencia reduciendo a la mitad los plazos normativos ordinarios.',
     'Contrato menor que no requiere licitación pública por importe inferior al umbral legalmente regulado.'
   ],
-  // Temas 6-12: Biblioteconomía, Servicios BUS, CDU, Catálogos, Fondo Antiguo y Preservación
   biblioteconomia: [
     'Servicio de Préstamo Interbibliotecario (PIB / ILL) orientado a localizar documentos no existentes en el catálogo FAMA.',
     'Clasificación Decimal Universal (CDU) estructurada mediante tablas principales de números y auxiliares de relación.',
@@ -164,7 +184,6 @@ const DOMAIN_DISTRACTORS = {
     'Consulta restringida en sala para manuscritos e impresos del Fondo Antiguo anteriores a 1901.',
     'Renovación automática del periodo de préstamo a través del espacio personal en la plataforma FAMA.'
   ],
-  // Temas 13-16: Informática, Microsoft 365, Word, Excel, Teams, OneDrive, SharePoint
   informatica: [
     'Ctrl + Shift + L', 'Alt + F11', 'Ctrl + Alt + V', 'Ctrl + N',
     'Aplicar el formato de moneda con dos decimales a las celdas seleccionadas.',
@@ -173,7 +192,6 @@ const DOMAIN_DISTRACTORS = {
     'Sincronizar carpetas y archivos locales mediante el cliente de OneDrive para Empresa.',
     'Asignar permisos de visualización o edición restringidos a usuarios del espacio de trabajo de Teams.'
   ],
-  // Tema 17: Estatutos de la Universidad de Sevilla
   estatutos_us: [
     'Máxima autoridad académica y de representación de la Universidad de Sevilla elegida por la comunidad universitaria.',
     'Órgano colegiado de gobierno que aprueba la propuesta de presupuesto e imparte las directrices generales de la Universidad.',
@@ -181,7 +199,6 @@ const DOMAIN_DISTRACTORS = {
     'Órgano encargado de supervisar las actividades de carácter económico y el rendimiento de los servicios de la Universidad.',
     'Comisión delegada competente para dictaminar las reclamaciones en materia de profesorado y personal.'
   ],
-  // Tema 18: IV Convenio Colectivo del Personal Laboral de Universidades
   convenio_us: [
     'Desempeño de funciones de grupo superior por un periodo máximo e improrrogable de 12 meses continuados.',
     'Adquisición de la condición de personal fijo mediante la superación de los procesos selectivos de turno libre.',
@@ -189,7 +206,6 @@ const DOMAIN_DISTRACTORS = {
     'Modificación sustancial de las condiciones de trabajo sometida a informe previo del Comité de Empresa.',
     'Prescripción de las faltas muy graves a los 60 días contados desde la fecha en que la Gerencia tuvo conocimiento.'
   ],
-  // Tema 19: Ley Orgánica 3/2007 e Igualdad
   igualdad: [
     'Situación en que una disposición o práctica aparentemente neutra pone a personas de un sexo en desventaja particular.',
     'Trato desfavorable o adverso dispensado a una persona como reacción ante una reclamación o recurso administrativo.',
@@ -197,7 +213,6 @@ const DOMAIN_DISTRACTORS = {
     'Principio de presencia equilibrada garantizado mediante una representación entre el 40% y el 60% de ambos sexos.',
     'Medidas específicas de acción positiva adoptadas para corregir situaciones patentes de desigualdad de hecho.'
   ],
-  // Tema 20: Prevención de Riesgos Laborales (LPRL 31/1995 y SEPRUS)
   prl_seprus: [
     'Órgano colegiado y paritario de participación destinado a la consulta regular de las actuaciones en materia de prevención.',
     'Representante de los trabajadores con funciones específicas de prevención de riesgos en el centro de trabajo.',
@@ -207,7 +222,6 @@ const DOMAIN_DISTRACTORS = {
   ]
 };
 
-// Determina el grupo temático según el topicId
 function getDomainKeyForTopic(topicId, normContent) {
   const topNum = parseInt(topicId, 10);
   if (/igualdad|acoso|ciberacoso|sexo|género|violencia|discriminación/i.test(normContent) || topNum === 19) {
@@ -226,9 +240,6 @@ function getDomainKeyForTopic(topicId, normContent) {
   return 'convenio_us';
 }
 
-/**
- * Selecciona o sintetiza distractores 100% verosímiles y formales
- */
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
   const normContent = (heading + ' ' + factText + ' ' + correctOpt).toLowerCase();
   const domainKey = getDomainKeyForTopic(topicId, normContent);
@@ -236,7 +247,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
   const distractors = [];
   const used = new Set([correctOpt.toLowerCase().trim()]);
 
-  // OP 1: Usar definiciones de OTROS CONCEPTOS REALES extraídos del temario
+  // OP 1: Definiciones de otros conceptos reales del temario
   const otherConceptPairs = allConceptPairs
     .filter(cp => !used.has(cp.definition.toLowerCase().trim()) && cp.definition.length > 20)
     .sort(() => 0.5 - Math.random());
@@ -249,7 +260,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
-  // OP 2: Usar otros párrafos limpios del mismo tema
+  // OP 2: Otros párrafos limpios del mismo tema
   if (distractors.length < 3) {
     const cleanParas = allCleanParas
       .filter(p => p.length > 25 && p.length < 130 && !isMarketingOrHTML(p))
@@ -264,7 +275,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     });
   }
 
-  // OP 3: Usar distractores formales del banco de dominio correspondiente
+  // OP 3: Distractores formales del dominio temático
   if (distractors.length < 3) {
     const domainPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us).sort(() => 0.5 - Math.random());
     domainPool.forEach(item => {
@@ -279,11 +290,12 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas ACOTADAS Y CON DISTRACTORES 100% PROFESIONALES (20 Temas)
+ * Genera preguntas inéditas CON FORMATO OFICIAL DE EXAMEN (Sin referencias a epígrafes o puntos del temario en el enunciado)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
   const allSections = parseSectionsFromMarkdown(markdownText);
+  const normName = getOfficialNormName(topicId, topicTitle);
 
   // Extraer todos los párrafos limpios del tema
   const allCleanParas = [];
@@ -325,7 +337,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     targetSections = allSections;
   }
 
-  // 2. Extraer hechos y párrafos EXCLUSIVAMENTE de targetSections (0% marketing)
+  // 2. Extraer hechos y párrafos EXCLUSIVAMENTE de targetSections
   const factPool = [];
   targetSections.forEach(sec => {
     sec.paragraphs.forEach(para => {
@@ -354,7 +366,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     const daysMatch = factText.match(/(\d+)\s+(días|meses|años|mes)/i);
     const isShortcut = /Ctrl|Alt|Shift|F\d|teclado|atajo/i.test(factText);
 
-    // PATRÓN 1: ATAJOS DE TECLADO / INFORMÁTICA
+    // PATRÓN 1: ATAJOS DE TECLADO / INFORMÁTICA (Enunciado oficial sin citas a apartados)
     if (isShortcut) {
       const shortcutMatch = factText.match(/(Ctrl\s*\+\s*[^|\n]+|Alt\s*\+\s*[^|\n]+|Shift\s*\+\s*[^|\n]+)/i);
       const cleanShortcut = shortcutMatch ? shortcutMatch[1].trim() : null;
@@ -364,7 +376,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       actionDesc = sanitizeText(actionDesc);
 
       if (cleanShortcut && actionDesc.length > 5) {
-        const qText = `En el apartado "${heading}", ¿qué función realiza el atajo de teclado "${cleanShortcut}"?`;
+        const qText = `En ${normName}, ¿cuál de las siguientes opciones describe exactamente la función realizada por el atajo de teclado "${cleanShortcut}"?`;
         const correctOpt = actionDesc.substring(0, 110);
         
         const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
@@ -373,13 +385,13 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // PATRÓN 2: FECHAS / PLAZOS / DÍAS
+    // PATRÓN 2: FECHAS / PLAZOS / DÍAS (Enunciado oficial de examen)
     else if (daysMatch) {
       const num = daysMatch[1];
       const unit = daysMatch[2];
       const mainSentence = factText.split('.')[0];
       
-      const qText = `En el apartado "${heading}", respecto a: "${mainSentence.substring(0, 75)}...", ¿cuál es el plazo legalmente establecido?`;
+      const qText = `Según lo establecido en ${normName}, respecto a "${mainSentence.substring(0, 75)}...", ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${unit}`;
       const wrong1 = `${parseInt(num) * 2} ${unit}`;
@@ -389,7 +401,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
+    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS (Enunciado oficial de examen)
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && parts[0].trim().length > 3) {
@@ -397,7 +409,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         const definition = sanitizeText(parts.slice(1).join(' '));
         
         if (concept.length < 80 && definition.length > 15) {
-          const qText = `Conforme al apartado "${heading}", referente a "${concept}", señale la definición o afirmación correcta:`;
+          const qText = `Conforme a ${normName}, en relación con "${concept}", señale la afirmación o definición correcta:`;
           const correctOpt = definition.substring(0, 115);
           
           const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
@@ -408,7 +420,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       } else {
         const sentence = sanitizeText(factText.split('.')[0]);
         if (sentence.length > 30) {
-          const qText = `En el marco del apartado "${heading}", señale la opción correcta referente a su regulación:`;
+          const qText = `De acuerdo con lo dispuesto en ${normName}, señale la opción correcta referente a su regulación:`;
           const correctOpt = sentence.substring(0, 120);
           
           const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
@@ -429,16 +441,16 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Relleno de preguntas de alta calidad si fuera necesario
+  // Relleno de preguntas si fuera necesario con enunciados oficiales limpios
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
     const sectionLabel = cleanHeadingTitle(targetSectionObj.title);
     const sampleFact = (targetSectionObj.paragraphs && targetSectionObj.paragraphs.length > 0)
       ? sanitizeText(targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length])
-      : `Regulación oficial de ${sectionLabel}`;
+      : `Regulación oficial sobre la materia`;
 
-    const qText = `Según lo dispuesto en el apartado "${sectionLabel}", señale la afirmación correcta respecto a su contenido (#${fallbackNum}):`;
+    const qText = `De acuerdo con lo regulado en ${normName}, señale la afirmación correcta referente a su articulado y procedimiento:`;
     const correctOpt = sampleFact.substring(0, 120);
     const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
     const options = [correctOpt, ...wrongDistractors];
