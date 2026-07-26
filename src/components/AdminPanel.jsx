@@ -21,12 +21,15 @@ import {
   Save,
   CheckCircle2,
   AlertTriangle,
-  Edit3
+  Edit3,
+  ListFilter,
+  CheckSquare,
+  Square
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
-import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId } from '../services/testGeneratorEngine';
+import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
 
 export default function AdminPanel({ topics }) {
   const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'codes' | 'generator'
@@ -48,6 +51,8 @@ export default function AdminPanel({ topics }) {
 
   // Generator state
   const [selectedGenTopicId, setSelectedGenTopicId] = useState('1');
+  const [availableHeadings, setAvailableHeadings] = useState([]);
+  const [selectedHeadings, setSelectedHeadings] = useState('all'); // 'all' | Array<string>
   const [genCount, setGenCount] = useState(5);
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedBatch, setGeneratedBatch] = useState([]);
@@ -61,7 +66,6 @@ export default function AdminPanel({ topics }) {
     setLoading(true);
     setErrorMsg('');
     
-    // Subscribe to users and progress
     const unsubUsers = firebaseService.subscribeToAllUsers(
       (userList) => {
         setUsers(userList);
@@ -74,7 +78,6 @@ export default function AdminPanel({ topics }) {
       }
     );
 
-    // Subscribe to book activation codes
     const unsubCodes = firebaseService.subscribeToAllBookCodes(
       (codesList) => {
         setBookCodes(codesList);
@@ -89,6 +92,42 @@ export default function AdminPanel({ topics }) {
       unsubCodes();
     };
   }, []);
+
+  // Fetch topic markdown headings whenever selectedGenTopicId changes
+  useEffect(() => {
+    const loadHeadings = async () => {
+      const formattedNum = selectedGenTopicId.toString().padStart(2, '0');
+      try {
+        const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+        if (res.ok) {
+          const text = await res.text();
+          const headings = extractTopicHeadings(text);
+          setAvailableHeadings(headings);
+          setSelectedHeadings('all'); // reset to all by default
+        }
+      } catch (e) {
+        console.warn('Could not load headings for topic', selectedGenTopicId, e);
+        setAvailableHeadings([]);
+        setSelectedHeadings('all');
+      }
+    };
+
+    loadHeadings();
+  }, [selectedGenTopicId]);
+
+  const toggleSectionHeading = (headingText) => {
+    if (selectedHeadings === 'all') {
+      setSelectedHeadings([headingText]);
+    } else {
+      const isAlready = selectedHeadings.includes(headingText);
+      if (isAlready) {
+        const updated = selectedHeadings.filter(h => h !== headingText);
+        setSelectedHeadings(updated.length === 0 ? 'all' : updated);
+      } else {
+        setSelectedHeadings([...selectedHeadings, headingText]);
+      }
+    }
+  };
 
   const formatStudyTime = (totalSeconds) => {
     if (!totalSeconds) return '0m';
@@ -156,7 +195,7 @@ export default function AdminPanel({ topics }) {
       .catch(err => console.error('Error copiando:', err));
   };
 
-  // ── GENERADOR DE TESTS IA ───────────────────────────────────────────
+  // ── GENERADOR DE TESTS IA (Con filtrado por epígrafe/puntos) ──────
   const handleGenerateNewBatch = async () => {
     setIsGenerating(true);
     setSaveSuccessMsg('');
@@ -176,7 +215,8 @@ export default function AdminPanel({ topics }) {
         topicId: selectedGenTopicId.toString(),
         topicTitle: topicObj.title,
         markdownText,
-        count: genCount
+        count: genCount,
+        selectedSections: selectedHeadings
       });
 
       setGeneratedBatch(newQuestions);
@@ -332,7 +372,7 @@ export default function AdminPanel({ topics }) {
             <h1 style={{ fontSize: '1.8rem', color: 'var(--text-main)', margin: 0 }}>Panel de Control del Creador</h1>
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-            Supervisión global de estudiantes, códigos físicos y generador de preguntas inéditas.
+            Supervisión global de estudiantes, códigos físicos y generador de preguntas inéditas por tema y epígrafe.
           </p>
         </div>
         
@@ -377,97 +417,161 @@ export default function AdminPanel({ topics }) {
         </div>
       )}
 
-      {/* SUBTAB 4: GENERADOR DE TESTS IA */}
+      {/* SUBTAB 4: GENERADOR DE TESTS IA CON SELECCIÓN DE EPÍGRAFES */}
       {activeSubTab === 'generator' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
-              <div>
-                <h3 style={{ margin: 0, color: '#fef08a', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Sparkles size={22} style={{ color: '#f59e0b' }} />
-                  <span>Generador e Incorporador de Tests Inéditos</span>
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0 0 0' }}>
-                  Redacta o sintetiza preguntas inéditas siguiendo el estándar CCOO/US (Código 4140). Se comprueban antiduplicados y se añaden directamente al banco oficial.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              
+              {/* Row 1: Title and Main Controls */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Tema de destino:</label>
-                  <select
-                    value={selectedGenTopicId}
-                    onChange={(e) => setSelectedGenTopicId(e.target.value)}
-                    style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
-                  >
-                    {activeTopicList.map(t => (
-                      <option key={t.id} value={t.id}>
-                        Tema {t.id}: {t.title.length > 35 ? t.title.substring(0, 35) + '...' : t.title}
-                      </option>
-                    ))}
-                  </select>
+                  <h3 style={{ margin: 0, color: '#fef08a', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={22} style={{ color: '#f59e0b' }} />
+                    <span>Generador e Incorporador de Tests Inéditos</span>
+                  </h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                    Sintetiza preguntas inéditas por tema y enfoca la generación seleccionando epígrafes o apartados específicos.
+                  </p>
                 </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Preguntas a generar:</label>
-                  <select
-                    value={genCount}
-                    onChange={(e) => setGenCount(parseInt(e.target.value, 10))}
-                    style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Tema de destino:</label>
+                    <select
+                      value={selectedGenTopicId}
+                      onChange={(e) => setSelectedGenTopicId(e.target.value)}
+                      style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
+                    >
+                      {activeTopicList.map(t => (
+                        <option key={t.id} value={t.id}>
+                          Tema {t.id}: {t.title.length > 35 ? t.title.substring(0, 35) + '...' : t.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Preguntas a generar:</label>
+                    <select
+                      value={genCount}
+                      onChange={(e) => setGenCount(parseInt(e.target.value, 10))}
+                      style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
+                    >
+                      <option value={5}>5 preguntas inéditas</option>
+                      <option value={10}>10 preguntas inéditas</option>
+                      <option value={15}>15 preguntas inéditas</option>
+                      <option value={20}>20 preguntas inéditas</option>
+                    </select>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleGenerateNewBatch}
+                    disabled={isGenerating}
+                    style={{
+                      marginTop: '18px',
+                      padding: '9px 16px',
+                      borderRadius: '10px',
+                      background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                      color: '#fff',
+                      fontWeight: '800',
+                      border: 'none',
+                      cursor: isGenerating ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontSize: '0.85rem',
+                      boxShadow: '0 4px 14px rgba(245, 158, 11, 0.4)'
+                    }}
                   >
-                    <option value={5}>5 preguntas inéditas</option>
-                    <option value={10}>10 preguntas inéditas</option>
-                    <option value={15}>15 preguntas inéditas</option>
-                    <option value={20}>20 preguntas inéditas</option>
-                  </select>
+                    <Sparkles size={18} />
+                    <span>{isGenerating ? 'Sintetizando...' : '⚡ Generar Preguntas Inéditas'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleAddManualQuestion}
+                    style={{
+                      marginTop: '18px',
+                      padding: '9px 14px',
+                      borderRadius: '10px',
+                      background: 'rgba(255,255,255,0.08)',
+                      border: '1px solid rgba(255,255,255,0.2)',
+                      color: '#fff',
+                      fontWeight: '700',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '0.85rem'
+                    }}
+                  >
+                    <Plus size={16} />
+                    <span>Añadir Manual</span>
+                  </button>
                 </div>
-
-                <button
-                  type="button"
-                  onClick={handleGenerateNewBatch}
-                  disabled={isGenerating}
-                  style={{
-                    marginTop: '18px',
-                    padding: '9px 16px',
-                    borderRadius: '10px',
-                    background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-                    color: '#fff',
-                    fontWeight: '800',
-                    border: 'none',
-                    cursor: isGenerating ? 'not-allowed' : 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '0.85rem',
-                    boxShadow: '0 4px 14px rgba(245, 158, 11, 0.4)'
-                  }}
-                >
-                  <Sparkles size={18} />
-                  <span>{isGenerating ? 'Sintetizando preguntas...' : '⚡ Generar Preguntas Inéditas'}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleAddManualQuestion}
-                  style={{
-                    marginTop: '18px',
-                    padding: '9px 14px',
-                    borderRadius: '10px',
-                    background: 'rgba(255,255,255,0.08)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    color: '#fff',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontSize: '0.85rem'
-                  }}
-                >
-                  <Plus size={16} />
-                  <span>Añadir Manual</span>
-                </button>
               </div>
+
+              {/* Row 2: Section / Headings Selector */}
+              {availableHeadings.length > 0 && (
+                <div style={{ marginTop: '8px', paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <ListFilter size={16} style={{ color: 'var(--secondary)' }} />
+                      <span>Enfoque por Puntos / Epígrafes del Tema {selectedGenTopicId}:</span>
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => setSelectedHeadings('all')}
+                      style={{
+                        background: selectedHeadings === 'all' ? 'var(--secondary)' : 'rgba(255,255,255,0.08)',
+                        color: selectedHeadings === 'all' ? '#000' : 'rgba(255,255,255,0.7)',
+                        border: 'none',
+                        padding: '3px 10px',
+                        borderRadius: '12px',
+                        fontSize: '0.75rem',
+                        fontWeight: '800',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      🌐 Todos los puntos (Por defecto)
+                    </button>
+                  </div>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', maxHeight: '120px', overflowY: 'auto', padding: '4px' }}>
+                    {availableHeadings.map((heading, hIdx) => {
+                      const isSelected = selectedHeadings === 'all' || (Array.isArray(selectedHeadings) && selectedHeadings.includes(heading));
+                      return (
+                        <button
+                          key={hIdx}
+                          type="button"
+                          onClick={() => toggleSectionHeading(heading)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '4px 10px',
+                            borderRadius: '8px',
+                            fontSize: '0.75rem',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            background: isSelected ? 'rgba(245, 158, 11, 0.2)' : 'rgba(255,255,255,0.03)',
+                            border: isSelected ? '1px solid rgba(245, 158, 11, 0.5)' : '1px solid rgba(255,255,255,0.1)',
+                            color: isSelected ? '#fef08a' : 'rgba(255,255,255,0.6)',
+                            transition: 'all 0.15s ease'
+                          }}
+                        >
+                          {isSelected ? <CheckSquare size={13} style={{ color: '#f59e0b' }} /> : <Square size={13} style={{ color: 'rgba(255,255,255,0.4)' }} />}
+                          <span>{heading}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>
 

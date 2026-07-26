@@ -1,6 +1,7 @@
-﻿/**
+/**
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
+ * Soporta selección granular por epígrafe / punto del tema.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -8,11 +9,33 @@ import quizzesData from '../data/quizzes.json';
 const stripAccents = (str) =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 // Generador de ID único para nuevas preguntas
 export function generateQuestionId(topicId) {
   const timestamp = Date.now().toString(36);
   const randomStr = Math.random().toString(36).substring(2, 6);
   return `q_t${topicId}_${timestamp}_${randomStr}`;
+}
+
+// Extrae todos los encabezados / epígrafes del markdown del tema
+export function extractTopicHeadings(markdownText) {
+  if (!markdownText) return [];
+  const lines = markdownText.split('\n');
+  const headings = [];
+
+  lines.forEach(line => {
+    const trimmed = line.trim();
+    if (/^#{1,3}\s+/.test(trimmed)) {
+      const headingText = trimmed.replace(/^#+\s*/, '').replace(/[*_`]/g, '').trim();
+      if (headingText.length > 3 && !headingText.includes('app-promo-banner') && !headingText.startsWith('http')) {
+        headings.push(headingText);
+      }
+    }
+  });
+
+  // Unique list
+  return [...new Set(headings)];
 }
 
 // Algoritmo de similitud Levenshtein / Jaccard para verificar antiduplicados
@@ -52,13 +75,12 @@ export function checkDuplicated(proposedQuestionText, topicId) {
   }
 
   return {
-    isDuplicated: maxSim >= 0.7, // Umbral del 70% de similitud
+    isDuplicated: maxSim >= 0.7,
     similarityPercentage: Math.round(maxSim * 100),
     matchingExistingQuestion: matchQuestion
   };
 }
 
-// Plantillas de generación basadas en patrones normativos del temario
 const COMMON_DISTRACTORS = {
   organs: ['el Rector', 'el Consejo de Gobierno', 'el Claustro Universitario', 'la Comisión de Biblioteca', 'la Junta Técnica', 'el Vicerrectorado con competencias en Investigación', 'el Consejo Social'],
   days: ['10 días hábiles', '15 días hábiles', '20 días hábiles', '1 mes', '3 meses', '6 meses'],
@@ -68,28 +90,20 @@ const COMMON_DISTRACTORS = {
 
 /**
  * Genera un lote de preguntas inéditas basadas en el markdown del tema
+ * Soporta filtrado opcional por epígrafes seleccionados (selectedSections)
  */
-export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5 }) {
+export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
-  const existingList = quizzesData[topicId] || [];
-
-  // Parse markdown into key paragraphs and headings
-  const paragraphs = (markdownText || '')
-    .split('\n\n')
-    .map(p => p.trim())
-    .filter(p => p.length > 40 && !p.startsWith('#') && !p.includes('app-promo-banner'));
 
   let currentHeading = `Tema ${topicId} — ${topicTitle}`;
-
-  // Process paragraphs to extract facts
   const facts = [];
   const lines = (markdownText || '').split('\n');
 
   lines.forEach(line => {
     const trimmed = line.trim();
-    if (trimmed.startsWith('#')) {
-      currentHeading = trimmed.replace(/^#+\s*/, '');
-    } else if (trimmed.length > 30 && (trimmed.includes(':') || trimmed.includes('•') || trimmed.includes('*') || trimmed.includes('Art') || trimmed.includes('art'))) {
+    if (/^#{1,3}\s+/.test(trimmed)) {
+      currentHeading = trimmed.replace(/^#+\s*/, '').replace(/[*_`]/g, '').trim();
+    } else if (trimmed.length > 30 && !trimmed.includes('app-promo-banner') && (trimmed.includes(':') || trimmed.includes('•') || trimmed.includes('*') || trimmed.includes('Art') || trimmed.includes('art'))) {
       facts.push({
         text: trimmed.replace(/^[•*\-\d.]+\s*/, ''),
         heading: currentHeading
@@ -97,9 +111,16 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   });
 
-  const factPool = facts.length > 0 ? facts : paragraphs.map(p => ({ text: p, heading: currentHeading }));
+  // Filter facts by selectedSections if not 'all'
+  let filteredFacts = facts;
+  if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
+    filteredFacts = facts.filter(f => selectedSections.some(s => f.heading.toLowerCase().includes(s.toLowerCase()) || s.toLowerCase().includes(f.heading.toLowerCase())));
+    if (filteredFacts.length === 0) {
+      filteredFacts = facts; // fallback if section matching is too strict
+    }
+  }
 
-  // Shuffle fact pool
+  const factPool = filteredFacts.length > 0 ? filteredFacts : facts;
   const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
 
   let idx = 0;
@@ -110,10 +131,8 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     const factText = factObj.text;
     const heading = factObj.heading;
 
-    // Detect patterns in factText
     let newQ = null;
 
-    // Pattern 1: Timelines / Days / Deadlines
     const daysMatch = factText.match(/(\d+)\s+(días|meses|años|mes)/i);
     const organMatch = COMMON_DISTRACTORS.organs.find(o => factText.toLowerCase().includes(o.toLowerCase()));
 
@@ -130,10 +149,8 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const wrong3 = `30 días hábiles`;
 
       const options = [correctOpt, wrong1, wrong2, wrong3];
-
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    // Pattern 2: Organs / Competencies
     else if (organMatch) {
       const mainSentence = factText.split('.')[0];
       const qText = `En el marco de la normativa del ${heading}, ¿qué órgano o figura institucional tiene atribuida la competencia respecto a: "${mainSentence.substring(0, 80)}..."?`;
@@ -143,10 +160,8 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const shuffledOrgans = otherOrgans.sort(() => 0.5 - Math.random()).slice(0, 3);
 
       const options = [correctOpt, ...shuffledOrgans];
-
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     }
-    // Pattern 3: General Literal Concept Question
     else if (factText.length > 50) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && parts[0].trim().length > 10) {
@@ -162,14 +177,12 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
           const wrong3 = `Se aplica únicamente a los estudiantes de Doctorado y PDI de la Universidad de Sevilla.`;
 
           const options = [correctOpt, wrong1, wrong2, wrong3];
-
           newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
         }
       }
     }
 
     if (newQ) {
-      // Check anti-duplication against existing questions in quizzesData AND already generated in this batch
       const dupCheck = checkDuplicated(newQ.question, topicId);
       const isAlreadyInBatch = generated.some(g => calculateSimilarity(g.question, newQ.question) > 0.6);
 
@@ -179,31 +192,29 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Fallback if not enough questions generated algorithmically: create structured template questions
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
-    const qText = `Conforme al contenido oficial del Tema ${topicId} (${topicTitle}), señale la opción correcta referente a las atribuciones normativas y procedimentales (Cuestión inédita #${fallbackNum}):`;
-    const correctOpt = `Las actuaciones se rigen de acuerdo con el texto literal regulador del Tema ${topicId}.`;
+    const sectionLabel = selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0 ? selectedSections[0] : `Tema ${topicId}`;
+    const qText = `Conforme al apartado "${sectionLabel}" (${topicTitle}), señale la opción correcta referente a las atribuciones normativas y procedimentales (Cuestión inédita #${fallbackNum}):`;
+    const correctOpt = `Las actuaciones se rigen de acuerdo con el texto literal regulador de la sección "${sectionLabel}".`;
     const options = [
       correctOpt,
-      `Requiere autorización expresa del Consejo Social en un plazo improrrogable de 5 días.`,
+      `Requiere autorización previa del Consejo Social en un plazo improrrogable de 5 días.`,
       `Incurre en falta grave con sanción directa de expulsión inmediata.`,
       `Se aplica únicamente a usuarios externos sin UVUS activo.`
     ];
-    const newQ = createStructuredQuestion(qText, options, 0, `Contenido regulado en la normativa oficial del Tema ${topicId}.`, `Tema ${topicId} — ${topicTitle}`, topicId);
+    const newQ = createStructuredQuestion(qText, options, 0, `Contenido regulado en la sección ${sectionLabel}.`, sectionLabel, topicId);
     generated.push(newQ);
   }
 
   return generated;
 }
 
-// Crea un objeto de pregunta estructurado con opciones barajadas
 function createStructuredQuestion(rawQText, rawOptions, rawCorrectIdx, rawFact, heading, topicId) {
   const correctOptionText = rawOptions[rawCorrectIdx];
   const shuffledOptions = [...rawOptions].sort(() => 0.5 - Math.random());
   const newCorrectIndex = shuffledOptions.indexOf(correctOptionText);
 
-  // Format options A), B), C), D)
   const formattedOptions = shuffledOptions.map((optText, i) => {
     const letter = ['A', 'B', 'C', 'D'][i];
     const cleanText = optText.replace(/^[A-D]\)\s*/, '').trim();
