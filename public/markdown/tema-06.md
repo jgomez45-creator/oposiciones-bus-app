@@ -244,3 +244,36 @@ Al alfabetizar revistas por título en las estanterías o listas de control:
 * **San Segundo Manuel, R. & AENOR (2016).** *Clasificación Decimal Universal (CDU): Edición abreviada 2016*. Madrid: AENOR.
 * **Dionisio Millán (2022).** *Prácticas de CDU y Gestión de Colecciones*. Biblioteca ETSA, Universidad de Sevilla.
 * **Normas y Reglamentos de Préstamo y Servicios de la BUS (2024).** Universidad de Sevilla.
+
+
+<div class="app-promo-banner footer-promo" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%); border: 2px solid #6366f1; border-radius: 12px; padding: 24px; color: #ffffff; margin-top: 30px; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); text-align: center;">
+
+  <div style="font-size: 1.4rem; font-weight: 800; color: #fbbf24; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">
+    🚀 ¡LLEVA TU PREPARACIÓN AL SIGUIENTE NIVEL EN LA APP ONLINE! 🚀
+  </div>
+
+  <p style="font-size: 1rem; line-height: 1.6; color: #f3f4f6; margin-bottom: 16px;">
+    No te quedes solo en la lectura teórica. Pon a prueba tus conocimientos en tiempo real con la plataforma interactiva de estudio:
+  </p>
+
+  <div style="background: rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 18px; margin-bottom: 20px; text-align: left; border-left: 5px solid #10b981;">
+    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.92rem; line-height: 1.9; color: #ffffff;">
+      <li style="margin-bottom: 6px;">📝 <strong>Batería de Cerca de 2.000 Preguntas Totales:</strong> Organizadas por cada uno de los 20 temas del programa de la escala de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - US).</li>
+      <li style="margin-bottom: 6px;">📜 <strong>Exámenes Reales de Convocatorias Anteriores:</strong> Módulos independientes para realizar en línea los exámenes reales celebrados en pruebas anteriores (como el Examen Real 2019 y Examen Real 2022).</li>
+      <li style="margin-bottom: 6px;">🎯 <strong>15 Simulacros Predefinidos (600 Preguntas Únicas):</strong> Exámenes fijos de 40 preguntas (exactamente 2 preguntas por tema) sin repetición entre sí para medir tu evolución a lo largo del tiempo.</li>
+      <li style="margin-bottom: 6px;">⚙️ <strong>Simulacros Aleatorios e Infinitos Personalizados:</strong> Configura tu entrenamiento por Tema Único, bloques de temas o simulacros globales de 40 preguntas de forma ilimitada.</li>
+      <li style="margin-bottom: 6px;">⚡ <strong>Corrección Instantánea con Sellos de Examen:</strong> Evaluación inmediata con explicaciones detalladas y distintivos visuales (<em>OK / INCORRECTA / NO CONTESTADA</em>).</li>
+      <li style="margin-bottom: 6px;">🎴 <strong>Tarjetas de Memorización (Flashcards):</strong> Memoriza en minutos plazos de leyes, frecuencias RFID, luxes, normas ISO y fórmulas EFQM.</li>
+      <li style="margin-bottom: 6px;">🖨️ <strong>Generador de Exámenes Impresos en Papel:</strong> Compila e imprime cualquier simulacro o cuaderno de test para entrenar en formato de examen real.</li>
+      <li style="margin-bottom: 0px;">📈 <strong>Cuaderno de Repaso de Fallos:</strong> Guarda de forma automática tus errores para reintentarlos hasta conseguir el 100% de aciertos.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%); color: #ffffff; font-weight: 800; font-size: 1.05rem; padding: 14px 28px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5); text-transform: uppercase;">
+      👉 ENTRAR AHORA A OPOSICIONES-BUS-APP 👈
+    </a>
+  </div>
+  <p style="font-size: 0.85rem; color: #c7d2fe; margin-top: 12px; margin-bottom: 0;">🌐 Acceso libre y 100% optimizado para ordenador, tablet y móvil en <strong>https://oposiciones-bus-app.vercel.app/</strong></p>
+
+</div>
