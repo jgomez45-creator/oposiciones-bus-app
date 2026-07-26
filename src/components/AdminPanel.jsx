@@ -24,7 +24,8 @@ import {
   Edit3,
   ListFilter,
   CheckSquare,
-  Square
+  Square,
+  FileText
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
@@ -32,7 +33,7 @@ import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
 
 export default function AdminPanel({ topics }) {
-  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'codes' | 'generator'
+  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'codes' | 'generator' | 'bank'
   const [users, setUsers] = useState([]);
   const [bookCodes, setBookCodes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -58,6 +59,11 @@ export default function AdminPanel({ topics }) {
   const [generatedBatch, setGeneratedBatch] = useState([]);
   const [savingBatch, setSavingBatch] = useState(false);
   const [saveSuccessMsg, setSaveSuccessMsg] = useState('');
+
+  // Bank Manager state
+  const [bankTopicId, setBankTopicId] = useState('1');
+  const [bankSearch, setBankSearch] = useState('');
+  const [bankActionMsg, setBankActionMsg] = useState('');
 
   const activeTopicList = topics || topicsData;
 
@@ -195,7 +201,26 @@ export default function AdminPanel({ topics }) {
       .catch(err => console.error('Error copiando:', err));
   };
 
-  // ── GENERADOR DE TESTS IA (Con filtrado por epígrafe/puntos) ──────
+  // ── ELIMINAR PREGUNTA DEL BANCO OFICIAL ─────────────────────────────
+  const handleDeleteQuestionFromBank = (topicId, questionId, questionText) => {
+    if (window.confirm(`¿Estás seguro de que deseas ELIMINAR del banco esta pregunta?\n\n"${questionText.substring(0, 80)}..."`)) {
+      const currentList = quizzesData[topicId] || [];
+      const updatedList = currentList.filter(q => q && q.id !== questionId);
+      
+      quizzesData[topicId] = updatedList;
+
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('quizzes-updated', { 
+          detail: { topicId, deletedId: questionId } 
+        }));
+      }
+
+      setBankActionMsg(`Pregunta eliminada con éxito del banco del Tema ${topicId}. Quedan ${updatedList.length} preguntas.`);
+      setTimeout(() => setBankActionMsg(''), 4000);
+    }
+  };
+
+  // ── GENERADOR DE TESTS IA ───────────────────────────────────────────
   const handleGenerateNewBatch = async () => {
     setIsGenerating(true);
     setSaveSuccessMsg('');
@@ -361,6 +386,19 @@ export default function AdminPanel({ topics }) {
     return (a.name || '').localeCompare(b.name || '');
   });
 
+  // Bank questions list
+  const currentBankList = quizzesData[bankTopicId] || [];
+  const filteredBankList = currentBankList.filter(q => {
+    if (!q || !q.question) return false;
+    if (!bankSearch) return true;
+    const searchLower = bankSearch.toLowerCase();
+    return (
+      q.question.toLowerCase().includes(searchLower) ||
+      (q.explanation || '').toLowerCase().includes(searchLower) ||
+      q.options.some(opt => opt.toLowerCase().includes(searchLower))
+    );
+  });
+
   return (
     <div className="admin-dashboard-container fade-in" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '100%', minWidth: 0, boxSizing: 'border-box', margin: '0 auto', width: '100%' }}>
       
@@ -372,37 +410,45 @@ export default function AdminPanel({ topics }) {
             <h1 style={{ fontSize: '1.8rem', color: 'var(--text-main)', margin: 0 }}>Panel de Control del Creador</h1>
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-            Supervisión global de estudiantes, códigos físicos y generador de preguntas inéditas por tema y epígrafe.
+            Supervisión global de estudiantes, códigos físicos, gestor del banco y generador de preguntas.
           </p>
         </div>
         
         {/* Sub-tabs Selector */}
-        <div className="glass-panel" style={{ display: 'flex', padding: '4px', borderRadius: '12px', background: 'rgba(15,20,36,0.5)' }}>
+        <div className="glass-panel" style={{ display: 'flex', padding: '4px', borderRadius: '12px', background: 'rgba(15,20,36,0.5)', flexWrap: 'wrap', gap: '4px' }}>
           <button
             onClick={() => setActiveSubTab('stats')}
             className={`tab-btn ${activeSubTab === 'stats' ? 'active' : ''}`}
-            style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'stats' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'stats' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
           >
             Métricas
           </button>
           <button
             onClick={() => setActiveSubTab('users')}
             className={`tab-btn ${activeSubTab === 'users' ? 'active' : ''}`}
-            style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'users' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'users' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
           >
             Estudiantes ({registeredUsersCount})
           </button>
           <button
             onClick={() => setActiveSubTab('codes')}
             className={`tab-btn ${activeSubTab === 'codes' ? 'active' : ''}`}
-            style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'codes' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'codes' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
           >
             Códigos
           </button>
           <button
+            onClick={() => setActiveSubTab('bank')}
+            className={`tab-btn ${activeSubTab === 'bank' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'bank' ? 'var(--secondary)' : 'transparent', color: activeSubTab === 'bank' ? '#000' : 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '700', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Library size={16} />
+            <span>Banco de Preguntas</span>
+          </button>
+          <button
             onClick={() => setActiveSubTab('generator')}
             className={`tab-btn ${activeSubTab === 'generator' ? 'active' : ''}`}
-            style={{ padding: '8px 16px', border: 'none', background: activeSubTab === 'generator' ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'transparent', color: '#fff', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'generator' ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'transparent', color: '#fff', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
           >
             <Sparkles size={16} />
             <span>Generar Tests</span>
@@ -414,6 +460,156 @@ export default function AdminPanel({ topics }) {
         <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#fca5a5', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ShieldAlert size={18} />
           <span>{errorMsg}</span>
+        </div>
+      )}
+
+      {/* SUBTAB 5: GESTOR DEL BANCO DE PREGUNTAS (ELIMINAR / REVISAR) */}
+      {activeSubTab === 'bank' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(212, 163, 89, 0.3)', background: 'linear-gradient(135deg, rgba(212, 163, 89, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
+              <div>
+                <h3 style={{ margin: 0, color: 'var(--secondary)', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Library size={22} />
+                  <span>Gestor del Banco de Preguntas</span>
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                  Examina todas las preguntas existentes por tema, busca cuestiones específicas y elimina preguntas obsoletas o duplicadas.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Seleccionar Tema:</label>
+                  <select
+                    value={bankTopicId}
+                    onChange={(e) => setBankTopicId(e.target.value)}
+                    style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '8px 12px', borderRadius: '8px', outline: 'none', fontWeight: '600', fontSize: '0.85rem' }}
+                  >
+                    {activeTopicList.map(t => (
+                      <option key={t.id} value={t.id}>
+                        Tema {t.id}: {t.title.length > 35 ? t.title.substring(0, 35) + '...' : t.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div style={{ position: 'relative', marginTop: '18px' }}>
+                  <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                  <input
+                    type="text"
+                    value={bankSearch}
+                    onChange={(e) => setBankSearch(e.target.value)}
+                    placeholder="Buscar en la batería de preguntas..."
+                    style={{ padding: '8px 12px 8px 36px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none', width: '240px' }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-main)', fontWeight: '700' }}>
+                📚 Banco oficial del Tema {bankTopicId}: <span style={{ color: 'var(--secondary)' }}>{currentBankList.length} preguntas en total</span>
+              </span>
+              {bankSearch && (
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  Mostrando {filteredBankList.length} coincidencias con "{bankSearch}"
+                </span>
+              )}
+            </div>
+          </div>
+
+          {bankActionMsg && (
+            <div style={{ padding: '12px 16px', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.4)', borderRadius: '10px', color: '#4ade80', fontSize: '0.85rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={18} />
+              <span>{bankActionMsg}</span>
+            </div>
+          )}
+
+          {/* QUESTION CARDS LIST WITH DELETE BUTTON */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {filteredBankList.length === 0 ? (
+              <div className="glass-panel" style={{ padding: '30px', textAlign: 'center', color: 'var(--text-muted)', borderRadius: '12px' }}>
+                No se encontraron preguntas en el banco para este criterio de búsqueda.
+              </div>
+            ) : (
+              filteredBankList.map((q, idx) => (
+                <div key={q.id || idx} className="glass-panel" style={{ padding: '16px 20px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(15, 23, 42, 0.6)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: '800', color: 'var(--secondary)', background: 'rgba(212, 163, 89, 0.15)', padding: '2px 10px', borderRadius: '10px' }}>
+                        Pregunta #{idx + 1}
+                      </span>
+                      {q.isGenerated && (
+                        <span style={{ fontSize: '0.7rem', background: 'rgba(245, 158, 11, 0.2)', color: '#fef08a', padding: '2px 8px', borderRadius: '8px', border: '1px solid rgba(245, 158, 11, 0.3)', fontWeight: '600' }}>
+                          ⚡ Inédita / Generada
+                        </span>
+                      )}
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>
+                        ID: {q.id}
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteQuestionFromBank(bankTopicId, q.id, q.question)}
+                      style={{
+                        padding: '6px 12px',
+                        borderRadius: '8px',
+                        background: 'rgba(239, 68, 68, 0.15)',
+                        border: '1px solid rgba(239, 68, 68, 0.4)',
+                        color: '#fca5a5',
+                        fontWeight: '700',
+                        fontSize: '0.78rem',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        transition: 'all 0.15s ease'
+                      }}
+                      title="Eliminar permanentemente del banco"
+                    >
+                      <Trash2 size={14} />
+                      <span>Eliminar del Banco</span>
+                    </button>
+                  </div>
+
+                  <div style={{ fontSize: '0.9rem', fontWeight: '600', color: '#fff', lineHeight: '1.4' }}>
+                    {q.question}
+                  </div>
+
+                  {/* Options Display */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '4px' }}>
+                    {q.options && q.options.map((opt, optIdx) => {
+                      const isCorrect = q.correctAnswer === optIdx;
+                      return (
+                        <div
+                          key={optIdx}
+                          style={{
+                            padding: '6px 10px',
+                            borderRadius: '8px',
+                            fontSize: '0.8rem',
+                            background: isCorrect ? 'rgba(34, 197, 94, 0.15)' : 'rgba(255,255,255,0.03)',
+                            border: isCorrect ? '1px solid rgba(34, 197, 94, 0.4)' : '1px solid transparent',
+                            color: isCorrect ? '#4ade80' : 'rgba(255,255,255,0.7)',
+                            fontWeight: isCorrect ? '700' : '400'
+                          }}
+                        >
+                          {opt} {isCorrect && '✓'}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {q.explanation && (
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.2)', padding: '6px 10px', borderRadius: '6px', marginTop: '2px' }}>
+                      <strong style={{ color: 'var(--secondary)' }}>Fuente:</strong> {q.explanation}
+                    </div>
+                  )}
+                </div>
+              ))
+            )}
+          </div>
         </div>
       )}
 
