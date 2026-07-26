@@ -1427,7 +1427,11 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         <div className="printable-question-text" style={{ fontWeight: '700', fontSize: isPaperFullscreen ? '1.25rem' : '1.05rem', color: 'black', marginBottom: '12px', lineHeight: '1.4', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
                           <span>{qIndex + 1}.</span>
                           {paperExamSubmitted && (
-                            isQuestionCorrect ? (
+                            !isAnswered ? (
+                              <span style={{ color: '#b45309', fontWeight: 'bold', fontSize: '0.95rem', backgroundColor: '#fef3c7', border: '1.5px solid #fde68a', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(180, 83, 9, 0.12)' }}>
+                                ⚪ No contestada
+                              </span>
+                            ) : isQuestionCorrect ? (
                               <span style={{ color: '#16a34a', fontWeight: 'bold', fontSize: '1.05rem', backgroundColor: '#dcfce7', border: '1.5px solid #bbf7d0', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(22, 163, 74, 0.15)' }}>
                                 Ok
                               </span>
@@ -1450,7 +1454,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                           
                           let itemStyle = {
                             display: 'flex',
-                            alignItems: 'flex-start',
+                            alignItems: 'center',
                             gap: '12px',
                             padding: '10px 14px',
                             borderRadius: '8px',
@@ -1479,12 +1483,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
                           if (paperExamSubmitted) {
                             if (isCorrect) {
-                              itemStyle.backgroundColor = '#dcfce7'; // green bg
-                              itemStyle.color = '#14532d';
-                              itemStyle.border = '1px solid #bbf7d0';
-                              boxStyle.borderColor = '#16a34a';
-                              boxStyle.backgroundColor = '#16a34a';
-                              boxStyle.color = 'white';
+                              itemStyle.backgroundColor = !isAnswered ? '#fefce8' : '#dcfce7'; // yellow if unanswered, green if answered
+                              itemStyle.color = !isAnswered ? '#854d0e' : '#14532d';
+                              itemStyle.border = !isAnswered ? '1.5px dashed #ca8a04' : '1px solid #bbf7d0';
+                              boxStyle.borderColor = !isAnswered ? '#ca8a04' : '#16a34a';
+                              boxStyle.backgroundColor = !isAnswered ? '#fef08a' : '#16a34a';
+                              boxStyle.color = !isAnswered ? '#854d0e' : 'white';
                             } else if (isSelected && !isCorrect) {
                               itemStyle.backgroundColor = '#fee2e2'; // red bg
                               itemStyle.color = '#7f1d1d';
@@ -1521,7 +1525,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                             >
                               <div style={boxStyle}>
                                 {paperExamSubmitted ? (
-                                  isCorrect ? '✓' : isSelected ? '✗' : ''
+                                  isCorrect ? (isAnswered ? '✓' : '!') : isSelected ? '✗' : ''
                                 ) : (
                                   isSelected ? 'X' : ''
                                 )}
@@ -1529,6 +1533,11 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                               <span style={{ lineHeight: '1.4' }}>
                                 <strong>{['A', 'B', 'C', 'D'][optIndex]})</strong> {opt}
                               </span>
+                              {paperExamSubmitted && !isAnswered && isCorrect && (
+                                <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 'bold', color: '#854d0e', backgroundColor: '#fef9c3', border: '1px solid #fef08a', padding: '2px 8px', borderRadius: '12px' }}>
+                                  Respuesta Correcta (Sin contestar)
+                                </span>
+                              )}
                             </div>
                           );
                         })}
