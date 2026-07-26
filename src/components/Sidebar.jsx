@@ -13,7 +13,7 @@ import {
   Sparkles
 } from 'lucide-react';
 
-export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri }) {
+export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri, isSiriOpen }) {
   const menuGroups = [
     {
       label: 'Aprendizaje',
@@ -86,33 +86,43 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
             <span className="menu-group-label">{group.label}</span>
             {group.items.map((item) => {
               const Icon = item.icon;
-              const isActive = item.id !== 'agente_bus' && currentTab === item.id;
+              const isAgenteActive = Boolean(isSiriOpen || currentTab === 'agente_bus');
+              const isActive = item.id === 'agente_bus' ? isAgenteActive : (!isSiriOpen && currentTab === item.id);
               
               if (item.isBlueButton) {
                 return (
                   <button
                     key={item.id}
                     type="button"
-                    onClick={item.onClick}
-                    className="menu-item glow-btn"
+                    onClick={() => {
+                      if (item.onClick) item.onClick();
+                    }}
+                    className={`menu-item ${isAgenteActive ? 'active' : ''}`}
                     style={{
                       width: '100%',
                       margin: '4px 0',
-                      padding: '8px 12px',
+                      padding: '10px 14px',
                       borderRadius: '10px',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '8px',
-                      background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+                      gap: '10px',
+                      background: isAgenteActive
+                        ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'
+                        : 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
                       color: '#ffffff',
                       fontWeight: '700',
-                      fontSize: '0.82rem',
-                      border: '1px solid rgba(255, 255, 255, 0.25)',
-                      boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)',
-                      cursor: 'pointer'
+                      fontSize: '0.88rem',
+                      border: isAgenteActive
+                        ? '1px solid rgba(255, 255, 255, 0.3)'
+                        : '1px solid rgba(253, 224, 71, 0.4)',
+                      boxShadow: isAgenteActive
+                        ? '0 4px 14px rgba(37, 99, 235, 0.45)'
+                        : '0 4px 14px rgba(217, 119, 6, 0.4)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease'
                     }}
                   >
-                    <Sparkles size={16} style={{ color: '#fbbf24' }} />
+                    <Sparkles size={18} style={{ color: isAgenteActive ? '#ffffff' : '#fef08a' }} />
                     <span>Agente BUS</span>
                   </button>
                 );
@@ -132,7 +142,6 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
                 >
                   <Icon size={18} className="menu-icon" />
                   <span>{item.name}</span>
-                  {isActive && <span className="active-indicator" />}
                 </button>
               );
             })}

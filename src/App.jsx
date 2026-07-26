@@ -538,6 +538,7 @@ export default function App() {
           currentUser={currentUser}
           handleLogout={handleLogout}
           onOpenSiri={() => setShowSiriModal(true)}
+          isSiriOpen={showSiriModal}
         />
         <main className="main-content">
           {loadingProgress ? (
