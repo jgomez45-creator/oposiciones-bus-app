@@ -1418,14 +1418,30 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
                 {/* Questions List */}
                 <div className="questions-print-list">
-                  {questions.map((q, qIndex) => (
-                    <div key={qIndex} className="paper-exam-question" style={{ marginBottom: '28px', paddingBottom: '24px', borderBottom: '1px dashed #e2e8f0', pageBreakInside: 'avoid' }}>
-                      <div className="printable-question-text" style={{ fontWeight: '700', fontSize: isPaperFullscreen ? '1.25rem' : '1.05rem', color: 'black', marginBottom: '12px', lineHeight: '1.4' }}>
-                        {qIndex + 1}. {q.question}
-                        <span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: '#666', marginLeft: '8px', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>
-                          Tema {q.topicId}
-                        </span>
-                      </div>
+                  {questions.map((q, qIndex) => {
+                    const isAnswered = userAnswers[qIndex] !== undefined;
+                    const isQuestionCorrect = isAnswered && userAnswers[qIndex] === q.correctAnswer;
+
+                    return (
+                      <div key={qIndex} className="paper-exam-question" style={{ marginBottom: '28px', paddingBottom: '24px', borderBottom: '1px dashed #e2e8f0', pageBreakInside: 'avoid' }}>
+                        <div className="printable-question-text" style={{ fontWeight: '700', fontSize: isPaperFullscreen ? '1.25rem' : '1.05rem', color: 'black', marginBottom: '12px', lineHeight: '1.4', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
+                          <span>{qIndex + 1}.</span>
+                          {paperExamSubmitted && (
+                            isQuestionCorrect ? (
+                              <span style={{ color: '#16a34a', fontWeight: 'bold', fontSize: '1.05rem', backgroundColor: '#dcfce7', border: '1.5px solid #bbf7d0', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(22, 163, 74, 0.15)' }}>
+                                Ok
+                              </span>
+                            ) : (
+                              <span style={{ color: '#dc2626', fontWeight: 'bold', fontSize: '1.05rem', backgroundColor: '#fee2e2', border: '1.5px solid #fecaca', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(220, 38, 38, 0.15)' }}>
+                                X
+                              </span>
+                            )
+                          )}
+                          <span>{q.question}</span>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: '#666', marginLeft: 'auto', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>
+                            Tema {q.topicId}
+                          </span>
+                        </div>
 
                       <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '12px' }}>
                         {q.options.map((opt, optIndex) => {
@@ -1525,7 +1541,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         </div>
                       )}
                     </div>
-                  ))}
+                  );
+                })}
                 </div>
 
                 {/* Submit button at bottom */}

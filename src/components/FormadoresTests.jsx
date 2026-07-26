@@ -763,7 +763,7 @@ export default function FormadoresTests({ currentUser }) {
                       background: 'rgba(20,20,25,0.4)' 
                     }}
                   >
-                    <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '14px' }}>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '14px' }}>
                       <span style={{ 
                         fontSize: '0.85rem', 
                         fontWeight: '700', 
@@ -773,9 +773,20 @@ export default function FormadoresTests({ currentUser }) {
                         color: 'var(--secondary)',
                         flexShrink: 0
                       }}>
-                        {idx + 1}
+                        {idx + 1}.
                       </span>
-                      <h4 style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--text-main)', lineHeight: '1.4' }}>
+                      {paperSubmitted && (
+                        answer === q.correctAnswer ? (
+                          <span style={{ color: '#16a34a', fontWeight: 'bold', fontSize: '0.9rem', backgroundColor: '#dcfce7', border: '1.5px solid #bbf7d0', padding: '2px 9px', borderRadius: '6px', flexShrink: 0 }}>
+                            Ok
+                          </span>
+                        ) : (
+                          <span style={{ color: '#dc2626', fontWeight: 'bold', fontSize: '0.9rem', backgroundColor: '#fee2e2', border: '1.5px solid #fecaca', padding: '2px 9px', borderRadius: '6px', flexShrink: 0 }}>
+                            X
+                          </span>
+                        )
+                      )}
+                      <h4 style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--text-main)', lineHeight: '1.4', margin: 0 }}>
                         {q.question}
                       </h4>
                     </div>
