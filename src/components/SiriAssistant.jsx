@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Sparkles, 
   Mic, 
@@ -275,6 +275,75 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
       return `${listContent}\n📋 Fuente: Convocatoria oficial de la US\n\n¿De qué tema quieres revisar la teoría o hacer preguntas?`;
     }
 
+    // ── INTERCEPTORES DE CONTEXTO (ANTES del filtro de palabras) ────────────
+    // Deben evaluarse primero porque usan respuestas de 1 palabra ("sí", "vale",
+    // "A", "B"…) que quedarían filtradas por stopWords si se procesan después.
+
+    // Pregunta de quiz activa — el usuario responde con A/B/C/D
+    if (lastProposalRef.current?.type === 'quiz_question_active') {
+      const activeQ = lastProposalRef.current.qItem;
+      const targetTopId = lastProposalRef.current.targetTopicId || activeTopicId.toString();
+      const extractOptionLetter = (str) => {
+        const norm = str.toLowerCase().trim();
+        if (/^[abcd]$/i.test(norm)) return norm.toUpperCase();
+        const m = norm.match(/\b(opcion|opción|respuesta|la|es)\s+([abcd])\b/i) || norm.match(/\b([abcd])\b/i);
+        if (m && m[2]) return m[2].toUpperCase();
+        if (m && m[1] && /^[abcd]$/i.test(m[1])) return m[1].toUpperCase();
+        return null;
+      };
+      const userChoice = extractOptionLetter(userQuery);
+      if (userChoice) {
+        const correctIdx = activeQ.correctAnswer !== undefined ? activeQ.correctAnswer : 0;
+        const correctLetter = ['A','B','C','D'][correctIdx];
+        const correctText = activeQ.options[correctIdx]?.replace(/^[A-D]\)\s*/,'') || '';
+        lastProposalRef.current = null;
+        if (userChoice === correctLetter) {
+          return `¡Correcto! 🎉 La opción **${correctLetter}) ${correctText}** es la respuesta correcta.\n\n💡 **Explicación:** ${activeQ.explanation}\n\n📋 Fuente: Tema ${targetTopId} — Banco de preguntas de examen\n\n¿Quieres otra pregunta o prefieres consultar un concepto teórico?`;
+        } else {
+          return `Incorrecto. La respuesta correcta era la **opción ${correctLetter}) ${correctText}**.\n\n💡 **Explicación:** ${activeQ.explanation}\n\n📋 Fuente: Tema ${targetTopId} — Banco de preguntas de examen\n\n¿Quieres que probemos otra pregunta para afianzar el concepto?`;
+        }
+      }
+    }
+
+    // Respuestas afirmativas — «sí», «vale», «dale», «ok»…
+    const affirmativeWords = ['si','sí','vale','acepto','venga','de acuerdo','ok','dale','claro','adelante','perfecto'];
+    const isAffirmative = affirmativeWords.some(w => q === w || q === `¡${w}!` || q === `${w}.`);
+    if (isAffirmative) {
+      const targetTopId = lastProposalRef.current?.targetTopicId || activeTopicId.toString();
+      const keywords = lastProposalRef.current?.keywords || [];
+      const topicQuizzes = (quizzesData[targetTopId] || quizzesData['18'] || quizzesData['1'] || []).filter(item => item?.question);
+      let bestQ = null, highestScore = -1;
+      topicQuizzes.forEach(item => {
+        const fullTextNorm = stripAccents(item.question + ' ' + (item.explanation||'') + ' ' + (item.options?.join(' ')||''));
+        let score = 0;
+        keywords.forEach(kw => {
+          const kwNorm = stripAccents(kw);
+          if (kwNorm.length >= 3 && fullTextNorm.includes(kwNorm)) { score += 10; if (new RegExp(`\\b${kwNorm}\\b`).test(fullTextNorm)) score += 20; }
+        });
+        if (score > highestScore) { highestScore = score; bestQ = item; }
+      });
+      const selectedQ = (highestScore > 0 && bestQ) ? bestQ : topicQuizzes[Math.floor(Math.random() * topicQuizzes.length)];
+      if (selectedQ) {
+        lastProposalRef.current = { type: 'quiz_question_active', qItem: selectedQ, targetTopicId: targetTopId };
+        const optionsList = selectedQ.options.map((opt,idx) => `${['A','B','C','D'][idx]}) ${opt.replace(/^[A-D]\)\s*/,'')}`).join('\n');
+        return `• **[Tema ${targetTopId}] Pregunta de Examen:**\n${selectedQ.question}\n\n${optionsList}\n\n¿Sabrías cuál es la opción correcta?`;
+      }
+    }
+
+    // Respuestas negativas — «no», «no lo sé», «ni idea»…
+    const negativeWords = ['no','no lo se','no lo sé','no se','ni idea','dimelo tu','dímelo tú','dímelo','dimelo'];
+    const isNegative = negativeWords.some(w => q === w || q.includes('no lo se') || q.includes('no lo sé'));
+    if (isNegative && lastProposalRef.current?.type === 'quiz_question_active') {
+      const activeQ = lastProposalRef.current.qItem;
+      const correctIdx = activeQ.correctAnswer !== undefined ? activeQ.correctAnswer : 0;
+      const correctLetter = ['A','B','C','D'][correctIdx];
+      const correctText = activeQ.options[correctIdx]?.replace(/^[A-D]\)\s*/,'') || '';
+      const savedTopId = lastProposalRef.current.targetTopicId;
+      lastProposalRef.current = null;
+      return `La respuesta correcta es la **opción ${correctLetter}) ${correctText}**.\n\n💡 **Explicación:** ${activeQ.explanation}\n\n📋 Fuente: Tema ${savedTopId} — Banco de preguntas\n\n¿Quieres otra pregunta o prefieres consultar la teoría?`;
+    }
+
+    // ── Palabras clave para búsqueda en las 3 fuentes ───────────────────────
     const qClean = q.replace(/[¿?¡!]/g,'').trim();
     const qNorm = stripAccents(qClean);
     const words = qNorm.split(/[\s,.\-;:?¿!¡()'\"«»]/).map(w => w.trim()).filter(w => w.length >= 2 && !stopWords.has(w));
@@ -301,70 +370,6 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose }) {
         theorySummary += `Normativa oficial del Tema ${topId}: **${topicObj.title}** (Código 4140).`;
       }
       return `${theorySummary}\n\n📋 Fuente: Tema ${topId} — ${topicObj.title}\n\n${getRepregunta()}`;
-    }
-
-    // Pregunta de quiz activa
-    if (lastProposalRef.current?.type === 'quiz_question_active') {
-      const activeQ = lastProposalRef.current.qItem;
-      const targetTopId = lastProposalRef.current.targetTopicId || activeTopicId.toString();
-      const extractOptionLetter = (str) => {
-        const norm = str.toLowerCase().trim();
-        if (/^[abcd]$/i.test(norm)) return norm.toUpperCase();
-        const m = norm.match(/\b(opcion|opción|respuesta|la|es)\s+([abcd])\b/i) || norm.match(/\b([abcd])\b/i);
-        if (m && m[2]) return m[2].toUpperCase();
-        if (m && m[1] && /^[abcd]$/i.test(m[1])) return m[1].toUpperCase();
-        return null;
-      };
-      const userChoice = extractOptionLetter(userQuery);
-      if (userChoice) {
-        const correctIdx = activeQ.correctAnswer !== undefined ? activeQ.correctAnswer : 0;
-        const correctLetter = ['A','B','C','D'][correctIdx];
-        const correctText = activeQ.options[correctIdx]?.replace(/^[A-D]\)\s*/,'') || '';
-        lastProposalRef.current = null;
-        if (userChoice === correctLetter) {
-          return `¡Correcto! 🎉 La opción **${correctLetter}) ${correctText}** es la respuesta correcta.\n\n💡 **Explicación:** ${activeQ.explanation}\n\n📋 Fuente: Tema ${targetTopId} — Banco de preguntas de examen\n\n¿Quieres otra pregunta o prefieres consultar un concepto teórico?`;
-        } else {
-          return `Incorrecto. La respuesta correcta era la **opción ${correctLetter}) ${correctText}**.\n\n💡 **Explicación:** ${activeQ.explanation}\n\n📋 Fuente: Tema ${targetTopId} — Banco de preguntas de examen\n\n¿Quieres que probemos otra pregunta para afianzar el concepto?`;
-        }
-      }
-    }
-
-    // Respuestas afirmativas
-    const affirmativeWords = ['si','sí','vale','acepto','venga','de acuerdo','ok','dale','claro','adelante','perfecto'];
-    const isAffirmative = affirmativeWords.some(w => q === w || q === `¡${w}!` || q === `${w}.`);
-    if (isAffirmative) {
-      const targetTopId = lastProposalRef.current?.targetTopicId || activeTopicId.toString();
-      const keywords = lastProposalRef.current?.keywords || [];
-      const topicQuizzes = (quizzesData[targetTopId] || quizzesData['18'] || quizzesData['1'] || []).filter(item => item?.question);
-      let bestQ = null, highestScore = -1;
-      topicQuizzes.forEach(item => {
-        const fullTextNorm = stripAccents(item.question + ' ' + (item.explanation||'') + ' ' + (item.options?.join(' ')||''));
-        let score = 0;
-        keywords.forEach(kw => {
-          const kwNorm = stripAccents(kw);
-          if (kwNorm.length >= 3 && fullTextNorm.includes(kwNorm)) { score += 10; if (new RegExp(`\\b${kwNorm}\\b`).test(fullTextNorm)) score += 20; }
-        });
-        if (score > highestScore) { highestScore = score; bestQ = item; }
-      });
-      const selectedQ = (highestScore > 0 && bestQ) ? bestQ : topicQuizzes[Math.floor(Math.random() * topicQuizzes.length)];
-      if (selectedQ) {
-        lastProposalRef.current = { type: 'quiz_question_active', qItem: selectedQ, targetTopicId: targetTopId };
-        const optionsList = selectedQ.options.map((opt,idx) => `${['A','B','C','D'][idx]}) ${opt.replace(/^[A-D]\)\s*/,'')}`).join('\n');
-        return `• **[Tema ${targetTopId}] Pregunta de Examen:**\n${selectedQ.question}\n\n${optionsList}\n\n¿Sabrías cuál es la opción correcta?`;
-      }
-    }
-
-    // Respuestas negativas
-    const negativeWords = ['no','no lo se','no lo sé','no se','ni idea','dimelo tu','dímelo tú','dímelo','dimelo'];
-    const isNegative = negativeWords.some(w => q === w || q.includes('no lo se') || q.includes('no lo sé'));
-    if (isNegative && lastProposalRef.current?.type === 'quiz_question_active') {
-      const activeQ = lastProposalRef.current.qItem;
-      const correctIdx = activeQ.correctAnswer !== undefined ? activeQ.correctAnswer : 0;
-      const correctLetter = ['A','B','C','D'][correctIdx];
-      const correctText = activeQ.options[correctIdx]?.replace(/^[A-D]\)\s*/,'') || '';
-      const savedTopId = lastProposalRef.current.targetTopicId;
-      lastProposalRef.current = null;
-      return `La respuesta correcta es la **opción ${correctLetter}) ${correctText}**.\n\n💡 **Explicación:** ${activeQ.explanation}\n\n📋 Fuente: Tema ${savedTopId} — Banco de preguntas\n\n¿Quieres otra pregunta o prefieres consultar la teoría?`;
     }
 
     // ══ BÚSQUEDA EN LAS 3 FUENTES ══════════════════════════════════════════
