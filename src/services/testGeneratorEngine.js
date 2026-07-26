@@ -1,7 +1,11 @@
 /**
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
- * Garantiza aislamiento 100% estricto por epígrafe / punto seleccionado.
+ * 
+ * Garantiza:
+ * 1. Distractores 100% contextuales (del mismo tema/dominio técnico).
+ * 2. Cero opciones absurdas (sin trampas fuera de ámbito como sanciones en informática).
+ * 3. Enunciados y títulos limpios sin emojism de Markdown.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -10,6 +14,17 @@ const stripAccents = (str) =>
   str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim() : '';
 
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+// Limpia emojism y adornos de títulos de encabezado
+export function cleanHeadingTitle(title) {
+  if (!title) return '';
+  return title
+    .replace(/[📌📱💡🎴📝⚡⚠️📋🟢🟡🔴•*]/g, '')
+    .replace(/^(COMPENDIO|GUÍA|RESUMEN|APARTADO|SECCIÓN)\s*/i, '')
+    .replace(/\(SÚPER PREGUNTADOS.*\)/i, '')
+    .replace(/\(MÁXIMA IMPORTANCIA.*\)/i, '')
+    .trim();
+}
 
 // Generador de ID único para nuevas preguntas
 export function generateQuestionId(topicId) {
@@ -32,7 +47,7 @@ export function parseSectionsFromMarkdown(markdownText) {
   lines.forEach(line => {
     const trimmed = line.trim();
     if (/^#{1,3}\s+/.test(trimmed)) {
-      const titleText = trimmed.replace(/^#+\s*/, '').replace(/[*_`]/g, '').trim();
+      const titleText = cleanHeadingTitle(trimmed.replace(/^#+\s*/, ''));
       if (titleText.length > 2 && !titleText.includes('app-promo-banner') && !titleText.startsWith('http') && !titleText.toLowerCase().startsWith('tema ')) {
         if (currentParas.length > 0 && currentTitle) {
           sections.push({ title: currentTitle, paragraphs: currentParas });
@@ -40,9 +55,9 @@ export function parseSectionsFromMarkdown(markdownText) {
         currentTitle = titleText;
         currentParas = [];
       }
-    } else if (trimmed.length > 20 && !trimmed.includes('app-promo-banner') && !trimmed.startsWith('>') && !trimmed.startsWith('---')) {
+    } else if (trimmed.length > 15 && !trimmed.includes('app-promo-banner') && !trimmed.startsWith('>') && !trimmed.startsWith('---')) {
       const cleanPara = trimmed.replace(/^[•*\-\d.]+\s*/, '').replace(/[*_`]/g, '').trim();
-      if (cleanPara.length > 20) {
+      if (cleanPara.length > 15) {
         currentParas.push(cleanPara);
       }
     }
@@ -104,19 +119,132 @@ export function checkDuplicated(proposedQuestionText, topicId) {
   };
 }
 
-const COMMON_DISTRACTORS = {
-  organs: ['el Rector', 'el Consejo de Gobierno', 'el Claustro Universitario', 'la Comisión de Biblioteca', 'la Junta Técnica', 'el Vicerrectorado con competencias en Investigación', 'el Consejo Social'],
-  days: ['10 días hábiles', '15 días hábiles', '20 días hábiles', '1 mes', '3 meses', '6 meses'],
-  severities: ['falta leve', 'falta grave', 'falta muy grave'],
-  deadlines: ['1 año', '2 años', '3 años', '5 años']
-};
+// Baterías especializadas de distractores plausibles por dominio temático
+const SHORTCUT_POOL = [
+  'Ctrl + Shift + L', 'Alt + F11', 'Ctrl + Alt + V', 'Ctrl + N', 
+  'Ctrl + Shift + 1', 'Ctrl + T', 'Ctrl + L', 'Shift + F3', 
+  'Ctrl + E', 'Ctrl + Z', 'Alt + Enter', 'Ctrl + AvPag', 'Ctrl + Barra espaciadora'
+];
+
+const EXCEL_FUNCTIONS_POOL = [
+  'Aplicar el formato de moneda con dos decimales',
+  'Insertar una nueva tabla dinámica en la hoja actual',
+  'Ocultar la fila o columna seleccionada',
+  'Abrir el cuadro de diálogo Buscar y Reemplazar',
+  'Mostrar las fórmulas en lugar de los valores calculados',
+  'Seleccionar todas las celdas con formato condicional activo'
+];
+
+const LEGAL_MUTATIONS = [
+  { from: /días hábiles/gi, to: 'días naturales' },
+  { from: /días naturales/gi, to: 'días hábiles' },
+  { from: /Rector/gi, to: 'Gerente' },
+  { from: /Gerente/gi, to: 'Vicerrector' },
+  { from: /Consejo de Gobierno/gi, to: 'Claustro Universitario' },
+  { from: /15 días/gi, to: '30 días' },
+  { from: /1 mes/gi, to: '20 días hábiles' },
+  { from: /obligatorio/gi, to: 'facultativo u optativo' },
+  { from: /previa autorización/gi, to: 'comunicación posterior' }
+];
 
 /**
- * Genera preguntas inéditas ACOTADAS 100% A LOS EPÍGRAFES SELECCIONADOS
+ * Genera distractores CONTEXTUALES Y PLAUSIBLES del mismo dominio
+ */
+function generateContextualDistractors(factText, heading, correctOpt, topicId, allTopicParas) {
+  const isShortcut = /Ctrl|Alt|Shift|F\d|teclado|atajo/i.test(factText) || /Ctrl|Alt|Shift|F\d|\|/i.test(correctOpt);
+  const isIT = isShortcut || /excel|word|m365|office|celda|hoja|documento|tabla|pantalla/i.test(heading + ' ' + factText);
+
+  // CASO 1: ATAJOS DE TECLADO / INFORMÁTICA
+  if (isShortcut) {
+    const distractors = [];
+    const used = new Set([correctOpt.toLowerCase()]);
+
+    // Opción 1: Otro atajo conocido
+    const shufShortcuts = [...SHORTCUT_POOL].sort(() => 0.5 - Math.random());
+    shufShortcuts.forEach(s => {
+      if (distractors.length < 3 && !used.has(s.toLowerCase())) {
+        distractors.push(s);
+        used.add(s.toLowerCase());
+      }
+    });
+
+    // Opción 2: Función plausibles de Excel/Word si faltan
+    const shufFuncs = [...EXCEL_FUNCTIONS_POOL].sort(() => 0.5 - Math.random());
+    shufFuncs.forEach(f => {
+      if (distractors.length < 3 && !used.has(f.toLowerCase())) {
+        distractors.push(f);
+        used.add(f.toLowerCase());
+      }
+    });
+
+    return distractors.slice(0, 3);
+  }
+
+  // CASO 2: USAR OTROS PÁRRAFOS DEL MISMO TEMA / SECCIÓN COMO DISTRACTORES
+  const distractors = [];
+  const used = new Set([correctOpt.toLowerCase()]);
+
+  // Filtrar párrafos del mismo tema que no coincidan con la opción correcta
+  const siblingParas = allTopicParas
+    .map(p => p.trim())
+    .filter(p => p.length > 25 && p.length < 130 && !p.toLowerCase().includes(correctOpt.toLowerCase().substring(0, 20)))
+    .sort(() => 0.5 - Math.random());
+
+  siblingParas.forEach(p => {
+    const candidate = p.substring(0, 115).trim();
+    if (distractors.length < 3 && !used.has(candidate.toLowerCase())) {
+      distractors.push(candidate);
+      used.add(candidate.toLowerCase());
+    }
+  });
+
+  // CASO 3: MUTACIÓN PLAUSIBLE DEL TEXTO CORRECTO (Si no hay suficientes párrafos hermanos)
+  if (distractors.length < 3) {
+    let mutated = correctOpt;
+    for (const rule of LEGAL_MUTATIONS) {
+      if (rule.from.test(mutated)) {
+        const alt = mutated.replace(rule.from, rule.to);
+        if (!used.has(alt.toLowerCase()) && distractors.length < 3) {
+          distractors.push(alt);
+          used.add(alt.toLowerCase());
+        }
+      }
+    }
+  }
+
+  // CASO 4: FALLBACKS CONTEXTUALES DE DOMINIO (Solo de la misma área temática)
+  if (distractors.length < 3) {
+    const domainFallbacks = isIT ? [
+      'Se ejecuta automáticamente al guardar el documento en OneDrive.',
+      'Requiere activar el modo de compatibilidad de Microsoft 365.',
+      'Aplica únicamente a los rangos de celdas con formato de tabla.'
+    ] : [
+      `Queda sujeto a la disponibilidad presupuestaria del ejercicio corriente.`,
+      `Se tramitará previa solicitud justificada con 5 días hábiles de antelación.`,
+      `Aplica únicamente al personal laboral fijo con más de 2 años de antigüedad.`
+    ];
+
+    domainFallbacks.forEach(fb => {
+      if (distractors.length < 3 && !used.has(fb.toLowerCase())) {
+        distractors.push(fb);
+        used.add(fb.toLowerCase());
+      }
+    });
+  }
+
+  return distractors.slice(0, 3);
+}
+
+/**
+ * Genera preguntas inéditas ACOTADAS Y CON DISTRACTORES PLAUSIBLES
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
   const allSections = parseSectionsFromMarkdown(markdownText);
+
+  // Array plano de todos los párrafos del tema para extraer distractores hermanos
+  const allTopicParas = [];
+  allSections.forEach(sec => sec.paragraphs.forEach(p => allTopicParas.push(p)));
 
   // 1. Filtrar las secciones estrictamente seleccionadas
   let targetSections = allSections;
@@ -129,13 +257,11 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       });
     });
 
-    // Si la búsqueda por coincidencia fuera vacía (p.ej. caracteres especiales), usar las secciones seleccionadas por índice o nombre parcial
     if (targetSections.length === 0) {
       targetSections = allSections.filter(sec => selectedSections.some(sel => sec.title.includes(sel) || sel.includes(sec.title)));
     }
   }
 
-  // Si aún así no hubiera secciones aisladas (tema plano), usar todas las secciones parseadas
   if (targetSections.length === 0) {
     targetSections = allSections;
   }
@@ -160,19 +286,39 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     idx++;
 
     const factText = factObj.text;
-    const heading = factObj.heading;
+    const heading = cleanHeadingTitle(factObj.heading);
 
     let newQ = null;
 
     const daysMatch = factText.match(/(\d+)\s+(días|meses|años|mes)/i);
-    const organMatch = COMMON_DISTRACTORS.organs.find(o => factText.toLowerCase().includes(o.toLowerCase()));
+    const isShortcut = /Ctrl|Alt|Shift|F\d|teclado|atajo/i.test(factText);
 
-    if (daysMatch) {
+    // PATRÓN 1: ATAJOS DE TECLADO / FORMALISMOS TÉCNICOS
+    if (isShortcut) {
+      const shortcutMatch = factText.match(/(Ctrl\s*\+\s*[^|\n]+|Alt\s*\+\s*[^|\n]+|Shift\s*\+\s*[^|\n]+)/i);
+      const cleanShortcut = shortcutMatch ? shortcutMatch[1].trim() : null;
+      
+      const parts = factText.split('|').map(s => s.trim()).filter(Boolean);
+      let actionDesc = parts.length >= 2 ? parts[parts.length - 1] : factText.split(':')[1] || factText;
+      actionDesc = actionDesc.replace(/^[*_`]/, '').trim();
+
+      if (cleanShortcut && actionDesc.length > 5) {
+        const qText = `En el apartado "${heading}", ¿qué acción realiza el atajo de teclado "${cleanShortcut}"?`;
+        const correctOpt = actionDesc.substring(0, 110);
+        
+        const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allTopicParas);
+        const options = [correctOpt, ...wrongDistractors];
+        
+        newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
+      }
+    }
+    // PATRÓN 2: FECHAS / PLAZOS / DÍAS
+    else if (daysMatch) {
       const num = daysMatch[1];
       const unit = daysMatch[2];
       const mainSentence = factText.split('.')[0];
       
-      const qText = `En virtud del apartado "${heading}", en relación con ${mainSentence.substring(0, 75)}..., ¿cuál es el plazo legalmente establecido?`;
+      const qText = `En el apartado "${heading}", respecto a: "${mainSentence.substring(0, 75)}...", ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${unit}`;
       const wrong1 = `${parseInt(num) * 2} ${unit}`;
@@ -182,45 +328,31 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    else if (organMatch) {
-      const mainSentence = factText.split('.')[0];
-      const qText = `Según el apartado "${heading}", ¿qué órgano o autoridad ostenta la competencia respecto a: "${mainSentence.substring(0, 85)}..."?`;
-      
-      const correctOpt = organMatch;
-      const otherOrgans = COMMON_DISTRACTORS.organs.filter(o => o.toLowerCase() !== organMatch.toLowerCase());
-      const shuffledOrgans = otherOrgans.sort(() => 0.5 - Math.random()).slice(0, 3);
-
-      const options = [correctOpt, ...shuffledOrgans];
-      newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
-    }
-    else if (factText.length > 35) {
+    // PATRÓN 3: AFIRMACIONES CONCEPTUALES DEL APARTADO
+    else if (factText.length > 30) {
       const parts = factText.split(/[:–-]/);
-      if (parts.length >= 2 && parts[0].trim().length > 8) {
-        const concept = parts[0].replace(/[*_]/g, '').trim();
-        const definition = parts.slice(1).join(' ').replace(/[*_]/g, '').trim();
+      if (parts.length >= 2 && parts[0].trim().length > 6) {
+        const concept = parts[0].replace(/[*_`]/g, '').trim();
+        const definition = parts.slice(1).join(' ').replace(/[*_`]/g, '').trim();
         
-        if (concept.length < 90 && definition.length > 15) {
-          const qText = `Conforme al apartado "${heading}", respecto a "${concept}", ¿cuál de las siguientes opciones expresa exactamente lo establecido en la norma?`;
-          
+        if (concept.length < 80 && definition.length > 15) {
+          const qText = `Conforme al apartado "${heading}", referente a "${concept}", señale la afirmación correcta:`;
           const correctOpt = definition.substring(0, 115);
-          const wrong1 = `Requiere autorización previa e informe motivado del Consejo Social.`;
-          const wrong2 = `Queda sin efecto en los periodos vacacionales retribuidos del personal.`;
-          const wrong3 = `Se reserva exclusivamente al personal de Grupo I con 10 años de antigüedad.`;
-
-          const options = [correctOpt, wrong1, wrong2, wrong3];
+          
+          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allTopicParas);
+          const options = [correctOpt, ...wrongDistractors];
+          
           newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
         }
       } else {
-        // Pregunta conceptual directa del párrafo del epígrafe
         const sentence = factText.split('.')[0].trim();
         if (sentence.length > 35) {
-          const qText = `En el marco del apartado "${heading}", señale la afirmación correcta respecto a la regulación de este punto:`;
+          const qText = `En el marco del apartado "${heading}", señale la opción correcta referente a su regulación:`;
           const correctOpt = sentence.substring(0, 120);
-          const wrong1 = `Queda excluido expresamente del ámbito de aplicación establecido en el Capítulo I.`;
-          const wrong2 = `Se sanciona con suspensión firme de empleo y sueldo previa denuncia fundada.`;
-          const wrong3 = `Es competencia delegada del Comité de Empresa mediante acuerdo unánime.`;
-
-          const options = [correctOpt, wrong1, wrong2, wrong3];
+          
+          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allTopicParas);
+          const options = [correctOpt, ...wrongDistractors];
+          
           newQ = createStructuredQuestion(qText, options, 0, sentence, heading, topicId);
         }
       }
@@ -236,23 +368,20 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Relleno estricto aislado en el epígrafe si se requieren más preguntas
+  // Relleno aislado de la misma sección si se solicitan más preguntas
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
-    const sectionLabel = targetSectionObj.title;
+    const sectionLabel = cleanHeadingTitle(targetSectionObj.title);
     const sampleFact = (targetSectionObj.paragraphs && targetSectionObj.paragraphs.length > 0)
-      ? targetSectionObj.paragraphs[0]
-      : `Normativa oficial de ${sectionLabel}`;
+      ? targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length]
+      : `Regulación oficial de ${sectionLabel}`;
 
-    const qText = `Según lo dispuesto en el apartado "${sectionLabel}", señale la opción correcta referente a su procedimiento regulatorio (#${fallbackNum}):`;
+    const qText = `Según lo dispuesto en el apartado "${sectionLabel}", señale la afirmación correcta respecto a su contenido (#${fallbackNum}):`;
     const correctOpt = sampleFact.substring(0, 120);
-    const options = [
-      correctOpt,
-      `Requiere informe preceptivo y vinculante expedido por la Gerencia en un plazo de 3 días.`,
-      `Queda sin validez de acuerdo con las resoluciones de la Comisión Sectorial de REBIUN.`,
-      `Su tramitación exige quórum de dos tercios del Claustro Universitario.`
-    ];
+    const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allTopicParas);
+    const options = [correctOpt, ...wrongDistractors];
+    
     const newQ = createStructuredQuestion(qText, options, 0, sampleFact, sectionLabel, topicId);
     generated.push(newQ);
   }
