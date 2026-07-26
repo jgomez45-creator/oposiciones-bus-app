@@ -247,7 +247,7 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada del Tema Único -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-after: always; break-after: page;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px;">
               <div style="color: #004B93; font-weight: normal; font-size: 13pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
               <div style="width: 80px; height: 3px; background-color: #004B93; margin: 12px auto 20px auto;"></div>
               
@@ -283,7 +283,7 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-after: always; break-after: page;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px;">
               <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
               <div style="width: 80px; height: 3px; background-color: #004B93; margin: 15px auto 25px auto;"></div>
               <h1 style="font-size: 30pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
@@ -292,7 +292,7 @@ export default function TopicViewer({
               <div style="font-size: 12pt; color: #333333; max-width: 720px; line-height: 1.4; margin: 0 auto 15px auto; padding: 16px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
                 <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
                 <br/><br/>
-                Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccioncionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
+                Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
                 <br/><br/>
                 Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
               </div>
@@ -332,7 +332,6 @@ export default function TopicViewer({
                 ${indexItemsHtml}
               </div>
             </div>
-            <div class="print-page-break"></div>
           `;
         }
       }
@@ -341,7 +340,6 @@ export default function TopicViewer({
       
       if (isManualFormat && sortedIds.length > 1 && currentUser?.role === 'admin') {
         combinedHtml += `
-          <div class="print-page-break"></div>
           <div class="print-manual-admin-info" style="box-sizing: border-box; padding: 20mm 40px; font-family: Arial, Calibri, Helvetica, sans-serif; max-width: 820px; margin: 0 auto; line-height: 1.5; color: #000000; text-align: justify; font-size: 13pt; page-break-before: always; break-before: page;">
             <div style="border-bottom: 3px solid #004B93; padding-bottom: 10px; margin-bottom: 24px; text-align: center;">
               <h1 style="margin: 0; color: #004B93; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Acceso y Registro en la Aplicación Web</h1>
@@ -393,7 +391,6 @@ export default function TopicViewer({
 
       if (isManualFormat) {
         combinedHtml += `
-          <div class="print-page-break"></div>
           <div class="print-manual-omr-sheet" style="box-sizing: border-box; padding: 12mm 30px; font-family: Arial, Calibri, Helvetica, sans-serif; max-width: 820px; margin: 0 auto; page-break-before: always; break-before: page; text-align: center;">
             <div style="border-bottom: 3px solid #c8102e; padding-bottom: 8px; margin-bottom: 16px; text-align: left;">
               <span style="font-size: 11pt; font-weight: bold; color: #c8102e; text-transform: uppercase; letter-spacing: 1.5px;">Anexo de Apoyo Didáctico &bull; Plantilla OMR Oficial</span>

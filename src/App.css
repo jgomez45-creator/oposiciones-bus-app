@@ -4877,25 +4877,75 @@ body.reading-fullscreen-mode .markdown-body-container {
 }
 
 @media print {
+  @page {
+    margin: 12mm 10mm 12mm 10mm;
+    size: A4 portrait;
+  }
+
+  html, body, #root, .app-container, .main-content, .topic-viewer-main, .markdown-body-container {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  /* Prevent forced page breaks and trailing blank pages */
+  .print-page-break:last-child,
+  .print-page-break:last-of-type,
+  *:last-child > .print-page-break {
+    display: none !important;
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .print-topic-block:last-child,
+  .print-topic-block:last-of-type,
+  .printable-exam-sheet:last-child,
+  .printable-answers-section:last-child,
+  .print-manual-omr-sheet:last-child,
+  .print-manual-cover:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Collapse duplicate adjacent page breaks */
+  .print-page-break + .print-page-break,
+  .print-page-break + .print-topic-block,
+  .print-topic-block + .print-page-break,
+  div[style*="break-before: page"] + .print-page-break,
+  .print-page-break + div[style*="break-before: page"] {
+    display: none !important;
+  }
+
+  /* Images in Print - Prevent forced page splits & blank spaces */
   .markdown-content img,
   .topic-viewer img,
   .prose img,
   .print-preview-content img,
   .markdown-rendered-content img,
   .print-topic-block img {
-    width: 100% !important;
+    width: auto !important;
     max-width: 100% !important;
-    min-height: 125mm !important;
+    max-height: 70vh !important;
+    min-height: 0 !important;
     height: auto !important;
     object-fit: contain !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
-    margin: 15px auto !important;
+    margin: 12px auto !important;
     border: 1px solid #94a3b8 !important;
   }
+
+  /* Headings - Avoid Orphan Headings at page bottom */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
 }
-
-
-
-
-
