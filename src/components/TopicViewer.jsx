@@ -22,7 +22,8 @@ import {
   Settings,
   ZoomIn,
   ZoomOut,
-  RotateCcw
+  RotateCcw,
+  X
 } from 'lucide-react';
 import quizzesData from '../data/quizzes.json';
 
@@ -1606,9 +1607,45 @@ export default function TopicViewer({
 
             {/* Reading settings bar - shown only when settings panel is open */}
             {showSettingsPanel && (
-              <div className="reading-settings-dropdown glass-panel fade-in">
+              <div className="reading-settings-dropdown glass-panel fade-in" style={{ position: 'relative' }}>
+                <button 
+                  type="button"
+                  onClick={() => setShowSettingsPanel(false)}
+                  className="close-settings-btn"
+                  title="Cerrar opciones de lectura"
+                  aria-label="Cerrar opciones de lectura"
+                  style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '12px',
+                    background: 'rgba(255, 255, 255, 0.12)',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    borderRadius: '50%',
+                    width: '28px',
+                    height: '28px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    zIndex: 10
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#ef4444';
+                    e.currentTarget.style.borderColor = '#ef4444';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                >
+                  <X size={16} />
+                </button>
                 {/* Upper block: MODO DE LECTURA and VELOCIDAD SCROLL */}
-                <div className="reading-settings-row" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
+                <div className="reading-settings-row" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', alignItems: 'center', paddingRight: '28px' }}>
                   <div className="settings-group" style={{ flexWrap: 'wrap', gap: '8px' }}>
                     <span className="settings-label">Modo de Lectura:</span>
                     <button 
