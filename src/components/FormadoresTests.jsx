@@ -776,13 +776,17 @@ export default function FormadoresTests({ currentUser }) {
                         {idx + 1}.
                       </span>
                       {paperSubmitted && (
-                        answer === q.correctAnswer ? (
-                          <span style={{ color: '#16a34a', fontWeight: 'bold', fontSize: '0.9rem', backgroundColor: '#dcfce7', border: '1.5px solid #bbf7d0', padding: '2px 9px', borderRadius: '6px', flexShrink: 0 }}>
-                            Ok
+                        answer === undefined ? (
+                          <span style={{ backgroundColor: '#dc2626', color: '#ffffff', fontWeight: '800', fontSize: '0.78rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', flexShrink: 0, boxShadow: '0 2px 6px rgba(220, 38, 38, 0.35)' }}>
+                            NO CONTESTADA
+                          </span>
+                        ) : answer === q.correctAnswer ? (
+                          <span style={{ backgroundColor: '#16a34a', color: '#ffffff', fontWeight: '800', fontSize: '0.78rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', flexShrink: 0, boxShadow: '0 2px 6px rgba(22, 163, 74, 0.35)' }}>
+                            OK
                           </span>
                         ) : (
-                          <span style={{ color: '#dc2626', fontWeight: 'bold', fontSize: '0.9rem', backgroundColor: '#fee2e2', border: '1.5px solid #fecaca', padding: '2px 9px', borderRadius: '6px', flexShrink: 0 }}>
-                            X
+                          <span style={{ backgroundColor: '#ef4444', color: '#ffffff', fontWeight: '800', fontSize: '0.78rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', flexShrink: 0, boxShadow: '0 2px 6px rgba(239, 68, 68, 0.35)' }}>
+                            INCORRECTA (X)
                           </span>
                         )
                       )}

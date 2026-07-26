@@ -1428,16 +1428,64 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                           <span>{qIndex + 1}.</span>
                           {paperExamSubmitted && (
                             !isAnswered ? (
-                              <span style={{ color: '#b45309', fontWeight: 'bold', fontSize: '0.95rem', backgroundColor: '#fef3c7', border: '1.5px solid #fde68a', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(180, 83, 9, 0.12)' }}>
-                                ⚪ No contestada
+                              <span style={{ 
+                                backgroundColor: '#dc2626', 
+                                color: '#ffffff', 
+                                fontWeight: '800', 
+                                fontSize: '0.82rem', 
+                                letterSpacing: '0.5px',
+                                textTransform: 'uppercase',
+                                padding: '3px 10px', 
+                                borderRadius: '5px', 
+                                marginLeft: '6px', 
+                                marginRight: '8px', 
+                                display: 'inline-flex', 
+                                alignItems: 'center', 
+                                gap: '4px', 
+                                boxShadow: '0 2px 6px rgba(220, 38, 38, 0.35)',
+                                border: '1px solid #b91c1c'
+                              }}>
+                                NO CONTESTADA
                               </span>
                             ) : isQuestionCorrect ? (
-                              <span style={{ color: '#16a34a', fontWeight: 'bold', fontSize: '1.05rem', backgroundColor: '#dcfce7', border: '1.5px solid #bbf7d0', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(22, 163, 74, 0.15)' }}>
-                                Ok
+                              <span style={{ 
+                                backgroundColor: '#16a34a', 
+                                color: '#ffffff', 
+                                fontWeight: '800', 
+                                fontSize: '0.82rem', 
+                                letterSpacing: '0.5px',
+                                textTransform: 'uppercase',
+                                padding: '3px 10px', 
+                                borderRadius: '5px', 
+                                marginLeft: '6px', 
+                                marginRight: '8px', 
+                                display: 'inline-flex', 
+                                alignItems: 'center', 
+                                gap: '4px', 
+                                boxShadow: '0 2px 6px rgba(22, 163, 74, 0.35)',
+                                border: '1px solid #15803d'
+                              }}>
+                                OK
                               </span>
                             ) : (
-                              <span style={{ color: '#dc2626', fontWeight: 'bold', fontSize: '1.05rem', backgroundColor: '#fee2e2', border: '1.5px solid #fecaca', padding: '2px 10px', borderRadius: '6px', marginLeft: '4px', marginRight: '6px', display: 'inline-flex', alignItems: 'center', gap: '4px', boxShadow: '0 1px 3px rgba(220, 38, 38, 0.15)' }}>
-                                X
+                              <span style={{ 
+                                backgroundColor: '#ef4444', 
+                                color: '#ffffff', 
+                                fontWeight: '800', 
+                                fontSize: '0.82rem', 
+                                letterSpacing: '0.5px',
+                                textTransform: 'uppercase',
+                                padding: '3px 10px', 
+                                borderRadius: '5px', 
+                                marginLeft: '6px', 
+                                marginRight: '8px', 
+                                display: 'inline-flex', 
+                                alignItems: 'center', 
+                                gap: '4px', 
+                                boxShadow: '0 2px 6px rgba(239, 68, 68, 0.35)',
+                                border: '1px solid #dc2626'
+                              }}>
+                                INCORRECTA (X)
                               </span>
                             )
                           )}
