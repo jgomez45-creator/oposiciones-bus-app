@@ -45,31 +45,49 @@ const stopWords = new Set([
 const stripAccents = (str) =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 // ── MOTOR A: Glosario verificado ────────────────────────────────────────────
 function searchGlossary(qNorm, words) {
   let best = null;
   let highScore = 0;
+
   for (const entry of glosarioData) {
     let score = 0;
     const termNorm = stripAccents(entry.term);
-    if (qNorm === termNorm || qNorm.includes(termNorm)) score += 200;
+
+    // Coincidencia exacta de término completo o como palabra independiente
+    if (qNorm === termNorm) {
+      score += 200;
+    } else if (new RegExp(`\\b${escapeRegex(termNorm)}\\b`).test(qNorm)) {
+      score += 150;
+    }
+
+    // Coincidencia con alias respetando límites de palabra (\b)
     for (const alias of (entry.aliases || [])) {
       const aliasNorm = stripAccents(alias);
-      if (qNorm === aliasNorm) score += 200;
-      else if (qNorm.includes(aliasNorm)) score += 120;
+      if (qNorm === aliasNorm) {
+        score += 200;
+      } else if (aliasNorm.length >= 3 && new RegExp(`\\b${escapeRegex(aliasNorm)}\\b`).test(qNorm)) {
+        score += 120;
+      }
     }
+
+    // Coincidencia de palabras clave del usuario en el texto explicativo
     const answerNorm = stripAccents(entry.answer);
     for (const word of words) {
-      if (termNorm.includes(word)) score += 40;
-      if (answerNorm.includes(word)) score += 15;
-      if (new RegExp(`\\b${word}\\b`).test(answerNorm)) score += 10;
+      if (word.length >= 3 && new RegExp(`\\b${escapeRegex(word)}\\b`).test(answerNorm)) {
+        score += 25;
+      }
     }
+
     if (score > highScore) {
       highScore = score;
       best = { text: entry.answer, score, source: entry.source, topicId: entry.topicId };
     }
   }
-  return best && highScore > 0 ? best : null;
+
+  return best && highScore >= SCORE_PARTIAL ? best : null;
 }
 
 // ── MOTOR B: Markdown del temario ───────────────────────────────────────────
@@ -93,7 +111,11 @@ function searchMarkdown(allMarkdowns, words, activeTopic, searchScope) {
       const pNorm = stripAccents(trimmed);
       let score = 0;
       for (const word of words) {
-        if (pNorm.includes(word)) { score += 15; if (new RegExp(`\\b${word}\\b`).test(pNorm)) score += 10; }
+        if (word.length >= 3 && new RegExp(`\\b${escapeRegex(word)}\\b`).test(pNorm)) {
+          score += 25;
+        } else if (word.length >= 5 && pNorm.includes(word)) {
+          score += 10;
+        }
       }
       if (score > 0) {
         const lengthPenalty = Math.floor(trimmed.length / 150);
@@ -124,8 +146,12 @@ function searchQuizzes(words, activeTopic, searchScope) {
       const explanationNorm = stripAccents(qItem.explanation || '');
       let score = 0;
       for (const word of words) {
-        if (questionNorm.includes(word)) { score += 15; if (new RegExp(`\\b${word}\\b`).test(questionNorm)) score += 10; }
-        if (explanationNorm.includes(word)) { score += 10; if (new RegExp(`\\b${word}\\b`).test(explanationNorm)) score += 5; }
+        if (word.length >= 3 && new RegExp(`\\b${escapeRegex(word)}\\b`).test(questionNorm)) {
+          score += 25;
+        }
+        if (word.length >= 3 && new RegExp(`\\b${escapeRegex(word)}\\b`).test(explanationNorm)) {
+          score += 15;
+        }
       }
       if (score > 0) {
         candidates.push({
