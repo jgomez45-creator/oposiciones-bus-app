@@ -4436,12 +4436,11 @@ body.reading-fullscreen-mode .markdown-body-container {
 .markdown-rendered-content img {
   width: 100% !important;
   max-width: 100% !important;
-  min-height: 125mm !important;
-  max-height: 145mm !important;
-  height: auto !important;
+  height: 135mm !important;
+  min-height: 135mm !important;
   display: block !important;
   margin: 18px auto !important;
-  object-fit: contain !important;
+  object-fit: fill !important;
   border: 1.5px solid #94a3b8 !important;
   border-radius: 6px !important;
   page-break-inside: avoid !important;

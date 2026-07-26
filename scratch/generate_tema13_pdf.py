@@ -129,8 +129,8 @@ def build_pdf():
     story.append(Paragraph("• <b>Encabezados y LOPD:</b> <code>Para</code> (destinatario), <code>CC</code> (copia pública) y <code>CCO</code> (copia oculta obligatoria para envíos masivos según la LOPDGDD 3/2018).", bullet_style))
 
     if os.path.exists(IMG_OUTLOOK_MAIN):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_OUTLOOK_MAIN, width=530, height=295))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_OUTLOOK_MAIN, width=535, height=395))
         story.append(Paragraph("<i>Figura 1: Interfaz web de Microsoft Outlook 365 (Bandeja de entrada de correo).</i>", caption_style))
 
     story.append(PageBreak())
@@ -139,8 +139,8 @@ def build_pdf():
     story.append(Paragraph("• Configuración en <i>Archivo -> Información -> Respuestas automáticas</i> (mensajes dentro/fuera de la US) y reglas de clasificación de correos de biblioteca.", body_style))
 
     if os.path.exists(IMG_OUTLOOK_RULES):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_OUTLOOK_RULES, width=530, height=295))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_OUTLOOK_RULES, width=535, height=395))
         story.append(Paragraph("<i>Figura 2: Panel de Reglas de entrada y Respuestas automáticas fuera de oficina en Outlook.</i>", caption_style))
 
     story.append(PageBreak())
@@ -149,8 +149,8 @@ def build_pdf():
     story.append(Paragraph("• Programación de eventos con enlace a Teams, verificación con el Asistente de programación y reserva de salas de trabajo en grupo del CRAI.", body_style))
 
     if os.path.exists(IMG_OUTLOOK_CALENDAR):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_OUTLOOK_CALENDAR, width=530, height=295))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_OUTLOOK_CALENDAR, width=535, height=395))
         story.append(Paragraph("<i>Figura 3: Vista de Calendario y Agenda de Microsoft Outlook 365 (Programación de eventos y salas).</i>", caption_style))
 
     # PAGE BREAK FOR ONEDRIVE & SHAREPOINT
@@ -162,8 +162,8 @@ def build_pdf():
     story.append(Paragraph("• Nube azul (0 bytes en disco, descargado al abrir), Verificación verde clara (temporal), Disco verde sólido (siempre en este dispositivo). Papelera: 93 días.", body_style))
 
     if os.path.exists(IMG_ONEDRIVE_MAIN):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_ONEDRIVE_MAIN, width=530, height=295))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_ONEDRIVE_MAIN, width=535, height=395))
         story.append(Paragraph("<i>Figura 4: Biblioteca de documentos de OneDrive y SharePoint 365 con iconos de sincronización.</i>", caption_style))
 
     story.append(PageBreak())
@@ -172,8 +172,8 @@ def build_pdf():
     story.append(Paragraph("• Botonera <code>Cargar</code> (opciones <i>Archivos</i> o <i>Carpeta</i> completa) o técnica <code>Arrastrar y Soltar</code> (Drag & Drop). Duplicados: Reemplazar, Conservar ambos o Cancelar.", body_style))
 
     if os.path.exists(IMG_SHAREPOINT_UPLOAD):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_SHAREPOINT_UPLOAD, width=530, height=300))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_SHAREPOINT_UPLOAD, width=535, height=395))
         story.append(Paragraph("<i>Figura 5: Pantalla de carga de archivos en SharePoint Online (Menú 'Cargar' -> Archivos/Carpeta y Drag & Drop).</i>", caption_style))
 
     story.append(PageBreak())
@@ -182,8 +182,8 @@ def build_pdf():
     story.append(Paragraph("• Bloqueo por <i>Check-out</i> para evitar edición simultánea y conservación del historial de versiones mayores/menores.", body_style))
 
     if os.path.exists(IMG_SHAREPOINT_PERMS):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_SHAREPOINT_PERMS, width=530, height=295))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_SHAREPOINT_PERMS, width=535, height=395))
         story.append(Paragraph("<i>Figura 6: Permisos de enlace, historial de versiones y estado Check-out en SharePoint Online.</i>", caption_style))
 
     # BLOQUE 4: TEAMS
@@ -192,8 +192,8 @@ def build_pdf():
     story.append(Paragraph("<b>4.1. Arquitectura de Canales:</b> Canal Estándar (abierto), Canal Privado (subgrupo con colección independiente en SharePoint) y Canal Compartido.", body_style))
 
     if os.path.exists(IMG_TEAMS_LIGHT):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_TEAMS_LIGHT, width=530, height=295))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_TEAMS_LIGHT, width=535, height=395))
         story.append(Paragraph("<i>Figura 7: Entorno de trabajo de Microsoft Teams en Modo Claro (Canales, chat y pestañas compartidas).</i>", caption_style))
 
     # PAGE BREAK FOR WORD & EXCEL
@@ -204,8 +204,8 @@ def build_pdf():
     story.append(Paragraph("<b>5.1. Partes Oficiales de la Interfaz:</b> Acceso rápido, barra de título/Search, cinta de opciones (*Ribbon*), pestañas, grupos, lienzo y barra de estado.", body_style))
 
     if os.path.exists(IMG_WORD_MAIN):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_WORD_MAIN, width=530, height=275))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_WORD_MAIN, width=535, height=395))
         story.append(Paragraph("<i>Figura 8: Partes de la interfaz de Microsoft Word 365 (Cinta de opciones, pestañas y grupos).</i>", caption_style))
 
     story.append(PageBreak())
@@ -214,8 +214,8 @@ def build_pdf():
     story.append(Paragraph("• Pestaña <i>Disposición</i> (Márgenes, Orientación, Tamaños, Columnas y Saltos de Sección).", body_style))
 
     if os.path.exists(IMG_WORD_LAYOUT):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_WORD_LAYOUT, width=530, height=285))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_WORD_LAYOUT, width=535, height=395))
         story.append(Paragraph("<i>Figura 9: Pestaña de Disposición en Word 365 (Configuración de página, márgenes, saltos y párrafos).</i>", caption_style))
 
     story.append(Spacer(1, 6))
@@ -247,16 +247,16 @@ def build_pdf():
     story.append(Paragraph("<b>6.1. Partes de la Interfaz en Modo Claro:</b> Cuadro de nombres (*Name Box*), barra de fórmulas (`fx`), encabezados de filas/columnas y celda activa.", body_style))
 
     if os.path.exists(IMG_EXCEL_LIGHT):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_EXCEL_LIGHT, width=530, height=275))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_EXCEL_LIGHT, width=535, height=395))
         story.append(Paragraph("<i>Figura 10: Partes de la interfaz de Microsoft Excel 365 en Modo Claro (Cuadro de nombres, barra de fórmulas y rejilla).</i>", caption_style))
 
     story.append(PageBreak())
     story.append(Paragraph("<b>6.2. Tablas Dinámicas y Segmentadores de Datos:</b>", h2_style))
 
     if os.path.exists(IMG_EXCEL_PIVOT):
-        story.append(Spacer(1, 6))
-        story.append(Image(IMG_EXCEL_PIVOT, width=530, height=285))
+        story.append(Spacer(1, 4))
+        story.append(Image(IMG_EXCEL_PIVOT, width=535, height=395))
         story.append(Paragraph("<i>Figura 11: Panel de Campos de Tabla Dinámica y Segmentadores de datos (Slicers) en Excel 365.</i>", caption_style))
 
     story.append(Spacer(1, 6))
