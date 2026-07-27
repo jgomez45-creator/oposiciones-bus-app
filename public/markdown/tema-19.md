@@ -130,98 +130,35 @@ La US aplica medidas de conciliación y flexibilidad laboral, especialmente regu
 *   **Medidas y planes de conciliación de la vida laboral y familiar para el PTGAS de la Universidad de Sevilla**.
 
 
+<div class="app-promo-banner footer-promo" style="background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 1.5px solid #3b82f6; border-radius: 10px; padding: 14px 18px; margin-top: 24px; margin-bottom: 10px; text-align: center; font-family: Arial, sans-serif; box-shadow: 0 2px 10px rgba(37, 99, 235, 0.08); page-break-inside: avoid; break-inside: avoid;">
 
-<div class="app-promo-banner footer-promo" style="background: #ffffff; border: 2px solid #2563eb; border-radius: 10px; padding: 14px 18px; color: #1e293b; margin-top: 24px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(37, 99, 235, 0.1); text-align: center; page-break-inside: avoid; break-inside: avoid;">
-
-  <div style="font-size: 1.15rem; font-weight: 800; color: #1e40af; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
-    🚀 ¡COMPLEMENTA TU ESTUDIO EN LA APP ONLINE! 🚀
+  <div style="font-size: 1.05rem; font-weight: 800; color: #1e3a8a; margin-bottom: 6px; letter-spacing: 0.5px;">
+    🚀 ¡COMPLEMENTA TU ESTUDIO CON LA APP INTERACTIVA ONLINE! 🚀
   </div>
 
-  <p style="font-size: 0.88rem; line-height: 1.4; color: #475569; margin-bottom: 10px; font-weight: 500;">
-    Pon a prueba tus conocimientos de este tema en nuestra plataforma interactiva de test:
+  <p style="font-size: 0.85rem; color: #475569; margin: 0 0 10px 0; font-weight: 500;">
+    Pon a prueba tus conocimientos en tiempo real y entrena en condiciones reales de examen:
   </p>
 
-  <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-left: 4px solid #2563eb; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; text-align: left;">
-    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: #334155;">
-      <li style="margin-bottom: 3px;">🎯 <strong>15 Simulacros Predefinidos (600 Preguntas Únicas):</strong> Entrenamientos de 40 preguntas sin repetir.</li>
-      <li style="margin-bottom: 3px;">📝 <strong>Batería de +2.000 Preguntas por Tema:</strong> Test específicos de cada tema para medir tu nivel.</li>
-      <li style="margin-bottom: 3px;">📜 <strong>Exámenes Reales de Convocatorias Anteriores:</strong> Practica con exámenes oficiales (2019, 2022).</li>
-      <li style="margin-bottom: 3px;">🎴 <strong>Tarjetas de Memorización (Flashcards):</strong> Memoriza plazos de leyes, frecuencias y fórmulas en minutos.</li>
-      <li style="margin-bottom: 0px;">🖨️ <strong>Generador de Test Impresos:</strong> Compila y descarga tu examen en papel para simular la prueba real.</li>
+  <div style="background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; text-align: left;">
+    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.84rem; line-height: 1.6; color: #334155; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px;">
+      <li>📝 <strong>+2.000 Preguntas por Tema:</strong> Tests específicos de los 20 temas.</li>
+      <li>🎯 <strong>15 Simulacros Predefinidos:</strong> 600 preguntas únicas sin repetición.</li>
+      <li>📜 <strong>Exámenes Reales (2019, 2022):</strong> Practica con pruebas oficiales anteriores.</li>
+      <li>⚙️ <strong>Simulacros Infinitos:</strong> Configuración a medida por tema o globales.</li>
+      <li>🎴 <strong>Flashcards de Memorización:</strong> Plazos, fórmulas, normas ISO y leyes.</li>
+      <li>📈 <strong>Repaso de Fallos & Sellos:</strong> Corrección instantánea y registro de errores.</li>
     </ul>
   </div>
 
   <div style="margin-top: 10px;">
-    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.92rem; padding: 9px 22px; border-radius: 50px; text-decoration: none; box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25); text-transform: uppercase;">
+    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.88rem; padding: 9px 22px; border-radius: 50px; text-decoration: none; box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25); text-transform: uppercase;">
       👉 ENTRAR AHORA A OPOSICIONES-BUS-APP 👈
     </a>
   </div>
 
-  <p style="font-size: 0.8rem; color: #64748b; margin-top: 8px; margin-bottom: 0; font-weight: 600;">
+  <p style="font-size: 0.78rem; color: #64748b; margin: 8px 0 0 0; font-weight: 600;">
     🌐 <strong>https://oposiciones-bus-app.vercel.app/</strong> — Acceso libre desde móvil, tablet u ordenador
   </p>
 
 </div>
-
-  <p style="font-size: 1rem; line-height: 1.6; color: #f3f4f6; margin-bottom: 16px;">
-    No te quedes solo en la lectura teórica. Pon a prueba tus conocimientos en tiempo real con la plataforma interactiva de estudio:
-  </p>
-
-  <div style="background: rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 18px; margin-bottom: 20px; text-align: left; border-left: 5px solid #10b981;">
-    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.92rem; line-height: 1.9; color: #ffffff;">
-      <li style="margin-bottom: 6px;">📝 <strong>Batería de Cerca de 2.000 Preguntas Totales:</strong> Organizadas por cada uno de los 20 temas del programa de la escala de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - US).</li>
-      <li style="margin-bottom: 6px;">📜 <strong>Exámenes Reales de Convocatorias Anteriores:</strong> Módulos independientes para realizar en línea los exámenes reales celebrados en pruebas anteriores (como el Examen Real 2019 y Examen Real 2022).</li>
-      <li style="margin-bottom: 6px;">🎯 <strong>15 Simulacros Predefinidos (600 Preguntas Únicas):</strong> Exámenes fijos de 40 preguntas (exactamente 2 preguntas por tema) sin repetición entre sí para medir tu evolución a lo largo del tiempo.</li>
-      <li style="margin-bottom: 6px;">⚙️ <strong>Simulacros Aleatorios e Infinitos Personalizados:</strong> Configura tu entrenamiento por Tema Único, bloques de temas o simulacros globales de 40 preguntas de forma ilimitada.</li>
-      <li style="margin-bottom: 6px;">⚡ <strong>Corrección Instantánea con Sellos de Examen:</strong> Evaluación inmediata con explicaciones detalladas y distintivos visuales (<em>OK / INCORRECTA / NO CONTESTADA</em>).</li>
-      <li style="margin-bottom: 6px;">🎴 <strong>Tarjetas de Memorización (Flashcards):</strong> Memoriza en minutos plazos de leyes, frecuencias RFID, luxes, normas ISO y fórmulas EFQM.</li>
-      <li style="margin-bottom: 6px;">🖨️ <strong>Generador de Exámenes Impresos en Papel:</strong> Compila e imprime cualquier simulacro o cuaderno de test para entrenar en formato de examen real.</li>
-      <li style="margin-bottom: 0px;">📈 <strong>Cuaderno de Repaso de Fallos:</strong> Guarda de forma automática tus errores para reintentarlos hasta conseguir el 100% de aciertos.</li>
-    </ul>
-  </div>
-
-  <div style="margin-top: 15px;">
-    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%); color: #ffffff; font-weight: 800; font-size: 1.05rem; padding: 14px 28px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5); text-transform: uppercase;">
-      👉 ENTRAR AHORA A OPOSICIONES-BUS-APP 👈
-    </a>
-  </div>
-  <p style="font-size: 0.85rem; color: #c7d2fe; margin-top: 12px; margin-bottom: 0;">🌐 Acceso libre y 100% optimizado para ordenador, tablet y móvil en <strong>https://oposiciones-bus-app.vercel.app/</strong></p>
-
-</div>
-
-
-
----
-
-## 📌 Enfoques Clave de Test y Matices de la Ley Orgánica de Igualdad 3/2007 (CCOO)
-
-### 1. Principios Informadores del Ordenamiento Jurídico
-> 💡 **ENFOQUE TEST CCOO:** El principio de igualdad de trato y de oportunidades entre mujeres y hombres es un **principio informador del ordenamiento jurídico** (Art. 4). Como tal, se integrará en la interpretación y aplicación de todas las normas jurídicas españolas y en la actuación de la Universidad de Sevilla.
-
----
-
-### 2. Inversión de la Carga de la Prueba
-> 💡 **ENFOQUE TEST CCOO (Art. 13):** En los procesos judiciales sobre discriminación por razón de sexo, opera la **inversión de la carga de la prueba**: cuando la parte actora alegue indicios fundamentados de discriminación, corresponderá a la **parte demandada** probar la ausencia de discriminación y la justificación objetiva y neutral de la medida.
-
----
-
-### 3. Presencia Equilibrada en Órganos Colegiados
-> 💡 **ENFOQUE TEST CCOO (Art. 14):** Se entiende por **composición equilibrada** la presencia de mujeres y hombres en órganos colegiados y comisiones de selección de forma que las personas de cada sexo **no superen el 60% ni sean inferiores al 40%** en el total de miembros.
-
----
-
-### 4. Planes de Igualdad en la Universidad de Sevilla
-> 💡 **ENFOQUE TEST CCOO (Art. 45-48):** La Universidad de Sevilla está obligada a elaborar, implantar y evaluar periódicamente su **Plan de Igualdad**, el cual debe ser negociado con la representación sindical (CCOO, UGT, etc.) y coordinado técnicamente por la **Unidad de Igualdad de la US**.
-## 2.B Matices Clave de Discriminación Directa, Indirecta y Orden de Discriminar (Artículos 6 y 7)
-
-- **Discriminación Directa por Razón de Sexo (Art. 6.1):** Situación en que se encuentra una persona que sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera menos favorable que otra en situación comparable.
-- **Discriminación Indirecta por Razón de Sexo (Art. 6.2):** Situación en que una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro.
-- **Justificación Objetiva de Prácticas Neutras (Art. 6.2):** Salvo que dicha disposición, criterio o práctica pueda justificarse objetivamente en atención a una **finalidad legítima** y que los medios para alcanzar dicha finalidad sean **necesarios y adecuados**.
-- **Orden de Discriminar (Art. 6.3):** En cualquier caso, se considera discriminatoria toda orden de discriminar, directa o indirectamente, por razón de sexo.
-
-## 5.B Criterios de Actuación en el Empleo Público (Artículo 51)
-
-En el marco del Capítulo I del Título V de la Ley Orgánica 3/2007, las Administraciones Públicas aplicarán los siguientes criterios:
-1. **Evaluación Periódica de la Brecha Salarial:** Promover la transparencia retributiva y realizar evaluaciones analíticas periódicas para erradicar diferencias retributivas no justificadas entre mujeres y hombres.
-2. **Presencia Equilibrada en Órganos de Selección:** Garantizar la presencia equilibrada de mujeres y hombres en los tribunales de selección y comisiones de valoración de personal.
-3. **Formación Específica en Igualdad:** Capacitar al personal al servicio de las Administraciones Públicas en materia de igualdad de trato y no discriminación.

@@ -246,135 +246,35 @@ Al alfabetizar revistas por título en las estanterías o listas de control:
 * **Normas y Reglamentos de Préstamo y Servicios de la BUS (2024).** Universidad de Sevilla.
 
 
-<div class="app-promo-banner footer-promo" style="background: #ffffff; border: 2px solid #2563eb; border-radius: 10px; padding: 14px 18px; color: #1e293b; margin-top: 24px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(37, 99, 235, 0.1); text-align: center; page-break-inside: avoid; break-inside: avoid;">
+<div class="app-promo-banner footer-promo" style="background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 1.5px solid #3b82f6; border-radius: 10px; padding: 14px 18px; margin-top: 24px; margin-bottom: 10px; text-align: center; font-family: Arial, sans-serif; box-shadow: 0 2px 10px rgba(37, 99, 235, 0.08); page-break-inside: avoid; break-inside: avoid;">
 
-  <div style="font-size: 1.15rem; font-weight: 800; color: #1e40af; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">
-    🚀 ¡COMPLEMENTA TU ESTUDIO EN LA APP ONLINE! 🚀
+  <div style="font-size: 1.05rem; font-weight: 800; color: #1e3a8a; margin-bottom: 6px; letter-spacing: 0.5px;">
+    🚀 ¡COMPLEMENTA TU ESTUDIO CON LA APP INTERACTIVA ONLINE! 🚀
   </div>
 
-  <p style="font-size: 0.88rem; line-height: 1.4; color: #475569; margin-bottom: 10px; font-weight: 500;">
-    Pon a prueba tus conocimientos de este tema en nuestra plataforma interactiva de test:
+  <p style="font-size: 0.85rem; color: #475569; margin: 0 0 10px 0; font-weight: 500;">
+    Pon a prueba tus conocimientos en tiempo real y entrena en condiciones reales de examen:
   </p>
 
-  <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-left: 4px solid #2563eb; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; text-align: left;">
-    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: #334155;">
-      <li style="margin-bottom: 3px;">🎯 <strong>15 Simulacros Predefinidos (600 Preguntas Únicas):</strong> Entrenamientos de 40 preguntas sin repetir.</li>
-      <li style="margin-bottom: 3px;">📝 <strong>Batería de +2.000 Preguntas por Tema:</strong> Test específicos de cada tema para medir tu nivel.</li>
-      <li style="margin-bottom: 3px;">📜 <strong>Exámenes Reales de Convocatorias Anteriores:</strong> Practica con exámenes oficiales (2019, 2022).</li>
-      <li style="margin-bottom: 3px;">🎴 <strong>Tarjetas de Memorización (Flashcards):</strong> Memoriza plazos de leyes, frecuencias y fórmulas en minutos.</li>
-      <li style="margin-bottom: 0px;">🖨️ <strong>Generador de Test Impresos:</strong> Compila y descarga tu examen en papel para simular la prueba real.</li>
+  <div style="background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; text-align: left;">
+    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.84rem; line-height: 1.6; color: #334155; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px;">
+      <li>📝 <strong>+2.000 Preguntas por Tema:</strong> Tests específicos de los 20 temas.</li>
+      <li>🎯 <strong>15 Simulacros Predefinidos:</strong> 600 preguntas únicas sin repetición.</li>
+      <li>📜 <strong>Exámenes Reales (2019, 2022):</strong> Practica con pruebas oficiales anteriores.</li>
+      <li>⚙️ <strong>Simulacros Infinitos:</strong> Configuración a medida por tema o globales.</li>
+      <li>🎴 <strong>Flashcards de Memorización:</strong> Plazos, fórmulas, normas ISO y leyes.</li>
+      <li>📈 <strong>Repaso de Fallos & Sellos:</strong> Corrección instantánea y registro de errores.</li>
     </ul>
   </div>
 
   <div style="margin-top: 10px;">
-    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.92rem; padding: 9px 22px; border-radius: 50px; text-decoration: none; box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25); text-transform: uppercase;">
+    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.88rem; padding: 9px 22px; border-radius: 50px; text-decoration: none; box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25); text-transform: uppercase;">
       👉 ENTRAR AHORA A OPOSICIONES-BUS-APP 👈
     </a>
   </div>
 
-  <p style="font-size: 0.8rem; color: #64748b; margin-top: 8px; margin-bottom: 0; font-weight: 600;">
+  <p style="font-size: 0.78rem; color: #64748b; margin: 8px 0 0 0; font-weight: 600;">
     🌐 <strong>https://oposiciones-bus-app.vercel.app/</strong> — Acceso libre desde móvil, tablet u ordenador
   </p>
 
 </div>
-
-  <p style="font-size: 1rem; line-height: 1.6; color: #f3f4f6; margin-bottom: 16px;">
-    No te quedes solo en la lectura teórica. Pon a prueba tus conocimientos en tiempo real con la plataforma interactiva de estudio:
-  </p>
-
-  <div style="background: rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 18px; margin-bottom: 20px; text-align: left; border-left: 5px solid #10b981;">
-    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.92rem; line-height: 1.9; color: #ffffff;">
-      <li style="margin-bottom: 6px;">📝 <strong>Batería de Cerca de 2.000 Preguntas Totales:</strong> Organizadas por cada uno de los 20 temas del programa de la escala de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - US).</li>
-      <li style="margin-bottom: 6px;">📜 <strong>Exámenes Reales de Convocatorias Anteriores:</strong> Módulos independientes para realizar en línea los exámenes reales celebrados en pruebas anteriores (como el Examen Real 2019 y Examen Real 2022).</li>
-      <li style="margin-bottom: 6px;">🎯 <strong>15 Simulacros Predefinidos (600 Preguntas Únicas):</strong> Exámenes fijos de 40 preguntas (exactamente 2 preguntas por tema) sin repetición entre sí para medir tu evolución a lo largo del tiempo.</li>
-      <li style="margin-bottom: 6px;">⚙️ <strong>Simulacros Aleatorios e Infinitos Personalizados:</strong> Configura tu entrenamiento por Tema Único, bloques de temas o simulacros globales de 40 preguntas de forma ilimitada.</li>
-      <li style="margin-bottom: 6px;">⚡ <strong>Corrección Instantánea con Sellos de Examen:</strong> Evaluación inmediata con explicaciones detalladas y distintivos visuales (<em>OK / INCORRECTA / NO CONTESTADA</em>).</li>
-      <li style="margin-bottom: 6px;">🎴 <strong>Tarjetas de Memorización (Flashcards):</strong> Memoriza en minutos plazos de leyes, frecuencias RFID, luxes, normas ISO y fórmulas EFQM.</li>
-      <li style="margin-bottom: 6px;">🖨️ <strong>Generador de Exámenes Impresos en Papel:</strong> Compila e imprime cualquier simulacro o cuaderno de test para entrenar en formato de examen real.</li>
-      <li style="margin-bottom: 0px;">📈 <strong>Cuaderno de Repaso de Fallos:</strong> Guarda de forma automática tus errores para reintentarlos hasta conseguir el 100% de aciertos.</li>
-    </ul>
-  </div>
-
-  <div style="margin-top: 15px;">
-    <a href="https://oposiciones-bus-app.vercel.app/" target="_blank" style="display: inline-block; background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%); color: #ffffff; font-weight: 800; font-size: 1.05rem; padding: 14px 28px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5); text-transform: uppercase;">
-      👉 ENTRAR AHORA A OPOSICIONES-BUS-APP 👈
-    </a>
-  </div>
-  <p style="font-size: 0.85rem; color: #c7d2fe; margin-top: 12px; margin-bottom: 0;">🌐 Acceso libre y 100% optimizado para ordenador, tablet y móvil en <strong>https://oposiciones-bus-app.vercel.app/</strong></p>
-
-</div>
-## 3.C Sintaxis Avanzada y Signos de Relación de la CDU
-
-La Clasificación Decimal Universal emplea recursos de enlace y auxiliares especiales para sintetizar materias complejas:
-- **Signo de Adición (`+`):** Conecta dos o más números CDU no consecutivos para representar documentos que tratan materias independientes reunidas en el mismo volumen (ej. `94(460)+94(44)` Historia de España y Francia).
-- **Signo de Extensión (`/`):** Conecta el primero y el último de una serie de números CDU consecutivos (ej. `592/599` Zoología sistemática).
-- **Signo de Relación (`:`):** Conecta dos notaciones generando una clase compleja reversible (ej. `615:616` Farmacología en relación con la patología).
-- **Signo de Fijación (`::`):** Conecta notaciones de forma fija no reversible.
-- **Auxiliares Especiales:**
-  - Guión `-1/-9`: Expresan propiedades, materiales y componentes.
-  - Punto cero `.01/.09`: Expresan actividades, procesos, operaciones y maquinaria.
-  - Apóstrofo `'0/'9`: Indican temas compuestos por síntesis o integración.
-
----
-
-# 🧩 SECCIÓN PRÁCTICA DE APLICACIÓN DE LA CDU Y ORDENACIÓN EN ESTANTERÍAS
-
-## 1. Ejercicios Resueltos de Construcción de Notaciones Complejas
-A continuación se presentan supuestos prácticos oficiales de asignación de notación CDU y auxiliares:
-
-1. **Traducción del inglés al español:** `=03.111=134.2`
-2. **Escrito en dialecto asturiano:** `=134.2'282.3(460.12)`
-3. **Escrito en francés medieval:** `=133.2'04`
-4. **Documentos en microfilm:** `(0.035.22)`
-5. **Edición de bolsillo:** `(0.027.5)`
-6. **En forma de enciclopedia para niños:** `(031.1.053.2)`
-7. **Almanaques de bolsillo:** `(059.027.5)`
-8. **Ediciones en CD-ROM de libros de texto:** `(075.034.4)`
-9. **Presentación en forma histórica:** `(091)`
-10. **En forma de mapa:** `(084.3)`
-11. **Las cadenas montañosas de los Alpes:** `(234.3.049)`
-12. **Santa Fe (Granada):** `(460.357Santa Fe)`
-13. **Año 35 antes de Cristo:** `"-0035"`
-14. **Siglo I d. C.:** `"00"`
-15. **De 1580 a 1600:** `"1580/1600"`
-16. **Biografía de Lenin:** `929Lenin`
-17. **Historia de España desde un punto de vista económico:** `94(460).003`
-18. **Historia del arte gótico flamígero en la Península Ibérica:** `7.033.5(46)3`
-19. **La perspectiva en la pintura renacentista italiana:** `75.034(450).017.9`
-20. **Esculturas de madera del gótico tardío alemán:** `730.033.5(430)4-035.3`
-21. **La arquitectura islámica del siglo XIV en Granada:** `72.033.3(460.357)"13"`
-
-## 2. Reglas de Ordenación de Tejuelos en Estantería (Secuencia Jerárquica)
-
-La colocación de libros en la estantería según su tejuelo sigue un orden estricto de precedencia de los signos de la CDU:
-1. **Números principales simples** (de menor a mayor cifra decimal).
-2. **Adición (`+`) y Extensión (`/`)**.
-3. **Relación (`:`) y Relación fija (`::`)**.
-4. **Auxiliares Comunes:**
-   - Auxiliar de Lengua (`=...`)
-   - Auxiliar de Forma (`(0...)`)
-   - Auxiliar de Lugar (`(1/9)`)
-   - Auxiliar de Razas y Pueblos (`(=...)`)
-   - Auxiliar de Tiempo (`"..."`)
-5. **Auxiliares Especiales** (`-1/-9`, `.01/.09`, `'0/'9`).
-6. **Subdivisión alfabética directa** (tres primeras letras del autor en mayúsculas y tres del título en minúsculas).
-
-### Ejemplo de Secuencia Correcta de Tejuelos en Estantería:
-1. `1(091) BEL` (Filosofía - Historia)
-2. `177 MIT` (Ética)
-3. `272 KRA` (Historia de la Iglesia)
-4. `282 LEG` (Catolicismo)
-5. `282 VEL` (Catolicismo - Autor VEL)
-6. `29 INS` (Religiones comparadas)
-7. `29(091) PUE` (Religiones - Historia)
-8. `291 HAL` (Sistemas religiosos)
-9. `343.95 GUN` (Criminología)
-10. `617.7 SOL` (Oftalmología)
-11. `73(091) GAY` (Escultura - Historia)
-12. `745/749 ZAN` (Artes decorativas)
-
-## 3. Reglas de Alfabetización de Autores y Títulos (Norma US)
-
-En la ordenación alfabética de tejuelos y catálogos en la Universidad de Sevilla se aplican las siguientes reglas:
-- **Partículas en Apellidos:** Los apellidos que comienzan por preposiciones o artículos se alfabetizan por el apellido principal (ej. *Fuente, Antonio de la*; *Cuenca Gómez, Pedro*; *Rosa, Agustín de la*; *Rosa, Ángel Luis de la*; *Ors, Eugenio d'*).
-- **Cifras y Números en Títulos:** Los títulos que comienzan por números o cifras se ordenan como si la cifra estuviera escrita con letras en español (ej. *1945* se alfabetiza por "Mil novecientos...", *II* por "Dos").
