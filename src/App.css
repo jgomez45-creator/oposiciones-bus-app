@@ -4242,12 +4242,16 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   .print-manual-cover {
-    height: 235mm !important;
-    min-height: 235mm !important;
-    max-height: 235mm !important;
+    height: 215mm !important;
+    min-height: 215mm !important;
+    max-height: 218mm !important;
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: always !important;
+    break-after: page !important;
   }
 
   /* Block level layouts for root wrappers */

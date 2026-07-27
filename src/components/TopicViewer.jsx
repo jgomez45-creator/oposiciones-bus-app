@@ -273,23 +273,25 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada del Tema Único -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px;">
-              <div style="color: #004B93; font-weight: normal; font-size: 13pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
-              <div style="width: 80px; height: 3px; background-color: #004B93; margin: 12px auto 20px auto;"></div>
-              
-              <span style="font-size: 13pt; text-transform: uppercase; color: #555555; font-weight: bold; letter-spacing: 1px; display: block; margin-bottom: 6px;">Tema ${topicIdFormatted}</span>
-              <h1 style="font-size: 22pt; font-weight: bold; color: #000000; line-height: 1.2; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">${singleTopicMeta.title}</h1>
-              <h2 style="font-size: 14pt; font-weight: bold; color: #004B93; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-              
-              <div style="font-size: 11pt; color: #333333; max-width: 720px; line-height: 1.4; margin: 0 auto; padding: 16px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
-                <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
-                <br/><br/>
-                Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
-                <br/><br/>
-                Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 8mm 24px 8mm 24px; border: 4px double #004B93; height: 215mm; min-height: 215mm; max-height: 218mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-inside: avoid; break-inside: avoid;">
+              <div>
+                <div style="color: #004B93; font-weight: normal; font-size: 12pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Dossier de Preparación de Oposiciones</div>
+                <div style="width: 80px; height: 3px; background-color: #004B93; margin: 8px auto 14px auto;"></div>
+                
+                <span style="font-size: 12pt; text-transform: uppercase; color: #555555; font-weight: bold; letter-spacing: 1px; display: block; margin-bottom: 4px;">Tema ${topicIdFormatted}</span>
+                <h1 style="font-size: 20pt; font-weight: bold; color: #000000; line-height: 1.2; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.5px;">${singleTopicMeta.title}</h1>
+                <h2 style="font-size: 13pt; font-weight: bold; color: #004B93; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                
+                <div style="font-size: 10pt; color: #333333; max-width: 720px; line-height: 1.35; margin: 0 auto; padding: 12px 14px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                  <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
+                  <br/><br/>
+                  Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
+                  <br/><br/>
+                  Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+                </div>
               </div>
               
-              <div style="font-size: 11pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 4px; margin-top: auto; margin-bottom: 10px;">
+              <div style="font-size: 10.5pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 3px; margin-top: 10px; margin-bottom: 2px;">
                 <span>Biblioteca de la Universidad de Sevilla</span>
                 <span>© 2026 Jgg. Todos los derechos reservados.</span>
               </div>
@@ -309,20 +311,23 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 12mm 30px 12mm 30px; border: 4px double #004B93; height: 235mm; min-height: 235mm; max-height: 235mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px;">
-              <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
-              <div style="width: 80px; height: 3px; background-color: #004B93; margin: 15px auto 25px auto;"></div>
-              <h1 style="font-size: 30pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
-              <h2 style="font-size: 15pt; font-weight: bold; color: #004B93; margin: 0 0 25px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-              
-              <div style="font-size: 12pt; color: #333333; max-width: 720px; line-height: 1.4; margin: 0 auto 15px auto; padding: 16px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
-                <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
-                <br/><br/>
-                Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
-                <br/><br/>
-                Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 8mm 24px 8mm 24px; border: 4px double #004B93; height: 215mm; min-height: 215mm; max-height: 218mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-inside: avoid; break-inside: avoid;">
+              <div>
+                <div style="color: #004B93; font-weight: normal; font-size: 13pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Dossier de Preparación de Oposiciones</div>
+                <div style="width: 80px; height: 3px; background-color: #004B93; margin: 10px auto 16px auto;"></div>
+                <h1 style="font-size: 26pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
+                <h2 style="font-size: 14pt; font-weight: bold; color: #004B93; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                
+                <div style="font-size: 10.5pt; color: #333333; max-width: 720px; line-height: 1.35; margin: 0 auto; padding: 12px 14px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                  <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
+                  <br/><br/>
+                  Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
+                  <br/><br/>
+                  Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+                </div>
               </div>
-              <div style="font-size: 12pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 6px; margin-top: auto; margin-bottom: 10px;">
+              
+              <div style="font-size: 10.5pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 3px; margin-top: 10px; margin-bottom: 2px;">
                 <span>© 2026 Jgg. Todos los derechos reservados.</span>
               </div>
             </div>
