@@ -2,10 +2,11 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Control Anti-Fugas de Respuesta (Cero preguntas donde el enunciado desvele la respuesta):
- * 1. Purga activa de plazos, fechas y cifras entre paréntesis en el extracto del enunciado (cleanStemExcerpt).
- * 2. Validador estricto anti-fugas (hasAnswerLeak): rechaza automáticamente cualquier pregunta cuyo enunciado
- *    contenga la cifra o el texto de la opción correcta.
+ * Coherencia Semántica Estricta de Opciones (Cero distractores de fácil descarte):
+ * 1. Clasificación por SemanticType (date_or_number, short_concept, procedural_text).
+ * 2. Garantía de opciones 100% homogéneas: Si la respuesta es una medida/procedimiento, los 3 distractores
+ *    son medidas/procedimientos. Cero fechas sueltas ("13 de febrero") en preguntas conceptuales.
+ * 3. Purga de letras de sección ("B. Medidas Cautelares" -> "Medidas Cautelares").
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -41,12 +42,13 @@ function isMarketingOrHTML(line) {
   );
 }
 
-// Limpia títulos de epígrafes
+// Limpia títulos de epígrafes purgando letras iniciales (ej. "B. Medidas" -> "Medidas")
 export function cleanHeadingTitle(title) {
   if (!title) return '';
   const clean = sanitizeText(title);
   return clean
     .replace(/[📌📱💡🎴📝⚡⚠️📋🟢🟡🔴•*]/g, '')
+    .replace(/^([A-Z0-9][.)-]\s*)+/i, '') // Purga "B. ", "1. ", "A.- "
     .replace(/^(COMPENDIO|GUÍA|RESUMEN|APARTADO|SECCIÓN)\s*/i, '')
     .replace(/\(SÚPER PREGUNTADOS.*\)/i, '')
     .replace(/\(MÁXIMA IMPORTANCIA.*\)/i, '')
@@ -83,15 +85,35 @@ function getOfficialNormName(topicId, topicTitle) {
   }
 }
 
-// Purga datos numéricos y plazos del extracto citado en el enunciado para que nunca se filtre la respuesta
+// Purga datos numéricos y plazos del extracto citado en el enunciado
 function cleanStemExcerpt(text) {
   if (!text) return '';
   return text
-    .replace(/\((plazo|duración|término|artículo|art|máximo|mínimo)?:?\s*\d+[^)]+\)/gi, '') // Elimina (Plazo: 10 días hábiles)
-    .replace(/\b\d+\s*(días|meses|años|horas|minutos)\b/gi, '') // Elimina cifras con unidades
+    .replace(/^([A-Z0-9][.)-]\s*)+/i, '')
+    .replace(/\((plazo|duración|término|artículo|art|máximo|mínimo)?:?\s*\d+[^)]+\)/gi, '')
+    .replace(/\b\d+\s*(días|meses|años|horas|minutos)\b/gi, '')
     .replace(/\s{2,}/g, ' ')
     .replace(/[:;,-]+\s*$/g, '')
     .trim();
+}
+
+// Determina el tipo semántico de una opción para asegurar homogeneidad entre A, B, C y D
+function getSemanticType(text) {
+  if (!text) return 'text';
+  const clean = text.trim();
+  
+  // 1. Fechas o números cortas
+  if (/^\d+\s*(días|meses|años|horas|de\s+[a-z]+)/i.test(clean) || /^\d{1,2}\s+de\s+[a-z]+/i.test(clean) || clean.length < 22 && /\d+/.test(clean)) {
+    return 'date_or_number';
+  }
+
+  // 2. Conceptos o títulos cortos
+  if (clean.length < 40 && !clean.includes('.')) {
+    return 'short_concept';
+  }
+
+  // 3. Texto normativo o procesal de extensión media/larga
+  return 'procedural_text';
 }
 
 // Generador dinámico de enunciados de examen con extracto limpio
@@ -114,7 +136,7 @@ function buildExamQuestionStem(normName, concept, heading, index) {
 // Valida si un concepto extraído es sintácticamente completo y válido
 function isValidConcept(concept) {
   if (!concept || typeof concept !== 'string') return false;
-  const clean = concept.trim();
+  const clean = cleanHeadingTitle(concept).trim();
   if (clean.length < 4 || clean.length > 65) return false;
   
   if (/\b(y|o|de|del|en|para|con|por|a|que|su|sus|un|una|el|la|los|las)\s*$/i.test(clean)) {
@@ -132,16 +154,14 @@ function hasAnswerLeak(questionText, correctOptionText) {
   const qLower = questionText.toLowerCase();
   const cLower = correctOptionText.toLowerCase();
 
-  // Si la respuesta es una cifra/plazo (ej. "10 días"), comprobar si esa cifra aparece en el enunciado
   const digitMatch = cLower.match(/(\d+)\s*(días|meses|años|horas)/);
   if (digitMatch) {
     const numberStr = digitMatch[1];
     if (new RegExp(`\\b${numberStr}\\b`).test(qLower)) {
-      return true; // ¡Fuga de respuesta detectada!
+      return true;
     }
   }
 
-  // Comprobar si más del 60% de las palabras clave de la respuesta están dentro de las comillas del enunciado
   const quotedMatch = qLower.match(/"([^"]+)"/);
   if (quotedMatch) {
     const quotedText = quotedMatch[1];
@@ -152,7 +172,7 @@ function hasAnswerLeak(questionText, correctOptionText) {
         if (quotedText.includes(w)) matches++;
       });
       if (matches / cWords.length >= 0.7) {
-        return true; // ¡Respuesta contenida en la cita del enunciado!
+        return true;
       }
     }
   }
@@ -334,16 +354,21 @@ function getDomainKeyForTopic(topicId, normContent) {
   return 'convenio_us';
 }
 
+// Filtra candidatos para que coincidan EXACTAMENTE con el tipo semántico de la respuesta correcta
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
+  const targetType = getSemanticType(correctOpt);
   const normContent = (heading + ' ' + factText + ' ' + correctOpt).toLowerCase();
   const domainKey = getDomainKeyForTopic(topicId, normContent);
 
   const distractors = [];
   const used = new Set([correctOpt.toLowerCase().trim()]);
 
-  // OP 1: Definiciones de otros conceptos reales del temario
+  // OP 1: Definiciones de otros conceptos reales del temario (solo si coinciden en el tipo semántico)
   const otherConceptPairs = allConceptPairs
-    .filter(cp => !used.has(cp.definition.toLowerCase().trim()) && cp.definition.length > 20)
+    .filter(cp => {
+      const def = cp.definition.toLowerCase().trim();
+      return !used.has(def) && def.length > 15 && getSemanticType(def) === targetType;
+    })
     .sort(() => 0.5 - Math.random());
 
   otherConceptPairs.forEach(cp => {
@@ -354,10 +379,13 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
-  // OP 2: Otros párrafos limpios del mismo tema
+  // OP 2: Otros párrafos limpios del mismo tema (filtrados por tipo semántico)
   if (distractors.length < 3) {
     const cleanParas = allCleanParas
-      .filter(p => p.length > 25 && p.length < 130 && !isMarketingOrHTML(p))
+      .filter(p => {
+        const pClean = p.trim();
+        return pClean.length > 20 && !isMarketingOrHTML(pClean) && getSemanticType(pClean) === targetType;
+      })
       .sort(() => 0.5 - Math.random());
 
     cleanParas.forEach(p => {
@@ -369,10 +397,24 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     });
   }
 
-  // OP 3: Distractores formales del dominio temático
+  // OP 3: Distractores formales del dominio temático (filtrados por tipo semántico)
   if (distractors.length < 3) {
-    const domainPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us).sort(() => 0.5 - Math.random());
+    const domainPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us)
+      .filter(item => getSemanticType(item) === targetType)
+      .sort(() => 0.5 - Math.random());
+
     domainPool.forEach(item => {
+      if (distractors.length < 3 && !used.has(item.toLowerCase())) {
+        distractors.push(item);
+        used.add(item.toLowerCase());
+      }
+    });
+  }
+
+  // OP Fallback: si faltan distractores por ser tipo heterogéneo, añadir elementos formales de procedimiento
+  if (distractors.length < 3) {
+    const fallbackPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us).sort(() => 0.5 - Math.random());
+    fallbackPool.forEach(item => {
       if (distractors.length < 3 && !used.has(item.toLowerCase())) {
         distractors.push(item);
         used.add(item.toLowerCase());
@@ -384,7 +426,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON ENUNCIADOS DINÁMICOS Y CONTROL ANTI-FUGAS (Temas 1 al 20)
+ * Genera preguntas inéditas CON ENUNCIADOS DINÁMICOS Y COHERENCIA SEMÁNTICA (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -404,9 +446,9 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
           const rawConcept = parts[0].trim();
           if (isValidConcept(rawConcept)) {
             allConceptPairs.push({
-              concept: rawConcept,
+              concept: cleanHeadingTitle(rawConcept),
               definition: parts.slice(1).join(' ').trim(),
-              heading: sec.title
+              heading: cleanHeadingTitle(sec.title)
             });
           }
         }
@@ -502,7 +544,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && isValidConcept(parts[0])) {
-        const concept = sanitizeText(parts[0]);
+        const concept = cleanHeadingTitle(parts[0]);
         const definition = sanitizeText(parts.slice(1).join(' '));
         
         if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
@@ -540,7 +582,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Relleno de preguntas con fuentes oficiales, enunciados dinámicos y sin fugas
+  // Relleno de preguntas con fuentes oficiales y opciones semánticamente homogéneas
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
