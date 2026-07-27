@@ -25,7 +25,9 @@ import {
   ListFilter,
   CheckSquare,
   Square,
-  FileText
+  FileText,
+  Printer,
+  Send
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
@@ -33,12 +35,32 @@ import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
 
 export default function AdminPanel({ topics }) {
-  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'codes' | 'generator' | 'bank'
+  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank'
   const [users, setUsers] = useState([]);
   const [bookCodes, setBookCodes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
-  
+
+  // Editions & Modifications State
+  const [editions, setEditions] = useState([]);
+  const [modifications, setModifications] = useState([]);
+  const [editionFilter, setEditionFilter] = useState('all'); // 'all' | 'temario' | 'test' | 'simulacro'
+  const [editingEditionId, setEditingEditionId] = useState(null);
+  const [editNotesText, setEditNotesText] = useState('');
+
+  // Modification Form State
+  const [modForm, setModForm] = useState({
+    materialType: 'temario',
+    topicId: '1',
+    sectionTitle: '',
+    title: '',
+    summaryText: '',
+    pdfAttachmentUrl: '',
+    affectedEditionIds: []
+  });
+  const [savingMod, setSavingMod] = useState(false);
+  const [modMsg, setModMsg] = useState('');
+
   // Search and filters
   const [userSearch, setUserSearch] = useState('');
   const [codeFilter, setCodeFilter] = useState('all'); // 'all' | 'used' | 'unused'
@@ -93,11 +115,22 @@ export default function AdminPanel({ topics }) {
       }
     );
 
+    const unsubEditions = firebaseService.subscribeToMaterialEditions((list) => {
+      setEditions(list);
+    });
+
+    const unsubMods = firebaseService.subscribeToMaterialModifications((list) => {
+      setModifications(list);
+    });
+
     return () => {
       unsubUsers();
       unsubCodes();
+      unsubEditions();
+      unsubMods();
     };
   }, []);
+
 
   // Fetch topic markdown headings whenever selectedGenTopicId changes
   useEffect(() => {
@@ -199,6 +232,114 @@ export default function AdminPanel({ topics }) {
     navigator.clipboard.writeText(generatedCodes.join('\n'))
       .then(() => setCopiedCodes(true))
       .catch(err => console.error('Error copiando:', err));
+  };
+
+  // ── GESTIÓN DE EDICIONES Y ASIGNACIONES ─────────────────────────────
+  const handleDeleteEdition = async (editionId, versionTag) => {
+    const assignedUsers = users.filter(u => {
+      const ae = u.assignedEditions || {};
+      return Object.values(ae).includes(editionId);
+    });
+
+    let warningMsg = `¿Estás seguro de que deseas ELIMINAR la Edición ${versionTag}?`;
+    if (assignedUsers.length > 0) {
+      warningMsg = `⚠️ ATENCIÓN: Esta Edición (${versionTag}) está actualmente ASIGNADA a ${assignedUsers.length} estudiante(s) (${assignedUsers.slice(0, 3).map(u => u.name || u.email).join(', ')}${assignedUsers.length > 3 ? '...' : ''}).\n\nSi continúas, la edición se eliminará y dichos alumnos quedarán sin versión vinculada.\n\n¿Deseas proceder con la eliminación?`;
+    }
+
+    if (window.confirm(warningMsg)) {
+      try {
+        await firebaseService.deleteMaterialEdition(editionId);
+        alert(`Edición ${versionTag} eliminada correctamente.`);
+      } catch (err) {
+        console.error(err);
+        alert('Error al eliminar la edición.');
+      }
+    }
+  };
+
+  const handleUpdateEditionNotes = async (edition) => {
+    try {
+      await firebaseService.saveMaterialEdition({
+        ...edition,
+        notes: editNotesText
+      });
+      setEditingEditionId(null);
+      setEditNotesText('');
+    } catch (err) {
+      console.error(err);
+      alert('Error al guardar las notas de la edición.');
+    }
+  };
+
+  const handleAssignUserMaterial = async (userId, materialType, editionId) => {
+    try {
+      await firebaseService.assignUserMaterialEdition(userId, materialType, editionId);
+    } catch (err) {
+      console.error(err);
+      alert('Error al asignar el material al estudiante.');
+    }
+  };
+
+  // ── GESTIÓN DE MODIFICACIONES Y FE DE ERRATAS ─────────────────────────
+  const toggleAffectedEdition = (edId) => {
+    setModForm(prev => {
+      const current = prev.affectedEditionIds || [];
+      const updated = current.includes(edId)
+        ? current.filter(id => id !== edId)
+        : [...current, edId];
+      return { ...prev, affectedEditionIds: updated };
+    });
+  };
+
+  const handleSaveModification = async (e) => {
+    e.preventDefault();
+    if (!modForm.title.trim() || !modForm.summaryText.trim()) {
+      alert('Por favor, completa el título y el resumen explicativo de la modificación.');
+      return;
+    }
+    if (modForm.affectedEditionIds.length === 0) {
+      alert('Debes seleccionar al menos una Edición Impresa afectada por esta modificación.');
+      return;
+    }
+
+    setSavingMod(true);
+    setModMsg('');
+    try {
+      await firebaseService.saveMaterialModification(modForm);
+      
+      const notifiedUsers = users.filter(u => {
+        const ae = u.assignedEditions || {};
+        return modForm.affectedEditionIds.includes(ae[modForm.materialType]);
+      });
+
+      setModMsg(`¡Éxito! Modificación registrada. Se ha notificado a ${notifiedUsers.length} alumno(s) que poseen las ediciones afectadas.`);
+      setModForm({
+        materialType: 'temario',
+        topicId: '1',
+        sectionTitle: '',
+        title: '',
+        summaryText: '',
+        pdfAttachmentUrl: '',
+        affectedEditionIds: []
+      });
+      setTimeout(() => setModMsg(''), 5000);
+    } catch (err) {
+      console.error(err);
+      alert('Error al guardar la modificación.');
+    } finally {
+      setSavingMod(false);
+    }
+  };
+
+  const handleDeleteModification = async (modId, title) => {
+    if (window.confirm(`¿Deseas eliminar la modificación "${title}"?`)) {
+      try {
+        await firebaseService.deleteMaterialModification(modId);
+      } catch (err) {
+        console.error(err);
+        alert('Error al eliminar la modificación.');
+      }
+    }
   };
 
   // ── ELIMINAR PREGUNTA DEL BANCO OFICIAL ─────────────────────────────
@@ -431,6 +572,22 @@ export default function AdminPanel({ topics }) {
             Estudiantes ({registeredUsersCount})
           </button>
           <button
+            onClick={() => setActiveSubTab('editions')}
+            className={`tab-btn ${activeSubTab === 'editions' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'editions' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Printer size={16} />
+            <span>Ediciones Impresas ({editions.length})</span>
+          </button>
+          <button
+            onClick={() => setActiveSubTab('modifications')}
+            className={`tab-btn ${activeSubTab === 'modifications' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'modifications' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Edit3 size={16} />
+            <span>Fe de Erratas / Anexos ({modifications.length})</span>
+          </button>
+          <button
             onClick={() => setActiveSubTab('codes')}
             className={`tab-btn ${activeSubTab === 'codes' ? 'active' : ''}`}
             style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'codes' ? 'var(--primary)' : 'transparent', color: 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '0.85rem', transition: 'var(--transition-fast)' }}
@@ -443,7 +600,7 @@ export default function AdminPanel({ topics }) {
             style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'bank' ? 'var(--secondary)' : 'transparent', color: activeSubTab === 'bank' ? '#000' : 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '700', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
           >
             <Library size={16} />
-            <span>Banco de Preguntas</span>
+            <span>Banco</span>
           </button>
           <button
             onClick={() => setActiveSubTab('generator')}
@@ -455,6 +612,7 @@ export default function AdminPanel({ topics }) {
           </button>
         </div>
       </div>
+
 
       {errorMsg && (
         <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#fca5a5', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -934,7 +1092,7 @@ export default function AdminPanel({ topics }) {
       {activeSubTab === 'users' && (
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Listado de Estudiantes</h3>
+            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Listado de Estudiantes y Material Entregado</h3>
             <div style={{ position: 'relative' }}>
               <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input
@@ -953,6 +1111,7 @@ export default function AdminPanel({ topics }) {
                 <tr style={{ borderBottom: '1px solid var(--border-color)', textAlign: 'left' }}>
                   <th style={{ padding: '10px' }}>Estudiante</th>
                   <th style={{ padding: '10px' }}>Código Libro</th>
+                  <th style={{ padding: '10px' }}>Material Entregado (Versión Física)</th>
                   <th style={{ padding: '10px' }}>Estado</th>
                   <th style={{ padding: '10px' }}>Acción</th>
                 </tr>
@@ -965,6 +1124,40 @@ export default function AdminPanel({ topics }) {
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.email}</div>
                     </td>
                     <td style={{ padding: '10px', fontFamily: 'monospace' }}>{u.bookCode || u.code || '—'}</td>
+                    
+                    {/* Columna de Asignación de Material Entregado */}
+                    <td style={{ padding: '10px' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxWidth: '220px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', width: '55px' }}>Temario:</span>
+                          <select 
+                            value={u.assignedEditions?.temario || ''}
+                            onChange={(e) => handleAssignUserMaterial(u.uid, 'temario', e.target.value)}
+                            style={{ flex: 1, padding: '2px 6px', borderRadius: '4px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.73rem', outline: 'none' }}
+                          >
+                            <option value="">Sin Asignar</option>
+                            {editions.filter(ed => ed.type === 'temario').map(ed => (
+                              <option key={ed.id} value={ed.id}>{ed.versionTag} - {ed.title.substring(0,18)}</option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', width: '55px' }}>Tests:</span>
+                          <select 
+                            value={u.assignedEditions?.test || ''}
+                            onChange={(e) => handleAssignUserMaterial(u.uid, 'test', e.target.value)}
+                            style={{ flex: 1, padding: '2px 6px', borderRadius: '4px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.73rem', outline: 'none' }}
+                          >
+                            <option value="">Sin Asignar</option>
+                            {editions.filter(ed => ed.type === 'test').map(ed => (
+                              <option key={ed.id} value={ed.id}>{ed.versionTag} - {ed.title.substring(0,18)}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </td>
+
                     <td style={{ padding: '10px' }}>
                       {isUserOnline(u) ? (
                         <span style={{ color: '#4ade80', fontWeight: '700' }}>● En línea</span>
@@ -991,6 +1184,289 @@ export default function AdminPanel({ topics }) {
           </div>
         </div>
       )}
+
+      {/* SUBTAB: EDICIONES IMPRESAS */}
+      {activeSubTab === 'editions' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+              <div>
+                <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Printer size={20} style={{ color: 'var(--secondary)' }} />
+                  <span>Control de Ediciones y Versiones Registradas</span>
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                  Gestión de PDFs oficiales registrados al imprimir. Puedes editar notas, machacar/sobrescribir contenidos o borrar ediciones.
+                </p>
+              </div>
+
+              {/* Filtro por tipo */}
+              <div style={{ display: 'flex', gap: '6px' }}>
+                {['all', 'temario', 'test', 'simulacro'].map(t => (
+                  <button
+                    key={t}
+                    onClick={() => setEditionFilter(t)}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.78rem',
+                      fontWeight: '700',
+                      border: 'none',
+                      cursor: 'pointer',
+                      background: editionFilter === t ? 'var(--primary)' : 'rgba(255,255,255,0.05)',
+                      color: editionFilter === t ? '#fff' : 'var(--text-muted)',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    {t === 'all' ? 'Todas' : t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Listado de Ediciones */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '16px' }}>
+              {editions.filter(e => editionFilter === 'all' || e.type === editionFilter).length === 0 ? (
+                <div style={{ gridColumn: '1 / -1', padding: '30px', textAlign: 'center', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}>
+                  No se han registrado ediciones todavía. Al imprimir un Temario, Test o Simulacro como Admin, usa la opción "Registrar Nueva Edición".
+                </div>
+              ) : (
+                editions.filter(e => editionFilter === 'all' || e.type === editionFilter).map(ed => {
+                  const assignedCount = users.filter(u => Object.values(u.assignedEditions || {}).includes(ed.id)).length;
+                  return (
+                    <div key={ed.id} className="glass-panel" style={{ padding: '16px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(15, 23, 42, 0.6)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                          <span style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '6px', background: ed.type === 'temario' ? 'rgba(59,130,246,0.2)' : ed.type === 'test' ? 'rgba(234,179,8,0.2)' : 'rgba(16,185,129,0.2)', color: ed.type === 'temario' ? '#60a5fa' : ed.type === 'test' ? '#fde047' : '#34d399' }}>
+                            {ed.type}
+                          </span>
+                          <h4 style={{ margin: '6px 0 2px 0', fontSize: '1rem', color: '#fff' }}>{ed.versionTag} — {ed.title}</h4>
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Creada: {new Date(ed.createdAt).toLocaleDateString()} ({ed.topicCount} temas)</span>
+                        </div>
+
+                        <button
+                          onClick={() => handleDeleteEdition(ed.id, ed.versionTag)}
+                          style={{ background: 'rgba(239,68,68,0.15)', border: 'none', color: '#fca5a5', padding: '5px', borderRadius: '6px', cursor: 'pointer' }}
+                          title="Eliminar edición"
+                        >
+                          <Trash2 size={15} />
+                        </button>
+                      </div>
+
+                      <div style={{ fontSize: '0.78rem', color: '#4ade80', background: 'rgba(34,197,94,0.1)', padding: '4px 10px', borderRadius: '6px', width: 'fit-content', fontWeight: '700' }}>
+                        👥 Asignada a {assignedCount} alumno(s)
+                      </div>
+
+                      {editingEditionId === ed.id ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
+                          <textarea
+                            value={editNotesText}
+                            onChange={(e) => setEditNotesText(e.target.value)}
+                            placeholder="Notas internas / cambios..."
+                            rows={2}
+                            style={{ padding: '6px', borderRadius: '6px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.8rem' }}
+                          />
+                          <div style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end' }}>
+                            <button onClick={() => setEditingEditionId(null)} className="btn-ghost" style={{ padding: '4px 8px', fontSize: '0.75rem' }}>Cancelar</button>
+                            <button onClick={() => handleUpdateEditionNotes(ed)} className="glow-btn" style={{ padding: '4px 10px', fontSize: '0.75rem' }}>Guardar</button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.2)', padding: '8px', borderRadius: '6px', position: 'relative' }}>
+                          <strong>Notas de imprenta:</strong> {ed.notes || 'Sin notas.'}
+                          <button
+                            onClick={() => { setEditingEditionId(ed.id); setEditNotesText(ed.notes || ''); }}
+                            style={{ position: 'absolute', right: '6px', top: '6px', background: 'transparent', border: 'none', color: 'var(--primary-light)', cursor: 'pointer' }}
+                            title="Editar notas"
+                          >
+                            <Edit3 size={13} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SUBTAB: FE DE ERRATAS / GESTIÓN DE MODIFICACIONES */}
+      {activeSubTab === 'modifications' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          
+          {/* Formulario de creación */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.3)', background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
+            <h3 style={{ margin: '0 0 4px 0', color: 'var(--text-main)', fontSize: '1.15rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Edit3 size={20} style={{ color: 'var(--primary-light)' }} />
+              <span>Registrar Hoja de Modificación / Fe de Erratas (Anexo)</span>
+            </h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '16px' }}>
+              Redacta una corrección o actualización de un tema y selecciona qué Ediciones Impresas están afectadas para notificar automáticamente a los alumnos.
+            </p>
+
+            {modMsg && (
+              <div style={{ padding: '10px 14px', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.4)', borderRadius: '8px', color: '#4ade80', fontSize: '0.85rem', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <CheckCircle2 size={16} />
+                <span>{modMsg}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleSaveModification} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 2fr', gap: '12px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Tipo de Material:</label>
+                  <select
+                    value={modForm.materialType}
+                    onChange={(e) => setModForm({ ...modForm, materialType: e.target.value })}
+                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem' }}
+                  >
+                    <option value="temario">Temario</option>
+                    <option value="test">Cuaderno de Tests</option>
+                    <option value="simulacro">Simulacros</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Tema Afectado:</label>
+                  <select
+                    value={modForm.topicId}
+                    onChange={(e) => setModForm({ ...modForm, topicId: e.target.value })}
+                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem' }}
+                  >
+                    {activeTopicList.map(t => (
+                      <option key={t.id} value={t.id}>Tema {t.id}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Epígrafe / Punto Concreto:</label>
+                  <input
+                    type="text"
+                    placeholder="Ej. Art. 14 Sanciones por retraso"
+                    value={modForm.sectionTitle}
+                    onChange={(e) => setModForm({ ...modForm, sectionTitle: e.target.value })}
+                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem' }}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Título del Cambio / Modificación:</label>
+                <input
+                  type="text"
+                  placeholder="Ej. Corrección en los plazos del Préstamo Intercampus"
+                  value={modForm.title}
+                  onChange={(e) => setModForm({ ...modForm, title: e.target.value })}
+                  style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Resumen Explicativo del Cambio Normativo:</label>
+                <textarea
+                  placeholder="Explica qué ha cambiado o qué errata se subsana..."
+                  value={modForm.summaryText}
+                  onChange={(e) => setModForm({ ...modForm, summaryText: e.target.value })}
+                  rows={3}
+                  style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem', resize: 'vertical' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Enlace / URL a PDF Anexo (Opcional):</label>
+                <input
+                  type="text"
+                  placeholder="https://... o ruta al archivo anexo"
+                  value={modForm.pdfAttachmentUrl}
+                  onChange={(e) => setModForm({ ...modForm, pdfAttachmentUrl: e.target.value })}
+                  style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem' }}
+                />
+              </div>
+
+              {/* Selección de Ediciones Impresas Afectadas */}
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: 'var(--secondary-light)', marginBottom: '6px' }}>
+                  Marcar Ediciones Impresas Afectadas (Solo los alumnos con estas ediciones recibirán la notificación):
+                </label>
+                
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  {editions.filter(e => e.type === modForm.materialType).length === 0 ? (
+                    <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>No hay ediciones de tipo {modForm.materialType.toUpperCase()} registradas para seleccionar.</span>
+                  ) : (
+                    editions.filter(e => e.type === modForm.materialType).map(ed => {
+                      const isChecked = modForm.affectedEditionIds.includes(ed.id);
+                      return (
+                        <label key={ed.id} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: isChecked ? 'rgba(59,130,246,0.2)' : 'transparent', padding: '4px 8px', borderRadius: '6px', cursor: 'pointer', border: isChecked ? '1px solid #3b82f6' : '1px solid transparent' }}>
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => toggleAffectedEdition(ed.id)}
+                          />
+                          <span style={{ fontSize: '0.8rem', color: '#fff', fontWeight: '600' }}>{ed.versionTag} — {ed.title}</span>
+                        </label>
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '6px' }}>
+                <button
+                  type="submit"
+                  disabled={savingMod}
+                  className="glow-btn"
+                  style={{ padding: '10px 20px', fontSize: '0.88rem' }}
+                >
+                  <Send size={16} />
+                  <span>{savingMod ? 'Registrando...' : '📢 Guardar y Notificar a Alumnos Afectados'}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* Listado de Modificaciones Registradas */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
+            <h4 style={{ margin: '0 0 12px 0', color: 'var(--text-main)', fontSize: '1rem' }}>Historial de Fe de Erratas y Anexos Registrados</h4>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {modifications.length === 0 ? (
+                <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.2)', borderRadius: '10px', fontSize: '0.85rem' }}>
+                  No se ha registrado ninguna hoja de modificación ni fe de erratas.
+                </div>
+              ) : (
+                modifications.map(m => (
+                  <div key={m.id} className="glass-panel" style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                        <span style={{ fontSize: '0.7rem', fontWeight: '800', background: 'rgba(234,179,8,0.2)', color: '#fde047', padding: '2px 8px', borderRadius: '6px' }}>
+                          Tema {m.topicId} ({m.materialType.toUpperCase()})
+                        </span>
+                        {m.sectionTitle && <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>📍 {m.sectionTitle}</span>}
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-dark)' }}>{new Date(m.createdAt).toLocaleDateString()}</span>
+                      </div>
+                      <h4 style={{ margin: '4px 0', color: '#fff', fontSize: '0.95rem' }}>{m.title}</h4>
+                      <p style={{ margin: '4px 0', color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: '1.4' }}>{m.summaryText}</p>
+                    </div>
+
+                    <button
+                      onClick={() => handleDeleteModification(m.id, m.title)}
+                      style={{ background: 'rgba(239,68,68,0.15)', border: 'none', color: '#fca5a5', padding: '6px', borderRadius: '6px', cursor: 'pointer' }}
+                      title="Eliminar modificación"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
+        </div>
+      )}
+
 
       {activeSubTab === 'codes' && (
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>

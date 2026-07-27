@@ -843,5 +843,177 @@ export const firebaseService = {
         console.warn("Failed to update last active time", e.message);
       }
     }
+  },
+
+  /* ==========================================================================
+     SISTEMA DE CONTROL DE EDICIONES Y GESTIÓN DE MODIFICACIONES (ANEXOS)
+     ========================================================================== */
+
+  /**
+   * Obtiene o suscribe las ediciones de materiales (Temarios, Tests, Simulacros)
+   */
+  subscribeToMaterialEditions(callback) {
+    if (isMock) {
+      const getEditionsList = () => {
+        const saved = localStorage.getItem('mock_db_material_editions');
+        return saved ? Object.values(JSON.parse(saved)) : [];
+      };
+      callback(getEditionsList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_material_editions') {
+          callback(getEditionsList());
+        }
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'material_editions'), (snapshot) => {
+        const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        callback(list);
+      }, (err) => {
+        console.error("Error subscribing to material_editions", err);
+      });
+    }
+  },
+
+  /**
+   * Guarda o sobrescribe una edición de material
+   */
+  async saveMaterialEdition(edition) {
+    const now = new Date().toISOString();
+    const id = edition.id || (`ed_${edition.type}_${edition.versionTag.toLowerCase().replace(/[^a-z0-9]/g, '')}_${Date.now()}`);
+    const record = {
+      id,
+      type: edition.type, // 'temario' | 'test' | 'simulacro'
+      versionTag: edition.versionTag, // ej. 'V1.0', 'V1.1'
+      title: edition.title || `Edición ${edition.versionTag}`,
+      notes: edition.notes || '',
+      pdfUrl: edition.pdfUrl || '',
+      topicCount: edition.topicCount || 20,
+      createdAt: edition.createdAt || now,
+      updatedAt: now
+    };
+
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_material_editions');
+      const map = saved ? JSON.parse(saved) : {};
+      map[id] = record;
+      localStorage.setItem('mock_db_material_editions', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+      return record;
+    } else {
+      await setDoc(doc(db, 'material_editions', id), record, { merge: true });
+      return record;
+    }
+  },
+
+  /**
+   * Elimina una edición de material
+   */
+  async deleteMaterialEdition(editionId) {
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_material_editions');
+      const map = saved ? JSON.parse(saved) : {};
+      delete map[editionId];
+      localStorage.setItem('mock_db_material_editions', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await deleteDoc(doc(db, 'material_editions', editionId));
+    }
+  },
+
+  /**
+   * Asigna una edición física de material a la ficha de un usuario
+   */
+  async assignUserMaterialEdition(userId, materialType, editionId) {
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_users');
+      const users = saved ? JSON.parse(saved) : {};
+      if (users[userId]) {
+        if (!users[userId].assignedEditions) {
+          users[userId].assignedEditions = {};
+        }
+        users[userId].assignedEditions[materialType] = editionId;
+        localStorage.setItem('mock_db_users', JSON.stringify(users));
+      }
+    } else {
+      await updateDoc(doc(db, 'users', userId), {
+        [`assignedEditions.${materialType}`]: editionId
+      });
+    }
+  },
+
+  /**
+   * Obtiene o suscribe a las modificaciones y anexos (Fe de Erratas)
+   */
+  subscribeToMaterialModifications(callback) {
+    if (isMock) {
+      const getModsList = () => {
+        const saved = localStorage.getItem('mock_db_material_modifications');
+        return saved ? Object.values(JSON.parse(saved)) : [];
+      };
+      callback(getModsList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_material_modifications') {
+          callback(getModsList());
+        }
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'material_modifications'), (snapshot) => {
+        const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        callback(list);
+      }, (err) => {
+        console.error("Error subscribing to material_modifications", err);
+      });
+    }
+  },
+
+  /**
+   * Registra una modificación / hoja de fe de erratas
+   */
+  async saveMaterialModification(modData) {
+    const now = new Date().toISOString();
+    const id = modData.id || (`mod_${Date.now()}`);
+    const record = {
+      id,
+      materialType: modData.materialType || 'temario', // 'temario' | 'test' | 'simulacro'
+      topicId: Number(modData.topicId || 1),
+      sectionTitle: modData.sectionTitle || '',
+      title: modData.title || 'Modificación / Anexo',
+      summaryText: modData.summaryText || '',
+      pdfAttachmentUrl: modData.pdfAttachmentUrl || '',
+      affectedEditionIds: modData.affectedEditionIds || [],
+      createdAt: modData.createdAt || now
+    };
+
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_material_modifications');
+      const map = saved ? JSON.parse(saved) : {};
+      map[id] = record;
+      localStorage.setItem('mock_db_material_modifications', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+      return record;
+    } else {
+      await setDoc(doc(db, 'material_modifications', id), record, { merge: true });
+      return record;
+    }
+  },
+
+  /**
+   * Elimina una modificación
+   */
+  async deleteMaterialModification(modId) {
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_material_modifications');
+      const map = saved ? JSON.parse(saved) : {};
+      delete map[modId];
+      localStorage.setItem('mock_db_material_modifications', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await deleteDoc(doc(db, 'material_modifications', modId));
+    }
   }
 };
+

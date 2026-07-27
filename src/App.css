@@ -5143,4 +5143,22 @@ body.reading-fullscreen-mode .markdown-body-container {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
+
+  /* Strict exclusion of modals, overlays, floating bars and UI controls from Print */
+  .no-print,
+  .login-screen-overlay,
+  .print-edition-modal,
+  .sidebar,
+  .dashboard-header,
+  .reading-fullscreen-controls-floating,
+  .reading-fullscreen-bar,
+  [class*="login-screen-overlay"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+  }
 }
+

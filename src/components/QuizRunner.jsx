@@ -16,14 +16,38 @@ import quizzesData from '../data/quizzes.json';
 import examen2019Data from '../data/examen_2019.json';
 import examen2022Data from '../data/examen_2022.json';
 
+import PrintEditionModal from './PrintEditionModal';
+import { firebaseService } from '../services/firebaseService';
+
 export default function QuizRunner({ topics, progress, recordQuizScore, activeTopicId, currentUser }) {
+  const [showPrintModal, setShowPrintModal] = useState(false);
+
   const handlePrintClick = () => {
     if (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile') {
       alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir los cuestionarios en PDF.');
       return;
     }
-    window.print();
+    if (currentUser?.role === 'admin') {
+      setShowPrintModal(true);
+    } else {
+      window.print();
+    }
   };
+
+  const handleConfirmPrintEdition = async (opt, editionData) => {
+    setShowPrintModal(false);
+    if (editionData) {
+      try {
+        await firebaseService.saveMaterialEdition(editionData);
+      } catch (err) {
+        console.error("Error saving material edition", err);
+      }
+    }
+    setTimeout(() => {
+      window.print();
+    }, 150);
+  };
+
 
   // Config state
   const [selectedTopicMode, setSelectedTopicMode] = useState('single'); // 'single' | 'custom' | 'simulacro-40' | 'simulacro-oficial' | 'test-book' | 'examen-real-2019' | 'examen-real-2022'
@@ -1697,6 +1721,15 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           </div>
         </div>
       )}
+
+      <PrintEditionModal 
+        isOpen={showPrintModal} 
+        onClose={() => setShowPrintModal(false)} 
+        materialType={isTestBookPrintMode ? 'test' : 'simulacro'} 
+        topicCount={questions?.length || 40} 
+        defaultTitle={`Cuaderno de Cuestionarios (${isTestBookPrintMode ? 'Por Temas' : 'Simulacro'})`} 
+        onConfirmPrint={handleConfirmPrintEdition} 
+      />
     </div>
   );
 }

@@ -21,7 +21,12 @@ import convenio2026 from '../data/baterias/convenio_2026.json';
 import igualdad2007 from '../data/baterias/igualdad_2007.json';
 import codigo2001Validadas from '../data/examenes_oficiales/codigo_2001_validadas.json';
 
+import PrintEditionModal from './PrintEditionModal';
+import { firebaseService } from '../services/firebaseService';
+
 export default function FormadoresTests({ currentUser }) {
+  const [showPrintModal, setShowPrintModal] = useState(false);
+
   // Available batteries
   const batteries = [
     {
@@ -129,12 +134,30 @@ export default function FormadoresTests({ currentUser }) {
     setPaperSubmitted(false);
 
     if (testMode === 'print') {
-      // Set timer to trigger print view once rendered
       setTimeout(() => {
-        window.print();
-      }, 500);
+        if (currentUser?.role === 'admin') {
+          setShowPrintModal(true);
+        } else {
+          window.print();
+        }
+      }, 300);
     }
   };
+
+  const handleConfirmPrintEdition = async (opt, editionData) => {
+    setShowPrintModal(false);
+    if (editionData) {
+      try {
+        await firebaseService.saveMaterialEdition(editionData);
+      } catch (err) {
+        console.error("Error saving material edition", err);
+      }
+    }
+    setTimeout(() => {
+      window.print();
+    }, 150);
+  };
+
 
   // Interactive answer selection
   const handleAnswerSelect = (optionIndex) => {
@@ -1080,6 +1103,14 @@ export default function FormadoresTests({ currentUser }) {
         </div>
       )}
 
+      <PrintEditionModal 
+        isOpen={showPrintModal} 
+        onClose={() => setShowPrintModal(false)} 
+        materialType="test" 
+        topicCount={questions?.length || 20} 
+        defaultTitle={`Batería Formadores CCOO (${selectedTopicInfo?.title || 'General'})`} 
+        onConfirmPrint={handleConfirmPrintEdition} 
+      />
     </div>
   );
 }

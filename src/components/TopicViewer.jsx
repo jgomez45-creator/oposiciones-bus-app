@@ -37,6 +37,9 @@ const getCleanTextForSpeech = (htmlString) => {
 };
 
 
+import PrintEditionModal from './PrintEditionModal';
+import { firebaseService } from '../services/firebaseService';
+
 export default function TopicViewer({ 
   topics, 
   activeTopicId, 
@@ -47,6 +50,8 @@ export default function TopicViewer({
   setCurrentTab,
   currentUser
 }) {
+  const [showPrintModal, setShowPrintModal] = useState(false);
+
   const handlePrintClick = () => {
     if (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile') {
       alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir el temario en PDF.');
@@ -58,9 +63,29 @@ export default function TopicViewer({
       setViewMode('multi-print');
       setTriggerAutocompile(true);
     } else {
-      window.print();
+      if (currentUser?.role === 'admin') {
+        setShowPrintModal(true);
+      } else {
+        window.print();
+      }
     }
   };
+
+  const handleConfirmPrintEdition = async (opt, editionData) => {
+    setShowPrintModal(false);
+    if (editionData) {
+      try {
+        await firebaseService.saveMaterialEdition(editionData);
+      } catch (err) {
+        console.error("Error saving material edition", err);
+      }
+    }
+    setTimeout(() => {
+      window.print();
+    }, 150);
+  };
+
+
 
   const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
@@ -1770,10 +1795,18 @@ export default function TopicViewer({
               </div>
             </div>
             {/* Reading Ruler - rendered OUTSIDE the overflow:hidden wrapper so it stays visible */}
-            {showReadingRuler && <div className="reading-ruler-fixed" />}
           </>
         )}
       </div>
+
+      <PrintEditionModal 
+        isOpen={showPrintModal} 
+        onClose={() => setShowPrintModal(false)} 
+        materialType="temario" 
+        topicCount={selectedPrintTopicIds.length || 1} 
+        defaultTitle={`Temario Compilado (${selectedPrintTopicIds.length || 1} temas)`} 
+        onConfirmPrint={handleConfirmPrintEdition} 
+      />
     </div>
   );
 }

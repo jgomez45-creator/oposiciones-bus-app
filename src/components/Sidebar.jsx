@@ -10,7 +10,8 @@ import {
   Shield,
   ClipboardList,
   HelpCircle,
-  Sparkles
+  Sparkles,
+  Edit3
 } from 'lucide-react';
 
 export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri, isSiriOpen }) {
@@ -40,10 +41,12 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       label: 'Herramientas',
       items: [
         { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri, isBlueButton: true },
+        { id: 'anexos', name: 'Mis Anexos / Fe Erratas', icon: Edit3 },
         { id: 'manual', name: 'Manual de Uso', icon: HelpCircle }
       ]
     }
   ];
+
 
   if (currentUser && currentUser.role === 'admin') {
     menuGroups.push({
