@@ -2,10 +2,10 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Corrección Estricta de Parser de Conceptos:
- * 1. Validación de conceptos completos (descarta fragmentos truncados terminados en "y", "de", "o", "en").
- * 2. Impedimento de solapamiento entre el concepto del enunciado y la respuesta correcta.
- * 3. Garantía de opciones con carga normativa real (no meras repeticiones del término).
+ * Control Anti-Fugas de Respuesta (Cero preguntas donde el enunciado desvele la respuesta):
+ * 1. Purga activa de plazos, fechas y cifras entre paréntesis en el extracto del enunciado (cleanStemExcerpt).
+ * 2. Validador estricto anti-fugas (hasAnswerLeak): rechaza automáticamente cualquier pregunta cuyo enunciado
+ *    contenga la cifra o el texto de la opción correcta.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -83,17 +83,29 @@ function getOfficialNormName(topicId, topicTitle) {
   }
 }
 
-// Generador dinámico y variado de enunciados oficiales de examen (Cero frases idénticas repetidas)
+// Purga datos numéricos y plazos del extracto citado en el enunciado para que nunca se filtre la respuesta
+function cleanStemExcerpt(text) {
+  if (!text) return '';
+  return text
+    .replace(/\((plazo|duración|término|artículo|art|máximo|mínimo)?:?\s*\d+[^)]+\)/gi, '') // Elimina (Plazo: 10 días hábiles)
+    .replace(/\b\d+\s*(días|meses|años|horas|minutos)\b/gi, '') // Elimina cifras con unidades
+    .replace(/\s{2,}/g, ' ')
+    .replace(/[:;,-]+\s*$/g, '')
+    .trim();
+}
+
+// Generador dinámico de enunciados de examen con extracto limpio
 function buildExamQuestionStem(normName, concept, heading, index) {
-  const topicFocus = concept || heading || 'esta materia';
-  const cleanFocus = topicFocus.length > 60 ? topicFocus.substring(0, 55) + '...' : topicFocus;
+  const rawFocus = concept || heading || 'esta materia';
+  const cleanFocus = cleanStemExcerpt(rawFocus);
+  const finalFocus = cleanFocus.length > 55 ? cleanFocus.substring(0, 50) + '...' : cleanFocus;
 
   const stemTemplates = [
-    `En relación con "${cleanFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
-    `De acuerdo con la regulación de ${normName} referente a "${cleanFocus}", señale la afirmación correcta:`,
-    `Según lo dispuesto en ${normName}, señale la opción correcta respecto a "${cleanFocus}":`,
-    `En el marco del procedimiento sobre "${cleanFocus}" en la US, ¿qué opción refleja la regulación oficial?`,
-    `Respecto a "${cleanFocus}", señale la afirmación correcta de acuerdo con ${normName}:`
+    `En relación con "${finalFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
+    `De acuerdo con la regulación de ${normName} referente a "${finalFocus}", señale la afirmación correcta:`,
+    `Según lo dispuesto en ${normName}, señale la opción correcta respecto a "${finalFocus}":`,
+    `En el marco del procedimiento sobre "${finalFocus}" en la US, ¿qué opción refleja la regulación oficial?`,
+    `Respecto a "${finalFocus}", señale la afirmación correcta de acuerdo con ${normName}:`
   ];
 
   return stemTemplates[index % stemTemplates.length];
@@ -105,15 +117,47 @@ function isValidConcept(concept) {
   const clean = concept.trim();
   if (clean.length < 4 || clean.length > 65) return false;
   
-  // Descartar fragmentos que terminan en nexos o conjunciones incompleta
   if (/\b(y|o|de|del|en|para|con|por|a|que|su|sus|un|una|el|la|los|las)\s*$/i.test(clean)) {
     return false;
   }
-
-  // Descartar fragmentos que empiezan con viñeta o símbolos
   if (/^[0-9•*\-\.]+\s*$/.test(clean)) return false;
 
   return true;
+}
+
+// Valida que el enunciado NO contenga la solución ni pistas de la respuesta correcta
+function hasAnswerLeak(questionText, correctOptionText) {
+  if (!questionText || !correctOptionText) return false;
+  
+  const qLower = questionText.toLowerCase();
+  const cLower = correctOptionText.toLowerCase();
+
+  // Si la respuesta es una cifra/plazo (ej. "10 días"), comprobar si esa cifra aparece en el enunciado
+  const digitMatch = cLower.match(/(\d+)\s*(días|meses|años|horas)/);
+  if (digitMatch) {
+    const numberStr = digitMatch[1];
+    if (new RegExp(`\\b${numberStr}\\b`).test(qLower)) {
+      return true; // ¡Fuga de respuesta detectada!
+    }
+  }
+
+  // Comprobar si más del 60% de las palabras clave de la respuesta están dentro de las comillas del enunciado
+  const quotedMatch = qLower.match(/"([^"]+)"/);
+  if (quotedMatch) {
+    const quotedText = quotedMatch[1];
+    const cWords = cLower.replace(/^[a-d]\)\s*/, '').split(/\s+/).filter(w => w.length > 3);
+    if (cWords.length > 0) {
+      let matches = 0;
+      cWords.forEach(w => {
+        if (quotedText.includes(w)) matches++;
+      });
+      if (matches / cWords.length >= 0.7) {
+        return true; // ¡Respuesta contenida en la cita del enunciado!
+      }
+    }
+  }
+
+  return false;
 }
 
 // Generador de ID único
@@ -340,7 +384,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON ENUNCIADOS DINÁMICOS Y ÁGILES (Temas 1 al 20)
+ * Genera preguntas inéditas CON ENUNCIADOS DINÁMICOS Y CONTROL ANTI-FUGAS (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -438,13 +482,13 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // PATRÓN 2: FECHAS / PLAZOS / DÍAS
+    // PATRÓN 2: FECHAS / PLAZOS / DÍAS (Purga de cifras en el enunciado)
     else if (daysMatch) {
       const num = daysMatch[1];
       const unit = daysMatch[2];
-      const mainSentence = factText.split('.')[0];
+      const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
       
-      const qText = `Según lo establecido en ${normName}, respecto a "${mainSentence.substring(0, 60)}...", ¿cuál es el plazo legalmente establecido?`;
+      const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 50)}", ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${unit}`;
       const wrong1 = `${parseInt(num) * 2} ${unit}`;
@@ -461,7 +505,6 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         const concept = sanitizeText(parts[0]);
         const definition = sanitizeText(parts.slice(1).join(' '));
         
-        // Evitar solapamiento donde la respuesta justa empiece como el concepto
         if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
           const qText = buildExamQuestionStem(normName, concept, heading, idx);
           const correctOpt = definition.substring(0, 115);
@@ -486,16 +529,18 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
 
     if (newQ) {
+      const correctOptClean = newQ.options[newQ.correctAnswer].replace(/^[A-D]\)\s*/, '');
+      const isLeakingAnswer = hasAnswerLeak(newQ.question, correctOptClean);
       const dupCheck = checkDuplicated(newQ.question, topicId);
       const isAlreadyInBatch = generated.some(g => calculateSimilarity(g.question, newQ.question) > 0.6);
 
-      if (!dupCheck.isDuplicated && !isAlreadyInBatch) {
+      if (!isLeakingAnswer && !dupCheck.isDuplicated && !isAlreadyInBatch) {
         generated.push(newQ);
       }
     }
   }
 
-  // Relleno de preguntas con fuentes oficiales y enunciados dinámicos
+  // Relleno de preguntas con fuentes oficiales, enunciados dinámicos y sin fugas
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
@@ -504,7 +549,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       ? sanitizeText(targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length])
       : `Regulación oficial sobre la materia`;
 
-    const qText = buildExamQuestionStem(normName, sectionLabel, sectionLabel, fallbackNum);
+    const qText = buildExamQuestionStem(normName, cleanStemExcerpt(sectionLabel), sectionLabel, fallbackNum);
     const correctOpt = sampleFact.substring(0, 120);
     const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
     const options = [correctOpt, ...wrongDistractors];
