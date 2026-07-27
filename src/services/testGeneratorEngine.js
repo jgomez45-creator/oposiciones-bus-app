@@ -2,9 +2,8 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Trampas de Complemento y Rigor en Plazos:
- * 1. Opciones con paridad numérica y diferente complemento (ej. "10 días hábiles" vs "10 días naturales").
- * 2. Purga completa de adjetivos de plazos ("hábiles", "naturales") en cleanStemExcerpt para evitar "Informe Final: hábiles".
+ * Reglamento Ampliado con Normas CCOO (Reglas 1 a 16):
+ * - Rule 16 (Ajustada): Trampas de complemento pareadas (hábiles vs naturales) utilizadas de forma probabilística (50% de las veces en plazos) para dar variedad pedagógica.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -411,7 +410,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON TRAMPAS DE COMPLEMENTO HÁBILES VS NATURALES (Temas 1 al 20)
+ * Genera preguntas inéditas CON TRAMPAS DE COMPLEMENTO PROBABILÍSTICAS (50% DE VECES EN PLAZOS)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -509,7 +508,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // PATRÓN 2: TRAMPAS DE COMPLEMENTO (HÁBILES VS NATURALES)
+    // PATRÓN 2: FECHAS Y PLAZOS (Uso probabilístico ~50% de la trampa hábiles vs naturales)
     else if (daysMatch) {
       const num = daysMatch[1];
       const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
@@ -521,9 +520,20 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 45)}", ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${correctComplement}`;
-      const wrong1 = `${num} ${oppositeComplement}`; // Trampa directa con el mismo número pero diferente complemento!
-      const wrong2 = `${parseInt(num) * 2} ${correctComplement}`;
-      const wrong3 = `${parseInt(num) * 2} ${oppositeComplement}`;
+      
+      // Aplicación del recurso de trampa de complemento con 50% de probabilidad
+      const useComplementTrap = Math.random() < 0.5;
+      
+      let wrong1, wrong2, wrong3;
+      if (useComplementTrap) {
+        wrong1 = `${num} ${oppositeComplement}`; // Trampa de complemento
+        wrong2 = `${parseInt(num) * 2} ${correctComplement}`;
+        wrong3 = `${parseInt(num) * 2} ${oppositeComplement}`;
+      } else {
+        wrong1 = `${parseInt(num) * 2} ${correctComplement}`;
+        wrong2 = `${Math.max(1, Math.floor(parseInt(num) / 2))} ${correctComplement}`;
+        wrong3 = `30 ${correctComplement}`;
+      }
 
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
