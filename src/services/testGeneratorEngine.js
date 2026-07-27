@@ -2,9 +2,12 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Mapeo Multi-Fuente Dinámico por Sección:
- * 1. Un mismo tema puede incorporar varias fuentes jurídicas o normativas oficiales (ej. Tema 16: LPRL Ley 31/1995, RD 488/1997 Pantallas, RD 486/1997 Lugares de Trabajo).
- * 2. getOfficialNormName detecta dinámicamente la norma específica citada en el extracto/sección evaluada.
+ * Reglamento Ampliado con Normas CCOO (Sugerencias 2 a 6):
+ * - Rule 11: Paridad de longitud entre las 4 opciones (variación máx. 30-40%).
+ * - Rule 12: Rigor en plazos (especificación estricta de días "hábiles" o "naturales").
+ * - Rule 13: Literalidad en definiciones legalmente tasadas.
+ * - Rule 14: Restricción de trampas genéricas ("Todas las anteriores").
+ * - Rule 15: Plantillas de supuestos prácticos de aplicación directa.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -77,7 +80,7 @@ function getOfficialNormName(topicId, topicTitle, heading = '', factText = '') {
     case 7:
       if (/alma/i.test(combined)) return 'la plataforma de servicios Alma de la US';
       return 'el catálogo FAMA de la Universidad de Sevilla';
-    case 8: return 'las tecnologías RFID y autopristamo de la BUS';
+    case 8: return 'las tecnologías RFID y autopréstamo de la BUS';
     case 9:
       if (/objetoteca/i.test(combined)) return 'el Reglamento de la Objetoteca de la BUS';
       return 'el Servicio de Préstamo de la BUS';
@@ -93,7 +96,7 @@ function getOfficialNormName(topicId, topicTitle, heading = '', factText = '') {
       if (/outlook|owa/i.test(combined)) return 'Microsoft Outlook';
       return 'Microsoft 365';
     case 14: return 'el Plan de Prevención de Riesgos Laborales de la US';
-    case 15: return 'la evaluación de riesgos ergonómicos del puesto de Auxiliar';
+    case 15: return 'la prevención de riesgos ergonómicos del puesto de Auxiliar';
     case 16:
       if (/rd 488|pantalla|pvd/i.test(combined)) return 'el Real Decreto 488/1997 sobre Pantallas de Visualización';
       if (/rd 486|lugar.*trabajo/i.test(combined)) return 'el Real Decreto 486/1997 de Lugares de Trabajo';
@@ -161,7 +164,7 @@ function getSemanticType(text) {
   return 'procedural_text';
 }
 
-// Generador dinámico de enunciados de examen con extracto limpio
+// RULE 15: Generador dinámico de enunciados de examen incluyendo supuestos prácticos de aplicación
 function buildExamQuestionStem(normName, concept, heading, index) {
   const rawFocus = concept || heading || 'esta materia';
   const cleanFocus = cleanStemExcerpt(rawFocus);
@@ -171,8 +174,8 @@ function buildExamQuestionStem(normName, concept, heading, index) {
     `En relación con "${finalFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
     `De acuerdo con la regulación de ${normName} referente a "${finalFocus}", señale la afirmación correcta:`,
     `Según lo dispuesto en ${normName}, señale la opción correcta respecto a "${finalFocus}":`,
-    `En el marco del procedimiento sobre "${finalFocus}" en la US, ¿qué opción refleja la regulación oficial?`,
-    `Respecto a "${finalFocus}", señale la afirmación correcta de acuerdo con ${normName}:`
+    `En un supuesto práctico de actuación sobre "${finalFocus}" en la US, ¿cómo debe procederse conforme a ${normName}?`,
+    `Ante una situación en la que se valore "${finalFocus}", ¿qué opción refleja la regla establecida en ${normName}?`
   ];
 
   return stemTemplates[index % stemTemplates.length];
@@ -346,21 +349,23 @@ const DOMAIN_DISTRACTORS = {
   ]
 };
 
-// Genera distractores pertenecientes estrictamente al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
+// RULE 11: Genera distractores del MISMO SUBDOMINIO, TIPO SEMÁNTICO Y PARIDAD DE LONGITUD
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
   const targetSubdomain = getSectionSubdomain(heading, factText);
   const targetSemanticType = getSemanticType(correctOpt);
+  const targetLength = correctOpt.length;
 
   const distractors = [];
   const used = new Set([correctOpt.toLowerCase().trim()]);
 
-  // OP 1: Definiciones del MISMO subdominio y tipo semántico
+  // OP 1: Definiciones con paridad de longitud (variación máx. 35%)
   const sameSubdomainPairs = allConceptPairs
     .filter(cp => {
       const cpSub = getSectionSubdomain(cp.heading, cp.definition);
       const cpSem = getSemanticType(cp.definition);
       const def = cp.definition.toLowerCase().trim();
-      return !used.has(def) && cpSub === targetSubdomain && cpSem === targetSemanticType;
+      const lenDiff = Math.abs(cp.definition.length - targetLength);
+      return !used.has(def) && cpSub === targetSubdomain && cpSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
     })
     .sort(() => 0.5 - Math.random());
 
@@ -372,14 +377,15 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
-  // OP 2: Párrafos del MISMO subdominio en el tema
+  // OP 2: Párrafos limpios con paridad de longitud
   if (distractors.length < 3) {
     const sameSubdomainParas = allCleanParas
       .filter(p => {
         const pSub = getSectionSubdomain(heading, p);
         const pSem = getSemanticType(p);
         const pClean = p.trim();
-        return pClean.length > 20 && !isMarketingOrHTML(pClean) && pSub === targetSubdomain && pSem === targetSemanticType;
+        const lenDiff = Math.abs(pClean.length - targetLength);
+        return pClean.length > 20 && !isMarketingOrHTML(pClean) && pSub === targetSubdomain && pSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
       })
       .sort(() => 0.5 - Math.random());
 
@@ -407,7 +413,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON SUBDOMINIO Y FUENTES MULTI-NORMA (Temas 1 al 20)
+ * Genera preguntas inéditas CON SUBDOMINIO Y PARIDAD CCOO (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -505,23 +511,24 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // PATRÓN 2: FECHAS / PLAZOS / DÍAS (Purga de cifras en el enunciado)
+    // RULE 12: PATRÓN 2: FECHAS / PLAZOS / DÍAS (Especificación estricta hábiles vs naturales)
     else if (daysMatch) {
       const num = daysMatch[1];
-      const unit = daysMatch[2];
+      const origUnit = daysMatch[2];
       const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
+      const dayType = /natural/i.test(factText) ? 'días naturales' : 'días hábiles';
       
       const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 50)}", ¿cuál es el plazo legalmente establecido?`;
       
-      const correctOpt = `${num} ${unit}`;
-      const wrong1 = `${parseInt(num) * 2} ${unit}`;
-      const wrong2 = `${Math.max(1, Math.floor(parseInt(num) / 2))} ${unit}`;
-      const wrong3 = `30 días hábiles`;
+      const correctOpt = `${num} ${dayType}`;
+      const wrong1 = `${parseInt(num) * 2} ${dayType}`;
+      const wrong2 = `${Math.max(1, Math.floor(parseInt(num) / 2))} ${dayType}`;
+      const wrong3 = `30 ${dayType}`;
 
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
+    // RULE 13: PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS (Literalidad tasada)
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && isValidConcept(parts[0])) {
