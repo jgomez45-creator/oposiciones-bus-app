@@ -2,11 +2,9 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Coherencia de Subdominio de Sección Estricta (Cero opciones fuera de contexto):
- * 1. Clasificación por Subdominio de Sección (ambito_aplicacion, fases_procedimiento, tipologia_acoso, organos_comite).
- * 2. Si la pregunta versa sobre "Ámbito de Aplicación", las 4 opciones tratan sobre colectivos/personas (PDI, PTGAS, becarios, contratistas).
- *    Queda TOTALMENTE PROHIBIDO incluir fases ("Indagación Inicial") o fechas ("Aprobada el 18 de diciembre") como distractores.
- * 3. Purga de encabezados e índices.
+ * Mapeo Multi-Fuente Dinámico por Sección:
+ * 1. Un mismo tema puede incorporar varias fuentes jurídicas o normativas oficiales (ej. Tema 16: LPRL Ley 31/1995, RD 488/1997 Pantallas, RD 486/1997 Lugares de Trabajo).
+ * 2. getOfficialNormName detecta dinámicamente la norma específica citada en el extracto/sección evaluada.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -56,30 +54,61 @@ export function cleanHeadingTitle(title) {
     .trim();
 }
 
-// Denominación concisa y natural de la norma por topicId
-function getOfficialNormName(topicId, topicTitle) {
+// Denominación multi-fuente dinámica de la norma según la sección y el contenido evaluado
+function getOfficialNormName(topicId, topicTitle, heading = '', factText = '') {
   const topNum = parseInt(topicId, 10);
+  const combined = (heading + ' ' + factText).toLowerCase();
+
   switch (topNum) {
-    case 1: return 'el Reglamento de la BUS';
-    case 2: return 'el Sistema de Calidad de la BUS';
-    case 3: return 'las normas de espacios de la BUS';
-    case 4: return 'la regulación de acceso remoto de la BUS';
-    case 5: return 'las directrices de gestión de la colección de la BUS';
+    case 1:
+      if (/estatutos/i.test(combined)) return 'los Estatutos de la US';
+      if (/préstamo/i.test(combined)) return 'las Normas de Préstamo de la BUS';
+      return 'el Reglamento de la BUS';
+    case 2:
+      if (/efqm/i.test(combined)) return 'el Modelo EFQM de Excelencia';
+      if (/carta/i.test(combined)) return 'la Carta de Servicios de la BUS';
+      return 'el Sistema de Calidad de la BUS';
+    case 3: return 'las normas sobre instalaciones y espacios de la BUS';
+    case 4:
+      if (/sirio|sso|acceso remoto/i.test(combined)) return 'el sistema de acceso remoto a la colección de la BUS';
+      return 'la regulación de la colección digital de la BUS';
+    case 5: return 'las directrices de gestión de la colección y expurgo de la BUS';
     case 6: return 'la Clasificación Decimal Universal (CDU)';
-    case 7: return 'el catálogo FAMA y la plataforma Alma de la US';
-    case 8: return 'las tecnologías RFID y autopréstamo de la BUS';
-    case 9: return 'el Servicio de Préstamo y la Objetoteca de la BUS';
+    case 7:
+      if (/alma/i.test(combined)) return 'la plataforma de servicios Alma de la US';
+      return 'el catálogo FAMA de la Universidad de Sevilla';
+    case 8: return 'las tecnologías RFID y autopristamo de la BUS';
+    case 9:
+      if (/objetoteca/i.test(combined)) return 'el Reglamento de la Objetoteca de la BUS';
+      return 'el Servicio de Préstamo de la BUS';
     case 10: return 'el Servicio de Información y Referencia de la BUS';
-    case 11: return 'las acciones de Apoyo al Aprendizaje de la BUS';
-    case 12: return 'los servicios de Apoyo a la Investigación y el repositorio idUS';
-    case 13: return 'Microsoft 365';
-    case 14: return 'el Plan de Prevención de Riesgos de la US';
-    case 15: return 'la prevención de riesgos del puesto de Auxiliar de Biblioteca';
-    case 16: return 'la Ley 31/1995 de Prevención de Riesgos Laborales';
-    case 17: return 'los Estatutos de la Universidad de Sevilla';
+    case 11: return 'las acciones de Apoyo al Aprendizaje (ALFIN/CODI)';
+    case 12:
+      if (/idus/i.test(combined)) return 'el repositorio institucional idUS';
+      return 'los servicios de Apoyo a la Investigación de la BUS';
+    case 13:
+      if (/excel/i.test(combined)) return 'Microsoft Excel';
+      if (/word/i.test(combined)) return 'Microsoft Word';
+      if (/teams/i.test(combined)) return 'Microsoft Teams';
+      if (/outlook|owa/i.test(combined)) return 'Microsoft Outlook';
+      return 'Microsoft 365';
+    case 14: return 'el Plan de Prevención de Riesgos Laborales de la US';
+    case 15: return 'la evaluación de riesgos ergonómicos del puesto de Auxiliar';
+    case 16:
+      if (/rd 488|pantalla|pvd/i.test(combined)) return 'el Real Decreto 488/1997 sobre Pantallas de Visualización';
+      if (/rd 486|lugar.*trabajo/i.test(combined)) return 'el Real Decreto 486/1997 de Lugares de Trabajo';
+      if (/rd 773|epi/i.test(combined)) return 'el Real Decreto 773/1997 de Equipos de Protección Individual';
+      if (/rd 485|señalización/i.test(combined)) return 'el Real Decreto 485/1997 de Señalización de Seguridad';
+      return 'la Ley 31/1995 de Prevención de Riesgos Laborales';
+    case 17:
+      if (/losu|ley 2\/2023/i.test(combined)) return 'la Ley Orgánica 2/2023 del Sistema Universitario (LOSU)';
+      return 'los Estatutos de la Universidad de Sevilla';
     case 18: return 'el IV Convenio Colectivo del Personal Laboral de la US';
-    case 19: return 'la Ley Orgánica de Igualdad 3/2007';
-    case 20: return 'la normativa contra el acoso y la violencia de la US';
+    case 19: return 'la Ley Orgánica 3/2007 para la Igualdad Efectiva';
+    case 20:
+      if (/convenio|disciplinario/i.test(combined)) return 'el Régimen Disciplinario del IV Convenio Colectivo';
+      if (/ley 3\/2022|convivencia/i.test(combined)) return 'la Ley 3/2022 de Convivencia Universitaria';
+      return 'la normativa contra el acoso y la violencia de la US';
     default:
       const clean = sanitizeText(topicTitle).replace(/^Tema\s+\d+:\s*/i, '');
       return clean ? `la regulación sobre ${clean}` : 'la normativa aplicable';
@@ -378,12 +407,11 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON SUBDOMINIO Y COHERENCIA TOTAL (Temas 1 al 20)
+ * Genera preguntas inéditas CON SUBDOMINIO Y FUENTES MULTI-NORMA (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
   const allSections = parseSectionsFromMarkdown(markdownText);
-  const normName = getOfficialNormName(topicId, topicTitle);
 
   // Extraer todos los párrafos limpios del tema
   const allCleanParas = [];
@@ -451,6 +479,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
 
     const factText = factObj.text;
     const heading = cleanHeadingTitle(factObj.heading);
+    const normName = getOfficialNormName(topicId, topicTitle, heading, factText);
 
     let newQ = null;
 
@@ -543,6 +572,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       ? sanitizeText(targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length])
       : `Regulación oficial sobre la materia`;
 
+    const normName = getOfficialNormName(topicId, topicTitle, sectionLabel, sampleFact);
     const qText = buildExamQuestionStem(normName, cleanStemExcerpt(sectionLabel), sectionLabel, fallbackNum);
     const correctOpt = sampleFact.substring(0, 120);
     const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
