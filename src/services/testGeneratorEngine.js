@@ -2,10 +2,10 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Mapeo Oficial Estricto de Fuentes por Tema (Temas 1 al 20):
- * Tema 20: Normativa de la US contra violencia, acoso y discriminación (Acuerdo 9.1/CG 18-12-24)
- * Tema 16: Ley 31/1995 de Prevención de Riesgos Laborales
- * Tema 14: Sistema de Gestión de Prevención de Riesgos de la US
+ * Redacción Oficial Ágil y Variada (Cero enunciados repetitivos):
+ * 1. Denominaciones de norma concisas y naturales ("la normativa contra el acoso de la US", "el IV Convenio Colectivo").
+ * 2. Generador dinámico de enunciados de examen (buildExamQuestionStem) con variabilidad de fórmulas.
+ * 3. Cero muletillas de 180 caracteres repetidas entre preguntas consecutivas.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -53,54 +53,50 @@ export function cleanHeadingTitle(title) {
     .trim();
 }
 
-// Obtiene la denominación oficial EXACTA de la norma o materia según el topicId (Temas 1 al 20)
+// Denominación concisa y natural de la norma por topicId
 function getOfficialNormName(topicId, topicTitle) {
   const topNum = parseInt(topicId, 10);
   switch (topNum) {
-    case 1:
-      return 'el Reglamento de la Biblioteca de la Universidad de Sevilla (BUS)';
-    case 2:
-      return 'el Sistema de Gestión de la Calidad y las Cartas de Servicios de la BUS';
-    case 3:
-      return 'las normas sobre instalaciones, espacios y equipamientos de la BUS';
-    case 4:
-      return 'la regulación de la colección y los sistemas de acceso remoto de la BUS';
-    case 5:
-      return 'las directrices de gestión de la colección, selección y expurgo de la BUS';
-    case 6:
-      return 'las normas de la Clasificación Decimal Universal (CDU)';
-    case 7:
-      return 'las especificaciones del catálogo FAMA y la plataforma Alma de la Universidad de Sevilla';
-    case 8:
-      return 'las tecnologías RFID y sistemas de autopréstamo de la BUS';
-    case 9:
-      return 'las normas del Servicio de Préstamo y la Objetoteca de la BUS';
-    case 10:
-      return 'las directrices del Servicio de Información y Referencia de la BUS';
-    case 11:
-      return 'las acciones de Apoyo al Aprendizaje y competencias informacionales (ALFIN/CODI)';
-    case 12:
-      return 'los servicios de Apoyo a la Investigación y el repositorio institucional idUS';
-    case 13:
-      return 'las herramientas de la suite Microsoft 365 (Outlook, Teams, OneDrive, SharePoint)';
-    case 14:
-      return 'el Sistema de Gestión de Prevención de Riesgos Laborales de la Universidad de Sevilla';
-    case 15:
-      return 'la evaluación de riesgos ergonómicos y del puesto de trabajo de Auxiliar de Biblioteca';
-    case 16:
-      return 'la Ley 31/1995 de Prevención de Riesgos Laborales y su normativa de desarrollo';
-    case 17:
-      return 'los Estatutos de la Universidad de Sevilla (Decreto 98/2025)';
-    case 18:
-      return 'el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía';
-    case 19:
-      return 'la Ley Orgánica 3/2007 para la Igualdad Efectiva de Mujeres y Hombres';
-    case 20:
-      return 'la Normativa de la Universidad de Sevilla para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso (Acuerdo 9.1/CG 18-12-24)';
+    case 1: return 'el Reglamento de la BUS';
+    case 2: return 'el Sistema de Calidad de la BUS';
+    case 3: return 'las normas de espacios de la BUS';
+    case 4: return 'la regulación de acceso remoto de la BUS';
+    case 5: return 'las directrices de gestión de la colección de la BUS';
+    case 6: return 'la Clasificación Decimal Universal (CDU)';
+    case 7: return 'el catálogo FAMA y la plataforma Alma de la US';
+    case 8: return 'las tecnologías RFID y autopréstamo de la BUS';
+    case 9: return 'el Servicio de Préstamo y la Objetoteca de la BUS';
+    case 10: return 'el Servicio de Información y Referencia de la BUS';
+    case 11: return 'las acciones de Apoyo al Aprendizaje de la BUS';
+    case 12: return 'los servicios de Apoyo a la Investigación y el repositorio idUS';
+    case 13: return 'Microsoft 365';
+    case 14: return 'el Plan de Prevención de Riesgos de la US';
+    case 15: return 'la prevención de riesgos del puesto de Auxiliar de Biblioteca';
+    case 16: return 'la Ley 31/1995 de Prevención de Riesgos Laborales';
+    case 17: return 'los Estatutos de la Universidad de Sevilla';
+    case 18: return 'el IV Convenio Colectivo del Personal Laboral de la US';
+    case 19: return 'la Ley Orgánica de Igualdad 3/2007';
+    case 20: return 'la normativa contra el acoso y la violencia de la US';
     default:
       const clean = sanitizeText(topicTitle).replace(/^Tema\s+\d+:\s*/i, '');
       return clean ? `la regulación sobre ${clean}` : 'la normativa aplicable';
   }
+}
+
+// Generador dinámico y variado de enunciados oficiales de examen (Cero frases idénticas repetidas)
+function buildExamQuestionStem(normName, concept, heading, index) {
+  const topicFocus = concept || heading || 'esta materia';
+  const cleanFocus = topicFocus.length > 70 ? topicFocus.substring(0, 65) + '...' : topicFocus;
+
+  const stemTemplates = [
+    `En relación con "${cleanFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
+    `De acuerdo con la regulación de ${normName} referente a "${cleanFocus}", señale la afirmación correcta:`,
+    `Según lo dispuesto en ${normName}, señale la opción correcta respecto a "${cleanFocus}":`,
+    `En el marco del procedimiento sobre "${cleanFocus}" en la US, ¿qué opción refleja la regulación oficial?`,
+    `Respecto a "${cleanFocus}", señale la afirmación correcta de acuerdo con ${normName}:`
+  ];
+
+  return stemTemplates[index % stemTemplates.length];
 }
 
 // Generador de ID único
@@ -327,7 +323,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON FORMATO OFICIAL DE EXAMEN Y FUENTES CORRESPONDIENTES (Temas 1 al 20)
+ * Genera preguntas inéditas CON ENUNCIADOS DINÁMICOS Y ÁGILES (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -354,7 +350,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     });
   });
 
-  // 1. Filtrar las secciones strictly seleccionadas
+  // 1. Filtrar las secciones estrictamente seleccionadas
   let targetSections = allSections;
   if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
     targetSections = allSections.filter(sec => {
@@ -428,7 +424,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const unit = daysMatch[2];
       const mainSentence = factText.split('.')[0];
       
-      const qText = `Según lo establecido en ${normName}, respecto a "${mainSentence.substring(0, 75)}...", ¿cuál es el plazo legalmente establecido?`;
+      const qText = `Según lo establecido en ${normName}, respecto a "${mainSentence.substring(0, 65)}...", ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${unit}`;
       const wrong1 = `${parseInt(num) * 2} ${unit}`;
@@ -446,7 +442,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         const definition = sanitizeText(parts.slice(1).join(' '));
         
         if (concept.length < 80 && definition.length > 15) {
-          const qText = `Conforme a ${normName}, en relación con "${concept}", señale la afirmación o definición correcta:`;
+          const qText = buildExamQuestionStem(normName, concept, heading, idx);
           const correctOpt = definition.substring(0, 115);
           
           const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
@@ -457,7 +453,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       } else {
         const sentence = sanitizeText(factText.split('.')[0]);
         if (sentence.length > 30) {
-          const qText = `De acuerdo con lo dispuesto en ${normName}, señale la opción correcta referente a su regulación:`;
+          const qText = buildExamQuestionStem(normName, sentence.substring(0, 50), heading, idx);
           const correctOpt = sentence.substring(0, 120);
           
           const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
@@ -478,7 +474,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Relleno de preguntas con fuentes oficiales
+  // Relleno de preguntas con fuentes oficiales y enunciados dinámicos
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
@@ -487,7 +483,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       ? sanitizeText(targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length])
       : `Regulación oficial sobre la materia`;
 
-    const qText = `De acuerdo con lo regulado en ${normName}, señale la afirmación correcta referente a su articulado y procedimiento:`;
+    const qText = buildExamQuestionStem(normName, sectionLabel, sectionLabel, fallbackNum);
     const correctOpt = sampleFact.substring(0, 120);
     const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
     const options = [correctOpt, ...wrongDistractors];
