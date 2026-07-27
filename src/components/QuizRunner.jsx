@@ -704,7 +704,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     onClick={() => handleStartQuiz(false)} 
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: '1 1 180px', padding: '10px 14px', fontSize: '0.85rem' }}
+                    style={{ flex: '1 1 180px', padding: '5px 10px', fontSize: '0.85rem' }}
                   >
                     Test Clásico
                     <ArrowRight size={16} style={{ marginLeft: '4px' }} />
@@ -713,7 +713,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     onClick={() => handleStartQuiz(true)} 
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: '1 1 180px', padding: '10px 14px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', borderColor: 'var(--secondary-light)' }}
+                    style={{ flex: '1 1 180px', padding: '5px 10px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', borderColor: 'var(--secondary-light)' }}
                   >
                     Simulacro en Papel
                     <BookOpen size={16} style={{ marginLeft: '4px' }} />
@@ -723,7 +723,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     onClick={handlePreparePrintExam} 
                     className="glow-btn-secondary"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
-                    style={{ flex: '1 1 180px', padding: '10px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                    style={{ flex: '1 1 180px', padding: '5px 10px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
                   >
                     <Printer size={15} />
                     Imprimir Examen (PDF)
@@ -1335,75 +1335,81 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             </div>
             )}
 
-            {/* Results Summary Box if submitted */}
+            {/* Ultra-Compact Single Bar Results Header */}
             {paperExamSubmitted && (
-              <div className="results-summary-paper-card glass-panel fade-in" style={{ padding: '24px', borderRadius: '12px', marginBottom: '24px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-color)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
-                  <Award size={36} className="text-gradient-gold" style={{ flexShrink: 0 }} />
+              <div className="results-summary-paper-card glass-panel fade-in" style={{ 
+                padding: '8px 14px', 
+                borderRadius: '10px', 
+                marginBottom: '12px', 
+                background: 'rgba(15, 23, 42, 0.85)', 
+                border: '1px solid var(--border-color)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '10px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                  <Award size={22} className="text-gradient-gold" style={{ flexShrink: 0 }} />
                   <div>
-                    <h3 style={{ margin: 0, fontSize: '1.25rem', color: 'var(--text-main)', fontWeight: 'bold' }}>Examen Corregido</h3>
-                    <p className="text-muted" style={{ fontSize: '0.85rem', margin: '2px 0 0 0' }}>
-                      Resultados detallados y penalización aplicada (cada error resta 1/4 del valor de una respuesta correcta; las preguntas en blanco no restan puntos).
-                    </p>
+                    <h3 style={{ margin: 0, fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 'bold', lineHeight: 1.1 }}>Examen Corregido</h3>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Cada error resta 1/4</span>
+                  </div>
+                </div>
+
+                {/* Horizontal KPIs Strip */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', flexWrap: 'wrap' }}>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>Total</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{totalQuestions}</div>
+                  </div>
+                  
+                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>Resp.</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{answeredCount}</div>
+                  </div>
+                  
+                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>Blanco</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#94a3b8' }}>{blankCount}</div>
+                  </div>
+                  
+                  <div style={{ background: 'rgba(16,185,129,0.08)', padding: '3px 8px', borderRadius: '6px', border: '1px solid rgba(16,185,129,0.3)', textAlign: 'center', minWidth: '55px' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--accent-emerald)', fontWeight: 'bold', textTransform: 'uppercase' }}>Aciertos</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>{correctCount}</div>
+                  </div>
+                  
+                  <div style={{ background: 'rgba(239,68,68,0.08)', padding: '3px 8px', borderRadius: '6px', border: '1px solid rgba(239,68,68,0.3)', textAlign: 'center', minWidth: '55px' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--accent-rose)', fontWeight: 'bold', textTransform: 'uppercase' }}>Errores</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-rose)' }}>{incorrectCount}</div>
+                  </div>
+                  
+                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>% Nota</div>
+                    <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-gold)' }}>{percentage}%</div>
                   </div>
                 </div>
                 
+                {/* Final Score Integrated Pill */}
                 <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', 
-                  gap: '12px', 
-                  width: '100%' 
-                }}>
-                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Total Preguntas</div>
-                    <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{totalQuestions}</div>
-                  </div>
-                  
-                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Contestadas</div>
-                    <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{answeredCount}</div>
-                  </div>
-                  
-                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>En Blanco</div>
-                    <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#94a3b8' }}>{blankCount}</div>
-                  </div>
-                  
-                  <div style={{ background: 'rgba(16,185,129,0.06)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(16,185,129,0.2)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--accent-emerald)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Aciertos</div>
-                    <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>{correctCount}</div>
-                  </div>
-                  
-                  <div style={{ background: 'rgba(239,68,68,0.06)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(239,68,68,0.2)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--accent-rose)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Errores</div>
-                    <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--accent-rose)' }}>{incorrectCount}</div>
-                  </div>
-                  
-                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '4px' }}>Porcentaje</div>
-                    <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--accent-gold)' }}>{percentage}%</div>
-                  </div>
-                  
-                  <div style={{ 
-                    background: 'linear-gradient(135deg, rgba(217,119,6,0.15) 0%, rgba(245,158,11,0.05) 100%)', 
-                    padding: '12px 18px', 
-                    borderRadius: '8px', 
-                    border: '1px solid var(--secondary)', 
-                    textAlign: 'center',
-                    gridColumn: 'span 2',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
-                  }}>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 'bold', textTransform: 'uppercase' }}>Puntuación Final</div>
-                    <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--secondary-light)', margin: '2px 0' }}>
-                      {scoreOver65.toFixed(2)} <span style={{ fontSize: '0.9rem', fontWeight: 'normal', color: 'var(--text-muted)' }}>/ 65.00</span>
-                    </div>
-                    <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-                      Fórmula: (Aciertos - Errores / 4) × (65 / {totalQuestions}) <br />
-                      [Acierto = +{(65 / totalQuestions).toFixed(2)} ptos | Error = -{(65 / totalQuestions / 4).toFixed(3)} ptos | Blanco = 0 ptos]
+                  background: 'linear-gradient(135deg, rgba(217,119,6,0.2) 0%, rgba(245,158,11,0.1) 100%)', 
+                  padding: '4px 12px', 
+                  borderRadius: '8px', 
+                  border: '1.5px solid var(--secondary)', 
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  position: 'relative'
+                }}
+                title={`Fórmula: (Aciertos - Errores / 4) × (65 / ${totalQuestions})\n[Acierto = +${(65 / totalQuestions).toFixed(2)} ptos | Error = -${(65 / totalQuestions / 4).toFixed(3)} ptos | Blanco = 0 ptos]`}
+                >
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontSize: '0.55rem', color: 'var(--secondary)', fontWeight: 'bold', textTransform: 'uppercase' }}>Puntuación Final</div>
+                    <div style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--secondary-light)', lineHeight: 1 }}>
+                      {scoreOver65.toFixed(2)} <span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: 'var(--text-muted)' }}>/ 65.00</span>
                     </div>
                   </div>
+                  <span style={{ fontSize: '0.85rem', cursor: 'help', opacity: 0.8 }} title="Haz hover para ver fórmula">ℹ️</span>
                 </div>
               </div>
             )}
@@ -1438,79 +1444,65 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     const isQuestionCorrect = isAnswered && userAnswers[qIndex] === q.correctAnswer;
 
                     return (
-                      <div key={qIndex} className="paper-exam-question" style={{ marginBottom: '28px', paddingBottom: '24px', borderBottom: '1px dashed #e2e8f0', pageBreakInside: 'avoid' }}>
-                        <div className="printable-question-text" style={{ fontWeight: '700', fontSize: isPaperFullscreen ? '1.25rem' : '1.05rem', color: 'black', marginBottom: '12px', lineHeight: '1.4', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
-                          <span>{qIndex + 1}.</span>
-                          {paperExamSubmitted && (
-                            !isAnswered ? (
-                              <span style={{ 
-                                backgroundColor: '#dc2626', 
-                                color: '#ffffff', 
-                                fontWeight: '800', 
-                                fontSize: '0.82rem', 
-                                letterSpacing: '0.5px',
-                                textTransform: 'uppercase',
-                                padding: '3px 10px', 
-                                borderRadius: '5px', 
-                                marginLeft: '6px', 
-                                marginRight: '8px', 
-                                display: 'inline-flex', 
-                                alignItems: 'center', 
-                                gap: '4px', 
-                                boxShadow: '0 2px 6px rgba(220, 38, 38, 0.35)',
-                                border: '1px solid #b91c1c'
-                              }}>
-                                NO CONTESTADA
-                              </span>
-                            ) : isQuestionCorrect ? (
-                              <span style={{ 
-                                backgroundColor: '#16a34a', 
-                                color: '#ffffff', 
-                                fontWeight: '800', 
-                                fontSize: '0.82rem', 
-                                letterSpacing: '0.5px',
-                                textTransform: 'uppercase',
-                                padding: '3px 10px', 
-                                borderRadius: '5px', 
-                                marginLeft: '6px', 
-                                marginRight: '8px', 
-                                display: 'inline-flex', 
-                                alignItems: 'center', 
-                                gap: '4px', 
-                                boxShadow: '0 2px 6px rgba(22, 163, 74, 0.35)',
-                                border: '1px solid #15803d'
-                              }}>
-                                OK
-                              </span>
-                            ) : (
-                              <span style={{ 
-                                backgroundColor: '#ef4444', 
-                                color: '#ffffff', 
-                                fontWeight: '800', 
-                                fontSize: '0.82rem', 
-                                letterSpacing: '0.5px',
-                                textTransform: 'uppercase',
-                                padding: '3px 10px', 
-                                borderRadius: '5px', 
-                                marginLeft: '6px', 
-                                marginRight: '8px', 
-                                display: 'inline-flex', 
-                                alignItems: 'center', 
-                                gap: '4px', 
-                                boxShadow: '0 2px 6px rgba(239, 68, 68, 0.35)',
-                                border: '1px solid #dc2626'
-                              }}>
-                                INCORRECTA (X)
-                              </span>
-                            )
-                          )}
-                          <span>{q.question}</span>
-                          <span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: '#666', marginLeft: 'auto', background: '#f1f5f9', padding: '2px 8px', borderRadius: '12px' }}>
+                      <div key={qIndex} className="paper-exam-question" style={{ marginBottom: '14px', paddingBottom: '12px', borderBottom: '1px dashed #e2e8f0', pageBreakInside: 'avoid' }}>
+                        {/* Top Metadata Row: Question Number + Status Badge + Topic Badge */}
+                        <div className="printable-question-meta-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <span style={{ fontWeight: '800', fontSize: isPaperFullscreen ? '1.15rem' : '0.98rem', color: 'black' }}>{qIndex + 1}.</span>
+                            {paperExamSubmitted && (
+                              !isAnswered ? (
+                                <span style={{ 
+                                  backgroundColor: '#dc2626', 
+                                  color: '#ffffff', 
+                                  fontWeight: '800', 
+                                  fontSize: '0.7rem', 
+                                  letterSpacing: '0.5px',
+                                  textTransform: 'uppercase',
+                                  padding: '2px 7px', 
+                                  borderRadius: '4px'
+                                }}>
+                                  NO CONTESTADA
+                                </span>
+                              ) : isQuestionCorrect ? (
+                                <span style={{ 
+                                  backgroundColor: '#16a34a', 
+                                  color: '#ffffff', 
+                                  fontWeight: '800', 
+                                  fontSize: '0.7rem', 
+                                  letterSpacing: '0.5px',
+                                  textTransform: 'uppercase',
+                                  padding: '2px 7px', 
+                                  borderRadius: '4px'
+                                }}>
+                                  ACIERTO
+                                </span>
+                              ) : (
+                                <span style={{ 
+                                  backgroundColor: '#ef4444', 
+                                  color: '#ffffff', 
+                                  fontWeight: '800', 
+                                  fontSize: '0.7rem', 
+                                  letterSpacing: '0.5px',
+                                  textTransform: 'uppercase',
+                                  padding: '2px 7px', 
+                                  borderRadius: '4px'
+                                }}>
+                                  ERROR
+                                </span>
+                              )
+                            )}
+                          </div>
+                          <span style={{ fontSize: '0.7rem', fontWeight: '600', color: '#475569', background: '#f1f5f9', padding: '2px 8px', borderRadius: '10px' }}>
                             Tema {q.topicId}
                           </span>
                         </div>
 
-                      <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '12px' }}>
+                        {/* Question Stem Text */}
+                        <div className="printable-question-text" style={{ fontWeight: '700', fontSize: isPaperFullscreen ? '1.1rem' : '0.95rem', color: 'black', marginBottom: '8px', lineHeight: '1.35' }}>
+                          {q.question}
+                        </div>
+
+                      <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '4px', paddingLeft: '8px' }}>
                         {q.options.map((opt, optIndex) => {
                           const isSelected = userAnswers[qIndex] === optIndex;
                           const isCorrect = optIndex === q.correctAnswer;
@@ -1519,7 +1511,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                             display: 'flex',
                             alignItems: 'center',
                             gap: '12px',
-                            padding: '10px 14px',
+                            padding: '5px 10px',
                             borderRadius: '8px',
                             cursor: paperExamSubmitted ? 'default' : 'pointer',
                             fontSize: isPaperFullscreen ? '1.05rem' : '0.92rem',
@@ -1594,7 +1586,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                                 )}
                               </div>
                               <span style={{ lineHeight: '1.4' }}>
-                                <strong>{['A', 'B', 'C', 'D'][optIndex]})</strong> {opt}
+                                <strong>{['A', 'B', 'C', 'D'][optIndex]})</strong> {opt.replace(/^[A-D]\)\s*/, '')}
                               </span>
                               {paperExamSubmitted && !isAnswered && isCorrect && (
                                 <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 'bold', color: '#854d0e', backgroundColor: '#fef9c3', border: '1px solid #fef08a', padding: '2px 8px', borderRadius: '12px' }}>
@@ -1608,7 +1600,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
                       {/* Feedback Explanation if submitted */}
                       {paperExamSubmitted && (
-                        <div className="paper-explanation-box fade-in" style={{ marginTop: '16px', marginLeft: '12px', padding: '12px 16px', backgroundColor: '#f8fafc', borderLeft: '4px solid #94a3b8', borderRadius: '4px', fontSize: isPaperFullscreen ? '0.95rem' : '0.85rem', color: '#475569', lineHeight: '1.5' }}>
+                        <div className="paper-explanation-box fade-in" style={{ marginTop: '8px', marginLeft: '8px', padding: '8px 12px', backgroundColor: '#f8fafc', borderLeft: '3px solid #94a3b8', borderRadius: '4px', fontSize: '0.8rem', color: '#475569', lineHeight: '1.4' }}>
                           <strong>Justificación:</strong> {q.explanation}
                         </div>
                       )}

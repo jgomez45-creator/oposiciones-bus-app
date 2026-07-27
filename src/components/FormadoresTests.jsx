@@ -710,36 +710,48 @@ export default function FormadoresTests({ currentUser }) {
             <div></div>
           </div>
 
-          {/* Results Summary if Submitted */}
+          {/* Results Summary if Submitted - Ultra Compact Strip */}
           {paperSubmitted && (
-            <div className="glass-panel fade-in" style={{ padding: '24px', borderRadius: '16px', border: '1.5px solid var(--secondary)', textAlign: 'center' }}>
-              <Award size={48} className="text-gradient-gold" style={{ margin: '0 auto 12px auto' }} />
-              <h2 style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '8px' }}>Examen Corregido</h2>
+            <div className="glass-panel fade-in" style={{ 
+              padding: '8px 14px', 
+              borderRadius: '10px', 
+              border: '1.5px solid var(--secondary)', 
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '12px',
+              marginBottom: '12px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Award size={22} className="text-gradient-gold" style={{ flexShrink: 0 }} />
+                <h2 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', margin: 0 }}>Examen Corregido</h2>
+              </div>
               
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', margin: '20px 0' }}>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: '800', color: '#10b981' }}>{paperResults.correct}</span>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Aciertos</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <span style={{ fontSize: '1.1rem', fontWeight: '800', color: '#10b981' }}>{paperResults.correct}</span>
+                  <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Aciertos</div>
                 </div>
-                <div style={{ width: '1px', background: 'var(--border-color)' }}></div>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: '800', color: '#ef4444' }}>{paperResults.incorrect}</span>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Errores</div>
+                <div style={{ width: '1px', height: '20px', background: 'var(--border-color)' }}></div>
+                <div style={{ textAlign: 'center' }}>
+                  <span style={{ fontSize: '1.1rem', fontWeight: '800', color: '#ef4444' }}>{paperResults.incorrect}</span>
+                  <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Errores</div>
                 </div>
-                <div style={{ width: '1px', background: 'var(--border-color)' }}></div>
-                <div>
-                  <span style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-muted)' }}>{paperResults.blank}</span>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>En blanco</div>
+                <div style={{ width: '1px', height: '20px', background: 'var(--border-color)' }}></div>
+                <div style={{ textAlign: 'center' }}>
+                  <span style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-muted)' }}>{paperResults.blank}</span>
+                  <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>En blanco</div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-                <button onClick={startTest} className="glow-btn" style={{ padding: '8px 16px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <RotateCcw size={14} />
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                <button onClick={startTest} className="glow-btn" style={{ padding: '4px 10px', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <RotateCcw size={12} />
                   <span>Nuevo Intento</span>
                 </button>
-                <button onClick={resetTest} className="glow-btn-secondary" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
-                  <span>Volver a Cuestionarios</span>
+                <button onClick={resetTest} className="glow-btn-secondary" style={{ padding: '4px 10px', fontSize: '0.75rem' }}>
+                  <span>Volver</span>
                 </button>
               </div>
             </div>
@@ -757,8 +769,8 @@ export default function FormadoresTests({ currentUser }) {
                     className="glass-panel" 
                     id={`paper-q-${idx}`}
                     style={{ 
-                      padding: '20px', 
-                      borderRadius: '12px', 
+                      padding: '12px 16px', 
+                      borderRadius: '10px', 
                       border: '1px solid var(--border-color)',
                       background: 'rgba(20,20,25,0.4)' 
                     }}

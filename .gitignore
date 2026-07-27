@@ -25,7 +25,9 @@ dist-ssr
 
 # Exámenes oficiales y temporales
 examenes_oficiales_grupo_iv/*.pdf
-scratch/*.html
-scratch/*.pdf
-scratch/test_*
+scratch/
+.antigravity/
+examenes_recopilados_us/
+parse_helper.py
 muestra_tipografias_temario.pdf
+

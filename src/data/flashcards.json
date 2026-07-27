@@ -525,6 +525,96 @@
       "id": 25,
       "front": "¿Qué es el catálogo WorldCat y cuál es su relación con la BUS?",
       "back": "El mayor catálogo cooperativo global de OCLC en el cual la BUS vuelca y comparte sus registros bibliográficos."
+    },
+    {
+      "id": "fc_t4_031",
+      "front": "¿Qué es la plataforma PRESTO (Odilo) en la Biblioteca de la Universidad de Sevilla?",
+      "back": "La plataforma institucional de la US para el préstamo, gestión y lectura en línea y fuera de línea de libros electrónicos, audiolibros y contenidos digitales.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_032",
+      "front": "¿Qué caracteriza a la plataforma Ebook Central de ProQuest en la BUS?",
+      "back": "Es un portal multidisciplinar de libros electrónicos académicos que permite la lectura en pantalla y la descarga temporal regulada de monografías digitales.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_033",
+      "front": "¿Qué especialidad temática y de idioma ofrece la plataforma eLibro?",
+      "back": "Proporciona acceso a colecciones académicas y universitarias de libros electrónicos íntegramente en castellano.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_034",
+      "front": "¿Qué tipo de recursos documentales indexa el portal Dialnet?",
+      "back": "Literatura científica hispana, incluyendo artículos de revistas, actas de congresos, monografías y tesis doctorales.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_035",
+      "front": "¿Qué es el canal Expon@us en la Universidad de Sevilla?",
+      "back": "El buzón electrónico oficial corporativo para la tramitación e intermediación de quejas, sugerencias y felicitaciones de los usuarios de la US.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_036",
+      "front": "¿Qué función cumple la plataforma ExpoBUS?",
+      "back": "Portal dedicado a la difusión de exposiciones virtuales e itinerantes del patrimonio bibliográfico y documental de la BUS.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_037",
+      "front": "¿Qué es el formulario CONSÚLTENOS de la BUS?",
+      "back": "El servicio de referencia e información bibliográfica virtual que atiende consultas de los usuarios por vía telemática.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_038",
+      "front": "¿Qué son las pantallas informativas OCULUS en la BUS?",
+      "back": "Dispositivos digitales informativos distribuidos en los vestíbulos y salas de las bibliotecas para la difusión de avisos y novedades.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_039",
+      "front": "¿Qué finalidad tiene el servicio IntraBUS?",
+      "back": "Canal de comunicación interna e intranet de apoyo al personal y servicios bibliotecarios de la Universidad de Sevilla.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_040",
+      "front": "¿Qué operadores booleanos se emplean en la búsqueda avanzada de ProQuest?",
+      "back": "Operadores AND (intersección), OR (unión) y NOT (exclusión), además de truncamientos (* o $) y comillas para frases exactas.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_041",
+      "front": "¿Cómo se realiza el acceso remoto a los recursos electrónicos suscritos por la BUS?",
+      "back": "A través de la autenticación única mediante las credenciales del usuario virtual UVUS (servidor seguro Sirio / SSO).",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_042",
+      "front": "¿Qué papel desempeña el Consorcio CBUA en la adquisición de la colección electrónica?",
+      "back": "Negocia licencias consorciadas de grandes paquetes de revistas científicas y bases de datos para las 9 universidades públicas de Andalucía.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_043",
+      "front": "¿Qué es un modelo de adquisición de e-books basado en la demanda (PDA / DDA)?",
+      "back": "Patrón de adquisición donde la biblioteca pone a disposición un amplio catálogo digital y el libro se compra automáticamente tras un número determinado de usaciones.",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_044",
+      "front": "¿Qué permite la licencia Creative Commons CC BY-NC-ND?",
+      "back": "Permite descargar y compartir la obra citando la autoría (BY), prohibiendo el uso comercial (NC) y la realización de obras derivadas (ND).",
+      "topicId": 4
+    },
+    {
+      "id": "fc_t4_045",
+      "front": "¿Dónde se consulta la disponibilidad de un libro electrónico suscrito por la US?",
+      "back": "En el Catálogo FAMA, desde donde se proporciona el enlace directo con autenticación telemática.",
+      "topicId": 4
     }
   ],
   "5": [
@@ -652,6 +742,126 @@
       "id": 25,
       "front": "Diferencia entre catalogación y clasificación",
       "back": "La catalogación describe físicamente el libro (título, autor, edición); la clasificación define el tema y le asigna un número temático (CDU)."
+    },
+    {
+      "id": "fc_t5_036",
+      "front": "¿Cuál es la penalización en la US por retraso en la devolución de un préstamo regular?",
+      "back": "Suspensión del derecho a préstamo durante 2 días naturales por cada día de retraso por documento.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_037",
+      "front": "¿Cuál es la sanción por retraso en la devolución de un préstamo por horas en la US?",
+      "back": "Suspensión del derecho a préstamo durante 5 días naturales por cada día/retraso.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_038",
+      "front": "¿Qué ocurre si un usuario acumula 6 penalizaciones de préstamo en el mismo curso académico en la US?",
+      "back": "Pierde el derecho a préstamo durante todo lo que resta de dicho curso académico.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_039",
+      "front": "¿Qué procedimiento debe seguir un usuario de la BUS en caso de pérdida o deterioro grave de un libro?",
+      "back": "Notificar inmediatamente y reponer el mismo documento o adquirir otro homólogo consensuado con el personal; pierde el préstamo hasta la restitución.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_040",
+      "front": "¿Qué consecuencia acarrea la sustracción no autorizada de un ejemplar en la BUS?",
+      "back": "Pérdida inmediata del derecho a préstamo y comunicación formal a la Dirección del Centro para medidas disciplinares.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_041",
+      "front": "¿Qué diferencia a los usuarios Internos y Externos por tipo de cuenta en ALMA?",
+      "back": "Internos: datos gestionados directamente dentro de Alma. Externos: datos gestionados en base de datos ajena y sincronizados periódicamente (ej. Estudiantes, PDI, PAS).",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_042",
+      "front": "¿Cuáles son los 3 tipos de registro de usuarios en ALMA?",
+      "back": "Personal (trabajadores biblioteca con rol), Público (usuarios finales) y Contacto (datos de proveedores).",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_043",
+      "front": "¿Cuáles son los 3 estados en los que puede estar una cuenta de usuario en ALMA?",
+      "back": "Activos (vigentes con servicios), No activos (caducados) y Bloqueados (con sanciones vigentes).",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_044",
+      "front": "¿A qué colectivos está dirigido el servicio de Préstamo Intercampus en la US?",
+      "back": "Exclusivamente a Profesorado US, Estudiantes de Doctorado, Estudiantes con discapacidad y PAS/PTGAS.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_045",
+      "front": "¿Entre qué bibliotecas se permite realizar el Préstamo Intercampus?",
+      "back": "Únicamente entre bibliotecas situadas en distintos campus de la Universidad de Sevilla.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_046",
+      "front": "¿Qué requisito es indispensable para solicitar Préstamo Interbibliotecario en la US?",
+      "back": "Que el documento NO esté en el Catálogo FAMA, contar con UVUS y disponer de correo oficial @us.es.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_047",
+      "front": "¿Qué es el servicio de Préstamo CBUA?",
+      "back": "Servicio que permite a miembros de las 9 universidades públicas de Andalucía solicitar en préstamo libros de otros fondos universitarios andaluces.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_048",
+      "front": "¿Cuáles son las 5 etapas secuenciales del Servicio de Referencia bibliográfica?",
+      "back": "1. Análisis de consulta -> 2. Tradución a descriptores -> 3. Selección de fuentes -> 4. Búsqueda en fuentes -> 5. Respuesta/Documento.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_049",
+      "front": "¿Qué es legalmente el titular del carnet de la Biblioteca en relación con el préstamo?",
+      "back": "Es el responsable único de la conservación y devolución en plazo de todas las obras retiradas con su carnet.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_050",
+      "front": "¿Qué diferencia al Préstamo Intercampus del Préstamo Interbibliotecario?",
+      "back": "El Intercampus mueve fondos propios de la US entre sus campus; el Interbibliotecario pide obras a instituciones ajenas a la US.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_051",
+      "front": "¿Qué es la selección de fondos en la gestión de colecciones?",
+      "back": "El proceso de análisis de necesidades para decidir qué documentos impresos o digitales deben incorporarse al fondo bibliotecario.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_052",
+      "front": "¿Cuáles son los tres destinos técnicos normalizados para el material expurgado?",
+      "back": "1. Traslado a depósito cerrado, 2. Donación a otros centros, 3. Destrucción o reciclaje.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_053",
+      "front": "¿Qué representan las siglas del método de evaluación de expurgo MUSTIE?",
+      "back": "Misleading (obsoleto), Ugly (deteriorado), Superseded (superado), Trivial (sin valor), Irrelevant (sin uso) y Elsewhere (disponible en otro sitio).",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_054",
+      "front": "¿Qué es la preservación preventiva de documentos?",
+      "back": "El control de condiciones ambientales (temperatura 18-22 °C, humedad 45-55%) y manipulación para evitar el deterioro de los fondos.",
+      "topicId": 5
+    },
+    {
+      "id": "fc_t5_055",
+      "front": "¿Qué es el inventario bibliográfico?",
+      "back": "El recuento físico sistemático de los fondos de la biblioteca para comprobar su presencia, estado y concordancia con el catálogo.",
+      "topicId": 5
     }
   ],
   "6": [
@@ -854,6 +1064,156 @@
       "id": 40,
       "front": "¿Dónde se colocan los títulos de revistas o libros que comienzan por dígitos numéricos?",
       "back": "Siempre en primer lugar, antecediendo a la letra A en la secuencia alfabética (ej. `365 grados` va antes que `The AAPS Journal`)."
+    },
+    {
+      "id": "fc_t6_041",
+      "front": "¿Qué función cumple el signo de Adición (+) en la CDU?",
+      "back": "Conecta dos o más números CDU no consecutivos para indicar materias independientes reunidas en un mismo volumen (ej. 94(460)+94(44)).",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_042",
+      "front": "¿Qué indica el signo de Extensión (/) en una notación CDU?",
+      "back": "Une el primero y el último de una serie de números CDU consecutivos para abarcarlos conceptualmente (ej. 592/599).",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_043",
+      "front": "¿Qué diferencia al signo de relación (:) del signo de relación fija (::) en CDU?",
+      "back": "El signo (:) genera una notación compleja reversible; el signo (::) establece una relación fija no reversible entre conceptos.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_044",
+      "front": "¿Qué tipo de auxilar especial en CDU se representa con guión (-1/-9)?",
+      "back": "Auxiliares especiales que expresan propiedades, materiales, componentes y detalles analíticos en sectores específicos.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_045",
+      "front": "¿Qué tipo de auxiliar especial en CDU adopta la forma .01/.09?",
+      "back": "Auxiliares especiales que indican actividades, procesos, operaciones, maquinaria y equipamiento técnico.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_046",
+      "front": "¿Qué expresa la serie de auxiliares especiales con apóstrofo ('0/'9)?",
+      "back": "Indican características muy específicas para sintetizar e integrar temas compuestos.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_047",
+      "front": "¿Cuál es la notación del auxiliar común de traducción del inglés al español?",
+      "back": "=03.111=134.2",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_048",
+      "front": "¿Qué auxiliar común de forma representa a un documento en microfilm?",
+      "back": "(0.035.22)",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_049",
+      "front": "¿Cuál es el auxiliar común de forma para una edición de bolsillo?",
+      "back": "(0.027.5)",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_050",
+      "front": "¿Qué notación de auxiliar común de lugar corresponde a una cadena montañosa (Alpes)?",
+      "back": "(234.3.049)",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_051",
+      "front": "¿Cómo se representa el auxiliar común de tiempo para el año 35 a.C.?",
+      "back": "\"-0035\"",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_052",
+      "front": "¿Cómo se expresa un periodo de tiempo delimitado entre 1580 y 1600 en CDU?",
+      "back": "\"1580/1600\"",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_053",
+      "front": "¿Cómo se construye la notación para la biografía individual de Lenin?",
+      "back": "929Lenin",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_054",
+      "front": "¿Cuál es el orden jerárquico de precedencia de los signos en la estantería según la CDU?",
+      "back": "1. Números principales -> 2. Adición (+) y Extensión (/) -> 3. Relación (:) -> 4. Auxiliares Comunes (=, (0..), (1/9), \"...\") -> 5. Auxiliares Especiales -> 6. Alfabetización.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_055",
+      "front": "¿Cómo se alfabetiza el autor 'Antonio de la Fuente' en la signatura del tejuelo?",
+      "back": "Por la palabra principal 'Fuente': FUE (Fuente, Antonio de la).",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_056",
+      "front": "¿Cómo se alfabetiza el título '1945: Berlín, la caída' en la estantería?",
+      "back": "Por su forma letrada 'Mil novecientos cuarenta y cinco': MIL.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_057",
+      "front": "¿Cómo se compone la subdivisión alfabética del tejuelo en la BUS?",
+      "back": "Tres primeras letras del apellido del autor en mayúsculas y tres primeras letras del título en minúsculas (ej. VEL doc).",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_058",
+      "front": "¿Qué clase principal de la CDU se encuentra vacía o sin asignar en la actualidad?",
+      "back": "La Clase 4 (reservada para futuras expansiones).",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_059",
+      "front": "¿A qué materia corresponde el número principal 004 de la CDU?",
+      "back": "Informática y tecnología de la información.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_060",
+      "front": "¿A qué materia corresponde el número principal 902 de la CDU?",
+      "back": "Arqueología y prehistoria.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_061",
+      "front": "¿A qué materia corresponde el número principal 658 de la CDU?",
+      "back": "Administración de empresas y gestión empresarial.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_062",
+      "front": "¿A qué materia corresponde el número principal 796 de la CDU?",
+      "back": "Deportes, juegos y educación física.",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_063",
+      "front": "¿Qué auxiliar común de forma representa a una enciclopedia para niños?",
+      "back": "(031.1.053.2)",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_064",
+      "front": "¿Qué auxiliar común de forma identifica a un CD-ROM de libros de texto?",
+      "back": "(075.034.4)",
+      "topicId": 6
+    },
+    {
+      "id": "fc_t6_065",
+      "front": "¿Cómo se alfabetiza 'Eugenio d'Ors' en la signatura topográfica?",
+      "back": "Por la palabra principal 'Ors': ORS (Ors, Eugenio d').",
+      "topicId": 6
     }
   ],
   "7": [

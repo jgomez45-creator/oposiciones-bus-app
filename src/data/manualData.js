@@ -3,27 +3,31 @@ export const manualCategories = [
     id: "introduccion",
     title: "Introducción y Visión General",
     iconName: "Info",
-    intro: "Bienvenido/a a tu Preparador Virtual de Oposiciones para Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla (US). Esta aplicación ha sido diseñada con un entorno inmersivo de alto rendimiento para facilitarte la retención de materias técnicas y legislativas de la convocatoria.",
+    intro: "Bienvenido/a a tu Preparador Virtual de Oposiciones para Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla (US). Esta aplicación ha sido diseñada con un entorno inmersivo de alto rendimiento para facilitarte la retención de materias técnicas, legislativas y operativas de la convocatoria 2026 (Código 4140).",
     sections: [
       {
-        title: "Estructura del Entorno de Estudio",
-        content: "La interfaz está dividida en un panel lateral de navegación (Sidebar) y un espacio principal de interacción. Puedes acceder rápidamente a las herramientas clave con un solo clic:",
+        title: "Estructura Organizativa del Menú Lateral (Sidebar)",
+        content: "La interfaz cuenta con una barra de navegación lateral optimizada y reorganizada en 4 bloques funcionales principales para simplificar el acceso a todas las herramientas de estudio:",
         steps: [
-          "Panel de Control (Dashboard): Tu centro de estadísticas personales y temporizador principal.",
-          "Temario: Visualizador y reproductor de audio de los temas oficiales.",
-          "Cuestionarios (Tests): Módulo para realizar exámenes en distintos formatos.",
-          "Test Formadores: Baterías teóricas complementarias provistas por formadores sindicales.",
-          "Flashcards: Tarjetas de memorización activa de conceptos y leyes.",
-          "Progreso: Análisis detallado de tu evolución y opción de reiniciar datos."
+          "APRENDIZAJE: Acceso al Dashboard principal, al Temario (desarrollos legislativos y audios) y al mazo de Flashcards de recuerdo activo.",
+          "EVALUACIÓN: Cuestionarios de autoevaluación general (Tests) y Baterías específicas de Formadores sindicales (CCOO).",
+          "SEGUIMIENTO: Cuadro de mando de Estadísticas y analítica de Progreso individual.",
+          "HERRAMIENTAS: Asistente Virtual de Inteligencia Artificial (Agente BUS ✨) y este Manual de Instrucciones interactivo.",
+          "ADMINISTRACIÓN: Panel de control exclusivo para perfiles administradores (gestión de usuarios y banco de preguntas)."
         ]
       },
       {
         title: "Buscador Inteligente del Manual",
-        content: "En la parte superior de esta pantalla de ayuda dispones de una barra de búsqueda en tiempo real. Escribe cualquier término (como 'Pomodoro', 'Audio', 'Imprimir' o 'Sesión') y el sistema filtrará automáticamente los temas relevantes resaltando dónde se encuentra la información."
+        content: "En la parte superior de esta pantalla dispones de una barra de búsqueda en tiempo real. Al escribir cualquier término (como 'Pomodoro', 'Audio', 'Sanciones', 'CDU', 'Igualdad' o 'Corrección'), el manual filtrará instantáneamente los capítulos correspondientes y resaltará los términos encontrados en amarillo."
       },
       {
-        title: "Diseño Adaptable (Móvil y Escritorio)",
-        content: "La plataforma está optimizada para cualquier dispositivo. En tablets y ordenadores dispondrás del menú lateral expandido, mientras que en smartphones el menú se adapta para maximizar el área de lectura y los botones de acción se vuelven táctiles y accesibles."
+        title: "Diseño Responsivo de Alto Rendimiento (Fit a 100vh)",
+        content: "La plataforma ajusta su maquetación según el dispositivo y pantalla activa para evitar barras de desplazamiento externas incómodas:",
+        steps: [
+          "Escritorio y Laptops Compactos (1025px–1280px): El menú lateral se adapta automáticamente a un ancho ultracompacto (240px) con 3 zonas fijas (Logo superior, Menú central con scroll suave independiente, y Perfil/Cerrar sesión fijo abajo), garantizando que los datos de usuario nunca queden ocultos.",
+          "Monitores Estándar (1281px–1440px): El Dashboard se reorganiza en columna única para aprovechar todo el ancho horizontal sin apretar los widgets laterales.",
+          "Dispositivos Móviles y Tablets (≤ 1024px): La barra lateral se transforma en una barra de navegación inferior (Bottom Nav Bar) fija y táctil de acceso rápido."
+        ]
       }
     ]
   },
@@ -31,162 +35,207 @@ export const manualCategories = [
     id: "dashboard",
     title: "Panel de Control (Dashboard)",
     iconName: "LayoutDashboard",
-    intro: "El Dashboard es tu pantalla de inicio y la brújula de tu preparación diaria. Centraliza tus métricas clave de rendimiento y te ofrece accesos directos dinámicos.",
+    intro: "El Dashboard es la pantalla principal de seguimiento diario. Centraliza tus métricas clave de rendimiento, recomendaciones de estudio prioritarias y el temporizador Pomodoro.",
     sections: [
       {
         title: "Bloques de Estadísticas Principales",
         content: "En la cabecera del panel se muestran tres indicadores fundamentales calculados en tiempo real:",
         steps: [
-          "Progreso del Temario: Cantidad de temas completados (marcados como 'Repasado' o 'Memorizado') respecto al total de 20 temas.",
-          "Tiempo de Estudio: Suma total de las horas dedicadas al estudio activo del temario registrada por el sistema.",
-          "Precisión Media: El porcentaje de aciertos promedio ponderando todos los tests teóricos que has completado."
+          "Progreso del Temario: Cantidad de temas completados (marcados como 'Resumido', 'Repasado' o 'Memorizado') respecto al total de 20 temas oficiales de la oposición.",
+          "Tiempo de Estudio: Registro acumulado de horas y minutos dedicados al estudio activo del temario a través de la plataforma.",
+          "Precisión Media: Porcentaje de aciertos promedio calculado sobre todos los tests y simulacros completados."
         ]
       },
       {
-        title: "Tabla de Estado del Temario",
-        content: "Muestra la lista de los 20 temas de la oposición. Puedes cambiar el estado de lectura de cada tema directamente en el desplegable de la fila. Los estados disponibles son:",
+        title: "Tabla de Estado del Temario (20 Temas)",
+        content: "Muestra la lista de los 20 temas oficiales de la convocatoria. Puedes actualizar el estado de cada tema directamente en el selector de su fila. Los estados disponibles son:",
         steps: [
-          "Pendiente (Color Rojo): Aún no has iniciado su lectura.",
-          "Leyendo (Color Amarillo/Oro): Estás trabajando activamente en el tema.",
-          "Resumido (Color Azul): Has extraído los esquemas y conceptos clave.",
-          "Memorizado o Repasado (Color Esmeralda/Verde): Has asimilado la materia y la consideras preparada para examen."
+          "Pendiente (Rojo): Tema aún no iniciado.",
+          "Leyendo (Amarillo/Oro): Tema en fase de primera lectura.",
+          "Resumido (Azul): Esquemas y conceptos principales consolidados.",
+          "Memorizado o Repasado (Verde Esmeralda): Tema asimilado y preparado para responder cuestionarios."
         ],
-        tip: "Haz clic en el nombre de cualquier tema o en la flecha de la derecha para abrir directamente el visualizador del tema seleccionado."
+        tip: "Haz clic en el título de cualquier tema para abrir directamente su visualizador y reproductor."
       },
       {
         title: "Temporizador Pomodoro Integrado",
-        content: "El método Pomodoro te ayuda a mantener el foco y evitar la fatiga cognitiva. Consiste en dividir el estudio en intervalos de concentración absoluta seguidos de breves descansos.",
+        content: "Diseñado para mantener una concentración máxima en bloques de 25 minutos de trabajo y 5 minutos de descanso guiado:",
         steps: [
-          "Selecciona el tema que vas a estudiar en el selector desplegable.",
+          "Selecciona el tema que vas a estudiar en el desplegable.",
           "Haz clic en el botón de Play para iniciar la cuenta atrás de 25 minutos.",
-          "Durante la sesión de estudio, el temporizador acumulará automáticamente los segundos estudiados al registro de ese tema específico.",
-          "Al finalizar los 25 minutos, sonará una alerta sugiriendo un descanso de 5 minutos, cambiando el temporizador a modo 'Descanso' de forma automática.",
-          "Haz clic en el botón de reinicio en cualquier momento para volver a empezar el intervalo."
+          "El tiempo invertido se registrará automáticamente en la ficha de ese tema.",
+          "Al finalizar la sesión, sonará una señal acústica notificando el inicio del descanso de 5 minutos."
         ],
-        alert: "Para que el temporizador registre el tiempo de estudio de manera correcta, evita cerrar la pestaña del navegador o cambiar a otra aplicación en primer plano de manera prolongada."
+        alert: "Para evitar desviaciones en la métrica, no minimices la pestaña de manera prolongada mientras el temporizador está en marcha."
       },
       {
         title: "Sugerencia Dinámica de Estudio",
-        content: "Basado en tu progreso real, el sistema analiza qué temas tienes sin estudiar o a medio terminar y te recomienda el siguiente tema prioritario con un botón de acceso directo ('Estudiar Ahora')."
+        content: "El algoritmo analiza tu historial y resalta automáticamente cuál es el tema prioritario que debes abordar hoy con un botón de acceso directo ('Estudiar Ahora')."
       }
     ]
   },
   {
     id: "temario",
-    title: "Visualizador de Temas",
+    title: "Visualizador de Temas y Fuentes",
     iconName: "BookOpen",
-    intro: "El módulo de Temario es una herramienta de lectura avanzada con funciones de accesibilidad, audioguía y asistencia de enfoque.",
+    intro: "El módulo de Temario es un entorno inmersivo enriquecido con la normativa oficial de la US, fuentes de CCOO, audiolibro, lectura por sintetizador (TTS), herramientas de enfoque y compilación de PDF para impresión.",
     sections: [
       {
-        title: "Pestañas Temáticas de Estudio",
-        content: "Cada tema se desglosa internamente en tres vistas organizadas mediante pestañas superiores para estructurar tu aprendizaje de manera gradual:",
+        title: "Pestañas Temáticas de Aprendizaje",
+        content: "Cada uno de los 20 temas se organiza en tres vistas principales accesible desde la barra superior:",
         steps: [
-          "Contenido (Tema): Desarrollo íntegro de la materia del tema con explicaciones legislativas y técnicas detalladas.",
-          "Esquema (Resumen): Estructura simplificada e índice jerárquico del tema, ideal para repasar rápidamente antes de un test.",
-          "Conceptos (Glosario): Diccionario de términos técnicos propios del tema (acrónimos de biblioteca, legislación universitaria, etc.)."
+          "Contenido (Tema): Desarrollo completo del texto oficial con legislación actualizada, plazos, sanciones y procedimientos técnicos.",
+          "Esquema (Resumen): Estructura simplificada e índice de contenidos para repasar conceptos clave rápidamente.",
+          "Conceptos (Glosario): Términos técnicos, acrónimos bibliotecarios (MARC21, CDU, ALMA, OAI-PMH) y definiciones legales."
         ]
       },
       {
-        title: "Configuración de Lectura y Temas Visuales",
-        content: "Accede al botón de controles de lectura (icono de engranaje/deslizadores) para adaptar la pantalla a tus preferencias visuales:",
+        title: "Contenidos Destacados e Incorporaciones Recientes",
+        content: "El temario incluye precisiones normativas clave de la US extraídas de documentación oficial y guías técnicas:",
         steps: [
-          "Tamaño de Fuente: Ajustable entre Pequeño, Mediano, Grande y Extra Grande para evitar la fatiga visual.",
-          "Tema Cromático: Elige entre modo por Defecto (fondo oscuro de alto contraste), Lectura Clara (fondo blanco limpio) y Sepia (cálido, idóneo para sesiones nocturnas)."
+          "Tema 4 (Servicios a Usuarios y Canales BUS): Incluye plataformas de e-books (PRESTO, Odilo, Ebook Central, eLibro), portales científicos (Dialnet, ProQuest) y canales oficiales de atención al usuario (Expon@us, ExpoBUS, IntraBUS, OCULUS, CONSÚLTENOS).",
+          "Tema 5 (Préstamo, Devoluciones y Sanciones - Código 4140): Incorpora el régimen exacto de sanciones de la US: 2 días naturales de suspensión por cada día de retraso en préstamo general; 5 días naturales por día en préstamo por horas; suspensión durante todo el curso al acumular 6 penalizaciones. Incluye procedimientos por extravío o deterioro, cuentas de usuario en ALMA (Internas/Externas, Activas/Bloqueadas) y condiciones del Préstamo Intercampus.",
+          "Tema 6 (Clasificación Decimocriminal Universal - CDU): Sintaxis avanzada (+, /, :, ::, -1/-9, .01/.09, '0/'9) y Anexo Práctico con 21 ejercicios resueltos de ordenación en estanterías y alfabetización de autores ('de la Fuente', 'd'Ors').",
+          "Tema 19 (Igualdad de Género): Incorpora los desarrollos de la Ley Orgánica 3/2007 (Art. 6 sobre discriminación u orden de discriminar y justificación objetiva; Art. 51 sobre brecha salarial y presencia equilibrada en órganos de selección)."
         ]
       },
       {
-        title: "Reproductor de Audio (Audiolibro y TTS)",
-        content: "Escucha el tema mientras descansas, viajas o haces otras tareas. El sistema cuenta con dos modos automáticos:",
+        title: "Reproductor de Audio (MP3 y Sintetizador TTS)",
+        content: "Permite la escucha del tema mediante dos tecnologías alternables:",
         steps: [
-          "Modo MP3 (Recomendado si está disponible): Reproduce una grabación de audio real del tema con controles de reproducción estándar.",
-          "Modo TTS (Text-to-Speech / Sintetizador de voz): Utiliza la tecnología de síntesis de voz nativa del navegador para leer el texto en voz alta línea por línea.",
-          "Controles Adicionales: Modifica la velocidad de reproducción de la voz (desde 0.5x hasta 2x) y selecciona entre las diferentes voces en español instaladas en tu sistema."
+          "Modo MP3: Locución profesional pregrabada con controles de pausado y avance.",
+          "Modo TTS (Text-to-Speech): Lectura sintética en voz alta directa desde el navegador. Permite ajustar la velocidad de lectura (0.5x a 2.0x) y elegir la voz en español de tu sistema."
         ],
-        tip: "En el modo de lectura con síntesis de voz (TTS), la barra de progreso de audio te mostrará exactamente qué porcentaje de la sección activa ha sido leída."
+        tip: "La barra de progreso de audio te indica en todo momento la línea y porcentaje del tema que se está reproduciendo."
       },
       {
-        title: "Modo Enfoque (Distraction-Free) y Sesión de Tiempo",
-        content: "Al iniciar el cronómetro de la sesión de estudio (botón Play en la barra superior del tema), el sistema oculta los menús laterales y entra automáticamente en Modo Enfoque, difuminando cualquier distracción externa para que te concentres únicamente en la lectura."
-      },
-      {
-        title: "Lectura a Pantalla Completa, Autoscroll y Regla de Lectura",
-        content: "Activa los iconos de la barra superior derecha para desbloquear funciones de lectura veloz y concentración:",
+        title: "Modos de Enfoque, Pantalla Completa, Autoscroll y Regla",
+        content: "Herramientas diseñadas para maximizar la velocidad de lectura y reducir la fatiga visual:",
         steps: [
-          "Pantalla Completa: Ocupa todo el monitor con el contenido del tema. Usa las teclas de Flecha Abajo o Espacio para avanzar páginas suavemente.",
-          "Autoscroll (Desplazamiento Automático): El texto desciende solo de forma continua. Puedes regular la velocidad de bajada con el control deslizante en tiempo real.",
-          "Regla de Lectura (Ruler): Muestra una franja horizontal translúcida sobre la pantalla que sigue tu cursor. Sirve para guiar tu vista línea por línea y evitar saltar renglones accidentalmente."
+          "Modo Enfoque: Oculta menús y distracciones al pulsar el cronómetro de lectura.",
+          "Pantalla Completa: Amplía el texto a todo el monitor. Avance suave con teclado (Flecha Abajo o Espacio).",
+          "Autoscroll: Desplazamiento automático vertical con regulador de velocidad en tiempo real.",
+          "Regla de Lectura (Ruler): Franja guía horizontal que acompaña al puntero del ratón para seguir el texto línea por línea."
         ]
       },
       {
-        title: "Compilación y Descarga de Dossier para Impresión",
-        content: "Si prefieres estudiar en papel físico, el sistema incorpora un compilador legislativo avanzado en la pestaña lateral derecha ('Compilar e Imprimir'):",
+        title: "Compilación y Descarga de Dossier para Impresión (PDF)",
+        content: "Permite exportar temas individuales o volúmenes agrupados listos para imprimir en papel físico:",
         steps: [
-          "Marca las casillas de los temas específicos que deseas imprimir.",
-          "Elige si deseas incluir la portada oficial con el título de la convocatoria, la ficha resumen de las bases y el índice de contenidos del volumen compilado.",
-          "Opcionalmente, puedes adjuntar un examen tipo test autoevaluativo con N preguntas por tema al final del documento, junto con sus correspondientes soluciones y justificaciones legislativas.",
-          "Haz clic en 'Compilar Temas para Impresión'. Una vez cargada la vista previa en blanco y negro de alta calidad, pulsa 'Imprimir' para guardarlo como PDF o mandarlo a tu impresora física."
+          "Selecciona múltiples temas simultáneamente.",
+          "Incluye portada oficial con los datos de la convocatoria y ficha de bases.",
+          "Genera un cuaderno de test con sus soluciones y justificaciones al final o justo a continuación de cada tema para un estudio cómodo."
         ]
       }
     ]
   },
   {
     id: "cuestionarios",
-    title: "Cuestionarios de Autoevaluación (Tests)",
+    title: "Cuestionarios y Corrección Ultra-Compacta",
     iconName: "GraduationCap",
-    intro: "El generador de tests es la herramienta clave para evaluar tus conocimientos y familiarizarte con las reglas oficiales del examen tipo test de la Universidad de Sevilla.",
+    intro: "El generador de tests reúne más de 2.000 preguntas de examen adaptadas a los estándares psicométricos de la US, con un panel de corrección ultra-compacto optimizado para la revisión ágil.",
     sections: [
       {
-        title: "Modalidades de Configuración de Examen",
-        content: "Puedes adaptar el cuestionario seleccionando uno de los siguientes modos de juego o simulacros predefinidos:",
+        title: "Modalidades de Examen",
+        content: "Puedes configurar la prueba en múltiples formatos según el objetivo de tu sesión:",
         steps: [
-          "Tema Único: Realiza un test de control rápido enfocado exclusivamente en la materia de un tema específico.",
-          "Simulacro Personalizado: Selecciona múltiples temas a la vez y define un límite de preguntas para crear un examen a la carta.",
-          "Simulacro Aleatorio (40 Preguntas): Genera una prueba equilibrada seleccionando exactamente 2 preguntas aleatorias de cada uno de los 20 temas de la oposición.",
-          "15 Simulacros Predefinidos: Un total de 15 exámenes fijos de 40 preguntas cada uno, diseñados de forma que no repiten ninguna pregunta entre sí. Ideales para medir tu evolución a lo largo del tiempo.",
-          "Examen Real 2019 / 2022: Enfréntate a las plantillas oficiales y preguntas reales que se entregaron a los aspirantes en los exámenes de las convocatorias anteriores.",
-          "Cuaderno de Tests: Genera un documento en formato libro que agrupa los cuestionarios tema por tema con sus soluciones conjuntas en la última sección."
+          "Tema Único: Test de control directo sobre un tema concreto.",
+          "Simulacro Personalizado: Selección de varios temas y número libre de preguntas.",
+          "Simulacro Aleatorio (40 Preguntas): 2 preguntas aleatorias extraídas de cada uno de los 20 temas de la oposición.",
+          "15 Simulacros Predefinidos: Exámenes fijos de 40 preguntas sin solapamiento entre sí.",
+          "Exámenes Reales (2019 / 2022): Plantillas oficiales extraídas de las pruebas reales de la US.",
+          "Cuadernos de Test Imprimibles: Formateados por temas para autoevaluación en papel."
         ]
       },
       {
-        title: "Formatos de Realización del Test",
-        content: "Elige cómo deseas completar o interactuar con el examen configurado:",
+        title: "Formatos de Realización",
+        content: "Tres modos de interacción disponibles:",
         steps: [
-          "Test Clásico (Interactivo): Responde pregunta por pregunta en pantalla. El sistema te dará feedback inmediato (color verde si aciertas, rojo si fallas) y te mostrará la justificación legal explicativa antes de pasar a la siguiente.",
-          "Simulacro en Papel (Interactivo): Muestra todo el examen en una sola página scrollable con una hoja de respuestas fija al lateral. Es interactivo pero no te dará las soluciones hasta que hagas clic en 'Finalizar y Corregir' al final.",
-          "Imprimir Examen (PDF): Genera un examen en formato PDF maquetado como las pruebas reales de la US (con cabecera de datos de alumno y cuadro de firmas) y una hoja de respuestas de reserva al final."
+          "Test Clásico (Interactivo): Pregunta a pregunta con corrección inmediata y explicación legislativa detallada.",
+          "Simulacro en Papel (Interactivo): Hoja de examen completa en pantalla única con panel lateral de respuestas y corrección final conjunta.",
+          "Exportación a PDF: Maquetación oficial idéntica al examen real de la US con hoja de respuestas."
         ]
       },
       {
-        title: "Cálculo y Penalización de Puntos en Oposiciones",
-        content: "En el modo 'Simulacro en Papel' y los 'Exámenes Reales', la corrección se realiza aplicando la fórmula oficial de las bases de la US para una fase de oposición de 65 puntos máximos:",
+        title: "Panel de Corrección de Exámenes Ultra-Compacto",
+        content: "La pantalla de examen corregido ha sido optimizada para maximizar la visión de las preguntas:",
         steps: [
-          "Fórmula de Nota Neta: Puntuación = Aciertos - (Errores * 0.25)",
-          "Las preguntas dejadas en blanco no restan puntuación. Es fundamental aprender cuándo arriesgarse y cuándo dejar una pregunta vacía.",
-          "Aprobado de Control: Para aprobar la fase de oposición es obligatorio alcanzar una nota neta mínima de 32.5 puntos sobre 65."
+          "Cabecera en Tira Horizontal: Comprimida en una sola barra horizontal reduciendo un 70% el espacio vertical.",
+          "6 KPIs de Rendimiento: Muestra Total, Contestadas, En Blanco, Aciertos, Errores y Porcentaje de Nota en línea.",
+          "Puntuación Neta Destacada (0.00 / 65.00): Visualización limpia de la nota final sobre el máximo de la oposición de la US.",
+          "Tooltip Informativo (ℹ️): Al pasar el ratón por el icono de información se despliega la fórmula oficial detallada de corrección sin ocupar espacio en pantalla.",
+          "Metadatos Unificados: Cada pregunta alinea en una misma fila superior el número, la insignia de estado (ACIERTO, ERROR, NO CONTESTADA) y el distintivo del Tema.",
+          "Visualización Múltiple: Permite ver mínimo 2 preguntas completas simultáneamente sin necesidad de scroll inicial."
+        ]
+      },
+      {
+        title: "Fórmula de Corrección Oficial y Penalización",
+        content: "Se aplica la regla oficial de la Universidad de Sevilla para un examen de 65 puntos:",
+        steps: [
+          "Fórmula Neta: Nota = Aciertos - (Errores * 0.25)",
+          "Las preguntas en blanco no descuentan puntos.",
+          "Nota mínima para aprobar la fase de oposición: 32.50 puntos sobre 65.00."
         ],
-        alert: "¡Cuidado! Un fallo descuenta el equivalente a un cuarto (0.25) de una respuesta correcta en tu puntuación total. El manual te aconseja dejar en blanco aquellas preguntas sobre las que no tengas certeza."
+        alert: "Cada respuesta errónea restará un 25% (0.25 puntos) del valor de un acierto. Ante la duda absoluta, es aconsejable dejar la opción en blanco."
+      },
+      {
+        title: "Criterios Psicométricos de Generación de Preguntas",
+        content: "Todas las preguntas del banco cumplen 18 normas strictly auditadas:",
+        steps: [
+          "4 Opciones Únicas (A-B-C-D) sin opciones comodín del tipo 'Todas son correctas'.",
+          "Paridad de Longitud: Opciones de respuesta con extensión y complejidad gramatical homogénea.",
+          "Trampas Probabilísticas de Plazos: Distractores diseñados con alternancia de días hábiles vs días naturales para evaluar la precisión del opositor.",
+          "Identificación explícita de artículos y normas en la cabecera de la pregunta."
+        ]
       }
     ]
   },
   {
     id: "formadores",
-    title: "Material de Formadores",
+    title: "Material de Formadores y Tests CCOO",
     iconName: "ClipboardList",
-    intro: "Esta sección contiene las baterías oficiales de preguntas de control proporcionadas por formadores del sindicato (CCOO) para las materias comunes y legislativas de la US.",
+    intro: "Baterías de preguntas de alta exigencia procedentes de formadores sindicales (CCOO) para el refuerzo de los bloques normativos y legislativos clave.",
     sections: [
       {
-        title: "Baterías de Preguntas Disponibles",
-        content: "El material está dividido por materias legislativas de gran peso en el examen:",
+        title: "Bloques de Preguntas Especializadas",
+        content: "Organizadas por convocatorias y normativas de gran peso:",
         steps: [
-          "Estatutos US - Bloque 1: Preguntas de los títulos I al III de la normativa propia de la Universidad de Sevilla (Tema 17).",
-          "Estatutos US - Bloque 2: Preguntas de los títulos IV en adelante (Tema 17).",
-          "IV Convenio Colectivo: Cuestiones de régimen laboral común de las universidades públicas andaluzas (Tema 18).",
-          "Ley Orgánica de Igualdad: Preguntas detalladas sobre la Ley Orgánica 3/2007 (Tema 19)."
+          "Estatutos US - Bloque 1: Títulos I al III de los Estatutos de la Universidad de Sevilla (Tema 17).",
+          "Estatutos US - Bloque 2: Títulos IV en adelante (Tema 17).",
+          "IV Convenio Colectivo: Régimen del Personal Laboral de las Universidades Públicas de Andalucía (Tema 18).",
+          "Ley Orgánica 3/2007 de Igualdad: Ampliada con 44 preguntas inéditas extraídas de fuentes de CCOO, alcanzando un total de 158 preguntas dedicadas a esta ley (Tema 19)."
         ]
       },
       {
-        title: "Modos de Práctica",
-        content: "Al igual que el módulo general de tests, permite realizar el examen de forma interactiva (pregunta a pregunta con explicaciones), en simulacro en papel (evaluación final conjunta) o exportarlo a formato imprimible para estudio analógico."
+        title: "Modalidades de Práctica",
+        content: "Al igual que el módulo general, permite su resolución en formato interactivo (pregunta a pregunta con retroalimentación), simulacro global o exportación a PDF imprimible."
+      }
+    ]
+  },
+  {
+    id: "agente_bus",
+    title: "Asistente Virtual IA (Agente BUS ✨)",
+    iconName: "Sparkles",
+    intro: "Tu tutor de Inteligencia Artificial integrado, diseñado exclusivamente para resolver dudas del temario, aclarar conceptos bibliotecarios y ayudarte en la resolución de casos prácticos.",
+    sections: [
+      {
+        title: "¿Qué es el Agente BUS?",
+        content: "El Agente BUS es un asistente conversacional interactivo entrenado en la normativa de la Universidad de Sevilla, la legislación de archivos y bibliotecas, y las técnicas de clasificación.",
+        steps: [
+          "Ubicación en el Menú: Se encuentra disponible en el bloque 'HERRAMIENTAS' de la barra lateral (botón destacado con destellos).",
+          "Acceso Directo: Puedes invocarlo en cualquier momento sin perder la vista de estudio en la que te encuentres."
+        ]
+      },
+      {
+        title: "Casos de Uso Principales",
+        content: "Puedes preguntarle directamente en lenguaje natural sobre cualquier aspecto de tu oposición:",
+        steps: [
+          "Aclaración de artículos de leyes (Estatutos US, Ley de Contratos, Ley de Igualdad, TREBEP).",
+          "Resolución de ejercicios prácticos de CDU (auxiliares de tiempo, lugar, forma, signos de relación +, /, :, ::).",
+          "Dudas sobre el funcionamiento del software de gestión ALMA, catálogo FAMA y plataformas de e-books.",
+          "Consultas sobre plazos de préstamo, categorías de usuarios y régimen de sanciones del BUS."
+        ],
+        tip: "Utiliza el Agente BUS cuando encuentres una pregunta fallada en un test y desees una explicación conceptual adicional a la cita legal."
       }
     ]
   },
@@ -194,49 +243,57 @@ export const manualCategories = [
     id: "flashcards",
     title: "Tarjetas de Memorización (Flashcards)",
     iconName: "Layers",
-    intro: "Las flashcards o tarjetas de estudio aplican el principio científico del recuerdo activo (Active Recall) y la repetición espaciada para consolidar leyes y datos puros.",
+    intro: "Herramienta basada en el principio de recuerdo activo (Active Recall) para consolidar datos puros, fechas, sanciones y plazos en la memoria a largo plazo.",
     sections: [
       {
         title: "Funcionamiento del Mazo de Estudio",
-        content: "Selecciona el tema que quieres repasar o elige el 'Mazo Combinado' (que reúne 15 tarjetas aleatorias de todo el temario) y pulsa en comenzar:",
+        content: "Selecciona un tema concreto o el 'Mazo Combinado' (tarjetas aleatorias de todo el programa):",
         steps: [
-          "Anverso (Pregunta): Se te presenta un término, pregunta o concepto (ej. ¿Qué órgano aprueba el presupuesto de la US?).",
-          "Giro 3D: Piensa la respuesta mentalmente y haz clic sobre la tarjeta para que realice una animación de giro y te revele el reverso con la respuesta correcta.",
-          "Valoración de Dificultad: Selecciona la dificultad de la tarjeta entre Fácil (la recordabas perfectamente), Medio (te ha costado recordar) o Difícil (no la sabías)."
-        ],
-        tip: "La autoevaluación sincera de dificultad ayuda a identificar qué áreas de legislación requieren una sesión de lectura extra."
+          "Anverso (Pregunta/Concepto): Muestra la cuestión o término técnico a recordar.",
+          "Giro 3D: Haz clic sobre la tarjeta para girarla y comprobar la respuesta correcta en el reverso.",
+          "Autoevaluación de Dificultad: Clasifica tu recuerdo en Fácil, Medio o Difícil para registrar tu grado de asimilación."
+        ]
       },
       {
-        title: "Resumen de Sesión de Estudio",
-        content: "Al completar todas las tarjetas del mazo, se te mostrará un panel de rendimiento con el recuento total de tarjetas clasificadas por su nivel de dificultad. Esto te permite evaluar de un vistazo tu nivel de retención de ese tema concreto."
+        title: "Resumen de Rendimiento por Sesión",
+        content: "Al finalizar el mazo, el sistema te muestra un desglose de tarjetas clasificadas por su nivel de dificultad para identificar qué áreas requieren un repaso en el temario."
       }
     ]
   },
   {
     id: "progreso",
-    title: "Estadísticas y Persistencia de Datos",
+    title: "Estadísticas, Seguridad y Sistema UI",
     iconName: "BarChart3",
-    intro: "El sistema almacena tu progreso de estudio y calificaciones de tests para guiarte en el plan de preparación.",
+    intro: "Analítica de rendimiento del opositor, persistencia de datos en la nube, medidas de seguridad de sesión y diseño visual de la interfaz.",
     sections: [
       {
         title: "Visualización de Gráficos e Historial",
-        content: "En la sección de 'Progreso', tendrás acceso a gráficos visuales de barras que reflejan el tiempo acumulado de estudio por cada tema, así como un registro de tus últimas calificaciones en los cuestionarios.",
-        tip: "Si consideras necesario purgar tus datos de prueba para iniciar una preparación de simulacro desde cero, encontrarás el botón de 'Reiniciar Progreso' en la base de la pantalla de Estadísticas."
+        content: "Accede a gráficos de barras con el tiempo real de estudio por tema y a la gráfica de evolución de notas en cuestionarios.",
+        tip: "En la parte inferior dispones del botón 'Reiniciar Progreso' si deseas restablecer tus contadores a cero antes de comenzar una fase intensa de simulacros."
       },
       {
-        title: "Niveles de Persistencia (Local y Nube)",
-        content: "La sincronización de tu progreso varía según el tipo de acceso con el que hayas iniciado sesión:",
+        title: "Persistencia de Datos (Local y Nube Firebase)",
+        content: "El almacenamiento de tu evolución depende de tu perfil de acceso:",
         steps: [
-          "Perfil de Invitado (Demo): Los datos se guardan exclusivamente en el almacenamiento local de tu navegador (LocalStorage). Si borras la caché, perderás el progreso.",
-          "Perfil de Estudiante Registrado: Los datos se sincronizan automáticamente con la base de datos en la nube (Firebase). Tu progreso persistirá aunque entres desde otro dispositivo."
+          "Perfil de Invitado (Demo): Guardado en el almacenamiento local del navegador (LocalStorage).",
+          "Perfil de Estudiante Registrado: Sincronización automática periódica en la nube (Firebase Database) para continuar tu estudio desde cualquier equipo."
         ]
       },
       {
         title: "Medidas de Seguridad y Control Concurrente",
-        content: "Para proteger la integridad de los datos de progreso y cumplir con las políticas de control comercial del preparador:",
+        content: "Garantías de seguridad e inactividad integradas:",
         steps: [
-          "Control de Sesión Concurrente: Solo se permite una sesión activa por estudiante. Si inicias sesión en un dispositivo secundario (u otra pestaña del navegador), la sesión del dispositivo anterior se cerrará inmediatamente por seguridad.",
-          "Cierre automático por inactividad: Si dejas la aplicación abierta sin interacción durante 30 minutos, el sistema guardará automáticamente tu progreso pendiente en la nube y mostrará una advertencia de 30 segundos antes de forzar el cierre de sesión para ahorrar recursos del servidor."
+          "Sesión Única Concurrente: Solo se permite un inicio de sesión activo por alumno. Si se accede desde otro dispositivo o pestaña, la sesión previa se cerrará de forma automática.",
+          "Auto-Logout por Inactividad (30 Minutos): Tras 30 minutos sin interacción, se guarda el progreso en la nube y se muestra una ventana de aviso de 30 segundos antes del cierre automático de sesión para proteger tu cuenta y ahorrar recursos."
+        ]
+      },
+      {
+        title: "Sistema de Jerarquía Visual de Botones UI",
+        content: "La interfaz utiliza un sistema consistente de 3 niveles de botones interactivos:",
+        steps: [
+          "Botones Primarios (glow-btn): Azul degradado para las acciones principales del usuario (ej. 'Iniciar Test', 'Estudiar Ahora').",
+          "Botones Secundarios (glow-btn-secondary): Borde sutil y fondo translúcido para acciones complementarias (ej. 'Pausar', 'Siguiente').",
+          "Botones Terciarios / Ghost (btn-ghost): Transparentes y discretos para acciones de navegación de baja prioridad (ej. 'Cancelar', 'Volver', 'Modificar')."
         ]
       }
     ]

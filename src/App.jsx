@@ -548,10 +548,13 @@ export default function App() {
             </div>
           ) : (
             <ErrorBoundary>
-              {renderContent()}
+              <div key={currentTab} className="view-fade-in">
+                {renderContent()}
+              </div>
             </ErrorBoundary>
           )}
         </main>
+
       </div>
 
       {/* Siri BUS Virtual Assistant Drawer Component */}

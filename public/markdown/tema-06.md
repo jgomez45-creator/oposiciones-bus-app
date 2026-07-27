@@ -303,3 +303,78 @@ Al alfabetizar revistas por título en las estanterías o listas de control:
   <p style="font-size: 0.85rem; color: #c7d2fe; margin-top: 12px; margin-bottom: 0;">🌐 Acceso libre y 100% optimizado para ordenador, tablet y móvil en <strong>https://oposiciones-bus-app.vercel.app/</strong></p>
 
 </div>
+## 3.C Sintaxis Avanzada y Signos de Relación de la CDU
+
+La Clasificación Decimal Universal emplea recursos de enlace y auxiliares especiales para sintetizar materias complejas:
+- **Signo de Adición (`+`):** Conecta dos o más números CDU no consecutivos para representar documentos que tratan materias independientes reunidas en el mismo volumen (ej. `94(460)+94(44)` Historia de España y Francia).
+- **Signo de Extensión (`/`):** Conecta el primero y el último de una serie de números CDU consecutivos (ej. `592/599` Zoología sistemática).
+- **Signo de Relación (`:`):** Conecta dos notaciones generando una clase compleja reversible (ej. `615:616` Farmacología en relación con la patología).
+- **Signo de Fijación (`::`):** Conecta notaciones de forma fija no reversible.
+- **Auxiliares Especiales:**
+  - Guión `-1/-9`: Expresan propiedades, materiales y componentes.
+  - Punto cero `.01/.09`: Expresan actividades, procesos, operaciones y maquinaria.
+  - Apóstrofo `'0/'9`: Indican temas compuestos por síntesis o integración.
+
+---
+
+# 🧩 SECCIÓN PRÁCTICA DE APLICACIÓN DE LA CDU Y ORDENACIÓN EN ESTANTERÍAS
+
+## 1. Ejercicios Resueltos de Construcción de Notaciones Complejas
+A continuación se presentan supuestos prácticos oficiales de asignación de notación CDU y auxiliares:
+
+1. **Traducción del inglés al español:** `=03.111=134.2`
+2. **Escrito en dialecto asturiano:** `=134.2'282.3(460.12)`
+3. **Escrito en francés medieval:** `=133.2'04`
+4. **Documentos en microfilm:** `(0.035.22)`
+5. **Edición de bolsillo:** `(0.027.5)`
+6. **En forma de enciclopedia para niños:** `(031.1.053.2)`
+7. **Almanaques de bolsillo:** `(059.027.5)`
+8. **Ediciones en CD-ROM de libros de texto:** `(075.034.4)`
+9. **Presentación en forma histórica:** `(091)`
+10. **En forma de mapa:** `(084.3)`
+11. **Las cadenas montañosas de los Alpes:** `(234.3.049)`
+12. **Santa Fe (Granada):** `(460.357Santa Fe)`
+13. **Año 35 antes de Cristo:** `"-0035"`
+14. **Siglo I d. C.:** `"00"`
+15. **De 1580 a 1600:** `"1580/1600"`
+16. **Biografía de Lenin:** `929Lenin`
+17. **Historia de España desde un punto de vista económico:** `94(460).003`
+18. **Historia del arte gótico flamígero en la Península Ibérica:** `7.033.5(46)3`
+19. **La perspectiva en la pintura renacentista italiana:** `75.034(450).017.9`
+20. **Esculturas de madera del gótico tardío alemán:** `730.033.5(430)4-035.3`
+21. **La arquitectura islámica del siglo XIV en Granada:** `72.033.3(460.357)"13"`
+
+## 2. Reglas de Ordenación de Tejuelos en Estantería (Secuencia Jerárquica)
+
+La colocación de libros en la estantería según su tejuelo sigue un orden estricto de precedencia de los signos de la CDU:
+1. **Números principales simples** (de menor a mayor cifra decimal).
+2. **Adición (`+`) y Extensión (`/`)**.
+3. **Relación (`:`) y Relación fija (`::`)**.
+4. **Auxiliares Comunes:**
+   - Auxiliar de Lengua (`=...`)
+   - Auxiliar de Forma (`(0...)`)
+   - Auxiliar de Lugar (`(1/9)`)
+   - Auxiliar de Razas y Pueblos (`(=...)`)
+   - Auxiliar de Tiempo (`"..."`)
+5. **Auxiliares Especiales** (`-1/-9`, `.01/.09`, `'0/'9`).
+6. **Subdivisión alfabética directa** (tres primeras letras del autor en mayúsculas y tres del título en minúsculas).
+
+### Ejemplo de Secuencia Correcta de Tejuelos en Estantería:
+1. `1(091) BEL` (Filosofía - Historia)
+2. `177 MIT` (Ética)
+3. `272 KRA` (Historia de la Iglesia)
+4. `282 LEG` (Catolicismo)
+5. `282 VEL` (Catolicismo - Autor VEL)
+6. `29 INS` (Religiones comparadas)
+7. `29(091) PUE` (Religiones - Historia)
+8. `291 HAL` (Sistemas religiosos)
+9. `343.95 GUN` (Criminología)
+10. `617.7 SOL` (Oftalmología)
+11. `73(091) GAY` (Escultura - Historia)
+12. `745/749 ZAN` (Artes decorativas)
+
+## 3. Reglas de Alfabetización de Autores y Títulos (Norma US)
+
+En la ordenación alfabética de tejuelos y catálogos en la Universidad de Sevilla se aplican las siguientes reglas:
+- **Partículas en Apellidos:** Los apellidos que comienzan por preposiciones o artículos se alfabetizan por el apellido principal (ej. *Fuente, Antonio de la*; *Cuenca Gómez, Pedro*; *Rosa, Agustín de la*; *Rosa, Ángel Luis de la*; *Ors, Eugenio d'*).
+- **Cifras y Números en Títulos:** Los títulos que comienzan por números o cifras se ordenan como si la cifra estuviera escrita con letras en español (ej. *1945* se alfabetiza por "Mil novecientos...", *II* por "Dos").

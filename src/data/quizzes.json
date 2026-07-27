@@ -4922,6 +4922,231 @@
       "correctAnswer": 1,
       "explanation": "El acceso al servicio PRESTO de la BUS se realiza desde el catÃ¡logo FAMA, previa identificaciÃ³n con las credenciales UVUS del usuario.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_t4_inédita_2026_001",
+      "question": "En relación con el acceso a la colección digital de la Biblioteca de la Universidad de Sevilla, ¿cuál de las siguientes opciones define correctamente la función de la plataforma PRESTO (Odilo)?",
+      "options": [
+        "A) Constituye la plataforma institucional de la US para el préstamo y lectura en línea y fuera de línea de libros electrónicos y audiolibros.",
+        "B) Representa el sistema exclusivo para la compra de publicaciones impresas descatalogadas del fondo histórico.",
+        "C) Funciona como el depósito institucional en abierto para la publicación de tesis doctorales y trabajos de fin de máster.",
+        "D) Actúa como el motor de búsqueda en bases de datos legislativas de ámbito autonómico y estatal."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Plataformas e-books): PRESTO (Odilo) es la plataforma institucional de la Universidad de Sevilla para el préstamo, gestión y lectura en línea y fuera de línea de libros electrónicos, audiolibros y contenidos digitales.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_002",
+      "question": "Respecto a la consulta de revistas científicas y literatura hispana, ¿cuál de las siguientes características define al portal Dialnet en la BUS?",
+      "options": [
+        "A) Es un portal bibliográfico centrado en la literatura científica hispana que indexa artículos, actas de congresos y tesis doctorales.",
+        "B) Es un gestor de referencias bibliográficas de uso exclusivo para el personal docente e investigador del área de humanidades.",
+        "C) Es el sistema automatizado de gestión de préstamos interbibliotecarios entre universidades internacionales.",
+        "D) Es la plataforma de préstamo digital por horas para estudiantes de primer y segundo ciclo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Dialnet): Dialnet es uno de los mayores portales bibliográficos de la literatura científica hispana, proporcionando acceso a artículos de revistas, actas de congresos, monografías y tesis doctorales.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_003",
+      "question": "En el ámbito de la comunicación oficial con la comunidad universitaria, ¿qué es la plataforma Expon@us de la Universidad de Sevilla?",
+      "options": [
+        "A) El buzón electrónico corporativo oficial para la tramitación de quejas, sugerencias y felicitaciones de la Universidad de Sevilla.",
+        "B) El sistema informático de reserva previa de puestos de estudio en las salas de lectura durante periodos de exámenes.",
+        "C) El catálogo en línea de exposiciones físicas itinerantes organizadas por la BUS en sus diferentes centros.",
+        "D) La base de datos de proveedores informáticos e impresores oficiales de la Universidad de Sevilla."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Canales de comunicación): Expon@us es el buzón electrónico corporativo oficial de la Universidad de Sevilla para la tramitación e intermediación de quejas, sugerencias y felicitaciones.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_004",
+      "question": "De acuerdo con los servicios de información y referencia telemática de la BUS, ¿qué función realiza el canal CONSÚLTENOS?",
+      "options": [
+        "A) Atender y resolver consultas telemáticas de información bibliográfica, orientación y uso de servicios enviadas por los usuarios.",
+        "B) Tramitar las solicitudes de adquisición de licencias colectivas de software especializado para departamentos.",
+        "C) Gestionar las incidencias técnicas de la red Wi-Fi Eduroam en los edificios de las bibliotecas de centro.",
+        "D) Registrar las solicitudes de renovación del carnet de usuario externo no universitario."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Canales de comunicación): El servicio CONSÚLTENOS es el formulario y canal telemático oficial de la BUS para la atención y resolución de consultas de información general y bibliográfica.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_005",
+      "question": "En el contexto de la difusión de fondos y actividades bibliotecarias, ¿qué es la plataforma ExpoBUS?",
+      "options": [
+        "A) El portal web institucional dedicado a la exhibición de exposiciones virtuales del patrimonio bibliográfico y documental de la BUS.",
+        "B) La aplicación móvil para la localización GPS de los autobuses de transporte entre los distintos campus universitarios.",
+        "C) La plataforma de préstamos de libros impresos mediante taquillas automatizadas instaladas en las facultades.",
+        "D) El sistema informático de control de accesos por torno a las salas de lectura."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Canales BUS): ExpoBUS es el portal institucional para la difusión de exposiciones virtuales e itinerantes que muestran el patrimonio histórico y documental de la Biblioteca de la US.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_006",
+      "question": "En relación con los libros electrónicos académicos en la BUS, ¿cuál de las siguientes afirmaciones describe adecuadamente a la plataforma eLibro?",
+      "options": [
+        "A) Ofrece acceso a colecciones académicas y universitarias multidisciplinares de libros electrónicos íntegramente en castellano.",
+        "B) Se limita al catálogo de tesis doctorales leídas en universidades del ámbito anglosajón.",
+        "C) Permite únicamente la consulta de manuscritos e incunables custodiados en el Fondo Antiguo.",
+        "D) Es un programa de gestión de referencias para el almacenamiento de citas en formato BibTeX."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Libros electrónicos): eLibro es una plataforma comercial de libros digitales especializada en bibliografía académica y universitaria en idioma castellano.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_007",
+      "question": "De acuerdo con el portal Ebook Central de ProQuest en la BUS, ¿qué modalidad de lectura ofrece a los miembros de la comunidad universitaria?",
+      "options": [
+        "A) Permite la lectura en pantalla y la descarga temporal regulada de monografías digitales completas previa autenticación.",
+        "B) Permite la reproducción impresa ilimitada sin restricciones de derechos de autor.",
+        "C) Exige la presencia física obligatoria del alumno en la red local de la Biblioteca General.",
+        "D) Limita la lectura a los primeros tres capítulos de cada volumen sin posibilidad de descarga."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Ebook Central): Ebook Central proporciona lectura en línea mediante visor web y descarga prestada temporal de libros completos a dispositivos mediante autenticación UVUS.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_008",
+      "question": "Respecto a la señalética e información en los edificios bibliotecarios de la US, ¿qué son las pantallas OCULUS?",
+      "options": [
+        "A) Dispositivos digitales informativos situados en vestíbulos para la difusión de noticias, horarios y actividades de la BUS.",
+        "B) Lectoras ópticas de código de barras utilizadas exclusivamente en el mostrador de préstamo interbibliotecario.",
+        "C) Sensores de control de aforo en tiempo real conectados a la Policía Local de Sevilla.",
+        "D) Escáneres de alta definición para la preservación de prensa histórica de los siglos XVIII y XIX."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Canales BUS): OCULUS es el sistema de pantallas digitales informativas distribuidas en las bibliotecas de la US para transmitir noticias, avisos y eventos.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_009",
+      "question": "En el marco de la investigación bibliográfica, ¿qué operador booleano debe emplearse en una búsqueda para combinar dos términos exigiendo que ambos estén presentes?",
+      "options": [
+        "A) El operador AND.",
+        "B) El operador OR.",
+        "C) El operador NOT.",
+        "D) El operador XOR."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Búsqueda en BD): El operador lógico AND restringe la búsqueda exigiendo la presencia conjunta e simultánea de ambos conceptos en los registros recuperados.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_010",
+      "question": "Con relación al acceso remoto a la colección digital de la BUS fuera de las instalaciones universitarias, ¿cuál es el requisito imprescindible de autenticación?",
+      "options": [
+        "A) Validarse telemáticamente mediante las credenciales de Usuario Virtual de la Universidad de Sevilla (UVUS).",
+        "B) Solicitar una clave de acceso presencial renovable semanalmente en el mostrador de referencia.",
+        "C) Disponer de una dirección IP fija contratada con un proveedor privado de telecomunicaciones.",
+        "D) Abonar la tasa anual de acceso a recursos electrónicos para usuarios externos."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Acceso remoto): El acceso telemático desde fuera del campus a las bases de datos y libros electrónicos suscritos requiere la identificación con la cuenta UVUS.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_011",
+      "question": "En el modelo de adquisición de colecciones digitales, ¿qué caracteriza al sistema de adquisición impulsado por el usuario (PDA / DDA)?",
+      "options": [
+        "A) La biblioteca ofrece acceso a un amplio catálogo y la compra formal del e-book se desencadena tras su uso efectivo.",
+        "B) Los estudiantes seleccionan individualmente los libros impresos que el decanato debe comprar por obligación.",
+        "C) Las editoriales envían colecciones completas sin coste para su evaluación durante un periodo de cinco años.",
+        "D) Se adquieren únicamente las obras que hayan obtenido una recomendación en la Mesa de Negociación."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Adquisición e-books): El modelo PDA (Patron Driven Acquisition) o DDA integra catálogos digitales donde la compra definitiva se activa automáticamente según las lecturas de los usuarios.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_012",
+      "question": "De acuerdo con el Consorcio de Bibliotecas Universitarias de Andalucía (CBUA), ¿cuál es uno de sus objetivos principales?",
+      "options": [
+        "A) Negociar la adquisición consorciada de grandes colecciones digitales y licencias para las 9 universidades públicas andaluzas.",
+        "B) Gestionar la nómina e incentivos de productividad del personal bibliotecario de la Junta de Andalucía.",
+        "C) Unificar las tarifas de venta de fotocopias en los centros de enseñanza secundaria de la comunidad.",
+        "D) Dictar la normativa de ordenación urbanística de las bibliotecas municipales de Andalucía."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CBUA): El CBUA optimiza los recursos públicos negociando licencias conjuntas de bases de datos y revistas electrónicas para las nueve universidades públicas andaluzas.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_013",
+      "question": "Bajo la licencia Creative Commons denominada CC BY-NC-ND, ¿qué restricciones se imponen al uso de la obra intelectual?",
+      "options": [
+        "A) Exige reconocer la autoría (BY), prohíbe el uso comercial (NC) y prohíbe la realización de obras derivadas (ND).",
+        "B) Permite la venta comercial de la obra siempre que se cite el nombre del autor original.",
+        "C) Permite la modificación del texto original pero exige el pago de derechos de autor a la Universidad.",
+        "D) Autoriza la libre traducción a cualquier idioma con fines de lucro directo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Licencias CC): La licencia CC BY-NC-ND requiere reconocimiento del autor, impide la explotación comercial y prohíbe la transformación u obra derivada.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_014",
+      "question": "Respecto a la comunicación interna entre el personal de la Biblioteca de la US, ¿cuál es el portal de apoyo específico?",
+      "options": [
+        "A) La plataforma IntraBUS.",
+        "B) El portal Expon@us.",
+        "C) El sistema Odilo PRESTO.",
+        "D) El canal FamaWeb."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Comunicación interna): IntraBUS es la intranet y canal de comunicación interna para la coordinación y gestión del personal bibliotecario de la US.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t4_inédita_2026_015",
+      "question": "En una búsqueda avanzada en bases de datos, ¿qué función cumple el uso de comillas dobles alrededor de una expresión (ej. \"atención al usuario\")?",
+      "options": [
+        "A) Recuperar las palabras en el orden exacto especificado como una frase literal exacta.",
+        "B) Excluir todos los documentos que contengan alguna de las dos palabras.",
+        "C) Buscar únicamente en los títulos de las revistas editadas en América Latina.",
+        "D) Traducir automáticamente los términos al idioma inglés antes de realizar la consulta."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Técnicas de búsqueda): Las comillas dobles delimitan búsquedas de frase exacta, exigiendo que los términos aparezcan contiguos y en la misma secuencia.",
+      "topicId": "4",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
     }
   ],
   "5": [
@@ -6215,6 +6440,306 @@
       "correctAnswer": 2,
       "explanation": "El JCR (Journal Citation Reports) es el informe anual publicado por Clarivate dentro de Web of Science que proporciona el Factor de Impacto (Journal Impact Factor) de las revistas cientÃ­ficas indexadas.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_t5_inédita_2026_001",
+      "question": "Según el Reglamento de Préstamo de la Universidad de Sevilla, en caso de retraso en la devolución de un documento en préstamo regular, ¿cuál es la sanción establecida?",
+      "options": [
+        "A) Suspensión del derecho a préstamo durante 2 días naturales por cada día de retraso por documento.",
+        "B) Suspensión del derecho a préstamo durante 1 día hábil por cada día de retraso por documento.",
+        "C) Imposición de una multa económica de 1 euro por cada jornada de demora en la entrega.",
+        "D) Suspensión de la cuenta de correo electrónico institucional por un periodo de un mes."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Reglamento Préstamo US): El retraso en la devolución de material en préstamo regular supone la suspensión del derecho a préstamo durante 2 días naturales por día de retraso por documento.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_002",
+      "question": "Conforme a la normativa oficial de la US, si el retraso en la devolución se produce en un documento sujeto a préstamo por horas, ¿cuál es la penalización fijada?",
+      "options": [
+        "A) Suspensión del derecho a préstamo durante 5 días naturales por cada día de retraso en la devolución.",
+        "B) Suspensión del derecho a préstamo durante 2 días hábiles por cada hora de demora acumulada.",
+        "C) Pérdida automática del derecho a matricularse en el siguiente curso académico.",
+        "D) Inhabilitación para la consulta presencial de fondos en las salas de lectura durante 10 días."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Reglamento Préstamo US): En el caso de préstamos por horas, el retraso en la devolución conlleva una sanción de 5 días naturales por día de retraso.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_003",
+      "question": "En el marco del régimen de sanciones de la BUS, ¿qué consecuencia conlleva incurrir en 6 penalizaciones de préstamo dentro del mismo curso académico?",
+      "options": [
+        "A) La pérdida del derecho a préstamo durante todo lo que reste de dicho curso académico.",
+        "B) La cancelación inmediata del expediente académico del estudiante en la Universidad.",
+        "C) La obligación de realizar 20 horas de trabajos comunitarios en el archivo central.",
+        "D) El pago duplicado del importe del carnet universitario de lectura."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Reglamento Préstamo US): Cuando el usuario incurre en 6 penalizaciones a lo largo del mismo curso académico, pierde el derecho a préstamo durante dicho curso.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_004",
+      "question": "De acuerdo con el procedimiento aplicable por pérdida o deterioro grave de un libro prestado en la BUS, ¿cuál es la obligación del usuario?",
+      "options": [
+        "A) Notificarlo inmediatamente y reponer el ejemplar o adquirir uno homólogo acordado con el personal bibliotecario.",
+        "B) Abonar una sanción fija de 100 euros independientemente del precio de mercado de la obra.",
+        "C) Presentar una denuncia judicial en la comisaría de policía en un plazo máximo de 24 horas.",
+        "D) Donar tres libros cualesquiera de su propiedad para compensar la pérdida documental."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Reglamento Préstamo US): El usuario es responsable de reponer el documento perdido o adquirir, con asesoramiento del personal, otro de la misma temática y características.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_005",
+      "question": "En caso de sustracción no autorizada de un ejemplar de la Biblioteca sin cumplir los trámites reglamentarios, ¿qué medida establece la US?",
+      "options": [
+        "A) Pérdida inmediata del derecho a préstamo y comunicación a la Dirección del Centro para medidas disciplinares.",
+        "B) Inhabilitación permanente de por vida para el acceso a cualquier biblioteca pública de Andalucía.",
+        "C) Retención del título universitario oficial hasta la finalización del expediente sancionador.",
+        "D) Publicación del nombre del infractor en el tablón de anuncios de la biblioteca general."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Reglamento Préstamo US): La sustracción supone la pérdida del derecho a préstamo e información a la dirección del Centro del alumno para adoptar medidas oportunas.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_006",
+      "question": "En el Sistema Integrado de Gestión Bibliotecaria ALMA, ¿cómo se definen las cuentas de usuario de tipo 'Externo'?",
+      "options": [
+        "A) Cuentas cuyos datos se gestionan en una base de datos ajena a Alma y se sincronizan periódicamente.",
+        "B) Cuentas de personas que no pertenecen a la comunidad universitaria ni residen en España.",
+        "C) Cuentas de proveedores comerciales de bases de datos internacionales.",
+        "D) Cuentas temporales creadas manualmente para visitantes de un solo día."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Gestión ALMA): Las cuentas externas en Alma corresponden a usuarios cuyos datos provienen de una BD institucional externa (ej. datos de matrícula o nómina de la US).",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_007",
+      "question": "En la clasificación de registros de usuarios en ALMA, ¿qué caracteriza a las fichas de tipo 'Personal'?",
+      "options": [
+        "A) Contienen los datos del personal que trabaja en la biblioteca e incorporan roles operativos en el sistema.",
+        "B) Almacenan los expedientes personales de los estudiantes becarios de colaboración.",
+        "C) Registran las consultas privadas de información de los investigadores distinguidos.",
+        "D) Recogen las facturas de compra de libros firmadas por el director del servicio."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Gestión ALMA): El tipo de registro Personal en Alma identifica a los trabajadores de la biblioteca, otorgándoles permisos para la ejecución de tareas operativas.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_008",
+      "question": "En la gestión de cuentas en ALMA, ¿qué condición define a una cuenta de usuario en estado 'Bloqueado'?",
+      "options": [
+        "A) La cuenta presenta algún tipo de bloqueo o sanción administrativa vigente que impide realizar transacciones.",
+        "B) La cuenta pertenece a un alumno que ha finalizado sus estudios de grado.",
+        "C) La cuenta está pendiente de validación por parte del Ministerio de Universidades.",
+        "D) La cuenta ha sido archivada por inactividad durante más de cinco años lectivos."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Gestión ALMA): El estado Bloqueado en Alma indica que la cuenta tiene restringidos los servicios al usuario debido a sanciones o incidencias administrativas.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_009",
+      "question": "Respecto a la prestación del servicio de Préstamo Intercampus en la US, ¿a qué colectivos está delimitado este derecho?",
+      "options": [
+        "A) Al Profesorado US, Estudiantes de Doctorado, Estudiantes con discapacidad y PAS / PTGAS.",
+        "B) Exclusivamente a los Decanos y Directores de los centros universitarios.",
+        "C) A todos los estudiantes matriculados en títulos de Grado regular sin excepción.",
+        "D) Únicamente a los investigadores de instituciones ajenas a la Universidad de Sevilla."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Préstamo Intercampus US): El préstamo intercampus en la US está dirigido al Profesorado, Estudiantes de Doctorado, Estudiantes con discapacidad y PAS/PTGAS.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_010",
+      "question": "En la Universidad de Sevilla, ¿cuál es la condición geográfica esencial para poder solicitar un Préstamo Intercampus?",
+      "options": [
+        "A) Que la petición se realice entre bibliotecas pertenecientes a distintos campus de la US.",
+        "B) Que el ejemplar se encuentre ubicado en una biblioteca municipal del Ayuntamiento de Sevilla.",
+        "C) Que la obra esté descatalogada en la Biblioteca Nacional de España.",
+        "D) Que la distancia entre las bibliotecas solicitante y prestamista sea superior a 50 kilómetros."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Préstamo Intercampus US): El préstamo intercampus agiliza la movilidad de fondos propios exclusivamente entre bibliotecas situadas en distintos campus de la US.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_011",
+      "question": "En el procedimiento del servicio de Préstamo Interbibliotecario en la BUS, ¿qué documentos quedan expresamente excluidos?",
+      "options": [
+        "A) Los documentos que se encuentren disponibles en el Catálogo FAMA de la propia Universidad.",
+        "B) Las tesis doctorales aprobadas en universidades de la Unión Europea.",
+        "C) Las monografías impresas publicadas con posterioridad al año 2000.",
+        "D) Las publicaciones seriadas que dispongan de código ISSN oficial."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Préstamo Interbibliotecario): Los documentos disponibles en el Catálogo Fama NO pueden ser solicitados mediante préstamo interbibliotecario.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_012",
+      "question": "Para solicitar un Préstamo Interbibliotecario por primera vez como miembro de la US, ¿qué requisito técnico se exige?",
+      "options": [
+        "A) Identificarse mediante UVUS y disponer obligatoriamente de cuenta de correo oficial @us.es.",
+        "B) Presentar un aval firmado por el Rector de la Universidad de Sevilla.",
+        "C) Depositar una fianza económica reembolsable de 50 euros en la caja central.",
+        "D) Acreditar la condición de funcionario de carrera del Cuerpo de Facultativos."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Préstamo Interbibliotecario): El acceso se realiza mediante UVUS y es imprescindible contar con una dirección de correo electrónico institucional de la US (@us.es).",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_013",
+      "question": "De acuerdo con el Servicio de Referencia en la BUS, ¿cuál es el orden secuencial correcto de sus etapas operativas?",
+      "options": [
+        "A) Análisis de consulta -> Tradución a términos -> Selección de fuentes -> Búsqueda -> Respuesta.",
+        "B) Búsqueda en fuentes -> Análisis de consulta -> Respuesta -> Selección de fuentes.",
+        "C) Selección de fuentes -> Búsqueda -> Análisis de consulta -> Tradución a términos.",
+        "D) Respuesta al usuario -> Análisis de consulta -> Búsqueda -> Selección de fuentes."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Servicio Referencia): El proceso comprende: 1. Análisis de consulta, 2. Traducción a términos de búsqueda, 3. Selección de fuentes, 4. Búsqueda, 5. Respuesta/documento.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_014",
+      "question": "Según el Reglamento de la BUS, ¿quién es legalmente el responsable de la conservación y devolución en plazo de un ejemplar prestado?",
+      "options": [
+        "A) El titular del carnet utilizado para efectuar la transacción en el sistema automatizado.",
+        "B) El delegado del grupo de alumnos al que pertenezca el estudiante.",
+        "C) El director de la biblioteca del centro donde se retiró el ejemplar.",
+        "D) El administrativo encargado de supervisar el mostrador de préstamo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Reglamento Préstamo US): El beneficiario del préstamo y titular del carnet utilizado es el responsable único de la conservación y devolución en el plazo establecido.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_015",
+      "question": "En el sistema de evaluación de colecciones, ¿cuáles son los tres destinos técnicos normalizados para los materiales expurgados?",
+      "options": [
+        "A) Traslado a depósito cerrado, donación a otras instituciones, o destrucción/reciclaje.",
+        "B) Venta en subasta pública, digitalización obligatoria o archivo en caja fuerte.",
+        "C) Devolución a la editorial, canje internacional o exposición permanente en salas.",
+        "D) Pérdida forzosa, catalogación en FAMA o préstamo interbibliotecario permanente."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Expurgo): Los destinos normalizados de materiales descartados son: traslado a depósito cerrado (conservación), donación a otros centros o reciclaje si está deteriorado.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_016",
+      "question": "En el acrónimo de evaluación de expurgo MUSTIE, ¿qué significado tiene la letra 'U' (Ugly)?",
+      "options": [
+        "A) Deterioro físico grave del documento que impide su lectura o conservación.",
+        "B) Obsoleticia temática de los contenidos científicos del libro.",
+        "C) Disponibilidad del ejemplar en otra biblioteca del mismo campus.",
+        "D) Falta de uso registrado durante más de tres años consecutivos."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Método MUSTIE): En la metodología MUSTIE, la U de 'Ugly' alude al mal estado de conservación física o deterioro grave del soporte del documento.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_017",
+      "question": "En la preservación preventiva de documentos en depósitos bibliotecarios, ¿cuáles son los valores óptimos de temperatura y humedad relativa?",
+      "options": [
+        "A) Temperatura entre 18-22 °C y humedad relativa entre 45-55%.",
+        "B) Temperatura entre 5-10 °C y humedad relativa entre 80-90%.",
+        "C) Temperatura entre 25-30 °C y humedad relativa entre 20-30%.",
+        "D) Temperatura entre 12-15 °C y humedad relativa entre 65-75%."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Preservación preventiva): Los estándares internacionales de conservación física establecen rangos de 18 a 22 °C de temperatura y 45 a 55% de humedad relativa.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_018",
+      "question": "En el marco de la gestión de la colección, ¿qué diferencia conceptual existe entre la selección y la adquisición?",
+      "options": [
+        "A) La selección decide qué obras deben incorporarse; la adquisición ejecuta la obtención del documento por compra, canje o donativo.",
+        "B) La selección es la compra directa de e-books; la adquisición es el intercambio de publicaciones impresas.",
+        "C) La selección la realizan únicamente los alumnos; la adquisición es competencia exclusiva del Vicerrectorado.",
+        "D) La selección asigna el tejuelo al libro; la adquisición introduce los datos del proveedor en Alma."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Ciclo colección): La selección es la toma de decisiones intelectual sobre las necesidades bibliográficas; la adquisición es la gestión administrativa de su ingreso.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_019",
+      "question": "En relación con el Servicio de Préstamo CBUA, ¿cuál de las siguientes opciones expresa su ámbito de aplicación?",
+      "options": [
+        "A) Permite solicitar libros en préstamo entre las 9 universidades públicas pertenecientes al consorcio andaluz.",
+        "B) Permite solicitar préstamos directos de libros a las bibliotecas universitarias de la Comunidad de Madrid.",
+        "C) Regula el préstamo de libros digitales a través de la Red de Bibliotecas Públicas de Andalucía.",
+        "D) Gestiona el envío de documentos impresos a bibliotecas universitarias iberoamericanas."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CBUA): El préstamo CBUA interconecta los fondos bibliográficos de las nueve universidades públicas de la Comunidad Autónoma de Andalucía.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t5_inédita_2026_020",
+      "question": "En el inventario bibliográfico de una biblioteca de centro, ¿cuál es el objetivo primordial de su realización?",
+      "options": [
+        "A) Comprobar la presencia física de los fondos, detectar pérdidas y verificar su coincidencia con el catálogo.",
+        "B) Modificar las normas de préstamo para reducir el número de usuarios sancionados.",
+        "C) Cambiar la clasificación CDU de todos los libros antiguos por la Clasificación Decimal Dewey.",
+        "D) Eliminar de FAMA los registros de los libros que lleven más de un mes sin prestarse."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Inventario): El inventario verifica la existencia real y el estado físico de los documentos, identificando faltas o extravíos para su regularización en el catálogo.",
+      "topicId": "5",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
     }
   ],
   "6": [
@@ -7378,6 +7903,381 @@
       "correctAnswer": 1,
       "explanation": "La respuesta correcta es la opción B. Al alfabetizar títulos de revistas se ignoran completamente los artículos definidos e indefinidos iniciales en cualquier idioma (El, La, The, A, Le).",
       "usage": "dossier"
+    },
+    {
+      "id": "q_t6_inédita_2026_001",
+      "question": "En la Clasificación Decimal Universal (CDU), ¿qué función realiza el signo de Adición (+)?",
+      "options": [
+        "A) Conectar dos o más números CDU no consecutivos para indicar materias independientes reunidas en un mismo volumen.",
+        "B) Unir el primero y el último de una serie de números CDU estrictamente consecutivos.",
+        "C) Establecer una relación fija no reversible entre dos notaciones temáticas complejas.",
+        "D) Representar el auxiliar común de lugar correspondiente a los países de la Unión Europea."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Sintaxis CDU): El signo (+) vincula notaciones no consecutivas que representan dos o más temas independientes contenidos en un mismo documento.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_002",
+      "question": "En la estructura sintáctica de la CDU, ¿qué expresa el signo de Extensión (/)?",
+      "options": [
+        "A) Unir el primero y el último de una serie de números CDU consecutivos para abarcar su contenido de forma global.",
+        "B) Conectar dos materias mediante una relación lógica reversible en las búsquedas del OPAC.",
+        "C) Indicar la traducción de una obra desde su lengua original a un idioma secundario.",
+        "D) Separar las tres primeras letras del autor de las tres primeras letras del título en el tejuelo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Sintaxis CDU): El signo de extensión (/) une números consecutivos de la CDU para indicar un rango temático continuo (ej. 592/599).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_003",
+      "question": "En el uso de los signos de relación en la CDU, ¿qué diferencia existe entre los dos puntos (:) y los dobles dos puntos (::)?",
+      "options": [
+        "A) El signo (:) genera una notación reversible; el signo (::) fija la notación de forma no reversible.",
+        "B) El signo (:) une números consecutivos; el signo (::) une números no consecutivos.",
+        "C) El signo (:) representa auxiliares de forma; el signo (::) representa auxiliares de lugar.",
+        "D) El signo (:) se utiliza únicamente en el tejuelo; el signo (::) se usa en la catalogación en ALMA."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Sintaxis CDU): La relación simple (:) permite la inversión de las materias en la búsqueda; la fijación (::) establece un orden rígido e irreversible.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_004",
+      "question": "En las tablas de la CDU, ¿qué características representan los auxiliares especiales que adoptan la forma de guión (-1/-9)?",
+      "options": [
+        "A) Expresar propiedades, materiales, componentes y detalles analíticos en sectores específicos de las tablas.",
+        "B) Indicar el país o región geográfica donde se ha editado el documento.",
+        "C) Representar la lengua en la que está redactado el texto del libro.",
+        "D) Indicar el formato físico de presentación como enciclopedia o mapa."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Auxiliares especiales CDU): Los auxiliares especiales -1/-9 detallan aspectos como materiales, componentes o características analíticas en un sector concreto.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_005",
+      "question": "En la notación de la CDU, ¿qué tipo de auxiliares especiales se identifican con la estructura de punto cero (.01/.09)?",
+      "options": [
+        "A) Auxiliares especiales que expresan actividades, procesos, operaciones, maquinaria y equipamiento.",
+        "B) Auxiliares comunes que indican los periodos históricos y siglos.",
+        "C) Auxiliares comunes independientes que señalan las nacionalidades y razas.",
+        "D) Símbolos numéricos reservados para la ordenación alfabética del tejuelo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Auxiliares especiales CDU): Las subdivisiones con .01/.09 indican procesos, operaciones, aspectos metodológicos, maquinaria y equipos.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_006",
+      "question": "En la Clasificación Decimal Universal, ¿qué notación representa el auxiliar común de traducción del inglés al español?",
+      "options": [
+        "A) =03.111=134.2",
+        "B) (03.111)(134.2)",
+        "C) \"03.111\"-\"134.2\"",
+        "D) =111:134.2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): La traducción de una lengua a otra se expresa con auxiliares comunes de lengua mediante la fórmula =03.lengua_origen=lengua_destino (ej. =03.111=134.2).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_007",
+      "question": "Según las tablas de auxiliares comunes de forma de la CDU, ¿cuál es la notación correspondiente a un documento en microfilm?",
+      "options": [
+        "A) (0.035.22)",
+        "B) (0.027.5)",
+        "C) (031.1.053.2)",
+        "D) (075.034.4)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): El auxiliar común de forma (0.035.22) representa las reproducciones en soporte de microfilm.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_008",
+      "question": "En la clasificación de formas documentales, ¿qué auxiliar común de forma identifica a una edición de bolsillo?",
+      "options": [
+        "A) (0.027.5)",
+        "B) (0.035.22)",
+        "C) (059.027.5)",
+        "D) (084.3)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): La notación (0.027.5) es el auxiliar de forma para las ediciones de formato pequeño o bolsillo.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_009",
+      "question": "De acuerdo con los auxiliares comunes de lugar, ¿cuál es la notación asignada a la cadena montañosa de los Alpes?",
+      "options": [
+        "A) (234.3.049)",
+        "B) (460.357)",
+        "C) (160.27-13)",
+        "D) (394.5-074)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): Los accidentes geográficos como las cadenas montañosas de los Alpes se expresan mediante el auxiliar de lugar (234.3.049).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_010",
+      "question": "En el sistema de auxiliares comunes de tiempo de la CDU, ¿cómo se representa la notación para el año 35 antes de Cristo?",
+      "options": [
+        "A) \"-0035\"",
+        "B) \"0035aC\"",
+        "C) (-0035)",
+        "D) =35aC"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): Las fechas anteriores a la era cristiana se encierran entre comillas incorporando el signo menos antecediendo los cuatro dígitos (ej. \"-0035\").",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_011",
+      "question": "En la notación del auxiliar común de tiempo, ¿cómo se expresa el periodo cronológico delimitado entre los años 1580 y 1600?",
+      "options": [
+        "A) \"1580/1600\"",
+        "B) \"1580+1600\"",
+        "C) \"1580:1600\"",
+        "D) \"1580-1600\""
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): Un periodo o intervalo de tiempo entre dos años se expresa mediante comillas separando las fechas por una barra oblicua (ej. \"1580/1600\").",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_012",
+      "question": "De acuerdo con las reglas de catalogación y CDU, ¿cómo se construye la notación para la biografía individual de un personaje (ej. Lenin)?",
+      "options": [
+        "A) 929Lenin",
+        "B) (092)Lenin",
+        "C) 94(47)Lenin",
+        "D) =929Lenin"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): La biografía individual se clasifica en el número principal 929 seguido de la subdivisión alfabética directa del nombre del biografiado (ej. 929Lenin).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_013",
+      "question": "En el orden de precedencia de tejuelos en estantería según la CDU, ¿cuál de los siguientes elementos debe colocarse en primer lugar?",
+      "options": [
+        "A) Los números principales simples.",
+        "B) Las notaciones compuestas con adición (+).",
+        "C) Las notaciones con auxiliares comunes de lugar.",
+        "D) Las notaciones con auxiliares especiales de punto cero (.01)."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Secuencia tejuelos CDU): En la secuencia jerárquica de colocación en estantería, los números principales simples preceden a cualquier notación compuesta o auxiliar.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_014",
+      "question": "Siguiendo las reglas de alfabetización de autores en el tejuelo en la US, ¿cómo se alfabetiza el autor 'Antonio de la Fuente'?",
+      "options": [
+        "A) FUE (Fuente, Antonio de la).",
+        "B) DEL (De la Fuente, Antonio).",
+        "C) ANT (Antonio de la Fuente).",
+        "D) LAF (La Fuente, Antonio de)."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Alfabetización US): Las partículas o preposiciones en apellidos españoles no se toman como palabra de ordenación, alfabetizando por el apellido principal (Fuente -> FUE).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_015",
+      "question": "De acuerdo con la ordenación de títulos que comienzan por cifras o números (ej. '1945: Berlín, la caída'), ¿cuál es la palabra de ordenación alfabética?",
+      "options": [
+        "A) MIL (por la forma letrada 'Mil novecientos cuarenta y cinco').",
+        "B) BER (por la segunda palabra del título 'Berlín').",
+        "C) CEE (por ser una cifra del siglo veinte).",
+        "D) ZZZ (se colocan al final de la estantería tras la letra Z)."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Alfabetización US): Las cifras numéricas al inicio de un título se ordenan alfabéticamente por su transcripción letrada en español (1945 -> Mil novecientos... -> MIL).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_016",
+      "question": "En la estructura del tejuelo de un libro en la BUS, ¿qué elementos componen la segunda y tercera línea de la signatura?",
+      "options": [
+        "A) Tres letras del apellido del autor en mayúsculas y tres letras del título en minúsculas.",
+        "B) El código de barras del ejemplar y el número de registro de entrada.",
+        "C) Las iniciales del centro universitario y el año de edición.",
+        "D) El número del estante y la planta de la biblioteca."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Tejuelo BUS): La signatura topográfica se compone de la CDU en la primera línea, seguida de tres letras del autor en mayúsculas y tres del título en minúsculas.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_017",
+      "question": "En las tablas principales de la CDU, ¿cuál es el estado de la Clase 4?",
+      "options": [
+        "A) Es una clase vacía sin asignar reservada para futuras expansiones del conocimiento.",
+        "B) Está dedicada exclusivamente a las Ciencias de la Salud y Medicina.",
+        "C) Contiene la clasificación del patrimonio bibliográfico antiguo.",
+        "D) Se emplea para clasificar los recursos informáticos y bases de datos."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Tablas CDU): La Clase 4 se vació al trasladar la Lingüística a la Clase 8 junto con la Literatura, permaneciendo disponible para futuros desarrollos.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_018",
+      "question": "En las tablas principales de la CDU, ¿a qué materia corresponde el número principal 004?",
+      "options": [
+        "A) Informática y tecnología de la información.",
+        "B) Arqueología y prehistoria.",
+        "C) Deportes y educación física.",
+        "D) Ciencia política y administración."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Tablas CDU): El número 004 en la Clase 0 de la CDU está asignado a la Informática, procesamiento de datos y tecnologías de la información.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_019",
+      "question": "De acuerdo con las notaciones principales de la CDU, ¿qué disciplina se clasifica bajo el número 902?",
+      "options": [
+        "A) Arqueología y prehistoria.",
+        "B) Pintura y dibujo técnico.",
+        "C) Administración de empresas.",
+        "D) Pedagogía y educación."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Tablas CDU): El número principal 902 en la Clase 9 representa la disciplina de la Arqueología.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_020",
+      "question": "En las notaciones de la CDU, ¿qué disciplina se agrupa en el número principal 658?",
+      "options": [
+        "A) Administración de empresas y gestión empresarial.",
+        "B) Historia de la arquitectura gótica.",
+        "C) Geografía física y climatología.",
+        "D) Lingüística comparada e idiomas."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Tablas CDU): El número 658 dentro de las ciencias aplicadas (Clase 6) está dedicado a la administración y organización de empresas.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_021",
+      "question": "En la clasificación temática de la CDU, ¿qué área se asigna al número principal 796?",
+      "options": [
+        "A) Deportes, juegos y ejercicios físicos.",
+        "B) Escultura y artes plásticas.",
+        "C) Filosofía de la ciencia.",
+        "D) Botánica y zoología."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Tablas CDU): El número 796 dentro de la Clase 7 representa los Deportes, juegos, gimnasia y educación física.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_022",
+      "question": "Según los auxiliares comunes de forma de la CDU, ¿cuál es la notación asignada a un CD-ROM de libros de texto?",
+      "options": [
+        "A) (075.034.4)",
+        "B) (0.027.5)",
+        "C) (031.1.053.2)",
+        "D) (084.3)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): La combinación de forma (075) libros de texto con el soporte electrónico (034.4) CD-ROM da como resultado (075.034.4).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_023",
+      "question": "En la ordenación alfabética de autores en el tejuelo, ¿cómo se procesa el apellido 'Eugenio d'Ors'?",
+      "options": [
+        "A) ORS (Ors, Eugenio d').",
+        "B) DOR (D'Ors, Eugenio).",
+        "C) EUG (Eugenio d'Ors).",
+        "D) SAN (Santayana, Eugenio d'Ors)."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Alfabetización US): El apóstrofo y la partícula d' no se consideran palabra de ordenación, alfabetizándose por el sustantivo principal Ors -> ORS.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_024",
+      "question": "Dada la siguiente lista de tejuelos en la estantería: 177 MIT, 29 INS, 29(091) PUE, 291 HAL, ¿cuál es el orden correcto de colocación según la CDU?",
+      "options": [
+        "A) 177 MIT -> 29 INS -> 29(091) PUE -> 291 HAL.",
+        "B) 291 HAL -> 29 INS -> 29(091) PUE -> 177 MIT.",
+        "C) 29(091) PUE -> 177 MIT -> 29 INS -> 291 HAL.",
+        "D) 29 INS -> 291 HAL -> 177 MIT -> 29(091) PUE."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Secuencia tejuelos CDU): El orden decimal de la CDU coloca primero 177, seguido de 29 simple, luego 29 con auxiliar de forma (091), y finalmente 291.",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
+    },
+    {
+      "id": "q_t6_inédita_2026_025",
+      "question": "En la construcción de notaciones de lugar de la CDU, ¿cómo se representa una subdivisión alfabética directa para una ciudad específica (ej. Granada)?",
+      "options": [
+        "A) Incorporando el nombre propio en caracteres alfabéticos tras el número geográfico (ej. 460.357Granada).",
+        "B) Traduciendo el nombre de la ciudad al idioma latín entre comillas dobles.",
+        "C) Añadiendo un código de barras numérico de 13 dígitos otorgado por la UNESCO.",
+        "D) Anteponiendo el símbolo arroba (@Granada) al inicio de la notación principal."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (Prácticas CDU): La especificación alfabética directa permite añadir el nombre propio tras la notación numérica de lugar (ej. 460.357Granada).",
+      "topicId": "6",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:10:00Z"
     }
   ],
   "7": [
@@ -26090,6 +26990,666 @@
       "explanation": "La respuesta correcta es la opción B: \"La ausencia de discriminación en las medidas adoptadas y su proporcionalidad.\". Esto viene dispuesto en el Artículo 13 de la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres.",
       "difficulty": "intermediate",
       "usage": "dossier"
+    },
+    {
+      "id": "q_t19_ccoo_2026_001",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿sobre qué sectores prevé medidas la Ley para eliminar la discriminación?",
+      "options": [
+        "A) Prevé medidas destinadas a eliminar y corregir en los sectores público y privado, toda forma de discriminación por razón de sexo.",
+        "B) Exclusivamente en el sector público estatal y en los organismos autónomos.",
+        "C) En el ámbito de las relaciones laborales reguladas por el Estatuto de los Trabajadores.",
+        "D) Únicamente en los sectores con mayor representación masculina histórica."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿sobre qué sectores prevé medidas la Ley para eliminar la discriminación?. Opción correcta: A) Prevé medidas destinadas a eliminar y corregir en los sectores público y privado, toda forma de discriminación por razón de sexo.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_002",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 4, ¿cómo se define el principio de igualdad de trato y de oportunidades?",
+      "options": [
+        "A) Es un principio informador del ordenamiento jurídico.",
+        "B) Es una norma de rango orgánico con carácter interpretativo preferente.",
+        "C) Es un criterio de valoración técnica para la adjudicación de subvenciones.",
+        "D) Es un mandato directo aplicable solo en el ámbito del derecho administrativo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 4, ¿cómo se define el principio de igualdad de trato y de oportunidades?. Opción correcta: A) Es un principio informador del ordenamiento jurídico.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_003",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿en qué ámbitos es aplicable el principio de igualdad de trato y oportunidades?",
+      "options": [
+        "A) Únicamente en los procesos de promoción interna del funcionariado público.",
+        "B) Exclusivamente en la contratación laboral por cuenta ajena de carácter indefinido.",
+        "C) Aplicable en el ámbito del empleo privado y en el del empleo público.",
+        "D) En la afiliación a partidos políticos y asociaciones de carácter cultural."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿en qué ámbitos es aplicable el principio de igualdad de trato y oportunidades?. Opción correcta: C) Aplicable en el ámbito del empleo privado y en el del empleo público.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_004",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 6, ¿cuándo se considera discriminación indirecta por razón de sexo?",
+      "options": [
+        "A) Cuando se atenta contra la dignidad mediante comportamientos de naturaleza sexual.",
+        "B) Cuando se producen represalias por haber presentado una denuncia por acoso.",
+        "C) La situación en que una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro.",
+        "D) Cuando se condiciona un derecho a la aceptación de una situación degradante."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 6, ¿cuándo se considera discriminación indirecta por razón de sexo?. Opción correcta: C) La situación en que una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_005",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿cuándo constituye acoso sexual un comportamiento?",
+      "options": [
+        "A) Siempre que se realice por una persona de distinto sexo en el centro de trabajo.",
+        "B) Cuando el trabajador lo denuncie previamente ante la Inspección de Trabajo.",
+        "C) En particular cuando se crea un entorno intimidatorio, degradante u ofensivo.",
+        "D) Solo si existe una relación de superioridad jerárquica entre el agresor y la víctima."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿cuándo constituye acoso sexual un comportamiento?. Opción correcta: C) En particular cuando se crea un entorno intimidatorio, degradante u ofensivo.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_006",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué constituye acoso por razón de sexo?",
+      "options": [
+        "A) El trato desfavorable a las mujeres relacionado con su estado civil o familiar.",
+        "B) Las órdenes de discriminar emitidas para evitar la contratación de mujeres.",
+        "C) La desventaja particular producida por una disposición administrativa neutra.",
+        "D) Cualquier comportamiento realizado en función del sexo de una persona, con el propósito o el efecto de atentar contra su dignidad."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué constituye acoso por razón de sexo?. Opción correcta: D) Cualquier comportamiento realizado en función del sexo de una persona, con el propósito o el efecto de atentar contra su dignidad.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_007",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué consideración tienen el acoso sexual y el acoso por razón de sexo?",
+      "options": [
+        "A) Se considerarán en todo caso discriminatorios.",
+        "B) Son infracciones administrativas de carácter muy grave en el ámbito laboral.",
+        "C) Solo son discriminatorios si producen un entorno degradante probado judicialmente.",
+        "D) Se consideran actos de discriminación directa por embarazo o maternidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué consideración tienen el acoso sexual y el acoso por razón de sexo?. Opción correcta: A) Se considerarán en todo caso discriminatorios.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_008",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué se considera acto de discriminación por razón de sexo respecto a derechos?",
+      "options": [
+        "A) El retraso injustificado en la concesión de licencias por cuidado de familiares.",
+        "B) El condicionamiento de un derecho o de una expectativa de derecho a la aceptación de una situación constitutiva de acoso sexual o de acoso por razón de sexo.",
+        "C) La exigencia de requisitos físicos desproporcionados para el acceso a la formación.",
+        "D) La denegación de la conciliación de la vida personal y laboral sin causa motivada."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué se considera acto de discriminación por razón de sexo respecto a derechos?. Opción correcta: B) El condicionamiento de un derecho o de una expectativa de derecho a la aceptación de una situación constitutiva de acoso sexual o de acoso por razón de sexo.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_009",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 8, ¿qué constituye discriminación directa por razón de sexo respecto a la maternidad?",
+      "options": [
+        "A) La imposibilidad de acceder a puestos directivos durante el permiso de lactancia.",
+        "B) El cambio de funciones por riesgo durante el embarazo sin consentimiento previo.",
+        "C) Todo trato desfavorable a las mujeres relacionado con el embarazo o la maternidad.",
+        "D) La reducción de jornada que suponga una pérdida proporcional del sueldo base."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 8, ¿qué constituye discriminación directa por razón de sexo respecto a la maternidad?. Opción correcta: C) Todo trato desfavorable a las mujeres relacionado con el embarazo o la maternidad.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_010",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 9, ¿qué se considera discriminación por razón de sexo respecto a la presentación de quejas?",
+      "options": [
+        "A) La denegación de la tutela judicial efectiva por falta de legitimación del sindicato.",
+        "B) El incumplimiento del principio de transversalidad en los estudios estadísticos.",
+        "C) La ausencia de un sistema eficaz y disuasorio de sanciones en el empleo público.",
+        "D) Cualquier trato adverso o efecto negativo que se produzca en una persona como consecuencia de la presentación de queja, reclamación, denuncia, demanda o recurso."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 9, ¿qué se considera discriminación por razón de sexo respecto a la presentación de quejas?. Opción correcta: D) Cualquier trato adverso o efecto negativo que se produzca en una persona como consecuencia de la presentación de queja, reclamación, denuncia, demanda o recurso.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_011",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 11, ¿cuál es el límite temporal de las acciones positivas?",
+      "options": [
+        "A) Serán aplicables en tanto subsistan dichas situaciones.",
+        "B) Tendrán una duración máxima de cuatro años coincidiendo con la legislatura.",
+        "C) Se aplicarán hasta que la brecha salarial sea inferior al cinco por ciento anual.",
+        "D) Mantendrán su vigencia hasta que sean derogadas por otra Ley Orgánica posterior."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 11, ¿cuál es el límite temporal de las acciones positivas?. Opción correcta: A) Serán aplicables en tanto subsistan dichas situaciones.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_012",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 12, ¿cuándo se puede recabar la tutela judicial?",
+      "options": [
+        "A) Únicamente durante la vigencia de la relación contractual o estatutaria activa.",
+        "B) En el plazo de sesenta días hábiles desde que se tuvo conocimiento del acto.",
+        "C) Antes de que el procedimiento administrativo haya ganado firmeza reglamentaria.",
+        "D) Incluso tras la terminación de la relación en la que supuestamente se ha producido la discriminación."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 12, ¿cuándo se puede recabar la tutela judicial?. Opción correcta: D) Incluso tras la terminación de la relación en la que supuestamente se ha producido la discriminación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_013",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben facilitar las Administraciones Públicas?",
+      "options": [
+        "A) El acceso prioritario de las mujeres a las actividades de formación continuada.",
+        "B) La jubilación a los sesenta años para las funcionarias con tres o más hijos.",
+        "C) Facilitar la conciliación de la vida personal, familiar y laboral, sin menoscabo de la promoción profesional.",
+        "D) El teletrabajo obligatorio para todo el personal con hijos menores de doce años."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben facilitar las Administraciones Públicas?. Opción correcta: C) Facilitar la conciliación de la vida personal, familiar y laboral, sin menoscabo de la promoción profesional.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_014",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben eliminar respecto a las retribuciones?",
+      "options": [
+        "A) La diferencia salarial en los complementos de productividad ligados a la asistencia.",
+        "B) Los pluses de peligrosidad en sectores tradicionalmente ocupados por hombres.",
+        "C) Establecer medidas efectivas para eliminar cualquier discriminación retributiva, directa o indirecta, por razón de sexo.",
+        "D) Las desigualdades en el abono de dietas y gratificaciones por servicios especiales."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben eliminar respecto a las retribuciones?. Opción correcta: C) Establecer medidas efectivas para eliminar cualquier discriminación retributiva, directa o indirecta, por razón de sexo.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_015",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben evaluar periódicamente las Administraciones Públicas?",
+      "options": [
+        "A) El impacto de género de las disposiciones de carácter general aprobadas anualmente.",
+        "B) La composición equilibrada de las candidaturas electorales de ámbito autonómico.",
+        "C) La implantación del lenguaje no sexista en la totalidad de sus relaciones sociales.",
+        "D) Evaluar periódicamente la efectividad del principio de igualdad en sus respectivos ámbitos de actuación."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben evaluar periódicamente las Administraciones Públicas?. Opción correcta: D) Evaluar periódicamente la efectividad del principio de igualdad en sus respectivos ámbitos de actuación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_016",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué tipo de comportamiento constituye acoso sexual?",
+      "options": [
+        "A) Comportamiento, verbal o físico, de naturaleza sexual.",
+        "B) Trato adverso derivado de la presentación de una queja por trato discriminatorio.",
+        "C) Disposición neutra que pone a las mujeres en una situación de desventaja particular.",
+        "D) Orden de discriminar directamente basada en la capacidad física del trabajador."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué tipo de comportamiento constituye acoso sexual?. Opción correcta: A) Comportamiento, verbal o físico, de naturaleza sexual.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_017",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿qué tipo de derechos regula la Ley?",
+      "options": [
+        "A) Derechos fundamentales e inalienables de las mujeres víctimas de violencia sexual.",
+        "B) Regula derechos y deberes de las personas físicas y jurídicas, tanto públicas como privadas.",
+        "C) Derechos laborales de carácter exclusivo para las trabajadoras por cuenta ajena.",
+        "D) Derechos civiles de protección frente a la publicidad de contenido sexista o ilícito."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿qué tipo de derechos regula la Ley?. Opción correcta: B) Regula derechos y deberes de las personas físicas y jurídicas, tanto públicas como privadas.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_018",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 2, ¿a qué personas afecta la prohibición de discriminación por razón de sexo?",
+      "options": [
+        "A) Únicamente a las mujeres españolas con domicilio de residencia en territorio estatal.",
+        "B) Solo a los trabajadores que se encuentren bajo el ámbito del empleo público estatal.",
+        "C) Todas las personas gozarán de los derechos derivados del principio de igualdad de trato.",
+        "D) A las personas jurídicas públicas que suministren bienes o servicios al público."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 2, ¿a qué personas afecta la prohibición de discriminación por razón de sexo?. Opción correcta: C) Todas las personas gozarán de los derechos derivados del principio de igualdad de trato.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_019",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿qué artículos de la Constitución desarrolla esta Ley?",
+      "options": [
+        "A) Los artículos 9.2 y 14 de la Constitución.",
+        "B) El artículo 10 sobre dignidad humana y el artículo 15 sobre integridad física.",
+        "C) El artículo 23 sobre participación política y el artículo 35 sobre derecho al trabajo.",
+        "D) Los artículos 14 y 53.2 relativos a la igualdad y la tutela de derechos fundamentales."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿qué artículos de la Constitución desarrolla esta Ley?. Opción correcta: A) Los artículos 9.2 y 14 de la Constitución.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_020",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 4, ¿qué función tiene el principio de igualdad en el ordenamiento?",
+      "options": [
+        "A) Actúa como una norma sancionadora de carácter subsidiario en el empleo público.",
+        "B) Sirve como criterio para la distribución de los fondos de formación para el empleo.",
+        "C) La igualdad de trato y de oportunidades entre mujeres y hombres es un principio informador.",
+        "D) Es el fundamento para la creación del Consejo de Participación de la Mujer."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 4, ¿qué función tiene el principio de igualdad en el ordenamiento?. Opción correcta: C) La igualdad de trato y de oportunidades entre mujeres y hombres es un principio informador.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_021",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿qué se garantiza en las organizaciones cuyos miembros ejercen una profesión?",
+      "options": [
+        "A) La alternancia de género en los cargos de representación sindical de primer nivel.",
+        "B) El acceso a becas de investigación financiadas por las cámaras de comercio.",
+        "C) La participación de las mujeres en los consejos de administración de sus filiales.",
+        "D) La afiliación y participación."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿qué se garantiza en las organizaciones cuyos miembros ejercen una profesión?. Opción correcta: D) La afiliación y participación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_022",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿en qué esferas tiene por objeto eliminar la discriminación?",
+      "options": [
+        "A) Únicamente en la esfera laboral y en la económica del sector público estatal.",
+        "B) Singularmente, en las esferas política, civil, laboral, económica, social y cultural.",
+        "C) Específicamente en la esfera familiar y en las relaciones entre particulares.",
+        "D) Fundamentalmente en el ámbito de la educación superior y en la salud laboral."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿en qué esferas tiene por objeto eliminar la discriminación?. Opción correcta: B) Singularmente, en las esferas política, civil, laboral, económica, social y cultural.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_023",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 3, ¿qué asunción se menciona expresamente como fuente de discriminación?",
+      "options": [
+        "A) La asunción de responsabilidades directivas en empresas de capital público.",
+        "B) La asunción de cargos electos en las asambleas legislativas autonómicas.",
+        "C) La asunción de obligaciones familiares.",
+        "D) La asunción de riesgos profesionales en entornos industriales masculinizados."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 3, ¿qué asunción se menciona expresamente como fuente de discriminación?. Opción correcta: C) La asunción de obligaciones familiares.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_024",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿respecto de qué se define el acoso sexual sin perjuicio?",
+      "options": [
+        "A) De lo establecido en los planes estratégicos de igualdad de oportunidades del Gobierno.",
+        "B) Sin perjuicio de lo establecido en el Código Penal.",
+        "C) Sin menoscabo de la potestad sancionadora de la Inspección de Trabajo y Seguridad.",
+        "D) De acuerdo con las disposiciones recogidas en la Ley de Enjuiciamiento Civil social."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿respecto de qué se define el acoso sexual sin perjuicio?. Opción correcta: B) Sin perjuicio de lo establecido en el Código Penal.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_025",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 8, ¿con qué se relaciona el trato desfavorable discriminatorio?",
+      "options": [
+        "A) Con la edad de la trabajadora y su estado de salud previo a la contratación.",
+        "B) Con el desempeño de funciones directivas en empresas mercantiles del área privada.",
+        "C) Relacionado con el embarazo o la maternidad.",
+        "D) Con la solicitud de excedencia voluntaria por interés particular de la empleada."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 8, ¿con qué se relaciona el trato desfavorable discriminatorio?. Opción correcta: C) Relacionado con el embarazo o la maternidad.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_026",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 13, ¿quién prueba la ausencia de discriminación en los litigios?",
+      "options": [
+        "A) El Ministerio Fiscal cuando el juez considere que existe un interés público relevante.",
+        "B) El organismo público competente en materia de igualdad tras realizar una auditoría.",
+        "C) Corresponderá a la persona demandada probar la ausencia de discriminación.",
+        "D) La persona acosada mediante la presentación de indicios razonables de conducta."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 13, ¿quién prueba la ausencia de discriminación en los litigios?. Opción correcta: C) Corresponderá a la persona demandada probar la ausencia de discriminación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_027",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué propósito define el acoso sexual?",
+      "options": [
+        "A) Lograr la sumisión jerárquica de la persona acosada mediante amenazas laborales.",
+        "B) Obtener un beneficio económico derivado del condicionamiento de un derecho social.",
+        "C) Atentar contra la libertad sexual de las mujeres en el entorno de la vida privada.",
+        "D) Tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué propósito define el acoso sexual?. Opción correcta: D) Tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_028",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 11, ¿en qué situación deben estar las mujeres para recibir medidas específicas?",
+      "options": [
+        "A) Situación de desempleo de larga duración acreditada por los servicios públicos.",
+        "B) Corregir situaciones patentes de desigualdad de hecho respecto de los hombres.",
+        "C) Encontrarse en riesgo de exclusión social por pertenecer a minorías étnicas.",
+        "D) Ser víctimas de violencia de género con orden de protección judicial vigente."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 11, ¿en qué situación deben estar las mujeres para recibir medidas específicas?. Opción correcta: B) Corregir situaciones patentes de desigualdad de hecho respecto de los hombres.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_029",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 13, ¿qué no se aplica a los procesos penales en esta Ley?",
+      "options": [
+        "A) La legitimación exclusiva de la persona acosada en los litigios sobre trato sexual.",
+        "B) La capacidad de los sindicatos para intervenir en defensa del interés legítimo.",
+        "C) Lo establecido en el apartado anterior (sobre la carga de la prueba).",
+        "D) La nulidad radical de los actos que constituyan discriminación por razón de sexo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 13, ¿qué no se aplica a los procesos penales en esta Ley?. Opción correcta: C) Lo establecido en el apartado anterior (sobre la carga de la prueba).",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_030",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué se debe fomentar en el acceso al empleo público?",
+      "options": [
+        "A) La reserva de un cupo de plazas para mujeres en sectores con infrarrepresentación.",
+        "B) La realización de pruebas físicas idénticas para ambos sexos en todos los cuerpos.",
+        "C) La exención de tasas de examen para las mujeres víctimas de violencia de género.",
+        "D) Fomentar la formación en igualdad."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué se debe fomentar en el acceso al empleo público?. Opción correcta: D) Fomentar la formación en igualdad.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_031",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿cuál es el ámbito geográfico de aplicación de la Ley?",
+      "options": [
+        "A) En cualesquiera de los ámbitos de la vida.",
+        "B) Exclusivamente en las relaciones laborales que se desarrollen en suelo español.",
+        "C) En el territorio de la Unión Europea para los ciudadanos con nacionalidad española.",
+        "D) En el marco de la Administración General del Estado y sus organismos vinculados."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿cuál es el ámbito geográfico de aplicación de la Ley?. Opción correcta: A) En cualesquiera de los ámbitos de la vida.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_032",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 3, ¿qué incluye especialmente el principio de igualdad de trato?",
+      "options": [
+        "A) Las medidas de acción positiva adoptadas por las personas jurídicas privadas.",
+        "B) Especialmente, las derivadas de la maternidad.",
+        "C) Los criterios generales de actuación de los Poderes Públicos en materia social.",
+        "D) La presencia equilibrada en los consejos de administración de las sociedades."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 3, ¿qué incluye especialmente el principio de igualdad de trato?. Opción correcta: B) Especialmente, las derivadas de la maternidad.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_033",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿qué tipo de trabajo se menciona expresamente?",
+      "options": [
+        "A) El trabajo a tiempo parcial y la reducción de jornada por cuidado de menores.",
+        "B) Las labores domésticas y la atención a la familia de forma no remunerada.",
+        "C) Incluso al trabajo por cuenta propia.",
+        "D) El voluntariado social en organizaciones de defensa de la igualdad de trato."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿qué tipo de trabajo se menciona expresamente?. Opción correcta: C) Incluso al trabajo por cuenta propia.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_034",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué propósito define el acoso por razón de sexo?",
+      "options": [
+        "A) La obtención de un favor de naturaleza sexual mediante coacción jerárquica.",
+        "B) Provocar la dimisión voluntaria de la empleada embarazada para evitar costes.",
+        "C) Favorecer la contratación de hombres en detrimento de mujeres con igual mérito.",
+        "D) Propósito o el efecto de atentar contra su dignidad y de crear un entorno intimidatorio."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué propósito define el acoso por razón de sexo?. Opción correcta: D) Propósito o el efecto de atentar contra su dignidad y de crear un entorno intimidatorio.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_035",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué constituye acoso por razón de sexo?",
+      "options": [
+        "A) El trato desfavorable relacionado exclusivamente con el embarazo de la mujer trabajadora.",
+        "B) La discriminación indirecta basada en criterios aparentemente neutros del empleador.",
+        "C) Cualquier comportamiento realizado en función del sexo de una persona.",
+        "D) Las represalias producidas por la presentación de una demanda de tutela de igualdad."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué constituye acoso por razón de sexo?. Opción correcta: C) Cualquier comportamiento realizado en función del sexo de una persona.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_036",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben remover las Administraciones Públicas?",
+      "options": [
+        "A) Las barreras arquitectónicas que impidan el acceso de mujeres con discapacidad física.",
+        "B) Los planes de igualdad voluntarios que no hayan sido inscritos en el registro oficial.",
+        "C) Los criterios de antigüedad en la carrera profesional que generen brecha salarial.",
+        "D) Remover los obstáculos que impliquen la pervivencia de cualquier tipo de discriminación."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben remover las Administraciones Públicas?. Opción correcta: D) Remover los obstáculos que impliquen la pervivencia de cualquier tipo de discriminación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_037",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿dónde se garantiza la igualdad de trato y de oportunidades?",
+      "options": [
+        "A) En el acceso al empleo, incluso al trabajo por cuenta propia.",
+        "B) Únicamente en los procesos de selección externa de las sociedades mercantiles.",
+        "C) En las relaciones de carácter privado entre consumidores y suministradores.",
+        "D) En el marco de la negociación colectiva de ámbito nacional e internacional."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿dónde se garantiza la igualdad de trato y de oportunidades?. Opción correcta: A) En el acceso al empleo, incluso al trabajo por cuenta propia.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_038",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 6, ¿qué pone a personas de un sexo en desventaja particular?",
+      "options": [
+        "A) Una conducta discriminatoria directa basada en la maternidad o el embarazo.",
+        "B) Un comportamiento realizado en función del sexo con el propósito de atentar contra la dignidad.",
+        "C) Una disposición, criterio o práctica aparentemente neutros.",
+        "D) El condicionamiento de una expectativa de derecho a la aceptación de un acoso."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 6, ¿qué pone a personas de un sexo en desventaja particular?. Opción correcta: C) Una disposición, criterio o práctica aparentemente neutros.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_039",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿a qué derecho se refiere el objeto de la Ley?",
+      "options": [
+        "A) Derecho fundamental a la no discriminación por origen racial o étnico de la persona.",
+        "B) Derecho a percibir una indemnización real y proporcionada por daños morales.",
+        "C) Derecho a la tutela judicial efectiva de acuerdo con el artículo 53.2 constitucional.",
+        "D) Derecho de igualdad de trato y de oportunidades entre mujeres y hombres."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 1, ¿a qué derecho se refiere el objeto de la Ley?. Opción correcta: D) Derecho de igualdad de trato y de oportunidades entre mujeres y hombres.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_040",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿qué se incluye en el acceso a las organizaciones sindicales?",
+      "options": [
+        "A) El derecho a voto secreto para la elección de la secretaría general de la entidad.",
+        "B) Afiliación y participación.",
+        "C) La paridad obligatoria en los comités de empresa de más de cien trabajadores.",
+        "D) El acceso gratuito a los servicios de asesoría jurídica para las mujeres afiliadas."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 5, ¿qué se incluye en el acceso a las organizaciones sindicales?. Opción correcta: B) Afiliación y participación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_041",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 6, ¿qué es la discriminación directa?",
+      "options": [
+        "A) Un comportamiento de naturaleza sexual que atenta contra la dignidad de la mujer.",
+        "B) Una orden de discriminar emitida por el empresario en atención a la nacionalidad.",
+        "C) En atención a su sexo, de manera menos favorable que otra en situación comparable.",
+        "D) La desventaja particular producida por una práctica aparentemente neutra."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 6, ¿qué es la discriminación directa?. Opción correcta: C) En atención a su sexo, de manera menos favorable que otra en situación comparable.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_042",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 12, ¿quién podrá recabar de los tribunales la tutela del derecho?",
+      "options": [
+        "A) Cualquier persona podrá recabar de los tribunales la tutela del derecho.",
+        "B) Exclusivamente las mujeres que acrediten una situación de especial vulnerabilidad.",
+        "C) Solo las asociaciones legalmente constituidas cuyo fin sea la defensa de la igualdad.",
+        "D) Los sindicatos y las organizaciones empresariales en representación de sus socios."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 12, ¿quién podrá recabar de los tribunales la tutela del derecho?. Opción correcta: A) Cualquier persona podrá recabar de los tribunales la tutela del derecho.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_043",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben establecer frente al acoso sexual?",
+      "options": [
+        "A) Un protocolo de actuación negociado con la representación legal de los trabajadores.",
+        "B) Un código ético de conducta para los titulares de los órganos directivos estatales.",
+        "C) Establecer medidas efectivas de protección.",
+        "D) Sanciones disciplinarias de suspensión de funciones para los infractores."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben establecer frente al acoso sexual?. Opción correcta: C) Establecer medidas efectivas de protección.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "id": "q_t19_ccoo_2026_044",
+      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben remover para ofrecer condiciones de igualdad efectiva?",
+      "options": [
+        "A) Las cláusulas de los negocios jurídicos que se consideren nulas de pleno derecho.",
+        "B) Los estereotipos sociales asociados a la asunción de obligaciones familiares.",
+        "C) Los sesgos inconscientes en la valoración de los méritos de la carrera profesional.",
+        "D) Remover los obstáculos que impliquen la pervivencia de cualquier tipo de discriminación."
+      ],
+      "correctAnswer": 3,
+      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 51, ¿qué deben remover para ofrecer condiciones de igualdad efectiva?. Opción correcta: D) Remover los obstáculos que impliquen la pervivencia de cualquier tipo de discriminación.",
+      "topicId": "19",
+      "isGenerated": true,
+      "createdAt": "2026-07-27T19:28:00Z"
     }
   ],
   "20": [

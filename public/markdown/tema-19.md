@@ -212,3 +212,16 @@ La US aplica medidas de conciliación y flexibilidad laboral, especialmente regu
 
 ### 4. Planes de Igualdad en la Universidad de Sevilla
 > 💡 **ENFOQUE TEST CCOO (Art. 45-48):** La Universidad de Sevilla está obligada a elaborar, implantar y evaluar periódicamente su **Plan de Igualdad**, el cual debe ser negociado con la representación sindical (CCOO, UGT, etc.) y coordinado técnicamente por la **Unidad de Igualdad de la US**.
+## 2.B Matices Clave de Discriminación Directa, Indirecta y Orden de Discriminar (Artículos 6 y 7)
+
+- **Discriminación Directa por Razón de Sexo (Art. 6.1):** Situación en que se encuentra una persona que sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera menos favorable que otra en situación comparable.
+- **Discriminación Indirecta por Razón de Sexo (Art. 6.2):** Situación en que una disposición, criterio o práctica aparentemente neutros pone a personas de un sexo en desventaja particular con respecto a personas del otro.
+- **Justificación Objetiva de Prácticas Neutras (Art. 6.2):** Salvo que dicha disposición, criterio o práctica pueda justificarse objetivamente en atención a una **finalidad legítima** y que los medios para alcanzar dicha finalidad sean **necesarios y adecuados**.
+- **Orden de Discriminar (Art. 6.3):** En cualquier caso, se considera discriminatoria toda orden de discriminar, directa o indirectamente, por razón de sexo.
+
+## 5.B Criterios de Actuación en el Empleo Público (Artículo 51)
+
+En el marco del Capítulo I del Título V de la Ley Orgánica 3/2007, las Administraciones Públicas aplicarán los siguientes criterios:
+1. **Evaluación Periódica de la Brecha Salarial:** Promover la transparencia retributiva y realizar evaluaciones analíticas periódicas para erradicar diferencias retributivas no justificadas entre mujeres y hombres.
+2. **Presencia Equilibrada en Órganos de Selección:** Garantizar la presencia equilibrada de mujeres y hombres en los tribunales de selección y comisiones de valoración de personal.
+3. **Formación Específica en Igualdad:** Capacitar al personal al servicio de las Administraciones Públicas en materia de igualdad de trato y no discriminación.

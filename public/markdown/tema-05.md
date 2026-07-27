@@ -257,3 +257,48 @@ El personal de la BUS utiliza habitualmente las siguientes bases de datos para v
   <p style="font-size: 0.85rem; color: #c7d2fe; margin-top: 12px; margin-bottom: 0;">🌐 Acceso libre y 100% optimizado para ordenador, tablet y móvil en <strong>https://oposiciones-bus-app.vercel.app/</strong></p>
 
 </div>
+## 2.B Circulación, Préstamo y Régimen Sancionador Oficial de la US
+
+### Definición Jurídica de Préstamo a Domicilio
+Se entiende por préstamo a domicilio aquel mediante el cual el ejemplar sale físicamente del recinto de la biblioteca, quedando registrada esta transacción en el sistema automatizado de la Biblioteca. El beneficiario de dicho préstamo es responsable de su conservación y devolución en el plazo establecido. Todos los préstamos realizados son responsabilidad exclusiva del titular del carnet utilizado.
+
+### Régimen de Incumplimiento y Penalizaciones Oficiales de la US
+El usuario, al registrar sus datos en el sistema de préstamo de la Universidad de Sevilla, acepta las condiciones de utilización del servicio y las sanciones asociadas a su incumplimiento:
+1. **Retraso en Préstamo Regular:** La devolución con retraso de material en préstamo regular supondrá la suspensión del derecho a préstamo durante **2 días naturales por cada día de retraso** por documento.
+2. **Retraso en Préstamo por Horas:** En el caso de préstamos por horas (ej. material reservado o de alta demanda), la sanción es de **5 días naturales de suspensión por cada día/retraso**.
+3. **Límite de Acumulación Estacional:** Cuando el usuario incurre en **6 penalizaciones a lo largo del mismo curso académico**, pierde el derecho a préstamo durante **todo lo que resta de dicho curso académico**.
+4. **Pérdida del Ejemplar:** El usuario debe notificar inmediatamente la pérdida. Es responsable de reponer el mismo documento o adquirir uno de la misma temática y características consensuado con el personal bibliotecario. Pierde el derecho a préstamo hasta que restituya el ejemplar.
+5. **Deterioro Grave:** Si un documento sufre grave deterioro durante el préstamo, el usuario deberá reponer dicho material en las mismas condiciones que en la pérdida.
+6. **Sustracción sin Trámite:** Retirar un ejemplar sin cumplir los trámites reglamentarios conlleva la pérdida inmediata del derecho a préstamo y la comunicación formal a la Dirección del Centro para la adopción de medidas disciplinares.
+
+## 2.C Arquitectura y Tipología de Usuarios en el SIGB ALMA
+
+El Sistema Integrado de Gestión Bibliotecaria ALMA clasifica los registros de usuarios según diferentes parámetros:
+- **Por tipo de cuenta:**
+  - *Internos:* Sus datos se gestionan directamente dentro de Alma (ej. usuarios externos ajenos a la comunidad US).
+  - *Externos:* Sus datos se gestionan en una base de datos corporativa ajena a Alma y se sincronizan periódicamente (ej. Estudiantes, PDI, PTGAS/PAS).
+- **Por tipo de registro:**
+  - *Personal:* Fichas con datos del personal que trabaja en la biblioteca (cuenta con rol operativo en el sistema).
+  - *Público:* Fichas con los datos de los usuarios receptores de servicios bibliotecarios.
+  - *Contacto:* Fichas con datos de proveedores y entidades colaboradoras.
+- **Por estado en el sistema:**
+  - *Activos:* Cuentas vigentes con acceso a préstamos y reservas.
+  - *No activos:* Cuentas caducadas o dadas de baja.
+  - *Bloqueados:* Cuentas con sanciones o bloqueos administrativos vigentes.
+- **Grupos de Usuarios:** Estudiantes de Grado, Máster, Doctorado, PDI, PTGAS/PAS, Personal de Biblioteca, Alumni, A6, Usuarios externos y Tutor MAES.
+
+## 5. Servicios Especializados de Préstamo en la US
+
+### Préstamo Intercampus
+Servicio que agiliza el préstamo domiciliario de libros entre los distintos campus de la Universidad de Sevilla sin necesidad de desplazamiento del usuario.
+- **Ámbito:** Permitido **exclusivamente entre bibliotecas de distintos campus**.
+- **Destinatarios:** Dirigido al **Profesorado US, Estudiantes de Doctorado, Estudiantes con discapacidad y PAS/PTGAS**.
+- **Tramitación:** Petición directa a través del Catálogo FAMA mediante la opción "Solicitar".
+
+### Préstamo Interbibliotecario
+Proporciona a la comunidad universitaria documentos no disponibles en el Catálogo FAMA y facilita fondos de la US a instituciones externas.
+- **Requisitos:** Alta previa mediante UVUS y contar con dirección de correo electrónico oficial `@us.es`.
+- **Formulario:** Tramitación mediante formulario web oficial del servicio.
+
+### Préstamo CBUA
+Servicio del Consorcio de Bibliotecas Universitarias de Andalucía que permite solicitar libros en préstamo a las 9 universidades públicas de Andalucía (Almería, Córdoba, Granada, Huelva, UNIA, Jaén, Málaga, UPO y Sevilla).

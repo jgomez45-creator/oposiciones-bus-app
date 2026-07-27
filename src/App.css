@@ -13,10 +13,12 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 16px 20px;
   height: calc(100vh - 48px);
   position: sticky;
   top: 24px;
+  min-height: 0;          /* permite que los hijos flex reduzcan correctamente */
+  overflow: hidden;       /* el scroll solo ocurre en .sidebar-menu */
 }
 
 .main-content {
@@ -29,7 +31,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;    /* reducido de 40px → 20px */
+  flex-shrink: 0;
 }
 
 .sidebar-logo h2 {
@@ -45,15 +48,20 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;               /* reducido de 8px → 6px */
   flex-grow: 1;
+  min-height: 0;          /* esencial para que overflow-y funcione con flex */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 rgba(15, 23, 42, 0.6);
 }
 
 .menu-group {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;     /* reducido de 12px → 6px */
 }
 
 .menu-group-label {
@@ -74,7 +82,7 @@
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 10px 16px;
+  padding: 7px 14px;      /* reducido de 10px 16px → 7px 14px */
   border-radius: 8px;
   cursor: pointer;
   text-align: left;
@@ -116,13 +124,47 @@
 }
 
 .sidebar-footer {
-  padding-top: 20px;
+  padding-top: 12px;      /* reducido de 20px → 12px */
   border-top: 1px solid var(--border-color);
   font-size: 0.75rem;
   color: var(--text-dark);
   display: flex;
   justify-content: space-between;
+  flex-shrink: 0;         /* siempre visible, nunca encogido */
 }
+
+/* Animación de entrada del Sidebar */
+@keyframes sidebarSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar {
+  animation: sidebarSlideIn 0.25s ease-out both;
+}
+
+/* Fade entre vistas del área de contenido principal */
+@keyframes viewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view-fade-in {
+  animation: viewFadeIn 0.18s ease-out both;
+}
+
 
 /* Dashboard Header */
 .dashboard-header {
@@ -1952,7 +1994,37 @@ body.study-focus-mode .study-timer-bar {
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
 }
 
-/* Custom Quiz CSS */
+/* ── Botón Terciario / Ghost (Nivel 3: Cancelar, Volver, acciones mínimas) ── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: var(--text-muted);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.75;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--text-main);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+  opacity: 0.85;
+}
+
+
 .quiz-mode-toggles {
   display: flex;
   background: rgba(255, 255, 255, 0.02);
@@ -2900,17 +2972,52 @@ body.study-focus-mode .topic-viewer-main.theme-sepia {
   scroll-behavior: smooth;
 }
 
-/* Content scrollbar in reading mode */
+/* Content scrollbar in reading mode (High Contrast) */
+.reading-fullscreen-content {
+  scrollbar-width: auto;
+  scrollbar-color: #3b82f6 rgba(10, 15, 30, 0.8);
+}
 .reading-fullscreen-content::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 .reading-fullscreen-content::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(10, 15, 30, 0.8);
+  border-radius: 5px;
 }
 .reading-fullscreen-content::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.12);
-  border-radius: 3px;
+  background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
 }
+.reading-fullscreen-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
+}
+
+/* Light Theme Scrollbars for Reading */
+.theme-light-reading::-webkit-scrollbar-track,
+.theme-light-reading *::-webkit-scrollbar-track {
+  background: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+}
+.theme-light-reading::-webkit-scrollbar-thumb,
+.theme-light-reading *::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Sepia Theme Scrollbars for Reading */
+.theme-sepia::-webkit-scrollbar-track,
+.theme-sepia *::-webkit-scrollbar-track {
+  background: #e4d5bc !important;
+}
+.theme-sepia::-webkit-scrollbar-thumb,
+.theme-sepia *::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #855e3a 0%, #5c4028 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
 
 /* Max-width for comfortable reading line length */
 .reading-fullscreen-content .markdown-rendered-content {
@@ -3237,8 +3344,90 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 }
 
+/* ============================================================
+   NUEVA BREAKPOINT: Laptop Compacto / Pantalla 1025–1280px
+   Cubre monitores con escalado de Windows 125-150% o laptops
+   con resolución efectiva baja (768-900px de altura)
+   ============================================================ */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .app-container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .sidebar {
+    width: 240px;
+    padding: 12px 14px;
+  }
+
+  .sidebar-logo {
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+
+  .sidebar-logo h2 {
+    font-size: 1.05rem;
+  }
+
+  .sidebar-logo p {
+    font-size: 0.7rem;
+  }
+
+  .menu-group {
+    margin-bottom: 4px;
+  }
+
+  .menu-group-label {
+    font-size: 0.6rem;
+    margin-bottom: 3px;
+    padding: 0 12px;
+  }
+
+  .menu-item {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    gap: 10px;
+  }
+
+  .sidebar-footer {
+    font-size: 0.7rem;
+    padding-top: 10px;
+  }
+
+  .topics-sidebar {
+    width: 220px;           /* reducido de 320px → 220px en laptops compactos */
+  }
+
+  .topic-sidebar-title {
+    font-size: 0.8rem;
+  }
+
+  .topic-sidebar-num {
+    min-width: 36px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================================
+   Pantalla Media: 1281–1440px (monitores estándar FHD sin escalado)
+   Optimización del layout del Dashboard para evitar la columna
+   derecha excesivamente estrecha con grid 2fr/1fr
+   ============================================================ */
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;   /* apila en una columna para aprovechar el ancho */
+  }
+
+  .dashboard-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* widgets en 2 columnas lado a lado */
+    gap: 16px;
+  }
+}
+
 /* Responsive / Mobile Optimization */
 @media screen and (max-width: 1024px) {
+
   /* Layout Structure */
   .app-container {
     flex-direction: column;

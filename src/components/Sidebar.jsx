@@ -31,15 +31,15 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       ]
     },
     {
-      label: 'Asistente IA',
+      label: 'Seguimiento',
       items: [
-        { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri, isBlueButton: true }
+        { id: 'stats', name: 'Progreso', icon: BarChart3 }
       ]
     },
     {
-      label: 'Seguimiento',
+      label: 'Herramientas',
       items: [
-        { id: 'stats', name: 'Progreso', icon: BarChart3 },
+        { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri, isBlueButton: true },
         { id: 'manual', name: 'Manual de Uso', icon: HelpCircle }
       ]
     }
@@ -150,22 +150,44 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       </nav>
 
       {currentUser && (
-        <div className="sidebar-user-profile" style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '14px 16px', borderTop: '1px solid var(--border-color)', margin: '10px 0 5px 0', background: 'rgba(255,255,255,0.01)', borderRadius: '12px' }}>
+        <div className="sidebar-user-profile" style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          padding: '10px 14px',
+          borderTop: '1px solid var(--border-color)',
+          margin: '6px 0 4px 0',
+          background: 'rgba(255,255,255,0.01)',
+          borderRadius: '12px',
+          flexShrink: 0           /* siempre visible, nunca encogido */
+        }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '1rem', color: '#070a13', boxShadow: '0 2px 8px rgba(234, 179, 8, 0.2)' }}>
+            <div style={{
+              width: '30px',
+              height: '30px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: '800',
+              fontSize: '0.9rem',
+              color: '#070a13',
+              boxShadow: '0 2px 8px rgba(234, 179, 8, 0.2)'
+            }}>
               {currentUser.name.charAt(0).toUpperCase()}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name || 'Alumno Registrado'}</span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ID: {currentUser.bookCode || currentUser.code || (currentUser.role === 'admin' ? 'ADMIN' : 'REGISTRADO')}</span>
+              <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name || 'Alumno Registrado'}</span>
+              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>ID: {currentUser.bookCode || currentUser.code || (currentUser.role === 'admin' ? 'ADMIN' : 'REGISTRADO')}</span>
             </div>
           </div>
           <button 
             onClick={handleLogout} 
             className="glow-btn-secondary"
-            style={{ fontSize: '0.75rem', padding: '6px 12px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', width: '100%', borderRadius: '8px' }}
+            style={{ fontSize: '0.73rem', padding: '5px 10px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', width: '100%', borderRadius: '8px' }}
           >
-            <LogOut size={12} />
+            <LogOut size={11} />
             <span>Cerrar Sesión</span>
           </button>
         </div>

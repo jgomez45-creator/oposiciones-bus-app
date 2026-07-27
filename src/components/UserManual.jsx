@@ -27,6 +27,7 @@ const getCategoryIcon = (iconName) => {
     case 'Layers': return <Layers size={20} />;
     case 'ClipboardList': return <ClipboardList size={20} />;
     case 'BarChart3': return <BarChart3 size={20} />;
+    case 'Sparkles': return <Sparkles size={20} />;
     default: return <HelpCircle size={20} />;
   }
 };
