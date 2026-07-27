@@ -1,14 +1,5 @@
 # Tema 3: Instalaciones, espacios y equipamiento
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza los valores recomendados de iluminación, temperatura y humedad en salas y depósitos en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Espacios y equipamiento en las bibliotecas universitarias. Distribución de espacios y áreas de servicio. Condiciones ambientales y conservación de las colecciones
 
 ---
@@ -30,13 +21,6 @@ En el diseño y construcción de bibliotecas universitarias, el marco de referen
 10. **Económico:** Construcción y mantenimiento eficientes en recursos públicos.
 
 ---
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar los valores recomendados de iluminación, temperatura y humedad en salas y depósitos? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. Distribución de Espacios y Áreas de Servicio
 Para un correcto funcionamiento y bienestar de los usuarios, las áreas se estructuran en diferentes zonas clasificadas por su nivel de sonoridad aceptable y uso:

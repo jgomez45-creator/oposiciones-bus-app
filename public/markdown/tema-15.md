@@ -1,14 +1,5 @@
 # Tema 15: Riesgos generales y específicos del puesto de trabajo
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las distancias de pantalla PVD, pausas obligatorias, pesos máximos y riesgos biológicos en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Riesgos asociados al auxiliar de biblioteca y directrices técnicas del SEPRUS
 
 ---
@@ -20,13 +11,6 @@ El puesto de **Técnico/a Auxiliar de Biblioteca, Archivo y Museo** en la Univer
 *   **Manipulación manual de cargas:** Levantamiento de monografías, movimiento de cajas de archivo, ordenación física de estanterías y empuje de carros de transporte.
 
 ---
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar las distancias de pantalla PVD, pausas obligatorias, pesos máximos y riesgos biológicos? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. Ergonomía en Puestos con Pantallas de Visualización de Datos (PVD - Guía Técnica INSST)
 Las directrices técnicas del **INSST** y del **SEPRUS** detallan que la prevención de la astenopía (fatiga visual) y los trastornos musculoesqueléticos en oficinas exige cumplir estrictos parámetros ergonómicos:

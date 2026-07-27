@@ -1,27 +1,11 @@
 # Tema 8: Tecnologías aplicadas en bibliotecas
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las frecuencias de radio, tecnologías RFID y funcionamiento de las estaciones de autopréstamo en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## RFID, autopréstamo y sistemas de seguridad
 
 ---
 
 ## 1. La Tecnología RFID en Bibliotecas
 La tecnología **RFID** (Radio Frequency Identification / Identificación por Radiofrecuencia) ha sustituido progresivamente al tradicional código de barras y a las electromagnéticas en la BUS para la gestión física de la colección.
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar las frecuencias de radio, tecnologías RFID y funcionamiento de las estaciones de autopréstamo? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ### A. ¿Cómo funciona el RFID en las Bibliotecas?
 Consiste en la transmisión inalámbrica de datos a través de ondas de radio. El sistema funciona en la banda de **Alta Frecuencia (HF) a 13.56 MHz** (regulada por las normas internacionales **ISO 15693** e **ISO 18000-3**). Se compone de tres elementos principales:

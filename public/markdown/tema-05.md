@@ -1,14 +1,5 @@
 # Tema 5: Gestión de la colección
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las fases del tratamiento técnico y los criterios MUSTIE del expurgo en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Selección, adquisición, tratamiento técnico, inventario, expurgo y preservación
 
 ---
@@ -26,14 +17,6 @@ El ciclo de vida de los documentos consta de fases interrelacionadas representad
 ```
 
 ---
-
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar las fases del tratamiento técnico y los criterios MUSTIE del expurgo? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. Selección y Adquisición
 

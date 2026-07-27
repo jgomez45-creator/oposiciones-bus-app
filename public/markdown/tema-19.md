@@ -1,28 +1,11 @@
 # Tema 19: Políticas de igualdad y conciliación en la administración pública
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza los conceptos de discriminación directa/indirecta y los porcentajes de representación equilibrada en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Ley Orgánica 3/2007 para la igualdad efectiva. Principio de igualdad, tutela contra la discriminación, planes de igualdad y conciliación en la US
 
 ---
 
 ## 1. Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres (LOIMH)
 La **LOIMH** es la norma estatal en España cuyo objeto es hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres, en particular mediante la eliminación de la discriminación de la mujer en todos los ámbitos.
-
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar los conceptos de discriminación directa/indirecta y los porcentajes de representación equilibrada? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ### A. El Título Preliminar: Objeto y Ámbito (Art. 1 y 2)
 *   **Artículo 1 (Objeto):** Las mujeres y los hombres son iguales en dignidad humana, e iguales en derechos y deberes. El objeto de la ley es hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres, en particular mediante la eliminación de la discriminación de la mujer, **sea cual fuere su circunstancia o condición** (o *sea cual fuera sus circunstancias o condición*, de acuerdo con la literalidad evaluada en exámenes oficiales), **en cualquiera de los ámbitos de la vida**.

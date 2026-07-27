@@ -1,28 +1,11 @@
 # Tema 9: Servicios a los usuarios I: Préstamo y Objetoteca
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza los plazos y límites de préstamo por tipo de usuario y las de sanciones por demora en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## El servicio de préstamo en la BUS y la Objetoteca
 
 ---
 
 ## 1. El Servicio de Préstamo a Domicilio en la BUS
 El **préstamo a domicilio** es el servicio a través del cual la BUS autoriza la salida temporal de materiales bibliográficos e informativos fuera del recinto físico de la biblioteca. Es de carácter personal e intransferible.
-
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar los plazos y límites de préstamo por tipo de usuario y las de sanciones por demora? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ### A. Tipologías de Préstamo
 1.  **Préstamo Ordinario (Monografías):** Para manuales y libros de estudio de la colección.

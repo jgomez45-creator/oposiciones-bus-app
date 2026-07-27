@@ -1,14 +1,5 @@
 # Tema 20: Normativa de la US contra violencia, acoso y discriminación
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza el ámbito de aplicación de las denuncias de acoso, medidas cautelares y plazos de resolución en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Normativa para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso en la Universidad de Sevilla
 
 ---
@@ -20,13 +11,6 @@ La Universidad de Sevilla cuenta con una regulación específica para erradicar 
 *   **Tratamiento del Riesgo:** El acoso y la violencia laboral se consideran un **riesgo psicosocial** grave en el marco de la seguridad y salud laboral.
 
 ---
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar el ámbito de aplicación de las denuncias de acoso, medidas cautelares y plazos de resolución? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. Tipología Legal de las Conductas Protegidas
 La normativa de la US distingue expresamente las siguientes figuras objetivas:

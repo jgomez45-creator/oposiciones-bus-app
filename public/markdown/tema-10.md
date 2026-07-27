@@ -1,14 +1,5 @@
 # Tema 10: Servicios a los usuarios II: Información y referencia
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza los niveles de referencia de la BUS y las diferencias entre obras primarias y secundarias en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Información, atención y referencia
 
 ---
@@ -22,13 +13,6 @@ En la estructura organizativa de la **Biblioteca de la Universidad de Sevilla (B
 *   **Referencia Especializada (Tercer Nivel):** Consultas complejas orientadas a la investigación y el posgrado (búsquedas avanzadas en Scopus o Web of Science, análisis de métricas de impacto). Atendido por personal especialista del área de apoyo a la investigación.
 
 ---
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar los niveles de referencia de la BUS y las diferencias entre obras primarias y secundarias? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. La Entrevista de Referencia: Fases de la Interacción
 La **entrevista de referencia** es el proceso de comunicación interactiva entre el bibliotecario y el usuario con el fin de determinar con precisión qué información necesita realmente el usuario. Consta de las siguientes fases:

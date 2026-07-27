@@ -1,14 +1,5 @@
 # Tema 13: Herramientas digitales: Microsoft 365
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las herramientas de Microsoft 365 (Outlook, OneDrive, SharePoint, Teams, Word, Excel) y las tablas de atajos de teclado de examen.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas tipo test validadas de opción múltiple.
-
-</div>
-
 ## Correo electrónico (Outlook) y herramientas de Microsoft 365 (OneDrive, SharePoint, Teams, Word, Excel, etc.)
 
 ---
@@ -22,13 +13,6 @@ La Universidad de Sevilla ofrece a todo su Personal Técnico, de Gestión y de A
 *   **Cuentas Corporativas:** Formato `usuario@us.es` para personal (PTGAS/PDI) y `usuario@alum.us.es` para estudiantes.
 *   **Portales de Acceso Centralizado:** Portal corporativo US **`https://o365.us.es`** o acceso en la nube **`https://portal.office.com`** mediante Single Sign-On (SSO) y autenticación multifactor (MFA).
 *   **Multidispositivo:** Cada cuenta permite activar la suite hasta en 5 dispositivos locales (PC/Mac, tablets, móviles), combinando el uso de aplicaciones web y ejecutable de escritorio.
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar los atajos de examen o los procedimientos de SharePoint? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** de este tema.
-
-</div>
 
 ---
 

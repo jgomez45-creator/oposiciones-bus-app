@@ -1,14 +1,5 @@
 # Tema 11: Servicios a los usuarios III: Apoyo al aprendizaje
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las directrices del plagio académico, estilos de cita (APA/Vancouver) y Mendeley en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Apoyo al aprendizaje y formación en competencias informacionales y digitales (ALFIN/CODI)
 
 ---
@@ -23,13 +14,6 @@ El servicio clásico de "formación de usuarios" ha evolucionado hacia dos de lo
     3.  *Nivel Avanzado:* Elaboración de trabajos de investigación, TFG, gestión bibliográfica avanzada e identidad digital.
 
 ---
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar las directrices del plagio académico, estilos de cita (APA/Vancouver) y Mendeley? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. El Marco de Competencias Digitales de la Unión Europea (DigComp 2.2)
 El marco **DigComp** (Digital Competence Framework) es la referencia europea oficial que describe y clasifica las habilidades que componen la competencia digital. En las universidades, la BUS basa el diseño pedagógico de sus cursos en esta estructura, la cual se divide en **5 áreas principales** y **21 competencias específicas**:

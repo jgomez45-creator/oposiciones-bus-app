@@ -1,28 +1,11 @@
 # Tema 4: La colección impresa y electrónica en la BUS y acceso remoto
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las vías de acceso abierto (verde/dorada/híbrida) y tecnologías de acceso remoto en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Gestión, tipologías y acceso a los recursos fuera del campus
 
 ---
 
 ## 1. La Colección Impresa en la BUS
 A pesar de la primacía de los recursos digitales, la **colección impresa** sigue siendo un pilar fundamental en las bibliotecas de campus de la US, especialmente en las áreas de Humanidades y Ciencias Sociales. Según el **Reglamento de la BUS**, la colección (o fondo documental) está integrada por todos los recursos de información, con independencia de su soporte material, adquiridos para cumplir con los objetivos de docencia, aprendizaje, investigación y extensión cultural.
-
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar las vías de acceso abierto (verde/dorada/híbrida) y tecnologías de acceso remoto? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ### Tipologías
 1.  **Colección de Libre Acceso:** Monografías y manuales dispuestos en las salas de lectura ordenados sistemáticamente por la Clasificación Decimal Universal (CDU). Son libros disponibles para préstamo directo.

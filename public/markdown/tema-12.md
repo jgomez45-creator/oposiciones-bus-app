@@ -1,14 +1,5 @@
 # Tema 12: Servicios a los usuarios IV: Apoyo a la investigación
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza los identificadores de investigador (ORCID), agencias evaluadoras (ANECA) y factor de impacto en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
 ## Apoyo a los investigadores, bases de datos y evaluación científica
 
 ---
@@ -22,14 +13,6 @@ Este servicio es un pilar estratégico dentro del modelo de biblioteca universit
 *   Garantizar la conservación, archivo y libre acceso a la producción académica de la US.
 
 ---
-
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar los identificadores de investigador (ORCID), agencias evaluadoras (ANECA) y factor de impacto? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ## 2. Identificadores de Firma Científica
 Para evitar la confusión de autores debido a la coincidencia de nombres (homonimia), así como las variantes de firmas que dificultan la correcta atribución de las citas de los trabajos en los índices de impacto, la BUS promueve y asiste en el uso de los siguientes **identificadores digitales persistentes**:
@@ -101,8 +84,6 @@ La literatura científica puede llegar al acceso abierto a través de cuatro rut
 > [!IMPORTANT]
 > **La Vía Diamante** es la única modalidad en la que **no hay coste ni para el autor ni para el lector**. Es el modelo promovido por la Comisión Europea para la investigación financiada con fondos públicos europeos.
 
-
-
 ---
 
 ## 6. Esquema de Repaso Rápido
@@ -115,8 +96,6 @@ La literatura científica puede llegar al acceso abierto a través de cuatro rut
 *   **SJR (Scopus):** Métrica alternativa de prestigio de revistas (SCImago/Elsevier).
 *   **Vías del Acceso Abierto:** Verde (repositorio, gratuito), Dorada (revista OA, paga APC), Híbrida (revista mixta, paga APC), **Diamante** (sin coste para nadie, financiada institucionalmente).
 *   **Altmetrics:** Métricas alternativas de impacto inmediato (redes sociales, descargas, menciones). Visualizadas con el **Altmetric Donut** (rosca de colores). Complementan (no sustituyen) a las citas tradicionales.
-
-
 
 ---
 

@@ -1,14 +1,5 @@
 # Tema 6: Clasificación de los fondos bibliográficos. La Clasificación Decimal Universal (CDU). Organización, ordenación y control de fondos
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza la secuencia exacta de tejuelos, auxiliares de la CDU y los códigos de examen en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales del Código 4140.
-
-</div>
-
 ---
 
 ## 1. El Concepto de Clasificación Bibliográfica

@@ -1,15 +1,5 @@
 # Tema 16: Legislación sobre Prevención de Riesgos Laborales
 
-<div class="app-promo-banner header-promo">
-
-> 📱 **ESTUDIA Y OPTIMIZA ESTE TEMA EN LA APP**  
-> Accede a **oposiciones-bus-app** (https://oposiciones-bus-app.vercel.app) para complementar tu lectura:
-> * 🎴 **Flashcards:** Memoriza las obligaciones del trabajador (Art. 29) y los porcentajes de color de las señales de seguridad en minutos.
-> * 📝 **Modo Test:** Pon a prueba este tema con preguntas de exámenes oficiales.
-
-</div>
-
-
 ## Marco Normativo Técnico: Art. 29 de la Ley 31/1995 y Reales Decretos sobre Lugares de Trabajo, Señalización, PVD, Cargas y EPIs
 
 ---
@@ -17,14 +7,6 @@
 ## 📑 1. Artículo 29 de la Ley 31/1995 (LPRL): Obligaciones de los Trabajadores
 
 En el programa oficial de la oposición de la Universidad de Sevilla (US), **únicamente entra este artículo específico** de la Ley de Prevención de Riesgos Laborales (LPRL). Consagra el principio de **cooperación, responsabilidad e implicación activa** del trabajador en la prevención. Su incumplimiento acarrea consecuencias disciplinarias.
-
-
-<div class="app-promo-banner mid-promo">
-
-> 💡 **REPASO RÁPIDO EN LA APP:**  
-> ¿Te cuesta memorizar las obligaciones del trabajador (Art. 29) y los porcentajes de color de las señales de seguridad? Entra en la app (https://oposiciones-bus-app.vercel.app) y repasa las **Tarjetas de Memorización** específicas de este apartado para afianzar los conceptos sin dudar.
-
-</div>
 
 ### Texto Legal Íntegro y Comentado del Artículo 29:
 
