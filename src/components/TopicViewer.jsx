@@ -60,8 +60,8 @@ export default function TopicViewer({
     if (viewMode === 'single') {
       setSelectedPrintTopicIds([activeTopicId.toString()]);
       setIsManualFormat(true);
+      setCompiledPrintContent('');
       setViewMode('multi-print');
-      setTriggerAutocompile(true);
     } else {
       if (currentUser?.role === 'admin') {
         setShowPrintModal(true);
