@@ -2,11 +2,11 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Coherencia Semántica Estricta de Opciones (Cero distractores de fácil descarte):
- * 1. Clasificación por SemanticType (date_or_number, short_concept, procedural_text).
- * 2. Garantía de opciones 100% homogéneas: Si la respuesta es una medida/procedimiento, los 3 distractores
- *    son medidas/procedimientos. Cero fechas sueltas ("13 de febrero") en preguntas conceptuales.
- * 3. Purga de letras de sección ("B. Medidas Cautelares" -> "Medidas Cautelares").
+ * Coherencia de Subdominio de Sección Estricta (Cero opciones fuera de contexto):
+ * 1. Clasificación por Subdominio de Sección (ambito_aplicacion, fases_procedimiento, tipologia_acoso, organos_comite).
+ * 2. Si la pregunta versa sobre "Ámbito de Aplicación", las 4 opciones tratan sobre colectivos/personas (PDI, PTGAS, becarios, contratistas).
+ *    Queda TOTALMENTE PROHIBIDO incluir fases ("Indagación Inicial") o fechas ("Aprobada el 18 de diciembre") como distractores.
+ * 3. Purga de encabezados e índices.
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -42,13 +42,14 @@ function isMarketingOrHTML(line) {
   );
 }
 
-// Limpia títulos de epígrafes purgando letras iniciales (ej. "B. Medidas" -> "Medidas")
+// Limpia títulos de epígrafes purgando números de artículo y letras iniciales
 export function cleanHeadingTitle(title) {
   if (!title) return '';
   const clean = sanitizeText(title);
   return clean
     .replace(/[📌📱💡🎴📝⚡⚠️📋🟢🟡🔴•*]/g, '')
-    .replace(/^([A-Z0-9][.)-]\s*)+/i, '') // Purga "B. ", "1. ", "A.- "
+    .replace(/^([A-Z0-9][.)-]\s*)+/i, '')
+    .replace(/\(Artículo\s+\d+\)/i, '')
     .replace(/^(COMPENDIO|GUÍA|RESUMEN|APARTADO|SECCIÓN)\s*/i, '')
     .replace(/\(SÚPER PREGUNTADOS.*\)/i, '')
     .replace(/\(MÁXIMA IMPORTANCIA.*\)/i, '')
@@ -90,6 +91,7 @@ function cleanStemExcerpt(text) {
   if (!text) return '';
   return text
     .replace(/^([A-Z0-9][.)-]\s*)+/i, '')
+    .replace(/\(Artículo\s+\d+\)/i, '')
     .replace(/\((plazo|duración|término|artículo|art|máximo|mínimo)?:?\s*\d+[^)]+\)/gi, '')
     .replace(/\b\d+\s*(días|meses|años|horas|minutos)\b/gi, '')
     .replace(/\s{2,}/g, ' ')
@@ -97,22 +99,36 @@ function cleanStemExcerpt(text) {
     .trim();
 }
 
-// Determina el tipo semántico de una opción para asegurar homogeneidad entre A, B, C y D
+// Determina la Subtemática / Subdominio de Sección exacto para evitar mezclar temas ajenos
+function getSectionSubdomain(heading, text) {
+  const combined = (heading + ' ' + text).toLowerCase();
+  
+  if (/ámbito|subjetivo|aplicación|colectivo|personal|pdi|ptgas|estudiantes|becarios|contratistas|exclusión/i.test(combined)) {
+    return 'ambito_aplicacion';
+  }
+  if (/fase|indagación|plazo|tramitación|procedimiento|medida|cautelar|informe|comité|resolución/i.test(combined)) {
+    return 'fases_procedimiento';
+  }
+  if (/acoso|sexual|mobbing|moral|ciberacoso|conducta|discriminación|hostil/i.test(combined)) {
+    return 'tipologia_acoso';
+  }
+  if (/órgano|vicerrector|director|seprus|igualdad|secretaría|comisión/i.test(combined)) {
+    return 'organos_comite';
+  }
+  return 'general';
+}
+
+// Determina el tipo semántico de una opción (date_or_number, short_concept, procedural_text)
 function getSemanticType(text) {
-  if (!text) return 'text';
+  if (!text) return 'procedural_text';
   const clean = text.trim();
   
-  // 1. Fechas o números cortas
-  if (/^\d+\s*(días|meses|años|horas|de\s+[a-z]+)/i.test(clean) || /^\d{1,2}\s+de\s+[a-z]+/i.test(clean) || clean.length < 22 && /\d+/.test(clean)) {
+  if (/^\d+\s*(días|meses|años|horas|de\s+[a-z]+)/i.test(clean) || /^\d{1,2}\s+de\s+[a-z]+/i.test(clean) || (clean.length < 22 && /\d+/.test(clean))) {
     return 'date_or_number';
   }
-
-  // 2. Conceptos o títulos cortos
   if (clean.length < 40 && !clean.includes('.')) {
     return 'short_concept';
   }
-
-  // 3. Texto normativo o procesal de extensión media/larga
   return 'procedural_text';
 }
 
@@ -273,105 +289,53 @@ export function checkDuplicated(proposedQuestionText, topicId) {
   };
 }
 
-// ── BANCO DE DISTRACTORES FORMALES Y PLAUSIBLES PARA LOS 20 TEMAS ─────────────
+// ── BANCO DE DISTRACTORES POR SUBDOMINIO (CERO MEZCLAS INCONGRUENTES) ─────────────
 const DOMAIN_DISTRACTORS = {
-  derecho_admin: [
-    'Acto administrativo ejecutivo sujeto a recurso de alzada en el plazo de un mes ante el órgano superior jerárquico.',
-    'Resolución que agota la vía administrativa resolviendo la solicitud mediante silencio positivo regulado.',
-    'Disposición de carácter general notificada individualmente a los interesados dentro de los 10 días siguientes.',
-    'Procedimiento tramitado por la vía de urgencia reduciendo a la mitad los plazos normativos ordinarios.',
-    'Contrato menor que no requiere licitación pública por importe inferior al umbral legalmente regulado.'
+  ambito_aplicacion: [
+    'Personal Docente e Investigador (PDI) con vinculación permanente o temporal en la Universidad de Sevilla.',
+    'Personal Técnico de Gestión y de Administración y Servicios (PTGAS) en cualquier situación administrativa.',
+    'Estudiantes matriculados en títulos oficiales o propios impartidos por la Universidad de Sevilla.',
+    'Quedan fuera del ámbito subjetivo directo el personal de empresas contratistas externas de servicios de la US.'
   ],
-  biblioteconomia: [
-    'Servicio de Préstamo Interbibliotecario (PIB / ILL) orientado a localizar documentos no existentes en el catálogo FAMA.',
-    'Clasificación Decimal Universal (CDU) estructurada mediante tablas principales de números y auxiliares de relación.',
-    'Plataforma de gestión de servicios de información Alma integrada con el catálogo en línea de la Universidad.',
-    'Consulta restringida en sala para manuscritos e impresos del Fondo Antiguo anteriores a 1901.',
-    'Renovación automática del periodo de préstamo a través del espacio personal en la plataforma FAMA.'
+  fases_procedimiento: [
+    'Indagación Avanzada tramitada por el Comité Técnico en un plazo máximo e improrrogable de 20 días hábiles.',
+    'Adopción de medidas cautelares provisionales de separación física o cambio temporal de turno de trabajo.',
+    'Elaboración del Informe Técnico Final con propuesta de archivo o de incoación de expediente disciplinario.',
+    'Tramitación a través del Buzón Único Electrónico para la convivencia gestionado por la Secretaría General.'
   ],
-  informatica: [
-    'Ctrl + Shift + L', 'Alt + F11', 'Ctrl + Alt + V', 'Ctrl + N',
-    'Aplicar el formato de moneda con dos decimales a las celdas seleccionadas.',
-    'Insertar una nueva tabla dinámica o gráfico en la hoja de trabajo activa.',
-    'Abrir el cuadro de diálogo Buscar y Reemplazar dentro del libro activo.',
-    'Sincronizar carpetas y archivos locales mediante el cliente de OneDrive para Empresa.',
-    'Asignar permisos de visualización o edición restringidos a usuarios del espacio de trabajo de Teams.'
+  tipologia_acoso: [
+    'Conducta hostil, reiterada y prolongada en el tiempo que atenta contra la dignidad o integridad moral en el trabajo.',
+    'Comportamiento no deseado de naturaleza sexual realizado con el propósito de crear un entorno intimidatorio.',
+    'Cualquier trato adverso dispensado a una persona en función de su orientación sexual o identidad de género.',
+    'Acoso realizado a través de medios tecnológicos, redes sociales o plataformas virtuales corporativas de la US.'
   ],
-  estatutos_us: [
-    'Máxima autoridad académica y de representación de la Universidad de Sevilla elegida por la comunidad universitaria.',
-    'Órgano colegiado de gobierno que aprueba la propuesta de presupuesto e imparte las directrices generales de la Universidad.',
-    'Órgano supremo de representación de la comunidad universitaria compuesto por representación del PDI, PTGAS y estudiantado.',
-    'Órgano encargado de supervisar las actividades de carácter económico y el rendimiento de los servicios de la Universidad.',
-    'Comisión delegada competente para dictaminar las reclamaciones en materia de profesorado y personal.'
-  ],
-  convenio_us: [
-    'Desempeño de funciones de grupo superior por un periodo máximo e improrrogable de 12 meses continuados.',
-    'Adquisición de la condición de personal fijo mediante la superación de los procesos selectivos de turno libre.',
-    'Derecho a la concesión de licencias retribuidas de hasta 15 días naturales por matrimonio o pareja de hecho.',
-    'Modificación sustancial de las condiciones de trabajo sometida a informe previo del Comité de Empresa.',
-    'Prescripción de las faltas muy graves a los 60 días contados desde la fecha en que la Gerencia tuvo conocimiento.'
-  ],
-  igualdad: [
-    'Situación en que una disposición o práctica aparentemente neutra pone a personas de un sexo en desventaja particular.',
-    'Trato desfavorable o adverso dispensado a una persona como reacción ante una reclamación o recurso administrativo.',
-    'Cualquier comportamiento verbal o físico no deseado que tenga el propósito de atentar contra la dignidad personal.',
-    'Principio de presencia equilibrada garantizado mediante una representación entre el 40% y el 60% de ambos sexos.',
-    'Medidas específicas de acción positiva adoptadas para corregir situaciones patentes de desigualdad de hecho.'
-  ],
-  acoso_us: [
-    'Comisión de investigación técnica dependiente del Vicerrectorado de Igualdad para la instrucción confidencial.',
-    'Medida cautelar de separación física o cambio de turno dictada durante la fase de tramitación de la denuncia.',
-    'Informe técnico no sancionador elevado a la persona titular del Rectorado para la adopción de resoluciones.',
-    'Denuncia por ciberacoso tramitada a través del registro oficial corporativo con garantía de confidencialidad.',
-    'Acoso laboral psicosocial reiterado y prolongado en el entorno académico o de servicios de la Universidad.'
-  ],
-  prl_seprus: [
-    'Órgano colegiado y paritario de participación destinado a la consulta regular de las actuaciones en materia de prevención.',
-    'Representante de los trabajadores con funciones específicas de prevención de riesgos en el centro de trabajo.',
-    'Evaluación inicial de los riesgos para la seguridad y salud de los trabajadores al comenzar una actividad.',
-    'Obligación del empresario de proporcionar equipos de protección individual (EPI) adecuados al puesto.',
-    'Vigilancia periódica del estado de salud de los trabajadores en función de los riesgos inherentes al trabajo.'
+  organos_comite: [
+    'El o la Vicerrector/a con competencias en materia de igualdad, quien ostenta la Presidencia del Comité Técnico.',
+    'El o la Director/a del Servicio de Prevención de Riesgos Laborales (SEPRUS) como miembro técnico nato.',
+    'El o la Director/a de la Unidad para la Igualdad de la Universidad de Sevilla.',
+    'Representación técnica legal de los trabajadores elegida por la Mesa General de Negociación.'
   ]
 };
 
-function getDomainKeyForTopic(topicId, normContent) {
-  const topNum = parseInt(topicId, 10);
-  if (topNum === 20 || /violencia|acoso|ciberacoso|discriminación/i.test(normContent)) {
-    return 'acoso_us';
-  }
-  if (topNum === 19 || /igualdad|sexo|género/i.test(normContent)) {
-    return 'igualdad';
-  }
-  if (topNum >= 13 && topNum <= 16) {
-    if (topNum === 16 || /ley 31\/1995|lprl/i.test(normContent)) return 'prl_seprus';
-    if (topNum === 14 || topNum === 15) return 'prl_seprus';
-    return 'informatica';
-  }
-  if (topNum === 18) return 'convenio_us';
-  if (topNum === 17) return 'estatutos_us';
-  if (topNum >= 6 && topNum <= 12) return 'biblioteconomia';
-  if (topNum >= 1 && topNum <= 5) return 'derecho_admin';
-  return 'convenio_us';
-}
-
-// Filtra candidatos para que coincidan EXACTAMENTE con el tipo semántico de la respuesta correcta
+// Genera distractores pertenecientes estrictamente al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
-  const targetType = getSemanticType(correctOpt);
-  const normContent = (heading + ' ' + factText + ' ' + correctOpt).toLowerCase();
-  const domainKey = getDomainKeyForTopic(topicId, normContent);
+  const targetSubdomain = getSectionSubdomain(heading, factText);
+  const targetSemanticType = getSemanticType(correctOpt);
 
   const distractors = [];
   const used = new Set([correctOpt.toLowerCase().trim()]);
 
-  // OP 1: Definiciones de otros conceptos reales del temario (solo si coinciden en el tipo semántico)
-  const otherConceptPairs = allConceptPairs
+  // OP 1: Definiciones del MISMO subdominio y tipo semántico
+  const sameSubdomainPairs = allConceptPairs
     .filter(cp => {
+      const cpSub = getSectionSubdomain(cp.heading, cp.definition);
+      const cpSem = getSemanticType(cp.definition);
       const def = cp.definition.toLowerCase().trim();
-      return !used.has(def) && def.length > 15 && getSemanticType(def) === targetType;
+      return !used.has(def) && cpSub === targetSubdomain && cpSem === targetSemanticType;
     })
     .sort(() => 0.5 - Math.random());
 
-  otherConceptPairs.forEach(cp => {
+  sameSubdomainPairs.forEach(cp => {
     const cand = cp.definition.substring(0, 115).trim();
     if (distractors.length < 3 && !used.has(cand.toLowerCase())) {
       distractors.push(cand);
@@ -379,16 +343,18 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
-  // OP 2: Otros párrafos limpios del mismo tema (filtrados por tipo semántico)
+  // OP 2: Párrafos del MISMO subdominio en el tema
   if (distractors.length < 3) {
-    const cleanParas = allCleanParas
+    const sameSubdomainParas = allCleanParas
       .filter(p => {
+        const pSub = getSectionSubdomain(heading, p);
+        const pSem = getSemanticType(p);
         const pClean = p.trim();
-        return pClean.length > 20 && !isMarketingOrHTML(pClean) && getSemanticType(pClean) === targetType;
+        return pClean.length > 20 && !isMarketingOrHTML(pClean) && pSub === targetSubdomain && pSem === targetSemanticType;
       })
       .sort(() => 0.5 - Math.random());
 
-    cleanParas.forEach(p => {
+    sameSubdomainParas.forEach(p => {
       const cand = p.substring(0, 115).trim();
       if (distractors.length < 3 && !used.has(cand.toLowerCase())) {
         distractors.push(cand);
@@ -397,24 +363,10 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     });
   }
 
-  // OP 3: Distractores formales del dominio temático (filtrados por tipo semántico)
+  // OP 3: Banco predefinido del MISMO subdominio
   if (distractors.length < 3) {
-    const domainPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us)
-      .filter(item => getSemanticType(item) === targetType)
-      .sort(() => 0.5 - Math.random());
-
-    domainPool.forEach(item => {
-      if (distractors.length < 3 && !used.has(item.toLowerCase())) {
-        distractors.push(item);
-        used.add(item.toLowerCase());
-      }
-    });
-  }
-
-  // OP Fallback: si faltan distractores por ser tipo heterogéneo, añadir elementos formales de procedimiento
-  if (distractors.length < 3) {
-    const fallbackPool = (DOMAIN_DISTRACTORS[domainKey] || DOMAIN_DISTRACTORS.convenio_us).sort(() => 0.5 - Math.random());
-    fallbackPool.forEach(item => {
+    const subPool = (DOMAIN_DISTRACTORS[targetSubdomain] || DOMAIN_DISTRACTORS.ambito_aplicacion).sort(() => 0.5 - Math.random());
+    subPool.forEach(item => {
       if (distractors.length < 3 && !used.has(item.toLowerCase())) {
         distractors.push(item);
         used.add(item.toLowerCase());
@@ -426,7 +378,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON ENUNCIADOS DINÁMICOS Y COHERENCIA SEMÁNTICA (Temas 1 al 20)
+ * Genera preguntas inéditas CON SUBDOMINIO Y COHERENCIA TOTAL (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -582,7 +534,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Relleno de preguntas con fuentes oficiales y opciones semánticamente homogéneas
+  // Relleno de preguntas con fuentes oficiales y subdominios coherentes
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
