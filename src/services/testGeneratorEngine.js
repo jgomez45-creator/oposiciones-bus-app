@@ -2,10 +2,10 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Redacción Oficial Ágil y Variada (Cero enunciados repetitivos):
- * 1. Denominaciones de norma concisas y naturales ("la normativa contra el acoso de la US", "el IV Convenio Colectivo").
- * 2. Generador dinámico de enunciados de examen (buildExamQuestionStem) con variabilidad de fórmulas.
- * 3. Cero muletillas de 180 caracteres repetidas entre preguntas consecutivas.
+ * Corrección Estricta de Parser de Conceptos:
+ * 1. Validación de conceptos completos (descarta fragmentos truncados terminados en "y", "de", "o", "en").
+ * 2. Impedimento de solapamiento entre el concepto del enunciado y la respuesta correcta.
+ * 3. Garantía de opciones con carga normativa real (no meras repeticiones del término).
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -86,7 +86,7 @@ function getOfficialNormName(topicId, topicTitle) {
 // Generador dinámico y variado de enunciados oficiales de examen (Cero frases idénticas repetidas)
 function buildExamQuestionStem(normName, concept, heading, index) {
   const topicFocus = concept || heading || 'esta materia';
-  const cleanFocus = topicFocus.length > 70 ? topicFocus.substring(0, 65) + '...' : topicFocus;
+  const cleanFocus = topicFocus.length > 60 ? topicFocus.substring(0, 55) + '...' : topicFocus;
 
   const stemTemplates = [
     `En relación con "${cleanFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
@@ -97,6 +97,23 @@ function buildExamQuestionStem(normName, concept, heading, index) {
   ];
 
   return stemTemplates[index % stemTemplates.length];
+}
+
+// Valida si un concepto extraído es sintácticamente completo y válido
+function isValidConcept(concept) {
+  if (!concept || typeof concept !== 'string') return false;
+  const clean = concept.trim();
+  if (clean.length < 4 || clean.length > 65) return false;
+  
+  // Descartar fragmentos que terminan en nexos o conjunciones incompleta
+  if (/\b(y|o|de|del|en|para|con|por|a|que|su|sus|un|una|el|la|los|las)\s*$/i.test(clean)) {
+    return false;
+  }
+
+  // Descartar fragmentos que empiezan con viñeta o símbolos
+  if (/^[0-9•*\-\.]+\s*$/.test(clean)) return false;
+
+  return true;
 }
 
 // Generador de ID único
@@ -339,12 +356,15 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       if (!isMarketingOrHTML(para)) {
         allCleanParas.push(para);
         const parts = para.split(/[:–-]/);
-        if (parts.length >= 2 && parts[0].trim().length > 3) {
-          allConceptPairs.push({
-            concept: parts[0].trim(),
-            definition: parts.slice(1).join(' ').trim(),
-            heading: sec.title
-          });
+        if (parts.length >= 2) {
+          const rawConcept = parts[0].trim();
+          if (isValidConcept(rawConcept)) {
+            allConceptPairs.push({
+              concept: rawConcept,
+              definition: parts.slice(1).join(' ').trim(),
+              heading: sec.title
+            });
+          }
         }
       }
     });
@@ -424,7 +444,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const unit = daysMatch[2];
       const mainSentence = factText.split('.')[0];
       
-      const qText = `Según lo establecido en ${normName}, respecto a "${mainSentence.substring(0, 65)}...", ¿cuál es el plazo legalmente establecido?`;
+      const qText = `Según lo establecido en ${normName}, respecto a "${mainSentence.substring(0, 60)}...", ¿cuál es el plazo legalmente establecido?`;
       
       const correctOpt = `${num} ${unit}`;
       const wrong1 = `${parseInt(num) * 2} ${unit}`;
@@ -437,11 +457,12 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
-      if (parts.length >= 2 && parts[0].trim().length > 3) {
+      if (parts.length >= 2 && isValidConcept(parts[0])) {
         const concept = sanitizeText(parts[0]);
         const definition = sanitizeText(parts.slice(1).join(' '));
         
-        if (concept.length < 80 && definition.length > 15) {
+        // Evitar solapamiento donde la respuesta justa empiece como el concepto
+        if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
           const qText = buildExamQuestionStem(normName, concept, heading, idx);
           const correctOpt = definition.substring(0, 115);
           
@@ -453,7 +474,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       } else {
         const sentence = sanitizeText(factText.split('.')[0]);
         if (sentence.length > 30) {
-          const qText = buildExamQuestionStem(normName, sentence.substring(0, 50), heading, idx);
+          const qText = buildExamQuestionStem(normName, heading, heading, idx);
           const correctOpt = sentence.substring(0, 120);
           
           const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
