@@ -2,11 +2,10 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Cumplimiento Estricto de Formato Oficial de Examen:
- * 1. CERO referencias a puntos o epígrafes del temario en el enunciado (los exámenes reales nunca citan apartados).
- * 2. Enunciados con fórmulas oficiales ("De acuerdo con el IV Convenio...", "Según la Ley Orgánica 3/2007...", "En Microsoft Excel...").
- * 3. Las referencias a epígrafes o secciones quedan RESTRINGIDAS ÚNICAMENTE a la Explicación/Justificación posterior.
- * 4. Distractores 100% verosímiles del mismo dominio temático (0% descarte fácil).
+ * Mapeo Oficial Estricto de Fuentes por Tema (Temas 1 al 20):
+ * Tema 20: Normativa de la US contra violencia, acoso y discriminación (Acuerdo 9.1/CG 18-12-24)
+ * Tema 16: Ley 31/1995 de Prevención de Riesgos Laborales
+ * Tema 14: Sistema de Gestión de Prevención de Riesgos de la US
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -20,12 +19,12 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export function sanitizeText(text) {
   if (!text) return '';
   return text
-    .replace(/<[^>]*>/g, '') // Elimina cualquier etiqueta HTML
-    .replace(/https?:\/\/[^\s)]+/gi, '') // Elimina URLs
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convierte [texto](url) en texto
-    .replace(/^>+\s*/gm, '') // Elimina blockquotes de markdown
-    .replace(/^#+\s*/gm, '') // Elimina símbolos de título
-    .replace(/[*_`#]/g, '') // Elimina negritas/cursivas/código
+    .replace(/<[^>]*>/g, '')
+    .replace(/https?:\/\/[^\s)]+/gi, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/^>+\s*/gm, '')
+    .replace(/^#+\s*/gm, '')
+    .replace(/[*_`#]/g, '')
     .trim();
 }
 
@@ -54,25 +53,54 @@ export function cleanHeadingTitle(title) {
     .trim();
 }
 
-// Obtiene el nombre oficial de la norma o materia según el topicId/topicTitle (Sin número de tema ni apartados)
+// Obtiene la denominación oficial EXACTA de la norma o materia según el topicId (Temas 1 al 20)
 function getOfficialNormName(topicId, topicTitle) {
   const topNum = parseInt(topicId, 10);
-  if (topNum === 19 || /igualdad/i.test(topicTitle)) return 'la Ley Orgánica 3/2007 para la Igualdad Efectiva de Mujeres y Hombres';
-  if (topNum === 18 || /convenio/i.test(topicTitle)) return 'el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía';
-  if (topNum === 17 || /estatutos/i.test(topicTitle)) return 'los Estatutos de la Universidad de Sevilla';
-  if (topNum === 20 || /prevención|riesgos/i.test(topicTitle)) return 'la Ley 31/1995 de Prevención de Riesgos Laborales';
-  if (topNum === 1 || /reglamento/i.test(topicTitle)) return 'el Reglamento de la Biblioteca de la Universidad de Sevilla (BUS)';
-  if (topNum >= 13 && topNum <= 16) {
-    if (/excel/i.test(topicTitle)) return 'Microsoft Excel';
-    if (/word/i.test(topicTitle)) return 'Microsoft Word';
-    if (/teams/i.test(topicTitle)) return 'Microsoft Teams';
-    return 'el entorno de Microsoft 365';
+  switch (topNum) {
+    case 1:
+      return 'el Reglamento de la Biblioteca de la Universidad de Sevilla (BUS)';
+    case 2:
+      return 'el Sistema de Gestión de la Calidad y las Cartas de Servicios de la BUS';
+    case 3:
+      return 'las normas sobre instalaciones, espacios y equipamientos de la BUS';
+    case 4:
+      return 'la regulación de la colección y los sistemas de acceso remoto de la BUS';
+    case 5:
+      return 'las directrices de gestión de la colección, selección y expurgo de la BUS';
+    case 6:
+      return 'las normas de la Clasificación Decimal Universal (CDU)';
+    case 7:
+      return 'las especificaciones del catálogo FAMA y la plataforma Alma de la Universidad de Sevilla';
+    case 8:
+      return 'las tecnologías RFID y sistemas de autopréstamo de la BUS';
+    case 9:
+      return 'las normas del Servicio de Préstamo y la Objetoteca de la BUS';
+    case 10:
+      return 'las directrices del Servicio de Información y Referencia de la BUS';
+    case 11:
+      return 'las acciones de Apoyo al Aprendizaje y competencias informacionales (ALFIN/CODI)';
+    case 12:
+      return 'los servicios de Apoyo a la Investigación y el repositorio institucional idUS';
+    case 13:
+      return 'las herramientas de la suite Microsoft 365 (Outlook, Teams, OneDrive, SharePoint)';
+    case 14:
+      return 'el Sistema de Gestión de Prevención de Riesgos Laborales de la Universidad de Sevilla';
+    case 15:
+      return 'la evaluación de riesgos ergonómicos y del puesto de trabajo de Auxiliar de Biblioteca';
+    case 16:
+      return 'la Ley 31/1995 de Prevención de Riesgos Laborales y su normativa de desarrollo';
+    case 17:
+      return 'los Estatutos de la Universidad de Sevilla (Decreto 98/2025)';
+    case 18:
+      return 'el IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía';
+    case 19:
+      return 'la Ley Orgánica 3/2007 para la Igualdad Efectiva de Mujeres y Hombres';
+    case 20:
+      return 'la Normativa de la Universidad de Sevilla para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso (Acuerdo 9.1/CG 18-12-24)';
+    default:
+      const clean = sanitizeText(topicTitle).replace(/^Tema\s+\d+:\s*/i, '');
+      return clean ? `la regulación sobre ${clean}` : 'la normativa aplicable';
   }
-  if (topNum >= 6 && topNum <= 12) return 'la normativa de funcionamiento de la Biblioteca de la Universidad de Sevilla (BUS)';
-  if (topNum >= 2 && topNum <= 5) return 'la legislación aplicable a las Administraciones Públicas y la Universidad de Sevilla';
-
-  const clean = sanitizeText(topicTitle).replace(/^Tema\s+\d+:\s*/i, '');
-  return clean ? `la regulación sobre ${clean}` : 'la normativa aplicable';
 }
 
 // Generador de ID único
@@ -213,6 +241,13 @@ const DOMAIN_DISTRACTORS = {
     'Principio de presencia equilibrada garantizado mediante una representación entre el 40% y el 60% de ambos sexos.',
     'Medidas específicas de acción positiva adoptadas para corregir situaciones patentes de desigualdad de hecho.'
   ],
+  acoso_us: [
+    'Comisión de investigación técnica dependiente del Vicerrectorado de Igualdad para la instrucción confidencial.',
+    'Medida cautelar de separación física o cambio de turno dictada durante la fase de tramitación de la denuncia.',
+    'Informe técnico no sancionador elevado a la persona titular del Rectorado para la adopción de resoluciones.',
+    'Denuncia por ciberacoso tramitada a través del registro oficial corporativo con garantía de confidencialidad.',
+    'Acoso laboral psicosocial reiterado y prolongado en el entorno académico o de servicios de la Universidad.'
+  ],
   prl_seprus: [
     'Órgano colegiado y paritario de participación destinado a la consulta regular de las actuaciones en materia de prevención.',
     'Representante de los trabajadores con funciones específicas de prevención de riesgos en el centro de trabajo.',
@@ -224,14 +259,16 @@ const DOMAIN_DISTRACTORS = {
 
 function getDomainKeyForTopic(topicId, normContent) {
   const topNum = parseInt(topicId, 10);
-  if (/igualdad|acoso|ciberacoso|sexo|género|violencia|discriminación/i.test(normContent) || topNum === 19) {
+  if (topNum === 20 || /violencia|acoso|ciberacoso|discriminación/i.test(normContent)) {
+    return 'acoso_us';
+  }
+  if (topNum === 19 || /igualdad|sexo|género/i.test(normContent)) {
     return 'igualdad';
   }
-  if (/excel|word|m365|office|celda|hoja|documento|tabla|pantalla|ctrl|alt|shift|f\d|atajo/i.test(normContent) || (topNum >= 13 && topNum <= 16)) {
+  if (topNum >= 13 && topNum <= 16) {
+    if (topNum === 16 || /ley 31\/1995|lprl/i.test(normContent)) return 'prl_seprus';
+    if (topNum === 14 || topNum === 15) return 'prl_seprus';
     return 'informatica';
-  }
-  if (/prl|riesgo|seprus|prevención|seguridad y salud|delegado/i.test(normContent) || topNum === 20) {
-    return 'prl_seprus';
   }
   if (topNum === 18) return 'convenio_us';
   if (topNum === 17) return 'estatutos_us';
@@ -290,7 +327,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON FORMATO OFICIAL DE EXAMEN (Sin referencias a epígrafes o puntos del temario en el enunciado)
+ * Genera preguntas inéditas CON FORMATO OFICIAL DE EXAMEN Y FUENTES CORRESPONDIENTES (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -317,7 +354,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     });
   });
 
-  // 1. Filtrar las secciones estrictamente seleccionadas
+  // 1. Filtrar las secciones strictly seleccionadas
   let targetSections = allSections;
   if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
     targetSections = allSections.filter(sec => {
@@ -366,7 +403,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     const daysMatch = factText.match(/(\d+)\s+(días|meses|años|mes)/i);
     const isShortcut = /Ctrl|Alt|Shift|F\d|teclado|atajo/i.test(factText);
 
-    // PATRÓN 1: ATAJOS DE TECLADO / INFORMÁTICA (Enunciado oficial sin citas a apartados)
+    // PATRÓN 1: ATAJOS DE TECLADO / INFORMÁTICA
     if (isShortcut) {
       const shortcutMatch = factText.match(/(Ctrl\s*\+\s*[^|\n]+|Alt\s*\+\s*[^|\n]+|Shift\s*\+\s*[^|\n]+)/i);
       const cleanShortcut = shortcutMatch ? shortcutMatch[1].trim() : null;
@@ -385,7 +422,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // PATRÓN 2: FECHAS / PLAZOS / DÍAS (Enunciado oficial de examen)
+    // PATRÓN 2: FECHAS / PLAZOS / DÍAS
     else if (daysMatch) {
       const num = daysMatch[1];
       const unit = daysMatch[2];
@@ -401,7 +438,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS (Enunciado oficial de examen)
+    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && parts[0].trim().length > 3) {
@@ -441,7 +478,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     }
   }
 
-  // Relleno de preguntas si fuera necesario con enunciados oficiales limpios
+  // Relleno de preguntas con fuentes oficiales
   while (generated.length < count) {
     const fallbackNum = generated.length + 1;
     const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
