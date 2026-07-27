@@ -149,7 +149,11 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
   const handlePrepareTestBook = () => {
     let compiledQuestions = [];
-    const sortedIds = [...customSelectedTopicIds].map(Number).sort((a, b) => a - b);
+    const targetTopicIds = (customSelectedTopicIds && customSelectedTopicIds.length > 0)
+      ? customSelectedTopicIds
+      : availableTopicIds;
+
+    const sortedIds = [...targetTopicIds].map(Number).sort((a, b) => a - b);
     const limit = getEffectiveLimit();
     
     sortedIds.forEach(topicId => {
@@ -165,7 +169,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       
       compiledQuestions.push({
         topicId: Number(topicId),
-        topicTitle: topics.find(t => t.id === Number(topicId))?.title || '',
+        topicTitle: topics.find(t => t.id === Number(topicId))?.title || `Tema ${topicId}`,
         questions: mappedQs
       });
     });
@@ -460,7 +464,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </button>
               <button 
                 type="button"
-                onClick={() => setSelectedTopicMode('test-book')}
+                onClick={() => {
+                  setSelectedTopicMode('test-book');
+                  if (availableTopicIds.length > 0) {
+                    setCustomSelectedTopicIds(availableTopicIds);
+                  }
+                }}
                 className={`mode-btn ${selectedTopicMode === 'test-book' ? 'active' : ''}`}
                 style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
               >
@@ -1107,74 +1116,77 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             {/* Salto de página tras la relación de cuestionarios */}
             <div className="print-page-break"></div>
 
+            {/* PARTE I: CUESTIONARIOS COMPLETOS DE TODOS LOS TEMAS SELECCIONADOS */}
             {testBookContent.map((block, bIdx) => (
-              <React.Fragment key={block.topicId}>
-                {/* Topic questionnaire section */}
-                <div className="printable-exam-sheet" style={{ pageBreakBefore: bIdx > 0 ? 'always' : 'auto', breakBefore: bIdx > 0 ? 'page' : 'auto', paddingTop: '20px' }}>
-                  <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
-                    <span style={{ fontSize: '9pt', fontWeight: 'bold', color: '#555', textTransform: 'uppercase' }}>Cuestionario de Autoevaluación</span>
-                    <h2 style={{ margin: '4px 0 0 0', fontSize: '1.4rem', fontWeight: 'bold', color: 'black' }}>
-                      Tema {block.topicId}: {block.topicTitle}
-                    </h2>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: '#555' }}>
-                      Responda a las siguientes {block.questions.length} preguntas de opción múltiple.
-                    </p>
-                  </div>
-                  
-                  <div className="questions-print-list" style={{ marginTop: '20px' }}>
-                    {block.questions.map((q, idx) => (
-                      <div key={idx} className="printable-question-item">
-                        <div className="printable-question-text">
-                          {idx + 1}. {q.question}
+              <div key={`q_${block.topicId}`} className="printable-exam-sheet" style={{ pageBreakBefore: bIdx > 0 ? 'always' : 'auto', breakBefore: bIdx > 0 ? 'page' : 'auto', paddingTop: '20px', marginBottom: '40px' }}>
+                <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
+                  <span style={{ fontSize: '9pt', fontWeight: 'bold', color: '#555', textTransform: 'uppercase' }}>Bloque de Cuestionario</span>
+                  <h2 style={{ margin: '4px 0 0 0', fontSize: '1.4rem', fontWeight: 'bold', color: 'black' }}>
+                    Tema {block.topicId}: {block.topicTitle}
+                  </h2>
+                  <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: '#555' }}>
+                    Responda a las siguientes {block.questions.length} preguntas de opción múltiple.
+                  </p>
+                </div>
+                
+                <div className="questions-print-list" style={{ marginTop: '20px' }}>
+                  {block.questions.map((q, idx) => (
+                    <div key={idx} className="printable-question-item">
+                      <div className="printable-question-text">
+                        {idx + 1}. {q.question}
+                      </div>
+                      <div className="printable-options-list">
+                        {q.options.map((opt, oIdx) => (
+                          <div key={oIdx} className="printable-option-item">
+                            <div className="option-checkbox-box">&#8203;</div>
+                            <span><strong>{['A', 'B', 'C', 'D'][oIdx]})</strong> {opt}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Salto de página antes del Solucionario General */}
+            <div className="print-page-break"></div>
+
+            {/* PARTE II: SOLUCIONARIO COMPLETO Y JUSTIFICACIONES LEGALES DE TODOS LOS TEMAS */}
+            <div style={{ borderBottom: '3px solid #1e3a8a', paddingBottom: '12px', marginBottom: '24px', textAlign: 'left', pageBreakBefore: 'always', breakBefore: 'page' }}>
+              <span style={{ fontSize: '10pt', fontWeight: 'bold', color: '#1e3a8a', textTransform: 'uppercase', letterSpacing: '1px' }}>Sección Solucionario Oficial</span>
+              <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>
+                Respuestas y Justificaciones Legales del Cuaderno
+              </h1>
+              <p style={{ margin: '4px 0 0 0', fontSize: '11pt', color: '#555555' }}>
+                Plantilla completa de respuestas correctas y citas normativas oficiales para todos los temas incluidos.
+              </p>
+            </div>
+
+            {testBookContent.map((block) => (
+              <div key={`ans_${block.topicId}`} className="printable-answers-section" style={{ marginBottom: '30px', pageBreakInside: 'avoid' }}>
+                <div style={{ borderBottom: '1.5px solid #1e3a8a', paddingBottom: '6px', marginBottom: '14px', textAlign: 'left' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 'bold', color: '#1e3a8a' }}>
+                    Solucionario Tema {block.topicId}: {block.topicTitle}
+                  </h3>
+                </div>
+                
+                <div className="answers-print-list">
+                  {block.questions.map((q, idx) => {
+                    const correctLetter = ['A', 'B', 'C', 'D'][q.correctAnswer];
+                    return (
+                      <div key={idx} className="printable-answer-row" style={{ marginBottom: '14px' }}>
+                        <div className="printable-answer-num" style={{ fontWeight: 'bold', fontSize: '1.05rem', color: '#1e293b' }}>
+                          Pregunta {idx + 1}: Respuesta Correcta <strong style={{ textDecoration: 'underline', color: '#16a34a', fontSize: '1.15rem' }}>{correctLetter}</strong>
                         </div>
-                        <div className="printable-options-list">
-                          {q.options.map((opt, oIdx) => (
-                            <div key={oIdx} className="printable-option-item">
-                              <div className="option-checkbox-box">&#8203;</div>
-                              <span><strong>{['A', 'B', 'C', 'D'][oIdx]})</strong> {opt}</span>
-                            </div>
-                          ))}
+                        <div className="printable-answer-explanation" style={{ fontSize: '0.95rem', color: '#334155', marginTop: '4px', paddingLeft: '12px', borderLeft: '3px solid #64748b' }}>
+                          <strong>Justificación:</strong> {q.explanation}
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
-                
-                {/* Page break to solved section */}
-                <div className="print-page-break"></div>
-                
-                {/* Topic answers and explanations section */}
-                <div className="printable-answers-section" style={{ paddingTop: '20px' }}>
-                  <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
-                    <span style={{ fontSize: '9pt', fontWeight: 'bold', color: '#555', textTransform: 'uppercase' }}>Solucionario</span>
-                    <h2 style={{ margin: '4px 0 0 0', fontSize: '1.4rem', fontWeight: 'bold', color: 'black' }}>
-                      Respuestas y Explicaciones: Tema {block.topicId}
-                    </h2>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: '#555' }}>
-                      Plantilla de respuestas y justificaciones legales para el Tema {block.topicId}.
-                    </p>
-                  </div>
-                  
-                  <div className="answers-print-list">
-                    {block.questions.map((q, idx) => {
-                      const correctLetter = ['A', 'B', 'C', 'D'][q.correctAnswer];
-                      return (
-                        <div key={idx} className="printable-answer-row">
-                          <div className="printable-answer-num">
-                            Pregunta {idx + 1}: Respuesta Correcta <strong style={{ textDecoration: 'underline', fontSize: '1.1rem' }}>{correctLetter}</strong>
-                          </div>
-                          <div className="printable-answer-explanation">
-                            <strong>Justificación:</strong> {q.explanation}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                
-                {/* Page break after each topic block */}
-                <div className="print-page-break"></div>
-              </React.Fragment>
+              </div>
             ))}
 
             {/* Hoja de Examen Oficial OMR al final */}
