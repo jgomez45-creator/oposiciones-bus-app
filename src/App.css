@@ -5109,11 +5109,7 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   /* Collapse duplicate adjacent page breaks */
-  .print-page-break + .print-page-break,
-  .print-page-break + .print-topic-block,
-  .print-topic-block + .print-page-break,
-  div[style*="break-before: page"] + .print-page-break,
-  .print-page-break + div[style*="break-before: page"] {
+  .print-page-break + .print-page-break {
     display: none !important;
   }
 
