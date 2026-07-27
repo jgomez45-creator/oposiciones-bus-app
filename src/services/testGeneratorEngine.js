@@ -2,12 +2,9 @@
  * Motor de Generación y Validación de Preguntas de Examen Inéditas
  * Estándar CCOO / Código 4140 de la Universidad de Sevilla (BUS)
  * 
- * Reglamento Ampliado con Normas CCOO (Sugerencias 2 a 6):
- * - Rule 11: Paridad de longitud entre las 4 opciones (variación máx. 30-40%).
- * - Rule 12: Rigor en plazos (especificación estricta de días "hábiles" o "naturales").
- * - Rule 13: Literalidad en definiciones legalmente tasadas.
- * - Rule 14: Restricción de trampas genéricas ("Todas las anteriores").
- * - Rule 15: Plantillas de supuestos prácticos de aplicación directa.
+ * Trampas de Complemento y Rigor en Plazos:
+ * 1. Opciones con paridad numérica y diferente complemento (ej. "10 días hábiles" vs "10 días naturales").
+ * 2. Purga completa de adjetivos de plazos ("hábiles", "naturales") en cleanStemExcerpt para evitar "Informe Final: hábiles".
  */
 
 import quizzesData from '../data/quizzes.json';
@@ -118,20 +115,21 @@ function getOfficialNormName(topicId, topicTitle, heading = '', factText = '') {
   }
 }
 
-// Purga datos numéricos y plazos del extracto citado en el enunciado
+// Purga datos numéricos, adjetivos de plazos y remanentes en el extracto citado
 function cleanStemExcerpt(text) {
   if (!text) return '';
   return text
     .replace(/^([A-Z0-9][.)-]\s*)+/i, '')
     .replace(/\(Artículo\s+\d+\)/i, '')
     .replace(/\((plazo|duración|término|artículo|art|máximo|mínimo)?:?\s*\d+[^)]+\)/gi, '')
-    .replace(/\b\d+\s*(días|meses|años|horas|minutos)\b/gi, '')
+    .replace(/\b\d+\s*(días|meses|años|horas|minutos)?\s*(hábiles|naturales)?\b/gi, '')
+    .replace(/\b(hábiles|naturales)\b/gi, '')
     .replace(/\s{2,}/g, ' ')
     .replace(/[:;,-]+\s*$/g, '')
     .trim();
 }
 
-// Determina la Subtemática / Subdominio de Sección exacto para evitar mezclar temas ajenos
+// Determina la Subtemática / Subdominio de Sección exacto
 function getSectionSubdomain(heading, text) {
   const combined = (heading + ' ' + text).toLowerCase();
   
@@ -164,7 +162,7 @@ function getSemanticType(text) {
   return 'procedural_text';
 }
 
-// RULE 15: Generador dinámico de enunciados de examen incluyendo supuestos prácticos de aplicación
+// Generador dinámico de enunciados de examen
 function buildExamQuestionStem(normName, concept, heading, index) {
   const rawFocus = concept || heading || 'esta materia';
   const cleanFocus = cleanStemExcerpt(rawFocus);
@@ -187,7 +185,7 @@ function isValidConcept(concept) {
   const clean = cleanHeadingTitle(concept).trim();
   if (clean.length < 4 || clean.length > 65) return false;
   
-  if (/\b(y|o|de|del|en|para|con|por|a|que|su|sus|un|una|el|la|los|las)\s*$/i.test(clean)) {
+  if (/\b(y|o|de|del|en|para|con|por|a|que|su|sus|un|una|el|la|los|las|hábiles|naturales)\s*$/i.test(clean)) {
     return false;
   }
   if (/^[0-9•*\-\.]+\s*$/.test(clean)) return false;
@@ -349,7 +347,7 @@ const DOMAIN_DISTRACTORS = {
   ]
 };
 
-// RULE 11: Genera distractores del MISMO SUBDOMINIO, TIPO SEMÁNTICO Y PARIDAD DE LONGITUD
+// Genera distractores pertenecientes estrictamente al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
   const targetSubdomain = getSectionSubdomain(heading, factText);
   const targetSemanticType = getSemanticType(correctOpt);
@@ -413,7 +411,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 }
 
 /**
- * Genera preguntas inéditas CON SUBDOMINIO Y PARIDAD CCOO (Temas 1 al 20)
+ * Genera preguntas inéditas CON TRAMPAS DE COMPLEMENTO HÁBILES VS NATURALES (Temas 1 al 20)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
@@ -511,24 +509,26 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // RULE 12: PATRÓN 2: FECHAS / PLAZOS / DÍAS (Especificación estricta hábiles vs naturales)
+    // PATRÓN 2: TRAMPAS DE COMPLEMENTO (HÁBILES VS NATURALES)
     else if (daysMatch) {
       const num = daysMatch[1];
-      const origUnit = daysMatch[2];
       const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
-      const dayType = /natural/i.test(factText) ? 'días naturales' : 'días hábiles';
       
-      const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 50)}", ¿cuál es el plazo legalmente establecido?`;
+      const isNatural = /natural/i.test(factText);
+      const correctComplement = isNatural ? 'días naturales' : 'días hábiles';
+      const oppositeComplement = isNatural ? 'días hábiles' : 'días naturales';
+
+      const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 45)}", ¿cuál es el plazo legalmente establecido?`;
       
-      const correctOpt = `${num} ${dayType}`;
-      const wrong1 = `${parseInt(num) * 2} ${dayType}`;
-      const wrong2 = `${Math.max(1, Math.floor(parseInt(num) / 2))} ${dayType}`;
-      const wrong3 = `30 ${dayType}`;
+      const correctOpt = `${num} ${correctComplement}`;
+      const wrong1 = `${num} ${oppositeComplement}`; // Trampa directa con el mismo número pero diferente complemento!
+      const wrong2 = `${parseInt(num) * 2} ${correctComplement}`;
+      const wrong3 = `${parseInt(num) * 2} ${oppositeComplement}`;
 
       const options = [correctOpt, wrong1, wrong2, wrong3];
       newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
     } 
-    // RULE 13: PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS (Literalidad tasada)
+    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
     else if (factText.length > 25) {
       const parts = factText.split(/[:–-]/);
       if (parts.length >= 2 && isValidConcept(parts[0])) {
