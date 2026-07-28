@@ -1777,13 +1777,16 @@ body.study-focus-mode .study-timer-bar {
   }
 
   /* Document Typography Hierarchy (Escala Compacta Estilizada) */
-  .markdown-rendered-content {
+  .markdown-rendered-content,
+  .markdown-rendered-content[class*="font-"] {
     color: #000000 !important;
-    font-size: 13.5pt !important;
+    font-size: 13pt !important;
     line-height: 1.4 !important;
     font-family: Arial, Calibri, Helvetica, sans-serif !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    zoom: 1 !important;
+    transform: none !important;
   }
 
   .print-topic-header {
@@ -1854,7 +1857,8 @@ body.study-focus-mode .study-timer-bar {
     page-break-after: avoid !important;
   }
 
-  .markdown-rendered-content p {
+  .markdown-rendered-content p,
+  .markdown-rendered-content[class*="font-"] p {
     font-size: 13pt !important; /* Cuerpo de Texto / Párrafos Generales */
     line-height: 1.4 !important;
     text-align: justify !important; /* Estilo de alineación justificado */
@@ -1863,14 +1867,17 @@ body.study-focus-mode .study-timer-bar {
 
   /* Listas y Viñetas */
   .markdown-rendered-content ul,
-  .markdown-rendered-content ol {
+  .markdown-rendered-content ol,
+  .markdown-rendered-content[class*="font-"] ul,
+  .markdown-rendered-content[class*="font-"] ol {
     font-size: 13.5pt !important;
     line-height: 1.4 !important;
     padding-left: 25px !important; /* Con sangría izquierda estándar (25px) */
     margin-bottom: 10pt !important;
   }
 
-  .markdown-rendered-content li {
+  .markdown-rendered-content li,
+  .markdown-rendered-content[class*="font-"] li {
     font-size: 13.5pt !important;
     line-height: 1.4 !important;
     margin-bottom: 6px !important;
@@ -4507,11 +4514,14 @@ body.reading-fullscreen-mode .markdown-body-container {
   text-align: left !important;
 }
 
-.print-preview-content .markdown-rendered-content {
+.print-preview-content .markdown-rendered-content,
+.print-preview-content .markdown-rendered-content[class*="font-"] {
   font-family: Arial, Calibri, Helvetica, sans-serif !important;
   line-height: 1.4 !important;
-  font-size: 13.5pt !important;
+  font-size: 13pt !important;
   color: #000000 !important;
+  zoom: 1 !important;
+  transform: none !important;
 }
 
 .print-preview-content .print-topic-header {
@@ -4576,7 +4586,8 @@ body.reading-fullscreen-mode .markdown-body-container {
   margin-bottom: 7pt !important;
 }
 
-.print-preview-content .markdown-rendered-content p {
+.print-preview-content .markdown-rendered-content p,
+.print-preview-content .markdown-rendered-content[class*="font-"] p {
   font-size: 13pt !important;
   line-height: 1.4 !important;
   text-align: justify !important;
@@ -4584,14 +4595,17 @@ body.reading-fullscreen-mode .markdown-body-container {
 }
 
 .print-preview-content .markdown-rendered-content ul,
-.print-preview-content .markdown-rendered-content ol {
+.print-preview-content .markdown-rendered-content ol,
+.print-preview-content .markdown-rendered-content[class*="font-"] ul,
+.print-preview-content .markdown-rendered-content[class*="font-"] ol {
   font-size: 13.5pt !important;
   line-height: 1.4 !important;
   padding-left: 25px !important;
   margin-bottom: 10pt !important;
 }
 
-.print-preview-content .markdown-rendered-content li {
+.print-preview-content .markdown-rendered-content li,
+.print-preview-content .markdown-rendered-content[class*="font-"] li {
   font-size: 13.5pt !important;
   line-height: 1.4 !important;
   margin-bottom: 6px !important;
