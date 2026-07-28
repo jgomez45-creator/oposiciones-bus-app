@@ -933,25 +933,25 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           
           <div className="print-preview-content">
             {/* Portada del Dossier de Simulacros */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '12mm 32px 10mm 32px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '14mm 36px 12mm 36px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
               <div>
-                <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '15pt', letterSpacing: '3.5px', textTransform: 'uppercase', marginTop: '8px' }}>Dossier de Preparación de Oposiciones</div>
-                <div style={{ width: '120px', height: '4px', backgroundColor: '#3b82f6', margin: '14px auto 22px auto' }}></div>
-                <h1 style={{ fontSize: '32pt', fontWeight: '800', color: '#000', lineHeight: '1.15', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
-                <h2 style={{ fontSize: '16pt', fontWeight: '700', color: '#2563eb', margin: '0 0 24px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '16pt', letterSpacing: '4px', textTransform: 'uppercase', marginTop: '10px' }}>Dossier de Preparación de Oposiciones</div>
+                <div style={{ width: '130px', height: '4px', backgroundColor: '#3b82f6', margin: '16px auto 26px auto' }}></div>
+                <h1 style={{ fontSize: '35pt', fontWeight: '800', color: '#000', lineHeight: '1.15', margin: '0 0 14px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
+                <h2 style={{ fontSize: '18pt', fontWeight: '700', color: '#2563eb', margin: '0 0 28px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
                 
-                <div style={{ fontSize: '12pt', color: '#333', maxWidth: '90%', lineHeight: '1.45', margin: '0 auto', padding: '20px 24px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
+                <div style={{ fontSize: '13pt', color: '#333', maxWidth: '92%', lineHeight: '1.5', margin: '0 auto', padding: '24px 28px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
                   <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier recopila una serie de simulacros de examen predefinidos y equilibrados para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla. 
                   <br/><br/>
                   Cada simulacro consta de <strong>40 preguntas de opción múltiple</strong> con una distribución paritaria de <strong>2 preguntas por cada uno de los 20 temas</strong> del programa de la convocatoria. Se incluye al final de cada examen su correspondiente solucionario y hoja de justificaciones basadas en las normativas aplicables.
                 </div>
               </div>
 
-              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '9.5pt', color: '#555', fontWeight: 'normal', marginTop: '16px', marginBottom: '4px' }}>
-                <div style={{ textAlign: 'left', color: '#64748b', fontWeight: '600', fontSize: '9pt', fontFamily: 'monospace' }}>
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '10pt', color: '#555', fontWeight: 'normal', marginTop: '18px', marginBottom: '4px' }}>
+                <div style={{ textAlign: 'left', color: '#64748b', fontWeight: '600', fontSize: '9.5pt', fontFamily: 'monospace' }}>
                   Edición: V1.0 &bull; {new Date().toLocaleDateString()}
                 </div>
-                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '2px', fontSize: '9pt' }}>
+                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '2px', fontSize: '9.5pt' }}>
                   <span>Biblioteca de la Universidad de Sevilla</span>
                   <span>© 2026 Jgg. Todos los derechos reservados.</span>
                 </div>
@@ -1106,25 +1106,25 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           <div className="print-preview-content">
             {/* Cover page for the Test Book PDF */}
             {/* Portada del Cuaderno de Tests */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '12mm 32px 10mm 32px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '14mm 36px 12mm 36px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
               <div>
-                <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '15pt', letterSpacing: '3.5px', textTransform: 'uppercase', marginTop: '8px' }}>Dossier de Preparación de Oposiciones</div>
-                <div style={{ width: '120px', height: '4px', backgroundColor: '#3b82f6', margin: '14px auto 22px auto' }}></div>
-                <h1 style={{ fontSize: '32pt', fontWeight: '800', color: '#000', lineHeight: '1.15', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
-                <h2 style={{ fontSize: '16pt', fontWeight: '700', color: '#2563eb', margin: '0 0 24px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '16pt', letterSpacing: '4px', textTransform: 'uppercase', marginTop: '10px' }}>Dossier de Preparación de Oposiciones</div>
+                <div style={{ width: '130px', height: '4px', backgroundColor: '#3b82f6', margin: '16px auto 26px auto' }}></div>
+                <h1 style={{ fontSize: '35pt', fontWeight: '800', color: '#000', lineHeight: '1.15', margin: '0 0 14px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
+                <h2 style={{ fontSize: '18pt', fontWeight: '700', color: '#2563eb', margin: '0 0 28px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
                 
-                <div style={{ fontSize: '12pt', color: '#333', maxWidth: '90%', lineHeight: '1.45', margin: '0 auto', padding: '20px 24px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
+                <div style={{ fontSize: '13pt', color: '#333', maxWidth: '92%', lineHeight: '1.5', margin: '0 auto', padding: '24px 28px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
                   <strong>Introducción y Exención de Responsabilidad:</strong> Este cuaderno de autoevaluación ha sido elaborado de forma independiente como material de apoyo didáctico para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV) de la Universidad de Sevilla. 
                   <br/><br/>
                   Contiene una selección de cuestionarios tipo test por temas extraídos del pool de preparación, con sus correspondientes plantillas de soluciones y justificaciones redactadas a partir de normativas vigentes (Convenio Colectivo, LOSU, Ley de Prevención de Riesgos Laborales, etc.). El uso de este material es responsabilidad exclusiva del opositor en su proceso de estudio.
                 </div>
               </div>
 
-              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '9.5pt', color: '#555', fontWeight: 'normal', marginTop: '16px', marginBottom: '4px' }}>
-                <div style={{ textAlign: 'left', color: '#64748b', fontWeight: '600', fontSize: '9pt', fontFamily: 'monospace' }}>
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '10pt', color: '#555', fontWeight: 'normal', marginTop: '18px', marginBottom: '4px' }}>
+                <div style={{ textAlign: 'left', color: '#64748b', fontWeight: '600', fontSize: '9.5pt', fontFamily: 'monospace' }}>
                   Edición: V1.0 &bull; {new Date().toLocaleDateString()}
                 </div>
-                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '2px', fontSize: '9pt' }}>
+                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '2px', fontSize: '9.5pt' }}>
                   <span>Biblioteca de la Universidad de Sevilla</span>
                   <span>© 2026 Jgg. Todos los derechos reservados.</span>
                 </div>

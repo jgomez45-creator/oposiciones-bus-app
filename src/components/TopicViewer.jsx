@@ -273,29 +273,29 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada del Tema Único -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12mm 32px 10mm 32px; border: 4px double #004B93; height: 280mm; min-height: 280mm; max-height: 282mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 14mm 36px 12mm 36px; border: 4px double #004B93; height: 280mm; min-height: 280mm; max-height: 282mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
               <div>
-                <div style="color: #004B93; font-weight: normal; font-size: 15pt; letter-spacing: 3.5px; text-transform: uppercase; margin-top: 8px;">Dossier de Preparación de Oposiciones</div>
-                <div style="width: 120px; height: 4px; background-color: #004B93; margin: 14px auto 22px auto;"></div>
+                <div style="color: #004B93; font-weight: normal; font-size: 16pt; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
+                <div style="width: 130px; height: 4px; background-color: #004B93; margin: 16px auto 26px auto;"></div>
                 
-                <span style="font-size: 14pt; text-transform: uppercase; color: #555555; font-weight: bold; letter-spacing: 1.5px; display: block; margin-bottom: 6px;">Tema ${topicIdFormatted}</span>
-                <h1 style="font-size: 28pt; font-weight: bold; color: #000000; line-height: 1.2; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">${singleTopicMeta.title}</h1>
-                <h2 style="font-size: 16pt; font-weight: bold; color: #004B93; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                <span style="font-size: 15pt; text-transform: uppercase; color: #555555; font-weight: bold; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">Tema ${topicIdFormatted}</span>
+                <h1 style="font-size: 32pt; font-weight: bold; color: #000000; line-height: 1.2; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.5px;">${singleTopicMeta.title}</h1>
+                <h2 style="font-size: 18pt; font-weight: bold; color: #004B93; margin: 0 0 28px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
                 
-                <div style="font-size: 12pt; color: #333333; max-width: 90%; line-height: 1.45; margin: 0 auto; padding: 20px 24px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                <div style="font-size: 13pt; color: #333333; max-width: 92%; line-height: 1.5; margin: 0 auto; padding: 24px 28px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
                   <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
                   <br/><br/>
                   Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
                   <br/><br/>
-                  Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretación con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
+                  Las materias técnicas y legislativas se desarrollan a partir de fuentes de referencia directa, tales como el IV Convenio Colectivo, la Ley Orgánica del Sistema Universitario (LOSU), la Ley de Prevención de Riesgos Laborales (LPRL), las directrices del SEPRUS y las normativas de préstamo vigentes de la BUS. El autor no se hace responsable de las posibles discrepancias o diferencias de interpretation con respecto a otros puntos de vista, si bien se considera que quedan recogidos los aspectos más importantes y un porcentaje muy elevado de la materia exigida.
                 </div>
               </div>
               
-              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 9.5pt; color: #555555; font-weight: normal; margin-top: 16px; margin-bottom: 4px;">
-                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 9pt; font-family: monospace;">
+              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 10pt; color: #555555; font-weight: normal; margin-top: 18px; margin-bottom: 4px;">
+                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 9.5pt; font-family: monospace;">
                   Edición: V1.0 &bull; ${new Date().toLocaleDateString()}
                 </div>
-                <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 9pt;">
+                <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 9.5pt;">
                   <span>Biblioteca de la Universidad de Sevilla</span>
                   <span>© 2026 Jgg. Todos los derechos reservados.</span>
                 </div>
@@ -316,14 +316,14 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12mm 32px 10mm 32px; border: 4px double #004B93; height: 280mm; min-height: 280mm; max-height: 282mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 14mm 36px 12mm 36px; border: 4px double #004B93; height: 280mm; min-height: 280mm; max-height: 282mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
               <div>
-                <div style="color: #004B93; font-weight: normal; font-size: 15pt; letter-spacing: 3.5px; text-transform: uppercase; margin-top: 8px;">Dossier de Preparación de Oposiciones</div>
-                <div style="width: 120px; height: 4px; background-color: #004B93; margin: 14px auto 22px auto;"></div>
-                <h1 style="font-size: 32pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
-                <h2 style="font-size: 16pt; font-weight: bold; color: #004B93; margin: 0 0 24px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                <div style="color: #004B93; font-weight: normal; font-size: 16pt; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px;">Dossier de Preparación de Oposiciones</div>
+                <div style="width: 130px; height: 4px; background-color: #004B93; margin: 16px auto 26px auto;"></div>
+                <h1 style="font-size: 35pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
+                <h2 style="font-size: 18pt; font-weight: bold; color: #004B93; margin: 0 0 28px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
                 
-                <div style="font-size: 12pt; color: #333333; max-width: 90%; line-height: 1.45; margin: 0 auto; padding: 20px 24px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                <div style="font-size: 13pt; color: #333333; max-width: 92%; line-height: 1.5; margin: 0 auto; padding: 24px 28px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
                   <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
                   <br/><br/>
                   Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
@@ -332,11 +332,11 @@ export default function TopicViewer({
                 </div>
               </div>
               
-              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 9.5pt; color: #555555; font-weight: normal; margin-top: 16px; margin-bottom: 4px;">
-                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 9pt; font-family: monospace;">
+              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 10pt; color: #555555; font-weight: normal; margin-top: 18px; margin-bottom: 4px;">
+                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 9.5pt; font-family: monospace;">
                   Edición: V1.0 &bull; ${new Date().toLocaleDateString()}
                 </div>
-                <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 9pt;">
+                <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 9.5pt;">
                   <span>Biblioteca de la Universidad de Sevilla</span>
                   <span>© 2026 Jgg. Todos los derechos reservados.</span>
                 </div>

@@ -4233,12 +4233,9 @@ body.reading-fullscreen-mode .markdown-body-container {
     overflow-y: visible !important;
   }
 
-  /* Specific reset for the cover page to preserve its A4-friendly size */
-  .print-manual-cover,
+  /* Specific reset for children inside cover page */
   .print-manual-cover * {
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
+    height: auto;
   }
 
   .print-manual-cover {
