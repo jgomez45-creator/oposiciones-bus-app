@@ -40,8 +40,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     if (editionData) {
       try {
         await firebaseService.saveMaterialEdition(editionData);
+        alert(`✅ Edición "${editionData.versionTag}" registrada correctamente en la base de datos.`);
       } catch (err) {
         console.error("Error saving material edition", err);
+        alert(`❌ Error al guardar la edición: ${err?.message || err}\n\nComprueba los permisos de Firestore en la consola Firebase (reglas de seguridad de 'material_editions').`);
       }
     }
     setTimeout(() => {
