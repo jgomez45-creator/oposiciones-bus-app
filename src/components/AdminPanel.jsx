@@ -273,24 +273,20 @@ export default function AdminPanel({ topics }) {
     }
   };
 
-  const handleUploadEditionPdf = (edition, file) => {
+  const [uploadingPdfId, setUploadingPdfId] = useState(null);
+
+  const handleUploadEditionPdf = async (edition, file) => {
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const pdfDataUrl = e.target.result;
-      try {
-        await firebaseService.saveMaterialEdition({
-          ...edition,
-          pdfUrl: pdfDataUrl,
-          pdfFileName: file.name
-        });
-        alert(`¡PDF "${file.name}" adjuntado con éxito a la Edición ${edition.versionTag}!`);
-      } catch (err) {
-        console.error(err);
-        alert('Error al adjuntar el PDF a la edición.');
-      }
-    };
-    reader.readAsDataURL(file);
+    setUploadingPdfId(edition.id);
+    try {
+      await firebaseService.uploadEditionPdfFile(edition, file);
+      alert(`¡PDF "${file.name}" adjuntado con éxito a la Edición ${edition.versionTag}!`);
+    } catch (err) {
+      console.error("Error uploading PDF:", err);
+      alert(`❌ ${err?.message || 'Error al adjuntar el PDF a la edición.'}`);
+    } finally {
+      setUploadingPdfId(null);
+    }
   };
 
   const handleAssignUserMaterial = async (userId, materialType, editionId) => {
@@ -1334,12 +1330,13 @@ export default function AdminPanel({ topics }) {
                             </label>
                           </div>
                         ) : (
-                          <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59,130,246,0.12)', border: '1px dashed #3b82f6', padding: '6px 12px', borderRadius: '8px', color: '#60a5fa', fontSize: '0.78rem', fontWeight: '600', width: 'fit-content' }}>
-                            <Upload size={14} />
-                            <span>📎 Adjuntar Archivo PDF para Imprenta</span>
+                          <label style={{ cursor: uploadingPdfId === ed.id ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px', background: uploadingPdfId === ed.id ? 'rgba(234,179,8,0.15)' : 'rgba(59,130,246,0.12)', border: uploadingPdfId === ed.id ? '1px dashed #eab308' : '1px dashed #3b82f6', padding: '6px 12px', borderRadius: '8px', color: uploadingPdfId === ed.id ? '#fde047' : '#60a5fa', fontSize: '0.78rem', fontWeight: '600', width: 'fit-content' }}>
+                            <Upload size={14} className={uploadingPdfId === ed.id ? 'spin-icon' : ''} />
+                            <span>{uploadingPdfId === ed.id ? '⏳ Subiendo PDF...' : '📎 Adjuntar Archivo PDF para Imprenta'}</span>
                             <input
                               type="file"
                               accept=".pdf"
+                              disabled={uploadingPdfId === ed.id}
                               style={{ display: 'none' }}
                               onChange={(e) => handleUploadEditionPdf(ed, e.target.files[0])}
                             />

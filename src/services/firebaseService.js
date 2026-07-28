@@ -18,6 +18,12 @@ import {
   collection,
   getDocs
 } from 'firebase/firestore';
+import { 
+  getStorage, 
+  ref, 
+  uploadBytes, 
+  getDownloadURL 
+} from 'firebase/storage';
 
 // Check if we should run in Mock Simulator Mode
 const projectID = import.meta.env.VITE_FIREBASE_PROJECT_ID;
@@ -40,6 +46,7 @@ const firebaseConfig = {
 
 let auth = null;
 let db = null;
+let storage = null;
 
 if (!isMock) {
   try {
@@ -48,7 +55,12 @@ if (!isMock) {
     db = initializeFirestore(app, {
       experimentalAutoDetectLongPolling: true
     });
-    console.log("Firebase initialized in REAL CLOUD MODE with Auto-Detect Long-Polling.");
+    try {
+      storage = getStorage(app);
+    } catch (storageErr) {
+      console.warn("Storage warning:", storageErr);
+    }
+    console.log("Firebase initialized in REAL CLOUD MODE with Auto-Detect Long-Polling and Storage.");
   } catch (e) {
     console.error("Error initializing Firebase App. Falling back to MOCK MODE.", e);
   }
@@ -889,6 +901,7 @@ export const firebaseService = {
       title: edition.title || `Edición ${edition.versionTag}`,
       notes: edition.notes || '',
       pdfUrl: edition.pdfUrl || '',
+      pdfFileName: edition.pdfFileName || '',
       topicCount: edition.topicCount || 20,
       createdAt: edition.createdAt || now,
       updatedAt: now
@@ -905,6 +918,51 @@ export const firebaseService = {
       await setDoc(doc(db, 'material_editions', id), record, { merge: true });
       return record;
     }
+  },
+
+  /**
+   * Sube un archivo PDF de edición (Intenta Firebase Storage primero, o fallback a Base64 si es pequeño)
+   */
+  async uploadEditionPdfFile(edition, file) {
+    if (!file) throw new Error("No se ha seleccionado ningún archivo.");
+
+    let downloadUrl = '';
+    
+    // Intentar subir a Firebase Storage si está disponible
+    if (!isMock && storage) {
+      try {
+        const cleanFileName = file.name.replace(/[^a-zA-Z0-9_.-]/g, '_');
+        const storageRef = ref(storage, `editions_pdfs/${edition.id}_${Date.now()}_${cleanFileName}`);
+        const snapshot = await uploadBytes(storageRef, file);
+        downloadUrl = await getDownloadURL(snapshot.ref);
+      } catch (storageErr) {
+        console.warn("No se pudo subir a Firebase Storage, intentando fallback Base64...", storageErr);
+      }
+    }
+
+    // Fallback: Si no hay URL de Storage y el archivo es menor a 850 KB, usar Base64 Data URL
+    if (!downloadUrl) {
+      if (file.size > 850 * 1024) {
+        throw new Error(
+          `El archivo pesa ${(file.size / (1024 * 1024)).toFixed(2)} MB, lo que supera el límite de 1 MB de la base de datos Firestore.\n\n` +
+          `Para subir archivos PDF grandes, activa las reglas de escritura en Firebase Storage en tu consola de Firebase.`
+        );
+      }
+      
+      downloadUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = (e) => reject(e);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // Guardar el registro en la edición
+    return await this.saveMaterialEdition({
+      ...edition,
+      pdfUrl: downloadUrl,
+      pdfFileName: file.name
+    });
   },
 
   /**
