@@ -1780,7 +1780,7 @@ body.study-focus-mode .study-timer-bar {
   .markdown-rendered-content,
   .markdown-rendered-content[class*="font-"] {
     color: #000000 !important;
-    font-size: 13.5pt !important;
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     font-family: Arial, Calibri, Helvetica, sans-serif !important;
     -webkit-print-color-adjust: exact !important;
@@ -1859,7 +1859,7 @@ body.study-focus-mode .study-timer-bar {
 
   .markdown-rendered-content p,
   .markdown-rendered-content[class*="font-"] p {
-    font-size: 13.5pt !important; /* Cuerpo de Texto / Párrafos Generales */
+    font-size: 14pt !important; /* Cuerpo de Texto / Párrafos Generales */
     line-height: 1.4 !important;
     text-align: justify !important; /* Estilo de alineación justificado */
     margin-bottom: 10pt !important;
@@ -1870,7 +1870,7 @@ body.study-focus-mode .study-timer-bar {
   .markdown-rendered-content ol,
   .markdown-rendered-content[class*="font-"] ul,
   .markdown-rendered-content[class*="font-"] ol {
-    font-size: 13.5pt !important;
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     padding-left: 25px !important; /* Con sangría izquierda estándar (25px) */
     margin-bottom: 10pt !important;
@@ -1878,7 +1878,7 @@ body.study-focus-mode .study-timer-bar {
 
   .markdown-rendered-content li,
   .markdown-rendered-content[class*="font-"] li {
-    font-size: 13.5pt !important;
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     margin-bottom: 6px !important;
     break-inside: avoid !important;
@@ -2230,7 +2230,7 @@ body.study-focus-mode .study-timer-bar {
 .printable-question-text {
   font-weight: 600 !important;
   margin-bottom: 8px !important;
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
 }
 
 .printable-options-list {
@@ -2245,7 +2245,7 @@ body.study-focus-mode .study-timer-bar {
   display: flex !important;
   align-items: flex-start !important;
   gap: 8px !important;
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
 }
 
 .option-checkbox-box {
@@ -4519,7 +4519,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 .print-preview-content .markdown-rendered-content[class*="font-"] {
   font-family: Arial, Calibri, Helvetica, sans-serif !important;
   line-height: 1.4 !important;
-  font-size: 13pt !important;
+  font-size: 14pt !important;
   color: #000000 !important;
   zoom: 1 !important;
   transform: none !important;
@@ -4589,7 +4589,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 
 .print-preview-content .markdown-rendered-content p,
 .print-preview-content .markdown-rendered-content[class*="font-"] p {
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   line-height: 1.4 !important;
   text-align: justify !important;
   margin-bottom: 10pt !important;
@@ -4599,7 +4599,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 .print-preview-content .markdown-rendered-content ol,
 .print-preview-content .markdown-rendered-content[class*="font-"] ul,
 .print-preview-content .markdown-rendered-content[class*="font-"] ol {
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   line-height: 1.4 !important;
   padding-left: 25px !important;
   margin-bottom: 10pt !important;
@@ -4607,7 +4607,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 
 .print-preview-content .markdown-rendered-content li,
 .print-preview-content .markdown-rendered-content[class*="font-"] li {
-  font-size: 13.5pt !important;
+  font-size: 14pt !important;
   line-height: 1.4 !important;
   margin-bottom: 6px !important;
 }
@@ -5169,7 +5169,7 @@ body.reading-fullscreen-mode .markdown-body-container {
     border: 1px solid #94a3b8 !important;
   }
 
-  /* Strict Enforcement of 13.5pt in Print for Body, Lists, Questions and Options */
+  /* Strict Enforcement of 14pt in Print for Body, Lists, Questions, Options and Indexes */
   .markdown-rendered-content,
   .markdown-rendered-content p,
   .markdown-rendered-content li,
@@ -5179,8 +5179,9 @@ body.reading-fullscreen-mode .markdown-body-container {
   .printable-question-text,
   .printable-option-item,
   .printable-option-item span,
-  .printable-answer-explanation {
-    font-size: 13.5pt !important;
+  .printable-answer-explanation,
+  .print-manual-index * {
+    font-size: 14pt !important;
     line-height: 1.4 !important;
     zoom: 1 !important;
     transform: none !important;
