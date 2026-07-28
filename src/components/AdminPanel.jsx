@@ -27,7 +27,9 @@ import {
   Square,
   FileText,
   Printer,
-  Send
+  Send,
+  Upload,
+  Download
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
@@ -269,6 +271,26 @@ export default function AdminPanel({ topics }) {
       console.error(err);
       alert('Error al guardar las notas de la edición.');
     }
+  };
+
+  const handleUploadEditionPdf = (edition, file) => {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const pdfDataUrl = e.target.result;
+      try {
+        await firebaseService.saveMaterialEdition({
+          ...edition,
+          pdfUrl: pdfDataUrl,
+          pdfFileName: file.name
+        });
+        alert(`¡PDF "${file.name}" adjuntado con éxito a la Edición ${edition.versionTag}!`);
+      } catch (err) {
+        console.error(err);
+        alert('Error al adjuntar el PDF a la edición.');
+      }
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleAssignUserMaterial = async (userId, materialType, editionId) => {
@@ -1283,6 +1305,47 @@ export default function AdminPanel({ topics }) {
                           </button>
                         </div>
                       )}
+
+                      {/* Gestor de PDF Adjunto para Imprenta */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px', paddingTop: '8px', borderTop: '1px dashed rgba(255,255,255,0.1)' }}>
+                        {ed.pdfUrl ? (
+                          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                            <a
+                              href={ed.pdfUrl}
+                              download={ed.pdfFileName || `Edicion_${ed.versionTag}_${ed.type.toUpperCase()}.pdf`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="glow-btn"
+                              style={{ padding: '6px 12px', fontSize: '0.78rem', background: '#16a34a', color: '#fff', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}
+                            >
+                              <Download size={14} />
+                              <span>📥 Descargar PDF ({ed.pdfFileName ? (ed.pdfFileName.length > 16 ? ed.pdfFileName.substring(0, 16) + '...' : ed.pdfFileName) : ed.versionTag})</span>
+                            </a>
+                            
+                            <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }} className="btn-ghost" title="Reemplazar archivo PDF">
+                              <input
+                                type="file"
+                                accept=".pdf"
+                                style={{ display: 'none' }}
+                                onChange={(e) => handleUploadEditionPdf(ed, e.target.files[0])}
+                              />
+                              <Upload size={13} style={{ color: 'var(--text-muted)' }} />
+                              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Reemplazar</span>
+                            </label>
+                          </div>
+                        ) : (
+                          <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59,130,246,0.12)', border: '1px dashed #3b82f6', padding: '6px 12px', borderRadius: '8px', color: '#60a5fa', fontSize: '0.78rem', fontWeight: '600', width: 'fit-content' }}>
+                            <Upload size={14} />
+                            <span>📎 Adjuntar Archivo PDF para Imprenta</span>
+                            <input
+                              type="file"
+                              accept=".pdf"
+                              style={{ display: 'none' }}
+                              onChange={(e) => handleUploadEditionPdf(ed, e.target.files[0])}
+                            />
+                          </label>
+                        )}
+                      </div>
                     </div>
                   );
                 })

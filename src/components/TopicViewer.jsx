@@ -291,9 +291,14 @@ export default function TopicViewer({
                 </div>
               </div>
               
-              <div style="font-size: 10.5pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 3px; margin-top: 10px; margin-bottom: 2px;">
-                <span>Biblioteca de la Universidad de Sevilla</span>
-                <span>© 2026 Jgg. Todos los derechos reservados.</span>
+              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 8.5pt; color: #555555; font-weight: normal; margin-top: 10px; margin-bottom: 2px;">
+                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 8pt; font-family: monospace;">
+                  Edición: V1.0 &bull; ${new Date().toLocaleDateString()}
+                </div>
+                <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 8.5pt;">
+                  <span>Biblioteca de la Universidad de Sevilla</span>
+                  <span>© 2026 Jgg. Todos los derechos reservados.</span>
+                </div>
               </div>
             </div>
             <div class="print-page-break"></div>
@@ -327,8 +332,14 @@ export default function TopicViewer({
                 </div>
               </div>
               
-              <div style="font-size: 10.5pt; color: #555555; font-weight: normal; display: flex; flex-direction: column; gap: 3px; margin-top: 10px; margin-bottom: 2px;">
-                <span>© 2026 Jgg. Todos los derechos reservados.</span>
+              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 8.5pt; color: #555555; font-weight: normal; margin-top: 10px; margin-bottom: 2px;">
+                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 8pt; font-family: monospace;">
+                  Edición: V1.0 &bull; ${new Date().toLocaleDateString()}
+                </div>
+                <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 8.5pt;">
+                  <span>Biblioteca de la Universidad de Sevilla</span>
+                  <span>© 2026 Jgg. Todos los derechos reservados.</span>
+                </div>
               </div>
             </div>
             <div class="print-page-break"></div>
