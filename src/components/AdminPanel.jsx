@@ -1308,7 +1308,11 @@ export default function AdminPanel({ topics }) {
                           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
                             <a
                               href={ed.pdfUrl}
-                              download={ed.pdfFileName || `Edicion_${ed.versionTag}_${ed.type.toUpperCase()}.pdf`}
+                              download={
+                                (ed.pdfFileName || `${ed.title || 'Edicion'}_${ed.versionTag}`).toLowerCase().endsWith('.pdf')
+                                  ? (ed.pdfFileName || `${ed.title || 'Edicion'}_${ed.versionTag}`)
+                                  : `${ed.pdfFileName || ed.title || `Edicion_${ed.versionTag}_${ed.type.toUpperCase()}`}.pdf`
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                               className="glow-btn"
