@@ -1855,7 +1855,7 @@ body.study-focus-mode .study-timer-bar {
   }
 
   .markdown-rendered-content p {
-    font-size: 13.5pt !important; /* Cuerpo de Texto / Párrafos Generales */
+    font-size: 13pt !important; /* Cuerpo de Texto / Párrafos Generales */
     line-height: 1.4 !important;
     text-align: justify !important; /* Estilo de alineación justificado */
     margin-bottom: 10pt !important;
@@ -4577,7 +4577,7 @@ body.reading-fullscreen-mode .markdown-body-container {
 }
 
 .print-preview-content .markdown-rendered-content p {
-  font-size: 13.5pt !important;
+  font-size: 13pt !important;
   line-height: 1.4 !important;
   text-align: justify !important;
   margin-bottom: 10pt !important;
