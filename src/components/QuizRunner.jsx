@@ -1758,8 +1758,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
         isOpen={showPrintModal} 
         onClose={() => setShowPrintModal(false)} 
         materialType={isTestBookPrintMode ? 'test' : 'simulacro'} 
-        topicCount={questions?.length || 40} 
-        defaultTitle={`Cuaderno de Cuestionarios (${isTestBookPrintMode ? 'Por Temas' : 'Simulacro'})`} 
+        topicCount={testBookContent?.length || 20} 
+        defaultTitle={
+          isTestBookPrintMode 
+            ? `Cuaderno de Cuestionarios (${!isCustomLimitInput && questionLimit === 'all' ? 'Todas las preguntas' : `${isCustomLimitInput ? customLimitValue : questionLimit} test por tema`})`
+            : `Dossier de Simulacros de Examen (15 Simulacros)`
+        } 
         onConfirmPrint={handleConfirmPrintEdition} 
       />
     </div>

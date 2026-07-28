@@ -20,6 +20,7 @@ export default function PrintEditionModal({
 
   useEffect(() => {
     if (isOpen) {
+      setTitle(defaultTitle);
       setLoadingEditions(true);
       const unsub = firebaseService.subscribeToMaterialEditions((editions) => {
         const filtered = editions.filter(e => e.type === materialType);
@@ -39,7 +40,7 @@ export default function PrintEditionModal({
       });
       return () => unsub();
     }
-  }, [isOpen, materialType]);
+  }, [isOpen, materialType, defaultTitle]);
 
   if (!isOpen) return null;
 
