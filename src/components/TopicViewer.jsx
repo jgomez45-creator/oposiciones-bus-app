@@ -153,10 +153,10 @@ export default function TopicViewer({
             
             if (includeQuestionsInPrint) {
               const allTopicQs = (quizzesData[id.toString()] || []).filter(q => q.usage !== 'simulacro');
-              // Shuffle and select N questions
-              const topicQuestions = [...allTopicQs]
-                .sort(() => 0.5 - Math.random())
-                .slice(0, printQuestionsCount);
+              // Selecciona las primeras N preguntas del tema para el temario impreso (dejando el resto para cuadernos de test)
+              const topicQuestions = allTopicQs.length >= printQuestionsCount
+                ? allTopicQs.slice(0, printQuestionsCount)
+                : allTopicQs;
                 
               if (topicQuestions.length > 0) {
                 const qListHtml = topicQuestions.map((q, idx) => {
@@ -316,14 +316,14 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 8mm 24px 8mm 24px; border: 4px double #004B93; height: 215mm; min-height: 215mm; max-height: 218mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-inside: avoid; break-inside: avoid;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 10mm 28px 10mm 28px; border: 4px double #004B93; height: 248mm; min-height: 248mm; max-height: 252mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; max-width: 820px; page-break-inside: avoid; break-inside: avoid;">
               <div>
-                <div style="color: #004B93; font-weight: normal; font-size: 13pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;">Dossier de Preparación de Oposiciones</div>
-                <div style="width: 80px; height: 3px; background-color: #004B93; margin: 10px auto 16px auto;"></div>
-                <h1 style="font-size: 26pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
-                <h2 style="font-size: 14pt; font-weight: bold; color: #004B93; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                <div style="color: #004B93; font-weight: normal; font-size: 14pt; letter-spacing: 3px; text-transform: uppercase; margin-top: 6px;">Dossier de Preparación de Oposiciones</div>
+                <div style="width: 100px; height: 3.5px; background-color: #004B93; margin: 12px auto 20px auto;"></div>
+                <h1 style="font-size: 30pt; font-weight: bold; color: #000000; line-height: 1.15; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Dossier de Apoyo Didáctico</h1>
+                <h2 style="font-size: 15pt; font-weight: bold; color: #004B93; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 0.5px;">Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
                 
-                <div style="font-size: 10.5pt; color: #333333; max-width: 720px; line-height: 1.35; margin: 0 auto; padding: 12px 14px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
+                <div style="font-size: 11.5pt; color: #333333; max-width: 740px; line-height: 1.4; margin: 0 auto; padding: 16px; background-color: #f4f8fc; border-radius: 8px; border-left: 5px solid #004B93; text-align: justify; box-shadow: none;">
                   <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier de apoyo didáctico ha sido elaborado de forma independiente tomando como referencia los epígrafes y puntos de materias indicados en las bases del programa de la convocatoria para la categoría de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV - Personal Laboral) de la Universidad de Sevilla (Resolución de 18 de junio de 2026).
                   <br/><br/>
                   Se hace hincapié en que <strong>no se trata de un temario ni de un manual de carácter oficial</strong> (el cual no existe, constando la convocatoria únicamente de la lista de temas y puntos a tratar). El presente manual ha sido confeccionado según dichas bases, intentando abordar todos los aspectos a una profundidad suficiente para el estudio, siendo en todo caso susceptible de ampliación por parte del opositor si así lo desea.
@@ -332,8 +332,8 @@ export default function TopicViewer({
                 </div>
               </div>
               
-              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 8.5pt; color: #555555; font-weight: normal; margin-top: 10px; margin-bottom: 2px;">
-                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 8pt; font-family: monospace;">
+              <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: 9pt; color: #555555; font-weight: normal; margin-top: 12px; margin-bottom: 2px;">
+                <div style="text-align: left; color: #64748b; font-weight: 600; font-size: 8.5pt; font-family: monospace;">
                   Edición: V1.0 &bull; ${new Date().toLocaleDateString()}
                 </div>
                 <div style="text-align: right; display: flex; flex-direction: column; gap: 2px; font-size: 8.5pt;">
@@ -344,7 +344,7 @@ export default function TopicViewer({
             </div>
             <div class="print-page-break"></div>
             
-            <!-- Ficha de la Convocatoria Oficial -->
+            <!-- Ficha de la Convocatoria Oficial (Página 2 Exclusiva) -->
             <div class="print-manual-convocatoria" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
               <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
                 <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Ficha Resumen de la Convocatoria</h1>
@@ -362,7 +362,7 @@ export default function TopicViewer({
             </div>
             <div class="print-page-break"></div>
 
-            <!-- Índice de Contenidos -->
+            <!-- Índice de Contenidos (Página 3 Exclusiva) -->
             <div class="print-manual-index" style="padding: 20px 0; font-family: Arial, Calibri, Helvetica, sans-serif;">
               <div style="border-bottom: 3px solid #000000; padding-bottom: 10px; margin-bottom: 20px; text-align: left;">
                 <h1 style="margin: 0; color: #000000; font-size: 22pt; font-weight: bold; text-transform: uppercase;">Índice de Contenidos</h1>
@@ -374,6 +374,7 @@ export default function TopicViewer({
                 ${indexItemsHtml}
               </div>
             </div>
+            <div class="print-page-break"></div>
           `;
         }
       }

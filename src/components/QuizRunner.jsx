@@ -182,9 +182,9 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     
     sortedIds.forEach(topicId => {
       const allTopicQs = (quizzesData[topicId.toString()] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
-      const selectedQs = [...allTopicQs]
-        .sort(() => 0.5 - Math.random())
-        .slice(0, limit);
+      // Aplica offset para priorizar preguntas no incluidas en el temario impreso
+      const offset = allTopicQs.length > (limit + 5) ? 5 : 0;
+      const selectedQs = allTopicQs.slice(offset, offset + limit);
       
       const mappedQs = selectedQs.map(q => ({
         ...q,
@@ -933,20 +933,28 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           
           <div className="print-preview-content">
             {/* Portada del Dossier de Simulacros */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '20mm 40px 20mm 40px', border: '4px double #1e3a8a', height: '250mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakAfter: 'always', breakAfter: 'page' }}>
-              <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '14pt', letterSpacing: '3px', textTransform: 'uppercase' }}>Dossier de Preparación de Oposiciones</div>
-              <div style={{ width: '80px', height: '3px', backgroundColor: '#3b82f6', margin: '20px auto 30px auto' }}></div>
-              <h1 style={{ fontSize: '32pt', fontWeight: '800', color: '#000', lineHeight: '1.25', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
-              <h2 style={{ fontSize: '16pt', fontWeight: '700', color: '#2563eb', margin: '0 0 30px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-              
-              <div style={{ fontSize: '15.5pt', color: '#333', maxWidth: '720px', lineHeight: '1.45', margin: '0 auto 20px auto', padding: '24px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
-                <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier recopila una serie de simulacros de examen predefinidos y equilibrados para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla. 
-                <br/><br/>
-                Cada simulacro consta de **40 preguntas de opción múltiple** con una distribución paritaria de **2 preguntas por cada uno de los 20 temas** del programa de la convocatoria. Se incluye al final de cada examen su correspondiente solucionario y hoja de justificaciones basadas en las normativas aplicables.
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '10mm 28px 10mm 28px', border: '4px double #1e3a8a', height: '248mm', minHeight: '248mm', maxHeight: '252mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
+              <div>
+                <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '14pt', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '6px' }}>Dossier de Preparación de Oposiciones</div>
+                <div style={{ width: '100px', height: '3.5px', backgroundColor: '#3b82f6', margin: '12px auto 20px auto' }}></div>
+                <h1 style={{ fontSize: '30pt', fontWeight: '800', color: '#000', lineHeight: '1.2', margin: '0 0 10px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
+                <h2 style={{ fontSize: '15pt', fontWeight: '700', color: '#2563eb', margin: '0 0 20px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                
+                <div style={{ fontSize: '11.5pt', color: '#333', maxWidth: '740px', lineHeight: '1.4', margin: '0 auto', padding: '16px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
+                  <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier recopila una serie de simulacros de examen predefinidos y equilibrados para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla. 
+                  <br/><br/>
+                  Cada simulacro consta de <strong>40 preguntas de opción múltiple</strong> con una distribución paritaria de <strong>2 preguntas por cada uno de los 20 temas</strong> del programa de la convocatoria. Se incluye al final de cada examen su correspondiente solucionario y hoja de justificaciones basadas en las normativas aplicables.
+                </div>
               </div>
 
-              <div style={{ fontSize: '14pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
-                <span>© 2026 Jgg. Todos los derechos reservados.</span>
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '9pt', color: '#555', fontWeight: 'normal', marginTop: '12px', marginBottom: '2px' }}>
+                <div style={{ textAlign: 'left', color: '#64748b', fontWeight: '600', fontSize: '8.5pt', fontFamily: 'monospace' }}>
+                  Edición: V1.0 &bull; {new Date().toLocaleDateString()}
+                </div>
+                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '2px', fontSize: '8.5pt' }}>
+                  <span>Biblioteca de la Universidad de Sevilla</span>
+                  <span>© 2026 Jgg. Todos los derechos reservados.</span>
+                </div>
               </div>
             </div>
             
@@ -1097,20 +1105,29 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           
           <div className="print-preview-content">
             {/* Cover page for the Test Book PDF */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '20mm 40px 20mm 40px', border: '4px double #1e3a8a', height: '250mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakAfter: 'always', breakAfter: 'page' }}>
-              <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '14pt', letterSpacing: '3px', textTransform: 'uppercase' }}>Dossier de Preparación de Oposiciones</div>
-              <div style={{ width: '80px', height: '3px', backgroundColor: '#3b82f6', margin: '20px auto 30px auto' }}></div>
-              <h1 style={{ fontSize: '32pt', fontWeight: '800', color: '#000', lineHeight: '1.25', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
-              <h2 style={{ fontSize: '16pt', fontWeight: '700', color: '#2563eb', margin: '0 0 30px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-              
-              <div style={{ fontSize: '15.5pt', color: '#333', maxWidth: '720px', lineHeight: '1.45', margin: '0 auto 20px auto', padding: '24px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
-                <strong>Introducción y Exención de Responsabilidad:</strong> Este cuaderno de autoevaluación ha sido elaborado de forma independiente como material de apoyo didáctico para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV) de la Universidad de Sevilla. 
-                <br/><br/>
-                Contiene una selección de cuestionarios tipo test por temas extraídos del pool de preparación, con sus correspondientes plantillas de soluciones y justificaciones redactadas a partir de normativas vigentes (Convenio Colectivo, LOSU, Ley de Prevención de Riesgos Laborales, etc.). El uso de este material es responsabilidad exclusiva del opositor en su proceso de estudio.
+            {/* Portada del Cuaderno de Tests */}
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '10mm 28px 10mm 28px', border: '4px double #1e3a8a', height: '248mm', minHeight: '248mm', maxHeight: '252mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
+              <div>
+                <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '14pt', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '6px' }}>Dossier de Preparación de Oposiciones</div>
+                <div style={{ width: '100px', height: '3.5px', backgroundColor: '#3b82f6', margin: '12px auto 20px auto' }}></div>
+                <h1 style={{ fontSize: '30pt', fontWeight: '800', color: '#000', lineHeight: '1.2', margin: '0 0 10px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
+                <h2 style={{ fontSize: '15pt', fontWeight: '700', color: '#2563eb', margin: '0 0 20px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
+                
+                <div style={{ fontSize: '11.5pt', color: '#333', maxWidth: '740px', lineHeight: '1.4', margin: '0 auto', padding: '16px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
+                  <strong>Introducción y Exención de Responsabilidad:</strong> Este cuaderno de autoevaluación ha sido elaborado de forma independiente como material de apoyo didáctico para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV) de la Universidad de Sevilla. 
+                  <br/><br/>
+                  Contiene una selección de cuestionarios tipo test por temas extraídos del pool de preparación, con sus correspondientes plantillas de soluciones y justificaciones redactadas a partir de normativas vigentes (Convenio Colectivo, LOSU, Ley de Prevención de Riesgos Laborales, etc.). El uso de este material es responsabilidad exclusiva del opositor en su proceso de estudio.
+                </div>
               </div>
 
-              <div style={{ fontSize: '14pt', color: '#555', fontWeight: 'bold', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
-                <span>© 2026 Jgg. Todos los derechos reservados.</span>
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: '9pt', color: '#555', fontWeight: 'normal', marginTop: '12px', marginBottom: '2px' }}>
+                <div style={{ textAlign: 'left', color: '#64748b', fontWeight: '600', fontSize: '8.5pt', fontFamily: 'monospace' }}>
+                  Edición: V1.0 &bull; {new Date().toLocaleDateString()}
+                </div>
+                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '2px', fontSize: '8.5pt' }}>
+                  <span>Biblioteca de la Universidad de Sevilla</span>
+                  <span>© 2026 Jgg. Todos los derechos reservados.</span>
+                </div>
               </div>
             </div>
             
