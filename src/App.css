@@ -2223,7 +2223,7 @@ body.study-focus-mode .study-timer-bar {
 .printable-question-text {
   font-weight: 600;
   margin-bottom: 8px;
-  font-size: 13.5pt;
+  font-size: 13pt;
 }
 
 .printable-options-list {
@@ -2237,7 +2237,7 @@ body.study-focus-mode .study-timer-bar {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 13.5pt;
+  font-size: 13pt;
 }
 
 .option-checkbox-box {
