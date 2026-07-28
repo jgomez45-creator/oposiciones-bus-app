@@ -969,7 +969,27 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             {/* Salto de página tras la portada */}
             <div className="print-page-break"></div>
 
-            {/* Índice de Simulacros Incluidos (en la segunda página) */}
+            {/* Ficha de la Convocatoria Oficial (Página 2 Exclusiva) */}
+            <div className="print-manual-convocatoria printable-exam-sheet" style={{ padding: '20px 0', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakBefore: 'always', breakBefore: 'page' }}>
+              <div style={{ borderBottom: '3px solid #000000', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
+                <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Ficha Resumen de la Convocatoria</h1>
+                <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
+              </div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '13pt', lineHeight: '1.4', color: '#000000', textAlign: 'justify' }}>
+                <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
+                <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
+                <div><strong>Requisitos Académicos:</strong> Título de Graduado en Educación Secundaria Obligatoria (ESO), Graduado Escolar, Bachillerato Elemental, Formación Profesional de Primer Grado (FP1) o equivalente. De manera alternativa, se puede acreditar una experiencia laboral equivalente de al menos 6 meses en la misma categoría o área profesional.</div>
+                <div><strong>Plazo de Inscripción:</strong> 10 días hábiles a contar desde el día siguiente al de la publicación de la convocatoria en el Boletín Oficial del Estado (BOE).</div>
+                <div><strong>Fase de Oposición (65% de la nota final):</strong> Cuestionario tipo test teórico-práctico de 4 opciones alternativas (los fallos restan 1/4 del valor de una correcta). Contiene además 5 preguntas de reserva. Es necesario obtener una puntuación mínima de <strong>32,5 puntos</strong> sobre 65 para aprobar el examen. La fecha de examen no será antes del 1 de septiembre de 2026.</div>
+                <div><strong>Fase de Concurso (35% de la nota final):</strong> Suma de méritos exclusiva para los aspirantes que hayan aprobado la fase de oposición. Se valorará la experiencia profesional previa (principalmente en la Universidad de Sevilla) y cursos de formación homologados. El plazo de presentación de méritos (autobaremo) es de 10 días hábiles desde la publicación de notas definitivas de examen.</div>
+              </div>
+            </div>
+
+            {/* Salto de página tras la ficha de la convocatoria */}
+            <div className="print-page-break"></div>
+
+            {/* Índice de Simulacros Incluidos (en la tercera página) */}
             <div className="print-manual-index printable-exam-sheet" style={{ padding: '20px 0', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakBefore: 'always', breakBefore: 'page' }}>
               <div style={{ borderBottom: '3px solid #000000', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
                 <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Índice de Simulacros Incluidos</h1>
@@ -977,9 +997,9 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
               
               <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Simulacros Seleccionados</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginTop: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px 18px', marginTop: '10px' }}>
                 {compiledExamsContent.map(examBlock => (
-                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
+                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '11pt', lineHeight: '1.4' }}>
                     <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>Simulacro Predefinido Nº {examBlock.examNum}</span>
                     <span style={{ color: '#555555', fontWeight: 'bold' }}>40 preguntas</span>
                   </div>
@@ -1149,21 +1169,41 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             {/* Salto de página tras la portada */}
             <div className="print-page-break"></div>
 
-            {/* Índice de Cuestionarios Incluidos (en la segunda página) */}
+            {/* Ficha de la Convocatoria Oficial (Página 2 Exclusiva) */}
+            <div className="print-manual-convocatoria printable-exam-sheet" style={{ padding: '20px 0', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakBefore: 'always', breakBefore: 'page' }}>
+              <div style={{ borderBottom: '3px solid #000000', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
+                <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Ficha Resumen de la Convocatoria</h1>
+                <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
+              </div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '13pt', lineHeight: '1.4', color: '#000000', textAlign: 'justify' }}>
+                <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
+                <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
+                <div><strong>Requisitos Académicos:</strong> Título de Graduado en Educación Secundaria Obligatoria (ESO), Graduado Escolar, Bachillerato Elemental, Formación Profesional de Primer Grado (FP1) o equivalente. De manera alternativa, se puede acreditar una experiencia laboral equivalente de al menos 6 meses en la misma categoría o área profesional.</div>
+                <div><strong>Plazo de Inscripción:</strong> 10 días hábiles a contar desde el día siguiente al de la publicación de la convocatoria en el Boletín Oficial del Estado (BOE).</div>
+                <div><strong>Fase de Oposición (65% de la nota final):</strong> Cuestionario tipo test teórico-práctico de 4 opciones alternativas (los fallos restan 1/4 del valor de una correcta). Contiene además 5 preguntas de reserva. Es necesario obtener una puntuación mínima de <strong>32,5 puntos</strong> sobre 65 para aprobar el examen. La fecha de examen no será antes del 1 de septiembre de 2026.</div>
+                <div><strong>Fase de Concurso (35% de la nota final):</strong> Suma de méritos exclusiva para los aspirantes que hayan aprobado la fase de oposición. Se valorará la experiencia profesional previa (principalmente en la Universidad de Sevilla) y cursos de formación homologados. El plazo de presentación de méritos (autobaremo) es de 10 días hábiles desde la publicación de notas definitivas de examen.</div>
+              </div>
+            </div>
+
+            {/* Salto de página tras la ficha de la convocatoria */}
+            <div className="print-page-break"></div>
+
+            {/* Índice de Cuestionarios Incluidos (Página 3 Exclusiva) */}
             <div className="print-manual-index printable-exam-sheet" style={{ padding: '20px 0', fontFamily: "'Inter', sans-serif", margin: '0 auto', maxWidth: '820px', pageBreakBefore: 'always', breakBefore: 'page' }}>
               <div style={{ borderBottom: '3px solid #000000', paddingBottom: '10px', marginBottom: '20px', textAlign: 'left' }}>
                 <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Índice de Cuestionarios Incluidos</h1>
                 <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Dossier completo de tests por temas para Auxiliar de Biblioteca - US</p>
               </div>
               
-              <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '16px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px 20px', marginTop: '8px' }}>
                 {testBookContent.map(block => (
-                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
-                    <span style={{ fontWeight: 'bold', color: '#1e3a8a', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '580px' }}>
+                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '10.5pt', lineHeight: '1.3' }}>
+                    <span style={{ fontWeight: 'bold', color: '#1e3a8a', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '280px' }}>
                       Tema {block.topicId.toString().padStart(2, '0')}: {block.topicTitle}
                     </span>
-                    <span style={{ color: '#555555', fontWeight: 'bold', whiteSpace: 'nowrap' }}>{block.questions.length} preguntas</span>
+                    <span style={{ color: '#555555', fontWeight: 'bold', whiteSpace: 'nowrap', marginLeft: '6px' }}>{block.questions.length} preg.</span>
                   </div>
                 ))}
               </div>

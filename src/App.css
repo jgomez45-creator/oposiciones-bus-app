@@ -4238,17 +4238,18 @@ body.reading-fullscreen-mode .markdown-body-container {
     height: auto;
   }
 
-  .print-manual-cover {
+  html body #root .print-manual-cover,
+  div.print-manual-cover {
     width: 100% !important;
     max-width: 100% !important;
-    height: 280mm !important;
-    min-height: 280mm !important;
-    max-height: 282mm !important;
+    height: 275mm !important;
+    min-height: 275mm !important;
+    max-height: 280mm !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
-    padding: 14mm 32px 10mm 32px !important;
+    padding: 14mm 36px 12mm 36px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     page-break-after: always !important;
