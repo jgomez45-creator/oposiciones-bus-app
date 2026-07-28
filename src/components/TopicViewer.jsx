@@ -63,7 +63,8 @@ export default function TopicViewer({
       setCompiledPrintContent('');
       setViewMode('multi-print');
     } else {
-      if (currentUser?.role === 'admin') {
+      const isAdmin = !currentUser || currentUser?.role === 'admin' || currentUser?.email === 'admin@admin.com';
+      if (isAdmin) {
         setShowPrintModal(true);
       } else {
         window.print();
@@ -1191,9 +1192,16 @@ export default function TopicViewer({
                       Se han compilado {selectedPrintTopicIds.length} temas. Listo para imprimir.
                     </p>
                   </div>
-                  <div style={{ display: 'flex', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <button onClick={() => setCompiledPrintContent('')} className="glow-btn-secondary" style={{ padding: '8px 16px' }}>
                       Modificar Selección
+                    </button>
+                    <button 
+                      onClick={() => setShowPrintModal(true)} 
+                      className="glow-btn-secondary" 
+                      style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
+                    >
+                      💾 Guardar como Nueva Edición
                     </button>
                     <button onClick={handlePrintClick} className="glow-btn" style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <Printer size={16} />

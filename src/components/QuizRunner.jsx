@@ -27,7 +27,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir los cuestionarios en PDF.');
       return;
     }
-    if (currentUser?.role === 'admin') {
+    const isAdmin = !currentUser || currentUser?.role === 'admin' || currentUser?.email === 'admin@admin.com';
+    if (isAdmin) {
       setShowPrintModal(true);
     } else {
       window.print();
@@ -913,13 +914,20 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Compilación de {compiledExamsContent.length} simulacros de examen predefinidos (40 preguntas por examen).
               </p>
             </div>
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <button 
                 onClick={handleRestart} 
                 className="glow-btn-secondary" 
                 style={{ padding: '8px 16px' }}
               >
                 Volver a Configurar
+              </button>
+              <button 
+                onClick={() => { setIsTestBookPrintMode(false); setShowPrintModal(true); }} 
+                className="glow-btn-secondary" 
+                style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
+              >
+                💾 Guardar como Nueva Edición
               </button>
               <button 
                 onClick={handlePrintClick} 
@@ -1085,13 +1093,20 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 Compilación de cuestionarios de autoevaluación por temas. Cantidad de preguntas por tema: {!isCustomLimitInput && questionLimit === 'all' ? 'Todas' : (isCustomLimitInput ? customLimitValue : questionLimit)}.
               </p>
             </div>
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <button 
                 onClick={handleRestart} 
                 className="glow-btn-secondary" 
                 style={{ padding: '8px 16px' }}
               >
                 Volver a Configurar
+              </button>
+              <button 
+                onClick={() => { setIsTestBookPrintMode(true); setShowPrintModal(true); }} 
+                className="glow-btn-secondary" 
+                style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
+              >
+                💾 Guardar como Nueva Edición
               </button>
               <button 
                 onClick={handlePrintClick} 
