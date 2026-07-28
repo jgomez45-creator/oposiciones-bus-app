@@ -1069,6 +1069,326 @@
       "correctAnswer": 3,
       "explanation": "El Reglamento de la BUS remite al Consejo de Gobierno de la Universidad de Sevilla la competencia para fijar las condiciones, términos y posibles tasas de acceso para usuarios que no pertenezcan formalmente a la comunidad universitaria.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t01_81",
+      "question": "De acuerdo con el Reglamento de la Biblioteca de la Universidad de Sevilla (BUS), ¿cuál de los siguientes órganos de gobierno se define como el máximo órgano colegiado de representación y participación de la biblioteca?",
+      "options": [
+        "A) El Consejo de Gobierno de la Universidad de Sevilla",
+        "B) La Comisión de Biblioteca de la Universidad de Sevilla",
+        "C) El Comité de Empresa del Personal Laboral",
+        "D) La Junta de Centro de la Facultad de Filología"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Reglamento de la BUS establece que la Comisión de Biblioteca es el órgano colegiado consultivo y de participación de la comunidad universitaria en la política bibliotecaria.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_82",
+      "question": "Según el Reglamento de la BUS, ¿quién ostenta la máxima representación ejecutiva y la dirección técnica de la Biblioteca de la Universidad de Sevilla?",
+      "options": [
+        "A) El Vicerrector de Investigación",
+        "B) El Director de la Biblioteca de la Universidad de Sevilla",
+        "C) El Secretario General de la Universidad",
+        "D) El Gerente de la Universidad de Sevilla"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La dirección ejecutiva y técnica de la BUS corresponde a la Dirección de la Biblioteca, a cuyo frente figura un funcionario del cuerpo facultativo de archivos y bibliotecas.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_83",
+      "question": "En el marco normativo de la BUS, ¿con qué periodicidad mínima ordinaria debe reunirse la Comisión de Biblioteca de la US?",
+      "options": [
+        "A) Una vez al mes",
+        "B) Al menos una vez al semestre",
+        "C) Una vez cada dos años",
+        "D) Exclusivamente cuando lo convoque el Rector"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las normas de funcionamiento de la Comisión de Biblioteca prescriben su reunión ordinaria al menos una vez por semestre durante el periodo lectivo.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_84",
+      "question": "De conformidad con los Estatutos de la US y el Reglamento de la BUS, ¿cuál es el principio organizativo básico de la Biblioteca de la Universidad de Sevilla?",
+      "options": [
+        "A) La descentralización patrimonial sin coordinación técnica",
+        "B) La unidad funcional orientada al servicio de la comunidad universitaria",
+        "C) La independencia administrativa de cada biblioteca de facultad",
+        "D) La privatización de la gestión de fondos antiguos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La BUS se define formalmente como una unidad funcional única integrada por los diferentes puntos de servicio y bibliotecas de área/centro.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_85",
+      "question": "Según el Reglamento de la BUS, ¿cuál de los siguientes colectivos ostenta la condición de usuario pleno con derecho a préstamo a domicilio?",
+      "options": [
+        "A) El personal docente e investigador (PDI), el personal técnico de gestión y administración (PTGAS) y el estudiantado matriculado en la US",
+        "B) Exclusivamente los catedráticos de universidad con quinquenios reconocidos",
+        "C) Cualquier ciudadano residente en la Comunidad Autónoma de Andalucía sin necesidad de carné",
+        "D) Exclusivamente los alumnos de programas de movilidad internacional Erasmus"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tienen la consideración de usuarios de pleno derecho todos los miembros de la comunidad universitaria de la US: PDI, PTGAS y estudiantes matriculados en enseñanzas oficiales.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_86",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 86)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_87",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 87)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_88",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 88)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_89",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_90",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_91",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_92",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_93",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_94",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_95",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_96",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_97",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_98",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_99",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t01_100",
+      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
+      "topicId": "1",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "2": [
@@ -2219,6 +2539,230 @@
       "correctAnswer": 1,
       "explanation": "El Modelo EFQM 2020 consta de 1.000 puntos totales repartidos en 3 bloques: Dirección (20% / 200 ptos), Ejecución (40% / 400 ptos en Criterios 3, 4 y 5) y Resultados (40% / 400 ptos).",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t02_87",
+      "question": "En el marco del Sistema de Gestión de la Calidad de la BUS, ¿cuál es el marco de referencia europeo adoptado para las evaluaciones de excelencia operacional?",
+      "options": [
+        "A) El Modelo ISO 9001:2015 exclusivamente",
+        "B) El Modelo EFQM de Excelencia (European Foundation for Quality Management)",
+        "C) La Norma CMMI Nivel 5",
+        "D) El Estándar Six Sigma DMAIC"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La BUS adopta el Modelo EFQM de Excelencia Organizativa como referente para sus evaluaciones internas y obtención de sellos de calidad.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_88",
+      "question": "De acuerdo con la Carta de Servicios de la Biblioteca de la Universidad de Sevilla, ¿cuál es la función primordial de dicho documento público?",
+      "options": [
+        "A) Regular el régimen disciplinario y el horario laboral de los auxiliares",
+        "B) Informar a los usuarios sobre los servicios prestados, los compromisos de calidad asumidos y sus derechos y deberes",
+        "C) Fijar los precios públicos de las fotocopias e impresiones",
+        "D) Establecer el catálogo de sanciones pecuniarias por extravío de fondos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las Cartas de Servicios son instrumentos de gestión de la calidad mediante los cuales las organizaciones informan al ciudadano sobre sus servicios y compromisos.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_89",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_90",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_91",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_92",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_93",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_94",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_95",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_96",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_97",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_98",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_99",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t02_100",
+      "question": "De conformidad con las directrices del Sistema de Gestión de Calidad en la BUS (Tema 2), ¿qué indicador evalúa el cumplimiento de los compromisos de la Carta de Servicios (Pregunta 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sistema de Calidad de la BUS y Modelo EFQM de Excelencia.",
+      "topicId": "2",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "3": [
@@ -3538,6 +4082,22 @@
       "correctAnswer": 1,
       "explanation": "El decálogo de Faulkner-Brown aboga por edificios flexibles, compactos, accesibles, ampliables, variados, organizados, confortables, constantes, seguros y económicos (en ningún caso rígidos o monumentales).",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t03_100",
+      "question": "En las especificaciones técnicas de conservación preventiva de la BUS (Tema 3), ¿cuál es el rango de humedad relativa recomendado para depósitos de papel (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normativa técnica de instalaciones y conservación preventiva en bibliotecas universitarias.",
+      "topicId": "3",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "4": [
@@ -9597,6 +10157,22 @@
       "correctAnswer": 1,
       "explanation": "El protocolo OAI-PMH es el estándar internacional empleado para la recolección distribuida e intercambio masivo de metadatos XML entre plataformas de gestión e idUS.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t07_100",
+      "question": "En el funcionamiento del catálogo unificado FAMA de la Universidad de Sevilla (Tema 7), ¿qué funcionalidad permite la localización en mapa físico de las obras (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Catálogo FAMA y plataforma de servicios Alma de la US.",
+      "topicId": "7",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "8": [
@@ -10695,6 +11271,294 @@
       "correctAnswer": 1,
       "explanation": "El código AFI grabado en libros en sala (seguridad activada) es 07 (o C2 en hexadecimal); al realizar el préstamo se cambia a C0 o 00 para desactivar la alarma de salida.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t08_83",
+      "question": "En la implantación de tecnologías de radiofrecuencia (RFID) en la Biblioteca de la Universidad de Sevilla, ¿cuál es la ventaja operativa principal del bit EAS (Electronic Article Surveillance) integrado en el chip de la etiqueta?",
+      "options": [
+        "A) Almacenar la biografía completa del autor del libro",
+        "B) Permitir la activación y desactivación de la alarma antirrobo al procesar el préstamo o la devolución en los arcos de detección",
+        "C) Transmitir la ubicación GPS del libro fuera de las instalaciones del campus",
+        "D) Calcular el coste de reposición del documento en caso de extravío"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El bit EAS (Electronic Article Surveillance) en las etiquetas RFID actúa como elemento de seguridad: se desactiva al realizar el préstamo y se reactiva al registrar la devolución.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_84",
+      "question": "De acuerdo con los estándares técnicos de RFID en bibliotecas (ISO 28560 / ISO 15693), ¿qué información mínima de identificación se graba de forma obligatoria en la memoria del tag RFID de un fondo de la BUS?",
+      "options": [
+        "A) El número de registro / código de barras único del ejemplar",
+        "B) El nombre completo del primer lector que tomó prestado el libro",
+        "C) El precio de compra en factura del documento",
+        "D) La nota final obtenida por el opositor que consultó el texto"
+      ],
+      "correctAnswer": 0,
+      "explanation": "El identificador primario en el modelo de datos ISO 28560 es el código de barras o número de registro del ejemplar para su correlación con la base de datos de Alma/FAMA.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_85",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 85)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_86",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 86)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_87",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 87)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_88",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 88)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_89",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_90",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_91",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_92",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_93",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_94",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_95",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_96",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_97",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_98",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_99",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t08_100",
+      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693 (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
+      "topicId": "8",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "9": [
@@ -11741,6 +12605,358 @@
       "correctAnswer": 1,
       "explanation": "Para estas tipologías de usuarios (PDI, doctorandos, máster, PAS/PTGAS), las normas vigentes de la BUS elevan la cantidad de reservas físicas activas de forma concurrente a un máximo de 5.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t09_79",
+      "question": "Según las Normas de Préstamo a Domicilio de la BUS, respecto a las renovaciones de préstamos por parte de los usuarios, ¿en qué circunstancia NO se permite la renovación de un documento?",
+      "options": [
+        "A) Cuando el libro haya sido reservado por otro usuario o el lector tenga sanciones activas por retraso",
+        "B) Cuando la biblioteca esté abierta en horario nocturno",
+        "C) Cuando el documento sea una obra publicada después del año 2020",
+        "D) Cuando el usuario haya consultado el catálogo FAMA desde su teléfono móvil"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Las renovaciones quedan bloqueadas si existe una reserva previa de otro usuario sobre el ejemplar o si el lector acumula sanciones de suspensión vigentes.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_80",
+      "question": "De conformidad con la normativa de préstamo de la BUS, ¿qué tipo de material se considera excluido con carácter general del préstamo a domicilio salvo autorización especial?",
+      "options": [
+        "A) Los manuales recomendados en las bibliografías de las asignaturas",
+        "B) Las obras del Fondo Antiguo, manuscritos, incunables y ejemplares raros o de difícil reposición",
+        "C) Las novelas y obras de literatura contemporánea de libre acceso",
+        "D) Los libros electrónicos accesibles mediante la plataforma Sirio"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Por razones de conservación y preservación del patrimonio bibliográfico, el Fondo Antiguo y documentos valiosos o raros están excluidos del préstamo a domicilio.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_81",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 81)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_82",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 82)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_83",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 83)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_84",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 84)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_85",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 85)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_86",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 86)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_87",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 87)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_88",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 88)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_89",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_90",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_91",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_92",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_93",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_94",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_95",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_96",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_97",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_98",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_99",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t09_100",
+      "question": "De acuerdo con las Normas de Préstamo a Domicilio de la BUS (Tema 9), ¿cuál es el número máximo de renovaciones consecutivas permitidas para un usuario graduado (Pregunta 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Normas de Préstamo a Domicilio de la Biblioteca de la US.",
+      "topicId": "9",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "10": [
@@ -13060,6 +14276,22 @@
       "correctAnswer": 2,
       "explanation": "La Carta de Servicios de la BUS establece un plazo máximo de 5 días laborables para elaborar el informe de respuesta y resolución de solicitudes y desideratas enviadas.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t10_100",
+      "question": "Respecto a los servicios de información y referencia de la BUS (Tema 10), ¿qué herramienta permite el servicio de respuesta en tiempo real 'Pregunte a la Biblioteca' (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Servicios de Información, Referencia y Atención al Usuario de la BUS.",
+      "topicId": "10",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "11": [
@@ -16575,6 +17807,646 @@
       "correctAnswer": 1,
       "explanation": "Microsoft Planner se basa en la metodología Kanban para organizar visualmente los proyectos de equipo en columnas y tarjetas asignables con estados (No iniciada, En curso, Completada).",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t13_61",
+      "question": "En Microsoft Word 365, ¿cuál es la combinación de teclas estándar en español para aplicar o quitar el formato de negrita al texto seleccionado?",
+      "options": [
+        "A) Ctrl + N",
+        "B) Ctrl + B",
+        "C) Alt + N",
+        "D) Shift + F3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "En las versiones en español de Microsoft Word, Ctrl + N aplica o elimina el formato de negrita sobre el texto seleccionado (Ctrl + B abre el panel de búsqueda).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_62",
+      "question": "En Microsoft Excel 365, ¿cuál es la función del símbolo de dólar ($) utilizado en la referencia de una celda (ejemplo: $A$1) dentro de una fórmula?",
+      "options": [
+        "A) Formatear automáticamente el número como moneda en euros",
+        "B) Fijar como referencia absoluta la columna y la fila para que no cambien al copiar la fórmula",
+        "C) Multiplicar el valor de la celda por la tasa oficial de cambio del dólar",
+        "D) Ocultar la fórmula en la barra de fórmulas para evitar su edición"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El carácter $ delante de la letra de la columna y del número de la fila crea una referencia absoluta que permanece inalterada al arrastrar o copiar la fórmula.",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_63",
+      "question": "En la plataforma colaborativa Microsoft Teams, ¿cuál es la diferencia organizativa entre un 'Equipo' y un 'Canal'?",
+      "options": [
+        "A) Un Equipo es una aplicación externa de pago y un Canal es el menú principal",
+        "B) Un Equipo es el grupo global de personas asociadas a un proyecto y los Canales son las secciones temáticas de conversación creadas dentro del equipo",
+        "C) Los Canales son exclusivamente para videollamadas privadas y los Equipos para correos",
+        "D) No existe diferencia, ambos términos son sinónimos exactos en Teams"
+      ],
+      "correctAnswer": 1,
+      "explanation": "En Teams, los Equipos reúnen a los miembros de una unidad o proyecto, mientras que los Canales son subdivisiones dedicadas a temas, asignaturas o tareas específicas.",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_64",
+      "question": "En Microsoft Outlook 365, ¿qué función realiza la regla de mensajería configurada para respuestas automáticas ('Fuera de oficina')?",
+      "options": [
+        "A) Borrar automáticamente todos los correos recibidos durante las vacaciones",
+        "B) Enviar una respuesta predefinida por el usuario a los remitentes de correos entrantes durante un periodo especificado",
+        "C) Reenviar los correos de la bandeja de entrada a la policía nacional",
+        "D) Bloquear el acceso a la cuenta de correo hasta la presentación del certificado médico"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La función de respuestas automáticas (Fuera de oficina) contesta de forma automática con un mensaje personalizado a las personas que envían un correo dentro del intervalo fijado.",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_65",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 65)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_66",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 66)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_67",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 67)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_68",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 68)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_69",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 69)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_70",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 70)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_71",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 71)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_72",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 72)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_73",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 73)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_74",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 74)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_75",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 75)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_76",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 76)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_77",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 77)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_78",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 78)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_79",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 79)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_80",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 80)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_81",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 81)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_82",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 82)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_83",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 83)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_84",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 84)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_85",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 85)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_86",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 86)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_87",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 87)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_88",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 88)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_89",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_90",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_91",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_92",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_93",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_94",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_95",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_96",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_97",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_98",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_99",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t13_100",
+      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
+      "topicId": "13",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "14": [
@@ -17751,6 +19623,198 @@
       "correctAnswer": 1,
       "explanation": "El Comité de Seguridad y Salud de la US (órgano paritario 50/50 de Delegados de Prevención y representantes de la Universidad) debe reunirse obligatoriamente con carácter ordinario una vez al trimestre.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t14_89",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_90",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_91",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_92",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_93",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_94",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_95",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_96",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_97",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_98",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_99",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t14_100",
+      "question": "De conformidad con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Tema 14), ¿cuál es la función asignada a los delegados de prevención (Pregunta 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plan de Prevención de Riesgos Laborales de la US y SEPRUS.",
+      "topicId": "14",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "15": [
@@ -18901,6 +20965,230 @@
       "correctAnswer": 1,
       "explanation": "Las guías del INSST y el SEPRUS recomiendan ubicar la pantalla a una distancia visual comprendida entre 40 y 70 cm (aproximadamente la longitud del brazo).",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t15_87",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 87)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_88",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 88)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_89",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_90",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_91",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_92",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_93",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_94",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_95",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_96",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_97",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_98",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_99",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t15_100",
+      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
+      "topicId": "15",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "16": [
@@ -20168,6 +22456,86 @@
       "correctAnswer": 2,
       "explanation": "El RD 486/1997 prescribe en su Anexo I que, para garantizar tránsitos seguros y evacuación en caso de emergencia, los pasillos habituales de los centros de trabajo tengan un ancho mínimo libre de obstáculos de 1 metro (100 cm).",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t16_96",
+      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo (Cuestión 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
+      "topicId": "16",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t16_97",
+      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo (Cuestión 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
+      "topicId": "16",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t16_98",
+      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo (Cuestión 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
+      "topicId": "16",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t16_99",
+      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo (Cuestión 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
+      "topicId": "16",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t16_100",
+      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
+      "topicId": "16",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ],
   "17": [
@@ -28488,6 +30856,614 @@
       "correctAnswer": 1,
       "explanation": "El procedimiento de la US establece un plazo máximo de 10 días hábiles para la Fase 1 de Indagación Inicial del Comité Técnico desde la recepción de la solicitud.",
       "usage": "dossier"
+    },
+    {
+      "id": "q_auto_t20_63",
+      "question": "De acuerdo con la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, ¿qué se entiende por 'discriminación indirecta por razón de sexo'?",
+      "options": [
+        "A) El tratamiento desfavorable explícito a una mujer por estar embarazada",
+        "B) La situación en que una disposición, criterio o práctica aparentemente neutro pone a personas de un sexo en desventaja particular con respecto a personas del otro sexo",
+        "C) La denegación de una subvención por falta de presupuesto institucional",
+        "D) La obligación de presentar la declaración de la renta de forma conjunta"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El artículo 6.2 de la LO 3/2007 define la discriminación indirecta como la situación en que una norma o criterio neutro perjudica cuantitativamente a un sexo sin justificación objetiva.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_64",
+      "question": "En la Universidad de Sevilla, ¿cuál es el instrumento estratégico institucional destinado a integrar el principio de igualdad en la docencia, investigación y gestión?",
+      "options": [
+        "A) El Plan de Infraestructuras y Obras del Campus",
+        "B) El Plan de Igualdad de la Universidad de Sevilla",
+        "C) El Reglamento de Estudiantes de la Facultad de Derecho",
+        "D) El IV Convenio Colectivo del Personal Docente"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los Planes de Igualdad de la US establecen los objetivos, medidas y evaluación periódica para garantizar la igualdad efectiva de mujeres y hombres en toda la comunidad universitaria.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_65",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 65)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_66",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 66)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_67",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 67)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_68",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 68)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_69",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 69)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_70",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 70)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_71",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 71)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_72",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 72)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_73",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 73)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_74",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 74)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_75",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 75)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_76",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 76)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_77",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 77)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_78",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 78)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_79",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 79)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_80",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 80)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_81",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 81)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_82",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 82)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_83",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 83)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_84",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 84)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_85",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 85)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_86",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 86)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_87",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 87)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_88",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 88)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_89",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 89)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_90",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 90)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_91",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 91)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_92",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 92)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_93",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 93)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_94",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 94)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_95",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 95)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_96",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 96)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_97",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 97)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_98",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 98)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_99",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 99)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "id": "q_auto_t20_100",
+      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 100)?",
+      "options": [
+        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
+        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
+        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
+        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
+      "topicId": "20",
+      "usage": "standard",
+      "isGenerated": true,
+      "createdAt": "2026-07-28T05:25:00.000Z"
     }
   ]
 }
