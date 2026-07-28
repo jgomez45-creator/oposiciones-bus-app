@@ -4242,12 +4242,16 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   .print-manual-cover {
-    height: 248mm !important;
-    min-height: 248mm !important;
-    max-height: 252mm !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 268mm !important;
+    min-height: 268mm !important;
+    max-height: 272mm !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: space-between !important;
     box-sizing: border-box !important;
+    padding: 12mm 32px 10mm 32px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     page-break-after: always !important;
@@ -4316,6 +4320,7 @@ body.reading-fullscreen-mode .markdown-body-container {
   }
 
   @page :first {
+    margin: 8mm 8mm 8mm 8mm !important;
     @bottom-left {
       content: "" !important;
       border-top: none !important;
