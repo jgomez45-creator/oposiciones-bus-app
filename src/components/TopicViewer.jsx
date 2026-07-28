@@ -311,7 +311,7 @@ export default function TopicViewer({
           const indexItemsHtml = sortedIds.map(id => {
             const tMeta = topics.find(t => t.id === id);
             return `
-              <div style="border-bottom: 1px dashed #b0c4de; padding: 8px 0; font-size: 13pt; line-height: 1.4; text-align: left;">
+              <div style="border-bottom: 1px dashed #b0c4de; padding: 8px 0; font-size: 13.5pt; line-height: 1.4; text-align: left;">
                 <span style="font-weight: bold; color: #004B93;">Tema ${id.toString().padStart(2, '0')}: ${tMeta.title}</span>
               </div>
             `;

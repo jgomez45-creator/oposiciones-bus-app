@@ -1001,7 +1001,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Simulacros Seleccionados</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {compiledExamsContent.map(examBlock => (
-                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
+                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13.5pt', lineHeight: '1.4' }}>
                     <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>Simulacro Predefinido Nº {examBlock.examNum}</span>
                     <span style={{ color: '#555555', fontWeight: 'bold' }}>40 preguntas</span>
                   </div>
@@ -1201,7 +1201,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {testBookContent.map(block => (
-                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
+                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13.5pt', lineHeight: '1.4' }}>
                     <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>
                       Tema {block.topicId.toString().padStart(2, '0')}: {block.topicTitle}
                     </span>
