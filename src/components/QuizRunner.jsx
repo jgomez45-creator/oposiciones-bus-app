@@ -933,7 +933,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           
           <div className="print-preview-content">
             {/* Portada del Dossier de Simulacros */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '12mm 32px 10mm 32px', border: '4px double #1e3a8a', height: '268mm', minHeight: '268mm', maxHeight: '272mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '12mm 32px 10mm 32px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
               <div>
                 <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '15pt', letterSpacing: '3.5px', textTransform: 'uppercase', marginTop: '8px' }}>Dossier de Preparación de Oposiciones</div>
                 <div style={{ width: '120px', height: '4px', backgroundColor: '#3b82f6', margin: '14px auto 22px auto' }}></div>
@@ -1106,7 +1106,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           <div className="print-preview-content">
             {/* Cover page for the Test Book PDF */}
             {/* Portada del Cuaderno de Tests */}
-            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '12mm 32px 10mm 32px', border: '4px double #1e3a8a', height: '268mm', minHeight: '268mm', maxHeight: '272mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
+            <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '12mm 32px 10mm 32px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
               <div>
                 <div style={{ color: '#1e3a8a', fontWeight: '800', fontSize: '15pt', letterSpacing: '3.5px', textTransform: 'uppercase', marginTop: '8px' }}>Dossier de Preparación de Oposiciones</div>
                 <div style={{ width: '120px', height: '4px', backgroundColor: '#3b82f6', margin: '14px auto 22px auto' }}></div>

@@ -273,7 +273,7 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada del Tema Único -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12mm 32px 10mm 32px; border: 4px double #004B93; height: 268mm; min-height: 268mm; max-height: 272mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12mm 32px 10mm 32px; border: 4px double #004B93; height: 280mm; min-height: 280mm; max-height: 282mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
               <div>
                 <div style="color: #004B93; font-weight: normal; font-size: 15pt; letter-spacing: 3.5px; text-transform: uppercase; margin-top: 8px;">Dossier de Preparación de Oposiciones</div>
                 <div style="width: 120px; height: 4px; background-color: #004B93; margin: 14px auto 22px auto;"></div>
@@ -316,7 +316,7 @@ export default function TopicViewer({
 
           manualHeaderHtml = `
             <!-- Portada -->
-            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12mm 32px 10mm 32px; border: 4px double #004B93; height: 268mm; min-height: 268mm; max-height: 272mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
+            <div class="print-manual-cover" style="box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12mm 32px 10mm 32px; border: 4px double #004B93; height: 280mm; min-height: 280mm; max-height: 282mm; text-align: center; font-family: Arial, Calibri, Helvetica, sans-serif; margin: 0 auto; width: 100%; max-width: 100%; page-break-inside: avoid; break-inside: avoid;">
               <div>
                 <div style="color: #004B93; font-weight: normal; font-size: 15pt; letter-spacing: 3.5px; text-transform: uppercase; margin-top: 8px;">Dossier de Preparación de Oposiciones</div>
                 <div style="width: 120px; height: 4px; background-color: #004B93; margin: 14px auto 22px auto;"></div>
