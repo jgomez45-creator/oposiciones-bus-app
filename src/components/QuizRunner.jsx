@@ -997,9 +997,9 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
               
               <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Simulacros Seleccionados</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px 18px', marginTop: '10px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {compiledExamsContent.map(examBlock => (
-                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '11pt', lineHeight: '1.4' }}>
+                  <div key={examBlock.examNum} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
                     <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>Simulacro Predefinido Nº {examBlock.examNum}</span>
                     <span style={{ color: '#555555', fontWeight: 'bold' }}>40 preguntas</span>
                   </div>
@@ -1196,14 +1196,14 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Dossier completo de tests por temas para Auxiliar de Biblioteca - US</p>
               </div>
               
-              <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '16px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px 20px', marginTop: '8px' }}>
+              <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {testBookContent.map(block => (
-                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '4px 0', fontSize: '10.5pt', lineHeight: '1.3' }}>
-                    <span style={{ fontWeight: 'bold', color: '#1e3a8a', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', maxWidth: '280px' }}>
+                  <div key={block.topicId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px dashed #ccc', padding: '6px 0', fontSize: '13pt', lineHeight: '1.4' }}>
+                    <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>
                       Tema {block.topicId.toString().padStart(2, '0')}: {block.topicTitle}
                     </span>
-                    <span style={{ color: '#555555', fontWeight: 'bold', whiteSpace: 'nowrap', marginLeft: '6px' }}>{block.questions.length} preg.</span>
+                    <span style={{ color: '#555555', fontWeight: 'bold', whiteSpace: 'nowrap' }}>{block.questions.length} preguntas</span>
                   </div>
                 ))}
               </div>
