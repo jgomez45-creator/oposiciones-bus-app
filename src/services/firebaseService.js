@@ -1,28 +1,28 @@
 import { initializeApp } from 'firebase/app';
-import { 
-  getAuth, 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
   signInAnonymously
 } from 'firebase/auth';
-import { 
-  initializeFirestore, 
-  doc, 
-  setDoc, 
-  getDoc, 
-  updateDoc, 
+import {
+  initializeFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
   deleteDoc,
   onSnapshot,
   collection,
   getDocs
 } from 'firebase/firestore';
-import { 
-  getStorage, 
-  ref, 
-  uploadBytes, 
-  getDownloadURL 
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
 } from 'firebase/storage';
 
 // Check if we should run in Mock Simulator Mode
@@ -31,8 +31,8 @@ const isMock = !projectID || projectID === 'tu_project_id';
 
 const rawApiKey = import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAuBS58f2eNqaeGIc10zyQwgjxgm2StgBg';
 // Automatically correct the '8g' -> 'Bg' typo if it exists in the environment variable
-const apiKey = rawApiKey && rawApiKey.endsWith('8g') 
-  ? rawApiKey.substring(0, rawApiKey.length - 2) + 'Bg' 
+const apiKey = rawApiKey && rawApiKey.endsWith('8g')
+  ? rawApiKey.substring(0, rawApiKey.length - 2) + 'Bg'
   : rawApiKey;
 
 const firebaseConfig = {
@@ -159,17 +159,17 @@ export const firebaseService = {
         role: isAdminCode ? 'admin' : 'student',
         lastActive: new Date().toISOString()
       };
-      
+
       mockUsers[uid] = newUser;
       saveMockUsers(mockUsers);
 
       // 4. Mark book code as used and assigned (skip if admin)
       if (!isAdminCode && mockCodes[cleanCode]) {
-        mockCodes[cleanCode] = { 
+        mockCodes[cleanCode] = {
           ...mockCodes[cleanCode],
-          used: true, 
-          usedBy: uid, 
-          assigned: true 
+          used: true,
+          usedBy: uid,
+          assigned: true
         };
         saveMockBookCodes(mockCodes);
       }
@@ -179,18 +179,18 @@ export const firebaseService = {
       // REAL FIREBASE LOGIC
       // 1. Verify book code in Firestore (skip if admin)
       const codeRef = doc(db, 'book_codes', cleanCode);
-      
+
       if (!isAdminCode) {
         const codeSnap = await withTimeout(
           getDoc(codeRef),
           10000,
           "No se pudo verificar el código del libro en la base de datos (tiempo de espera agotado)."
         );
-        
+
         if (!codeSnap.exists()) {
           throw new Error("El código de activación del libro es inválido.");
         }
-        
+
         const codeData = codeSnap.data();
         if (codeData.used) {
           throw new Error("Este código de libro ya ha sido registrado por otro usuario.");
@@ -245,10 +245,10 @@ export const firebaseService = {
     // Special bypass for quick developer admin access (works in both mock and real mode)
     if (email.toLowerCase() === 'a@a.com' && password === 'a') {
       return {
-        user: { 
-          uid: 'mock_admin_default', 
-          name: 'Creador (Admin)', 
-          email: 'a@a.com', 
+        user: {
+          uid: 'mock_admin_default',
+          name: 'Creador (Admin)',
+          email: 'a@a.com',
           bookCode: 'BUS-ADMIN-2026',
           role: 'admin'
         },
@@ -276,10 +276,10 @@ export const firebaseService = {
       localStorage.setItem(`mock_session_changed_${matchedUser.uid}`, sessionId);
 
       return {
-        user: { 
-          uid: matchedUser.uid, 
-          name: matchedUser.name, 
-          email: matchedUser.email, 
+        user: {
+          uid: matchedUser.uid,
+          name: matchedUser.name,
+          email: matchedUser.email,
           bookCode: matchedUser.bookCode,
           role: matchedUser.role || (matchedUser.bookCode === 'BUS-ADMIN-2026' ? 'admin' : 'student')
         },
@@ -335,10 +335,10 @@ export const firebaseService = {
       }
 
       return {
-        user: { 
-          uid, 
-          name: userData.name, 
-          email: userData.email || email.toLowerCase(), 
+        user: {
+          uid,
+          name: userData.name,
+          email: userData.email || email.toLowerCase(),
           bookCode: userData.bookCode || 'BUS-ACTIVATED',
           role: userData.role || 'student'
         },
@@ -404,9 +404,9 @@ export const firebaseService = {
           }
         }
       };
-      
+
       window.addEventListener('storage', handleStorageChange);
-      
+
       // Also set a backup polling check in case it's in the same tab
       const interval = setInterval(() => {
         const mockUsers = getMockUsers();
@@ -480,7 +480,7 @@ export const firebaseService = {
       } else {
         onProgressUpdate({});
       }
-      return () => {}; // return empty unsubscribe
+      return () => { }; // return empty unsubscribe
     } else {
       // REAL FIREBASE SNAPSHOT
       // First, immediately load the local backup if it exists, so the UI is populated instantly
@@ -791,7 +791,7 @@ export const firebaseService = {
   async createDemoSession() {
     const sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
     const guestNum = Math.floor(1000 + Math.random() * 9000);
-    
+
     if (isMock) {
       const uid = 'demo_uid_' + Math.random().toString(36).substring(2, 9);
       const newUser = {
@@ -815,7 +815,7 @@ export const firebaseService = {
         "No se pudo iniciar sesión anónima en Firebase (tiempo de espera agotado)."
       );
       const uid = userCredential.user.uid;
-      
+
       const newUser = {
         uid,
         name: `Invitado #${guestNum}`,
@@ -927,7 +927,7 @@ export const firebaseService = {
     if (!file) throw new Error("No se ha seleccionado ningún archivo.");
 
     let downloadUrl = '';
-    
+
     // Intentar subir a Firebase Storage si está disponible
     if (!isMock && storage) {
       try {
@@ -948,7 +948,7 @@ export const firebaseService = {
           `Para subir archivos PDF grandes, activa las reglas de escritura en Firebase Storage en tu consola de Firebase.`
         );
       }
-      
+
       downloadUrl = await new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = (e) => resolve(e.target.result);
@@ -1071,6 +1071,171 @@ export const firebaseService = {
       window.dispatchEvent(new Event('storage'));
     } else {
       await deleteDoc(doc(db, 'material_modifications', modId));
+    }
+  },
+
+  /* ==========================================================================
+     SISTEMA DE ENTRENAMIENTO Y APRENDIZAJE DEL AGENTE BUS
+     ========================================================================== */
+
+  /**
+   * Registra una pregunta sin cobertura o votada negativamente
+   */
+  async saveUnresolvedDuda(queryText) {
+    const cleanQuery = queryText.trim();
+    if (!cleanQuery) return;
+    const id = `unres_${cleanQuery.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '_').substring(0, 50)}_${Date.now()}`;
+    const record = {
+      id,
+      queryText: cleanQuery,
+      createdAt: new Date().toISOString(),
+      count: 1
+    };
+
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_bus_unresolved');
+      const map = saved ? JSON.parse(saved) : {};
+      const existing = Object.values(map).find(item => item.queryText.toLowerCase() === cleanQuery.toLowerCase());
+      if (existing) {
+        existing.count = (existing.count || 1) + 1;
+        existing.lastRequestedAt = new Date().toISOString();
+      } else {
+        map[id] = { ...record, lastRequestedAt: record.createdAt };
+      }
+      localStorage.setItem('mock_db_bus_unresolved', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      try {
+        const docRef = doc(db, 'agente_bus_unresolved', id);
+        await setDoc(docRef, record, { merge: true });
+      } catch (err) {
+        console.warn("Failed to save unresolved query in Firestore:", err.message);
+      }
+    }
+  },
+
+  /**
+   * Escucha la colección de preguntas no resueltas (para el AdminPanel de entrenamiento)
+   */
+  subscribeToUnresolvedDudas(callback) {
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_bus_unresolved');
+        return saved ? Object.values(JSON.parse(saved)) : [];
+      };
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_bus_unresolved') {
+          callback(getList());
+        }
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
+        const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        callback(list);
+      }, (err) => {
+        console.error("Error subscribing to agente_bus_unresolved:", err);
+      });
+    }
+  },
+
+  /**
+   * Guarda una respuesta entrenada y remueve la duda sin resolver
+   */
+  async saveTrainedAnswer(dudaId, queryText, answerText) {
+    const cleanQuery = queryText.trim();
+    const cleanAnswer = answerText.trim();
+    const id = `trained_${cleanQuery.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '_').substring(0, 50)}`;
+    const record = {
+      id,
+      queryText: cleanQuery,
+      answerText: cleanAnswer,
+      updatedAt: new Date().toISOString()
+    };
+
+    if (isMock) {
+      const savedTrained = localStorage.getItem('mock_db_bus_trained');
+      const trainedMap = savedTrained ? JSON.parse(savedTrained) : {};
+      trainedMap[id] = record;
+      localStorage.setItem('mock_db_bus_trained', JSON.stringify(trainedMap));
+
+      if (dudaId) {
+        const savedUnresolved = localStorage.getItem('mock_db_bus_unresolved');
+        if (savedUnresolved) {
+          const unresolvedMap = JSON.parse(savedUnresolved);
+          delete unresolvedMap[dudaId];
+          localStorage.setItem('mock_db_bus_unresolved', JSON.stringify(unresolvedMap));
+        }
+      }
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await setDoc(doc(db, 'agente_bus_trained_answers', id), record, { merge: true });
+      if (dudaId) {
+        try {
+          await deleteDoc(doc(db, 'agente_bus_unresolved', dudaId));
+        } catch (err) {
+          console.warn("Failed to delete unresolved doubt:", err.message);
+        }
+      }
+    }
+  },
+
+  /**
+   * Escucha la lista de respuestas entrenadas
+   */
+  subscribeToTrainedAnswers(callback) {
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_bus_trained');
+        return saved ? Object.values(JSON.parse(saved)) : [];
+      };
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_bus_trained') {
+          callback(getList());
+        }
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'agente_bus_trained_answers'), (snapshot) => {
+        const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        callback(list);
+      }, (err) => {
+        console.error("Error subscribing to agente_bus_trained_answers:", err);
+      });
+    }
+  },
+
+  /**
+   * Elimina una respuesta entrenada
+   */
+  async deleteTrainedAnswer(trainedId) {
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_bus_trained');
+      const map = saved ? JSON.parse(saved) : {};
+      delete map[trainedId];
+      localStorage.setItem('mock_db_bus_trained', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await deleteDoc(doc(db, 'agente_bus_trained_answers', trainedId));
+    }
+  },
+
+  /**
+   * Elimina una pregunta no resuelta sin contestar (descarta)
+   */
+  async deleteUnresolvedDuda(dudaId) {
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_bus_unresolved');
+      const map = saved ? JSON.parse(saved) : {};
+      delete map[dudaId];
+      localStorage.setItem('mock_db_bus_unresolved', JSON.stringify(map));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await deleteDoc(doc(db, 'agente_bus_unresolved', dudaId));
     }
   }
 };

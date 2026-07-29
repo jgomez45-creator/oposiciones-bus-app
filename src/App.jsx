@@ -636,6 +636,7 @@ export default function App() {
         activeTopicId={activeTopicId}
         isOpen={showSiriModal}
         onClose={() => setShowSiriModal(false)}
+        currentUser={currentUser}
       />
 
       {showInactivityWarning && (

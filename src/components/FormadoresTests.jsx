@@ -274,14 +274,80 @@ export default function FormadoresTests({ currentUser }) {
       </div>
 
       <div className="omr-sheet-content">
+        {paperSubmitted && (
+          <div style={{
+            display: 'flex',
+            justify: 'space-around',
+            alignItems: 'center',
+            padding: '6px 8px',
+            background: '#f8fafc',
+            borderRadius: '6px',
+            border: '1px solid #fee2e2',
+            fontSize: '0.72rem',
+            fontWeight: '600',
+            color: '#475569'
+          }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#10b981' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '15px', height: '15px', borderRadius: '50%', backgroundColor: '#10b981', color: '#fff', fontSize: '0.65rem', fontWeight: 'bold' }}>✓</span> Acierto
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#ef4444' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '15px', height: '15px', borderRadius: '50%', backgroundColor: '#ef4444', color: '#fff', fontSize: '0.65rem', fontWeight: 'bold' }}>✕</span> Error
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#f59e0b' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '15px', height: '15px', borderRadius: '50%', backgroundColor: '#f59e0b', color: '#fff', fontSize: '0.65rem', fontWeight: 'bold' }}>—</span> No contestada
+            </span>
+          </div>
+        )}
+
         <div className="omr-grid-area" style={{ maxHeight: isMobile ? '60vh' : '420px' }}>
           {questions.map((q, idx) => {
             const userSelection = paperAnswers[q.id];
             return (
               <div key={q.id} className="omr-question-row">
-                <span className="omr-question-number">
-                  {idx + 1}.
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', flexShrink: 0 }}>
+                  <span className="omr-question-number" style={{ width: 'auto', minWidth: '22px' }}>
+                    {idx + 1}.
+                  </span>
+                  {paperSubmitted && (
+                    <span
+                      title={
+                        userSelection === undefined
+                          ? 'No contestada'
+                          : userSelection === q.correctAnswer
+                            ? 'Acierto'
+                            : 'Error'
+                      }
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '18px',
+                        height: '18px',
+                        borderRadius: '50%',
+                        backgroundColor:
+                          userSelection === undefined
+                            ? '#f59e0b'
+                            : userSelection === q.correctAnswer
+                              ? '#10b981'
+                              : '#ef4444',
+                        color: '#ffffff',
+                        fontSize: '0.7rem',
+                        fontWeight: 'bold',
+                        lineHeight: 1,
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
+                        flexShrink: 0
+                      }}
+                    >
+                      {userSelection === undefined ? (
+                        '—'
+                      ) : userSelection === q.correctAnswer ? (
+                        '✓'
+                      ) : (
+                        '✕'
+                      )}
+                    </span>
+                  )}
+                </div>
 
                 <div className="omr-bubble-group">
                   {['A', 'B', 'C', 'D'].map((letter, oIdx) => {
