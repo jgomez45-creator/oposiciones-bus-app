@@ -95,6 +95,18 @@ export default function FormadoresTests({ currentUser }) {
   const [paperSubmitted, setPaperSubmitted] = useState(false);
   const [paperResults, setPaperResults] = useState({ correct: 0, incorrect: 0, blank: 0 });
 
+  // Mobile adaptive states
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
+  const [showMobileOmr, setShowMobileOmr] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Handle start test
   const startTest = () => {
     if (!selectedBattery) return;
@@ -230,7 +242,106 @@ export default function FormadoresTests({ currentUser }) {
     setQuizStarted(false);
     setQuizFinished(false);
     setPaperSubmitted(false);
+    setShowMobileOmr(false);
   };
+
+  const omrSheet = (
+    <div className="omr-sheet-container" style={{ width: '100%', maxWidth: '340px', margin: '0 auto' }}>
+      <div className="omr-sheet-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
+        <div style={{ flex: 1, textAlign: 'center' }}>
+          <h4 style={{ margin: 0, color: 'white' }}>Hoja de Respuestas</h4>
+          <span style={{ fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.85)' }}>Marque la opción correcta</span>
+        </div>
+        {isMobile && (
+          <button
+            onClick={() => setShowMobileOmr(false)}
+            style={{
+              position: 'absolute',
+              right: '15px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'transparent',
+              border: 'none',
+              color: 'white',
+              fontSize: '1.4rem',
+              fontWeight: 'bold',
+              cursor: 'pointer'
+            }}
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
+      <div className="omr-sheet-content">
+        <div className="omr-grid-area" style={{ maxHeight: isMobile ? '60vh' : '420px' }}>
+          {questions.map((q, idx) => {
+            const userSelection = paperAnswers[q.id];
+            return (
+              <div key={q.id} className="omr-question-row">
+                <span className="omr-question-number">
+                  {idx + 1}.
+                </span>
+
+                <div className="omr-bubble-group">
+                  {['A', 'B', 'C', 'D'].map((letter, oIdx) => {
+                    const isChosen = userSelection === oIdx;
+                    const isCorrect = q.correctAnswer === oIdx;
+
+                    let bubbleClass = "omr-bubble";
+                    if (!paperSubmitted) {
+                      if (isChosen) {
+                        bubbleClass += " marked";
+                      }
+                    } else {
+                      if (isCorrect) {
+                        bubbleClass += " correct";
+                      } else if (isChosen) {
+                        bubbleClass += " incorrect";
+                      }
+                    }
+
+                    return (
+                      <button
+                        key={letter}
+                        onClick={() => handlePaperAnswer(q.id, oIdx)}
+                        className={bubbleClass}
+                        disabled={paperSubmitted}
+                      >
+                        {letter}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {!paperSubmitted ? (
+          <button
+            onClick={() => {
+              submitPaperExam();
+              setShowMobileOmr(false);
+            }}
+            className="omr-submit-btn"
+          >
+            Entregar Examen
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              resetTest();
+              setShowMobileOmr(false);
+            }}
+            className="omr-review-btn"
+          >
+            Finalizar Revisión
+          </button>
+        )}
+      </div>
+    </div>
+  );
 
   return (
     <div className="tab-container fade-in">
@@ -780,10 +891,10 @@ export default function FormadoresTests({ currentUser }) {
             </div>
           )}
 
-          <div className="paper-simulation-workspace" style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '20px', alignItems: 'start' }}>
+          <div className="paper-simulation-workspace" style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : 'row', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '20px', alignItems: 'start' }}>
 
             {/* Left Column: Questions sheet */}
-            <div className="print-preview-content printable-exam-sheet" style={{ display: 'flex', flexDirection: 'column', padding: '40px 50px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', border: '1px solid #cbd5e1', boxSizing: 'border-box' }}>
+            <div className="print-preview-content printable-exam-sheet" style={{ display: 'flex', flexDirection: 'column', padding: isMobile ? '20px 16px' : '40px 50px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', border: '1px solid #cbd5e1', boxSizing: 'border-box', width: '100%' }}>
               {questions.map((q, idx) => {
                 const answer = paperAnswers[q.id];
                 return (
@@ -936,79 +1047,70 @@ export default function FormadoresTests({ currentUser }) {
               })}
             </div>
 
-            {/* Right Column: Floating Answer grid sheet */}
-            <div style={{ position: 'sticky', top: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div className="omr-sheet-container">
-                <div className="omr-sheet-header">
-                  <h4>Hoja de Respuestas</h4>
-                  <span>Marque la opción correcta</span>
-                </div>
-
-                <div className="omr-sheet-content">
-                  {/* Scrollable grid area */}
-                  <div className="omr-grid-area">
-                    {questions.map((q, idx) => {
-                      const userSelection = paperAnswers[q.id];
-                      return (
-                        <div key={q.id} className="omr-question-row">
-                          <span className="omr-question-number">
-                            {idx + 1}.
-                          </span>
-
-                          <div className="omr-bubble-group">
-                            {['A', 'B', 'C', 'D'].map((letter, oIdx) => {
-                              const isChosen = userSelection === oIdx;
-                              const isCorrect = q.correctAnswer === oIdx;
-
-                              let bubbleClass = "omr-bubble";
-                              if (!paperSubmitted) {
-                                if (isChosen) {
-                                  bubbleClass += " marked";
-                                }
-                              } else {
-                                if (isCorrect) {
-                                  bubbleClass += " correct";
-                                } else if (isChosen) {
-                                  bubbleClass += " incorrect";
-                                }
-                              }
-
-                              return (
-                                <button
-                                  key={letter}
-                                  onClick={() => handlePaperAnswer(q.id, oIdx)}
-                                  className={bubbleClass}
-                                  disabled={paperSubmitted}
-                                >
-                                  {letter}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {!paperSubmitted ? (
-                    <button
-                      onClick={submitPaperExam}
-                      className="omr-submit-btn"
-                    >
-                      Entregar Examen
-                    </button>
-                  ) : (
-                    <button
-                      onClick={resetTest}
-                      className="omr-review-btn"
-                    >
-                      Finalizar Revisión
-                    </button>
-                  )}
-                </div>
-
+            {/* Right Column: Floating Answer grid sheet (Desktop only) */}
+            {!isMobile && (
+              <div style={{ position: 'sticky', top: '20px', display: 'flex', flexDirection: 'column', gap: '16px', width: '340px', flexShrink: 0 }}>
+                {omrSheet}
               </div>
-            </div>
+            )}
+
+            {/* Mobile OMR Overlay */}
+            {isMobile && showMobileOmr && (
+              <div
+                className="omr-mobile-overlay"
+                onClick={() => setShowMobileOmr(false)}
+                style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  width: '100vw',
+                  height: '100vh',
+                  zIndex: 99999,
+                  background: 'rgba(7, 10, 19, 0.75)',
+                  backdropFilter: 'blur(8px)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: '16px',
+                  boxSizing: 'border-box'
+                }}
+              >
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ width: '100%', maxWidth: '340px' }}
+                >
+                  {omrSheet}
+                </div>
+              </div>
+            )}
+
+            {/* Floating Mobile Button */}
+            {isMobile && (
+              <button
+                onClick={() => setShowMobileOmr(!showMobileOmr)}
+                style={{
+                  position: 'fixed',
+                  bottom: '24px',
+                  right: '24px',
+                  zIndex: 99998,
+                  padding: '12px 20px',
+                  borderRadius: '30px',
+                  background: 'linear-gradient(135deg, #c8102e 0%, #b91c1c 100%)',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  fontSize: '0.88rem',
+                  boxShadow: '0 4px 15px rgba(200, 16, 46, 0.4)',
+                  border: '1.5px solid #fee2e2',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                <BookOpen size={16} />
+                <span>{showMobileOmr ? 'Ver Examen' : 'Hoja de Respuestas'}</span>
+              </button>
+            )}
 
           </div>
 
