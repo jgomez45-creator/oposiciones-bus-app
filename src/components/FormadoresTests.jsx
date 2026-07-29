@@ -1090,25 +1090,25 @@ export default function FormadoresTests({ currentUser }) {
                 onClick={() => setShowMobileOmr(!showMobileOmr)}
                 style={{
                   position: 'fixed',
-                  bottom: '24px',
-                  right: '24px',
+                  top: '72px',
+                  right: '12px',
                   zIndex: 99998,
-                  padding: '12px 20px',
-                  borderRadius: '30px',
+                  padding: '6px 12px',
+                  borderRadius: '20px',
                   background: 'linear-gradient(135deg, #c8102e 0%, #b91c1c 100%)',
                   color: 'white',
                   fontWeight: 'bold',
-                  fontSize: '0.88rem',
-                  boxShadow: '0 4px 15px rgba(200, 16, 46, 0.4)',
-                  border: '1.5px solid #fee2e2',
+                  fontSize: '0.72rem',
+                  boxShadow: '0 2px 8px rgba(200, 16, 46, 0.3)',
+                  border: '1px solid #fee2e2',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px'
+                  gap: '4px'
                 }}
               >
-                <BookOpen size={16} />
-                <span>{showMobileOmr ? 'Ver Examen' : 'Hoja de Respuestas'}</span>
+                <BookOpen size={12} />
+                <span>{showMobileOmr ? 'Ver Examen' : 'Hoja Respuestas'}</span>
               </button>
             )}
 
