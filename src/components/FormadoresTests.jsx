@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  FileText, 
-  BookOpen, 
-  HelpCircle, 
-  Printer, 
-  Play, 
-  ChevronRight, 
-  RotateCcw, 
-  Award, 
-  AlertCircle, 
-  CheckCircle2, 
-  XCircle, 
+import {
+  FileText,
+  BookOpen,
+  HelpCircle,
+  Printer,
+  Play,
+  ChevronRight,
+  RotateCcw,
+  Award,
+  AlertCircle,
+  CheckCircle2,
+  XCircle,
   FileQuestion,
   ChevronLeft,
   Info
@@ -81,7 +81,7 @@ export default function FormadoresTests({ currentUser }) {
   const [questionLimit, setQuestionLimit] = useState(50); // 10, 20, 50, 100, 'all'
   const [quizStarted, setQuizStarted] = useState(false);
   const [questions, setQuestions] = useState([]);
-  
+
   // Interactive runner state
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -98,12 +98,12 @@ export default function FormadoresTests({ currentUser }) {
   // Handle start test
   const startTest = () => {
     if (!selectedBattery) return;
-    
+
     if (testMode === 'print' && (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile')) {
       alert('Esta opción no está activa en el modo invitado. Por favor, regístrate para poder descargar o imprimir las baterías de test de formadores en PDF.');
       return;
     }
-    
+
     // Normalize and filter raw questions defensively
     let rawQuestions = (selectedBattery.data || []).map(q => ({
       ...q,
@@ -121,7 +121,7 @@ export default function FormadoresTests({ currentUser }) {
 
     const limit = questionLimit === 'all' ? rawQuestions.length : Number(questionLimit);
     const chosenQuestions = rawQuestions.slice(0, Math.min(limit, rawQuestions.length));
-    
+
     setQuestions(chosenQuestions);
     setQuizStarted(true);
     setCurrentIdx(0);
@@ -168,19 +168,19 @@ export default function FormadoresTests({ currentUser }) {
   // Interactive submit answer
   const submitAnswer = () => {
     if (selectedAnswer === null || answered) return;
-    
+
     const correctIdx = questions[currentIdx].correctAnswer;
     const isCorrect = selectedAnswer === correctIdx;
-    
+
     if (isCorrect) {
       setScore(prev => prev + 1);
     }
-    
+
     // Save selection
     const nextSelections = [...userSelections];
     nextSelections[currentIdx] = selectedAnswer;
     setUserSelections(nextSelections);
-    
+
     setAnswered(true);
   };
 
@@ -247,38 +247,38 @@ export default function FormadoresTests({ currentUser }) {
       {/* Main 2-Column Split View: Selection & Options Panel */}
       {!quizStarted && (
         <div className="quiz-setup-split-view">
-          
+
           {/* Left Column: Battery Cards Selector */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <h3 style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-main)', margin: 0 }}>
               1. Selecciona la batería de test
             </h3>
-            
+
             <div className="battery-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
               {batteries.map((b) => {
                 const isSelected = selectedBattery?.id === b.id;
                 return (
-                  <div 
+                  <div
                     key={b.id}
                     className={`glass-panel card-hover ${isSelected ? 'active-card' : ''}`}
                     onClick={() => setSelectedBattery(b)}
-                    style={{ 
-                      cursor: 'pointer', 
-                      padding: '14px', 
-                      borderRadius: '12px', 
+                    style={{
+                      cursor: 'pointer',
+                      padding: '14px',
+                      borderRadius: '12px',
                       border: isSelected ? '2px solid var(--secondary)' : '1px solid var(--border-color)',
                       background: isSelected ? 'rgba(212,163,89,0.1)' : 'rgba(20,20,25,0.4)',
                       transition: 'all 0.2s ease'
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <span style={{ 
-                        fontSize: '0.7rem', 
-                        fontWeight: '700', 
-                        padding: '2px 6px', 
-                        borderRadius: '4px', 
-                        background: b.color, 
-                        color: '#fff' 
+                      <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: '700',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        background: b.color,
+                        color: '#fff'
                       }}>
                         {b.theme}
                       </span>
@@ -286,7 +286,7 @@ export default function FormadoresTests({ currentUser }) {
                         {b.questionsCount} pregs.
                       </span>
                     </div>
-                    
+
                     <h3 style={{ fontSize: '1.05rem', fontWeight: '600', color: 'var(--text-main)', margin: '0 0 4px 0' }}>
                       {b.title}
                     </h3>
@@ -302,7 +302,7 @@ export default function FormadoresTests({ currentUser }) {
           {/* Right Column: Test Mode & Options Panel */}
           {selectedBattery && (
             <div className="glass-panel fade-in" style={{ padding: '16px', borderRadius: '14px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              
+
               {/* Selected battery banner */}
               <div style={{ background: 'rgba(212,163,89,0.08)', padding: '10px 14px', borderRadius: '8px', borderLeft: '3px solid var(--secondary)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
@@ -317,9 +317,9 @@ export default function FormadoresTests({ currentUser }) {
                   <h4 style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '8px' }}>
                     2. Modalidad de Práctica
                   </h4>
-                  
+
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <button 
+                    <button
                       onClick={() => setTestMode('interactive')}
                       className={`mode-selector-btn ${testMode === 'interactive' ? 'active' : ''}`}
                       style={{
@@ -344,7 +344,7 @@ export default function FormadoresTests({ currentUser }) {
                       </div>
                     </button>
 
-                    <button 
+                    <button
                       onClick={() => setTestMode('paper')}
                       className={`mode-selector-btn ${testMode === 'paper' ? 'active' : ''}`}
                       style={{
@@ -369,7 +369,7 @@ export default function FormadoresTests({ currentUser }) {
                       </div>
                     </button>
 
-                    <button 
+                    <button
                       onClick={() => setTestMode('print')}
                       className={`mode-selector-btn ${testMode === 'print' ? 'active' : ''}`}
                       style={{
@@ -401,7 +401,7 @@ export default function FormadoresTests({ currentUser }) {
                   <h4 style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '8px' }}>
                     3. Límite de Preguntas
                   </h4>
-                  
+
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '6px' }}>
                     {[10, 20, 50, 100, 'all'].map((limit) => {
                       const limitLabel = limit === 'all' ? 'Todas' : `${limit}`;
@@ -478,7 +478,7 @@ export default function FormadoresTests({ currentUser }) {
 
           {/* Question Box */}
           <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid var(--border-color)' }}>
-            
+
             <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '20px' }}>
               <HelpCircle size={24} className="text-secondary" style={{ flexShrink: 0, marginTop: '2px' }} />
               <h2 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--text-main)', lineHeight: '1.4' }}>
@@ -492,7 +492,7 @@ export default function FormadoresTests({ currentUser }) {
                 const letter = ['A', 'B', 'C', 'D'][oIdx];
                 const isSelected = selectedAnswer === oIdx;
                 const isCorrect = questions[currentIdx].correctAnswer === oIdx;
-                
+
                 let optionStyle = {
                   display: 'flex',
                   alignItems: 'center',
@@ -532,15 +532,15 @@ export default function FormadoresTests({ currentUser }) {
                     style={optionStyle}
                     disabled={answered}
                   >
-                    <span style={{ 
-                      width: '28px', 
-                      height: '28px', 
-                      borderRadius: '50%', 
-                      background: isSelected ? 'var(--secondary)' : 'rgba(255,255,255,0.05)', 
+                    <span style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      background: isSelected ? 'var(--secondary)' : 'rgba(255,255,255,0.05)',
                       color: isSelected ? 'var(--bg-dark)' : 'var(--text-muted)',
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center', 
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       fontWeight: 'bold',
                       fontSize: '0.85rem',
                       flexShrink: 0
@@ -557,10 +557,10 @@ export default function FormadoresTests({ currentUser }) {
 
             {/* Explanation Section */}
             {answered && (
-              <div className="explanation-box fade-in" style={{ 
-                padding: '16px', 
-                borderRadius: '10px', 
-                background: 'rgba(255,255,255,0.02)', 
+              <div className="explanation-box fade-in" style={{
+                padding: '16px',
+                borderRadius: '10px',
+                background: 'rgba(255,255,255,0.02)',
                 borderLeft: '4px solid var(--secondary)',
                 marginBottom: '24px',
                 fontSize: '0.9rem',
@@ -620,7 +620,7 @@ export default function FormadoresTests({ currentUser }) {
       {/* VIEW: Interactive Runner Results Summary */}
       {quizStarted && testMode === 'interactive' && quizFinished && (
         <div className="results-container fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          
+
           {/* Main Score Board */}
           <div className="glass-panel" style={{ padding: '30px', borderRadius: '16px', textAlign: 'center', border: '1px solid var(--border-color)' }}>
             <Award size={64} className="text-gradient-gold" style={{ margin: '0 auto 16px auto' }} />
@@ -628,7 +628,7 @@ export default function FormadoresTests({ currentUser }) {
             <p className="subtitle" style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '24px' }}>
               Has completado el cuestionario de la batería <strong>{selectedBattery.title}</strong>
             </p>
-            
+
             <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '24px' }}>
               <div>
                 <span style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--secondary)' }}>
@@ -661,19 +661,19 @@ export default function FormadoresTests({ currentUser }) {
             <h3 style={{ fontSize: '1.1rem', fontWeight: '600', color: 'var(--text-main)' }}>
               Revisión de Preguntas
             </h3>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {questions.map((q, idx) => {
                 const userChoice = userSelections[idx];
                 const isCorrect = userChoice === q.correctAnswer;
-                
+
                 return (
-                  <div 
+                  <div
                     key={q.id}
-                    className="glass-panel" 
-                    style={{ 
-                      padding: '16px', 
-                      borderRadius: '12px', 
+                    className="glass-panel"
+                    style={{
+                      padding: '16px',
+                      borderRadius: '12px',
                       borderLeft: isCorrect ? '4px solid #10b981' : '4px solid #ef4444',
                       borderTop: '1px solid var(--border-color)',
                       borderRight: '1px solid var(--border-color)',
@@ -684,9 +684,9 @@ export default function FormadoresTests({ currentUser }) {
                       <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)' }}>
                         Pregunta {idx + 1}
                       </span>
-                      <span style={{ 
-                        fontSize: '0.75rem', 
-                        fontWeight: '600', 
+                      <span style={{
+                        fontSize: '0.75rem',
+                        fontWeight: '600',
                         color: isCorrect ? '#10b981' : '#ef4444',
                         display: 'flex',
                         alignItems: 'center',
@@ -696,11 +696,11 @@ export default function FormadoresTests({ currentUser }) {
                         {isCorrect ? 'Correcta' : 'Incorrecta'}
                       </span>
                     </div>
-                    
+
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', marginBottom: '8px', lineHeight: '1.4' }}>
                       {q.question}
                     </p>
-                    
+
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                       <div>Tu elección: <span style={{ color: isCorrect ? '#10b981' : '#ef4444', fontWeight: '600' }}>{userChoice !== null ? q.options[userChoice] : 'Sin responder'}</span></div>
                       {!isCorrect && (
@@ -719,7 +719,7 @@ export default function FormadoresTests({ currentUser }) {
       {/* VIEW: Paper Simulation Mode */}
       {quizStarted && testMode === 'paper' && (
         <div className="paper-exam-layout" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          
+
           {/* Header Info */}
           <div className="glass-panel" style={{ padding: '16px', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid var(--border-color)' }}>
             <button onClick={resetTest} className="glow-btn-secondary" style={{ padding: '6px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -735,10 +735,10 @@ export default function FormadoresTests({ currentUser }) {
 
           {/* Results Summary if Submitted - Ultra Compact Strip */}
           {paperSubmitted && (
-            <div className="glass-panel fade-in" style={{ 
-              padding: '8px 14px', 
-              borderRadius: '10px', 
-              border: '1.5px solid var(--secondary)', 
+            <div className="glass-panel fade-in" style={{
+              padding: '8px 14px',
+              borderRadius: '10px',
+              border: '1.5px solid var(--secondary)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -750,7 +750,7 @@ export default function FormadoresTests({ currentUser }) {
                 <Award size={22} className="text-gradient-gold" style={{ flexShrink: 0 }} />
                 <h2 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', margin: 0 }}>Examen Corregido</h2>
               </div>
-              
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div style={{ textAlign: 'center' }}>
                   <span style={{ fontSize: '1.1rem', fontWeight: '800', color: '#10b981' }}>{paperResults.correct}</span>
@@ -781,30 +781,30 @@ export default function FormadoresTests({ currentUser }) {
           )}
 
           <div className="paper-simulation-workspace" style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '20px', alignItems: 'start' }}>
-            
+
             {/* Left Column: Questions sheet */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {questions.map((q, idx) => {
                 const answer = paperAnswers[q.id];
                 return (
-                  <div 
+                  <div
                     key={q.id}
-                    className="glass-panel" 
+                    className="glass-panel"
                     id={`paper-q-${idx}`}
-                    style={{ 
-                      padding: '12px 16px', 
-                      borderRadius: '10px', 
+                    style={{
+                      padding: '12px 16px',
+                      borderRadius: '10px',
                       border: '1px solid var(--border-color)',
-                      background: 'rgba(20,20,25,0.4)' 
+                      background: 'rgba(20,20,25,0.4)'
                     }}
                   >
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '14px' }}>
-                      <span style={{ 
-                        fontSize: '0.85rem', 
-                        fontWeight: '700', 
-                        padding: '2px 8px', 
-                        borderRadius: '4px', 
-                        background: 'rgba(255,255,255,0.05)', 
+                      <span style={{
+                        fontSize: '0.85rem',
+                        fontWeight: '700',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        background: 'rgba(255,255,255,0.05)',
                         color: 'var(--secondary)',
                         flexShrink: 0
                       }}>
@@ -835,7 +835,7 @@ export default function FormadoresTests({ currentUser }) {
                         const letter = ['a', 'b', 'c', 'd'][oIdx];
                         const isChosen = answer === oIdx;
                         const isCorrect = q.correctAnswer === oIdx;
-                        
+
                         let optStyle = {
                           display: 'flex',
                           alignItems: 'flex-start',
@@ -870,8 +870,8 @@ export default function FormadoresTests({ currentUser }) {
                         }
 
                         return (
-                          <div 
-                            key={oIdx} 
+                          <div
+                            key={oIdx}
                             style={optStyle}
                             onClick={() => handlePaperAnswer(q.id, oIdx)}
                           >
@@ -883,11 +883,11 @@ export default function FormadoresTests({ currentUser }) {
                     </div>
 
                     {paperSubmitted && (
-                      <div className="fade-in" style={{ 
-                        marginTop: '14px', 
-                        padding: '12px', 
-                        borderRadius: '6px', 
-                        background: 'rgba(255,255,255,0.02)', 
+                      <div className="fade-in" style={{
+                        marginTop: '14px',
+                        padding: '12px',
+                        borderRadius: '6px',
+                        background: 'rgba(255,255,255,0.02)',
                         borderLeft: '3px solid var(--secondary)',
                         fontSize: '0.8rem',
                         lineHeight: '1.4',
@@ -910,7 +910,7 @@ export default function FormadoresTests({ currentUser }) {
                   <h4>Hoja de Respuestas</h4>
                   <span>Marque la opción correcta</span>
                 </div>
-                
+
                 <div className="omr-sheet-content">
                   {/* Scrollable grid area */}
                   <div className="omr-grid-area">
@@ -921,12 +921,12 @@ export default function FormadoresTests({ currentUser }) {
                           <span className="omr-question-number">
                             {idx + 1}.
                           </span>
-                          
+
                           <div className="omr-bubble-group">
                             {['A', 'B', 'C', 'D'].map((letter, oIdx) => {
                               const isChosen = userSelection === oIdx;
                               const isCorrect = q.correctAnswer === oIdx;
-                              
+
                               let bubbleClass = "omr-bubble";
                               if (!paperSubmitted) {
                                 if (isChosen) {
@@ -985,7 +985,7 @@ export default function FormadoresTests({ currentUser }) {
       {/* VIEW: Clean Print View Mode */}
       {quizStarted && testMode === 'print' && (
         <div className="print-only-layout" style={{ background: '#fff', color: '#000', padding: '20px', fontFamily: 'serif' }}>
-          
+
           {/* Header for print */}
           <div style={{ borderBottom: '2px solid #000', paddingBottom: '12px', marginBottom: '24px', textAlign: 'center' }}>
             <h1 style={{ fontSize: '1.6rem', fontWeight: 'bold', margin: '0 0 6px 0', textTransform: 'uppercase' }}>
@@ -1103,13 +1103,13 @@ export default function FormadoresTests({ currentUser }) {
         </div>
       )}
 
-      <PrintEditionModal 
-        isOpen={showPrintModal} 
-        onClose={() => setShowPrintModal(false)} 
-        materialType="test" 
-        topicCount={questions?.length || 20} 
-        defaultTitle={`Batería Formadores CCOO (${selectedTopicInfo?.title || 'General'})`} 
-        onConfirmPrint={handleConfirmPrintEdition} 
+      <PrintEditionModal
+        isOpen={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        materialType="test"
+        topicCount={questions?.length || 20}
+        defaultTitle={`Batería Formadores CCOO (${selectedBattery?.title || 'General'})`}
+        onConfirmPrint={handleConfirmPrintEdition}
       />
     </div>
   );
