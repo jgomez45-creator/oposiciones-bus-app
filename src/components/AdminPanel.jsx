@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Users, 
-  Clock, 
-  Award, 
-  BookOpen, 
-  ShieldAlert, 
-  Key, 
-  RefreshCw, 
-  Search, 
-  Copy, 
-  Plus, 
-  Activity, 
-  Wifi, 
-  Check, 
-  ShieldCheck, 
+import {
+  Users,
+  Clock,
+  Award,
+  BookOpen,
+  ShieldAlert,
+  Key,
+  RefreshCw,
+  Search,
+  Copy,
+  Plus,
+  Activity,
+  Wifi,
+  Check,
+  ShieldCheck,
   X,
   Trash2,
   Library,
@@ -67,7 +67,7 @@ export default function AdminPanel({ topics }) {
   const [userSearch, setUserSearch] = useState('');
   const [codeFilter, setCodeFilter] = useState('all'); // 'all' | 'used' | 'unused'
   const [codeSearch, setCodeSearch] = useState('');
-  
+
   // Code generation state
   const [codesCount, setCodesCount] = useState(50);
   const [generatedCodes, setGeneratedCodes] = useState([]);
@@ -95,7 +95,7 @@ export default function AdminPanel({ topics }) {
   useEffect(() => {
     setLoading(true);
     setErrorMsg('');
-    
+
     const unsubUsers = firebaseService.subscribeToAllUsers(
       (userList) => {
         setUsers(userList);
@@ -324,7 +324,7 @@ export default function AdminPanel({ topics }) {
     setModMsg('');
     try {
       await firebaseService.saveMaterialModification(modForm);
-      
+
       const notifiedUsers = users.filter(u => {
         const ae = u.assignedEditions || {};
         return modForm.affectedEditionIds.includes(ae[modForm.materialType]);
@@ -365,12 +365,12 @@ export default function AdminPanel({ topics }) {
     if (window.confirm(`¿Estás seguro de que deseas ELIMINAR del banco esta pregunta?\n\n"${questionText.substring(0, 80)}..."`)) {
       const currentList = quizzesData[topicId] || [];
       const updatedList = currentList.filter(q => q && q.id !== questionId);
-      
+
       quizzesData[topicId] = updatedList;
 
       if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('quizzes-updated', { 
-          detail: { topicId, deletedId: questionId } 
+        window.dispatchEvent(new CustomEvent('quizzes-updated', {
+          detail: { topicId, deletedId: questionId }
         }));
       }
 
@@ -394,7 +394,7 @@ export default function AdminPanel({ topics }) {
       }
 
       const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
-      
+
       const newQuestions = await generateNewQuestionsForTopic({
         topicId: selectedGenTopicId.toString(),
         topicTitle: topicObj.title,
@@ -462,14 +462,14 @@ export default function AdminPanel({ topics }) {
     try {
       const currentList = quizzesData[selectedGenTopicId] || [];
       const updatedList = [...currentList, ...generatedBatch];
-      
+
       // Update memory reference
       quizzesData[selectedGenTopicId] = updatedList;
 
       // Dispatch event to refresh app views
       if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('quizzes-updated', { 
-          detail: { topicId: selectedGenTopicId, count: generatedBatch.length } 
+        window.dispatchEvent(new CustomEvent('quizzes-updated', {
+          detail: { topicId: selectedGenTopicId, count: generatedBatch.length }
         }));
       }
 
@@ -486,7 +486,7 @@ export default function AdminPanel({ topics }) {
   // Metrics
   const registeredUsersCount = users.filter(u => u.uid !== 'guest_profile').length;
   const onlineUsersCount = users.filter(u => isUserOnline(u) && u.uid !== 'guest_profile').length;
-  
+
   let studentsWithScores = 0;
   let scoresSum = 0;
   users.forEach(u => {
@@ -501,7 +501,7 @@ export default function AdminPanel({ topics }) {
     }
   });
   const averageGlobalScore = studentsWithScores > 0 ? (scoresSum / studentsWithScores).toFixed(1) : 'N/A';
-  
+
   const totalCodesCount = bookCodes.length;
   const usedCodesCount = bookCodes.filter(c => c.used).length;
   const unusedCodesCount = totalCodesCount - usedCodesCount;
@@ -509,9 +509,9 @@ export default function AdminPanel({ topics }) {
   const filteredUsers = users.filter(u => {
     if (u.uid === 'guest_profile') return false;
     const searchLower = userSearch.toLowerCase();
-    return (u.name || '').toLowerCase().includes(searchLower) || 
-           (u.email || '').toLowerCase().includes(searchLower) ||
-           (u.bookCode || '').toLowerCase().includes(searchLower);
+    return (u.name || '').toLowerCase().includes(searchLower) ||
+      (u.email || '').toLowerCase().includes(searchLower) ||
+      (u.bookCode || '').toLowerCase().includes(searchLower);
   });
 
   const filteredCodes = bookCodes.filter(c => {
@@ -524,8 +524,8 @@ export default function AdminPanel({ topics }) {
       if (c.used && c.usedBy) {
         const user = users.find(u => u.uid === c.usedBy);
         if (user) {
-          userMatch = (user.name || '').toLowerCase().includes(searchLower) || 
-                      (user.email || '').toLowerCase().includes(searchLower);
+          userMatch = (user.name || '').toLowerCase().includes(searchLower) ||
+            (user.email || '').toLowerCase().includes(searchLower);
         }
       }
       return codeMatch || userMatch;
@@ -560,7 +560,7 @@ export default function AdminPanel({ topics }) {
 
   return (
     <div className="admin-dashboard-container fade-in" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '100%', minWidth: 0, boxSizing: 'border-box', margin: '0 auto', width: '100%' }}>
-      
+
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
@@ -572,7 +572,7 @@ export default function AdminPanel({ topics }) {
             Supervisión global de estudiantes, códigos físicos, gestor del banco y generador de preguntas.
           </p>
         </div>
-        
+
         {/* Sub-tabs Selector */}
         <div className="glass-panel" style={{ display: 'flex', padding: '4px', borderRadius: '12px', background: 'rgba(15,20,36,0.5)', flexWrap: 'wrap', gap: '4px' }}>
           <button
@@ -794,7 +794,7 @@ export default function AdminPanel({ topics }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              
+
               {/* Row 1: Title and Main Controls */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
                 <div>
@@ -1142,34 +1142,34 @@ export default function AdminPanel({ topics }) {
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.email}</div>
                     </td>
                     <td style={{ padding: '10px', fontFamily: 'monospace' }}>{u.bookCode || u.code || '—'}</td>
-                    
+
                     {/* Columna de Asignación de Material Entregado */}
                     <td style={{ padding: '10px' }}>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxWidth: '220px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                           <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', width: '55px' }}>Temario:</span>
-                          <select 
+                          <select
                             value={u.assignedEditions?.temario || ''}
                             onChange={(e) => handleAssignUserMaterial(u.uid, 'temario', e.target.value)}
                             style={{ flex: 1, padding: '2px 6px', borderRadius: '4px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.73rem', outline: 'none' }}
                           >
                             <option value="">Sin Asignar</option>
                             {editions.filter(ed => ed.type === 'temario').map(ed => (
-                              <option key={ed.id} value={ed.id}>{ed.versionTag} - {ed.title.substring(0,18)}</option>
+                              <option key={ed.id} value={ed.id}>{ed.versionTag} - {ed.title.substring(0, 18)}</option>
                             ))}
                           </select>
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                           <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', width: '55px' }}>Tests:</span>
-                          <select 
+                          <select
                             value={u.assignedEditions?.test || ''}
                             onChange={(e) => handleAssignUserMaterial(u.uid, 'test', e.target.value)}
                             style={{ flex: 1, padding: '2px 6px', borderRadius: '4px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.73rem', outline: 'none' }}
                           >
                             <option value="">Sin Asignar</option>
                             {editions.filter(ed => ed.type === 'test').map(ed => (
-                              <option key={ed.id} value={ed.id}>{ed.versionTag} - {ed.title.substring(0,18)}</option>
+                              <option key={ed.id} value={ed.id}>{ed.versionTag} - {ed.title.substring(0, 18)}</option>
                             ))}
                           </select>
                         </div>
@@ -1321,7 +1321,7 @@ export default function AdminPanel({ topics }) {
                               <Download size={14} />
                               <span>📥 Descargar PDF ({ed.pdfFileName ? (ed.pdfFileName.length > 16 ? ed.pdfFileName.substring(0, 16) + '...' : ed.pdfFileName) : ed.versionTag})</span>
                             </a>
-                            
+
                             <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }} className="btn-ghost" title="Reemplazar archivo PDF">
                               <input
                                 type="file"
@@ -1359,7 +1359,7 @@ export default function AdminPanel({ topics }) {
       {/* SUBTAB: FE DE ERRATAS / GESTIÓN DE MODIFICACIONES */}
       {activeSubTab === 'modifications' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          
+
           {/* Formulario de creación */}
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.3)', background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
             <h3 style={{ margin: '0 0 4px 0', color: 'var(--text-main)', fontSize: '1.15rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -1455,7 +1455,7 @@ export default function AdminPanel({ topics }) {
                 <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: 'var(--secondary-light)', marginBottom: '6px' }}>
                   Marcar Ediciones Impresas Afectadas (Solo los alumnos con estas ediciones recibirán la notificación):
                 </label>
-                
+
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
                   {editions.filter(e => e.type === modForm.materialType).length === 0 ? (
                     <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>No hay ediciones de tipo {modForm.materialType.toUpperCase()} registradas para seleccionar.</span>
@@ -1533,9 +1533,213 @@ export default function AdminPanel({ topics }) {
 
 
       {activeSubTab === 'codes' && (
-        <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Generador y Gestión de Códigos de Libro</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '24px', alignItems: 'start' }}>
+
+          {/* Listado de códigos */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button
+                  type="button"
+                  onClick={() => setCodeFilter('all')}
+                  className={`tab-btn ${codeFilter === 'all' ? 'active' : ''}`}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: '8px',
+                    fontSize: '0.75rem',
+                    background: codeFilter === 'all' ? 'var(--primary)' : 'rgba(255,255,255,0.05)',
+                    color: 'var(--text-main)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Todos ({totalCodesCount})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCodeFilter('unused')}
+                  className={`tab-btn ${codeFilter === 'unused' ? 'active' : ''}`}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: '8px',
+                    fontSize: '0.75rem',
+                    background: codeFilter === 'unused' ? 'var(--primary)' : 'rgba(255,255,255,0.05)',
+                    color: 'var(--text-main)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Disponibles ({unusedCodesCount})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCodeFilter('used')}
+                  className={`tab-btn ${codeFilter === 'used' ? 'active' : ''}`}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: '8px',
+                    fontSize: '0.75rem',
+                    background: codeFilter === 'used' ? 'var(--primary)' : 'rgba(255,255,255,0.05)',
+                    color: 'var(--text-main)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Activados ({usedCodesCount})
+                </button>
+              </div>
+
+              <div style={{ position: 'relative', width: '220px' }}>
+                <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                <input
+                  type="text"
+                  placeholder="Buscar código o usuario..."
+                  value={codeSearch}
+                  onChange={(e) => setCodeSearch(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '6px 10px 6px 30px',
+                    borderRadius: '8px',
+                    background: 'var(--bg-input)',
+                    border: '1px solid var(--border-color)',
+                    color: 'var(--text-main)',
+                    fontSize: '0.8rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+            </div>
+
+            <div style={{ overflowY: 'auto', maxHeight: '500px', border: '1px solid var(--border-color)', borderRadius: '10px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem', color: 'var(--text-main)' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', background: 'rgba(0,0,0,0.1)' }}>
+                    <th style={{ padding: '10px 16px', textAlign: 'center', width: '95px' }}>Asignado</th>
+                    <th style={{ padding: '10px 16px', width: '180px' }}>Entregado a</th>
+                    <th style={{ padding: '10px 16px' }}>Código de Activación</th>
+                    <th style={{ padding: '10px 16px' }}>Estado</th>
+                    <th style={{ padding: '10px 16px' }}>Activado Por</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredCodes.length === 0 ? (
+                    <tr>
+                      <td colSpan="5" style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                        Ningún código coincide con el filtro seleccionado.
+                      </td>
+                    </tr>
+                  ) : (
+                    filteredCodes.map((c) => {
+                      const userWhoActivated = c.used ? users.find(u => u.uid === c.usedBy) : null;
+                      return (
+                        <tr key={c.code} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                          <td style={{ padding: '10px 16px', textAlign: 'center' }}>
+                            <input
+                              type="checkbox"
+                              checked={!!c.assigned || !!c.used}
+                              disabled={!!c.used}
+                              onChange={async (e) => {
+                                const isAssigned = e.target.checked;
+                                try {
+                                  await firebaseService.updateBookCodeAssignedStatus(c.code, isAssigned);
+                                } catch (err) {
+                                  console.error(err);
+                                  alert("No se pudo actualizar el estado de asignación.");
+                                }
+                              }}
+                              style={{
+                                width: '16px',
+                                height: '16px',
+                                cursor: c.used ? 'not-allowed' : 'pointer',
+                                accentColor: 'var(--secondary)'
+                              }}
+                              title={c.used ? "Este código ya ha sido registrado por un alumno" : "Marcar como entregado con el manual impreso"}
+                            />
+                          </td>
+                          <td style={{ padding: '10px 16px' }}>
+                            <input
+                              type="text"
+                              placeholder="Ej. Julio Gomez"
+                              defaultValue={c.assignedTo || ''}
+                              disabled={!!c.used}
+                              onBlur={async (e) => {
+                                const assignedToVal = e.target.value.trim();
+                                if (assignedToVal !== (c.assignedTo || '')) {
+                                  try {
+                                    await firebaseService.updateBookCodeAssignedTo(c.code, assignedToVal);
+                                  } catch (err) {
+                                    console.error(err);
+                                    alert("No se pudo actualizar el destinatario.");
+                                  }
+                                }
+                              }}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  e.target.blur();
+                                }
+                              }}
+                              style={{
+                                width: '100%',
+                                padding: '4px 8px',
+                                borderRadius: '6px',
+                                background: c.used ? 'transparent' : 'rgba(0,0,0,0.3)',
+                                border: c.used ? 'none' : '1px solid var(--border-color)',
+                                color: 'var(--text-main)',
+                                fontSize: '0.8rem',
+                                cursor: c.used ? 'not-allowed' : 'text',
+                                outline: 'none'
+                              }}
+                              title={c.used ? "Este código ya está en uso" : "Introduce el nombre o seudónimo del destinatario"}
+                            />
+                          </td>
+                          <td style={{ padding: '10px 16px', fontFamily: 'monospace', fontWeight: 'bold' }}>
+                            {c.code}
+                          </td>
+                          <td style={{ padding: '10px 16px' }}>
+                            {c.used ? (
+                              <span style={{ padding: '2px 8px', borderRadius: '6px', fontSize: '0.7rem', background: 'rgba(239, 68, 68, 0.2)', color: '#fca5a5', fontWeight: '600', border: '1px solid rgba(239, 68, 68, 0.3)' }}>Activado</span>
+                            ) : c.assigned || c.assignedTo ? (
+                              <span style={{ padding: '2px 8px', borderRadius: '6px', fontSize: '0.7rem', background: 'rgba(245, 158, 11, 0.2)', color: '#fef08a', fontWeight: '600', border: '1px solid rgba(245, 158, 11, 0.3)' }}>Asignado</span>
+                            ) : (
+                              <span style={{ padding: '2px 8px', borderRadius: '6px', fontSize: '0.7rem', background: 'rgba(16, 185, 129, 0.2)', color: '#a7f3d0', fontWeight: '600', border: '1px solid rgba(16, 185, 129, 0.3)' }}>Disponible</span>
+                            )}
+                          </td>
+                          <td style={{ padding: '10px 16px', color: c.used ? 'var(--text-main)' : 'var(--text-muted)' }}>
+                            {c.used ? (
+                              userWhoActivated ? (
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                  <span style={{ fontWeight: '700' }}>{userWhoActivated.name}</span>
+                                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{userWhoActivated.email}</span>
+                                </div>
+                              ) : (
+                                <span>ID: {c.usedBy.substring(0, 10)}...</span>
+                              )
+                            ) : (
+                              <span>—</span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Generador Panel */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', flexWrap: 'wrap', gap: '10px' }}>
+              <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Generador de Códigos</h3>
+            </div>
+
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', margin: 0, lineHeight: '1.4' }}>
+              Genera nuevos códigos de activación (lotes de 1 a 200) para los manuales impresos.
+            </p>
+
             <form onSubmit={handleGenerateCodes} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
               <input
                 type="number"
@@ -1549,21 +1753,22 @@ export default function AdminPanel({ topics }) {
                 {generating ? 'Generando...' : 'Generar Lote'}
               </button>
             </form>
+
+            {generatedCodes.length > 0 && (
+              <div style={{ padding: '12px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontWeight: '700', color: '#fef08a', fontSize: '0.8rem' }}>¡Lote generado!</span>
+                  <button type="button" onClick={handleCopyGeneratedCodes} style={{ background: '#f59e0b', color: '#000', border: 'none', padding: '4px 10px', borderRadius: '6px', fontWeight: '700', cursor: 'pointer', fontSize: '0.75rem' }}>
+                    {copiedCodes ? '¡Copiados!' : 'Copiar'}
+                  </button>
+                </div>
+                <div style={{ maxHeight: '100px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.8rem', color: '#fff', whiteSpace: 'pre-wrap' }}>
+                  {generatedCodes.join(', ')}
+                </div>
+              </div>
+            )}
           </div>
 
-          {generatedCodes.length > 0 && (
-            <div style={{ marginBottom: '16px', padding: '12px', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '10px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <span style={{ fontWeight: '700', color: '#fef08a' }}>¡Lote de {generatedCodes.length} códigos generado!</span>
-                <button onClick={handleCopyGeneratedCodes} style={{ background: '#f59e0b', color: '#000', border: 'none', padding: '4px 10px', borderRadius: '6px', fontWeight: '700', cursor: 'pointer', fontSize: '0.75rem' }}>
-                  {copiedCodes ? '¡Copiados al portapapeles!' : 'Copiar Todos'}
-                </button>
-              </div>
-              <div style={{ maxHeight: '100px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.8rem', color: '#fff', whiteSpace: 'pre-wrap' }}>
-                {generatedCodes.join(', ')}
-              </div>
-            </div>
-          )}
         </div>
       )}
 
