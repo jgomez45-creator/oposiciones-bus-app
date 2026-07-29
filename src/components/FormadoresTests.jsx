@@ -893,6 +893,32 @@ export default function FormadoresTests({ currentUser }) {
 
           <div className="paper-simulation-workspace" style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : 'row', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '20px', alignItems: 'start' }}>
 
+            {/* Mobile OMR button: Position C - Centered, aligned to the top border of the sheet */}
+            {isMobile && (
+              <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '-10px', zIndex: 10 }}>
+                <button
+                  onClick={() => setShowMobileOmr(!showMobileOmr)}
+                  style={{
+                    padding: '8px 18px',
+                    borderRadius: '20px',
+                    background: 'linear-gradient(135deg, #c8102e 0%, #b91c1c 100%)',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: '0.8rem',
+                    boxShadow: '0 3px 10px rgba(200, 16, 46, 0.3)',
+                    border: '1.5px solid #fee2e2',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <BookOpen size={14} />
+                  <span>Hoja de Respuestas</span>
+                </button>
+              </div>
+            )}
+
             {/* Left Column: Questions sheet */}
             <div className="print-preview-content printable-exam-sheet" style={{ display: 'flex', flexDirection: 'column', padding: isMobile ? '20px 16px' : '40px 50px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', border: '1px solid #cbd5e1', boxSizing: 'border-box', width: '100%' }}>
               {questions.map((q, idx) => {
@@ -1084,33 +1110,7 @@ export default function FormadoresTests({ currentUser }) {
               </div>
             )}
 
-            {/* Floating Mobile Button (Immobile, aligned to the corner but outside the sheet text layout area) */}
-            {isMobile && (
-              <button
-                onClick={() => setShowMobileOmr(!showMobileOmr)}
-                style={{
-                  position: 'fixed',
-                  top: '72px',
-                  right: '16px',
-                  zIndex: 99998,
-                  padding: '6px 12px',
-                  borderRadius: '20px',
-                  background: 'linear-gradient(135deg, #c8102e 0%, #b91c1c 100%)',
-                  color: 'white',
-                  fontWeight: 'bold',
-                  fontSize: '0.72rem',
-                  boxShadow: '0 2px 8px rgba(200, 16, 46, 0.3)',
-                  border: '1px solid #fee2e2',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}
-              >
-                <BookOpen size={12} />
-                <span>{showMobileOmr ? 'Ver Examen' : 'Hoja Respuestas'}</span>
-              </button>
-            )}
+            {/* Fixed/floating button removed to render inline at the top of the worksheet, Option C centered */}
 
           </div>
 
