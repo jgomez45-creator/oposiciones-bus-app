@@ -783,116 +783,149 @@ export default function FormadoresTests({ currentUser }) {
           <div className="paper-simulation-workspace" style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '20px', alignItems: 'start' }}>
 
             {/* Left Column: Questions sheet */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div className="print-preview-content printable-exam-sheet" style={{ display: 'flex', flexDirection: 'column', padding: '40px 50px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', border: '1px solid #cbd5e1', boxSizing: 'border-box' }}>
               {questions.map((q, idx) => {
                 const answer = paperAnswers[q.id];
                 return (
                   <div
                     key={q.id}
-                    className="glass-panel"
                     id={`paper-q-${idx}`}
                     style={{
-                      padding: '12px 16px',
-                      borderRadius: '10px',
-                      border: '1px solid var(--border-color)',
-                      background: 'rgba(20,20,25,0.4)'
+                      marginBottom: '14px',
+                      paddingBottom: '12px',
+                      borderBottom: '1px dashed #e2e8f0',
+                      pageBreakInside: 'avoid'
                     }}
                   >
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '14px' }}>
                       <span style={{
-                        fontSize: '0.85rem',
-                        fontWeight: '700',
-                        padding: '2px 8px',
-                        borderRadius: '4px',
-                        background: 'rgba(255,255,255,0.05)',
-                        color: 'var(--secondary)',
+                        fontSize: '0.98rem',
+                        fontWeight: '800',
+                        color: 'black',
                         flexShrink: 0
                       }}>
                         {idx + 1}.
                       </span>
                       {paperSubmitted && (
                         answer === undefined ? (
-                          <span style={{ backgroundColor: '#dc2626', color: '#ffffff', fontWeight: '800', fontSize: '0.78rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', flexShrink: 0, boxShadow: '0 2px 6px rgba(220, 38, 38, 0.35)' }}>
+                          <span style={{ backgroundColor: '#dc2626', color: '#ffffff', fontWeight: '800', fontSize: '0.7rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '2px 7px', borderRadius: '4px', flexShrink: 0 }}>
                             NO CONTESTADA
                           </span>
                         ) : answer === q.correctAnswer ? (
-                          <span style={{ backgroundColor: '#16a34a', color: '#ffffff', fontWeight: '800', fontSize: '0.78rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', flexShrink: 0, boxShadow: '0 2px 6px rgba(22, 163, 74, 0.35)' }}>
-                            OK
+                          <span style={{ backgroundColor: '#16a34a', color: '#ffffff', fontWeight: '800', fontSize: '0.7rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '2px 7px', borderRadius: '4px', flexShrink: 0 }}>
+                            ACIERTO
                           </span>
                         ) : (
-                          <span style={{ backgroundColor: '#ef4444', color: '#ffffff', fontWeight: '800', fontSize: '0.78rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', flexShrink: 0, boxShadow: '0 2px 6px rgba(239, 68, 68, 0.35)' }}>
-                            INCORRECTA (X)
+                          <span style={{ backgroundColor: '#ef4444', color: '#ffffff', fontWeight: '800', fontSize: '0.7rem', letterSpacing: '0.5px', textTransform: 'uppercase', padding: '2px 7px', borderRadius: '4px', flexShrink: 0 }}>
+                            ERROR
                           </span>
                         )
                       )}
-                      <h4 style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--text-main)', lineHeight: '1.4', margin: 0 }}>
+                      <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'black', lineHeight: '1.35', margin: 0 }}>
                         {q.question}
                       </h4>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '34px' }}>
+                    <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '4px', paddingLeft: '8px' }}>
                       {q.options.map((opt, oIdx) => {
-                        const letter = ['a', 'b', 'c', 'd'][oIdx];
                         const isChosen = answer === oIdx;
                         const isCorrect = q.correctAnswer === oIdx;
 
                         let optStyle = {
                           display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: '8px',
-                          padding: '10px 12px',
-                          borderRadius: '6px',
-                          fontSize: '0.85rem',
-                          color: 'var(--text-muted)',
-                          lineHeight: '1.4',
+                          alignItems: 'center',
+                          gap: '12px',
+                          padding: '5px 10px',
+                          borderRadius: '8px',
+                          cursor: paperSubmitted ? 'default' : 'pointer',
+                          fontSize: '0.92rem',
+                          color: '#334155',
+                          transition: 'all 0.15s ease',
                           border: '1px solid transparent',
-                          background: 'transparent',
                           textAlign: 'left',
-                          cursor: paperSubmitted ? 'default' : 'pointer'
+                          background: 'transparent'
                         };
 
-                        if (!paperSubmitted) {
-                          if (isChosen) {
-                            optStyle.border = '1px solid var(--secondary)';
-                            optStyle.background = 'rgba(212,163,89,0.05)';
-                            optStyle.color = 'var(--text-main)';
+                        let boxStyle = {
+                          width: '18px',
+                          height: '18px',
+                          border: '2px solid #475569',
+                          borderRadius: '4px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginTop: '2px',
+                          flexShrink: 0,
+                          fontWeight: 'bold',
+                          fontSize: '0.8rem',
+                          color: '#1e3a8a',
+                          transition: 'all 0.15s ease'
+                        };
+
+                        if (paperSubmitted) {
+                          if (isCorrect) {
+                            optStyle.backgroundColor = answer === undefined ? '#fefce8' : '#dcfce7';
+                            optStyle.color = answer === undefined ? '#854d0e' : '#14532d';
+                            optStyle.border = answer === undefined ? '1.5px dashed #ca8a04' : '1px solid #bbf7d0';
+                            boxStyle.borderColor = answer === undefined ? '#ca8a04' : '#16a34a';
+                            boxStyle.backgroundColor = answer === undefined ? '#fef08a' : '#16a34a';
+                            boxStyle.color = answer === undefined ? '#854d0e' : 'white';
+                          } else if (isChosen && !isCorrect) {
+                            optStyle.backgroundColor = '#fee2e2';
+                            optStyle.color = '#7f1d1d';
+                            optStyle.border = '1px solid #fecaca';
+                            boxStyle.borderColor = '#dc2626';
+                            boxStyle.backgroundColor = '#dc2626';
+                            boxStyle.color = 'white';
                           }
                         } else {
-                          if (isCorrect) {
-                            optStyle.border = '1px solid #10b981';
-                            optStyle.background = 'rgba(16,185,129,0.06)';
-                            optStyle.color = '#10b981';
-                          } else if (isChosen) {
-                            optStyle.border = '1px solid #ef4444';
-                            optStyle.background = 'rgba(239,68,68,0.06)';
-                            optStyle.color = '#ef4444';
+                          if (isChosen) {
+                            optStyle.backgroundColor = '#eff6ff';
+                            optStyle.border = '1px solid #bfdbfe';
+                            boxStyle.borderColor = '#1d4ed8';
+                            boxStyle.backgroundColor = '#1d4ed8';
+                            boxStyle.color = 'white';
                           }
                         }
 
                         return (
                           <div
                             key={oIdx}
-                            style={optStyle}
                             onClick={() => handlePaperAnswer(q.id, oIdx)}
+                            className={`paper-option-item-container ${!paperSubmitted ? 'hoverable-option' : ''}`}
+                            style={optStyle}
                           >
-                            <span style={{ fontWeight: 'bold' }}>{letter})</span>
-                            <span>{opt}</span>
+                            <div style={boxStyle}>
+                              {paperSubmitted ? (
+                                isCorrect ? (answer !== undefined ? '✓' : '!') : isChosen ? '✗' : ''
+                              ) : (
+                                isChosen ? 'X' : ''
+                              )}
+                            </div>
+                            <span style={{ lineHeight: '1.4' }}>
+                              <strong>{['A', 'B', 'C', 'D'][oIdx]})</strong> {opt.replace(/^[a-dA-D]\)\s*/, '')}
+                            </span>
+                            {paperSubmitted && answer === undefined && isCorrect && (
+                              <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 'bold', color: '#854d0e', backgroundColor: '#fef9c3', border: '1px solid #fef08a', padding: '2px 8px', borderRadius: '12px' }}>
+                                Respuesta Correcta (Sin contestar)
+                              </span>
+                            )}
                           </div>
                         );
                       })}
                     </div>
 
                     {paperSubmitted && (
-                      <div className="fade-in" style={{
-                        marginTop: '14px',
-                        padding: '12px',
-                        borderRadius: '6px',
-                        background: 'rgba(255,255,255,0.02)',
-                        borderLeft: '3px solid var(--secondary)',
+                      <div className="paper-explanation-box fade-in" style={{
+                        marginTop: '8px',
+                        marginLeft: '8px',
+                        padding: '8px 12px',
+                        backgroundColor: '#f8fafc',
+                        borderLeft: '3px solid #94a3b8',
+                        borderRadius: '4px',
                         fontSize: '0.8rem',
-                        lineHeight: '1.4',
-                        color: 'var(--text-muted)',
-                        marginLeft: '34px'
+                        color: '#475569',
+                        lineHeight: '1.4'
                       }}>
                         <strong>Justificación:</strong> {q.explanation}
                       </div>
