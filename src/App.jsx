@@ -12,8 +12,9 @@ import UserManual from './components/UserManual';
 import UserAnexosView from './components/UserAnexosView';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
-import { ShieldAlert, RefreshCw, Clock, Sparkles } from 'lucide-react';
+import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft } from 'lucide-react';
 import SiriAssistant from './components/SiriAssistant';
+import MobileMenuHub from './components/MobileMenuHub';
 import './App.css';
 
 class ErrorBoundary extends React.Component {
@@ -40,12 +41,12 @@ class ErrorBoundary extends React.Component {
           <pre style={{ color: '#94a3b8', fontSize: '0.78rem', overflowX: 'auto', background: '#020617', padding: '12px', borderRadius: '6px', maxHeight: '200px' }}>
             {this.state.errorInfo && this.state.errorInfo.componentStack}
           </pre>
-          <button 
+          <button
             type="button"
             onClick={() => {
               this.setState({ hasError: false, error: null, errorInfo: null });
               window.location.reload();
-            }} 
+            }}
             style={{ padding: '8px 16px', background: '#6366f1', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', marginTop: '14px', fontWeight: 'bold' }}
           >
             Reintentar / Recargar
@@ -58,8 +59,25 @@ class ErrorBoundary extends React.Component {
 }
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState('dashboard');
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [currentTab, setCurrentTab] = useState(window.innerWidth < 1024 ? 'mobile-menu' : 'dashboard');
   const [activeTopicId, setActiveTopicId] = useState(1);
+
+  // Dynamic window resize listener to update screen width state
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Redirect to dashboard if switching back to desktop layout while in mobile menu
+  useEffect(() => {
+    if (!isMobile && currentTab === 'mobile-menu') {
+      setCurrentTab('dashboard');
+    }
+  }, [isMobile, currentTab]);
   const [showSiriModal, setShowSiriModal] = useState(false);
   const [timerActiveGlobally, setTimerActiveGlobally] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(false);
@@ -181,7 +199,7 @@ export default function App() {
       const progressToSave = pendingProgressRef.current;
       pendingProgressRef.current = null;
       lastSaveTimeRef.current = Date.now();
-      
+
       try {
         await firebaseService.saveUserProgress(currentUser.uid, progressToSave);
       } catch (err) {
@@ -218,19 +236,19 @@ export default function App() {
   // Update lastActive timestamp in the database periodically
   useEffect(() => {
     if (!currentUser) return;
-    
+
     // Initial immediate call
     firebaseService.updateUserActiveTime(currentUser.uid).catch((err) => {
       console.warn("Could not update last active time:", err);
     });
-    
+
     // Set up interval every 2 minutes
     const interval = setInterval(() => {
       firebaseService.updateUserActiveTime(currentUser.uid).catch((err) => {
         console.warn("Could not update last active time:", err);
       });
     }, 2 * 60 * 1000);
-    
+
     return () => clearInterval(interval);
   }, [currentUser, currentTab]);
 
@@ -322,14 +340,14 @@ export default function App() {
     setCurrentUser(null);
     setLocalSessionId('');
     setShowInactivityWarning(false);
-    
+
     alert('Tu sesión ha caducado y se ha cerrado automáticamente por inactividad.');
   };
 
   const handleContinueSession = () => {
     setShowInactivityWarning(false);
     setInactivityCountdown(30);
-    
+
     // Refresh user activity lease on DB
     if (currentUser) {
       firebaseService.updateUserActiveTime(currentUser.uid).catch((err) => {
@@ -428,11 +446,20 @@ export default function App() {
   // Render active view
   const renderContent = () => {
     switch (currentTab) {
+      case 'mobile-menu':
+        return (
+          <MobileMenuHub
+            setCurrentTab={setCurrentTab}
+            currentUser={currentUser}
+            handleLogout={handleLogout}
+            onOpenSiri={() => setShowSiriModal(true)}
+          />
+        );
       case 'dashboard':
         return (
-          <Dashboard 
-            topics={topicsData} 
-            progress={progress} 
+          <Dashboard
+            topics={topicsData}
+            progress={progress}
             updateTopicStatus={updateTopicStatus}
             selectTopic={selectTopic}
             setTimerActiveGlobally={setTimerActiveGlobally}
@@ -444,7 +471,7 @@ export default function App() {
         );
       case 'topics':
         return (
-          <TopicViewer 
+          <TopicViewer
             topics={topicsData}
             activeTopicId={activeTopicId}
             setActiveTopicId={setActiveTopicId}
@@ -457,7 +484,7 @@ export default function App() {
         );
       case 'quizzes':
         return (
-          <QuizRunner 
+          <QuizRunner
             topics={topicsData}
             progress={progress}
             recordQuizScore={recordQuizScore}
@@ -467,20 +494,20 @@ export default function App() {
         );
       case 'formadores':
         return (
-          <FormadoresTests 
+          <FormadoresTests
             currentUser={currentUser}
           />
         );
       case 'flashcards':
         return (
-          <Flashcards 
+          <Flashcards
             topics={topicsData}
             activeTopicId={activeTopicId}
           />
         );
       case 'stats':
         return (
-          <Stats 
+          <Stats
             topics={topicsData}
             progress={progress}
             resetAllProgress={resetAllProgress}
@@ -509,14 +536,14 @@ export default function App() {
             <ShieldAlert className="text-secondary" size={48} style={{ color: 'var(--accent-rose)', filter: 'drop-shadow(0 0 10px rgba(244,63,94,0.2))' }} />
             <h2 style={{ color: 'var(--accent-rose)' }}>Sesión Cerrada</h2>
             <p className="subtitle" style={{ marginTop: '10px', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Tu cuenta de estudiante ha sido iniciada en otro dispositivo (u otra pestaña del navegador). 
+              Tu cuenta de estudiante ha sido iniciada en otro dispositivo (u otra pestaña del navegador).
               <br /><br />
               Por motivos de seguridad y control de acceso comercial, se ha cerrado la sesión en este dispositivo.
             </p>
           </div>
-          <button 
-            type="button" 
-            onClick={() => setSessionExpelled(false)} 
+          <button
+            type="button"
+            onClick={() => setSessionExpelled(false)}
             className="login-submit-btn glow-btn"
             style={{ marginTop: '20px' }}
           >
@@ -532,17 +559,61 @@ export default function App() {
     return <Login onLogin={handleLogin} />;
   }
 
+  const getTabTitle = () => {
+    switch (currentTab) {
+      case 'dashboard': return 'Dashboard';
+      case 'topics': return 'Temario';
+      case 'quizzes': return 'Cuestionarios';
+      case 'formadores': return 'Test Formadores';
+      case 'flashcards': return 'Flashcards';
+      case 'stats': return 'Mi Progreso';
+      case 'anexos': return 'Mis Anexos';
+      case 'manual': return 'Ayuda';
+      case 'admin': return 'Control';
+      default: return 'Oposiciones BUS';
+    }
+  };
+
   return (
     <>
+      {isMobile && currentTab !== 'mobile-menu' && (
+        <header className="mobile-top-header">
+          <div className="mobile-top-header-left">
+            <button
+              type="button"
+              onClick={() => setCurrentTab('mobile-menu')}
+              className="mobile-top-header-btn-back"
+            >
+              <ArrowLeft size={16} />
+              <span>Menú</span>
+            </button>
+            <span className="mobile-top-header-title">{getTabTitle()}</span>
+          </div>
+          <div className="mobile-top-header-right">
+            <button
+              type="button"
+              onClick={() => setShowSiriModal(true)}
+              className="mobile-top-header-ai-btn"
+            >
+              <Sparkles size={16} />
+            </button>
+            <div className="mobile-top-header-avatar">
+              {currentUser?.name ? currentUser.name.charAt(0).toUpperCase() : 'A'}
+            </div>
+          </div>
+        </header>
+      )}
       <div className="app-container">
-        <Sidebar 
-          currentTab={currentTab} 
-          setCurrentTab={setCurrentTab} 
-          currentUser={currentUser}
-          handleLogout={handleLogout}
-          onOpenSiri={() => setShowSiriModal(true)}
-          isSiriOpen={showSiriModal}
-        />
+        {!isMobile && (
+          <Sidebar
+            currentTab={currentTab}
+            setCurrentTab={setCurrentTab}
+            currentUser={currentUser}
+            handleLogout={handleLogout}
+            onOpenSiri={() => setShowSiriModal(true)}
+            isSiriOpen={showSiriModal}
+          />
+        )}
         <main className="main-content">
           {loadingProgress ? (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '16px' }}>
@@ -561,7 +632,7 @@ export default function App() {
       </div>
 
       {/* Siri BUS Virtual Assistant Drawer Component */}
-      <SiriAssistant 
+      <SiriAssistant
         activeTopicId={activeTopicId}
         isOpen={showSiriModal}
         onClose={() => setShowSiriModal(false)}
@@ -580,17 +651,17 @@ export default function App() {
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '24px' }}>
-              <button 
-                type="button" 
-                onClick={handleContinueSession} 
+              <button
+                type="button"
+                onClick={handleContinueSession}
                 className="login-submit-btn glow-btn"
                 style={{ width: '100%' }}
               >
                 <span>Continuar Estudiando</span>
               </button>
-              <button 
-                type="button" 
-                onClick={handleForceLogoutDueToInactivity} 
+              <button
+                type="button"
+                onClick={handleForceLogoutDueToInactivity}
                 className="glow-btn-secondary"
                 style={{ width: '100%', padding: '12px' }}
               >
@@ -600,7 +671,7 @@ export default function App() {
           </div>
         </div>
       )}
-      
+
       {/* Custom footer for PDF printing */}
       <div className="custom-print-footer">
         <span className="custom-print-footer-left"></span>
