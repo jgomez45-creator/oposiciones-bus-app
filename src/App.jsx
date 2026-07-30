@@ -12,9 +12,10 @@ import UserManual from './components/UserManual';
 import UserAnexosView from './components/UserAnexosView';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
-import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft } from 'lucide-react';
+import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft, Settings } from 'lucide-react';
 import SiriAssistant from './components/SiriAssistant';
 import MobileMenuHub from './components/MobileMenuHub';
+import SettingsModal from './components/SettingsModal';
 import './App.css';
 
 class ErrorBoundary extends React.Component {
@@ -62,6 +63,41 @@ export default function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const [currentTab, setCurrentTab] = useState(window.innerWidth < 1024 ? 'mobile-menu' : 'dashboard');
   const [activeTopicId, setActiveTopicId] = useState(1);
+  const [showSettingsModal, setShowSettingsModal] = useState(false);
+
+  // User preferences states
+  const [appTheme, setAppTheme] = useState(() => localStorage.getItem('opos_theme') || 'theme-default');
+  const [fontSizeClass, setFontSizeClass] = useState(() => localStorage.getItem('opos_font_size') || 'font-medium');
+  const [soundsEnabled, setSoundsEnabled] = useState(() => localStorage.getItem('opos_sounds_enabled') !== 'false');
+  const [showExplanations, setShowExplanations] = useState(() => localStorage.getItem('opos_show_explanations') || 'immediate');
+  const [timerPreference, setTimerPreference] = useState(() => localStorage.getItem('opos_timer_preference') || 'visible');
+  const [inactivityTimeoutMinutes, setInactivityTimeoutMinutes] = useState(30);
+  const [isDatabaseMock, setIsDatabaseMock] = useState(() => localStorage.getItem('force_real_db') === 'false');
+
+  // Apply theme & font-size classes to body
+  useEffect(() => {
+    document.body.classList.remove('theme-default', 'theme-dark-pure', 'theme-light');
+    document.body.classList.add(appTheme);
+    localStorage.setItem('opos_theme', appTheme);
+  }, [appTheme]);
+
+  useEffect(() => {
+    document.body.classList.remove('font-medium', 'font-large', 'font-xlarge');
+    document.body.classList.add(fontSizeClass);
+    localStorage.setItem('opos_font_size', fontSizeClass);
+  }, [fontSizeClass]);
+
+  useEffect(() => {
+    localStorage.setItem('opos_sounds_enabled', String(soundsEnabled));
+  }, [soundsEnabled]);
+
+  useEffect(() => {
+    localStorage.setItem('opos_show_explanations', showExplanations);
+  }, [showExplanations]);
+
+  useEffect(() => {
+    localStorage.setItem('opos_timer_preference', timerPreference);
+  }, [timerPreference]);
 
   // Dynamic window resize listener to update screen width state
   useEffect(() => {
@@ -268,11 +304,11 @@ export default function App() {
         clearTimeout(inactivityTimeoutRef.current);
       }
 
-      // 30 minutes = 30 * 60 * 1000 ms
+      // inactivityTimeoutMinutes instead of hardcoded 30 minutes
       inactivityTimeoutRef.current = setTimeout(() => {
         setShowInactivityWarning(true);
         setInactivityCountdown(30);
-      }, 30 * 60 * 1000);
+      }, inactivityTimeoutMinutes * 60 * 1000);
     };
 
     const events = ['mousedown', 'mousemove', 'keydown', 'touchstart', 'scroll'];
@@ -293,7 +329,7 @@ export default function App() {
         window.removeEventListener(event, handleActivity);
       });
     };
-  }, [currentUser, showInactivityWarning]);
+  }, [currentUser, showInactivityWarning, inactivityTimeoutMinutes]);
 
   // Countdown timer for inactivity warnings
   useEffect(() => {
@@ -453,6 +489,7 @@ export default function App() {
             currentUser={currentUser}
             handleLogout={handleLogout}
             onOpenSiri={() => setShowSiriModal(true)}
+            onOpenSettings={() => setShowSettingsModal(true)}
           />
         );
       case 'dashboard':
@@ -592,6 +629,14 @@ export default function App() {
           <div className="mobile-top-header-right">
             <button
               type="button"
+              onClick={() => setShowSettingsModal(true)}
+              className="mobile-top-header-ai-btn"
+              style={{ marginRight: '8px' }}
+            >
+              <Settings size={16} />
+            </button>
+            <button
+              type="button"
               onClick={() => setShowSiriModal(true)}
               className="mobile-top-header-ai-btn"
             >
@@ -612,6 +657,7 @@ export default function App() {
             handleLogout={handleLogout}
             onOpenSiri={() => setShowSiriModal(true)}
             isSiriOpen={showSiriModal}
+            onOpenSettings={() => setShowSettingsModal(true)}
           />
         )}
         <main className="main-content">
@@ -637,6 +683,28 @@ export default function App() {
         isOpen={showSiriModal}
         onClose={() => setShowSiriModal(false)}
         currentUser={currentUser}
+      />
+
+      {/* Settings Modal Component */}
+      <SettingsModal
+        isOpen={showSettingsModal}
+        onClose={() => setShowSettingsModal(false)}
+        currentUser={currentUser}
+        appTheme={appTheme}
+        setAppTheme={setAppTheme}
+        fontSizeClass={fontSizeClass}
+        setFontSizeClass={setFontSizeClass}
+        soundsEnabled={soundsEnabled}
+        setSoundsEnabled={setSoundsEnabled}
+        showExplanations={showExplanations}
+        setShowExplanations={setShowExplanations}
+        timerPreference={timerPreference}
+        setTimerPreference={setTimerPreference}
+        inactivityTimeoutMinutes={inactivityTimeoutMinutes}
+        setInactivityTimeoutMinutes={setInactivityTimeoutMinutes}
+        isDatabaseMock={isDatabaseMock}
+        setIsDatabaseMock={setIsDatabaseMock}
+        onResetProgress={resetAllProgress}
       />
 
       {showInactivityWarning && (

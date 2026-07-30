@@ -1,79 +1,81 @@
 import React from 'react';
-import { 
-  LayoutDashboard, 
-  BookOpen, 
-  GraduationCap, 
-  ClipboardList, 
-  Layers, 
-  Edit3, 
-  HelpCircle, 
-  Sparkles, 
+import {
+  LayoutDashboard,
+  BookOpen,
+  GraduationCap,
+  ClipboardList,
+  Layers,
+  Edit3,
+  HelpCircle,
+  Sparkles,
   LogOut,
   Library,
   BarChart3,
-  Shield
+  Shield,
+  Settings
 } from 'lucide-react';
 
-export default function MobileMenuHub({ 
-  setCurrentTab, 
-  currentUser, 
-  handleLogout, 
-  onOpenSiri 
+export default function MobileMenuHub({
+  setCurrentTab,
+  currentUser,
+  handleLogout,
+  onOpenSiri,
+  onOpenSettings
 }) {
   const menuItems = [
-    { 
-      id: 'dashboard', 
-      title: 'Dashboard', 
-      desc: 'Resumen de estudio y estadísticas', 
+    {
+      id: 'dashboard',
+      title: 'Dashboard',
+      desc: 'Resumen de estudio y estadísticas',
       icon: LayoutDashboard,
       color: '#3b82f6'
     },
-    { 
-      id: 'topics', 
-      title: 'Temario', 
-      desc: 'Lectura de temas y audiolibro', 
+    {
+      id: 'topics',
+      title: 'Temario',
+      desc: 'Lectura de temas y audiolibro',
       icon: BookOpen,
       color: '#10b981'
     },
-    { 
-      id: 'quizzes', 
-      title: 'Tests de Examen', 
-      desc: 'Simulacros y de autoevaluación', 
+    {
+      id: 'quizzes',
+      title: 'Tests de Examen',
+      desc: 'Simulacros y de autoevaluación',
       icon: GraduationCap,
       color: '#6366f1'
     },
-    { 
-      id: 'formadores', 
-      title: 'Test Formadores', 
-      desc: 'Cuestionarios de batería de formadores', 
+    {
+      id: 'formadores',
+      title: 'Test Formadores',
+      desc: 'Cuestionarios de batería de formadores',
       icon: ClipboardList,
       color: '#ec4899'
     },
-    { 
-      id: 'flashcards', 
-      title: 'Flashcards', 
-      desc: 'Memorización rápida de conceptos', 
+    {
+      id: 'flashcards',
+      title: 'Flashcards',
+      desc: 'Memorización rápida de conceptos',
       icon: Layers,
       color: '#f59e0b'
     },
-    { 
-      id: 'stats', 
-      title: 'Mi Progreso', 
-      desc: 'Análisis detallado de tu avance', 
+    {
+      id: 'stats',
+      title: 'Mi Progreso',
+      desc: 'Análisis detallado de tu avance',
       icon: BarChart3,
       color: '#8b5cf6'
     },
-    { 
-      id: 'anexos', 
-      title: 'Mis Anexos', 
-      desc: 'Fe de erratas y apuntes', 
+    {
+      id: 'anexos',
+      title: 'Mis Anexos',
+      desc: 'Fe de erratas y apuntes',
       icon: Edit3,
       color: '#14b8a6'
     },
-    { 
-      id: 'manual', 
-      title: 'Ayuda', 
-      desc: 'Manual de uso y guía de usuario', 
+    {
+      id: 'manual',
+      title: 'Ayuda',
+      desc: 'Manual de uso y guía de usuario',
       icon: HelpCircle,
       color: '#64748b'
     }
@@ -101,8 +103,8 @@ export default function MobileMenuHub({
       </header>
 
       {currentUser && (
-        <section className="mobile-menu-profile-card glass-panel">
-          <div className="mobile-menu-profile-info">
+        <section className="mobile-menu-profile-card glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '14px', alignItems: 'stretch' }}>
+          <div className="mobile-menu-profile-info" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div className="mobile-menu-profile-avatar">
               {currentUser.name ? currentUser.name.charAt(0).toUpperCase() : 'A'}
             </div>
@@ -115,14 +117,26 @@ export default function MobileMenuHub({
               </span>
             </div>
           </div>
-          <button 
-            type="button"
-            onClick={handleLogout} 
-            className="mobile-menu-logout-btn"
-          >
-            <LogOut size={14} />
-            <span>Cerrar Sesión</span>
-          </button>
+          <div style={{ display: 'flex', gap: '10px', width: '100%' }}>
+            <button
+              type="button"
+              onClick={onOpenSettings}
+              className="mobile-menu-logout-btn"
+              style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderColor: 'var(--border-color)', color: 'var(--text-main)', justifyContent: 'center', gap: '6px' }}
+            >
+              <Settings size={14} />
+              <span>Ajustes</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="mobile-menu-logout-btn"
+              style={{ flex: 1, justifyContent: 'center', gap: '6px' }}
+            >
+              <LogOut size={14} />
+              <span>Salir</span>
+            </button>
+          </div>
         </section>
       )}
 

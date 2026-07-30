@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
-  LayoutDashboard, 
-  BookOpen, 
-  GraduationCap, 
-  Layers, 
+import {
+  LayoutDashboard,
+  BookOpen,
+  GraduationCap,
+  Layers,
   BarChart3,
   Library,
   LogOut,
@@ -11,10 +11,11 @@ import {
   ClipboardList,
   HelpCircle,
   Sparkles,
-  Edit3
+  Edit3,
+  Settings
 } from 'lucide-react';
 
-export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri, isSiriOpen }) {
+export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri, isSiriOpen, onOpenSettings }) {
   const menuGroups = [
     {
       label: 'Aprendizaje',
@@ -65,7 +66,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
             <p>Téc. Auxiliar</p>
           </div>
         </div>
-        <span 
+        <span
           className="sidebar-copyright"
           title="Copyright JGG"
           style={{
@@ -82,7 +83,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
           © JGG
         </span>
       </div>
-      
+
       <nav className="sidebar-menu">
         {menuGroups.map((group) => (
           <div key={group.label} className="menu-group">
@@ -91,7 +92,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
               const Icon = item.icon;
               const isAgenteActive = Boolean(isSiriOpen || currentTab === 'agente_bus');
               const isActive = item.id === 'agente_bus' ? isAgenteActive : (!isSiriOpen && currentTab === item.id);
-              
+
               if (item.isBlueButton) {
                 return (
                   <button
@@ -185,14 +186,24 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
               <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>ID: {currentUser.bookCode || currentUser.code || (currentUser.role === 'admin' ? 'ADMIN' : 'REGISTRADO')}</span>
             </div>
           </div>
-          <button 
-            onClick={handleLogout} 
-            className="glow-btn-secondary"
-            style={{ fontSize: '0.73rem', padding: '5px 10px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', width: '100%', borderRadius: '8px' }}
-          >
-            <LogOut size={11} />
-            <span>Cerrar Sesión</span>
-          </button>
+          <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
+            <button
+              onClick={onOpenSettings}
+              className="glow-btn-secondary"
+              style={{ flex: 1, fontSize: '0.73rem', padding: '5px 10px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', borderRadius: '8px' }}
+            >
+              <Settings size={11} />
+              <span>Ajustes</span>
+            </button>
+            <button
+              onClick={handleLogout}
+              className="glow-btn-secondary"
+              style={{ flex: 1, fontSize: '0.73rem', padding: '5px 10px', display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', borderRadius: '8px' }}
+            >
+              <LogOut size={11} />
+              <span>Salir</span>
+            </button>
+          </div>
         </div>
       )}
 

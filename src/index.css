@@ -11,34 +11,37 @@
   --bg-card: #0f1424;
   --bg-card-hover: #161d33;
   --bg-input: #12192d;
-  
-  --primary: #1d4ed8;       /* Deep Royal Blue */
-  --primary-light: #3b82f6; /* Electric Blue */
+
+  --primary: #1d4ed8;
+  /* Deep Royal Blue */
+  --primary-light: #3b82f6;
+  /* Electric Blue */
   --primary-glow: rgba(59, 130, 246, 0.15);
-  
-  --secondary: #eab308;     /* Seville Gold */
+
+  --secondary: #eab308;
+  /* Seville Gold */
   --secondary-light: #fde047;
   --secondary-glow: rgba(234, 179, 8, 0.1);
 
   --accent-cyan: #06b6d4;
   --accent-emerald: #10b981;
   --accent-rose: #f43f5e;
-  
+
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-dark: #64748b;
-  
+
   --border-color: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.15);
   --border-glow: rgba(59, 130, 246, 0.3);
-  
+
   --glass-bg: rgba(15, 20, 36, 0.75);
   --glass-border: rgba(255, 255, 255, 0.05);
   --glass-blur: blur(16px);
-  
+
   --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --shadow-glow: 0 0 20px 0 rgba(59, 130, 246, 0.15);
-  
+
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -58,20 +61,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   min-height: 100vh;
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.15) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(234, 179, 8, 0.08) 0px, transparent 50%),
     radial-gradient(at 50% 50%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
 }
 
@@ -87,8 +98,13 @@ a:hover {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -96,6 +112,7 @@ a:hover {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -107,6 +124,7 @@ a:hover {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -114,8 +132,13 @@ a:hover {
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* High-Contrast & Highly Visible Scrollbars (Global & All Browsers) */
@@ -275,7 +298,8 @@ a:hover {
 }
 
 .omr-sheet-header {
-  background: #c8102e; /* Seville University Corporate Red */
+  background: #c8102e;
+  /* Seville University Corporate Red */
   color: #ffffff;
   padding: 16px 20px;
   text-align: center;
@@ -502,3 +526,89 @@ a:hover {
   border-radius: 20px;
 }
 
+/* ==========================================================================
+   Ajustes y Personalización de Temas
+   ========================================================================== */
+
+/* Tema Claro */
+body.theme-light {
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #f1f5f9;
+  --primary: #1d4ed8;
+  --primary-light: #3b82f6;
+  --primary-glow: rgba(59, 130, 246, 0.08);
+  --secondary: #d97706;
+  --secondary-light: #f59e0b;
+  --secondary-glow: rgba(217, 119, 6, 0.06);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dark: #64748b;
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(15, 23, 42, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(15, 23, 42, 0.05);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.04) 0px, transparent 50%);
+}
+
+/* Tema Oscuro Puro (Ahorro de batería y pantallas OLED) */
+body.theme-dark-pure {
+  --bg-dark: #000000;
+  --bg-card: #0c0f19;
+  --bg-card-hover: #121826;
+  --bg-input: #080b12;
+  --primary: #2563eb;
+  --primary-light: #60a5fa;
+  --primary-glow: rgba(37, 99, 235, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(12, 15, 25, 0.9);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
+}
+
+/* Clases de Tamaño de Letra Globales y de Tests */
+body.font-large {
+  font-size: 1.08rem;
+}
+
+body.font-large .quiz-question-text,
+body.font-large .topic-section-content,
+body.font-large .markdown-rendered-content {
+  font-size: 1.22rem !important;
+  line-height: 1.7 !important;
+}
+
+body.font-xlarge {
+  font-size: 1.18rem;
+}
+
+body.font-xlarge .quiz-question-text,
+body.font-xlarge .topic-section-content,
+body.font-xlarge .markdown-rendered-content {
+  font-size: 1.35rem !important;
+  line-height: 1.8 !important;
+}
+
+body.font-xlarge .option-text {
+  font-size: 1.15rem !important;
+}
+
+/* Transiciones Suaves para Cambio de Fuente y Tema */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease;
+}
+
+.sidebar,
+.mobile-menu-hub,
+.glass-panel,
+.main-content,
+.mobile-top-header {
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}

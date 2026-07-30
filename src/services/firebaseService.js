@@ -27,7 +27,8 @@ import {
 
 // Check if we should run in Mock Simulator Mode
 const projectID = import.meta.env.VITE_FIREBASE_PROJECT_ID;
-const isMock = !projectID || projectID === 'tu_project_id';
+// If admin forces raw simulation or if there is no setup project ID
+const isMock = localStorage.getItem('force_real_db') === 'false' || !projectID || projectID === 'tu_project_id';
 
 const rawApiKey = import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAuBS58f2eNqaeGIc10zyQwgjxgm2StgBg';
 // Automatically correct the '8g' -> 'Bg' typo if it exists in the environment variable
