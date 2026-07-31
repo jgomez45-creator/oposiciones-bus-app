@@ -639,6 +639,20 @@ export default function AdminPanel({ topics }) {
     }
   };
 
+  const handleForceSyncCloudVideos = async () => {
+    try {
+      setSavingVideo(true);
+      await firebaseService.saveTopicVideos(selectedVideoTopicId, currentTopicVideos);
+      setVideoMsg(`¡Playlist del Tema ${selectedVideoTopicId} enviada a la Nube de Firebase! Se actualizará en todos los dispositivos.`);
+      setTimeout(() => setVideoMsg(''), 5000);
+    } catch (err) {
+      console.error(err);
+      alert('Error al sincronizar con la nube.');
+    } finally {
+      setSavingVideo(false);
+    }
+  };
+
   // Metrics
   const registeredUsersCount = users.filter(u => u.uid !== 'guest_profile').length;
   const onlineUsersCount = users.filter(u => isUserOnline(u) && u.uid !== 'guest_profile').length;
@@ -830,21 +844,47 @@ export default function AdminPanel({ topics }) {
                 <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: '600' }}>
                   Seleccionar Tema a Gestionar:
                 </label>
-                <select
-                  value={selectedVideoTopicId}
-                  onChange={(e) => {
-                    setSelectedVideoTopicId(e.target.value);
-                    setVideoForm({ title: '', url: '', duration: '', description: '' });
-                    setEditingVideoId(null);
-                  }}
-                  style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '10px 14px', borderRadius: '8px', outline: 'none', fontWeight: '700', fontSize: '0.9rem' }}
-                >
-                  {activeTopicList.map(t => (
-                    <option key={t.id} value={t.id}>
-                      Tema {t.id}: {t.title} ({(allTopicVideos[t.id.toString()] || []).length} vídeos)
-                    </option>
-                  ))}
-                </select>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                  <select
+                    value={selectedVideoTopicId}
+                    onChange={(e) => {
+                      setSelectedVideoTopicId(e.target.value);
+                      setVideoForm({ title: '', url: '', duration: '', description: '' });
+                      setEditingVideoId(null);
+                    }}
+                    style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '10px 14px', borderRadius: '8px', outline: 'none', fontWeight: '700', fontSize: '0.9rem' }}
+                  >
+                    {activeTopicList.map(t => (
+                      <option key={t.id} value={t.id}>
+                        Tema {t.id}: {t.title} ({(allTopicVideos[t.id.toString()] || []).length} vídeos)
+                      </option>
+                    ))}
+                  </select>
+
+                  <button
+                    type="button"
+                    onClick={handleForceSyncCloudVideos}
+                    disabled={savingVideo}
+                    style={{
+                      padding: '10px 14px',
+                      background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontWeight: '700',
+                      fontSize: '0.85rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      whiteSpace: 'nowrap'
+                    }}
+                    title="Enviar cambios a la Nube de Firebase para actualizar en todos los móviles"
+                  >
+                    <RefreshCw size={14} className={savingVideo ? 'spin' : ''} />
+                    <span>☁️ Enviar a la Nube / Sincronizar Móvil</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
