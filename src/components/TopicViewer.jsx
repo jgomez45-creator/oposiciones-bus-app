@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
-import { 
-  BookOpen, 
-  List, 
-  Tag, 
-  Play, 
-  Pause, 
-  Clock, 
+import {
+  BookOpen,
+  List,
+  Tag,
+  Play,
+  Pause,
+  Clock,
   CheckCircle,
   FileText,
   AlertCircle,
@@ -40,12 +40,12 @@ const getCleanTextForSpeech = (htmlString) => {
 import PrintEditionModal from './PrintEditionModal';
 import { firebaseService } from '../services/firebaseService';
 
-export default function TopicViewer({ 
-  topics, 
-  activeTopicId, 
-  setActiveTopicId, 
-  progress, 
-  updateTopicStatus, 
+export default function TopicViewer({
+  topics,
+  activeTopicId,
+  setActiveTopicId,
+  progress,
+  updateTopicStatus,
   incrementTimeForTopic,
   setCurrentTab,
   currentUser
@@ -63,12 +63,7 @@ export default function TopicViewer({
       setCompiledPrintContent('');
       setViewMode('multi-print');
     } else {
-      const isAdmin = !currentUser || currentUser?.role === 'admin' || currentUser?.email === 'admin@admin.com';
-      if (isAdmin) {
-        setShowPrintModal(true);
-      } else {
-        window.print();
-      }
+      setShowPrintModal(true);
     }
   };
 
@@ -98,7 +93,7 @@ export default function TopicViewer({
   const [fontSize, setFontSize] = useState('medium'); // 'small' | 'medium' | 'large' | 'extra-large'
   const [readingTheme, setReadingTheme] = useState('light-reading'); // 'default' | 'light-reading' | 'sepia'
   const [zoomScale, setZoomScale] = useState(1.0); // 1.0 = 100% Zoom
-  
+
   const handleZoomIn = () => {
     setZoomScale(prev => Math.min(2.0, Number((prev + 0.1).toFixed(2))));
   };
@@ -113,13 +108,13 @@ export default function TopicViewer({
   const [markdownContent, setMarkdownContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  
+
   // Autoscroll & Reading Ruler State
   const [isAutoscrolling, setIsAutoscrolling] = useState(false);
   const [autoscrollSpeed, setAutoscrollSpeed] = useState(3);
   const [showReadingRuler, setShowReadingRuler] = useState(false);
   const [isReadingMode, setIsReadingMode] = useState(false); // Full-screen reading overlay
-  
+
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'multi-print'
   const [selectedPrintTopicIds, setSelectedPrintTopicIds] = useState([]);
   const [isCompilingPrint, setIsCompilingPrint] = useState(false);
@@ -131,13 +126,13 @@ export default function TopicViewer({
 
   const handleCompilePrint = async () => {
     if (selectedPrintTopicIds.length === 0) return;
-    
+
     setIsCompilingPrint(true);
     setCompiledPrintContent('');
-    
+
     // Sort topic IDs numerically to maintain correct program order
     const sortedIds = [...selectedPrintTopicIds].map(Number).sort((a, b) => a - b);
-    
+
     try {
       const promises = sortedIds.map(id => {
         const formattedNum = id.toString().padStart(2, '0');
@@ -150,17 +145,17 @@ export default function TopicViewer({
             // Parse using marked
             const parsedHtml = marked.parse(text);
             const topicMeta = topics.find(t => t.id === id);
-            
+
             let questionsHtml = '';
             let answersHtml = '';
-            
+
             if (includeQuestionsInPrint) {
               const allTopicQs = (quizzesData[id.toString()] || []).filter(q => q.usage !== 'simulacro');
               // Selecciona las primeras N preguntas del tema para el temario impreso (dejando el resto para cuadernos de test)
               const topicQuestions = allTopicQs.length >= printQuestionsCount
                 ? allTopicQs.slice(0, printQuestionsCount)
                 : allTopicQs;
-                
+
               if (topicQuestions.length > 0) {
                 const qListHtml = topicQuestions.map((q, idx) => {
                   const optionsList = q.options.map((opt, oIdx) => `
@@ -238,9 +233,9 @@ export default function TopicViewer({
             `;
           });
       });
-      
+
       const results = await Promise.all(promises);
-      
+
       let prologoHtml = '';
       if (isManualFormat && sortedIds.length > 1) {
         try {
@@ -265,7 +260,7 @@ export default function TopicViewer({
           console.error("Error al cargar el prólogo:", err);
         }
       }
-      
+
       let manualHeaderHtml = '';
       if (isManualFormat) {
         if (sortedIds.length === 1) {
@@ -381,9 +376,9 @@ export default function TopicViewer({
           `;
         }
       }
-      
+
       let combinedHtml = manualHeaderHtml + prologoHtml + results.join('\n');
-      
+
       if (isManualFormat && sortedIds.length > 1 && currentUser?.role === 'admin') {
         combinedHtml += `
           <div class="print-manual-admin-info" style="box-sizing: border-box; padding: 20mm 40px; font-family: Arial, Calibri, Helvetica, sans-serif; max-width: 820px; margin: 0 auto; line-height: 1.5; color: #000000; text-align: justify; font-size: 13pt; page-break-before: always; break-before: page;">
@@ -450,7 +445,7 @@ export default function TopicViewer({
           </div>
         `;
       }
-      
+
       setCompiledPrintContent(combinedHtml);
     } catch (err) {
       console.error(err);
@@ -469,7 +464,7 @@ export default function TopicViewer({
   }, [triggerAutocompile, viewMode, selectedPrintTopicIds, activeTopicId]);
 
 
-  
+
   // Local session study timer
   const [sessionTime, setSessionTime] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -485,7 +480,7 @@ export default function TopicViewer({
   const [audioDuration, setAudioDuration] = useState(0); // for MP3 mode
   const [audioCurrentTime, setAudioCurrentTime] = useState(0); // for MP3 mode
   const [audioMode, setAudioMode] = useState('tts'); // 'tts' | 'mp3'
-  
+
   // Refs
   const audioElRef = React.useRef(null); // native HTML5 audio for MP3 mode
   const speechUtteranceRef = React.useRef(null); // SpeechSynthesisUtterance object
@@ -517,10 +512,10 @@ export default function TopicViewer({
   useEffect(() => {
     stopAudio();
     setAudioMode('tts'); // Lector Dinámico (TTS) por defecto
-    
+
     const formattedNum = topic.id.toString().padStart(2, '0');
     const audioUrl = `/audio/tema-${formattedNum}.mp3`;
-    
+
     fetch(audioUrl, { method: 'HEAD' })
       .then(res => {
         if (res.ok) {
@@ -581,7 +576,7 @@ export default function TopicViewer({
       const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
       const result = [];
       let currentChunk = '';
-      
+
       sentences.forEach(sentence => {
         if ((currentChunk + sentence).length < 200) {
           currentChunk += (currentChunk ? ' ' : '') + sentence;
@@ -649,7 +644,7 @@ export default function TopicViewer({
       window.speechSynthesis.speak(utterance);
     });
   };
- 
+
   const handlePlayPause = () => {
     // Wake up iOS/mobile audio system context on user click gesture
     try {
@@ -892,12 +887,12 @@ export default function TopicViewer({
     setIsAutoscrolling(false);
     setShowReadingRuler(false);
     setIsReadingMode(false);
-    
+
     // Load Markdown content
     setLoading(true);
     setError(false);
     setMarkdownContent('');
-    
+
     const formattedNum = topic.id.toString().padStart(2, '0');
     fetch(`/markdown/tema-${formattedNum}.md`)
       .then(res => {
@@ -938,7 +933,7 @@ export default function TopicViewer({
   const getSubTabContent = () => {
     if (!markdownContent) return { content: '', outline: '', concepts: '' };
 
-        // Find Outline (usually starts with ## X. Esquema)
+    // Find Outline (usually starts with ## X. Esquema)
     const outlineIndex = markdownContent.search(/##\s+\d+\.\s+Esquema/i);
     // Find Concepts (usually starts with ## Y. Conceptos)
     const conceptsIndex = markdownContent.search(/##\s+\d+\.\s+Conceptos/i);
@@ -1081,8 +1076,8 @@ export default function TopicViewer({
                 __html: activeSubTab === 'content'
                   ? parsedSections.content
                   : activeSubTab === 'outline'
-                  ? parsedSections.outline
-                  : parsedSections.concepts
+                    ? parsedSections.outline
+                    : parsedSections.concepts
               }}
             />
           </div>
@@ -1127,8 +1122,8 @@ export default function TopicViewer({
         <div className="sidebar-header">
           <BookOpen size={18} />
           <h3>Temas del Programa</h3>
-          <button 
-            className="mobile-sidebar-close-btn" 
+          <button
+            className="mobile-sidebar-close-btn"
             onClick={() => setShowMobileSidebar(false)}
             title="Cerrar"
           >
@@ -1158,7 +1153,7 @@ export default function TopicViewer({
           })}
         </div>
         <div className="sidebar-footer" style={{ padding: '12px', borderTop: '1px solid var(--border-color)' }}>
-          <button 
+          <button
             onClick={() => setViewMode(viewMode === 'multi-print' ? 'single' : 'multi-print')}
             className="glow-btn-secondary"
             style={{ width: '100%', fontSize: '0.8rem', padding: '10px' }}
@@ -1178,7 +1173,7 @@ export default function TopicViewer({
                 <span>Volver a Lectura</span>
               </button>
             </div>
-            
+
             {isCompilingPrint ? (
               <div className="viewer-message loading" style={{ flex: 1 }}>
                 <div className="spinner" />
@@ -1198,20 +1193,22 @@ export default function TopicViewer({
                     <button onClick={() => setCompiledPrintContent('')} className="glow-btn-secondary" style={{ padding: '8px 16px' }}>
                       Modificar Selección
                     </button>
-                    <button 
-                      onClick={() => setShowPrintModal(true)} 
-                      className="glow-btn-secondary" 
-                      style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
-                    >
-                      💾 Guardar como Nueva Edición
-                    </button>
+                    {(!currentUser || currentUser?.role === 'admin' || currentUser?.email === 'admin@admin.com') && (
+                      <button
+                        onClick={() => setShowPrintModal(true)}
+                        className="glow-btn-secondary"
+                        style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
+                      >
+                        💾 Guardar como Nueva Edición
+                      </button>
+                    )}
                     <button onClick={handlePrintClick} className="glow-btn" style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <Printer size={16} />
                       Imprimir Temario (PDF)
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="print-preview-content" style={{ flex: 1 }}>
                   <div dangerouslySetInnerHTML={{ __html: compiledPrintContent }} />
                 </div>
@@ -1223,34 +1220,34 @@ export default function TopicViewer({
                 <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '20px' }}>
                   Elige los temas que deseas agrupar en el documento de impresión. Cada tema comenzará de manera automática en una página nueva.
                 </p>
-                
+
                 <div className="topics-bulk-actions" style={{ marginBottom: '16px' }}>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => setSelectedPrintTopicIds(topics.map(t => t.id.toString()))}
                     className="bulk-action-link"
                   >
                     Seleccionar todos los temas
                   </button>
                   <span className="text-muted" style={{ fontSize: '0.8rem' }}>|</span>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => setSelectedPrintTopicIds([])}
                     className="bulk-action-link"
                   >
                     Limpiar selección
                   </button>
                 </div>
-                
+
                 <div className="print-topics-selection-grid" style={{ flex: 1 }}>
                   {topics.map(t => {
                     const isSelected = selectedPrintTopicIds.includes(t.id.toString());
                     return (
-                      <label 
-                        key={t.id} 
+                      <label
+                        key={t.id}
                         className={`print-topic-select-label ${isSelected ? 'selected' : ''}`}
                       >
-                        <input 
+                        <input
                           type="checkbox"
                           checked={isSelected}
                           onChange={(e) => {
@@ -1269,14 +1266,14 @@ export default function TopicViewer({
                     );
                   })}
                 </div>
-                
+
                 {/* Print parameters form */}
                 <div className="print-options-card" style={{ marginTop: '20px', padding: '16px', background: 'rgba(255, 255, 255, 0.01)', border: '1px solid var(--border-color)', borderRadius: '8px', textAlign: 'left' }}>
                   <h4 style={{ margin: '0 0 12px 0', fontSize: '0.95rem', fontWeight: '700' }}>Opciones adicionales del dossier:</h4>
-                  
+
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.85rem' }}>
-                      <input 
+                      <input
                         type="checkbox"
                         checked={isManualFormat}
                         onChange={(e) => setIsManualFormat(e.target.checked)}
@@ -1285,14 +1282,14 @@ export default function TopicViewer({
                     </label>
 
                     <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.85rem' }}>
-                      <input 
+                      <input
                         type="checkbox"
                         checked={includeQuestionsInPrint}
                         onChange={(e) => setIncludeQuestionsInPrint(e.target.checked)}
                       />
                       <strong>Incluir cuestionario de preguntas y respuestas al final de cada tema</strong>
                     </label>
-                    
+
                     {includeQuestionsInPrint && (
                       <div className="fade-in" style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingLeft: '24px', flexWrap: 'wrap' }}>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Cantidad de preguntas por tema:</span>
@@ -1313,9 +1310,9 @@ export default function TopicViewer({
                     )}
                   </div>
                 </div>
-                
+
                 <div style={{ marginTop: '24px', borderTop: '1px solid var(--border-color)', paddingTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
-                  <button 
+                  <button
                     onClick={handleCompilePrint}
                     disabled={selectedPrintTopicIds.length === 0}
                     className="glow-btn"
@@ -1337,16 +1334,16 @@ export default function TopicViewer({
                   <ChevronLeft size={16} />
                   <span className="nav-btn-text">Volver al Dashboard</span>
                 </button>
-                <button 
-                  onClick={() => setShowMobileSidebar(true)} 
+                <button
+                  onClick={() => setShowMobileSidebar(true)}
                   className="mobile-topics-toggle-btn"
                   title="Mostrar Temas"
                 >
                   <List size={16} />
                   <span className="nav-btn-text">Temas</span>
                 </button>
-                <button 
-                  onClick={() => setIsFocusMode(!isFocusMode)} 
+                <button
+                  onClick={() => setIsFocusMode(!isFocusMode)}
                   className={`focus-toggle-btn glow-btn-secondary ${isFocusMode ? 'active' : ''}`}
                   style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
                   title={isFocusMode ? "Mostrar lista de temas" : "Ocultar menú para enfocarse en la lectura"}
@@ -1355,8 +1352,8 @@ export default function TopicViewer({
                   <span className="nav-btn-text">{isFocusMode ? "Ver Menú Temas" : "Enfoque de Lectura"}</span>
                 </button>
                 {isFocusMode && (
-                  <button 
-                    onClick={() => setShowReadingControls(!showReadingControls)} 
+                  <button
+                    onClick={() => setShowReadingControls(!showReadingControls)}
                     className={`focus-toggle-btn glow-btn-secondary ${showReadingControls ? 'active' : ''}`}
                     style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
                     title={showReadingControls ? "Ocultar ajustes" : "Ajustes de lectura"}
@@ -1366,7 +1363,7 @@ export default function TopicViewer({
                   </button>
                 )}
               </div>
-              
+
               <div className="topic-header-status-controls" style={{ marginLeft: 'auto', paddingLeft: '16px', gap: '10px' }}>
                 {timerRunning && (
                   <span className="badge badge-blue focus-mode-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(59, 130, 246, 0.15)', borderColor: 'rgba(59, 130, 246, 0.3)', color: 'var(--primary-light)', padding: '6px 12px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', marginRight: '12px' }}>
@@ -1389,9 +1386,9 @@ export default function TopicViewer({
                   <Printer size={15} />
                   <span>Imprimir / PDF</span>
                 </button>
-                
-                <button 
-                  onClick={() => setShowSettingsPanel(!showSettingsPanel)} 
+
+                <button
+                  onClick={() => setShowSettingsPanel(!showSettingsPanel)}
                   className={`reading-settings-toggle-btn ${showSettingsPanel ? 'active' : ''}`}
                   title="Ajustes de Lectura (Letra, Fondo, Autoscroll, etc.)"
                 >
@@ -1414,242 +1411,242 @@ export default function TopicViewer({
             {(!isFocusMode || showReadingControls) && (
               <div className="focus-controls-collapsible-group" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
                 <div className="study-timer-bar">
-              <div className="timer-info">
-                <Clock size={16} className="text-primary-light" />
-                <span>Sesión actual: <strong className="timer-digits">{formatSessionTime(sessionTime)}</strong></span>
-                <span className="divider">|</span>
-                <span>Tiempo acumulado: <strong>{formatTotalTime(topicProgress.studyTime)}</strong></span>
-              </div>
-              <button 
-                onClick={() => setTimerRunning(!timerRunning)} 
-                className={`timer-toggle-btn ${timerRunning ? 'running' : ''}`}
-              >
-                {timerRunning ? (
-                  <>
-                    <Pause size={14} /> Pausar Estudio
-                  </>
-                ) : (
-                  <>
-                    <Play size={14} /> Iniciar Estudio
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Audiobook Player Widget */}
-            <div className="audiobook-player-card glass-panel fade-in" style={{ padding: '10px 16px', borderRadius: '12px', marginBottom: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <div className="audiobook-player-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Volume2 size={18} className="text-gradient-gold" style={{ color: 'var(--secondary)' }} />
-                  <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', letterSpacing: '0.5px' }}>AUDIOLIBRO / LECTOR DE VOZ</h4>
-                </div>
-                
-                {/* Mode Selector Toggle (if local MP3 is found) */}
-                {hasLocalMp3 && (
-                  <div className="audiobook-mode-toggle" style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-color)', padding: '2px', borderRadius: '8px' }}>
-                    <button 
-                      type="button" 
-                      onClick={() => { stopAudio(); setAudioMode('tts'); }} 
-                      className={`mode-btn ${audioMode === 'tts' ? 'active' : ''}`}
-                      style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '6px' }}
-                    >
-                      Lector Dinámico (TTS)
-                    </button>
-                    <button 
-                      type="button" 
-                      onClick={() => { stopAudio(); setAudioMode('mp3'); }} 
-                      className={`mode-btn ${audioMode === 'mp3' ? 'active' : ''}`}
-                      style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '6px' }}
-                    >
-                      Audio Grabado (MP3)
-                    </button>
+                  <div className="timer-info">
+                    <Clock size={16} className="text-primary-light" />
+                    <span>Sesión actual: <strong className="timer-digits">{formatSessionTime(sessionTime)}</strong></span>
+                    <span className="divider">|</span>
+                    <span>Tiempo acumulado: <strong>{formatTotalTime(topicProgress.studyTime)}</strong></span>
                   </div>
-                )}
-              </div>
-
-              {/* Progress and controls section */}
-              <div className="audiobook-main-controls" style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-                <div className="audio-control-buttons" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <button 
-                    type="button" 
-                    onClick={handlePlayPause} 
-                    className="glow-btn"
-                    style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      borderRadius: '50%', 
-                      padding: 0, 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center',
-                      background: isPlayingAudio ? 'var(--accent-rose)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
-                      boxShadow: isPlayingAudio ? '0 4px 12px rgba(244, 63, 94, 0.3)' : '0 4px 12px rgba(29, 78, 216, 0.3)'
-                    }}
-                    title={isPlayingAudio ? 'Pausar' : 'Reproducir'}
+                  <button
+                    onClick={() => setTimerRunning(!timerRunning)}
+                    className={`timer-toggle-btn ${timerRunning ? 'running' : ''}`}
                   >
-                    {isPlayingAudio ? <Pause size={16} /> : <Play size={16} style={{ marginLeft: '2px' }} />}
-                  </button>
-                  <button 
-                    type="button" 
-                    onClick={stopAudio} 
-                    className="glow-btn-secondary"
-                    style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                    title="Detener"
-                    disabled={!isPlayingAudio && !isPausedAudio && audioProgress === 0}
-                  >
-                    <Square size={14} style={{ fill: (!isPlayingAudio && !isPausedAudio && audioProgress === 0) ? 'none' : 'currentColor' }} />
+                    {timerRunning ? (
+                      <>
+                        <Pause size={14} /> Pausar Estudio
+                      </>
+                    ) : (
+                      <>
+                        <Play size={14} /> Iniciar Estudio
+                      </>
+                    )}
                   </button>
                 </div>
 
-                {/* Progress Bar */}
-                <div className="audio-progress-wrapper" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '200px' }}>
-                  <div 
-                    className="audio-progress-bar-container" 
-                    onClick={(e) => {
-                      if (audioMode === 'mp3' && audioDuration) {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        const clickX = e.clientX - rect.left;
-                        const percent = clickX / rect.width;
-                        const audioEl = audioElRef.current;
-                        if (audioEl) {
-                          audioEl.currentTime = percent * audioDuration;
-                        }
-                      }
-                    }}
-                    style={{ 
-                      height: '6px', 
-                      background: 'rgba(255, 255, 255, 0.05)', 
-                      borderRadius: '3px', 
-                      overflow: 'hidden', 
-                      cursor: audioMode === 'mp3' ? 'pointer' : 'default',
-                      position: 'relative'
-                    }}
-                  >
-                    <div 
-                      className="audio-progress-bar-fill" 
-                      style={{ 
-                        height: '100%',
-                        background: 'linear-gradient(90deg, var(--secondary) 0%, var(--secondary-light) 100%)',
-                        borderRadius: '3px',
-                        width: `${audioProgress}%`,
-                        transition: audioMode === 'tts' ? 'width 0.2s linear' : 'none'
-                      }}
-                    ></div>
-                  </div>
-                  <div className="audio-time-indicators" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    <span>
-                      {audioMode === 'mp3' 
-                        ? formatTime(audioCurrentTime) 
-                        : isPlayingAudio || isPausedAudio 
-                          ? `Leído: ${Math.round(audioProgress)}%` 
-                          : 'Listo para reproducción'}
-                    </span>
-                    {audioMode === 'mp3' && <span>{formatTime(audioDuration)}</span>}
-                  </div>
-                </div>
+                {/* Audiobook Player Widget */}
+                <div className="audiobook-player-card glass-panel fade-in" style={{ padding: '10px 16px', borderRadius: '12px', marginBottom: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div className="audiobook-player-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Volume2 size={18} className="text-gradient-gold" style={{ color: 'var(--secondary)' }} />
+                      <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', letterSpacing: '0.5px' }}>AUDIOLIBRO / LECTOR DE VOZ</h4>
+                    </div>
 
-                {/* Playing Visual Soundwave Animation */}
-                {isPlayingAudio && (
-                  <div className="soundwave-container" style={{ display: 'flex', alignItems: 'flex-end', gap: '3px', height: '20px', padding: '0 8px' }}>
-                    <span className="soundwave-bar bar-1"></span>
-                    <span className="soundwave-bar bar-2"></span>
-                    <span className="soundwave-bar bar-3"></span>
-                    <span className="soundwave-bar bar-4"></span>
+                    {/* Mode Selector Toggle (if local MP3 is found) */}
+                    {hasLocalMp3 && (
+                      <div className="audiobook-mode-toggle" style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-color)', padding: '2px', borderRadius: '8px' }}>
+                        <button
+                          type="button"
+                          onClick={() => { stopAudio(); setAudioMode('tts'); }}
+                          className={`mode-btn ${audioMode === 'tts' ? 'active' : ''}`}
+                          style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '6px' }}
+                        >
+                          Lector Dinámico (TTS)
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => { stopAudio(); setAudioMode('mp3'); }}
+                          className={`mode-btn ${audioMode === 'mp3' ? 'active' : ''}`}
+                          style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '6px' }}
+                        >
+                          Audio Grabado (MP3)
+                        </button>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
 
-              {/* Bottom Config Section (Speed & Voices Selection) */}
-              <div className="audiobook-config-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', borderTop: '1px solid var(--border-color)', paddingTop: '10px', fontSize: '0.8rem' }}>
-                <div className="audiobook-speed-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="config-label" style={{ color: 'var(--text-muted)' }}>Velocidad:</span>
-                  <div className="speed-chips" style={{ display: 'flex', gap: '4px' }}>
-                    {[0.8, 1.0, 1.2, 1.5].map(rate => (
+                  {/* Progress and controls section */}
+                  <div className="audiobook-main-controls" style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                    <div className="audio-control-buttons" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                       <button
-                        key={rate}
                         type="button"
-                        onClick={() => handleRateChange(rate)}
-                        className={`speed-chip ${audioPlaybackRate === rate ? 'active' : ''}`}
+                        onClick={handlePlayPause}
+                        className="glow-btn"
                         style={{
-                          background: audioPlaybackRate === rate ? 'rgba(234, 179, 8, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-                          border: `1px solid ${audioPlaybackRate === rate ? 'var(--secondary)' : 'var(--border-color)'}`,
-                          color: audioPlaybackRate === rate ? 'var(--secondary-light)' : 'var(--text-muted)',
-                          padding: '4px 8px',
-                          borderRadius: '6px',
-                          cursor: 'pointer',
-                          fontWeight: '600',
-                          fontSize: '0.75rem',
-                          transition: 'var(--transition-fast)'
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '50%',
+                          padding: 0,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          background: isPlayingAudio ? 'var(--accent-rose)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
+                          boxShadow: isPlayingAudio ? '0 4px 12px rgba(244, 63, 94, 0.3)' : '0 4px 12px rgba(29, 78, 216, 0.3)'
+                        }}
+                        title={isPlayingAudio ? 'Pausar' : 'Reproducir'}
+                      >
+                        {isPlayingAudio ? <Pause size={16} /> : <Play size={16} style={{ marginLeft: '2px' }} />}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={stopAudio}
+                        className="glow-btn-secondary"
+                        style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                        title="Detener"
+                        disabled={!isPlayingAudio && !isPausedAudio && audioProgress === 0}
+                      >
+                        <Square size={14} style={{ fill: (!isPlayingAudio && !isPausedAudio && audioProgress === 0) ? 'none' : 'currentColor' }} />
+                      </button>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div className="audio-progress-wrapper" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '200px' }}>
+                      <div
+                        className="audio-progress-bar-container"
+                        onClick={(e) => {
+                          if (audioMode === 'mp3' && audioDuration) {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const clickX = e.clientX - rect.left;
+                            const percent = clickX / rect.width;
+                            const audioEl = audioElRef.current;
+                            if (audioEl) {
+                              audioEl.currentTime = percent * audioDuration;
+                            }
+                          }
+                        }}
+                        style={{
+                          height: '6px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          borderRadius: '3px',
+                          overflow: 'hidden',
+                          cursor: audioMode === 'mp3' ? 'pointer' : 'default',
+                          position: 'relative'
                         }}
                       >
-                        {rate}x
-                      </button>
-                    ))}
+                        <div
+                          className="audio-progress-bar-fill"
+                          style={{
+                            height: '100%',
+                            background: 'linear-gradient(90deg, var(--secondary) 0%, var(--secondary-light) 100%)',
+                            borderRadius: '3px',
+                            width: `${audioProgress}%`,
+                            transition: audioMode === 'tts' ? 'width 0.2s linear' : 'none'
+                          }}
+                        ></div>
+                      </div>
+                      <div className="audio-time-indicators" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                        <span>
+                          {audioMode === 'mp3'
+                            ? formatTime(audioCurrentTime)
+                            : isPlayingAudio || isPausedAudio
+                              ? `Leído: ${Math.round(audioProgress)}%`
+                              : 'Listo para reproducción'}
+                        </span>
+                        {audioMode === 'mp3' && <span>{formatTime(audioDuration)}</span>}
+                      </div>
+                    </div>
+
+                    {/* Playing Visual Soundwave Animation */}
+                    {isPlayingAudio && (
+                      <div className="soundwave-container" style={{ display: 'flex', alignItems: 'flex-end', gap: '3px', height: '20px', padding: '0 8px' }}>
+                        <span className="soundwave-bar bar-1"></span>
+                        <span className="soundwave-bar bar-2"></span>
+                        <span className="soundwave-bar bar-3"></span>
+                        <span className="soundwave-bar bar-4"></span>
+                      </div>
+                    )}
                   </div>
+
+                  {/* Bottom Config Section (Speed & Voices Selection) */}
+                  <div className="audiobook-config-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', borderTop: '1px solid var(--border-color)', paddingTop: '10px', fontSize: '0.8rem' }}>
+                    <div className="audiobook-speed-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span className="config-label" style={{ color: 'var(--text-muted)' }}>Velocidad:</span>
+                      <div className="speed-chips" style={{ display: 'flex', gap: '4px' }}>
+                        {[0.8, 1.0, 1.2, 1.5].map(rate => (
+                          <button
+                            key={rate}
+                            type="button"
+                            onClick={() => handleRateChange(rate)}
+                            className={`speed-chip ${audioPlaybackRate === rate ? 'active' : ''}`}
+                            style={{
+                              background: audioPlaybackRate === rate ? 'rgba(234, 179, 8, 0.15)' : 'rgba(255, 255, 255, 0.02)',
+                              border: `1px solid ${audioPlaybackRate === rate ? 'var(--secondary)' : 'var(--border-color)'}`,
+                              color: audioPlaybackRate === rate ? 'var(--secondary-light)' : 'var(--text-muted)',
+                              padding: '4px 8px',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              fontWeight: '600',
+                              fontSize: '0.75rem',
+                              transition: 'var(--transition-fast)'
+                            }}
+                          >
+                            {rate}x
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {audioMode === 'tts' && audioVoices.length > 0 && (
+                      <div className="audiobook-voice-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span className="config-label" style={{ color: 'var(--text-muted)' }}>Voz:</span>
+                        <select
+                          value={selectedVoiceName}
+                          onChange={(e) => handleVoiceChange(e.target.value)}
+                          className="voice-select"
+                          style={{
+                            background: 'var(--bg-input)',
+                            border: '1px solid var(--border-color)',
+                            color: 'var(--text-main)',
+                            padding: '4px 10px',
+                            borderRadius: '8px',
+                            outline: 'none',
+                            maxWidth: '220px',
+                            fontSize: '0.75rem',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {audioVoices.map(v => (
+                            <option key={v.name} value={v.name}>
+                              {v.name.replace('Microsoft', '').replace('Google', '').trim()} ({v.lang})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Hidden HTML5 Audio Element for MP3 mode */}
+                  {audioMode === 'mp3' && (
+                    <audio
+                      ref={audioElRef}
+                      src={`/audio/tema-${topic.id.toString().padStart(2, '0')}.mp3`}
+                      onTimeUpdate={handleMp3TimeUpdate}
+                      onLoadedMetadata={handleMp3LoadedMetadata}
+                      onEnded={handleMp3Ended}
+                      style={{ display: 'none' }}
+                    />
+                  )}
                 </div>
-
-                {audioMode === 'tts' && audioVoices.length > 0 && (
-                  <div className="audiobook-voice-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span className="config-label" style={{ color: 'var(--text-muted)' }}>Voz:</span>
-                    <select
-                      value={selectedVoiceName}
-                      onChange={(e) => handleVoiceChange(e.target.value)}
-                      className="voice-select"
-                      style={{
-                        background: 'var(--bg-input)',
-                        border: '1px solid var(--border-color)',
-                        color: 'var(--text-main)',
-                        padding: '4px 10px',
-                        borderRadius: '8px',
-                        outline: 'none',
-                        maxWidth: '220px',
-                        fontSize: '0.75rem',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {audioVoices.map(v => (
-                        <option key={v.name} value={v.name}>
-                          {v.name.replace('Microsoft', '').replace('Google', '').trim()} ({v.lang})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
               </div>
+            )}
 
-              {/* Hidden HTML5 Audio Element for MP3 mode */}
-              {audioMode === 'mp3' && (
-                <audio
-                  ref={audioElRef}
-                  src={`/audio/tema-${topic.id.toString().padStart(2, '0')}.mp3`}
-                  onTimeUpdate={handleMp3TimeUpdate}
-                  onLoadedMetadata={handleMp3LoadedMetadata}
-                  onEnded={handleMp3Ended}
-                  style={{ display: 'none' }}
-                />
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Tabs navigation */}
+            {/* Tabs navigation */}
             <div className="viewer-tabs">
-              <button 
-                onClick={() => setActiveSubTab('content')} 
+              <button
+                onClick={() => setActiveSubTab('content')}
                 className={`viewer-tab-btn ${activeSubTab === 'content' ? 'active' : ''}`}
               >
                 <FileText size={16} />
                 <span>Contenido Completo</span>
               </button>
-              <button 
-                onClick={() => setActiveSubTab('outline')} 
+              <button
+                onClick={() => setActiveSubTab('outline')}
                 className={`viewer-tab-btn ${activeSubTab === 'outline' ? 'active' : ''}`}
               >
                 <List size={16} />
                 <span>Esquema / Resumen</span>
               </button>
-              <button 
-                onClick={() => setActiveSubTab('concepts')} 
+              <button
+                onClick={() => setActiveSubTab('concepts')}
                 className={`viewer-tab-btn ${activeSubTab === 'concepts' ? 'active' : ''}`}
               >
                 <Tag size={16} />
@@ -1660,7 +1657,7 @@ export default function TopicViewer({
             {/* Reading settings bar - shown only when settings panel is open */}
             {showSettingsPanel && (
               <div className="reading-settings-dropdown glass-panel fade-in" style={{ position: 'relative' }}>
-                <button 
+                <button
                   type="button"
                   onClick={() => setShowSettingsPanel(false)}
                   className="close-settings-btn"
@@ -1700,9 +1697,9 @@ export default function TopicViewer({
                 <div className="reading-settings-row" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', alignItems: 'center', paddingRight: '28px' }}>
                   <div className="settings-group" style={{ flexWrap: 'wrap', gap: '8px' }}>
                     <span className="settings-label">Modo de Lectura:</span>
-                    <button 
+                    <button
                       type="button"
-                      onClick={() => setIsReadingMode(!isReadingMode)} 
+                      onClick={() => setIsReadingMode(!isReadingMode)}
                       className={`font-btn reading-mode-btn ${isReadingMode && !isAutoscrolling && !showReadingRuler ? 'active' : ''}`}
                       style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
                       title="Lectura a pantalla completa"
@@ -1710,40 +1707,40 @@ export default function TopicViewer({
                       <span>📖 Lectura Manual (Pantalla Completa)</span>
                     </button>
 
-                    <button 
+                    <button
                       type="button"
-                      onClick={() => setIsAutoscrolling(!isAutoscrolling)} 
+                      onClick={() => setIsAutoscrolling(!isAutoscrolling)}
                       className={`font-btn reading-mode-btn ${isAutoscrolling ? 'active' : ''}`}
                       style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
                     >
                       {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
                       <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
                     </button>
-                    
-                    <button 
+
+                    <button
                       type="button"
-                      onClick={() => setShowReadingRuler(!showReadingRuler)} 
+                      onClick={() => setShowReadingRuler(!showReadingRuler)}
                       className={`font-btn reading-mode-btn ${showReadingRuler ? 'active' : ''}`}
                       style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
                     >
                       <span>👉 Guía de Lectura</span>
                     </button>
                   </div>
-                  
+
                   <div className="settings-group" style={{ flexGrow: 1, justifyContent: 'flex-end', minWidth: '180px' }}>
                     <span className="settings-label">Velocidad scroll:</span>
-                    <input 
-                      type="range" 
-                      min="1" 
-                      max="10" 
-                      value={autoscrollSpeed} 
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={autoscrollSpeed}
                       onChange={(e) => setAutoscrollSpeed(Number(e.target.value))}
-                      style={{ 
-                        accentColor: 'var(--secondary)', 
-                        width: '100px', 
+                      style={{
+                        accentColor: 'var(--secondary)',
+                        width: '100px',
                         height: '4px',
-                        cursor: 'pointer' 
-                      }} 
+                        cursor: 'pointer'
+                      }}
                     />
                     <span style={{ fontSize: '0.75rem', fontWeight: '600', color: isAutoscrolling ? 'var(--secondary-light)' : 'var(--text-muted)', width: '25px', textAlign: 'right' }}>
                       {autoscrollSpeed}x
@@ -1786,7 +1783,7 @@ export default function TopicViewer({
                       Actualmente estamos trabajando en la investigación y redacción completa del **Tema {topic.id}**.
                       Sin embargo, ya puedes ver su descripción oficial y cambiar su estado de estudio o realizar tests.
                     </p>
-                    
+
                     <div className="placeholder-structure">
                       <h5>Estructura del tema que se generará:</h5>
                       <ul>
@@ -1797,8 +1794,8 @@ export default function TopicViewer({
                     </div>
 
                     <div className="info-actions">
-                      <button 
-                        onClick={() => setCurrentTab('quizzes')} 
+                      <button
+                        onClick={() => setCurrentTab('quizzes')}
                         className="glow-btn-secondary"
                       >
                         <HelpCircle size={16} />
@@ -1807,16 +1804,16 @@ export default function TopicViewer({
                     </div>
                   </div>
                 ) : (
-                  <div 
+                  <div
                     className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
                     style={{ zoom: zoomScale, transformOrigin: 'top center' }}
-                    dangerouslySetInnerHTML={{ 
-                      __html: activeSubTab === 'content' 
-                        ? parsedSections.content 
-                        : activeSubTab === 'outline' 
-                        ? parsedSections.outline 
-                        : parsedSections.concepts 
-                    }} 
+                    dangerouslySetInnerHTML={{
+                      __html: activeSubTab === 'content'
+                        ? parsedSections.content
+                        : activeSubTab === 'outline'
+                          ? parsedSections.outline
+                          : parsedSections.concepts
+                    }}
                   />
                 )}
               </div>
@@ -1826,13 +1823,14 @@ export default function TopicViewer({
         )}
       </div>
 
-      <PrintEditionModal 
-        isOpen={showPrintModal} 
-        onClose={() => setShowPrintModal(false)} 
-        materialType="temario" 
-        topicCount={selectedPrintTopicIds.length || 1} 
-        defaultTitle={`Temario Compilado (${selectedPrintTopicIds.length || 1} temas)`} 
-        onConfirmPrint={handleConfirmPrintEdition} 
+      <PrintEditionModal
+        isOpen={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        materialType="temario"
+        topicCount={selectedPrintTopicIds.length || 1}
+        defaultTitle={`Temario Compilado (${selectedPrintTopicIds.length || 1} temas)`}
+        currentUser={currentUser}
+        onConfirmPrint={handleConfirmPrintEdition}
       />
     </div>
   );

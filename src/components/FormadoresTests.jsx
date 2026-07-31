@@ -147,11 +147,7 @@ export default function FormadoresTests({ currentUser }) {
 
     if (testMode === 'print') {
       setTimeout(() => {
-        if (currentUser?.role === 'admin') {
-          setShowPrintModal(true);
-        } else {
-          window.print();
-        }
+        setShowPrintModal(true);
       }, 300);
     }
   };
@@ -277,7 +273,7 @@ export default function FormadoresTests({ currentUser }) {
         {paperSubmitted && (
           <div style={{
             display: 'flex',
-            justify: 'space-around',
+            justifyContent: 'space-around',
             alignItems: 'center',
             padding: '6px 8px',
             background: '#f8fafc',
@@ -1310,6 +1306,7 @@ export default function FormadoresTests({ currentUser }) {
         materialType="test"
         topicCount={questions?.length || 20}
         defaultTitle={`Batería Formadores CCOO (${selectedBattery?.title || 'General'})`}
+        currentUser={currentUser}
         onConfirmPrint={handleConfirmPrintEdition}
       />
     </div>
