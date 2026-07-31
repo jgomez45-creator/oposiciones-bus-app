@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Palette, Type, Sliders, Volume2, Shield, Trash2, Database } from 'lucide-react';
+import { X, Palette, Type, Sliders, Volume2, Shield, Trash2, Database, Mail } from 'lucide-react';
 
 export default function SettingsModal({
     isOpen,
@@ -17,6 +17,9 @@ export default function SettingsModal({
     setShowExplanations,
     timerPreference,
     setTimerPreference,
+    // Email notifications props
+    emailNotificationsActive,
+    onToggleEmailNotifications,
     // System Admin variables (can be simulated or updated in App state)
     inactivityTimeoutMinutes,
     setInactivityTimeoutMinutes,
@@ -402,6 +405,35 @@ export default function SettingsModal({
                                         Ocultar Reloj
                                     </button>
                                 </div>
+                            </div>
+
+                            {/* Privacidad de Comunicaciones por Email */}
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '10px', border: '1px solid var(--border-color)', marginTop: '8px' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', flex: 1, paddingRight: '12px' }}>
+                                    <span style={{ fontSize: '0.85rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <Mail size={16} style={{ color: 'var(--primary-light)' }} />
+                                        <span>Comunicados por Correo Electrónico</span>
+                                    </span>
+                                    <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Recibe hojas de modificaciones, fe de erratas e indicaciones directamente en tu email de registro.</span>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => onToggleEmailNotifications(!emailNotificationsActive)}
+                                    style={{
+                                        padding: '8px 12px',
+                                        borderRadius: '8px',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        background: emailNotificationsActive ? 'var(--primary)' : 'rgba(255,255,255,0.05)',
+                                        color: '#fff',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '6px',
+                                        transition: 'var(--transition-fast)'
+                                    }}
+                                >
+                                    <span style={{ fontSize: '0.75rem', fontWeight: '700' }}>{emailNotificationsActive ? 'Activado' : 'Desactivado'}</span>
+                                </button>
                             </div>
 
                             {/* Danger Zone: Reset Progreso */}

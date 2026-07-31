@@ -29,7 +29,8 @@ import {
   Printer,
   Send,
   Upload,
-  Download
+  Download,
+  Mail
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
@@ -37,11 +38,22 @@ import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
 
 export default function AdminPanel({ topics }) {
-  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank'
+  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank' | 'email'
   const [users, setUsers] = useState([]);
   const [bookCodes, setBookCodes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
+
+  // Email Communication State
+  const [emailSubject, setEmailSubject] = useState('');
+  const [emailBody, setEmailBody] = useState(
+    'Hola {nombre},\n\nTenemos una actualización importante sobre el temario de Oposiciones BUS.\n\n[Escribe aquí tu comunicado...]\n\nUn saludo,\nEquipo de Oposiciones BUS'
+  );
+  const [emailTargetType, setEmailTargetType] = useState('all'); // 'all' | 'code-prefix' | 'individual'
+  const [emailTargetValue, setEmailTargetValue] = useState('');
+  const [sendingEmail, setSendingEmail] = useState(false);
+  const [emailMsg, setEmailMsg] = useState('');
+  const [emailHistory, setEmailHistory] = useState([]);
 
   // Editions & Modifications State
   const [editions, setEditions] = useState([]);
@@ -125,11 +137,16 @@ export default function AdminPanel({ topics }) {
       setModifications(list);
     });
 
+    const unsubEmails = firebaseService.subscribeToSentEmails((list) => {
+      setEmailHistory(list);
+    });
+
     return () => {
       unsubUsers();
       unsubCodes();
       unsubEditions();
       unsubMods();
+      unsubEmails();
     };
   }, []);
 
@@ -483,6 +500,52 @@ export default function AdminPanel({ topics }) {
     }
   };
 
+  const handleSendEmailAnnounce = async (e) => {
+    e.preventDefault();
+    if (!emailSubject.trim() || !emailBody.trim()) {
+      alert('Por favor, completa el asunto y el cuerpo del correo.');
+      return;
+    }
+    if (emailTargetType !== 'all' && !emailTargetValue.trim()) {
+      alert('Por favor, introduce el filtro o selecciona el alumno de destino.');
+      return;
+    }
+
+    setSendingEmail(true);
+    setEmailMsg('');
+    try {
+      await firebaseService.sendAdminEmailAnnounce(
+        emailSubject,
+        emailBody.replace(/\n/g, '<br/>'),
+        emailTargetType,
+        emailTargetValue
+      );
+      setEmailMsg('¡Comunicado enviado con éxito a los alumnos destinatarios!');
+      setEmailSubject('');
+      setEmailBody(
+        'Hola {nombre},\n\nTenemos una actualización importante sobre el temario de Oposiciones BUS.\n\n[Escribe aquí tu comunicado...]\n\nUn saludo,\nEquipo de Oposiciones BUS'
+      );
+      setEmailTargetValue('');
+      setTimeout(() => setEmailMsg(''), 5000);
+    } catch (err) {
+      console.error(err);
+      alert(`Error al enviar comunicado: ${err.message}`);
+    } finally {
+      setSendingEmail(false);
+    }
+  };
+
+  const handleDeleteEmailRecord = async (id) => {
+    if (window.confirm('¿Deseas eliminar este registro de correo enviado del historial? (Esto no borrarra los emails ya delegados o recibidos por los alumnos).')) {
+      try {
+        await firebaseService.deleteSentEmailRecord(id);
+      } catch (err) {
+        console.error(err);
+        alert('Error al borrar el registro.');
+      }
+    }
+  };
+
   // Metrics
   const registeredUsersCount = users.filter(u => u.uid !== 'guest_profile').length;
   const onlineUsersCount = users.filter(u => isUserOnline(u) && u.uid !== 'guest_profile').length;
@@ -627,6 +690,14 @@ export default function AdminPanel({ topics }) {
           >
             <Sparkles size={16} />
             <span>Generar Tests</span>
+          </button>
+          <button
+            onClick={() => setActiveSubTab('email')}
+            className={`tab-btn ${activeSubTab === 'email' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'email' ? 'var(--secondary)' : 'transparent', color: activeSubTab === 'email' ? '#000' : 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '750', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Mail size={16} />
+            <span>Comunicados Email</span>
           </button>
         </div>
       </div>
@@ -1767,6 +1838,175 @@ export default function AdminPanel({ topics }) {
                 </div>
               </div>
             )}
+          </div>
+
+        </div>
+      )}
+
+      {/* SUBTAB: COMUNICADOS POR EMAIL */}
+      {activeSubTab === 'email' && (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '24px', alignItems: 'start' }}>
+
+          {/* Formulario de redacción de email */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', border: '1px solid rgba(212, 163, 89, 0.3)' }}>
+            <h3 style={{ margin: 0, color: 'var(--secondary)', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Mail size={22} />
+              <span>Redactar Comunicado por Correo Electrónico</span>
+            </h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
+              Envía avisos de correcciones legislativas o indicaciones de estudio directamente a la bandeja de entrada del alumno.
+            </p>
+
+            {emailMsg && (
+              <div style={{ padding: '10px 14px', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.4)', borderRadius: '8px', color: '#4ade80', fontSize: '0.85rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <CheckCircle2 size={16} />
+                <span>{emailMsg}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleSendEmailAnnounce} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+
+              {/* Selección del tipo de destinatario */}
+              <div>
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '6px' }}>Filtrar Destinatarios:</label>
+                <div style={{ display: 'flex', gap: '16px', background: 'rgba(0,0,0,0.2)', padding: '10px', borderRadius: '8px' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#fff', cursor: 'pointer' }}>
+                    <input
+                      type="radio"
+                      name="emailTarget"
+                      checked={emailTargetType === 'all'}
+                      onChange={() => { setEmailTargetType('all'); setEmailTargetValue(''); }}
+                    />
+                    <span>Todos los alumnos</span>
+                  </label>
+
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#fff', cursor: 'pointer' }}>
+                    <input
+                      type="radio"
+                      name="emailTarget"
+                      checked={emailTargetType === 'code-prefix'}
+                      onChange={() => { setEmailTargetType('code-prefix'); setEmailTargetValue(''); }}
+                    />
+                    <span>Por prefijo de libro (grupo)</span>
+                  </label>
+
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#fff', cursor: 'pointer' }}>
+                    <input
+                      type="radio"
+                      name="emailTarget"
+                      checked={emailTargetType === 'individual'}
+                      onChange={() => { setEmailTargetType('individual'); setEmailTargetValue(''); }}
+                    />
+                    <span>Alumno individual</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Parámetro condicional del filtro */}
+              {emailTargetType === 'code-prefix' && (
+                <div className="fade-in">
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Escribe el prefijo del código del libro (ej. BUS-PREM):</label>
+                  <input
+                    type="text"
+                    value={emailTargetValue}
+                    onChange={(e) => setEmailTargetValue(e.target.value)}
+                    placeholder="Ejemplo: BUS-PREM"
+                    style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem', outline: 'none' }}
+                  />
+                </div>
+              )}
+
+              {emailTargetType === 'individual' && (
+                <div className="fade-in">
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Selecciona el alumno destinatario:</label>
+                  <select
+                    value={emailTargetValue}
+                    onChange={(e) => setEmailTargetValue(e.target.value)}
+                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem', outline: 'none' }}
+                  >
+                    <option value="">-- Seleccionar Alumno --</option>
+                    {users.filter(u => u.uid !== 'guest_profile').map(u => (
+                      <option key={u.uid} value={u.uid}>
+                        {u.name || 'Sin nombre'} ({u.email}) {u.bookCode ? `[Código: ${u.bookCode}]` : ''}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* Asunto */}
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Asunto del Email:</label>
+                <input
+                  type="text"
+                  value={emailSubject}
+                  onChange={(e) => setEmailSubject(e.target.value)}
+                  placeholder="Ej. Fe de Erratas Oficial: Corrección en el Tema 5 sobre Plazos"
+                  style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem', outline: 'none' }}
+                />
+              </div>
+
+              {/* Cuerpo del Mensaje */}
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                  <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Cuerpo del Mensaje (HTML o Texto):</label>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--secondary)' }}>Usa <strong>{"{nombre}"}</strong> para un saludo personalizado</span>
+                </div>
+                <textarea
+                  value={emailBody}
+                  onChange={(e) => setEmailBody(e.target.value)}
+                  rows={8}
+                  style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', background: 'var(--bg-input)', border: '1px solid var(--border-color)', color: '#fff', fontSize: '0.85rem', fontFamily: 'monospace', resize: 'vertical', outline: 'none' }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '6px' }}>
+                <button
+                  type="submit"
+                  disabled={sendingEmail}
+                  className="glow-btn"
+                  style={{ padding: '10px 20px', fontSize: '0.88rem', cursor: sendingEmail ? 'wait' : 'pointer' }}
+                >
+                  <Send size={15} />
+                  <span>{sendingEmail ? 'Enviando email...' : '📧 Enviar Comunicado por Correo'}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* Historial de correos enviados */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', height: '100%', maxHeight: '600px', overflowY: 'auto' }}>
+            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Correos Enviados Recientemente</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {emailHistory.length === 0 ? (
+                <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.1)', borderRadius: '10px', fontSize: '0.82rem' }}>
+                  No hay historial de correos enviados.
+                </div>
+              ) : (
+                emailHistory.map(email => (
+                  <div key={email.id} className="glass-panel" style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(15,23,42,0.4)', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                        📅 {new Date(email.createdAt).toLocaleString()}
+                      </span>
+                      <button
+                        onClick={() => handleDeleteEmailRecord(email.id)}
+                        style={{ background: 'transparent', border: 'none', color: '#fca5a5', cursor: 'pointer', padding: '2px' }}
+                        title="Borrar del historial"
+                      >
+                        <Trash2 size={13} />
+                      </button>
+                    </div>
+                    <div style={{ fontWeight: '700', fontSize: '0.85rem', color: '#fff' }}>
+                      {email.subject}
+                    </div>
+                    <div style={{ fontSize: '0.74rem', color: 'var(--secondary)' }}>
+                      Alcance: {email.targetType === 'all' ? 'Todos los alumnos' : email.targetType === 'code-prefix' ? `Grupo "${email.targetValue}"` : `Alumno individual`}
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
 
         </div>

@@ -710,6 +710,46 @@ export const firebaseService = {
   },
 
   /**
+   * Actualiza la preferencia de notificaciones por email de un alumno
+   */
+  async updateUserEmailNotifications(uid, active) {
+    if (isMock || uid === 'mock_admin_default') {
+      const mockUsers = getMockUsers();
+      if (mockUsers[uid]) {
+        mockUsers[uid].emailNotificationsActive = active;
+        saveMockUsers(mockUsers);
+      }
+      // Also update stored current user session if it's the current user
+      const currentUserSaved = localStorage.getItem('opos_current_user');
+      if (currentUserSaved) {
+        try {
+          const parsed = JSON.parse(currentUserSaved);
+          if (parsed.uid === uid) {
+            parsed.emailNotificationsActive = active;
+            localStorage.setItem('opos_current_user', JSON.stringify(parsed));
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      return;
+    } else {
+      try {
+        const userRef = doc(db, 'users', uid);
+        await withTimeout(
+          updateDoc(userRef, {
+            emailNotificationsActive: active
+          }),
+          4000,
+          "Update timeout"
+        );
+      } catch (err) {
+        console.warn("Could not sync email preference to Firestore.", err.message);
+      }
+    }
+  },
+
+  /**
    * Generate new book activation codes
    */
   async generateNewBookCodes(count) {
@@ -1237,6 +1277,140 @@ export const firebaseService = {
       window.dispatchEvent(new Event('storage'));
     } else {
       await deleteDoc(doc(db, 'agente_bus_unresolved', dudaId));
+    }
+  },
+
+  /**
+   * Envía un comunicado por email agregando registros a Firestore (mail trigger) o Local Mock
+   */
+  async sendAdminEmailAnnounce(subject, bodyHtml, targetType, targetValue = '') {
+    const now = new Date().toISOString();
+    const id = `email_${Date.now()}`;
+    const announcementRecord = {
+      id,
+      subject,
+      bodyHtml,
+      targetType, // 'all' | 'code-prefix' | 'individual'
+      targetValue,
+      createdAt: now
+    };
+
+    // 1. Obtener la lista de usuarios y filtrar los que tienen desactivadas las notificaciones de correo
+    let targetUsers = [];
+    if (isMock) {
+      const mockUsers = getMockUsers();
+      targetUsers = Object.values(mockUsers);
+    } else {
+      const snapshot = await getDocs(collection(db, 'users'));
+      snapshot.forEach(docSnap => {
+        targetUsers.push({ uid: docSnap.id, ...docSnap.data() });
+      });
+    }
+
+    // Filtrar los usuarios que tengan explícitamente emailNotificationsActive === false
+    targetUsers = targetUsers.filter(u => u.emailNotificationsActive !== false);
+
+    // Filtrar según el tipo de destinatario
+    if (targetType === 'code-prefix') {
+      const prefix = targetValue.toUpperCase();
+      targetUsers = targetUsers.filter(u => u.bookCode && u.bookCode.toUpperCase().startsWith(prefix));
+    } else if (targetType === 'individual') {
+      targetUsers = targetUsers.filter(u => u.uid === targetValue || u.email === targetValue);
+    }
+
+    // Si no hay usuarios válidos, lanzar error
+    if (targetUsers.length === 0) {
+      throw new Error("No hay usuarios destinatarios que cumplan con los filtros de búsqueda o que tengan activado el boletín de correo.");
+    }
+
+    // 2. Procesar el histórico del comunicado
+    if (isMock) {
+      const savedAnnouncements = localStorage.getItem('mock_db_email_announcements') || '{}';
+      const announcementsMap = JSON.parse(savedAnnouncements);
+      announcementsMap[id] = announcementRecord;
+      localStorage.setItem('mock_db_email_announcements', JSON.stringify(announcementsMap));
+
+      // Simular envíos escribiendo a localStorage 'mock_sent_emails'
+      const savedEmails = localStorage.getItem('mock_sent_emails') || '[]';
+      const emailsList = JSON.parse(savedEmails);
+
+      targetUsers.forEach(u => {
+        const personalizedHtml = bodyHtml.replace(/{nombre}/g, u.name || 'Alumno');
+        emailsList.push({
+          id: `mail_${Math.random().toString(36).substring(2, 9)}_${Date.now()}`,
+          to: u.email,
+          subject,
+          html: personalizedHtml,
+          sentAt: now,
+          status: 'simulado'
+        });
+      });
+      localStorage.setItem('mock_sent_emails', JSON.stringify(emailsList));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      // Registrar el comunicado general en base de datos
+      await setDoc(doc(db, 'email_announcements', id), announcementRecord);
+
+      // Escribir a la colección 'mail' que activa el Trigger Email de Firebase
+      for (const u of targetUsers) {
+        const personalizedHtml = bodyHtml.replace(/{nombre}/g, u.name || 'Alumno');
+        const mailId = `mail_${u.uid}_${id}`;
+        await setDoc(doc(db, 'mail', mailId), {
+          to: u.email,
+          message: {
+            subject: subject,
+            html: personalizedHtml
+          },
+          createdAt: new Date()
+        });
+      }
+    }
+
+    return announcementRecord;
+  },
+
+  /**
+   * Suscribe en tiempo real a los comunicados enviados
+   */
+  subscribeToSentEmails(callback) {
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_email_announcements');
+        return saved ? Object.values(JSON.parse(saved)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
+      };
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_email_announcements') {
+          callback(getList());
+        }
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'email_announcements'), (snapshot) => {
+        const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        callback(list);
+      }, (err) => {
+        console.error("Error subscribing to email_announcements:", err);
+      });
+    }
+  },
+
+  /**
+   * Elimina un comunicado del historial del panel
+   */
+  async deleteSentEmailRecord(id) {
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_email_announcements');
+      if (saved) {
+        const map = JSON.parse(saved);
+        delete map[id];
+        localStorage.setItem('mock_db_email_announcements', JSON.stringify(map));
+        window.dispatchEvent(new Event('storage'));
+      }
+    } else {
+      await deleteDoc(doc(db, 'email_announcements', id));
     }
   }
 };

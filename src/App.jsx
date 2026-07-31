@@ -473,6 +473,19 @@ export default function App() {
     setCurrentTab('dashboard');
   };
 
+  // Actualiza la preferencia de recibir correos del alumno actual
+  const handleUpdateUserEmailNotifications = async (active) => {
+    if (!currentUser) return;
+    try {
+      await firebaseService.updateUserEmailNotifications(currentUser.uid, active);
+      const updatedUser = { ...currentUser, emailNotificationsActive: active };
+      setCurrentUser(updatedUser);
+      localStorage.setItem('opos_current_user', JSON.stringify(updatedUser));
+    } catch (err) {
+      console.error("Error updating user email config:", err);
+    }
+  };
+
   // Switch to study view from dashboard
   const selectTopic = (topicId) => {
     setActiveTopicId(topicId);
@@ -700,6 +713,8 @@ export default function App() {
         setShowExplanations={setShowExplanations}
         timerPreference={timerPreference}
         setTimerPreference={setTimerPreference}
+        emailNotificationsActive={currentUser?.emailNotificationsActive !== false}
+        onToggleEmailNotifications={handleUpdateUserEmailNotifications}
         inactivityTimeoutMinutes={inactivityTimeoutMinutes}
         setInactivityTimeoutMinutes={setInactivityTimeoutMinutes}
         isDatabaseMock={isDatabaseMock}
