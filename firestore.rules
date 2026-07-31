@@ -16,7 +16,11 @@ service cloud.firestore {
 
     match /book_codes/{code} {
       allow read: if true;
-      allow write, list: if isAdmin();
+      allow update: if request.auth != null && (
+        isAdmin() || 
+        (resource.data.used == false && request.resource.data.used == true && request.resource.data.usedBy == request.auth.uid)
+      );
+      allow create, delete, list: if isAdmin();
     }
 
     match /progress/{userId} {
@@ -30,6 +34,11 @@ service cloud.firestore {
     }
 
     match /material_modifications/{modId} {
+      allow read, list: if true;
+      allow write: if isAdmin();
+    }
+
+    match /topic_videos/{topicId} {
       allow read, list: if true;
       allow write: if isAdmin();
     }

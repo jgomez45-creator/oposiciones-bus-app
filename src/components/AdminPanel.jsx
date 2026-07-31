@@ -30,7 +30,11 @@ import {
   Send,
   Upload,
   Download,
-  Mail
+  Mail,
+  Video,
+  Play,
+  ArrowUp,
+  ArrowDown
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
@@ -101,6 +105,14 @@ export default function AdminPanel({ topics }) {
   const [bankSearch, setBankSearch] = useState('');
   const [bankActionMsg, setBankActionMsg] = useState('');
 
+  // Topic Videos state
+  const [allTopicVideos, setAllTopicVideos] = useState({});
+  const [selectedVideoTopicId, setSelectedVideoTopicId] = useState('1');
+  const [videoForm, setVideoForm] = useState({ title: '', url: '', duration: '', description: '' });
+  const [editingVideoId, setEditingVideoId] = useState(null);
+  const [savingVideo, setSavingVideo] = useState(false);
+  const [videoMsg, setVideoMsg] = useState('');
+
   const activeTopicList = topics || topicsData;
 
   // Subscribe to real-time administrative data
@@ -141,12 +153,17 @@ export default function AdminPanel({ topics }) {
       setEmailHistory(list);
     });
 
+    const unsubVideos = firebaseService.subscribeToAllTopicVideos((map) => {
+      setAllTopicVideos(map || {});
+    });
+
     return () => {
       unsubUsers();
       unsubCodes();
       unsubEditions();
       unsubMods();
       unsubEmails();
+      unsubVideos();
     };
   }, []);
 
@@ -546,6 +563,82 @@ export default function AdminPanel({ topics }) {
     }
   };
 
+  // ── GESTIÓN DE VÍDEOS EXPLICATIVOS POR TEMA ─────────────────────────────
+  const currentTopicVideos = allTopicVideos[selectedVideoTopicId.toString()] || [];
+
+  const handleSaveTopicVideo = async (e) => {
+    e.preventDefault();
+    if (!videoForm.title.trim() || !videoForm.url.trim()) {
+      alert('Por favor, introduce al menos el título y el enlace (URL) del vídeo.');
+      return;
+    }
+
+    setSavingVideo(true);
+    setVideoMsg('');
+    try {
+      let updatedList = [...currentTopicVideos];
+      if (editingVideoId) {
+        updatedList = updatedList.map(v => v.id === editingVideoId ? { ...v, ...videoForm } : v);
+      } else {
+        const newVideo = {
+          id: 'v_' + selectedVideoTopicId + '_' + Date.now(),
+          ...videoForm,
+          createdAt: new Date().toISOString()
+        };
+        updatedList.push(newVideo);
+      }
+
+      await firebaseService.saveTopicVideos(selectedVideoTopicId, updatedList);
+      setVideoMsg(editingVideoId ? '¡Vídeo actualizado con éxito!' : '¡Nuevo vídeo añadido al Tema!');
+      setVideoForm({ title: '', url: '', duration: '', description: '' });
+      setEditingVideoId(null);
+      setTimeout(() => setVideoMsg(''), 4000);
+    } catch (err) {
+      console.error(err);
+      alert('Error al guardar el vídeo.');
+    } finally {
+      setSavingVideo(false);
+    }
+  };
+
+  const handleEditTopicVideo = (video) => {
+    setEditingVideoId(video.id);
+    setVideoForm({
+      title: video.title || '',
+      url: video.url || '',
+      duration: video.duration || '',
+      description: video.description || ''
+    });
+  };
+
+  const handleDeleteTopicVideo = async (videoId, title) => {
+    if (window.confirm(`¿Estás seguro de que deseas eliminar el vídeo "${title}" del Tema ${selectedVideoTopicId}?`)) {
+      try {
+        const updatedList = currentTopicVideos.filter(v => v.id !== videoId);
+        await firebaseService.saveTopicVideos(selectedVideoTopicId, updatedList);
+        setVideoMsg(`Vídeo "${title}" eliminado con éxito.`);
+        setTimeout(() => setVideoMsg(''), 4000);
+      } catch (err) {
+        console.error(err);
+        alert('Error al eliminar el vídeo.');
+      }
+    }
+  };
+
+  const handleMoveTopicVideo = async (index, direction) => {
+    const targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= currentTopicVideos.length) return;
+    const updatedList = [...currentTopicVideos];
+    const temp = updatedList[index];
+    updatedList[index] = updatedList[targetIndex];
+    updatedList[targetIndex] = temp;
+    try {
+      await firebaseService.saveTopicVideos(selectedVideoTopicId, updatedList);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   // Metrics
   const registeredUsersCount = users.filter(u => u.uid !== 'guest_profile').length;
   const onlineUsersCount = users.filter(u => isUserOnline(u) && u.uid !== 'guest_profile').length;
@@ -699,6 +792,14 @@ export default function AdminPanel({ topics }) {
             <Mail size={16} />
             <span>Comunicados Email</span>
           </button>
+          <button
+            onClick={() => setActiveSubTab('videos')}
+            className={`tab-btn ${activeSubTab === 'videos' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'videos' ? 'var(--secondary)' : 'transparent', color: activeSubTab === 'videos' ? '#000' : 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '750', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Video size={16} />
+            <span>Vídeos por Tema</span>
+          </button>
         </div>
       </div>
 
@@ -707,6 +808,229 @@ export default function AdminPanel({ topics }) {
         <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#fca5a5', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ShieldAlert size={18} />
           <span>{errorMsg}</span>
+        </div>
+      )}
+
+      {/* SUBTAB: GESTIÓN DE VÍDEOS EXPLICATIVOS POR TEMA */}
+      {activeSubTab === 'videos' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.3)', background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+              <div>
+                <h3 style={{ margin: 0, color: '#60a5fa', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Video size={24} />
+                  <span>Gestor de Vídeos Explicativos por Tema</span>
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                  Asigna y organiza listas de reproducción (Playlists) con múltiples vídeos por tema (YouTube, Vimeo o enlaces directos).
+                </p>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: '600' }}>
+                  Seleccionar Tema a Gestionar:
+                </label>
+                <select
+                  value={selectedVideoTopicId}
+                  onChange={(e) => {
+                    setSelectedVideoTopicId(e.target.value);
+                    setVideoForm({ title: '', url: '', duration: '', description: '' });
+                    setEditingVideoId(null);
+                  }}
+                  style={{ background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', color: '#fff', padding: '10px 14px', borderRadius: '8px', outline: 'none', fontWeight: '700', fontSize: '0.9rem' }}
+                >
+                  {activeTopicList.map(t => (
+                    <option key={t.id} value={t.id}>
+                      Tema {t.id}: {t.title} ({(allTopicVideos[t.id.toString()] || []).length} vídeos)
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {videoMsg && (
+            <div style={{ padding: '12px 16px', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.4)', borderRadius: '10px', color: '#4ade80', fontSize: '0.85rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={18} />
+              <span>{videoMsg}</span>
+            </div>
+          )}
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+            {/* Formulario Añadir / Editar Vídeo */}
+            <form onSubmit={handleSaveTopicVideo} className="glass-panel" style={{ padding: '20px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(15, 23, 42, 0.6)', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <h4 style={{ margin: 0, color: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Plus size={18} style={{ color: 'var(--secondary)' }} />
+                <span>{editingVideoId ? 'Editar Vídeo' : 'Añadir Nuevo Vídeo al Tema ' + selectedVideoTopicId}</span>
+              </h4>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Título del Vídeo *</label>
+                <input
+                  type="text"
+                  value={videoForm.title}
+                  onChange={(e) => setVideoForm({ ...videoForm, title: e.target.value })}
+                  placeholder="Ej: Parte 1: Concepto y Marco Normativo de la BUS"
+                  required
+                  style={{ width: '100%', padding: '10px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none', boxSizing: 'border-box' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Enlace / URL del Vídeo (YouTube, Vimeo, MP4) *</label>
+                <input
+                  type="url"
+                  value={videoForm.url}
+                  onChange={(e) => setVideoForm({ ...videoForm, url: e.target.value })}
+                  placeholder="Ej: https://www.youtube.com/watch?v=... o https://youtu.be/..."
+                  required
+                  style={{ width: '100%', padding: '10px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none', boxSizing: 'border-box' }}
+                />
+                <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px', display: 'block' }}>
+                  💡 Soporta URLs estándar de YouTube, YouTube Shorts, Vimeo o enlaces directos .mp4.
+                </span>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Duración Estimada</label>
+                  <input
+                    type="text"
+                    value={videoForm.duration}
+                    onChange={(e) => setVideoForm({ ...videoForm, duration: e.target.value })}
+                    placeholder="Ej: 15 min"
+                    style={{ width: '100%', padding: '10px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none', boxSizing: 'border-box' }}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Descripción o Notas del Vídeo (Opcional)</label>
+                <textarea
+                  rows={3}
+                  value={videoForm.description}
+                  onChange={(e) => setVideoForm({ ...videoForm, description: e.target.value })}
+                  placeholder="Ej: Aspectos clave del Reglamento de la BUS para examen..."
+                  style={{ width: '100%', padding: '10px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none', resize: 'vertical', boxSizing: 'border-box' }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
+                <button
+                  type="submit"
+                  disabled={savingVideo}
+                  style={{ flex: 1, padding: '10px 16px', background: 'var(--secondary)', color: '#000', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                >
+                  <Save size={16} />
+                  <span>{savingVideo ? 'Guardando...' : (editingVideoId ? 'Actualizar Vídeo' : 'Guardar Vídeo')}</span>
+                </button>
+                {editingVideoId && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingVideoId(null);
+                      setVideoForm({ title: '', url: '', duration: '', description: '' });
+                    }}
+                    style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '8px', fontWeight: '600', fontSize: '0.85rem', cursor: 'pointer' }}
+                  >
+                    Cancelar
+                  </button>
+                )}
+              </div>
+            </form>
+
+            {/* Lista de Vídeos Actuales del Tema */}
+            <div className="glass-panel" style={{ padding: '20px', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(15, 23, 42, 0.6)', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <h4 style={{ margin: 0, color: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span>Playlist actual del Tema {selectedVideoTopicId}</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--secondary)', fontWeight: '700' }}>
+                  {currentTopicVideos.length} vídeo(s)
+                </span>
+              </h4>
+
+              {currentTopicVideos.length === 0 ? (
+                <div style={{ padding: '30px 16px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem', border: '1px dashed rgba(255,255,255,0.15)', borderRadius: '10px' }}>
+                  No hay vídeos añadidos aún a este tema. Completa el formulario a la izquierda para publicar la primera videoclase.
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {currentTopicVideos.map((vid, index) => (
+                    <div
+                      key={vid.id || index}
+                      style={{
+                        padding: '12px 14px',
+                        background: editingVideoId === vid.id ? 'rgba(59, 130, 246, 0.2)' : 'rgba(30, 41, 59, 0.5)',
+                        border: editingVideoId === vid.id ? '1px solid var(--secondary)' : '1px solid rgba(255,255,255,0.08)',
+                        borderRadius: '10px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '12px'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1, minWidth: 0 }}>
+                        <span style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'rgba(212, 163, 89, 0.2)', color: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', fontWeight: '800', flexShrink: 0 }}>
+                          {index + 1}
+                        </span>
+                        <div style={{ minWidth: 0, flex: 1 }}>
+                          <div style={{ fontWeight: '700', fontSize: '0.88rem', color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {vid.title}
+                          </div>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', gap: '10px', marginTop: '2px', alignItems: 'center' }}>
+                            {vid.duration && (
+                              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <Clock size={12} /> {vid.duration}
+                              </span>
+                            )}
+                            <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '180px', fontFamily: 'monospace' }}>
+                              {vid.url}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <button
+                          type="button"
+                          onClick={() => handleMoveTopicVideo(index, -1)}
+                          disabled={index === 0}
+                          style={{ padding: '4px 6px', background: 'rgba(255,255,255,0.08)', border: 'none', borderRadius: '6px', color: index === 0 ? '#555' : '#fff', cursor: index === 0 ? 'default' : 'pointer' }}
+                          title="Subir posición"
+                        >
+                          <ArrowUp size={14} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleMoveTopicVideo(index, 1)}
+                          disabled={index === currentTopicVideos.length - 1}
+                          style={{ padding: '4px 6px', background: 'rgba(255,255,255,0.08)', border: 'none', borderRadius: '6px', color: index === currentTopicVideos.length - 1 ? '#555' : '#fff', cursor: index === currentTopicVideos.length - 1 ? 'default' : 'pointer' }}
+                          title="Bajar posición"
+                        >
+                          <ArrowDown size={14} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleEditTopicVideo(vid)}
+                          style={{ padding: '6px 8px', background: 'rgba(245, 158, 11, 0.2)', border: '1px solid rgba(245, 158, 11, 0.4)', borderRadius: '6px', color: '#fef08a', cursor: 'pointer' }}
+                          title="Editar este vídeo"
+                        >
+                          <Edit3 size={14} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteTopicVideo(vid.id, vid.title)}
+                          style={{ padding: '6px 8px', background: 'rgba(239, 68, 68, 0.2)', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '6px', color: '#fca5a5', cursor: 'pointer' }}
+                          title="Eliminar vídeo"
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
 

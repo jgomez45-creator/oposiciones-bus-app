@@ -23,7 +23,8 @@ import {
   ZoomIn,
   ZoomOut,
   RotateCcw,
-  X
+  X,
+  Video
 } from 'lucide-react';
 import quizzesData from '../data/quizzes.json';
 
@@ -85,7 +86,44 @@ export default function TopicViewer({
 
 
 
-  const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts'
+  const [activeSubTab, setActiveSubTab] = useState('content'); // 'content' | 'outline' | 'concepts' | 'video'
+  const [topicVideos, setTopicVideos] = useState([]);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
+  useEffect(() => {
+    const unsub = firebaseService.subscribeToTopicVideos(activeTopicId, (vids) => {
+      setTopicVideos(vids || []);
+      setActiveVideoIndex(0);
+    });
+    return () => unsub();
+  }, [activeTopicId]);
+
+  const getEmbedVideoUrl = (url) => {
+    if (!url) return { type: 'iframe', embedUrl: '' };
+    const youtubeMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+    if (youtubeMatch && youtubeMatch[1]) {
+      return { type: 'youtube', embedUrl: `https://www.youtube.com/embed/${youtubeMatch[1]}?rel=0&autoplay=0` };
+    }
+    const vimeoMatch = url.match(/vimeo\.com\/(?:.*\/)?([0-9]+)/);
+    if (vimeoMatch && vimeoMatch[1]) {
+      return { type: 'vimeo', embedUrl: `https://player.vimeo.com/video/${vimeoMatch[1]}` };
+    }
+    if (url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg')) {
+      return { type: 'direct', embedUrl: url };
+    }
+    return { type: 'iframe', embedUrl: url };
+  };
+
+  const getVideoThumbnail = (url) => {
+    if (!url) return null;
+    const youtubeMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+    if (youtubeMatch && youtubeMatch[1]) {
+      return `https://img.youtube.com/vi/${youtubeMatch[1]}/hqdefault.jpg`;
+    }
+    return null;
+  };
+
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [showReadingControls, setShowReadingControls] = useState(false);
@@ -1433,199 +1471,208 @@ export default function TopicViewer({
                   </button>
                 </div>
 
-                {/* Audiobook Player Widget */}
-                <div className="audiobook-player-card glass-panel fade-in" style={{ padding: '10px 16px', borderRadius: '12px', marginBottom: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <div className="audiobook-player-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <Volume2 size={18} className="text-gradient-gold" style={{ color: 'var(--secondary)' }} />
-                      <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', letterSpacing: '0.5px' }}>AUDIOLIBRO / LECTOR DE VOZ</h4>
-                    </div>
-
-                    {/* Mode Selector Toggle (if local MP3 is found) */}
-                    {hasLocalMp3 && (
-                      <div className="audiobook-mode-toggle" style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-color)', padding: '2px', borderRadius: '8px' }}>
-                        <button
-                          type="button"
-                          onClick={() => { stopAudio(); setAudioMode('tts'); }}
-                          className={`mode-btn ${audioMode === 'tts' ? 'active' : ''}`}
-                          style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '6px' }}
-                        >
-                          Lector Dinámico (TTS)
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => { stopAudio(); setAudioMode('mp3'); }}
-                          className={`mode-btn ${audioMode === 'mp3' ? 'active' : ''}`}
-                          style={{ fontSize: '0.75rem', padding: '4px 10px', borderRadius: '6px' }}
-                        >
-                          Audio Grabado (MP3)
-                        </button>
+                {/* Audiobook Player Widget - hidden in video mode */}
+                {activeSubTab !== 'video' && (
+                  <div className="audiobook-player-card glass-panel fade-in" style={{ padding: '10px 16px', borderRadius: '12px', marginBottom: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div className="audiobook-player-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Volume2 size={18} className="text-gradient-gold" style={{ color: 'var(--secondary)' }} />
+                        <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', letterSpacing: '0.5px' }}>AUDIOLIBRO / LECTOR DE VOZ</h4>
                       </div>
-                    )}
-                  </div>
 
-                  {/* Progress and controls section */}
-                  <div className="audiobook-main-controls" style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-                    <div className="audio-control-buttons" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                      <button
-                        type="button"
-                        onClick={handlePlayPause}
-                        className="glow-btn"
-                        style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '50%',
-                          padding: 0,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          background: isPlayingAudio ? 'var(--accent-rose)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
-                          boxShadow: isPlayingAudio ? '0 4px 12px rgba(244, 63, 94, 0.3)' : '0 4px 12px rgba(29, 78, 216, 0.3)'
-                        }}
-                        title={isPlayingAudio ? 'Pausar' : 'Reproducir'}
-                      >
-                        {isPlayingAudio ? <Pause size={16} /> : <Play size={16} style={{ marginLeft: '2px' }} />}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={stopAudio}
-                        className="glow-btn-secondary"
-                        style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                        title="Detener"
-                        disabled={!isPlayingAudio && !isPausedAudio && audioProgress === 0}
-                      >
-                        <Square size={14} style={{ fill: (!isPlayingAudio && !isPausedAudio && audioProgress === 0) ? 'none' : 'currentColor' }} />
-                      </button>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="audio-progress-wrapper" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '200px' }}>
-                      <div
-                        className="audio-progress-bar-container"
-                        onClick={(e) => {
-                          if (audioMode === 'mp3' && audioDuration) {
-                            const rect = e.currentTarget.getBoundingClientRect();
-                            const clickX = e.clientX - rect.left;
-                            const percent = clickX / rect.width;
-                            const audioEl = audioElRef.current;
-                            if (audioEl) {
-                              audioEl.currentTime = percent * audioDuration;
-                            }
-                          }
-                        }}
-                        style={{
-                          height: '6px',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          borderRadius: '3px',
-                          overflow: 'hidden',
-                          cursor: audioMode === 'mp3' ? 'pointer' : 'default',
-                          position: 'relative'
-                        }}
-                      >
-                        <div
-                          className="audio-progress-bar-fill"
-                          style={{
-                            height: '100%',
-                            background: 'linear-gradient(90deg, var(--secondary) 0%, var(--secondary-light) 100%)',
-                            borderRadius: '3px',
-                            width: `${audioProgress}%`,
-                            transition: audioMode === 'tts' ? 'width 0.2s linear' : 'none'
-                          }}
-                        ></div>
-                      </div>
-                      <div className="audio-time-indicators" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                        <span>
-                          {audioMode === 'mp3'
-                            ? formatTime(audioCurrentTime)
-                            : isPlayingAudio || isPausedAudio
-                              ? `Leído: ${Math.round(audioProgress)}%`
-                              : 'Listo para reproducción'}
-                        </span>
-                        {audioMode === 'mp3' && <span>{formatTime(audioDuration)}</span>}
-                      </div>
-                    </div>
-
-                    {/* Playing Visual Soundwave Animation */}
-                    {isPlayingAudio && (
-                      <div className="soundwave-container" style={{ display: 'flex', alignItems: 'flex-end', gap: '3px', height: '20px', padding: '0 8px' }}>
-                        <span className="soundwave-bar bar-1"></span>
-                        <span className="soundwave-bar bar-2"></span>
-                        <span className="soundwave-bar bar-3"></span>
-                        <span className="soundwave-bar bar-4"></span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Bottom Config Section (Speed & Voices Selection) */}
-                  <div className="audiobook-config-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', borderTop: '1px solid var(--border-color)', paddingTop: '10px', fontSize: '0.8rem' }}>
-                    <div className="audiobook-speed-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span className="config-label" style={{ color: 'var(--text-muted)' }}>Velocidad:</span>
-                      <div className="speed-chips" style={{ display: 'flex', gap: '4px' }}>
-                        {[0.8, 1.0, 1.2, 1.5].map(rate => (
+                      {/* Mode Selector Toggle (if local MP3 is found) */}
+                      {hasLocalMp3 && (
+                        <div className="audiobook-mode-toggle" style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-color)', padding: '2px', borderRadius: '8px' }}>
                           <button
-                            key={rate}
                             type="button"
-                            onClick={() => handleRateChange(rate)}
-                            className={`speed-chip ${audioPlaybackRate === rate ? 'active' : ''}`}
+                            onClick={() => {
+                              stopAudio();
+                              setAudioMode('tts');
+                            }}
                             style={{
-                              background: audioPlaybackRate === rate ? 'rgba(234, 179, 8, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-                              border: `1px solid ${audioPlaybackRate === rate ? 'var(--secondary)' : 'var(--border-color)'}`,
-                              color: audioPlaybackRate === rate ? 'var(--secondary-light)' : 'var(--text-muted)',
-                              padding: '4px 8px',
+                              padding: '4px 10px',
+                              fontSize: '0.75rem',
+                              fontWeight: '600',
+                              border: 'none',
                               borderRadius: '6px',
                               cursor: 'pointer',
-                              fontWeight: '600',
-                              fontSize: '0.75rem',
-                              transition: 'var(--transition-fast)'
+                              background: audioMode === 'tts' ? 'var(--primary)' : 'transparent',
+                              color: audioMode === 'tts' ? '#fff' : 'var(--text-muted)'
                             }}
                           >
-                            {rate}x
+                            Lector Dinámico (TTS)
                           </button>
-                        ))}
-                      </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              stopAudio();
+                              setAudioMode('mp3');
+                            }}
+                            style={{
+                              padding: '4px 10px',
+                              fontSize: '0.75rem',
+                              fontWeight: '600',
+                              border: 'none',
+                              borderRadius: '6px',
+                              cursor: 'pointer',
+                              background: audioMode === 'mp3' ? 'var(--primary)' : 'transparent',
+                              color: audioMode === 'mp3' ? '#fff' : 'var(--text-muted)'
+                            }}
+                          >
+                            Audio Grabado (MP3)
+                          </button>
+                        </div>
+                      )}
                     </div>
 
-                    {audioMode === 'tts' && audioVoices.length > 0 && (
-                      <div className="audiobook-voice-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span className="config-label" style={{ color: 'var(--text-muted)' }}>Voz:</span>
-                        <select
-                          value={selectedVoiceName}
-                          onChange={(e) => handleVoiceChange(e.target.value)}
-                          className="voice-select"
+                    <div className="audiobook-player-body" style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                      <div className="audio-controls" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <button
+                          type="button"
+                          onClick={handlePlayPause}
+                          className="glow-btn-primary"
                           style={{
-                            background: 'var(--bg-input)',
-                            border: '1px solid var(--border-color)',
-                            color: 'var(--text-main)',
-                            padding: '4px 10px',
-                            borderRadius: '8px',
-                            outline: 'none',
-                            maxWidth: '220px',
-                            fontSize: '0.75rem',
-                            cursor: 'pointer'
+                            width: '40px',
+                            height: '40px',
+                            borderRadius: '50%',
+                            padding: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: isPlayingAudio ? 'var(--accent-rose)' : 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)',
+                            boxShadow: isPlayingAudio ? '0 4px 12px rgba(244, 63, 94, 0.3)' : '0 4px 12px rgba(29, 78, 216, 0.3)'
+                          }}
+                          title={isPlayingAudio ? 'Pausar' : 'Reproducir'}
+                        >
+                          {isPlayingAudio ? <Pause size={16} /> : <Play size={16} style={{ marginLeft: '2px' }} />}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={stopAudio}
+                          className="glow-btn-secondary"
+                          style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                          title="Detener"
+                          disabled={!isPlayingAudio && !isPausedAudio && audioProgress === 0}
+                        >
+                          <Square size={14} style={{ fill: (!isPlayingAudio && !isPausedAudio && audioProgress === 0) ? 'none' : 'currentColor' }} />
+                        </button>
+                      </div>
+
+                      {/* Progress Bar */}
+                      <div className="audio-progress-wrapper" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '200px' }}>
+                        <div
+                          className="audio-progress-bar-container"
+                          onClick={(e) => {
+                            if (audioMode === 'mp3' && audioDuration) {
+                              const rect = e.currentTarget.getBoundingClientRect();
+                              const clickX = e.clientX - rect.left;
+                              const percent = clickX / rect.width;
+                              const audioEl = audioElRef.current;
+                              if (audioEl) {
+                                audioEl.currentTime = percent * audioDuration;
+                              }
+                            }
+                          }}
+                          style={{
+                            height: '6px',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            borderRadius: '3px',
+                            cursor: audioMode === 'mp3' ? 'pointer' : 'default',
+                            overflow: 'hidden',
+                            position: 'relative'
                           }}
                         >
-                          {audioVoices.map(v => (
-                            <option key={v.name} value={v.name}>
-                              {v.name.replace('Microsoft', '').replace('Google', '').trim()} ({v.lang})
-                            </option>
-                          ))}
-                        </select>
+                          <div
+                            className="audio-progress-fill"
+                            style={{
+                              width: `${audioProgress}%`,
+                              height: '100%',
+                              background: 'linear-gradient(90deg, var(--primary-light) 0%, var(--secondary) 100%)',
+                              borderRadius: '3px',
+                              transition: 'width 0.2s ease'
+                            }}
+                          />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                          <span>
+                            {audioMode === 'mp3'
+                              ? formatTime(audioCurrentTime)
+                              : isPlayingAudio || isPausedAudio
+                                ? `Leído: ${Math.round(audioProgress)}%`
+                                : 'Listo para reproducción'}
+                          </span>
+                          {audioMode === 'mp3' && <span>{formatTime(audioDuration)}</span>}
+                        </div>
                       </div>
+
+                      {/* Settings (Speed & Voice) */}
+                      <div className="audiobook-settings-group" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                        <div className="audiobook-speed-selector" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <span className="config-label" style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>Velocidad:</span>
+                          {[0.8, 1.0, 1.2, 1.5].map(rate => (
+                            <button
+                              key={rate}
+                              type="button"
+                              onClick={() => handleRateChange(rate)}
+                              className={`rate-btn ${audioPlaybackRate === rate ? 'active' : ''}`}
+                              style={{
+                                padding: '2px 6px',
+                                fontSize: '0.7rem',
+                                border: '1px solid var(--border-color)',
+                                borderRadius: '4px',
+                                background: audioPlaybackRate === rate ? 'var(--primary)' : 'transparent',
+                                color: audioPlaybackRate === rate ? '#fff' : 'var(--text-muted)',
+                                cursor: 'pointer'
+                              }}
+                            >
+                              {rate}x
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {audioMode === 'tts' && audioVoices.length > 0 && (
+                        <div className="audiobook-voice-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span className="config-label" style={{ color: 'var(--text-muted)' }}>Voz:</span>
+                          <select
+                            value={selectedVoiceName}
+                            onChange={(e) => handleVoiceChange(e.target.value)}
+                            className="voice-select"
+                            style={{
+                              background: 'var(--bg-input)',
+                              border: '1px solid var(--border-color)',
+                              color: 'var(--text-main)',
+                              padding: '4px 10px',
+                              borderRadius: '8px',
+                              outline: 'none',
+                              maxWidth: '220px',
+                              fontSize: '0.75rem',
+                              cursor: 'pointer'
+                            }}
+                          >
+                            {audioVoices.map(v => (
+                              <option key={v.name} value={v.name}>
+                                {v.name.replace('Microsoft', '').replace('Google', '').trim()} ({v.lang})
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Hidden HTML5 Audio Element for MP3 mode */}
+                    {audioMode === 'mp3' && (
+                      <audio
+                        ref={audioElRef}
+                        src={`/audio/tema-${topic.id.toString().padStart(2, '0')}.mp3`}
+                        onTimeUpdate={handleMp3TimeUpdate}
+                        onLoadedMetadata={handleMp3LoadedMetadata}
+                        onEnded={handleMp3Ended}
+                        style={{ display: 'none' }}
+                      />
                     )}
                   </div>
-
-                  {/* Hidden HTML5 Audio Element for MP3 mode */}
-                  {audioMode === 'mp3' && (
-                    <audio
-                      ref={audioElRef}
-                      src={`/audio/tema-${topic.id.toString().padStart(2, '0')}.mp3`}
-                      onTimeUpdate={handleMp3TimeUpdate}
-                      onLoadedMetadata={handleMp3LoadedMetadata}
-                      onEnded={handleMp3Ended}
-                      style={{ display: 'none' }}
-                    />
-                  )}
-                </div>
+                )}
               </div>
             )}
 
@@ -1651,6 +1698,32 @@ export default function TopicViewer({
               >
                 <Tag size={16} />
                 <span>Conceptos Clave</span>
+              </button>
+              <button
+                onClick={() => {
+                  setActiveSubTab('video');
+                  if (topicVideos.length > 0) setShowVideoModal(true);
+                }}
+                className={`viewer-tab-btn ${activeSubTab === 'video' ? 'active' : ''}`}
+                style={{
+                  position: 'relative',
+                  border: activeSubTab === 'video' ? '1px solid var(--secondary)' : undefined
+                }}
+              >
+                <Video size={16} style={{ color: topicVideos.length > 0 ? 'var(--secondary)' : undefined }} />
+                <span>Videoclases ({topicVideos.length})</span>
+                {topicVideos.length > 0 && (
+                  <span style={{
+                    position: 'absolute',
+                    top: '-3px',
+                    right: '-3px',
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--secondary)',
+                    boxShadow: '0 0 6px var(--secondary)'
+                  }} />
+                )}
               </button>
             </div>
 
@@ -1803,6 +1876,136 @@ export default function TopicViewer({
                       </button>
                     </div>
                   </div>
+                ) : activeSubTab === 'video' ? (
+                  <div className="topic-video-player-container fade-in" style={{ padding: '16px 0 30px 0', display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', boxSizing: 'border-box' }}>
+                    {topicVideos.length === 0 ? (
+                      <div style={{ padding: '40px 20px', textAlign: 'center', borderRadius: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', background: 'rgba(59, 130, 246, 0.05)', border: '1px dashed rgba(59, 130, 246, 0.2)' }}>
+                        <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(59, 130, 246, 0.15)', color: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <Video size={30} />
+                        </div>
+                        <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.2rem', fontWeight: '700' }}>Aún no hay vídeos asignados al Tema {topic.id}</h3>
+                        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '480px', margin: 0, lineHeight: 1.5 }}>
+                          El equipo docente está preparando las videoclases explicativas para este tema. Estarán disponibles próximamente.
+                        </p>
+                      </div>
+                    ) : (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', width: '100%' }}>
+                        {/* Cabecera explicativa */}
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+                          <div>
+                            <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.2rem', fontWeight: '800', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                              <Video size={22} style={{ color: 'var(--primary-light, #3b82f6)' }} />
+                              <span>Videoclases del Tema {topic.id}</span>
+                            </h3>
+                            <p style={{ margin: '4px 0 0 0', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                              Haz clic en cualquier videoclase para seleccionarla y verla en Modo Cine a pantalla completa.
+                            </p>
+                          </div>
+                          <span style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--primary-light, #3b82f6)', background: 'rgba(59, 130, 246, 0.1)', padding: '4px 12px', borderRadius: '20px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                            {topicVideos.length} partes disponibles
+                          </span>
+                        </div>
+
+                        {/* Grid de Tarjetas de Vídeo con Miniatura */}
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '18px', width: '100%' }}>
+                          {topicVideos.map((vid, idx) => {
+                            const thumbUrl = getVideoThumbnail(vid.url);
+                            return (
+                              <div
+                                key={vid.id || idx}
+                                onClick={() => {
+                                  setActiveVideoIndex(idx);
+                                  setShowVideoModal(true);
+                                }}
+                                style={{
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  borderRadius: '16px',
+                                  border: '1.5px solid var(--border-color)',
+                                  background: 'var(--bg-glass, rgba(30, 41, 59, 0.4))',
+                                  overflow: 'hidden',
+                                  cursor: 'pointer',
+                                  transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
+                                  boxShadow: '0 4px 14px rgba(0,0,0,0.06)'
+                                }}
+                                className="video-card-hover"
+                              >
+                                {/* Contenedor de la Miniatura (16:9) */}
+                                <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', background: '#0f172a', overflow: 'hidden' }}>
+                                  {thumbUrl ? (
+                                    <img
+                                      src={thumbUrl}
+                                      alt={vid.title}
+                                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                                    />
+                                  ) : (
+                                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                      <Video size={40} style={{ color: '#3b82f6', opacity: 0.7 }} />
+                                    </div>
+                                  )}
+
+                                  {/* Overlay con Botón de Play */}
+                                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(37, 99, 235, 0.6)' }}>
+                                      <Play size={20} fill="#ffffff" style={{ marginLeft: '3px' }} />
+                                    </div>
+                                  </div>
+
+                                  {/* Badge de Parte */}
+                                  <span style={{ position: 'absolute', top: '10px', left: '10px', background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(4px)', color: '#f59e0b', fontSize: '0.72rem', fontWeight: '800', padding: '3px 8px', borderRadius: '6px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
+                                    Parte {idx + 1}
+                                  </span>
+
+                                  {/* Badge de Duración */}
+                                  {vid.duration && (
+                                    <span style={{ position: 'absolute', bottom: '10px', right: '10px', background: 'rgba(0, 0, 0, 0.8)', color: '#ffffff', fontSize: '0.72rem', fontWeight: '700', padding: '3px 8px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                      <Clock size={12} /> {vid.duration}
+                                    </span>
+                                  )}
+                                </div>
+
+                                {/* Cuerpo de la Tarjeta */}
+                                <div style={{ padding: '14px', display: 'flex', flexDirection: 'column', gap: '8px', flex: 1, justifyContent: 'space-between' }}>
+                                  <div>
+                                    <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', lineHeight: 1.35 }}>
+                                      {vid.title}
+                                    </h4>
+                                    {vid.description && (
+                                      <p style={{ margin: '6px 0 0 0', fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.4, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                                        {vid.description}
+                                      </p>
+                                    )}
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      marginTop: '6px',
+                                      width: '100%',
+                                      padding: '8px 10px',
+                                      background: 'rgba(59, 130, 246, 0.1)',
+                                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                                      borderRadius: '8px',
+                                      color: 'var(--primary-light, #3b82f6)',
+                                      fontWeight: '700',
+                                      fontSize: '0.8rem',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      gap: '6px',
+                                      boxSizing: 'border-box'
+                                    }}
+                                  >
+                                    <Play size={14} fill="currentColor" />
+                                    <span>Ver Parte {idx + 1} en Modo Cine</span>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <div
                     className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
@@ -1832,6 +2035,200 @@ export default function TopicViewer({
         currentUser={currentUser}
         onConfirmPrint={handleConfirmPrintEdition}
       />
+
+      {/* THEATER MODE OVERLAY / AULA VIRTUAL FULLSCREEN MODAL */}
+      {showVideoModal && (
+        <div
+          className="video-theater-modal-overlay fade-in"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 999999,
+            background: 'rgba(10, 15, 29, 0.97)',
+            backdropFilter: 'blur(16px)',
+            display: 'flex',
+            flexDirection: 'column',
+            color: '#fff',
+            fontFamily: 'system-ui, -apple-system, Roboto, sans-serif',
+            boxSizing: 'border-box'
+          }}
+        >
+          {/* Header Bar */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '16px 24px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              background: 'rgba(15, 23, 42, 0.9)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.25)', color: '#60a5fa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Video size={22} />
+              </div>
+              <div>
+                <span style={{ fontSize: '0.75rem', color: '#f59e0b', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  Aula Virtual &bull; Oposiciones BUS
+                </span>
+                <h2 style={{ margin: '2px 0 0 0', color: '#ffffff', fontSize: '1.15rem', fontWeight: '700' }}>
+                  Tema {topic.id}: {topic.title}
+                </h2>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowVideoModal(false)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 18px',
+                background: 'rgba(239, 68, 68, 0.2)',
+                border: '1px solid rgba(239, 68, 68, 0.4)',
+                borderRadius: '10px',
+                color: '#fca5a5',
+                cursor: 'pointer',
+                fontWeight: '700',
+                fontSize: '0.88rem',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <X size={20} />
+              <span>Cerrar Aula</span>
+            </button>
+          </div>
+
+          {/* Theater Main Area */}
+          <div style={{ flex: 1, display: 'flex', overflow: 'hidden', padding: '24px', gap: '24px', flexWrap: 'wrap' }}>
+            {topicVideos.length === 0 ? (
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '40px', gap: '16px' }}>
+                <Video size={54} style={{ color: '#64748b' }} />
+                <h3 style={{ margin: 0, fontSize: '1.3rem', color: '#fff' }}>No hay vídeos asignados al Tema {topic.id}</h3>
+                <p style={{ color: '#94a3b8', maxWidth: '450px', margin: 0 }}>
+                  El equipo docente está preparando las videoclases explicativas para este tema.
+                </p>
+              </div>
+            ) : (
+              <>
+                {/* Gran Reproductor de Vídeo (Izquierda / Principal) */}
+                <div style={{ flex: '2 1 640px', display: 'flex', flexDirection: 'column', gap: '16px', minWidth: 0, overflowY: 'auto' }}>
+                  {(() => {
+                    const currentVid = topicVideos[activeVideoIndex] || topicVideos[0];
+                    const parsedEmbed = getEmbedVideoUrl(currentVid.url);
+
+                    return (
+                      <>
+                        <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', background: '#000', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                          {parsedEmbed.type === 'direct' ? (
+                            <video
+                              controls
+                              autoPlay
+                              src={parsedEmbed.embedUrl}
+                              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                            />
+                          ) : (
+                            <iframe
+                              src={parsedEmbed.embedUrl}
+                              title={currentVid.title}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                            />
+                          )}
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', background: 'rgba(15, 23, 42, 0.8)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+                            <span style={{ fontSize: '0.8rem', fontWeight: '800', color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                              Parte {activeVideoIndex + 1} de {topicVideos.length} &bull; {currentVid.duration || 'Videoclase'}
+                            </span>
+                          </div>
+
+                          <h1 style={{ margin: 0, color: '#ffffff', fontSize: '1.45rem', fontWeight: '700', lineHeight: 1.3 }}>
+                            {currentVid.title}
+                          </h1>
+
+                          {currentVid.description && (
+                            <p style={{ margin: '6px 0 0 0', color: '#cbd5e1', fontSize: '0.92rem', lineHeight: 1.6, background: 'rgba(255,255,255,0.03)', padding: '14px 16px', borderRadius: '10px', borderLeft: '4px solid #f59e0b' }}>
+                              {currentVid.description}
+                            </p>
+                          )}
+                        </div>
+                      </>
+                    );
+                  })()}
+                </div>
+
+                {/* Playlist Lateral (Derecha) */}
+                <div style={{ flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: '14px', background: 'rgba(15, 23, 42, 0.8)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', maxHeight: '100%', overflowY: 'auto' }}>
+                  <h3 style={{ margin: 0, color: '#ffffff', fontSize: '1.05rem', fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
+                    <span>Playlist de la Lección</span>
+                    <span style={{ fontSize: '0.8rem', color: '#f59e0b', fontWeight: '800' }}>{topicVideos.length} vídeos</span>
+                  </h3>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {topicVideos.map((vid, idx) => {
+                      const isActive = idx === activeVideoIndex;
+                      return (
+                        <button
+                          key={vid.id || idx}
+                          type="button"
+                          onClick={() => setActiveVideoIndex(idx)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '14px',
+                            padding: '14px 16px',
+                            background: isActive ? 'linear-gradient(135deg, rgba(212, 163, 89, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%)' : 'rgba(30, 41, 59, 0.4)',
+                            border: isActive ? '1.5px solid #f59e0b' : '1px solid rgba(255,255,255,0.08)',
+                            borderRadius: '12px',
+                            cursor: 'pointer',
+                            textAlign: 'left',
+                            transition: 'all 0.2s ease'
+                          }}
+                        >
+                          <div style={{
+                            width: '34px',
+                            height: '34px',
+                            borderRadius: '50%',
+                            background: isActive ? '#f59e0b' : 'rgba(255,255,255,0.1)',
+                            color: isActive ? '#000000' : '#ffffff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontWeight: '800',
+                            fontSize: '0.85rem',
+                            flexShrink: 0
+                          }}>
+                            {isActive ? <Play size={16} fill="#000" /> : (idx + 1)}
+                          </div>
+
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ fontWeight: isActive ? '700' : '600', fontSize: '0.9rem', color: isActive ? '#f59e0b' : '#ffffff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              {vid.title}
+                            </div>
+                            {vid.duration && (
+                              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '3px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                <Clock size={12} /> {vid.duration}
+                              </div>
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

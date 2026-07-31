@@ -85,6 +85,34 @@ const INITIAL_MOCK_CODES = {
   'BUS-ADMIN-2026': { used: false, usedBy: null }
 };
 
+const DEFAULT_MOCK_VIDEOS = {
+  '1': [
+    {
+      id: 'v_1_1',
+      title: 'Parte 1: Presentación y Marco Normativo de la BUS',
+      url: 'https://www.youtube.com/watch?v=LXb3EKWsInQ',
+      duration: '14 min',
+      description: 'Explicación completa del Reglamento de la Biblioteca de la Universidad de Sevilla, funciones y estructura organizativa.'
+    },
+    {
+      id: 'v_1_2',
+      title: 'Parte 2: Normas de Préstamo y Uso de Instalaciones',
+      url: 'https://www.youtube.com/watch?v=2vjPBrBU-TM',
+      duration: '18 min',
+      description: 'Análisis detallado del sistema de préstamo, sanciones, renovación de carnés y acceso a las salas de la BUS.'
+    }
+  ],
+  '2': [
+    {
+      id: 'v_2_1',
+      title: 'Parte 1: Modelo EFQM de Excelencia y Cartas de Servicios',
+      url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+      duration: '15 min',
+      description: 'Conceptos fundamentales de la gestión de la calidad aplicada a las bibliotecas universitarias y sellos EFQM.'
+    }
+  ]
+};
+
 const getMockBookCodes = () => {
   const saved = localStorage.getItem('mock_db_book_codes');
   if (saved) return JSON.parse(saved);
@@ -222,15 +250,19 @@ export const firebaseService = {
 
       // 4. Mark code as used and assigned in Firestore (skip if admin)
       if (!isAdminCode) {
-        await withTimeout(
-          updateDoc(codeRef, {
-            used: true,
-            usedBy: uid,
-            assigned: true
-          }),
-          10000,
-          "No se pudo marcar el código del libro como utilizado (tiempo de espera agotado)."
-        );
+        try {
+          await withTimeout(
+            updateDoc(codeRef, {
+              used: true,
+              usedBy: uid,
+              assigned: true
+            }),
+            10000,
+            "No se pudo marcar el código del libro como utilizado (tiempo de espera agotado)."
+          );
+        } catch (codeErr) {
+          console.warn("Aviso: El usuario se creó correctamente, pero no se pudo actualizar el estado del código en la colección 'book_codes' (comprobar reglas de Firestore):", codeErr);
+        }
       }
 
       return { uid, name, email: email.toLowerCase(), bookCode: cleanCode, role: isAdminCode ? 'admin' : 'student' };
@@ -1411,6 +1443,114 @@ export const firebaseService = {
       }
     } else {
       await deleteDoc(doc(db, 'email_announcements', id));
+    }
+  },
+
+  // --- TOPIC VIDEOS SERVICES ---
+
+  // Internal listeners for topic video updates
+  _topicVideoListeners: [],
+  _notifyTopicVideoListeners() {
+    const data = this._getLocalTopicVideos();
+    this._topicVideoListeners.forEach(cb => {
+      try { cb(data); } catch (e) {}
+    });
+  },
+
+  /**
+   * Helper para obtener la copia local de vídeos por tema
+   */
+  _getLocalTopicVideos(topicId) {
+    const saved = localStorage.getItem('mock_db_topic_videos');
+    const allVideos = saved ? JSON.parse(saved) : DEFAULT_MOCK_VIDEOS;
+    if (topicId) {
+      return allVideos[topicId.toString()] || [];
+    }
+    return allVideos;
+  },
+
+  /**
+   * Obtiene la lista de vídeos de un tema
+   */
+  async getTopicVideos(topicId) {
+    const local = this._getLocalTopicVideos(topicId);
+    return local;
+  },
+
+  /**
+   * Suscripción en tiempo real a los vídeos de un tema
+   */
+  subscribeToTopicVideos(topicId, callback) {
+    const topicKey = topicId.toString();
+    const handler = (allVids) => {
+      callback(allVids[topicKey] || []);
+    };
+    handler(this._getLocalTopicVideos());
+    this._topicVideoListeners.push(handler);
+
+    const handleStorage = (e) => {
+      if (e.key === 'mock_db_topic_videos') {
+        handler(this._getLocalTopicVideos());
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+
+    return () => {
+      this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== handler);
+      window.removeEventListener('storage', handleStorage);
+    };
+  },
+
+  /**
+   * Suscripción en tiempo real a todos los vídeos por tema (para Admin)
+   */
+  subscribeToAllTopicVideos(callback) {
+    callback(this._getLocalTopicVideos());
+    this._topicVideoListeners.push(callback);
+
+    const handleStorage = (e) => {
+      if (e.key === 'mock_db_topic_videos') {
+        callback(this._getLocalTopicVideos());
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+
+    return () => {
+      this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== callback);
+      window.removeEventListener('storage', handleStorage);
+    };
+  },
+
+  /**
+   * Guarda o actualiza la lista de vídeos de un tema (eliminar, añadir, reordenar)
+   */
+  async saveTopicVideos(topicId, videosList) {
+    const keyStr = topicId.toString();
+
+    // 1. Update local storage permanently
+    const allVideos = this._getLocalTopicVideos();
+    allVideos[keyStr] = videosList;
+    localStorage.setItem('mock_db_topic_videos', JSON.stringify(allVideos));
+
+    // 2. Notify all active subscribers in current app tab immediately
+    this._notifyTopicVideoListeners();
+
+    // 3. Attempt Cloud Firestore sync if online DB is connected
+    if (!isMock) {
+      try {
+        const docRef = doc(db, 'topic_videos', keyStr);
+        await withTimeout(
+          setDoc(docRef, {
+            topicId: keyStr,
+            videos: videosList,
+            updatedAt: new Date().toISOString()
+          }, { merge: true }),
+          3000,
+          "Write timeout"
+        );
+      } catch (err) {
+        console.warn("Aviso: Vídeo guardado/eliminado localmente. Reglas Firestore pendientes de despliegue:", err.message);
+      }
     }
   }
 };
