@@ -1495,10 +1495,31 @@ export const firebaseService = {
     };
     window.addEventListener('storage', handleStorage);
 
-    return () => {
-      this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== handler);
-      window.removeEventListener('storage', handleStorage);
-    };
+    if (isMock) {
+      return () => {
+        this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== handler);
+        window.removeEventListener('storage', handleStorage);
+      };
+    } else {
+      const docRef = doc(db, 'topic_videos', topicKey);
+      const unsub = onSnapshot(docRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const cloudVids = docSnap.data().videos || [];
+          const allVids = this._getLocalTopicVideos();
+          allVids[topicKey] = cloudVids;
+          localStorage.setItem('mock_db_topic_videos', JSON.stringify(allVids));
+          callback(cloudVids);
+        }
+      }, (err) => {
+        console.warn(`Firestore subscription notice for topic videos (${topicKey}):`, err.message);
+      });
+
+      return () => {
+        this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== handler);
+        window.removeEventListener('storage', handleStorage);
+        unsub();
+      };
+    }
   },
 
   /**
@@ -1515,10 +1536,29 @@ export const firebaseService = {
     };
     window.addEventListener('storage', handleStorage);
 
-    return () => {
-      this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== callback);
-      window.removeEventListener('storage', handleStorage);
-    };
+    if (isMock) {
+      return () => {
+        this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== callback);
+        window.removeEventListener('storage', handleStorage);
+      };
+    } else {
+      const unsub = onSnapshot(collection(db, 'topic_videos'), (snapshot) => {
+        const cloudResult = { ...this._getLocalTopicVideos() };
+        snapshot.docs.forEach(d => {
+          cloudResult[d.id] = d.data().videos || [];
+        });
+        localStorage.setItem('mock_db_topic_videos', JSON.stringify(cloudResult));
+        callback(cloudResult);
+      }, (err) => {
+        console.warn("Firestore subscription notice for all topic videos:", err.message);
+      });
+
+      return () => {
+        this._topicVideoListeners = this._topicVideoListeners.filter(l => l !== callback);
+        window.removeEventListener('storage', handleStorage);
+        unsub();
+      };
+    }
   },
 
   /**
@@ -1535,7 +1575,7 @@ export const firebaseService = {
     // 2. Notify all active subscribers in current app tab immediately
     this._notifyTopicVideoListeners();
 
-    // 3. Attempt Cloud Firestore sync if online DB is connected
+    // 3. Sync to Cloud Firestore in cloud so all devices (mobiles/tablets) get updated
     if (!isMock) {
       try {
         const docRef = doc(db, 'topic_videos', keyStr);
@@ -1544,12 +1584,12 @@ export const firebaseService = {
             topicId: keyStr,
             videos: videosList,
             updatedAt: new Date().toISOString()
-          }, { merge: true }),
-          3000,
+          }),
+          4000,
           "Write timeout"
         );
       } catch (err) {
-        console.warn("Aviso: Vídeo guardado/eliminado localmente. Reglas Firestore pendientes de despliegue:", err.message);
+        console.warn("Aviso al guardar en Firestore:", err.message);
       }
     }
   }
