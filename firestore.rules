@@ -2,55 +2,51 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Helper: Comprueba si el usuario está autenticado
-    function isAuthenticated() {
-      return request.auth != null;
-    }
-
-    // Helper: Comprueba si el usuario tiene rol de administrador en la colección 'users'
+    // Helper para verificar administrador de forma segura
     function isAdmin() {
-      return isAuthenticated() && 
+      return request.auth != null &&
         exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
 
-    // Reglas para la colección 'users'
     match /users/{userId} {
-      allow read: if isAuthenticated();
-      allow write: if isAdmin() || (isAuthenticated() && request.auth.uid == userId);
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write, list: if isAdmin();
     }
 
-    // Reglas para el progreso del usuario
+    match /book_codes/{code} {
+      allow read: if true;
+      allow write, list: if isAdmin();
+    }
+
     match /progress/{userId} {
-      allow read, write: if isAdmin() || (isAuthenticated() && request.auth.uid == userId);
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write, list: if isAdmin();
     }
 
-    // Reglas para las ediciones impresas
     match /material_editions/{editionId} {
-      allow read: if isAuthenticated();
+      allow read, list: if true;
       allow write: if isAdmin();
     }
 
-    // Reglas para hojas de fe de erratas y anexos
     match /material_modifications/{modId} {
-      allow read: if isAuthenticated();
+      allow read, list: if true;
       allow write: if isAdmin();
     }
 
-    // Reglas para dudas no resueltas del Agente BUS
+    // Reglas para dudas no resueltas del Agente BUS (Entrenamiento)
     match /unresolved_dudas/{dudaId} {
-      allow read: if isAuthenticated();
-      allow write: if isAuthenticated();
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
     }
 
     // Reglas para respuestas entrenadas del Agente BUS
     match /trained_answers/{answerId} {
-      allow read: if isAuthenticated();
+      allow read: if request.auth != null;
       allow write: if isAdmin();
     }
 
     // Reglas para el disparador de emails (Trigger Email Extension)
-    // El administrador debe poder crear el documento para disparar el correo.
     match /mail/{mailId} {
       allow create: if isAdmin();
       allow read, update, delete: if isAdmin();
@@ -60,5 +56,6 @@ service cloud.firestore {
     match /email_announcements/{announcementId} {
       allow read, write: if isAdmin();
     }
+
   }
 }
