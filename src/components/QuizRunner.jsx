@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  GraduationCap, 
-  HelpCircle, 
-  CheckCircle2, 
-  XCircle, 
-  ArrowRight, 
+import {
+  GraduationCap,
+  HelpCircle,
+  CheckCircle2,
+  XCircle,
+  ArrowRight,
   RotateCcw,
   BookOpen,
   Award,
@@ -58,17 +58,17 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const [compiledExamsContent, setCompiledExamsContent] = useState([]);
   const [isExamsPrintMode, setIsExamsPrintMode] = useState(false);
   const [singleTopicId, setSingleTopicId] = useState(activeTopicId ? activeTopicId.toString() : '1');
-  
+
   // Available topics for quizzes (topics that actually have questions in quizzes.json)
   const availableTopicIds = Object.keys(quizzesData);
   const totalQuizzesCount = Object.values(quizzesData).reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0);
 
   const [customSelectedTopicIds, setCustomSelectedTopicIds] = useState(
-    activeTopicId && availableTopicIds.includes(activeTopicId.toString()) 
-      ? [activeTopicId.toString()] 
+    activeTopicId && availableTopicIds.includes(activeTopicId.toString())
+      ? [activeTopicId.toString()]
       : availableTopicIds.length > 0 ? [availableTopicIds[0]] : ['1']
   );
-  
+
   const [questionLimit, setQuestionLimit] = useState(10);
   const [isCustomLimitInput, setIsCustomLimitInput] = useState(false);
   const [customLimitValue, setCustomLimitValue] = useState('15');
@@ -77,7 +77,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const [isPrintPreviewMode, setIsPrintPreviewMode] = useState(false);
   const [isTestBookPrintMode, setIsTestBookPrintMode] = useState(false);
   const [testBookContent, setTestBookContent] = useState([]);
-  
+
   // Running quiz state
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null); // index of selected option
@@ -133,7 +133,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     availableTopicIds.forEach(topicId => {
       const topicQs = (quizzesData[topicId] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0);
       const examQs = topicQs.filter(q => q.usage === 'simulacro' && q.simulacroExamId === Number(examId));
-      
+
       // Fallback if metadata is not generated yet (e.g. if db is not fully generated)
       if (examQs.length === 0) {
         const count = topicQs.length;
@@ -182,25 +182,25 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
     const sortedIds = [...targetTopicIds].map(Number).sort((a, b) => a - b);
     const limit = getEffectiveLimit();
-    
+
     sortedIds.forEach(topicId => {
       const allTopicQs = (quizzesData[topicId.toString()] || []).filter(q => q && q.question && Array.isArray(q.options) && q.options.length > 0 && q.usage !== 'simulacro');
       // Aplica offset para priorizar preguntas no incluidas en el temario impreso
       const offset = allTopicQs.length > (limit + 5) ? 5 : 0;
       const selectedQs = allTopicQs.slice(offset, offset + limit);
-      
+
       const mappedQs = selectedQs.map(q => ({
         ...q,
         topicId: Number(topicId)
       }));
-      
+
       compiledQuestions.push({
         topicId: Number(topicId),
         topicTitle: topics.find(t => t.id === Number(topicId))?.title || `Tema ${topicId}`,
         questions: mappedQs
       });
     });
-    
+
     setTestBookContent(compiledQuestions);
     setIsTestBookPrintMode(true);
     setQuizStarted(true);
@@ -208,7 +208,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
   const handlePreparePrintExam = () => {
     let qPool = [];
-    
+
     if (selectedTopicMode === 'examen-real-2019') {
       qPool = examen2019Data;
     } else if (selectedTopicMode === 'examen-real-2022') {
@@ -218,7 +218,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     } else if (selectedTopicMode === 'simulacro-oficial') {
       let examsData = [];
       const sortedNums = [...selectedSimulacroNums].map(Number).sort((a, b) => a - b);
-      
+
       sortedNums.forEach(num => {
         const examQs = generateSimulacroOficialQuestions(num);
         examsData.push({
@@ -226,7 +226,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           questions: examQs
         });
       });
-      
+
       setCompiledExamsContent(examsData);
       setIsExamsPrintMode(true);
       setQuizStarted(true);
@@ -272,7 +272,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
   const handleStartQuiz = (paperMode = false) => {
     let qPool = [];
-    
+
     if (selectedTopicMode === 'examen-real-2019') {
       qPool = examen2019Data;
     } else if (selectedTopicMode === 'examen-real-2022') {
@@ -313,12 +313,12 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     setAnswered(false);
     setScore(0);
     setQuizFinished(false);
-    
+
     // Set paper mode states
     setIsPaperInteractiveMode(paperMode === true);
     setUserAnswers(Array(qPool.length).fill(null));
     setPaperExamSubmitted(false);
-    
+
     setQuizStarted(true);
   };
 
@@ -378,10 +378,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     } else {
       // Quiz finished
       setQuizFinished(true);
-      
+
       // Calculate final score percentage
       const scorePct = Math.round((score / questions.length) * 100);
-      
+
       // Record score
       if (selectedTopicMode === 'single') {
         recordQuizScore(Number(singleTopicId), scorePct);
@@ -423,7 +423,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       <header className="dashboard-header">
         <div>
           <h1 className="text-gradient">Cuestionarios de Autoevaluación</h1>
-          <p className="text-muted">Practica activamente con preguntas reales orientadas al formato de examen de la US.</p>
+          <p className="text-muted">Practica activamente con preguntas reales orientadas al formato de examen de la Universidad de Sevilla.</p>
         </div>
       </header>
 
@@ -441,7 +441,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           <div className="config-form">
             {/* Mode selector */}
             <div className="compact-mode-bar" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
-              <button 
+              <button
                 type="button"
                 onClick={() => setSelectedTopicMode('single')}
                 className={`mode-btn ${selectedTopicMode === 'single' ? 'active' : ''}`}
@@ -449,7 +449,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               >
                 Tema Único
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => setSelectedTopicMode('custom')}
                 className={`mode-btn ${selectedTopicMode === 'custom' ? 'active' : ''}`}
@@ -457,7 +457,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               >
                 Simulacro Personalizado
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => setSelectedTopicMode('simulacro-40')}
                 className={`mode-btn ${selectedTopicMode === 'simulacro-40' ? 'active' : ''}`}
@@ -465,7 +465,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               >
                 Simulacro Aleatorio (40)
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => setSelectedTopicMode('simulacro-oficial')}
                 className={`mode-btn ${selectedTopicMode === 'simulacro-oficial' ? 'active' : ''}`}
@@ -473,7 +473,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               >
                 15 Simulacros Predefinidos
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => setSelectedTopicMode('examen-real-2019')}
                 className={`mode-btn ${selectedTopicMode === 'examen-real-2019' ? 'active' : ''}`}
@@ -481,7 +481,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               >
                 Examen Real 2019
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => setSelectedTopicMode('examen-real-2022')}
                 className={`mode-btn ${selectedTopicMode === 'examen-real-2022' ? 'active' : ''}`}
@@ -489,7 +489,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               >
                 Examen Real 2022
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => {
                   setSelectedTopicMode('test-book');
@@ -519,9 +519,9 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   {topics.map(t => {
                     const hasQuestions = availableTopicIds.includes(t.id.toString());
                     return (
-                      <option 
-                        key={t.id} 
-                        value={t.id.toString()} 
+                      <option
+                        key={t.id}
+                        value={t.id.toString()}
                         disabled={!hasQuestions}
                       >
                         Tema {t.id}: {t.title} {!hasQuestions ? '(Sin preguntas)' : ''}
@@ -535,13 +535,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             {(selectedTopicMode === 'custom' || selectedTopicMode === 'test-book') && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
                 <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>
-                  {selectedTopicMode === 'test-book' 
-                    ? 'Elige los temas para compilar en tu Cuaderno de Tests:' 
+                  {selectedTopicMode === 'test-book'
+                    ? 'Elige los temas para compilar en tu Cuaderno de Tests:'
                     : 'Elige los temas para el simulacro:'}
                 </label>
-                
+
                 <div className="topics-bulk-actions" style={{ marginBottom: '6px' }}>
-                  <button 
+                  <button
                     type="button"
                     onClick={() => setCustomSelectedTopicIds(availableTopicIds)}
                     className="bulk-action-link"
@@ -549,7 +549,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   >
                     Seleccionar todos
                   </button>
-                  <button 
+                  <button
                     type="button"
                     onClick={() => setCustomSelectedTopicIds(availableTopicIds.length > 0 ? [availableTopicIds[0]] : [])}
                     className="bulk-action-link"
@@ -563,7 +563,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   {topics.map(t => {
                     const hasQuestions = availableTopicIds.includes(t.id.toString());
                     const isChecked = customSelectedTopicIds.includes(t.id.toString());
-                    
+
                     const handleCheckboxToggle = () => {
                       if (!hasQuestions) return;
                       if (isChecked) {
@@ -576,8 +576,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     };
 
                     return (
-                      <div 
-                        key={t.id} 
+                      <div
+                        key={t.id}
                         onClick={handleCheckboxToggle}
                         className={`topic-checkbox-label ${isChecked ? 'selected' : ''} ${!hasQuestions ? 'disabled' : ''}`}
                         title={!hasQuestions ? 'Tema sin preguntas desarrolladas aún' : t.title}
@@ -604,21 +604,21 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             {selectedTopicMode === 'examen-real-2019' && (
               <div style={{ padding: '12px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid var(--accent-emerald)', borderRadius: '6px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
                 <h5 style={{ margin: '0 0 4px 0', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>Examen Oficial 2019 (40 Preguntas):</h5>
-                Contiene las <strong>40 preguntas reales de la convocatoria 2019</strong> para Auxiliar de Biblioteca de la US con justificaciones legales.
+                Contiene las <strong>40 preguntas reales de la convocatoria 2019</strong> para Auxiliar de Biblioteca de la Universidad de Sevilla con justificaciones legales.
               </div>
             )}
 
             {selectedTopicMode === 'examen-real-2022' && (
               <div style={{ padding: '12px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid var(--accent-emerald)', borderRadius: '6px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
                 <h5 style={{ margin: '0 0 4px 0', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>Examen Oficial Convocatoria 2022 (realizado en 2024):</h5>
-                Contiene las <strong>preguntas reales del examen oficial 2022</strong> de Auxiliar de Biblioteca de la US.
+                Contiene las <strong>preguntas reales del examen oficial 2022</strong> de Auxiliar de Biblioteca de la Universidad de Sevilla.
               </div>
             )}
 
             {selectedTopicMode === 'simulacro-oficial' && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
                 <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>Selecciona los Simulacros de Examen predefinidos (40 preguntas):</label>
-                
+
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: '6px', marginTop: '6px' }}>
                   {Array.from({ length: 15 }, (_, i) => i + 1).map(num => {
                     const isChecked = selectedSimulacroNums.includes(num.toString());
@@ -631,7 +631,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         setSelectedSimulacroNums(prev => [...prev, num.toString()]);
                       }
                     };
-                    
+
                     return (
                       <button
                         key={num}
@@ -667,7 +667,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                       className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === limit ? 'active' : ''}`}
                       style={{ padding: '6px 12px', fontSize: '0.8rem' }}
                     >
-                      {`${limit} pregs.`}
+                      {`${limit} preguntas`}
                     </button>
                   ))}
 
@@ -691,7 +691,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                         onChange={(e) => setCustomLimitValue(e.target.value)}
                         style={{ width: '55px', background: 'transparent', border: 'none', color: '#fff', fontSize: '0.85rem', textAlign: 'center', fontWeight: 'bold', outline: 'none' }}
                       />
-                      <span style={{ fontSize: '0.75rem', opacity: 0.85 }}>pregs.</span>
+                      <span style={{ fontSize: '0.75rem', opacity: 0.85 }}>preguntas</span>
                     </div>
                   )}
 
@@ -716,8 +716,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
             {/* Always Visible Action Footer */}
             <div style={{ display: 'flex', gap: '10px', marginTop: '16px', paddingTop: '12px', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
               {selectedTopicMode === 'test-book' ? (
-                <button 
-                  onClick={handlePrepareTestBook} 
+                <button
+                  onClick={handlePrepareTestBook}
                   className="glow-btn start-quiz-btn"
                   disabled={customSelectedTopicIds.length === 0}
                   style={{ flex: 1, minWidth: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '10px 16px', fontSize: '0.9rem' }}
@@ -727,8 +727,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 </button>
               ) : (
                 <>
-                  <button 
-                    onClick={() => handleStartQuiz(false)} 
+                  <button
+                    onClick={() => handleStartQuiz(false)}
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
                     style={{ flex: '1 1 180px', padding: '5px 10px', fontSize: '0.85rem' }}
@@ -736,8 +736,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     Test Clásico
                     <ArrowRight size={16} style={{ marginLeft: '4px' }} />
                   </button>
-                  <button 
-                    onClick={() => handleStartQuiz(true)} 
+                  <button
+                    onClick={() => handleStartQuiz(true)}
                     className="glow-btn start-quiz-btn"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
                     style={{ flex: '1 1 180px', padding: '5px 10px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', borderColor: 'var(--secondary-light)' }}
@@ -745,9 +745,9 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     Simulacro en Papel
                     <BookOpen size={16} style={{ marginLeft: '4px' }} />
                   </button>
-                  <button 
+                  <button
                     type="button"
-                    onClick={handlePreparePrintExam} 
+                    onClick={handlePreparePrintExam}
                     className="glow-btn-secondary"
                     disabled={selectedTopicMode === 'custom' && customSelectedTopicIds.length === 0}
                     style={{ flex: '1 1 180px', padding: '5px 10px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
@@ -765,18 +765,18 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
         <div className="quiz-result-card glass-panel scale-in">
           <Award size={64} className="text-gradient-gold result-icon" />
           <h2>¡Cuestionario Completado!</h2>
-          
+
           <div className="result-score-circle">
             <span className="result-score-digits">{score} / {questions.length}</span>
             <span className="result-score-pct">{Math.round((score / questions.length) * 100)}%</span>
           </div>
 
           <p className="result-comment text-muted">
-            {score / questions.length >= 0.8 
-              ? '¡Excelente puntuación! Vas por muy buen camino.' 
-              : score / questions.length >= 0.5 
-              ? 'Buen intento. Repasa los conceptos clave para asegurar el aprobado.' 
-              : 'Necesitas reforzar esta materia. Vuelve a leer el tema detalladamente.'}
+            {score / questions.length >= 0.8
+              ? '¡Excelente puntuación! Vas por muy buen camino.'
+              : score / questions.length >= 0.5
+                ? 'Buen intento. Repasa los conceptos clave para asegurar el aprobado.'
+                : 'Necesitas reforzar esta materia. Vuelve a leer el tema detalladamente.'}
           </p>
 
           <div className="result-actions">
@@ -800,23 +800,23 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </p>
             </div>
             <div style={{ display: 'flex', gap: '10px' }}>
-              <button 
-                onClick={handleRestart} 
-                className="glow-btn-secondary" 
+              <button
+                onClick={handleRestart}
+                className="glow-btn-secondary"
                 style={{ padding: '8px 16px' }}
               >
                 Volver a Configurar
               </button>
-              <button 
-                onClick={handlePrintClick} 
-                className="glow-btn" 
+              <button
+                onClick={handlePrintClick}
+                className="glow-btn"
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Printer size={16} />
                 Imprimir Examen (PDF)
               </button>
             </div>
           </div>
-          
+
           <div className="print-preview-content">
             <div className="printable-exam-sheet">
               {/* PAGE 1: QUESTIONS (FRONT) */}
@@ -898,7 +898,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
                   <p style={{ margin: '2px 0 0 0', fontSize: '11pt', color: '#555555', lineHeight: '1.4' }}>Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
                 </div>
-                
+
                 <div style={{ margin: '15px auto', textAlign: 'center', maxWidth: '100%' }}>
                   <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style={{ maxWidth: '100%', height: 'auto', maxHeight: '220mm', border: '1px solid #cbd5e1', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: '4px', display: 'block', margin: '0 auto' }} />
                 </div>
@@ -917,30 +917,30 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </p>
             </div>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <button 
-                onClick={handleRestart} 
-                className="glow-btn-secondary" 
+              <button
+                onClick={handleRestart}
+                className="glow-btn-secondary"
                 style={{ padding: '8px 16px' }}
               >
                 Volver a Configurar
               </button>
-              <button 
-                onClick={() => { setIsTestBookPrintMode(false); setShowPrintModal(true); }} 
-                className="glow-btn-secondary" 
+              <button
+                onClick={() => { setIsTestBookPrintMode(false); setShowPrintModal(true); }}
+                className="glow-btn-secondary"
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
               >
                 💾 Guardar como Nueva Edición
               </button>
-              <button 
-                onClick={handlePrintClick} 
-                className="glow-btn" 
+              <button
+                onClick={handlePrintClick}
+                className="glow-btn"
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Printer size={16} />
                 Imprimir Simulacros (PDF)
               </button>
             </div>
           </div>
-          
+
           <div className="print-preview-content">
             {/* Portada del Dossier de Simulacros */}
             <div className="print-manual-cover printable-exam-sheet" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '14mm 36px 12mm 36px', border: '4px double #1e3a8a', height: '280mm', minHeight: '280mm', maxHeight: '282mm', textAlign: 'center', fontFamily: "'Inter', sans-serif", margin: '0 auto', width: '100%', maxWidth: '100%', pageBreakAfter: 'always', breakAfter: 'page', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
@@ -949,10 +949,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <div style={{ width: '130px', height: '4px', backgroundColor: '#3b82f6', margin: '16px auto 26px auto' }}></div>
                 <h1 style={{ fontSize: '35pt', fontWeight: '800', color: '#000', lineHeight: '1.15', margin: '0 0 14px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dossier de Simulacros de Examen</h1>
                 <h2 style={{ fontSize: '18pt', fontWeight: '700', color: '#2563eb', margin: '0 0 28px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-                
+
                 <div style={{ fontSize: '13pt', color: '#333', maxWidth: '92%', lineHeight: '1.5', margin: '0 auto', padding: '24px 28px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
-                  <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier recopila una serie de simulacros de examen predefinidos y equilibrados para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla. 
-                  <br/><br/>
+                  <strong>Introducción y Exención de Responsabilidad:</strong> Este dossier recopila una serie de simulacros de examen predefinidos y equilibrados para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo de la Universidad de Sevilla.
+                  <br /><br />
                   Cada simulacro consta de <strong>40 preguntas de opción múltiple</strong> con una distribución paritaria de <strong>2 preguntas por cada uno de los 20 temas</strong> del programa de la convocatoria. Se incluye al final de cada examen su correspondiente solucionario y hoja de justificaciones basadas en las normativas aplicables.
                 </div>
               </div>
@@ -967,7 +967,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 </div>
               </div>
             </div>
-            
+
             {/* Salto de página tras la portada */}
             <div className="print-page-break"></div>
 
@@ -977,7 +977,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Ficha Resumen de la Convocatoria</h1>
                 <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
               </div>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '13pt', lineHeight: '1.4', color: '#000000', textAlign: 'justify' }}>
                 <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
                 <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
@@ -997,7 +997,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Índice de Simulacros Incluidos</h1>
                 <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Dossier completo de simulacros para Auxiliar de Biblioteca - US</p>
               </div>
-              
+
               <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Simulacros Seleccionados</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {compiledExamsContent.map(examBlock => (
@@ -1008,7 +1008,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 ))}
               </div>
             </div>
-            
+
             {/* Salto de página tras la relación de simulacros */}
             <div className="print-page-break"></div>
 
@@ -1098,7 +1098,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
                 <p style={{ margin: '2px 0 0 0', fontSize: '11pt', color: '#555555', lineHeight: '1.4' }}>Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
               </div>
-              
+
               <div style={{ margin: '15px auto', textAlign: 'center', maxWidth: '100%' }}>
                 <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style={{ maxWidth: '100%', height: 'auto', maxHeight: '220mm', border: '1px solid #cbd5e1', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: '4px', display: 'block', margin: '0 auto' }} />
               </div>
@@ -1116,30 +1116,30 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </p>
             </div>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <button 
-                onClick={handleRestart} 
-                className="glow-btn-secondary" 
+              <button
+                onClick={handleRestart}
+                className="glow-btn-secondary"
                 style={{ padding: '8px 16px' }}
               >
                 Volver a Configurar
               </button>
-              <button 
-                onClick={() => { setIsTestBookPrintMode(true); setShowPrintModal(true); }} 
-                className="glow-btn-secondary" 
+              <button
+                onClick={() => { setIsTestBookPrintMode(true); setShowPrintModal(true); }}
+                className="glow-btn-secondary"
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(59, 130, 246, 0.15)', border: '1px solid var(--primary-light)', color: 'var(--primary-light)' }}
               >
                 💾 Guardar como Nueva Edición
               </button>
-              <button 
-                onClick={handlePrintClick} 
-                className="glow-btn" 
+              <button
+                onClick={handlePrintClick}
+                className="glow-btn"
                 style={{ padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Printer size={16} />
                 Imprimir Cuaderno (PDF)
               </button>
             </div>
           </div>
-          
+
           <div className="print-preview-content">
             {/* Cover page for the Test Book PDF */}
             {/* Portada del Cuaderno de Tests */}
@@ -1149,10 +1149,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <div style={{ width: '130px', height: '4px', backgroundColor: '#3b82f6', margin: '16px auto 26px auto' }}></div>
                 <h1 style={{ fontSize: '35pt', fontWeight: '800', color: '#000', lineHeight: '1.15', margin: '0 0 14px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cuaderno de Tests y Solucionario</h1>
                 <h2 style={{ fontSize: '18pt', fontWeight: '700', color: '#2563eb', margin: '0 0 28px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Técnico/a Auxiliar de Biblioteca, Archivo y Museo</h2>
-                
+
                 <div style={{ fontSize: '13pt', color: '#333', maxWidth: '92%', lineHeight: '1.5', margin: '0 auto', padding: '24px 28px', backgroundColor: '#f8fafc', borderRadius: '8px', borderLeft: '5px solid #2563eb', textAlign: 'justify', boxShadow: 'none' }}>
-                  <strong>Introducción y Exención de Responsabilidad:</strong> Este cuaderno de autoevaluación ha sido elaborado de forma independiente como material de apoyo didáctico para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV) de la Universidad de Sevilla. 
-                  <br/><br/>
+                  <strong>Introducción y Exención de Responsabilidad:</strong> Este cuaderno de autoevaluación ha sido elaborado de forma independiente como material de apoyo didáctico para la preparación de las oposiciones de Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV) de la Universidad de Sevilla.
+                  <br /><br />
                   Contiene una selección de cuestionarios tipo test por temas extraídos del pool de preparación, con sus correspondientes plantillas de soluciones y justificaciones redactadas a partir de normativas vigentes (Convenio Colectivo, LOSU, Ley de Prevención de Riesgos Laborales, etc.). El uso de este material es responsabilidad exclusiva del opositor en su proceso de estudio.
                 </div>
               </div>
@@ -1167,7 +1167,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 </div>
               </div>
             </div>
-            
+
             {/* Salto de página tras la portada */}
             <div className="print-page-break"></div>
 
@@ -1177,7 +1177,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Ficha Resumen de la Convocatoria</h1>
                 <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Resolución de 18 de junio de 2026 (BOJA nº 125, de 1 de julio de 2026)</p>
               </div>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '13pt', lineHeight: '1.4', color: '#000000', textAlign: 'justify' }}>
                 <div><strong>Categoría Profesional:</strong> Técnico/a Auxiliar de Biblioteca, Archivo y Museo (Grupo IV del IV Convenio Colectivo de Personal Laboral de las Universidades Públicas de Andalucía) de la Universidad de Sevilla (US). Acceso libre mediante concurso-oposición.</div>
                 <div><strong>Plazas Convocadas:</strong> Un total de <strong>19 plazas</strong> (16 por turno libre general y 3 reservadas para el turno general de discapacidad), junto con la constitución de una Bolsa de Trabajo temporal.</div>
@@ -1197,7 +1197,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <h1 style={{ margin: 0, color: '#000000', fontSize: '22pt', fontWeight: 'bold', textTransform: 'uppercase' }}>Índice de Cuestionarios Incluidos</h1>
                 <p style={{ margin: '4px 0 0 0', color: '#555555', fontSize: '12pt' }}>Dossier completo de tests por temas para Auxiliar de Biblioteca - US</p>
               </div>
-              
+
               <h3 style={{ color: '#1e3a8a', fontSize: '14pt', borderBottom: '1px solid #1e3a8a', paddingBottom: '4px', marginTop: '20px', marginBottom: '12px', textTransform: 'uppercase', fontWeight: 'bold' }}>Cuestionarios Seleccionados</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {testBookContent.map(block => (
@@ -1228,7 +1228,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                       Responda a las siguientes {block.questions.length} preguntas de opción múltiple.
                     </p>
                   </div>
-                  
+
                   <div className="questions-print-list" style={{ marginTop: '20px' }}>
                     {block.questions.map((q, idx) => (
                       <div key={idx} className="printable-question-item">
@@ -1262,7 +1262,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                       Plantilla de respuestas correctas y citas normativas para el Tema {block.topicId}.
                     </p>
                   </div>
-                  
+
                   <div className="answers-print-list">
                     {block.questions.map((q, idx) => {
                       const correctLetter = ['A', 'B', 'C', 'D'][q.correctAnswer];
@@ -1293,7 +1293,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 <h1 style={{ margin: '4px 0 0 0', fontSize: '20pt', fontWeight: 'bold', color: '#000000', textTransform: 'uppercase' }}>Modelo de Hoja de Examen (Universidad de Sevilla)</h1>
                 <p style={{ margin: '2px 0 0 0', fontSize: '11pt', color: '#555555', lineHeight: '1.4' }}>Modelo oficial tipo test de respuesta de la Universidad de Sevilla a todo color para simulación de examen real.</p>
               </div>
-              
+
               <div style={{ margin: '15px auto', textAlign: 'center', maxWidth: '100%' }}>
                 <img src="/images/hoja_examen_us_red_blue.png" alt="Modelo de Hoja de Examen Oficial Universidad de Sevilla (Color)" style={{ maxWidth: '100%', height: 'auto', maxHeight: '220mm', border: '1px solid #cbd5e1', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', borderRadius: '4px', display: 'block', margin: '0 auto' }} />
               </div>
@@ -1302,8 +1302,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
         </div>
       ) : isPaperInteractiveMode ? (
         /* Interactive Paper Exam Mode */
-        <div 
-          className="paper-exam-container fade-in" 
+        <div
+          className="paper-exam-container fade-in"
           style={isPaperFullscreen ? {
             position: 'fixed',
             top: 0,
@@ -1386,60 +1386,60 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
           <div style={{ width: '100%', maxWidth: isPaperFullscreen ? '1350px' : '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {!isPaperFullscreen && (
               <div className="print-preview-header" style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '16px', marginBottom: '24px' }}>
-              <div>
-                <h4 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--text-main)' }}>Modo Examen en Papel (Interactivo)</h4>
-                <p className="text-muted" style={{ fontSize: '0.85rem', margin: '4px 0 0 0' }}>
-                  Responde directamente sobre las hojas simuladas del examen. Haz clic sobre cada opción para marcar tu respuesta con una cruz.
-                </p>
-              </div>
-              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <button 
-                  onClick={() => setIsPaperFullscreen(!isPaperFullscreen)} 
-                  className="glow-btn-secondary" 
-                  style={{ padding: '8px 12px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                  title={isPaperFullscreen ? "Salir de Pantalla Completa" : "Pantalla Completa / Modo Enfoque"}
-                >
-                  {isPaperFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
-                  <span>{isPaperFullscreen ? "Contraer" : "Modo Enfoque"}</span>
-                </button>
+                <div>
+                  <h4 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--text-main)' }}>Modo Examen en Papel (Interactivo)</h4>
+                  <p className="text-muted" style={{ fontSize: '0.85rem', margin: '4px 0 0 0' }}>
+                    Responde directamente sobre las hojas simuladas del examen. Haz clic sobre cada opción para marcar tu respuesta con una cruz.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <button
+                    onClick={() => setIsPaperFullscreen(!isPaperFullscreen)}
+                    className="glow-btn-secondary"
+                    style={{ padding: '8px 12px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    title={isPaperFullscreen ? "Salir de Pantalla Completa" : "Pantalla Completa / Modo Enfoque"}
+                  >
+                    {isPaperFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+                    <span>{isPaperFullscreen ? "Contraer" : "Modo Enfoque"}</span>
+                  </button>
 
-                <button 
-                  onClick={handleRestart} 
-                  className="glow-btn-secondary" 
-                  style={{ padding: '8px 16px', fontSize: '0.85rem' }}
-                >
-                  Volver a Configurar
-                </button>
-                
-                {!paperExamSubmitted ? (
-                  <button 
-                    onClick={handleSubmitPaperExam} 
-                    className="glow-btn" 
-                    style={{ padding: '8px 16px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  <button
+                    onClick={handleRestart}
+                    className="glow-btn-secondary"
+                    style={{ padding: '8px 16px', fontSize: '0.85rem' }}
                   >
-                    <span>Finalizar Examen y Corregir</span>
+                    Volver a Configurar
                   </button>
-                ) : (
-                  <button 
-                    onClick={() => handleStartQuiz(true)} 
-                    className="glow-btn" 
-                    style={{ padding: '8px 16px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                  >
-                    <RotateCcw size={14} />
-                    <span>Repetir Examen</span>
-                  </button>
-                )}
+
+                  {!paperExamSubmitted ? (
+                    <button
+                      onClick={handleSubmitPaperExam}
+                      className="glow-btn"
+                      style={{ padding: '8px 16px', fontSize: '0.85rem', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    >
+                      <span>Finalizar Examen y Corregir</span>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleStartQuiz(true)}
+                      className="glow-btn"
+                      style={{ padding: '8px 16px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    >
+                      <RotateCcw size={14} />
+                      <span>Repetir Examen</span>
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
             )}
 
             {/* Ultra-Compact Single Bar Results Header */}
             {paperExamSubmitted && (
-              <div className="results-summary-paper-card glass-panel fade-in" style={{ 
-                padding: '8px 14px', 
-                borderRadius: '10px', 
-                marginBottom: '12px', 
-                background: 'rgba(15, 23, 42, 0.85)', 
+              <div className="results-summary-paper-card glass-panel fade-in" style={{
+                padding: '8px 14px',
+                borderRadius: '10px',
+                marginBottom: '12px',
+                background: 'rgba(15, 23, 42, 0.85)',
                 border: '1px solid var(--border-color)',
                 display: 'flex',
                 alignItems: 'center',
@@ -1461,45 +1461,45 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>Total</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{totalQuestions}</div>
                   </div>
-                  
+
                   <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
                     <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>Resp.</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{answeredCount}</div>
                   </div>
-                  
+
                   <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
                     <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>Blanco</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#94a3b8' }}>{blankCount}</div>
                   </div>
-                  
+
                   <div style={{ background: 'rgba(16,185,129,0.08)', padding: '3px 8px', borderRadius: '6px', border: '1px solid rgba(16,185,129,0.3)', textAlign: 'center', minWidth: '55px' }}>
                     <div style={{ fontSize: '0.55rem', color: 'var(--accent-emerald)', fontWeight: 'bold', textTransform: 'uppercase' }}>Aciertos</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>{correctCount}</div>
                   </div>
-                  
+
                   <div style={{ background: 'rgba(239,68,68,0.08)', padding: '3px 8px', borderRadius: '6px', border: '1px solid rgba(239,68,68,0.3)', textAlign: 'center', minWidth: '55px' }}>
                     <div style={{ fontSize: '0.55rem', color: 'var(--accent-rose)', fontWeight: 'bold', textTransform: 'uppercase' }}>Errores</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-rose)' }}>{incorrectCount}</div>
                   </div>
-                  
+
                   <div style={{ background: 'rgba(255,255,255,0.03)', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', textAlign: 'center', minWidth: '55px' }}>
                     <div style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase' }}>% Nota</div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-gold)' }}>{percentage}%</div>
                   </div>
                 </div>
-                
+
                 {/* Final Score Integrated Pill */}
-                <div style={{ 
-                  background: 'linear-gradient(135deg, rgba(217,119,6,0.2) 0%, rgba(245,158,11,0.1) 100%)', 
-                  padding: '4px 12px', 
-                  borderRadius: '8px', 
-                  border: '1.5px solid var(--secondary)', 
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(217,119,6,0.2) 0%, rgba(245,158,11,0.1) 100%)',
+                  padding: '4px 12px',
+                  borderRadius: '8px',
+                  border: '1.5px solid var(--secondary)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
                   position: 'relative'
                 }}
-                title={`Fórmula: (Aciertos - Errores / 4) × (65 / ${totalQuestions})\n[Acierto = +${(65 / totalQuestions).toFixed(2)} ptos | Error = -${(65 / totalQuestions / 4).toFixed(3)} ptos | Blanco = 0 ptos]`}
+                  title={`Fórmula: (Aciertos - Errores / 4) × (65 / ${totalQuestions})\n[Acierto = +${(65 / totalQuestions).toFixed(2)} ptos | Error = -${(65 / totalQuestions / 4).toFixed(3)} ptos | Blanco = 0 ptos]`}
                 >
                   <div style={{ textAlign: 'right' }}>
                     <div style={{ fontSize: '0.55rem', color: 'var(--secondary)', fontWeight: 'bold', textTransform: 'uppercase' }}>Puntuación Final</div>
@@ -1511,7 +1511,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 </div>
               </div>
             )}
-            
+
             <div className="print-preview-content" style={{ padding: isPaperFullscreen ? '60px 80px' : '50px 70px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', border: '1px solid #cbd5e1', width: '100%', maxHeight: 'none', boxSizing: 'border-box' }}>
               <div className="printable-exam-sheet">
                 {/* Header inside paper */}
@@ -1530,7 +1530,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                       <strong>Fecha:</strong> <span style={{ fontFamily: 'monospace', fontSize: '0.95rem' }}>{new Date().toLocaleDateString('es-ES')}</span>
                     </div>
                     <div className="metadata-field" style={{ borderBottom: '1px solid #666', paddingBottom: '4px' }}>
-                      <strong>Puntuación:</strong> <span style={{ fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: 'bold' }}>{paperExamSubmitted ? `${scoreOver65.toFixed(2)}/65.00 (${Math.round((score/questions.length)*100)}%)` : '_________'}</span>
+                      <strong>Puntuación:</strong> <span style={{ fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: 'bold' }}>{paperExamSubmitted ? `${scoreOver65.toFixed(2)}/65.00 (${Math.round((score / questions.length) * 100)}%)` : '_________'}</span>
                     </div>
                   </div>
                 </div>
@@ -1549,40 +1549,40 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                             <span style={{ fontWeight: '800', fontSize: isPaperFullscreen ? '1.15rem' : '0.98rem', color: 'black' }}>{qIndex + 1}.</span>
                             {paperExamSubmitted && (
                               !isAnswered ? (
-                                <span style={{ 
-                                  backgroundColor: '#dc2626', 
-                                  color: '#ffffff', 
-                                  fontWeight: '800', 
-                                  fontSize: '0.7rem', 
+                                <span style={{
+                                  backgroundColor: '#dc2626',
+                                  color: '#ffffff',
+                                  fontWeight: '800',
+                                  fontSize: '0.7rem',
                                   letterSpacing: '0.5px',
                                   textTransform: 'uppercase',
-                                  padding: '2px 7px', 
+                                  padding: '2px 7px',
                                   borderRadius: '4px'
                                 }}>
                                   NO CONTESTADA
                                 </span>
                               ) : isQuestionCorrect ? (
-                                <span style={{ 
-                                  backgroundColor: '#16a34a', 
-                                  color: '#ffffff', 
-                                  fontWeight: '800', 
-                                  fontSize: '0.7rem', 
+                                <span style={{
+                                  backgroundColor: '#16a34a',
+                                  color: '#ffffff',
+                                  fontWeight: '800',
+                                  fontSize: '0.7rem',
                                   letterSpacing: '0.5px',
                                   textTransform: 'uppercase',
-                                  padding: '2px 7px', 
+                                  padding: '2px 7px',
                                   borderRadius: '4px'
                                 }}>
                                   ACIERTO
                                 </span>
                               ) : (
-                                <span style={{ 
-                                  backgroundColor: '#ef4444', 
-                                  color: '#ffffff', 
-                                  fontWeight: '800', 
-                                  fontSize: '0.7rem', 
+                                <span style={{
+                                  backgroundColor: '#ef4444',
+                                  color: '#ffffff',
+                                  fontWeight: '800',
+                                  fontSize: '0.7rem',
                                   letterSpacing: '0.5px',
                                   textTransform: 'uppercase',
-                                  padding: '2px 7px', 
+                                  padding: '2px 7px',
                                   borderRadius: '4px'
                                 }}>
                                   ERROR
@@ -1600,118 +1600,118 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                           {q.question}
                         </div>
 
-                      <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '4px', paddingLeft: '8px' }}>
-                        {q.options.map((opt, optIndex) => {
-                          const isSelected = userAnswers[qIndex] === optIndex;
-                          const isCorrect = optIndex === q.correctAnswer;
-                          
-                          let itemStyle = {
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '12px',
-                            padding: '5px 10px',
-                            borderRadius: '8px',
-                            cursor: paperExamSubmitted ? 'default' : 'pointer',
-                            fontSize: isPaperFullscreen ? '1.05rem' : '0.92rem',
-                            color: '#334155',
-                            transition: 'all 0.15s ease',
-                            border: '1px solid transparent'
-                          };
+                        <div className="printable-options-list" style={{ display: 'flex', flexDirection: 'column', gap: '4px', paddingLeft: '8px' }}>
+                          {q.options.map((opt, optIndex) => {
+                            const isSelected = userAnswers[qIndex] === optIndex;
+                            const isCorrect = optIndex === q.correctAnswer;
 
-                          let boxStyle = {
-                            width: '18px',
-                            height: '18px',
-                            border: '2px solid #475569',
-                            borderRadius: '4px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            marginTop: '2px',
-                            flexShrink: 0,
-                            fontWeight: 'bold',
-                            fontSize: '0.8rem',
-                            color: '#1e3a8a',
-                            transition: 'all 0.15s ease'
-                          };
+                            let itemStyle = {
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '12px',
+                              padding: '5px 10px',
+                              borderRadius: '8px',
+                              cursor: paperExamSubmitted ? 'default' : 'pointer',
+                              fontSize: isPaperFullscreen ? '1.05rem' : '0.92rem',
+                              color: '#334155',
+                              transition: 'all 0.15s ease',
+                              border: '1px solid transparent'
+                            };
 
-                          if (paperExamSubmitted) {
-                            if (isCorrect) {
-                              itemStyle.backgroundColor = !isAnswered ? '#fefce8' : '#dcfce7'; // yellow if unanswered, green if answered
-                              itemStyle.color = !isAnswered ? '#854d0e' : '#14532d';
-                              itemStyle.border = !isAnswered ? '1.5px dashed #ca8a04' : '1px solid #bbf7d0';
-                              boxStyle.borderColor = !isAnswered ? '#ca8a04' : '#16a34a';
-                              boxStyle.backgroundColor = !isAnswered ? '#fef08a' : '#16a34a';
-                              boxStyle.color = !isAnswered ? '#854d0e' : 'white';
-                            } else if (isSelected && !isCorrect) {
-                              itemStyle.backgroundColor = '#fee2e2'; // red bg
-                              itemStyle.color = '#7f1d1d';
-                              itemStyle.border = '1px solid #fecaca';
-                              boxStyle.borderColor = '#dc2626';
-                              boxStyle.backgroundColor = '#dc2626';
-                              boxStyle.color = 'white';
+                            let boxStyle = {
+                              width: '18px',
+                              height: '18px',
+                              border: '2px solid #475569',
+                              borderRadius: '4px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              marginTop: '2px',
+                              flexShrink: 0,
+                              fontWeight: 'bold',
+                              fontSize: '0.8rem',
+                              color: '#1e3a8a',
+                              transition: 'all 0.15s ease'
+                            };
+
+                            if (paperExamSubmitted) {
+                              if (isCorrect) {
+                                itemStyle.backgroundColor = !isAnswered ? '#fefce8' : '#dcfce7'; // yellow if unanswered, green if answered
+                                itemStyle.color = !isAnswered ? '#854d0e' : '#14532d';
+                                itemStyle.border = !isAnswered ? '1.5px dashed #ca8a04' : '1px solid #bbf7d0';
+                                boxStyle.borderColor = !isAnswered ? '#ca8a04' : '#16a34a';
+                                boxStyle.backgroundColor = !isAnswered ? '#fef08a' : '#16a34a';
+                                boxStyle.color = !isAnswered ? '#854d0e' : 'white';
+                              } else if (isSelected && !isCorrect) {
+                                itemStyle.backgroundColor = '#fee2e2'; // red bg
+                                itemStyle.color = '#7f1d1d';
+                                itemStyle.border = '1px solid #fecaca';
+                                boxStyle.borderColor = '#dc2626';
+                                boxStyle.backgroundColor = '#dc2626';
+                                boxStyle.color = 'white';
+                              }
+                            } else {
+                              if (isSelected) {
+                                itemStyle.backgroundColor = '#eff6ff'; // blue outline
+                                itemStyle.border = '1px solid #bfdbfe';
+                                boxStyle.borderColor = '#1d4ed8';
+                                boxStyle.backgroundColor = '#1d4ed8';
+                                boxStyle.color = 'white';
+                              }
                             }
-                          } else {
-                            if (isSelected) {
-                              itemStyle.backgroundColor = '#eff6ff'; // blue outline
-                              itemStyle.border = '1px solid #bfdbfe';
-                              boxStyle.borderColor = '#1d4ed8';
-                              boxStyle.backgroundColor = '#1d4ed8';
-                              boxStyle.color = 'white';
-                            }
-                          }
 
-                          const handleOptionSelect = () => {
-                            if (paperExamSubmitted) return;
-                            setUserAnswers(prev => {
-                              const next = [...prev];
-                              next[qIndex] = optIndex;
-                              return next;
-                            });
-                          };
+                            const handleOptionSelect = () => {
+                              if (paperExamSubmitted) return;
+                              setUserAnswers(prev => {
+                                const next = [...prev];
+                                next[qIndex] = optIndex;
+                                return next;
+                              });
+                            };
 
-                          return (
-                            <div 
-                              key={optIndex} 
-                              onClick={handleOptionSelect}
-                              className={`paper-option-item-container ${!paperExamSubmitted ? 'hoverable-option' : ''}`}
-                              style={itemStyle}
-                            >
-                              <div style={boxStyle}>
-                                {paperExamSubmitted ? (
-                                  isCorrect ? (isAnswered ? '✓' : '!') : isSelected ? '✗' : ''
-                                ) : (
-                                  isSelected ? 'X' : ''
+                            return (
+                              <div
+                                key={optIndex}
+                                onClick={handleOptionSelect}
+                                className={`paper-option-item-container ${!paperExamSubmitted ? 'hoverable-option' : ''}`}
+                                style={itemStyle}
+                              >
+                                <div style={boxStyle}>
+                                  {paperExamSubmitted ? (
+                                    isCorrect ? (isAnswered ? '✓' : '!') : isSelected ? '✗' : ''
+                                  ) : (
+                                    isSelected ? 'X' : ''
+                                  )}
+                                </div>
+                                <span style={{ lineHeight: '1.4' }}>
+                                  <strong>{['A', 'B', 'C', 'D'][optIndex]})</strong> {opt.replace(/^[A-D]\)\s*/, '')}
+                                </span>
+                                {paperExamSubmitted && !isAnswered && isCorrect && (
+                                  <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 'bold', color: '#854d0e', backgroundColor: '#fef9c3', border: '1px solid #fef08a', padding: '2px 8px', borderRadius: '12px' }}>
+                                    Respuesta Correcta (Sin contestar)
+                                  </span>
                                 )}
                               </div>
-                              <span style={{ lineHeight: '1.4' }}>
-                                <strong>{['A', 'B', 'C', 'D'][optIndex]})</strong> {opt.replace(/^[A-D]\)\s*/, '')}
-                              </span>
-                              {paperExamSubmitted && !isAnswered && isCorrect && (
-                                <span style={{ marginLeft: 'auto', fontSize: '0.75rem', fontWeight: 'bold', color: '#854d0e', backgroundColor: '#fef9c3', border: '1px solid #fef08a', padding: '2px 8px', borderRadius: '12px' }}>
-                                  Respuesta Correcta (Sin contestar)
-                                </span>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* Feedback Explanation if submitted */}
-                      {paperExamSubmitted && (
-                        <div className="paper-explanation-box fade-in" style={{ marginTop: '8px', marginLeft: '8px', padding: '8px 12px', backgroundColor: '#f8fafc', borderLeft: '3px solid #94a3b8', borderRadius: '4px', fontSize: '0.8rem', color: '#475569', lineHeight: '1.4' }}>
-                          <strong>Justificación:</strong> {q.explanation}
+                            );
+                          })}
                         </div>
-                      )}
-                    </div>
-                  );
-                })}
+
+                        {/* Feedback Explanation if submitted */}
+                        {paperExamSubmitted && (
+                          <div className="paper-explanation-box fade-in" style={{ marginTop: '8px', marginLeft: '8px', padding: '8px 12px', backgroundColor: '#f8fafc', borderLeft: '3px solid #94a3b8', borderRadius: '4px', fontSize: '0.8rem', color: '#475569', lineHeight: '1.4' }}>
+                            <strong>Justificación:</strong> {q.explanation}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* Submit button at bottom */}
                 {!paperExamSubmitted && (
                   <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px', paddingTop: '20px', borderTop: '2px solid black' }}>
-                    <button 
-                      onClick={handleSubmitPaperExam} 
+                    <button
+                      onClick={handleSubmitPaperExam}
                       className="glow-btn"
                       style={{ padding: '14px 32px', fontSize: '1.05rem', fontWeight: 'bold', background: 'linear-gradient(135deg, var(--secondary) 0%, #d97706 100%)', display: 'flex', alignItems: 'center', gap: '8px', borderRadius: '30px' }}
                     >
@@ -1732,8 +1732,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               <span>Pregunta <strong>{currentQuestionIndex + 1}</strong> de {questions.length}</span>
               <span className="divider">|</span>
               <span className="text-primary-light">
-                {selectedTopicMode === 'custom' 
-                  ? `Tema ${questions[currentQuestionIndex].topicId}` 
+                {selectedTopicMode === 'custom'
+                  ? `Tema ${questions[currentQuestionIndex].topicId}`
                   : `Tema ${singleTopicId}`}
               </span>
             </div>
@@ -1752,7 +1752,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               {questions[currentQuestionIndex].options.map((option, idx) => {
                 const isSelected = selectedAnswer === idx;
                 const isCorrect = idx === questions[currentQuestionIndex].correctAnswer;
-                
+
                 let optionClass = '';
                 if (answered) {
                   if (isCorrect) {
@@ -1796,17 +1796,17 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
         </div>
       )}
 
-      <PrintEditionModal 
-        isOpen={showPrintModal} 
-        onClose={() => setShowPrintModal(false)} 
-        materialType={isTestBookPrintMode ? 'test' : 'simulacro'} 
-        topicCount={testBookContent?.length || 20} 
+      <PrintEditionModal
+        isOpen={showPrintModal}
+        onClose={() => setShowPrintModal(false)}
+        materialType={isTestBookPrintMode ? 'test' : 'simulacro'}
+        topicCount={testBookContent?.length || 20}
         defaultTitle={
-          isTestBookPrintMode 
+          isTestBookPrintMode
             ? `Cuaderno de Cuestionarios (${!isCustomLimitInput && questionLimit === 'all' ? 'Todas las preguntas' : `${isCustomLimitInput ? customLimitValue : questionLimit} test por tema`})`
             : `Dossier de Simulacros de Examen (15 Simulacros)`
-        } 
-        onConfirmPrint={handleConfirmPrintEdition} 
+        }
+        onConfirmPrint={handleConfirmPrintEdition}
       />
     </div>
   );

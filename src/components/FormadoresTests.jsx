@@ -31,7 +31,7 @@ export default function FormadoresTests({ currentUser }) {
   const batteries = [
     {
       id: 'estatutos_1',
-      title: 'Estatutos US - Bloque 1',
+      title: 'Estatutos Universidad de Sevilla - Bloque 1',
       subtitle: 'Títulos I y III de los Estatutos de la Universidad de Sevilla',
       questionsCount: estatutosBloque1.length,
       data: estatutosBloque1,
@@ -40,7 +40,7 @@ export default function FormadoresTests({ currentUser }) {
     },
     {
       id: 'estatutos_2',
-      title: 'Estatutos US - Bloque 2',
+      title: 'Estatutos Universidad de Sevilla - Bloque 2',
       subtitle: 'Títulos I y III de los Estatutos de la Universidad de Sevilla',
       questionsCount: estatutosBloque2.length,
       data: estatutosBloque2,
@@ -67,12 +67,12 @@ export default function FormadoresTests({ currentUser }) {
     },
     {
       id: 'oficial_2001_4140',
-      title: 'Examen Oficial US (Código 2001)',
+      title: 'Examen Oficial Universidad de Sevilla (Código 2001)',
       subtitle: 'Preguntas oficiales validadas y auditadas 100% para el Código 4140',
       questionsCount: codigo2001Validadas.length,
       data: codigo2001Validadas,
       color: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', // Amber/Gold
-      theme: 'Oficial US'
+      theme: 'Oficial Univ. de Sevilla'
     }
   ];
 
@@ -460,7 +460,7 @@ export default function FormadoresTests({ currentUser }) {
                         {b.theme}
                       </span>
                       <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                        {b.questionsCount} pregs.
+                        {b.questionsCount} preguntas
                       </span>
                     </div>
 
