@@ -564,7 +564,7 @@ export default function App() {
           />
         );
       case 'manual':
-        return <UserManual />;
+        return <UserManual currentUser={currentUser} />;
       case 'anexos':
         return <UserAnexosView currentUser={currentUser} topics={topicsData} />;
       case 'admin':

@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Info, 
-  LayoutDashboard, 
-  BookOpen, 
-  GraduationCap, 
-  Layers, 
-  ClipboardList, 
-  BarChart3, 
-  Search, 
-  ChevronDown, 
-  AlertCircle, 
-  HelpCircle, 
+import {
+  Info,
+  LayoutDashboard,
+  BookOpen,
+  GraduationCap,
+  Layers,
+  ClipboardList,
+  BarChart3,
+  Search,
+  ChevronDown,
+  AlertCircle,
+  HelpCircle,
   X,
-  Sparkles
+  Sparkles,
+  ShieldCheck,
+  User
 } from 'lucide-react';
-import { manualCategories } from '../data/manualData';
+import { studentManualCategories, adminManualCategories } from '../data/manualData';
 import './UserManual.css';
 
 // Helper to map icon name strings to Lucide components
@@ -32,10 +34,25 @@ const getCategoryIcon = (iconName) => {
   }
 };
 
-export default function UserManual() {
+export default function UserManual({ currentUser }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [manualTab, setManualTab] = useState('student'); // 'student' | 'admin'
   const [activeCategoryId, setActiveCategoryId] = useState('introduccion');
   const [expandedSections, setExpandedSections] = useState({});
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const isAdmin = currentUser?.role === 'admin';
+
+  // Choose the categories array based on the manualTab state
+  const activeCategories = manualTab === 'admin' ? adminManualCategories : studentManualCategories;
+
+  // React to change of tab to automatically select the first category in list
+  useEffect(() => {
+    if (activeCategories.length > 0) {
+      setActiveCategoryId(activeCategories[0].id);
+    }
+    setExpandedSections({});
+  }, [manualTab]);
 
   // Helper to check if text contains search query (case-insensitive)
   const textMatches = (text, query) => {
@@ -46,13 +63,13 @@ export default function UserManual() {
   // Check if any element of a category matches the search query
   const categoryHasMatches = (category, query) => {
     if (!query) return true;
-    
+
     if (textMatches(category.title, query) || textMatches(category.intro, query)) {
       return true;
     }
 
-    return category.sections.some(section => 
-      textMatches(section.title, query) || 
+    return category.sections.some(section =>
+      textMatches(section.title, query) ||
       textMatches(section.content, query) ||
       (section.steps && section.steps.some(step => textMatches(step, query))) ||
       textMatches(section.alert, query) ||
@@ -61,7 +78,7 @@ export default function UserManual() {
   };
 
   // Filtered categories based on search query
-  const filteredCategories = manualCategories.filter(cat => 
+  const filteredCategories = activeCategories.filter(cat =>
     categoryHasMatches(cat, searchQuery)
   );
 
@@ -82,7 +99,7 @@ export default function UserManual() {
     const parts = text.split(new RegExp(`(${query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')})`, 'gi'));
     return (
       <span>
-        {parts.map((part, index) => 
+        {parts.map((part, index) =>
           part.toLowerCase() === query.toLowerCase()
             ? <span key={index} className="manual-highlight">{part}</span>
             : part
@@ -94,27 +111,26 @@ export default function UserManual() {
   // Effect to automatically expand all matching sections when a search query is entered
   useEffect(() => {
     if (!searchQuery) {
-      // Clear expansions except maybe default first one if reset
       return;
     }
 
     const newExpanded = {};
-    manualCategories.forEach(category => {
+    activeCategories.forEach(category => {
       category.sections.forEach((section, idx) => {
-        const matchesSection = 
-          textMatches(section.title, searchQuery) || 
+        const matchesSection =
+          textMatches(section.title, searchQuery) ||
           textMatches(section.content, searchQuery) ||
           (section.steps && section.steps.some(step => textMatches(step, searchQuery))) ||
           textMatches(section.alert, searchQuery) ||
           textMatches(section.tip, searchQuery);
-          
+
         if (matchesSection) {
           newExpanded[`${category.id}-${idx}`] = true;
         }
       });
     });
     setExpandedSections(newExpanded);
-  }, [searchQuery]);
+  }, [searchQuery, activeCategories]);
 
   // Handle clearing search input
   const clearSearch = () => {
@@ -125,26 +141,51 @@ export default function UserManual() {
     <div className="manual-view fade-in">
       {/* Header section with Title */}
       <header className="dashboard-header" style={{ marginBottom: '10px' }}>
-        <div>
-          <h1 className="text-gradient">Manual de Instrucciones</h1>
-          <p className="text-muted">Guía práctica sobre el uso de las funciones de estudio, tests, pomodoro e impresión.</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', width: '100%', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <h1 className="text-gradient">Manual de Instrucciones</h1>
+            <p className="text-muted">Guía práctica sobre el funcionamiento y administración de la plataforma.</p>
+          </div>
+
+          {/* User / Administrator selector */}
+          {isAdmin && (
+            <div className="manual-tab-selector glass-panel">
+              <button
+                onClick={() => setManualTab('student')}
+                className={`manual-tab-btn ${manualTab === 'student' ? 'active' : ''}`}
+              >
+                <User size={14} />
+                <span>Manual de Alumno</span>
+              </button>
+              <button
+                onClick={() => setManualTab('admin')}
+                className={`manual-tab-btn ${manualTab === 'admin' ? 'active' : ''}`}
+                style={{
+                  borderLeft: '1px solid var(--border-color)'
+                }}
+              >
+                <ShieldCheck size={14} style={{ color: manualTab === 'admin' ? '#000' : 'var(--secondary-light)' }} />
+                <span>Administración</span>
+              </button>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Search Bar Widget */}
       <div className="manual-header-search">
         <Search size={18} className="text-muted" />
-        <input 
+        <input
           type="text"
           className="manual-search-input"
-          placeholder="¿Qué estás buscando? Ej. 'Pomodoro', 'TTS', 'Audio', 'Penalización'..."
+          placeholder="¿Qué estás buscando? Ej. 'Pomodoro', 'Códigos', 'Banco', 'Penalización'..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         {searchQuery && (
-          <button 
-            type="button" 
-            onClick={clearSearch} 
+          <button
+            type="button"
+            onClick={clearSearch}
             style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             title="Borrar búsqueda"
           >
@@ -155,11 +196,11 @@ export default function UserManual() {
 
       {/* Manual Layout Grid */}
       <div className="manual-grid">
-        
+
         {/* Left Column Navigation List (Only visible when not searching or if search returns results) */}
         {!searchQuery && (
-          <div className="manual-nav-list">
-            {manualCategories.map(cat => (
+          <div className="manual-nav-list animate-slide-in">
+            {activeCategories.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategoryId(cat.id)}
@@ -173,7 +214,7 @@ export default function UserManual() {
         )}
 
         {/* Right Column: Dynamic Panel content */}
-        <div className="manual-content-area" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="manual-content-area" style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: 1, minWidth: 0 }}>
           {searchQuery ? (
             /* Search results view */
             filteredCategories.length > 0 ? (
@@ -184,15 +225,25 @@ export default function UserManual() {
                     {highlightText(category.title, searchQuery)}
                   </h2>
                   <p className="manual-content-intro">{highlightText(category.intro, searchQuery)}</p>
-                  
+
+                  {/* Thumbnail Image display */}
+                  {category.imagePath && (
+                    <div className="manual-thumbnail-wrapper" onClick={() => setSelectedImage(category.imagePath)}>
+                      <img src={category.imagePath} alt={category.title} className="manual-thumbnail-img" />
+                      <div className="manual-thumbnail-overlay">
+                        <span>🔍 Haz clic para ampliar imagen</span>
+                      </div>
+                    </div>
+                  )}
+
                   {category.sections.map((section, idx) => {
                     const isExpanded = !!expandedSections[`${category.id}-${idx}`];
                     return (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className={`manual-accordion ${isExpanded ? 'expanded' : ''}`}
                       >
-                        <div 
+                        <div
                           className="manual-accordion-trigger"
                           onClick={() => toggleSection(category.id, idx)}
                         >
@@ -250,13 +301,14 @@ export default function UserManual() {
               <div className="glass-panel manual-no-results">
                 <AlertCircle size={48} style={{ color: 'var(--accent-rose)', margin: '0 auto 12px auto' }} />
                 <h3>No se encontraron coincidencias</h3>
-                <p style={{ marginTop: '6px', fontSize: '0.9rem' }}>Intenta buscar con otros términos como 'Pomodoro', 'TTS', 'Impresión' o 'Convenio'.</p>
+                <p style={{ marginTop: '6px', fontSize: '0.9rem' }}>Intenta buscar con otros términos como 'Pomodoro', 'Códigos', 'Banco' o 'Erratas'.</p>
               </div>
             )
           ) : (
             /* Normal single category view */
             (() => {
-              const category = manualCategories.find(cat => cat.id === activeCategoryId) || manualCategories[0];
+              const category = activeCategories.find(cat => cat.id === activeCategoryId) || activeCategories[0];
+              if (!category) return null;
               return (
                 <div className="manual-content-panel glass-panel">
                   <h2 style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.3rem', color: 'var(--secondary-light)', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px', margin: 0 }}>
@@ -264,15 +316,25 @@ export default function UserManual() {
                     {category.title}
                   </h2>
                   <p className="manual-content-intro">{category.intro}</p>
-                  
+
+                  {/* Thumbnail Image display */}
+                  {category.imagePath && (
+                    <div className="manual-thumbnail-wrapper" onClick={() => setSelectedImage(category.imagePath)}>
+                      <img src={category.imagePath} alt={category.title} className="manual-thumbnail-img" />
+                      <div className="manual-thumbnail-overlay">
+                        <span>🔍 Haz clic para ampliar captura de la interfaz</span>
+                      </div>
+                    </div>
+                  )}
+
                   {category.sections.map((section, idx) => {
                     const isExpanded = !!expandedSections[`${category.id}-${idx}`];
                     return (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className={`manual-accordion ${isExpanded ? 'expanded' : ''}`}
                       >
-                        <div 
+                        <div
                           className="manual-accordion-trigger"
                           onClick={() => toggleSection(category.id, idx)}
                         >
@@ -327,6 +389,18 @@ export default function UserManual() {
         </div>
 
       </div>
+
+      {/* Lightbox / Modal for Image Preview */}
+      {selectedImage && (
+        <div className="manual-lightbox-backdrop" onClick={() => setSelectedImage(null)}>
+          <div className="manual-lightbox-content glass-panel" onClick={(e) => e.stopPropagation()}>
+            <button className="manual-lightbox-close" onClick={() => setSelectedImage(null)}>
+              <X size={20} />
+            </button>
+            <img src={selectedImage} alt="Captura ampliada" className="manual-lightbox-image" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
