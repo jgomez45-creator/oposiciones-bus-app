@@ -530,6 +530,7 @@ export default function App() {
             incrementTimeForTopic={incrementTimeForTopic}
             setCurrentTab={setCurrentTab}
             currentUser={currentUser}
+            isMobile={isMobile}
           />
         );
       case 'quizzes':

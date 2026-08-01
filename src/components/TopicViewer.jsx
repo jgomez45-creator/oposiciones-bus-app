@@ -49,7 +49,8 @@ export default function TopicViewer({
   updateTopicStatus,
   incrementTimeForTopic,
   setCurrentTab,
-  currentUser
+  currentUser,
+  isMobile
 }) {
   const [showPrintModal, setShowPrintModal] = useState(false);
 
@@ -1368,9 +1369,9 @@ export default function TopicViewer({
             {/* Navigation header */}
             <div className="topic-viewer-nav">
               <div className="nav-buttons-left">
-                <button onClick={() => setCurrentTab('dashboard')} className="back-to-dashboard-btn">
+                <button onClick={() => setCurrentTab(isMobile ? 'mobile-menu' : 'dashboard')} className="back-to-dashboard-btn">
                   <ChevronLeft size={16} />
-                  <span className="nav-btn-text">Volver al Dashboard</span>
+                  <span className="nav-btn-text">{isMobile ? 'Volver al Menú' : 'Volver al Dashboard'}</span>
                 </button>
                 <button
                   onClick={() => setShowMobileSidebar(true)}
@@ -1444,6 +1445,57 @@ export default function TopicViewer({
               <h2>{topic.title}</h2>
               <p className="topic-subtitle-desc">{topic.subtitle}</p>
             </header>
+
+            {/* Tabs navigation */}
+            <div className="viewer-tabs">
+              <button
+                onClick={() => setActiveSubTab('content')}
+                className={`viewer-tab-btn ${activeSubTab === 'content' ? 'active' : ''}`}
+              >
+                <FileText size={16} />
+                <span>Contenido Completo</span>
+              </button>
+              <button
+                onClick={() => setActiveSubTab('outline')}
+                className={`viewer-tab-btn ${activeSubTab === 'outline' ? 'active' : ''}`}
+              >
+                <List size={16} />
+                <span>Esquema / Resumen</span>
+              </button>
+              <button
+                onClick={() => setActiveSubTab('concepts')}
+                className={`viewer-tab-btn ${activeSubTab === 'concepts' ? 'active' : ''}`}
+              >
+                <Tag size={16} />
+                <span>Conceptos Clave</span>
+              </button>
+              <button
+                onClick={() => {
+                  setActiveSubTab('video');
+                  if (topicVideos.length > 0) setShowVideoModal(true);
+                }}
+                className={`viewer-tab-btn ${activeSubTab === 'video' ? 'active' : ''}`}
+                style={{
+                  position: 'relative',
+                  border: activeSubTab === 'video' ? '1px solid var(--secondary)' : undefined
+                }}
+              >
+                <Video size={16} style={{ color: topicVideos.length > 0 ? 'var(--secondary)' : undefined }} />
+                <span>Videoclases ({topicVideos.length})</span>
+                {topicVideos.length > 0 && (
+                  <span style={{
+                    position: 'absolute',
+                    top: '-3px',
+                    right: '-3px',
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--secondary)',
+                    boxShadow: '0 0 6px var(--secondary)'
+                  }} />
+                )}
+              </button>
+            </div>
 
             {/* Study Timer Bar */}
             {(!isFocusMode || showReadingControls) && (
@@ -1675,58 +1727,6 @@ export default function TopicViewer({
                 )}
               </div>
             )}
-
-            {/* Tabs navigation */}
-            <div className="viewer-tabs">
-              <button
-                onClick={() => setActiveSubTab('content')}
-                className={`viewer-tab-btn ${activeSubTab === 'content' ? 'active' : ''}`}
-              >
-                <FileText size={16} />
-                <span>Contenido Completo</span>
-              </button>
-              <button
-                onClick={() => setActiveSubTab('outline')}
-                className={`viewer-tab-btn ${activeSubTab === 'outline' ? 'active' : ''}`}
-              >
-                <List size={16} />
-                <span>Esquema / Resumen</span>
-              </button>
-              <button
-                onClick={() => setActiveSubTab('concepts')}
-                className={`viewer-tab-btn ${activeSubTab === 'concepts' ? 'active' : ''}`}
-              >
-                <Tag size={16} />
-                <span>Conceptos Clave</span>
-              </button>
-              <button
-                onClick={() => {
-                  setActiveSubTab('video');
-                  if (topicVideos.length > 0) setShowVideoModal(true);
-                }}
-                className={`viewer-tab-btn ${activeSubTab === 'video' ? 'active' : ''}`}
-                style={{
-                  position: 'relative',
-                  border: activeSubTab === 'video' ? '1px solid var(--secondary)' : undefined
-                }}
-              >
-                <Video size={16} style={{ color: topicVideos.length > 0 ? 'var(--secondary)' : undefined }} />
-                <span>Videoclases ({topicVideos.length})</span>
-                {topicVideos.length > 0 && (
-                  <span style={{
-                    position: 'absolute',
-                    top: '-3px',
-                    right: '-3px',
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--secondary)',
-                    boxShadow: '0 0 6px var(--secondary)'
-                  }} />
-                )}
-              </button>
-            </div>
-
             {/* Reading settings bar - shown only when settings panel is open */}
             {showSettingsPanel && (
               <div className="reading-settings-dropdown glass-panel fade-in" style={{ position: 'relative' }}>
