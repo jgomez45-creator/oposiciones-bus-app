@@ -1341,7 +1341,7 @@ export const firebaseService = {
   /**
    * Envía un comunicado por email agregando registros a Firestore (mail trigger) o Local Mock
    */
-  async sendAdminEmailAnnounce(subject, bodyHtml, targetType, targetValue = '') {
+  async sendAdminEmailAnnounce(subject, bodyHtml, targetType, targetValue = '', sendAlsoEmail = false) {
     const now = new Date().toISOString();
     const id = `email_${Date.now()}`;
     const announcementRecord = {
@@ -1350,19 +1350,24 @@ export const firebaseService = {
       bodyHtml,
       targetType, // 'all' | 'code-prefix' | 'individual'
       targetValue,
-      createdAt: now
+      createdAt: now,
+      sendAlsoEmail: Boolean(sendAlsoEmail)
     };
 
-    // 1. Obtener la lista de usuarios y filtrar los que tienen desactivadas las notificaciones de correo
+    // 1. Obtener la lista de usuarios
     let targetUsers = [];
     if (isMock) {
       const mockUsers = getMockUsers();
       targetUsers = Object.values(mockUsers);
-    } else {
-      const snapshot = await getDocs(collection(db, 'users'));
-      snapshot.forEach(docSnap => {
-        targetUsers.push({ uid: docSnap.id, ...docSnap.data() });
-      });
+    } else if (db) {
+      try {
+        const snapshot = await getDocs(collection(db, 'users'));
+        snapshot.forEach(docSnap => {
+          targetUsers.push({ uid: docSnap.id, ...docSnap.data() });
+        });
+      } catch (e) {
+        console.warn("Could not fetch users list for announcement:", e);
+      }
     }
 
     // Filtrar los usuarios que tengan explícitamente emailNotificationsActive === false
@@ -1376,51 +1381,52 @@ export const firebaseService = {
       targetUsers = targetUsers.filter(u => u.uid === targetValue || u.email === targetValue);
     }
 
-    // Si no hay usuarios válidos, lanzar error
-    if (targetUsers.length === 0) {
-      throw new Error("No hay usuarios destinatarios que cumplan con los filtros de búsqueda o que tengan activado el boletín de correo.");
-    }
-
-    // 2. Procesar el histórico del comunicado
+    // 2. Procesar el comunicado general en base de datos para la App
     if (isMock) {
       const savedAnnouncements = localStorage.getItem('mock_db_email_announcements') || '{}';
       const announcementsMap = JSON.parse(savedAnnouncements);
       announcementsMap[id] = announcementRecord;
       localStorage.setItem('mock_db_email_announcements', JSON.stringify(announcementsMap));
 
-      // Simular envíos escribiendo a localStorage 'mock_sent_emails'
-      const savedEmails = localStorage.getItem('mock_sent_emails') || '[]';
-      const emailsList = JSON.parse(savedEmails);
-
-      targetUsers.forEach(u => {
-        const personalizedHtml = bodyHtml.replace(/{nombre}/g, u.name || 'Alumno');
-        emailsList.push({
-          id: `mail_${Math.random().toString(36).substring(2, 9)}_${Date.now()}`,
-          to: u.email,
-          subject,
-          html: personalizedHtml,
-          sentAt: now,
-          status: 'simulado'
+      if (sendAlsoEmail) {
+        const savedEmails = localStorage.getItem('mock_sent_emails') || '[]';
+        const emailsList = JSON.parse(savedEmails);
+        targetUsers.forEach(u => {
+          const personalizedHtml = bodyHtml.replace(/{nombre}/g, u.name || 'Alumno');
+          emailsList.push({
+            id: `mail_${Math.random().toString(36).substring(2, 9)}_${Date.now()}`,
+            to: u.email,
+            subject,
+            html: personalizedHtml,
+            sentAt: now,
+            status: 'simulado'
+          });
         });
-      });
-      localStorage.setItem('mock_sent_emails', JSON.stringify(emailsList));
+        localStorage.setItem('mock_sent_emails', JSON.stringify(emailsList));
+      }
       window.dispatchEvent(new Event('storage'));
-    } else {
-      // Registrar el comunicado general en base de datos
+    } else if (db) {
+      // Registrar el comunicado general en la app
       await setDoc(doc(db, 'email_announcements', id), announcementRecord);
 
-      // Escribir a la colección 'mail' que activa el Trigger Email de Firebase
-      for (const u of targetUsers) {
-        const personalizedHtml = bodyHtml.replace(/{nombre}/g, u.name || 'Alumno');
-        const mailId = `mail_${u.uid}_${id}`;
-        await setDoc(doc(db, 'mail', mailId), {
-          to: u.email,
-          message: {
-            subject: subject,
-            html: personalizedHtml
-          },
-          createdAt: new Date()
-        });
+      // Solo si el usuario ha marcado explícitamente enviar por email
+      if (sendAlsoEmail) {
+        for (const u of targetUsers) {
+          const personalizedHtml = bodyHtml.replace(/{nombre}/g, u.name || 'Alumno');
+          const mailId = `mail_${u.uid}_${id}`;
+          try {
+            await setDoc(doc(db, 'mail', mailId), {
+              to: u.email,
+              message: {
+                subject: subject,
+                html: personalizedHtml
+              },
+              createdAt: new Date()
+            });
+          } catch (mErr) {
+            console.warn("Mail trigger write warning:", mErr);
+          }
+        }
       }
     }
 

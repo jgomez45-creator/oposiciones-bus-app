@@ -531,10 +531,12 @@ export default function AdminPanel({ topics }) {
     }
   };
 
+  const [sendAlsoEmail, setSendAlsoEmail] = useState(false);
+
   const handleSendEmailAnnounce = async (e) => {
     e.preventDefault();
     if (!emailSubject.trim() || !emailBody.trim()) {
-      alert('Por favor, completa el asunto y el cuerpo del correo.');
+      alert('Por favor, completa el asunto y el cuerpo del comunicado.');
       return;
     }
     if (emailTargetType !== 'all' && !emailTargetValue.trim()) {
@@ -549,18 +551,19 @@ export default function AdminPanel({ topics }) {
         emailSubject,
         emailBody.replace(/\n/g, '<br/>'),
         emailTargetType,
-        emailTargetValue
+        emailTargetValue,
+        sendAlsoEmail
       );
-      setEmailMsg('¡Comunicado enviado con éxito a los alumnos destinatarios!');
+      setEmailMsg(sendAlsoEmail ? '¡Comunicado publicado en la App y enviado por correo a los alumnos!' : '¡Comunicado publicado con éxito en la App! (Aparece como aviso pendiente en sus pantallas)');
       setEmailSubject('');
       setEmailBody(
-        'Hola {nombre},\n\nTenemos una actualización importante sobre el temario de Oposiciones BUS.\n\n[Escribe aquí tu comunicado...]\n\nUn saludo,\nEquipo de Oposiciones BUS'
+        'Hola {nombre},\n\nTenemos un aviso importante sobre el temario / curso de Oposiciones BUS.\n\n[Escribe aquí tu comunicado o ampliación...]\n\nUn saludo,\nJulio Gómez (Preparador BUS)'
       );
       setEmailTargetValue('');
-      setTimeout(() => setEmailMsg(''), 5000);
+      setTimeout(() => setEmailMsg(''), 6000);
     } catch (err) {
       console.error(err);
-      alert(`Error al enviar comunicado: ${err.message}`);
+      alert(`Error al publicar comunicado: ${err.message}`);
     } finally {
       setSendingEmail(false);
     }
@@ -2390,15 +2393,29 @@ export default function AdminPanel({ topics }) {
                 />
               </div>
 
+              {/* Opción de Envío de Email (Optativo) */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(30, 41, 59, 0.6)', padding: '12px 16px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <input
+                  type="checkbox"
+                  id="sendAlsoEmailCheck"
+                  checked={sendAlsoEmail}
+                  onChange={(e) => setSendAlsoEmail(e.target.checked)}
+                  style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#3b82f6' }}
+                />
+                <label htmlFor="sendAlsoEmailCheck" style={{ fontSize: '0.85rem', color: sendAlsoEmail ? '#60a5fa' : '#cbd5e1', cursor: 'pointer', fontWeight: sendAlsoEmail ? '700' : '500' }}>
+                  📧 Enviar también por correo electrónico a los destinatarios (Optativo)
+                </label>
+              </div>
+
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '6px' }}>
                 <button
                   type="submit"
                   disabled={sendingEmail}
                   className="glow-btn"
-                  style={{ padding: '10px 20px', fontSize: '0.88rem', cursor: sendingEmail ? 'wait' : 'pointer' }}
+                  style={{ padding: '11px 22px', fontSize: '0.88rem', cursor: sendingEmail ? 'wait' : 'pointer' }}
                 >
                   <Send size={15} />
-                  <span>{sendingEmail ? 'Enviando email...' : '📧 Enviar Comunicado por Correo'}</span>
+                  <span>{sendingEmail ? 'Publicando...' : '📢 Publicar Comunicado en la App'}</span>
                 </button>
               </div>
             </form>

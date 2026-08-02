@@ -26,6 +26,16 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
       (list) => {
         setReceivedEmails(list);
         setLoading(false);
+
+        // Mark all received announcements as read so notification badge clears
+        if (list.length > 0) {
+          try {
+            const readMap = JSON.parse(localStorage.getItem('read_announcements') || '{}');
+            list.forEach(item => { readMap[item.id] = true; });
+            localStorage.setItem('read_announcements', JSON.stringify(readMap));
+            window.dispatchEvent(new Event('announcements-read'));
+          } catch (e) {}
+        }
       }
     );
 
