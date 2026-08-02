@@ -34,7 +34,8 @@ import {
   Video,
   Play,
   ArrowUp,
-  ArrowDown
+  ArrowDown,
+  MessageCircle
 } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
