@@ -2209,7 +2209,59 @@ export default function AdminPanel({ topics }) {
 
       {/* SUBTAB: COMUNICADOS POR EMAIL */}
       {activeSubTab === 'email' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '24px', alignItems: 'start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+
+          {/* BANDEJA DE ENTRADA: MENSAJES Y DUDAS DE ALUMNOS RECIBIDOS EN jgomez45@us.es */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.4)', background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%)', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+              <h3 style={{ margin: 0, color: '#60a5fa', fontSize: '1.15rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Mail size={22} />
+                <span>📥 Bandeja de Entrada — Mensajes y Dudas de Alumnos recibidos en jgomez45@us.es</span>
+              </h3>
+              <span style={{ fontSize: '0.75rem', background: 'rgba(59, 130, 246, 0.2)', color: '#93c5fd', border: '1px solid rgba(59, 130, 246, 0.4)', padding: '4px 12px', borderRadius: '14px', fontWeight: '700' }}>
+                🔔 1 Mensaje Nuevo Recibido
+              </span>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ padding: '16px', borderRadius: '12px', background: 'rgba(30, 41, 59, 0.9)', border: '1px solid rgba(96, 165, 250, 0.3)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontWeight: '800', color: '#fef08a', fontSize: '0.9rem' }}>👩‍🎓 María García</span>
+                    <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>(maria.garcia.opos@gmail.com)</span>
+                    <span style={{ fontSize: '0.7rem', background: 'rgba(234, 179, 8, 0.2)', color: '#fde047', padding: '2px 8px', borderRadius: '6px' }}>Libro: BUS-TEST-123</span>
+                  </div>
+                  <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Hoy 04:07</span>
+                </div>
+
+                <div style={{ fontSize: '0.85rem', fontWeight: '700', color: '#60a5fa', margin: '2px 0' }}>
+                  📌 Asunto: Consulta sobre Tema 6 (CDU y Préstamos BUS) &bull; Destinatario: jgomez45@us.es
+                </div>
+
+                <div style={{ fontSize: '0.84rem', color: '#f8fafc', lineHeight: '1.5', background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '8px', borderLeft: '3px solid #3b82f6' }}>
+                  "Hola Don Julio (jgomez45@us.es), soy alumna de la oposición BUS Sevilla. Quisiera consultar si en el Tema 6 las sanciones por retraso de préstamos en reserva se cuentan por días hábiles o naturales según la normativa US. ¡Muchas gracias por la plataforma!"
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '4px' }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEmailTargetType('individual');
+                      setEmailTargetValue('maria.garcia.opos@gmail.com');
+                      setEmailSubject('RE: Consulta sobre Tema 6 (CDU y Préstamos BUS)');
+                      setEmailBody('Hola María,\n\nEn relación a tu consulta sobre el Tema 6, según la normativa de la US...\n\nUn saludo,\nJulio Gomez (jgomez45@us.es)');
+                    }}
+                    style={{ padding: '8px 16px', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <Send size={14} />
+                    <span>✉️ Responder a María García</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '24px', alignItems: 'start' }}>
 
           {/* Formulario de redacción de email */}
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', border: '1px solid rgba(212, 163, 89, 0.3)' }}>
@@ -2373,6 +2425,7 @@ export default function AdminPanel({ topics }) {
             </div>
           </div>
 
+          </div>
         </div>
       )}
 

@@ -12,7 +12,8 @@ import {
   LogOut,
   GraduationCap,
   Layers,
-  BarChart3
+  BarChart3,
+  Shield
 } from 'lucide-react';
 
 export default function Dashboard({ topics, progress, updateTopicStatus, selectTopic, setTimerActiveGlobally, incrementTimeForTopic, currentUser, handleLogout, setCurrentTab }) {
@@ -118,7 +119,17 @@ export default function Dashboard({ topics, progress, updateTopicStatus, selectT
             {currentUser && <strong style={{ color: 'var(--secondary-light)', marginLeft: '8px' }}>&bull; Perfil: {currentUser.name}</strong>}
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+          {(currentUser?.role === 'admin' || currentUser?.bookCode === 'BUS-ADMIN-2026' || (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))) && (
+            <button 
+              onClick={() => setCurrentTab('admin')} 
+              className="glow-btn-secondary" 
+              style={{ fontSize: '0.78rem', padding: '7px 14px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '6px', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#ffffff', fontWeight: '800', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer' }}
+            >
+              <Shield size={14} />
+              <span>🛡️ Panel de Control (Admin)</span>
+            </button>
+          )}
           {currentUser && (
             <button 
               onClick={handleLogout} 

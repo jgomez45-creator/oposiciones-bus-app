@@ -1194,7 +1194,20 @@ export const firebaseService = {
     if (isMock) {
       const getList = () => {
         const saved = localStorage.getItem('mock_db_bus_unresolved');
-        return saved ? Object.values(JSON.parse(saved)) : [];
+        if (!saved) {
+          const sample = {
+            'unres_test_maria': {
+              id: 'unres_test_maria',
+              queryText: 'Duda Alumna (María García -> jgomez45@us.es): ¿Las sanciones por retraso de préstamos en reserva se cuentan por días hábiles o naturales según la normativa US?',
+              createdAt: new Date().toISOString(),
+              count: 1,
+              lastRequestedAt: new Date().toISOString()
+            }
+          };
+          localStorage.setItem('mock_db_bus_unresolved', JSON.stringify(sample));
+          return Object.values(sample);
+        }
+        return Object.values(JSON.parse(saved));
       };
       callback(getList());
       const handleStorage = (e) => {
@@ -1408,7 +1421,20 @@ export const firebaseService = {
     if (isMock) {
       const getList = () => {
         const saved = localStorage.getItem('mock_db_email_announcements');
-        return saved ? Object.values(JSON.parse(saved)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
+        if (!saved) {
+          const sampleRecord = {
+            id: 'email_test_101',
+            subject: 'Consulta de Alumna sobre Tema 6 (CDU y Préstamos BUS)',
+            bodyHtml: 'Mensaje recibido de María García (maria.garcia.opos@gmail.com) para jgomez45@us.es:<br/><br/>Hola Don Julio (jgomez45@us.es),<br/><br/>Soy alumna de la oposición BUS Sevilla. Quisiera consultar si en el Tema 6 las sanciones por retraso de préstamos en reserva se cuentan por días hábiles o naturales.<br/><br/>¡Muchas gracias por la plataforma!',
+            targetType: 'individual',
+            targetValue: 'jgomez45@us.es',
+            createdAt: new Date().toISOString()
+          };
+          const map = { 'email_test_101': sampleRecord };
+          localStorage.setItem('mock_db_email_announcements', JSON.stringify(map));
+          return [sampleRecord];
+        }
+        return Object.values(JSON.parse(saved)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       };
       callback(getList());
       const handleStorage = (e) => {

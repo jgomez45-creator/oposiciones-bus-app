@@ -30,4 +30,5 @@ scratch/
 examenes_recopilados_us/
 parse_helper.py
 muestra_tipografias_temario.pdf
-
+*.mp4
+*.xlsx

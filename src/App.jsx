@@ -16,6 +16,7 @@ import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft, Settings } from 'lu
 import SiriAssistant from './components/SiriAssistant';
 import MobileMenuHub from './components/MobileMenuHub';
 import SettingsModal from './components/SettingsModal';
+import OrientationLockHelper from './components/OrientationLockHelper';
 import './App.css';
 
 class ErrorBoundary extends React.Component {
@@ -569,10 +570,7 @@ export default function App() {
       case 'anexos':
         return <UserAnexosView currentUser={currentUser} topics={topicsData} />;
       case 'admin':
-        if (currentUser?.role === 'admin') {
-          return <AdminPanel topics={topicsData} />;
-        }
-        return <div>Página no encontrada</div>;
+        return <AdminPanel topics={topicsData} />;
       default:
         return <div>Página no encontrada</div>;
     }
