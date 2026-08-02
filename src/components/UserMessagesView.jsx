@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Send, CheckCircle2, Clock, Inbox, MessageSquare, ShieldCheck, User, MessageCircle, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, Send, CheckCircle2, Clock, Inbox, ShieldCheck, User } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 
 export default function UserMessagesView({ currentUser, setCurrentTab }) {
@@ -176,114 +176,8 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
         </div>
       )}
 
-      {/* TAB 0: CHAT DIRECTO INSTANTÁNEO CON EL PREPARADOR (SIN NECESIDAD DE EMAIL) */}
-      {activeTab === 'direct_chat' && (
-        <div className="glass-panel" style={{ padding: '0', borderRadius: '18px', border: '1px solid rgba(59, 130, 246, 0.4)', overflow: 'hidden', background: 'rgba(15, 23, 42, 0.85)', display: 'flex', flexDirection: 'column', height: '540px' }}>
-          
-          {/* Header del Chat */}
-          <div style={{ padding: '16px 20px', background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'linear-gradient(135deg, #d4a359 0%, #b8860b 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontWeight: '800', fontSize: '1rem', border: '2px solid rgba(255,255,255,0.2)' }}>
-                JG
-              </div>
-              <div>
-                <h3 style={{ margin: 0, color: '#fff', fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span>Julio Gómez</span>
-                  <span style={{ fontSize: '0.68rem', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', padding: '2px 8px', borderRadius: '8px', border: '1px solid rgba(34, 197, 94, 0.4)' }}>Online • Preparador</span>
-                </h3>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Tutor Oficial de Oposiciones BUS (jgomez45@us.es)</span>
-              </div>
-            </div>
 
-            <div style={{ fontSize: '0.75rem', color: '#93c5fd', background: 'rgba(59, 130, 246, 0.15)', padding: '4px 12px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
-              ⚡ Chat Directo en Vivo
-            </div>
-          </div>
-
-          {/* Cuerpo de la Conversación */}
-          <div style={{ flex: 1, padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '14px', background: 'rgba(10, 15, 30, 0.5)' }}>
-            {chatMessages.length === 0 ? (
-              <div style={{ textAlign: 'center', color: 'var(--text-muted)', margin: 'auto 0', fontSize: '0.9rem' }}>
-                Inicia la conversación escribiendo tu duda a continuación...
-              </div>
-            ) : (
-              chatMessages.map((msg) => {
-                const isMe = msg.senderRole === 'student';
-                return (
-                  <div 
-                    key={msg.id}
-                    style={{
-                      alignSelf: isMe ? 'flex-end' : 'flex-start',
-                      maxWidth: '75%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '4px'
-                    }}
-                  >
-                    <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textAlign: isMe ? 'right' : 'left', padding: '0 4px' }}>
-                      {isMe ? 'Tú' : msg.senderName} &bull; {new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </div>
-                    <div style={{
-                      padding: '12px 16px',
-                      borderRadius: isMe ? '16px 16px 2px 16px' : '16px 16px 16px 2px',
-                      background: isMe 
-                        ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' 
-                        : 'rgba(30, 41, 59, 0.95)',
-                      color: '#fff',
-                      fontSize: '0.88rem',
-                      lineHeight: '1.5',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                      border: isMe ? 'none' : '1px solid rgba(255,255,255,0.1)'
-                    }}>
-                      {msg.text}
-                    </div>
-                  </div>
-                );
-              })
-            )}
-            <div ref={chatEndRef} />
-          </div>
-
-          {/* Formulario de Entrada de Texto */}
-          <form onSubmit={handleSendDirectMessage} style={{ padding: '14px 18px', background: 'rgba(15, 23, 42, 0.95)', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <input
-              type="text"
-              value={chatInput}
-              onChange={(e) => setChatInput(e.target.value)}
-              placeholder="Escribe aquí tu mensaje directo al preparador..."
-              style={{
-                flex: 1,
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: 'rgba(0,0,0,0.4)',
-                border: '1px solid var(--border-color)',
-                color: '#fff',
-                fontSize: '0.88rem',
-                outline: 'none'
-              }}
-            />
-            <button
-              type="submit"
-              disabled={sendingChat || !chatInput.trim()}
-              className="glow-btn"
-              style={{
-                padding: '12px 20px',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                opacity: (!chatInput.trim() || sendingChat) ? 0.5 : 1
-              }}
-            >
-              <Send size={16} />
-              <span>Enviar</span>
-            </button>
-          </form>
-
-        </div>
-      )}
-
-      {/* TAB 1: COMUNICADOS RECIBIDOS POR EL ALUMNO */}
+      {/* TAB: COMUNICADOS RECIBIDOS POR EL ALUMNO */}
       {activeTab === 'received' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
