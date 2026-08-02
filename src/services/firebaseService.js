@@ -1618,9 +1618,6 @@ export const firebaseService = {
      SISTEMA DE CHAT DIRECTO Y MENSAJERÍA INSTANTÁNEA (SIN EMAIL)
      ========================================================================== */
 
-  /**
-   * Envia un mensaje en el chat directo entre alumno y preparador
-   */
   async sendDirectChatMessage({ studentUid, senderUid, senderName, senderRole, text }) {
     const cleanText = text.trim();
     if (!cleanText || !studentUid) return;
@@ -1630,21 +1627,31 @@ export const firebaseService = {
     const msgRecord = {
       id,
       studentUid,
-      senderUid,
-      senderName,
-      senderRole, // 'admin' | 'student'
+      senderUid: senderUid || 'student_guest',
+      senderName: senderName || 'Alumno',
+      senderRole: senderRole || 'student',
       text: cleanText,
       createdAt: now
     };
 
-    if (isMock) {
+    // Always save to local storage for immediate UI render & offline resilience
+    try {
       const saved = localStorage.getItem('mock_db_direct_chats') || '[]';
       const list = JSON.parse(saved);
       list.push(msgRecord);
       localStorage.setItem('mock_db_direct_chats', JSON.stringify(list));
       window.dispatchEvent(new Event('storage'));
-    } else {
-      await setDoc(doc(db, 'direct_chats', id), msgRecord);
+    } catch (e) {
+      console.warn("Could not save to local storage:", e);
+    }
+
+    // Try cloud Firestore sync if not in mock mode
+    if (!isMock) {
+      try {
+        await setDoc(doc(db, 'direct_chats', id), msgRecord);
+      } catch (err) {
+        console.warn("Firestore write for direct_chats skipped/failed (using local storage):", err);
+      }
     }
 
     return msgRecord;
@@ -1656,71 +1663,99 @@ export const firebaseService = {
   subscribeToDirectChatMessages(studentUid, callback) {
     if (!studentUid) return () => {};
 
-    if (isMock) {
-      const getList = () => {
-        const saved = localStorage.getItem('mock_db_direct_chats');
-        let list = saved ? JSON.parse(saved) : [];
-        let filtered = list.filter(m => m.studentUid === studentUid);
-        
-        if (filtered.length === 0) {
-          const defaultWelcome = {
-            id: `welcome_${studentUid}`,
-            studentUid,
-            senderUid: 'mock_admin_default',
-            senderName: 'Julio Gómez (Preparador)',
-            senderRole: 'admin',
-            text: '¡Hola! Este es tu canal de chat directo con tu preparador. Puedes escribirme cualquier consulta o duda aquí sin necesidad de correo.',
-            createdAt: new Date(Date.now() - 300000).toISOString()
-          };
-          list.push(defaultWelcome);
-          localStorage.setItem('mock_db_direct_chats', JSON.stringify(list));
-          filtered = [defaultWelcome];
-        }
+    const getMergedList = (cloudDocs = []) => {
+      const saved = localStorage.getItem('mock_db_direct_chats');
+      const localList = saved ? JSON.parse(saved) : [];
 
-        return filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-      };
+      const map = {};
+      localList.forEach(m => { map[m.id] = m; });
+      cloudDocs.forEach(m => { map[m.id] = m; });
 
-      callback(getList());
-      const handleStorage = (e) => {
-        if (e.key === 'mock_db_direct_chats') callback(getList());
-      };
-      window.addEventListener('storage', handleStorage);
-      return () => window.removeEventListener('storage', handleStorage);
-    } else {
-      return onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
-        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        const filtered = list.filter(m => m.studentUid === studentUid);
-        filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-        callback(filtered);
+      let list = Object.values(map);
+      let filtered = list.filter(m => m.studentUid === studentUid);
+
+      if (filtered.length === 0) {
+        const defaultWelcome = {
+          id: `welcome_${studentUid}`,
+          studentUid,
+          senderUid: 'mock_admin_default',
+          senderName: 'Julio Gómez (Preparador)',
+          senderRole: 'admin',
+          text: '¡Hola! Este es tu canal de chat directo con tu preparador. Puedes escribirme cualquier consulta o duda aquí sin necesidad de correo.',
+          createdAt: new Date(Date.now() - 300000).toISOString()
+        };
+        map[defaultWelcome.id] = defaultWelcome;
+        try {
+          localStorage.setItem('mock_db_direct_chats', JSON.stringify(Object.values(map)));
+        } catch (e) {}
+        filtered = [defaultWelcome];
+      }
+
+      return filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+    };
+
+    // Deliver immediate local view
+    callback(getMergedList());
+
+    const handleStorage = () => {
+      callback(getMergedList());
+    };
+    window.addEventListener('storage', handleStorage);
+
+    if (!isMock) {
+      const unsubFirestore = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
+        const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        callback(getMergedList(cloudDocs));
       }, (err) => {
-        console.error("Error en subscribeToDirectChatMessages:", err);
+        console.warn("Firestore subscription for direct_chats skipped (using local listener):", err);
       });
+
+      return () => {
+        window.removeEventListener('storage', handleStorage);
+        if (unsubFirestore) unsubFirestore();
+      };
     }
+
+    return () => window.removeEventListener('storage', handleStorage);
   },
 
   /**
    * Suscribe al listado completo de todos los mensajes de chat para el Administrador
    */
   subscribeToAllDirectChats(callback) {
-    if (isMock) {
-      const getList = () => {
-        const saved = localStorage.getItem('mock_db_direct_chats');
-        return saved ? JSON.parse(saved) : [];
-      };
-      callback(getList());
-      const handleStorage = (e) => {
-        if (e.key === 'mock_db_direct_chats') callback(getList());
-      };
-      window.addEventListener('storage', handleStorage);
-      return () => window.removeEventListener('storage', handleStorage);
-    } else {
-      return onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
-        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        callback(list);
+    const getMergedList = (cloudDocs = []) => {
+      const saved = localStorage.getItem('mock_db_direct_chats');
+      const localList = saved ? JSON.parse(saved) : [];
+
+      const map = {};
+      localList.forEach(m => { map[m.id] = m; });
+      cloudDocs.forEach(m => { map[m.id] = m; });
+
+      return Object.values(map).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+    };
+
+    callback(getMergedList());
+
+    const handleStorage = () => {
+      callback(getMergedList());
+    };
+    window.addEventListener('storage', handleStorage);
+
+    if (!isMock) {
+      const unsubFirestore = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
+        const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        callback(getMergedList(cloudDocs));
       }, (err) => {
-        console.error("Error en subscribeToAllDirectChats:", err);
+        console.warn("Firestore subscription for all direct_chats skipped (using local listener):", err);
       });
+
+      return () => {
+        window.removeEventListener('storage', handleStorage);
+        if (unsubFirestore) unsubFirestore();
+      };
     }
+
+    return () => window.removeEventListener('storage', handleStorage);
   },
 
   // --- TOPIC VIDEOS SERVICES ---

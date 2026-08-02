@@ -83,8 +83,7 @@ export default function UserMessagesView({ currentUser }) {
         text: text
       });
     } catch (err) {
-      console.error("Error sending direct chat message:", err);
-      alert("No se pudo enviar el mensaje directo.");
+      console.warn("Error sending direct chat message:", err);
     } finally {
       setSendingChat(false);
     }
