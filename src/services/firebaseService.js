@@ -1634,7 +1634,7 @@ export const firebaseService = {
       createdAt: now
     };
 
-    // Always save to local storage for immediate UI render & offline resilience
+    // 1. LocalStorage update for immediate UI response
     try {
       const saved = localStorage.getItem('mock_db_direct_chats') || '[]';
       const list = JSON.parse(saved);
@@ -1645,12 +1645,36 @@ export const firebaseService = {
       console.warn("Could not save to local storage:", e);
     }
 
-    // Try cloud Firestore sync if not in mock mode
+    // 2. Multi-channel Cloud Sync for cross-device visibility
     if (!isMock) {
+      // Channel A: direct_chats
       try {
         await setDoc(doc(db, 'direct_chats', id), msgRecord);
       } catch (err) {
-        console.warn("Firestore write for direct_chats skipped/failed (using local storage):", err);
+        console.warn("Firestore direct_chats channel write skipped:", err);
+      }
+
+      // Channel B: user subcollection
+      try {
+        await setDoc(doc(db, 'users', studentUid, 'chats', id), msgRecord);
+      } catch (err) {
+        console.warn("Firestore user subcollection chat channel write skipped:", err);
+      }
+
+      // Channel C: agente_bus_unresolved (for guaranteed Admin console visibility)
+      if (senderRole === 'student') {
+        try {
+          await setDoc(doc(db, 'agente_bus_unresolved', `chat_${id}`), {
+            id: `chat_${id}`,
+            queryText: `[Chat Directo de ${senderName}]: ${cleanText}`,
+            studentUid,
+            senderName,
+            createdAt: now,
+            count: 1
+          });
+        } catch (err) {
+          console.warn("Firestore unresolved doubts channel write skipped:", err);
+        }
       }
     }
 
@@ -1703,16 +1727,20 @@ export const firebaseService = {
     window.addEventListener('storage', handleStorage);
 
     if (!isMock) {
-      const unsubFirestore = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
+      const unsub1 = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
         const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
         callback(getMergedList(cloudDocs));
-      }, (err) => {
-        console.warn("Firestore subscription for direct_chats skipped (using local listener):", err);
-      });
+      }, (err) => console.warn("direct_chats sub err:", err));
+
+      const unsub2 = onSnapshot(collection(db, 'users', studentUid, 'chats'), (snapshot) => {
+        const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        callback(getMergedList(cloudDocs));
+      }, (err) => console.warn("user chats sub err:", err));
 
       return () => {
         window.removeEventListener('storage', handleStorage);
-        if (unsubFirestore) unsubFirestore();
+        if (unsub1) unsub1();
+        if (unsub2) unsub2();
       };
     }
 
@@ -1742,7 +1770,7 @@ export const firebaseService = {
             senderUid: 'BUS-A5DH-82GA',
             senderName: 'Julio Prueba',
             senderRole: 'student',
-            text: 'Don Julio, una consulta rápida sobre el Tema 6: ¿las sanciones por retraso de préstamos se cuentan en días hábiles?',
+            text: 'Hola, se sabe algo de la fecha de examen. Por favor, responde cuando puedas.',
             createdAt: new Date(Date.now() - 3600000).toISOString()
           }
         ];
@@ -1766,16 +1794,33 @@ export const firebaseService = {
     window.addEventListener('storage', handleStorage);
 
     if (!isMock) {
-      const unsubFirestore = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
+      const unsub1 = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
         const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
         callback(getMergedList(cloudDocs));
-      }, (err) => {
-        console.warn("Firestore subscription for all direct_chats skipped (using local listener):", err);
-      });
+      }, (err) => console.warn(err));
+
+      const unsub2 = onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
+        const chatDocs = snapshot.docs
+          .map(d => d.data())
+          .filter(d => d.queryText && d.queryText.startsWith('[Chat Directo de'))
+          .map(d => {
+            const matchName = d.queryText.match(/\[Chat Directo de ([^\]]+)\]:\s*(.*)/);
+            return {
+              id: d.id,
+              studentUid: d.studentUid || 'student_guest',
+              senderName: matchName ? matchName[1] : (d.senderName || 'Alumno'),
+              senderRole: 'student',
+              text: matchName ? matchName[2] : d.queryText,
+              createdAt: d.createdAt || new Date().toISOString()
+            };
+          });
+        callback(getMergedList(chatDocs));
+      }, (err) => console.warn(err));
 
       return () => {
         window.removeEventListener('storage', handleStorage);
-        if (unsubFirestore) unsubFirestore();
+        if (unsub1) unsub1();
+        if (unsub2) unsub2();
       };
     }
 
