@@ -12,7 +12,8 @@ import {
   HelpCircle,
   Sparkles,
   Edit3,
-  Settings
+  Settings,
+  Mail
 } from 'lucide-react';
 
 export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri, isSiriOpen, onOpenSettings }) {
@@ -42,6 +43,7 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       label: 'Herramientas',
       items: [
         { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri, isBlueButton: true },
+        { id: 'mis_comunicados', name: 'Buzón de Comunicados', icon: Mail },
         { id: 'anexos', name: 'Mis Anexos / Fe Erratas', icon: Edit3 },
         { id: 'manual', name: 'Manual de Uso', icon: HelpCircle }
       ]

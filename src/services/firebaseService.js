@@ -1472,6 +1472,148 @@ export const firebaseService = {
     }
   },
 
+  /**
+   * Suscribe a los correos/comunicados recibidos por un alumno concreto
+   */
+  subscribeToStudentReceivedEmails(currentUser, callback) {
+    if (!currentUser) return () => {};
+    const userEmail = currentUser.email || '';
+    const userBookCode = (currentUser.bookCode || '').toUpperCase();
+
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_email_announcements');
+        let allRecords = saved ? Object.values(JSON.parse(saved)) : [];
+        if (allRecords.length === 0) {
+          allRecords = [{
+            id: 'email_welcome_sample',
+            subject: '¡Bienvenido/a al Preparador Virtual de Oposiciones BUS Sevilla 2026!',
+            bodyHtml: `Hola ${currentUser.name || 'Alumno'},<br/><br/>Te damos la bienvenida oficial a la plataforma de estudio para la convocatoria de Auxiliar de Biblioteca de la US.<br/><br/>Desde este buzón podrás recibir los comunicados oficiales de tu preparador (jgomez45@us.es) y enviar tus consultas directas.`,
+            targetType: 'all',
+            targetValue: '',
+            createdAt: new Date().toISOString()
+          }];
+        }
+
+        const filtered = allRecords.filter(item => {
+          if (item.targetType === 'all') return true;
+          if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
+          if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
+          return false;
+        });
+
+        return filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      };
+
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_email_announcements') callback(getList());
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'email_announcements'), (snapshot) => {
+        const list = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
+        const filtered = list.filter(item => {
+          if (item.targetType === 'all') return true;
+          if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
+          if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
+          return false;
+        });
+        filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        callback(filtered);
+      }, (err) => {
+        console.error("Error en subscribeToStudentReceivedEmails:", err);
+      });
+    }
+  },
+
+  /**
+   * Envia una consulta/mensaje directo de un alumno al Administrador (jgomez45@us.es)
+   */
+  async sendStudentMessageToAdmin(currentUser, subject, messageBody) {
+    const id = `std_msg_${Date.now()}`;
+    const now = new Date().toISOString();
+    const record = {
+      id,
+      studentUid: currentUser?.uid || 'guest',
+      studentName: currentUser?.name || 'Alumno Registrado',
+      studentEmail: currentUser?.email || 'sin-email',
+      studentBookCode: currentUser?.bookCode || 'SIN-CODIGO',
+      recipientEmail: 'jgomez45@us.es',
+      subject: subject.trim(),
+      messageBody: messageBody.trim(),
+      createdAt: now
+    };
+
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_student_messages') || '{}';
+      const map = JSON.parse(saved);
+      map[id] = record;
+      localStorage.setItem('mock_db_student_messages', JSON.stringify(map));
+
+      // También registrar en las dudas pendientes de Agente BUS para que aparezca inmediatamente en el AdminPanel
+      const savedUnresolved = localStorage.getItem('mock_db_bus_unresolved') || '{}';
+      const unresolvedMap = JSON.parse(savedUnresolved);
+      unresolvedMap[`unres_${id}`] = {
+        id: `unres_${id}`,
+        queryText: `Consulta de Alumno (${currentUser?.name || 'Alumno'} -> jgomez45@us.es): [${subject}] ${messageBody}`,
+        createdAt: now,
+        count: 1,
+        lastRequestedAt: now
+      };
+      localStorage.setItem('mock_db_bus_unresolved', JSON.stringify(unresolvedMap));
+
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await setDoc(doc(db, 'student_messages', id), record);
+      // Registrar también en la colección 'agente_bus_unresolved' para visibilidad en el panel
+      try {
+        await setDoc(doc(db, 'agente_bus_unresolved', `unres_${id}`), {
+          id: `unres_${id}`,
+          queryText: `Consulta de Alumno (${currentUser?.name || 'Alumno'} -> jgomez45@us.es): [${subject}] ${messageBody}`,
+          createdAt: now,
+          count: 1
+        });
+      } catch (e) {
+        console.warn("Could not record student message in agente_bus_unresolved:", e);
+      }
+    }
+
+    return record;
+  },
+
+  /**
+   * Suscribe a los mensajes enviados por el propio alumno
+   */
+  subscribeToStudentSentMessages(studentUid, callback) {
+    if (!studentUid) return () => {};
+
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_student_messages');
+        const map = saved ? JSON.parse(saved) : {};
+        const list = Object.values(map).filter(m => m.studentUid === studentUid);
+        return list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      };
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_student_messages') callback(getList());
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'student_messages'), (snapshot) => {
+        const list = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
+        const filtered = list.filter(m => m.studentUid === studentUid);
+        filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        callback(filtered);
+      }, (err) => {
+        console.error("Error en subscribeToStudentSentMessages:", err);
+      });
+    }
+  },
+
   // --- TOPIC VIDEOS SERVICES ---
 
   // Internal listeners for topic video updates

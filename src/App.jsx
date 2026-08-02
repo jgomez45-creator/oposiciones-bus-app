@@ -10,6 +10,7 @@ import AdminPanel from './components/AdminPanel';
 import FormadoresTests from './components/FormadoresTests';
 import UserManual from './components/UserManual';
 import UserAnexosView from './components/UserAnexosView';
+import UserMessagesView from './components/UserMessagesView';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
 import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft, Settings } from 'lucide-react';
@@ -567,6 +568,8 @@ export default function App() {
         );
       case 'manual':
         return <UserManual currentUser={currentUser} />;
+      case 'mis_comunicados':
+        return <UserMessagesView currentUser={currentUser} />;
       case 'anexos':
         return <UserAnexosView currentUser={currentUser} topics={topicsData} />;
       case 'admin':
