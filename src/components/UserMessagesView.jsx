@@ -322,7 +322,20 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
 
                 <div 
                   style={{ fontSize: '0.88rem', color: '#f8fafc', lineHeight: '1.6', background: 'rgba(0,0,0,0.3)', padding: '14px 18px', borderRadius: '10px', borderLeft: '3px solid var(--secondary)' }}
-                  dangerouslySetInnerHTML={{ __html: mail.bodyHtml }}
+                  dangerouslySetInnerHTML={{ __html: (() => {
+                    // Auto-convert plain http(s) URLs to clickable styled links
+                    const html = (mail.bodyHtml || '').replace(
+                      /(?<!href=["'])(?<![">])(https?:\/\/[^\s<"]+)/g,
+                      (url) => {
+                        const isPdf = url.toLowerCase().includes('drive.google.com') || url.toLowerCase().includes('.pdf');
+                        if (isPdf) {
+                          return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#d4a359,#b8860b);color:#000;font-weight:800;padding:8px 16px;border-radius:10px;text-decoration:none;font-size:0.85rem;margin:6px 0;box-shadow:0 4px 12px rgba(212,163,89,0.4)">📄 Abrir Documento PDF</a>`;
+                        }
+                        return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:#60a5fa;text-decoration:underline;word-break:break-all">${url}</a>`;
+                      }
+                    );
+                    return html;
+                  })() }}
                 />
               </div>
             ))
