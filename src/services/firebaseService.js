@@ -1725,6 +1725,30 @@ export const firebaseService = {
   subscribeToAllDirectChats(callback) {
     const getMergedList = (cloudDocs = []) => {
       const saved = localStorage.getItem('mock_db_direct_chats');
+      if (!saved) {
+        const sampleMsgs = [
+          {
+            id: 'chat_sample_maria_1',
+            studentUid: 'std_maria_garcia',
+            senderUid: 'std_maria_garcia',
+            senderName: 'María García',
+            senderRole: 'student',
+            text: 'Hola Don Julio, ¿cuándo se publican las plantillas oficiales del simulacro de la US?',
+            createdAt: new Date(Date.now() - 7200000).toISOString()
+          },
+          {
+            id: 'chat_sample_julio_1',
+            studentUid: 'BUS-A5DH-82GA',
+            senderUid: 'BUS-A5DH-82GA',
+            senderName: 'Julio Prueba',
+            senderRole: 'student',
+            text: 'Don Julio, una consulta rápida sobre el Tema 6: ¿las sanciones por retraso de préstamos se cuentan en días hábiles?',
+            createdAt: new Date(Date.now() - 3600000).toISOString()
+          }
+        ];
+        localStorage.setItem('mock_db_direct_chats', JSON.stringify(sampleMsgs));
+      }
+
       const localList = saved ? JSON.parse(saved) : [];
 
       const map = {};

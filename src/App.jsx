@@ -569,7 +569,7 @@ export default function App() {
       case 'manual':
         return <UserManual currentUser={currentUser} />;
       case 'mis_comunicados':
-        return <UserMessagesView currentUser={currentUser} />;
+        return <UserMessagesView currentUser={currentUser} setCurrentTab={setCurrentTab} />;
       case 'anexos':
         return <UserAnexosView currentUser={currentUser} topics={topicsData} />;
       case 'admin':

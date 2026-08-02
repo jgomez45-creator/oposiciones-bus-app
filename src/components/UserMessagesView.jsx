@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Send, CheckCircle2, Clock, Inbox, MessageSquare, ShieldCheck, User, MessageCircle, Sparkles } from 'lucide-react';
 import { firebaseService } from '../services/firebaseService';
 
-export default function UserMessagesView({ currentUser }) {
+export default function UserMessagesView({ currentUser, setCurrentTab }) {
   const [activeTab, setActiveTab] = useState('direct_chat'); // 'direct_chat' | 'received' | 'send' | 'sent_history'
-  
+
+  const isAdminUser = currentUser && (currentUser.role === 'admin' || currentUser.bookCode === 'BUS-ADMIN-2026' || (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')));
+
   // Real-Time Direct Chat State
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInput, setChatInput] = useState('');
@@ -116,8 +118,29 @@ export default function UserMessagesView({ currentUser }) {
   };
 
   return (
-    <div className="user-messages-container fade-in" style={{ padding: '24px', maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div className="user-messages-container fade-in" style={{ padding: '24px', maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
       
+      {/* Banner de Ayuda para Administrador */}
+      {isAdminUser && (
+        <div style={{ background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%)', border: '1.5px solid #3b82f6', borderRadius: '14px', padding: '14px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', boxShadow: '0 4px 16px rgba(37, 99, 235, 0.2)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ fontSize: '1.2rem' }}>👑</span>
+            <div>
+              <strong style={{ color: '#fff', fontSize: '0.92rem' }}>Estás en la vista previa del Alumno.</strong>
+              <div style={{ color: '#93c5fd', fontSize: '0.8rem', marginTop: '2px' }}>
+                Para ver las conversaciones de TODOS tus estudiantes y responderles directamente en tu Consola de Preparador:
+              </div>
+            </div>
+          </div>
+          <button 
+            onClick={() => setCurrentTab && setCurrentTab('admin')} 
+            style={{ padding: '8px 18px', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: '800', fontSize: '0.82rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 0 12px rgba(37, 99, 235, 0.5)' }}
+          >
+            <span>🛡️ Ir a Consola Admin (Chats)</span>
+          </button>
+        </div>
+      )}
+
       {/* Header Banner */}
       <div className="glass-panel" style={{ padding: '24px', borderRadius: '18px', border: '1px solid rgba(212, 163, 89, 0.4)', background: 'linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(15, 23, 42, 0.7) 100%)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
         <div>
