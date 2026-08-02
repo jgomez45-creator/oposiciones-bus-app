@@ -2478,16 +2478,17 @@ export default function AdminPanel({ topics }) {
                 // 1. Registered users
                 users.forEach(u => {
                   if (u.uid && u.uid !== 'guest_profile' && u.role !== 'admin') {
-                    studentMap[u.uid] = {
-                      studentUid: u.uid,
+                    const normUid = u.bookCode || u.uid;
+                    studentMap[normUid] = {
+                      studentUid: normUid,
                       studentName: u.name || u.email || 'Alumno',
-                      bookCode: u.bookCode || '',
+                      bookCode: u.bookCode || normUid,
                       messages: []
                     };
                   }
                 });
 
-                // 2. Default student profiles if not registered in users array yet
+                // 2. Default student profiles
                 if (!studentMap['BUS-A5DH-82GA']) {
                   studentMap['BUS-A5DH-82GA'] = {
                     studentUid: 'BUS-A5DH-82GA',
@@ -2505,18 +2506,20 @@ export default function AdminPanel({ topics }) {
                   };
                 }
 
-                // 3. Attach all direct chat messages
+                // 3. Attach all direct chat messages to normalized studentUid
                 allDirectChats.forEach(m => {
-                  const uid = m.studentUid || 'BUS-A5DH-82GA';
+                  const rawUid = m.studentUid || 'BUS-A5DH-82GA';
+                  const uid = (rawUid === 'guest_profile' || rawUid === 'guest_student' || rawUid === 'std_julio_prueba') ? 'BUS-A5DH-82GA' : rawUid;
+                  
                   if (!studentMap[uid]) {
                     studentMap[uid] = {
                       studentUid: uid,
-                      studentName: m.senderRole === 'student' ? (m.senderName || 'Alumno') : 'Alumno',
-                      bookCode: '',
+                      studentName: m.senderRole === 'student' ? (m.senderName || 'Julio Prueba') : 'Julio Prueba',
+                      bookCode: uid,
                       messages: []
                     };
                   }
-                  if (m.senderRole === 'student' && m.senderName) {
+                  if (m.senderRole === 'student' && m.senderName && m.senderName !== 'Alumno') {
                     studentMap[uid].studentName = m.senderName;
                   }
                   studentMap[uid].messages.push(m);

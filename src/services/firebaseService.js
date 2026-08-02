@@ -1649,7 +1649,12 @@ export const firebaseService = {
       senderRole: senderRole || 'student',
       text: cleanText,
       createdAt: now,
-      isDirectChat: true
+      isDirectChat: true,
+      subject: `[Chat Directo ${senderRole === 'admin' ? 'Preparador' : 'Alumno'}]: ${cleanText.substring(0, 30)}`,
+      messageBody: cleanText,
+      recipientEmail: senderRole === 'admin' ? 'alumno@us.es' : 'jgomez45@us.es',
+      studentEmail: senderRole === 'admin' ? 'jgomez45@us.es' : 'alumno@us.es',
+      studentBookCode: cleanStudentUid
     };
 
     // 1. LocalStorage update for instant UI response across tabs
