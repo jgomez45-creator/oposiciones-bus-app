@@ -3,15 +3,9 @@ import { Mail, Send, CheckCircle2, Clock, Inbox, MessageSquare, ShieldCheck, Use
 import { firebaseService } from '../services/firebaseService';
 
 export default function UserMessagesView({ currentUser, setCurrentTab }) {
-  const [activeTab, setActiveTab] = useState('direct_chat'); // 'direct_chat' | 'received' | 'send' | 'sent_history'
+  const [activeTab, setActiveTab] = useState('received'); // 'received' | 'send' | 'sent_history'
 
   const isAdminUser = currentUser && (currentUser.role === 'admin' || currentUser.bookCode === 'BUS-ADMIN-2026' || (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')));
-
-  // Real-Time Direct Chat State
-  const [chatMessages, setChatMessages] = useState([]);
-  const [chatInput, setChatInput] = useState('');
-  const [sendingChat, setSendingChat] = useState(false);
-  const chatEndRef = useRef(null);
 
   // Email & Form State
   const [receivedEmails, setReceivedEmails] = useState([]);
@@ -23,20 +17,10 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const studentUid = (currentUser?.bookCode || currentUser?.uid || 'guest_student').trim();
-
   useEffect(() => {
     setLoading(true);
 
-    // 1. Subscribe to Real-Time Direct Chat Messages
-    const unsubChat = firebaseService.subscribeToDirectChatMessages(
-      currentUser || studentUid,
-      (messages) => {
-        setChatMessages(messages);
-      }
-    );
-
-    // 2. Subscribe to emails received by this student
+    // 1. Subscribe to emails received by this student
     const unsubReceived = firebaseService.subscribeToStudentReceivedEmails(
       currentUser,
       (list) => {
@@ -45,7 +29,7 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
       }
     );
 
-    // 3. Subscribe to email messages sent by this student
+    // 2. Subscribe to email messages sent by this student
     const unsubSent = firebaseService.subscribeToStudentSentMessages(
       currentUser?.uid,
       (list) => {
@@ -54,42 +38,10 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
     );
 
     return () => {
-      if (unsubChat) unsubChat();
       if (unsubReceived) unsubReceived();
       if (unsubSent) unsubSent();
     };
-  }, [currentUser, studentUid]);
-
-  // Auto-scroll chat to bottom on new message
-  useEffect(() => {
-    if (activeTab === 'direct_chat' && chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [chatMessages, activeTab]);
-
-  // Send Direct Chat Message (Instant, No Email Needed)
-  const handleSendDirectMessage = async (e) => {
-    if (e) e.preventDefault();
-    if (!chatInput.trim() || sendingChat) return;
-
-    const text = chatInput.trim();
-    setChatInput('');
-    setSendingChat(true);
-
-    try {
-      await firebaseService.sendDirectChatMessage({
-        studentUid: studentUid,
-        senderUid: currentUser?.uid || 'guest_student',
-        senderName: currentUser?.name || 'Alumno',
-        senderRole: 'student',
-        text: text
-      });
-    } catch (err) {
-      console.warn("Error sending direct chat message:", err);
-    } finally {
-      setSendingChat(false);
-    }
-  };
+  }, [currentUser]);
 
   // Send Formal Email Message to Admin
   const handleSendMessageToAdmin = async (e) => {
@@ -105,7 +57,7 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
 
     try {
       await firebaseService.sendStudentMessageToAdmin(currentUser, subject, messageBody);
-      setSuccessMsg('¡Consulta enviada con éxito a tu preparador (jgomez45@us.es)! La recibirá en su Bandeja de Entrada.');
+      setSuccessMsg('¡Consulta enviada con éxito a tu preparador (jgomez45@us.es)! La recibirá en su Bandeja de Entrada de Comunicados Email.');
       setSubject('');
       setMessageBody('');
       setTimeout(() => setSuccessMsg(''), 5000);
@@ -120,15 +72,15 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
   return (
     <div className="user-messages-container fade-in" style={{ padding: '24px', maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
       
-      {/* Banner de Ayuda para Administrador */}
+      {/* Banner para Administrador */}
       {isAdminUser && (
         <div style={{ background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%)', border: '1.5px solid #3b82f6', borderRadius: '14px', padding: '14px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', boxShadow: '0 4px 16px rgba(37, 99, 235, 0.2)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ fontSize: '1.2rem' }}>👑</span>
             <div>
-              <strong style={{ color: '#fff', fontSize: '0.92rem' }}>Estás en la vista previa del Alumno.</strong>
+              <strong style={{ color: '#fff', fontSize: '0.92rem' }}>Estás en la vista de Alumno.</strong>
               <div style={{ color: '#93c5fd', fontSize: '0.8rem', marginTop: '2px' }}>
-                Para ver las conversaciones de TODOS tus estudiantes y responderles directamente en tu Consola de Preparador:
+                Para gestionar comunicados y responder a las consultas de tus estudiantes por email:
               </div>
             </div>
           </div>
@@ -136,7 +88,7 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
             onClick={() => setCurrentTab && setCurrentTab('admin')} 
             style={{ padding: '8px 18px', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: '800', fontSize: '0.82rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 0 12px rgba(37, 99, 235, 0.5)' }}
           >
-            <span>🛡️ Ir a Consola Admin (Chats)</span>
+            <span>🛡️ Panel de Control Admin (Comunicados Email)</span>
           </button>
         </div>
       )}
@@ -145,38 +97,16 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
       <div className="glass-panel" style={{ padding: '24px', borderRadius: '18px', border: '1px solid rgba(212, 163, 89, 0.4)', background: 'linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(15, 23, 42, 0.7) 100%)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <MessageCircle size={28} style={{ color: 'var(--secondary)' }} />
-            <h1 style={{ margin: 0, fontSize: '1.6rem', color: '#fff' }}>Centro de Comunicación e Mensajería Directa</h1>
+            <Mail size={28} style={{ color: 'var(--secondary)' }} />
+            <h1 style={{ margin: 0, fontSize: '1.6rem', color: '#fff' }}>Centro de Comunicados e Consultas por Correo</h1>
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', margin: '6px 0 0 0' }}>
-            Habla directamente en tiempo real con tu Preparador (<strong>Julio Gómez - jgomez45@us.es</strong>) sin necesidad de usar correo electrónico.
+            Recibe comunicados oficiales de tu Preparador (<strong>Julio Gómez - jgomez45@us.es</strong>) y envía tus dudas por correo electrónico.
           </p>
         </div>
 
         {/* Tab Buttons */}
         <div style={{ display: 'flex', gap: '6px', background: 'rgba(0,0,0,0.3)', padding: '4px', borderRadius: '12px', flexWrap: 'wrap' }}>
-          <button
-            type="button"
-            onClick={() => setActiveTab('direct_chat')}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '8px',
-              border: 'none',
-              background: activeTab === 'direct_chat' ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' : 'transparent',
-              color: '#fff',
-              fontWeight: '800',
-              fontSize: '0.85rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              boxShadow: activeTab === 'direct_chat' ? '0 0 12px rgba(37, 99, 235, 0.4)' : 'none'
-            }}
-          >
-            <MessageCircle size={16} />
-            <span>💬 Chat Directo (Instantáneo)</span>
-          </button>
-
           <button
             type="button"
             onClick={() => setActiveTab('received')}
@@ -195,7 +125,7 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
             }}
           >
             <Inbox size={16} />
-            <span>📢 Comunicados ({receivedEmails.length})</span>
+            <span>📢 Comunicados Recibidos ({receivedEmails.length})</span>
           </button>
 
           <button
@@ -216,7 +146,7 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
             }}
           >
             <Mail size={16} />
-            <span>✉️ Consulta por Correo</span>
+            <span>✉️ Enviar Consulta por Correo</span>
           </button>
         </div>
       </div>
