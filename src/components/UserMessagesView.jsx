@@ -23,14 +23,14 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const studentUid = currentUser?.uid || 'guest_student';
+  const studentUid = (currentUser?.bookCode || currentUser?.uid || 'guest_student').trim();
 
   useEffect(() => {
     setLoading(true);
 
     // 1. Subscribe to Real-Time Direct Chat Messages
     const unsubChat = firebaseService.subscribeToDirectChatMessages(
-      studentUid,
+      currentUser || studentUid,
       (messages) => {
         setChatMessages(messages);
       }

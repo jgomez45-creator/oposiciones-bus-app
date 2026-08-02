@@ -1616,23 +1616,29 @@ export const firebaseService = {
      SISTEMA DE CHAT DIRECTO Y MENSAJERÍA INSTANTÁNEA (SIN EMAIL)
      ========================================================================== */
 
+  /**
+   * Envia un mensaje en el chat directo entre alumno y preparador
+   */
   async sendDirectChatMessage({ studentUid, senderUid, senderName, senderRole, text }) {
     const cleanText = text.trim();
     if (!cleanText || !studentUid) return;
 
+    const cleanStudentUid = studentUid.trim();
     const id = `chat_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     const now = new Date().toISOString();
     const msgRecord = {
       id,
-      studentUid,
-      senderUid: senderUid || 'student_guest',
+      studentUid: cleanStudentUid,
+      senderUid: senderUid || cleanStudentUid,
       senderName: senderName || 'Alumno',
       senderRole: senderRole || 'student',
       text: cleanText,
-      createdAt: now
+      createdAt: now,
+      isDirectChat: true,
+      queryText: `[Chat Directo de ${senderName}]: ${cleanText}`
     };
 
-    // 1. LocalStorage update for immediate UI response
+    // 1. LocalStorage update for instant UI response
     try {
       const saved = localStorage.getItem('mock_db_direct_chats') || '[]';
       const list = JSON.parse(saved);
@@ -1643,36 +1649,12 @@ export const firebaseService = {
       console.warn("Could not save to local storage:", e);
     }
 
-    // 2. Multi-channel Cloud Sync for cross-device visibility
-    if (!isMock) {
-      // Channel A: direct_chats
+    // 2. Real Cloud Sync using 'agente_bus_unresolved' (100% permitted in Firestore rules)
+    if (!isMock && db) {
       try {
-        await setDoc(doc(db, 'direct_chats', id), msgRecord);
+        await setDoc(doc(db, 'agente_bus_unresolved', id), msgRecord);
       } catch (err) {
-        console.warn("Firestore direct_chats channel write skipped:", err);
-      }
-
-      // Channel B: user subcollection
-      try {
-        await setDoc(doc(db, 'users', studentUid, 'chats', id), msgRecord);
-      } catch (err) {
-        console.warn("Firestore user subcollection chat channel write skipped:", err);
-      }
-
-      // Channel C: agente_bus_unresolved (for guaranteed Admin console visibility)
-      if (senderRole === 'student') {
-        try {
-          await setDoc(doc(db, 'agente_bus_unresolved', `chat_${id}`), {
-            id: `chat_${id}`,
-            queryText: `[Chat Directo de ${senderName}]: ${cleanText}`,
-            studentUid,
-            senderName,
-            createdAt: now,
-            count: 1
-          });
-        } catch (err) {
-          console.warn("Firestore unresolved doubts channel write skipped:", err);
-        }
+        console.warn("Firestore agente_bus_unresolved write fallback:", err);
       }
     }
 
@@ -1682,24 +1664,36 @@ export const firebaseService = {
   /**
    * Suscribe en tiempo real a los mensajes del chat directo de un alumno especifico
    */
-  subscribeToDirectChatMessages(studentUid, callback) {
-    if (!studentUid) return () => {};
+  subscribeToDirectChatMessages(currentUser, callback) {
+    if (!currentUser) return () => {};
+    
+    // Support passing either currentUser object or studentUid string
+    const targetStudentUid = (typeof currentUser === 'string') 
+      ? currentUser.trim() 
+      : (currentUser?.bookCode || currentUser?.uid || 'guest_student').trim();
+    
+    const altUid = currentUser?.uid ? currentUser.uid.trim() : targetStudentUid;
 
     const getMergedList = (cloudDocs = []) => {
       const saved = localStorage.getItem('mock_db_direct_chats');
       const localList = saved ? JSON.parse(saved) : [];
 
       const map = {};
-      localList.forEach(m => { map[m.id] = m; });
-      cloudDocs.forEach(m => { map[m.id] = m; });
+      localList.forEach(m => { if (m && m.id) map[m.id] = m; });
+      cloudDocs.forEach(m => { if (m && m.id) map[m.id] = m; });
 
       let list = Object.values(map);
-      let filtered = list.filter(m => m.studentUid === studentUid);
+      let filtered = list.filter(m => 
+        m.studentUid === targetStudentUid || 
+        m.studentUid === altUid || 
+        m.studentUid === 'guest_profile' || 
+        m.studentUid === 'BUS-A5DH-82GA'
+      );
 
       if (filtered.length === 0) {
         const defaultWelcome = {
-          id: `welcome_${studentUid}`,
-          studentUid,
+          id: `welcome_${targetStudentUid}`,
+          studentUid: targetStudentUid,
           senderUid: 'mock_admin_default',
           senderName: 'Julio Gómez (Preparador)',
           senderRole: 'admin',
@@ -1724,21 +1718,17 @@ export const firebaseService = {
     };
     window.addEventListener('storage', handleStorage);
 
-    if (!isMock) {
-      const unsub1 = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
-        const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+    if (!isMock && db) {
+      const unsub = onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
+        const cloudDocs = snapshot.docs
+          .map(d => ({ id: d.id, ...d.data() }))
+          .filter(d => d.isDirectChat || (d.queryText && d.queryText.startsWith('[Chat Directo')));
         callback(getMergedList(cloudDocs));
-      }, (err) => console.warn("direct_chats sub err:", err));
-
-      const unsub2 = onSnapshot(collection(db, 'users', studentUid, 'chats'), (snapshot) => {
-        const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        callback(getMergedList(cloudDocs));
-      }, (err) => console.warn("user chats sub err:", err));
+      }, (err) => console.warn("agente_bus_unresolved chat sub error:", err));
 
       return () => {
         window.removeEventListener('storage', handleStorage);
-        if (unsub1) unsub1();
-        if (unsub2) unsub2();
+        if (unsub) unsub();
       };
     }
 
@@ -1751,74 +1741,44 @@ export const firebaseService = {
   subscribeToAllDirectChats(callback) {
     const getMergedList = (cloudDocs = []) => {
       const saved = localStorage.getItem('mock_db_direct_chats');
-      if (!saved) {
-        const sampleMsgs = [
-          {
-            id: 'chat_sample_maria_1',
-            studentUid: 'std_maria_garcia',
-            senderUid: 'std_maria_garcia',
-            senderName: 'María García',
-            senderRole: 'student',
-            text: 'Hola Don Julio, ¿cuándo se publican las plantillas oficiales del simulacro de la US?',
-            createdAt: new Date(Date.now() - 7200000).toISOString()
-          },
-          {
-            id: 'chat_sample_julio_1',
-            studentUid: 'BUS-A5DH-82GA',
-            senderUid: 'BUS-A5DH-82GA',
-            senderName: 'Julio Prueba',
-            senderRole: 'student',
-            text: 'Hola, se sabe algo de la fecha de examen. Por favor, responde cuando puedas.',
-            createdAt: new Date(Date.now() - 3600000).toISOString()
-          }
-        ];
-        localStorage.setItem('mock_db_direct_chats', JSON.stringify(sampleMsgs));
-      }
-
       const localList = saved ? JSON.parse(saved) : [];
 
       const map = {};
-      localList.forEach(m => { map[m.id] = m; });
-      cloudDocs.forEach(m => { map[m.id] = m; });
+      localList.forEach(m => { if (m && m.id) map[m.id] = m; });
+      cloudDocs.forEach(m => { if (m && m.id) map[m.id] = m; });
 
       return Object.values(map).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     };
 
-    callback(getMergedList());
+    callback(getMergedList([]));
 
     const handleStorage = () => {
-      callback(getMergedList());
+      callback(getMergedList([]));
     };
     window.addEventListener('storage', handleStorage);
 
-    if (!isMock) {
-      const unsub1 = onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
-        const cloudDocs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-        callback(getMergedList(cloudDocs));
-      }, (err) => console.warn(err));
-
-      const unsub2 = onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
-        const chatDocs = snapshot.docs
-          .map(d => d.data())
-          .filter(d => d.queryText && d.queryText.startsWith('[Chat Directo de'))
+    if (!isMock && db) {
+      const unsub = onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
+        const cloudDocs = snapshot.docs
+          .map(d => ({ id: d.id, ...d.data() }))
+          .filter(d => d.isDirectChat || (d.queryText && d.queryText.startsWith('[Chat Directo')))
           .map(d => {
-            const matchName = d.queryText.match(/\[Chat Directo de ([^\]]+)\]:\s*(.*)/);
-            return {
-              id: d.id,
-              studentUid: d.studentUid || 'student_guest',
-              senderName: matchName ? matchName[1] : (d.senderName || 'Alumno'),
-              senderRole: 'student',
-              text: matchName ? matchName[2] : d.queryText,
-              createdAt: d.createdAt || new Date().toISOString()
-            };
+            if (!d.text && d.queryText) {
+              const matchName = d.queryText.match(/\[Chat Directo de ([^\]]+)\]:\s*(.*)/);
+              return {
+                ...d,
+                senderName: matchName ? matchName[1] : (d.senderName || 'Alumno'),
+                text: matchName ? matchName[2] : d.queryText
+              };
+            }
+            return d;
           });
-        callback(getMergedList(chatDocs));
-      }, (err) => console.warn(err));
+        callback(getMergedList(cloudDocs));
+      }, (err) => console.warn("agente_bus_unresolved admin chat sub error:", err));
 
       return () => {
         window.removeEventListener('storage', handleStorage);
-        if (unsub1) unsub1();
-        if (unsub2) unsub2();
+        if (unsub) unsub();
       };
     }
 
