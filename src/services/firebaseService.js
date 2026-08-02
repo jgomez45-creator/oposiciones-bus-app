@@ -1614,6 +1614,115 @@ export const firebaseService = {
     }
   },
 
+  /* ==========================================================================
+     SISTEMA DE CHAT DIRECTO Y MENSAJERÍA INSTANTÁNEA (SIN EMAIL)
+     ========================================================================== */
+
+  /**
+   * Envia un mensaje en el chat directo entre alumno y preparador
+   */
+  async sendDirectChatMessage({ studentUid, senderUid, senderName, senderRole, text }) {
+    const cleanText = text.trim();
+    if (!cleanText || !studentUid) return;
+
+    const id = `chat_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+    const now = new Date().toISOString();
+    const msgRecord = {
+      id,
+      studentUid,
+      senderUid,
+      senderName,
+      senderRole, // 'admin' | 'student'
+      text: cleanText,
+      createdAt: now
+    };
+
+    if (isMock) {
+      const saved = localStorage.getItem('mock_db_direct_chats') || '[]';
+      const list = JSON.parse(saved);
+      list.push(msgRecord);
+      localStorage.setItem('mock_db_direct_chats', JSON.stringify(list));
+      window.dispatchEvent(new Event('storage'));
+    } else {
+      await setDoc(doc(db, 'direct_chats', id), msgRecord);
+    }
+
+    return msgRecord;
+  },
+
+  /**
+   * Suscribe en tiempo real a los mensajes del chat directo de un alumno especifico
+   */
+  subscribeToDirectChatMessages(studentUid, callback) {
+    if (!studentUid) return () => {};
+
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_direct_chats');
+        let list = saved ? JSON.parse(saved) : [];
+        let filtered = list.filter(m => m.studentUid === studentUid);
+        
+        if (filtered.length === 0) {
+          const defaultWelcome = {
+            id: `welcome_${studentUid}`,
+            studentUid,
+            senderUid: 'mock_admin_default',
+            senderName: 'Julio Gómez (Preparador)',
+            senderRole: 'admin',
+            text: '¡Hola! Este es tu canal de chat directo con tu preparador. Puedes escribirme cualquier consulta o duda aquí sin necesidad de correo.',
+            createdAt: new Date(Date.now() - 300000).toISOString()
+          };
+          list.push(defaultWelcome);
+          localStorage.setItem('mock_db_direct_chats', JSON.stringify(list));
+          filtered = [defaultWelcome];
+        }
+
+        return filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+      };
+
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_direct_chats') callback(getList());
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
+        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        const filtered = list.filter(m => m.studentUid === studentUid);
+        filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        callback(filtered);
+      }, (err) => {
+        console.error("Error en subscribeToDirectChatMessages:", err);
+      });
+    }
+  },
+
+  /**
+   * Suscribe al listado completo de todos los mensajes de chat para el Administrador
+   */
+  subscribeToAllDirectChats(callback) {
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_direct_chats');
+        return saved ? JSON.parse(saved) : [];
+      };
+      callback(getList());
+      const handleStorage = (e) => {
+        if (e.key === 'mock_db_direct_chats') callback(getList());
+      };
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'direct_chats'), (snapshot) => {
+        const list = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+        callback(list);
+      }, (err) => {
+        console.error("Error en subscribeToAllDirectChats:", err);
+      });
+    }
+  },
+
   // --- TOPIC VIDEOS SERVICES ---
 
   // Internal listeners for topic video updates

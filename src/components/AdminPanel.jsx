@@ -59,6 +59,19 @@ export default function AdminPanel({ topics }) {
   const [emailMsg, setEmailMsg] = useState('');
   const [emailHistory, setEmailHistory] = useState([]);
 
+  // Admin Direct Chat State
+  const [allDirectChats, setAllDirectChats] = useState([]);
+  const [selectedChatStudentUid, setSelectedChatStudentUid] = useState(null);
+  const [adminChatInput, setAdminChatInput] = useState('');
+  const [sendingAdminChat, setSendingAdminChat] = useState(false);
+
+  useEffect(() => {
+    const unsub = firebaseService.subscribeToAllDirectChats((messages) => {
+      setAllDirectChats(messages);
+    });
+    return () => { if (unsub) unsub(); };
+  }, []);
+
   // Editions & Modifications State
   const [editions, setEditions] = useState([]);
   const [modifications, setModifications] = useState([]);
@@ -805,6 +818,14 @@ export default function AdminPanel({ topics }) {
           >
             <Mail size={16} />
             <span>Comunicados Email</span>
+          </button>
+          <button
+            onClick={() => setActiveSubTab('direct_chat')}
+            className={`tab-btn ${activeSubTab === 'direct_chat' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'direct_chat' ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' : 'transparent', color: '#fff', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', boxShadow: activeSubTab === 'direct_chat' ? '0 0 10px rgba(37, 99, 235, 0.4)' : 'none' }}
+          >
+            <MessageCircle size={14} style={{ marginRight: '6px', display: 'inline-block', verticalAlign: 'middle' }} />
+            💬 Chat Directo Alumnos
           </button>
           <button
             onClick={() => setActiveSubTab('videos')}
@@ -2426,6 +2447,208 @@ export default function AdminPanel({ topics }) {
           </div>
 
           </div>
+        </div>
+      )}
+
+      {/* SUBTAB: CHAT DIRECTO ALUMNOS (MENSAJERÍA INSTANTÁNEA SIN EMAIL) */}
+      {activeSubTab === 'direct_chat' && (
+        <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: '20px', height: '600px' }}>
+          
+          {/* Lista de Alumnos con Conversaciones */}
+          <div className="glass-panel" style={{ padding: '16px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
+            <h3 style={{ margin: 0, fontSize: '1rem', color: '#60a5fa', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <MessageCircle size={18} />
+              <span>Chats de Alumnos</span>
+            </h3>
+            <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+              Selecciona un alumno para responder a sus mensajes instantáneos.
+            </p>
+
+            <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '4px' }}>
+              {(() => {
+                // Group chat messages by studentUid
+                const chatGroupMap = {};
+                allDirectChats.forEach(m => {
+                  if (!m.studentUid) return;
+                  if (!chatGroupMap[m.studentUid]) {
+                    chatGroupMap[m.studentUid] = {
+                      studentUid: m.studentUid,
+                      studentName: m.senderRole === 'student' ? m.senderName : 'Alumno',
+                      messages: []
+                    };
+                  }
+                  if (m.senderRole === 'student' && m.senderName) {
+                    chatGroupMap[m.studentUid].studentName = m.senderName;
+                  }
+                  chatGroupMap[m.studentUid].messages.push(m);
+                });
+
+                const studentChatList = Object.values(chatGroupMap);
+
+                if (studentChatList.length === 0) {
+                  return (
+                    <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.82rem' }}>
+                      No hay conversaciones activas de chat.
+                    </div>
+                  );
+                }
+
+                return studentChatList.map(st => {
+                  const lastMsg = st.messages[st.messages.length - 1];
+                  const isSelected = selectedChatStudentUid === st.studentUid || (!selectedChatStudentUid && studentChatList[0]?.studentUid === st.studentUid);
+
+                  return (
+                    <div
+                      key={st.studentUid}
+                      onClick={() => setSelectedChatStudentUid(st.studentUid)}
+                      style={{
+                        padding: '12px',
+                        borderRadius: '10px',
+                        background: isSelected ? 'rgba(59, 130, 246, 0.25)' : 'rgba(255,255,255,0.03)',
+                        border: isSelected ? '1px solid #3b82f6' : '1px solid transparent',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '4px'
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <strong style={{ fontSize: '0.85rem', color: isSelected ? '#93c5fd' : '#fff' }}>{st.studentName}</strong>
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                          {lastMsg ? new Date(lastMsg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {lastMsg ? `${lastMsg.senderRole === 'admin' ? 'Tú: ' : ''}${lastMsg.text}` : ''}
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+          </div>
+
+          {/* Panel Principal de Mensajería Directa con el Alumno Seleccionado */}
+          <div className="glass-panel" style={{ padding: '0', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.4)', background: 'rgba(15, 23, 42, 0.9)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+            {(() => {
+              const studentUid = selectedChatStudentUid || (allDirectChats.find(m => m.studentUid)?.studentUid) || 'guest_student';
+              const activeStudentMsgs = allDirectChats.filter(m => m.studentUid === studentUid).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+              const studentName = activeStudentMsgs.find(m => m.senderRole === 'student')?.senderName || 'Alumno';
+
+              const handleSendAdminReply = async (e) => {
+                if (e) e.preventDefault();
+                if (!adminChatInput.trim() || sendingAdminChat) return;
+
+                const text = adminChatInput.trim();
+                setAdminChatInput('');
+                setSendingAdminChat(true);
+
+                try {
+                  await firebaseService.sendDirectChatMessage({
+                    studentUid: studentUid,
+                    senderUid: 'admin_julio',
+                    senderName: 'Julio Gómez (Preparador)',
+                    senderRole: 'admin',
+                    text: text
+                  });
+                } catch (err) {
+                  console.error("Error sending admin chat reply:", err);
+                  alert("No se pudo enviar la respuesta.");
+                } finally {
+                  setSendingAdminChat(false);
+                }
+              };
+
+              return (
+                <>
+                  <div style={{ padding: '14px 20px', background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <h4 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>Conversación con: <span style={{ color: '#60a5fa' }}>{studentName}</span></h4>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Mensajería directa en tiempo real</span>
+                    </div>
+                    <span style={{ fontSize: '0.7rem', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', padding: '2px 8px', borderRadius: '6px', fontWeight: '700' }}>
+                      Canal Directo Activo
+                    </span>
+                  </div>
+
+                  <div style={{ flex: 1, padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(10, 15, 30, 0.5)' }}>
+                    {activeStudentMsgs.length === 0 ? (
+                      <div style={{ textAlign: 'center', color: 'var(--text-muted)', margin: 'auto 0', fontSize: '0.88rem' }}>
+                        Selecciona un alumno o inicia el diálogo escribiendo abajo...
+                      </div>
+                    ) : (
+                      activeStudentMsgs.map(m => {
+                        const isAdmin = m.senderRole === 'admin';
+                        return (
+                          <div
+                            key={m.id}
+                            style={{
+                              alignSelf: isAdmin ? 'flex-end' : 'flex-start',
+                              maxWidth: '75%',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: '4px'
+                            }}
+                          >
+                            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textAlign: isAdmin ? 'right' : 'left' }}>
+                              {isAdmin ? 'Tú (Preparador)' : m.senderName} &bull; {new Date(m.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                            </div>
+                            <div style={{
+                              padding: '10px 14px',
+                              borderRadius: isAdmin ? '14px 14px 2px 14px' : '14px 14px 14px 2px',
+                              background: isAdmin ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' : 'rgba(30, 41, 59, 0.95)',
+                              color: '#fff',
+                              fontSize: '0.85rem',
+                              lineHeight: '1.4',
+                              border: isAdmin ? 'none' : '1px solid rgba(255,255,255,0.1)'
+                            }}>
+                              {m.text}
+                            </div>
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
+
+                  <form onSubmit={handleSendAdminReply} style={{ padding: '12px 16px', background: 'rgba(15, 23, 42, 0.95)', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '10px' }}>
+                    <input
+                      type="text"
+                      value={adminChatInput}
+                      onChange={(e) => setAdminChatInput(e.target.value)}
+                      placeholder={`Escribir respuesta directa a ${studentName}...`}
+                      style={{
+                        flex: 1,
+                        padding: '10px 14px',
+                        borderRadius: '10px',
+                        background: 'rgba(0,0,0,0.4)',
+                        border: '1px solid var(--border-color)',
+                        color: '#fff',
+                        fontSize: '0.85rem',
+                        outline: 'none'
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      disabled={sendingAdminChat || !adminChatInput.trim()}
+                      className="glow-btn"
+                      style={{
+                        padding: '10px 18px',
+                        borderRadius: '10px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        opacity: (!adminChatInput.trim() || sendingAdminChat) ? 0.5 : 1
+                      }}
+                    >
+                      <Send size={15} />
+                      <span>Enviar</span>
+                    </button>
+                  </form>
+                </>
+              );
+            })()}
+          </div>
+
         </div>
       )}
 
