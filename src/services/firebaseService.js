@@ -1649,8 +1649,7 @@ export const firebaseService = {
       senderRole: senderRole || 'student',
       text: cleanText,
       createdAt: now,
-      isDirectChat: true,
-      queryText: `[Chat Directo de ${senderName}]: ${cleanText}`
+      isDirectChat: true
     };
 
     // 1. LocalStorage update for instant UI response across tabs
@@ -1667,16 +1666,16 @@ export const firebaseService = {
       console.warn("Could not save to local storage:", e);
     }
 
-    // 2. Real Cloud Sync using 'agente_bus_unresolved' (100% permitted in Firestore rules)
+    // 2. Real Cloud Sync using 'student_messages' collection (100% active in Firestore rules)
     if (!isMock && db) {
       try {
         if (auth && !auth.currentUser) {
           await signInAnonymously(auth);
         }
-        await setDoc(doc(db, 'agente_bus_unresolved', id), msgRecord);
-        console.log("Direct chat message synced to cloud:", id);
+        await setDoc(doc(db, 'student_messages', id), msgRecord);
+        console.log("Direct chat message successfully synced to student_messages:", id);
       } catch (err) {
-        console.warn("Firestore agente_bus_unresolved write fallback:", err);
+        console.warn("Firestore student_messages write error:", err);
       }
     }
 
@@ -1689,27 +1688,25 @@ export const firebaseService = {
   subscribeToDirectChatMessages(currentUser, callback) {
     if (!currentUser) return () => {};
     
-    // Support passing either currentUser object or studentUid string
     const targetStudentUid = (typeof currentUser === 'string') 
       ? currentUser.trim() 
       : (currentUser?.bookCode || currentUser?.uid || 'guest_student').trim();
-    
-    const altUid = currentUser?.uid ? currentUser.uid.trim() : targetStudentUid;
 
     const getMergedList = (cloudDocs = []) => {
       const saved = localStorage.getItem('mock_db_direct_chats');
       const localList = saved ? JSON.parse(saved) : [];
 
       const map = {};
-      localList.forEach(m => { if (m && m.id) map[m.id] = m; });
-      cloudDocs.forEach(m => { if (m && m.id) map[m.id] = m; });
+      localList.forEach(m => { if (m && m.id && m.isDirectChat) map[m.id] = m; });
+      cloudDocs.forEach(m => { if (m && m.id && m.isDirectChat) map[m.id] = m; });
 
       let list = Object.values(map);
       let filtered = list.filter(m => 
-        m.studentUid === targetStudentUid || 
-        m.studentUid === altUid || 
-        m.studentUid === 'guest_profile' || 
-        m.studentUid === 'BUS-A5DH-82GA'
+        m.isDirectChat && (
+          m.studentUid === targetStudentUid || 
+          m.studentUid === 'BUS-A5DH-82GA' ||
+          m.studentUid === 'guest_profile'
+        )
       );
 
       if (filtered.length === 0) {
@@ -1720,7 +1717,8 @@ export const firebaseService = {
           senderName: 'Julio Gómez (Preparador)',
           senderRole: 'admin',
           text: '¡Hola! Este es tu canal de chat directo con tu preparador. Puedes escribirme cualquier consulta o duda aquí sin necesidad de correo.',
-          createdAt: new Date(Date.now() - 300000).toISOString()
+          createdAt: new Date(Date.now() - 300000).toISOString(),
+          isDirectChat: true
         };
         map[defaultWelcome.id] = defaultWelcome;
         try {
@@ -1732,21 +1730,20 @@ export const firebaseService = {
       return filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     };
 
-    // Deliver immediate local view
-    callback(getMergedList());
+    callback(getMergedList([]));
 
     const handleStorage = () => {
-      callback(getMergedList());
+      callback(getMergedList([]));
     };
     window.addEventListener('storage', handleStorage);
 
     if (!isMock && db) {
-      const unsub = onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
+      const unsub = onSnapshot(collection(db, 'student_messages'), (snapshot) => {
         const cloudDocs = snapshot.docs
           .map(d => ({ id: d.id, ...d.data() }))
-          .filter(d => d.isDirectChat || (d.queryText && d.queryText.startsWith('[Chat Directo')));
+          .filter(d => d.isDirectChat);
         callback(getMergedList(cloudDocs));
-      }, (err) => console.warn("agente_bus_unresolved chat sub error:", err));
+      }, (err) => console.warn("student_messages chat sub error:", err));
 
       return () => {
         window.removeEventListener('storage', handleStorage);
@@ -1766,8 +1763,8 @@ export const firebaseService = {
       const localList = saved ? JSON.parse(saved) : [];
 
       const map = {};
-      localList.forEach(m => { if (m && m.id) map[m.id] = m; });
-      cloudDocs.forEach(m => { if (m && m.id) map[m.id] = m; });
+      localList.forEach(m => { if (m && m.id && m.isDirectChat) map[m.id] = m; });
+      cloudDocs.forEach(m => { if (m && m.id && m.isDirectChat) map[m.id] = m; });
 
       return Object.values(map).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     };
@@ -1780,23 +1777,12 @@ export const firebaseService = {
     window.addEventListener('storage', handleStorage);
 
     if (!isMock && db) {
-      const unsub = onSnapshot(collection(db, 'agente_bus_unresolved'), (snapshot) => {
+      const unsub = onSnapshot(collection(db, 'student_messages'), (snapshot) => {
         const cloudDocs = snapshot.docs
           .map(d => ({ id: d.id, ...d.data() }))
-          .filter(d => d.isDirectChat || (d.queryText && d.queryText.startsWith('[Chat Directo')))
-          .map(d => {
-            if (!d.text && d.queryText) {
-              const matchName = d.queryText.match(/\[Chat Directo de ([^\]]+)\]:\s*(.*)/);
-              return {
-                ...d,
-                senderName: matchName ? matchName[1] : (d.senderName || 'Alumno'),
-                text: matchName ? matchName[2] : d.queryText
-              };
-            }
-            return d;
-          });
+          .filter(d => d.isDirectChat);
         callback(getMergedList(cloudDocs));
-      }, (err) => console.warn("agente_bus_unresolved admin chat sub error:", err));
+      }, (err) => console.warn("student_messages admin chat sub error:", err));
 
       return () => {
         window.removeEventListener('storage', handleStorage);
