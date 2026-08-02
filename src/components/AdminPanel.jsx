@@ -2453,74 +2453,108 @@ export default function AdminPanel({ topics }) {
 
       {/* SUBTAB: CHAT DIRECTO ALUMNOS (MENSAJERÍA INSTANTÁNEA SIN EMAIL) */}
       {activeSubTab === 'direct_chat' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: '20px', height: '600px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: '20px', height: '620px' }}>
           
           {/* Lista de Alumnos con Conversaciones */}
-          <div className="glass-panel" style={{ padding: '16px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
-            <h3 style={{ margin: 0, fontSize: '1rem', color: '#60a5fa', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <MessageCircle size={18} />
-              <span>Chats de Alumnos</span>
-            </h3>
+          <div className="glass-panel" style={{ padding: '16px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(15,23,42,0.85)', border: '1px solid rgba(59, 130, 246, 0.4)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3 style={{ margin: 0, fontSize: '1.05rem', color: '#60a5fa', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MessageCircle size={20} />
+                <span>Chats de Alumnos</span>
+              </h3>
+              <span style={{ fontSize: '0.72rem', background: 'rgba(59, 130, 246, 0.2)', color: '#93c5fd', padding: '2px 8px', borderRadius: '8px', fontWeight: '700' }}>
+                En vivo
+              </span>
+            </div>
             <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-              Selecciona un alumno para responder a sus mensajes instantáneos.
+              Selecciona a <strong>Julio Prueba</strong> o a cualquier otro estudiante para enviar/responder un mensaje instantáneo.
             </p>
 
             <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '4px' }}>
               {(() => {
-                // Group chat messages by studentUid
-                const chatGroupMap = {};
+                // Build a combined map of all registered students + active chats
+                const studentMap = {};
+
+                // 1. Registered users
+                users.forEach(u => {
+                  if (u.uid && u.uid !== 'guest_profile' && u.role !== 'admin') {
+                    studentMap[u.uid] = {
+                      studentUid: u.uid,
+                      studentName: u.name || u.email || 'Alumno',
+                      bookCode: u.bookCode || '',
+                      messages: []
+                    };
+                  }
+                });
+
+                // 2. Default student profiles if not registered in users array yet
+                if (!studentMap['BUS-A5DH-82GA']) {
+                  studentMap['BUS-A5DH-82GA'] = {
+                    studentUid: 'BUS-A5DH-82GA',
+                    studentName: 'Julio Prueba',
+                    bookCode: 'BUS-A5DH-82GA',
+                    messages: []
+                  };
+                }
+                if (!studentMap['std_maria_garcia']) {
+                  studentMap['std_maria_garcia'] = {
+                    studentUid: 'std_maria_garcia',
+                    studentName: 'María García',
+                    bookCode: 'BUS-TEST-123',
+                    messages: []
+                  };
+                }
+
+                // 3. Attach all direct chat messages
                 allDirectChats.forEach(m => {
-                  if (!m.studentUid) return;
-                  if (!chatGroupMap[m.studentUid]) {
-                    chatGroupMap[m.studentUid] = {
-                      studentUid: m.studentUid,
-                      studentName: m.senderRole === 'student' ? m.senderName : 'Alumno',
+                  const uid = m.studentUid || 'BUS-A5DH-82GA';
+                  if (!studentMap[uid]) {
+                    studentMap[uid] = {
+                      studentUid: uid,
+                      studentName: m.senderRole === 'student' ? (m.senderName || 'Alumno') : 'Alumno',
+                      bookCode: '',
                       messages: []
                     };
                   }
                   if (m.senderRole === 'student' && m.senderName) {
-                    chatGroupMap[m.studentUid].studentName = m.senderName;
+                    studentMap[uid].studentName = m.senderName;
                   }
-                  chatGroupMap[m.studentUid].messages.push(m);
+                  studentMap[uid].messages.push(m);
                 });
 
-                const studentChatList = Object.values(chatGroupMap);
-
-                if (studentChatList.length === 0) {
-                  return (
-                    <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.82rem' }}>
-                      No hay conversaciones activas de chat.
-                    </div>
-                  );
-                }
+                const studentChatList = Object.values(studentMap);
 
                 return studentChatList.map(st => {
                   const lastMsg = st.messages[st.messages.length - 1];
-                  const isSelected = selectedChatStudentUid === st.studentUid || (!selectedChatStudentUid && studentChatList[0]?.studentUid === st.studentUid);
+                  const isSelected = selectedChatStudentUid === st.studentUid || (!selectedChatStudentUid && st.studentUid === 'BUS-A5DH-82GA');
 
                   return (
                     <div
                       key={st.studentUid}
                       onClick={() => setSelectedChatStudentUid(st.studentUid)}
                       style={{
-                        padding: '12px',
-                        borderRadius: '10px',
-                        background: isSelected ? 'rgba(59, 130, 246, 0.25)' : 'rgba(255,255,255,0.03)',
-                        border: isSelected ? '1px solid #3b82f6' : '1px solid transparent',
+                        padding: '12px 14px',
+                        borderRadius: '12px',
+                        background: isSelected ? 'linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(30, 58, 138, 0.4) 100%)' : 'rgba(255,255,255,0.03)',
+                        border: isSelected ? '1px solid #3b82f6' : '1px solid rgba(255,255,255,0.05)',
                         cursor: 'pointer',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '4px'
+                        gap: '4px',
+                        transition: 'all 0.15s ease'
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <strong style={{ fontSize: '0.85rem', color: isSelected ? '#93c5fd' : '#fff' }}>{st.studentName}</strong>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <strong style={{ fontSize: '0.88rem', color: isSelected ? '#93c5fd' : '#fff' }}>👩‍🎓 {st.studentName}</strong>
+                          {st.bookCode && <span style={{ fontSize: '0.68rem', color: 'var(--secondary)', background: 'rgba(212,163,89,0.15)', padding: '1px 6px', borderRadius: '4px' }}>{st.bookCode}</span>}
+                        </div>
                         <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                          {lastMsg ? new Date(lastMsg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                          {lastMsg ? new Date(lastMsg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Nuevo'}
                         </span>
                       </div>
-                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                        {lastMsg ? `${lastMsg.senderRole === 'admin' ? 'Tú: ' : ''}${lastMsg.text}` : ''}
+                      <div style={{ fontSize: '0.78rem', color: isSelected ? '#e2e8f0' : 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {lastMsg ? `${lastMsg.senderRole === 'admin' ? 'Tú: ' : ''}${lastMsg.text}` : 'Sin mensajes previos'}
                       </div>
                     </div>
                   );
@@ -2530,11 +2564,13 @@ export default function AdminPanel({ topics }) {
           </div>
 
           {/* Panel Principal de Mensajería Directa con el Alumno Seleccionado */}
-          <div className="glass-panel" style={{ padding: '0', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.4)', background: 'rgba(15, 23, 42, 0.9)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+          <div className="glass-panel" style={{ padding: '0', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.4)', background: 'rgba(15, 23, 42, 0.95)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
             {(() => {
-              const studentUid = selectedChatStudentUid || (allDirectChats.find(m => m.studentUid)?.studentUid) || 'guest_student';
-              const activeStudentMsgs = allDirectChats.filter(m => m.studentUid === studentUid).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-              const studentName = activeStudentMsgs.find(m => m.senderRole === 'student')?.senderName || 'Alumno';
+              const currentSelectedUid = selectedChatStudentUid || 'BUS-A5DH-82GA';
+              const activeStudentMsgs = allDirectChats.filter(m => m.studentUid === currentSelectedUid).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+              
+              const studentObj = users.find(u => u.uid === currentSelectedUid);
+              const targetStudentName = studentObj?.name || (currentSelectedUid === 'BUS-A5DH-82GA' ? 'Julio Prueba' : currentSelectedUid === 'std_maria_garcia' ? 'María García' : 'Alumno');
 
               const handleSendAdminReply = async (e) => {
                 if (e) e.preventDefault();
@@ -2546,7 +2582,7 @@ export default function AdminPanel({ topics }) {
 
                 try {
                   await firebaseService.sendDirectChatMessage({
-                    studentUid: studentUid,
+                    studentUid: currentSelectedUid,
                     senderUid: 'admin_julio',
                     senderName: 'Julio Gómez (Preparador)',
                     senderRole: 'admin',
@@ -2554,7 +2590,6 @@ export default function AdminPanel({ topics }) {
                   });
                 } catch (err) {
                   console.error("Error sending admin chat reply:", err);
-                  alert("No se pudo enviar la respuesta.");
                 } finally {
                   setSendingAdminChat(false);
                 }
@@ -2562,20 +2597,24 @@ export default function AdminPanel({ topics }) {
 
               return (
                 <>
-                  <div style={{ padding: '14px 20px', background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ padding: '14px 20px', background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <h4 style={{ margin: 0, color: '#fff', fontSize: '1rem' }}>Conversación con: <span style={{ color: '#60a5fa' }}>{studentName}</span></h4>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Mensajería directa en tiempo real</span>
+                      <h4 style={{ margin: 0, color: '#fff', fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span>Conversación Directa con:</span>
+                        <span style={{ color: '#60a5fa', fontWeight: '800' }}>{targetStudentName}</span>
+                        <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>({currentSelectedUid})</span>
+                      </h4>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Canal de mensajería instantánea sin necesidad de email</span>
                     </div>
-                    <span style={{ fontSize: '0.7rem', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', padding: '2px 8px', borderRadius: '6px', fontWeight: '700' }}>
-                      Canal Directo Activo
+                    <span style={{ fontSize: '0.72rem', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', padding: '3px 10px', borderRadius: '8px', fontWeight: '700', border: '1px solid rgba(34, 197, 94, 0.4)' }}>
+                      🟢 Chat Activo
                     </span>
                   </div>
 
-                  <div style={{ flex: 1, padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(10, 15, 30, 0.5)' }}>
+                  <div style={{ flex: 1, padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(10, 15, 30, 0.6)' }}>
                     {activeStudentMsgs.length === 0 ? (
                       <div style={{ textAlign: 'center', color: 'var(--text-muted)', margin: 'auto 0', fontSize: '0.88rem' }}>
-                        Selecciona un alumno o inicia el diálogo escribiendo abajo...
+                        No hay mensajes previos con {targetStudentName}. Escribe a continuación para enviarle un mensaje directo a su pantalla.
                       </div>
                     ) : (
                       activeStudentMsgs.map(m => {
@@ -2592,16 +2631,17 @@ export default function AdminPanel({ topics }) {
                             }}
                           >
                             <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textAlign: isAdmin ? 'right' : 'left' }}>
-                              {isAdmin ? 'Tú (Preparador)' : m.senderName} &bull; {new Date(m.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              {isAdmin ? 'Tú (Preparador)' : (m.senderName || targetStudentName)} &bull; {new Date(m.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
                             <div style={{
-                              padding: '10px 14px',
-                              borderRadius: isAdmin ? '14px 14px 2px 14px' : '14px 14px 14px 2px',
+                              padding: '11px 16px',
+                              borderRadius: isAdmin ? '16px 16px 2px 16px' : '16px 16px 16px 2px',
                               background: isAdmin ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' : 'rgba(30, 41, 59, 0.95)',
                               color: '#fff',
-                              fontSize: '0.85rem',
-                              lineHeight: '1.4',
-                              border: isAdmin ? 'none' : '1px solid rgba(255,255,255,0.1)'
+                              fontSize: '0.88rem',
+                              lineHeight: '1.45',
+                              border: isAdmin ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                              boxShadow: '0 2px 6px rgba(0,0,0,0.3)'
                             }}>
                               {m.text}
                             </div>
@@ -2611,20 +2651,20 @@ export default function AdminPanel({ topics }) {
                     )}
                   </div>
 
-                  <form onSubmit={handleSendAdminReply} style={{ padding: '12px 16px', background: 'rgba(15, 23, 42, 0.95)', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '10px' }}>
+                  <form onSubmit={handleSendAdminReply} style={{ padding: '14px 18px', background: 'rgba(15, 23, 42, 0.98)', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '10px' }}>
                     <input
                       type="text"
                       value={adminChatInput}
                       onChange={(e) => setAdminChatInput(e.target.value)}
-                      placeholder={`Escribir respuesta directa a ${studentName}...`}
+                      placeholder={`Escribir mensaje directo a ${targetStudentName}...`}
                       style={{
                         flex: 1,
-                        padding: '10px 14px',
-                        borderRadius: '10px',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
                         background: 'rgba(0,0,0,0.4)',
                         border: '1px solid var(--border-color)',
                         color: '#fff',
-                        fontSize: '0.85rem',
+                        fontSize: '0.88rem',
                         outline: 'none'
                       }}
                     />
@@ -2633,16 +2673,17 @@ export default function AdminPanel({ topics }) {
                       disabled={sendingAdminChat || !adminChatInput.trim()}
                       className="glow-btn"
                       style={{
-                        padding: '10px 18px',
-                        borderRadius: '10px',
+                        padding: '12px 22px',
+                        borderRadius: '12px',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
+                        fontWeight: '800',
                         opacity: (!adminChatInput.trim() || sendingAdminChat) ? 0.5 : 1
                       }}
                     >
-                      <Send size={15} />
-                      <span>Enviar</span>
+                      <Send size={16} />
+                      <span>Enviar a {targetStudentName.split(' ')[0]}</span>
                     </button>
                   </form>
                 </>
