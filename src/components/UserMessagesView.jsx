@@ -20,10 +20,14 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
   useEffect(() => {
     setLoading(true);
 
+    // Safety timeout: stop loading after 3s even if no data arrives
+    const loadingTimeout = setTimeout(() => setLoading(false), 3000);
+
     // 1. Subscribe to emails received by this student
     const unsubReceived = firebaseService.subscribeToStudentReceivedEmails(
       currentUser,
       (list) => {
+        clearTimeout(loadingTimeout);
         setReceivedEmails(list);
         setLoading(false);
 
@@ -48,6 +52,7 @@ export default function UserMessagesView({ currentUser, setCurrentTab }) {
     );
 
     return () => {
+      clearTimeout(loadingTimeout);
       if (unsubReceived) unsubReceived();
       if (unsubSent) unsubSent();
     };
