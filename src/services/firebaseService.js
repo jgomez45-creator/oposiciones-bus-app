@@ -46,6 +46,13 @@ const firebaseConfig = {
 let auth = null;
 let db = null;
 let storage = null;
+const chatChannel = typeof window !== 'undefined' && 'BroadcastChannel' in window ? new BroadcastChannel('bus_direct_chat_channel') : null;
+
+if (chatChannel) {
+  chatChannel.onmessage = () => {
+    window.dispatchEvent(new Event('storage'));
+  };
+}
 
 if (!isMock) {
   try {
@@ -54,6 +61,14 @@ if (!isMock) {
     db = initializeFirestore(app, {
       experimentalAutoDetectLongPolling: true
     });
+    
+    // Ensure Firebase Auth session is active so Firestore permissions never fail
+    signInAnonymously(auth).then(() => {
+      console.log("Firebase Auth signed in anonymously for Cloud Firestore sync.");
+    }).catch(err => {
+      console.warn("Firebase Auth anonymous login warning:", err);
+    });
+
     try {
       storage = getStorage(app);
     } catch (storageErr) {
@@ -1638,13 +1653,16 @@ export const firebaseService = {
       queryText: `[Chat Directo de ${senderName}]: ${cleanText}`
     };
 
-    // 1. LocalStorage update for instant UI response
+    // 1. LocalStorage update for instant UI response across tabs
     try {
       const saved = localStorage.getItem('mock_db_direct_chats') || '[]';
       const list = JSON.parse(saved);
       list.push(msgRecord);
       localStorage.setItem('mock_db_direct_chats', JSON.stringify(list));
       window.dispatchEvent(new Event('storage'));
+      if (chatChannel) {
+        chatChannel.postMessage(msgRecord);
+      }
     } catch (e) {
       console.warn("Could not save to local storage:", e);
     }
@@ -1652,7 +1670,11 @@ export const firebaseService = {
     // 2. Real Cloud Sync using 'agente_bus_unresolved' (100% permitted in Firestore rules)
     if (!isMock && db) {
       try {
+        if (auth && !auth.currentUser) {
+          await signInAnonymously(auth);
+        }
         await setDoc(doc(db, 'agente_bus_unresolved', id), msgRecord);
+        console.log("Direct chat message synced to cloud:", id);
       } catch (err) {
         console.warn("Firestore agente_bus_unresolved write fallback:", err);
       }
