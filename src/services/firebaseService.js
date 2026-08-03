@@ -1653,6 +1653,32 @@ export const firebaseService = {
     }
   },
 
+  /**
+   * Admin: suscribe a TODOS los mensajes de alumnos (bandeja de entrada del preparador)
+   */
+  subscribeToAllStudentMessages(callback) {
+    if (isMock) {
+      const getList = () => {
+        const saved = localStorage.getItem('mock_db_student_messages');
+        const map = saved ? JSON.parse(saved) : {};
+        return Object.values(map).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      };
+      callback(getList());
+      const handleStorage = () => callback(getList());
+      window.addEventListener('storage', handleStorage);
+      return () => window.removeEventListener('storage', handleStorage);
+    } else {
+      return onSnapshot(collection(db, 'student_messages'), (snapshot) => {
+        const list = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
+        list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        callback(list);
+      }, (err) => {
+        console.error("Error en subscribeToAllStudentMessages:", err);
+        callback([]);
+      });
+    }
+  },
+
   /* ==========================================================================
      SISTEMA DE CHAT DIRECTO Y MENSAJERÍA INSTANTÁNEA (SIN EMAIL)
      ========================================================================== */
