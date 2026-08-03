@@ -1404,6 +1404,7 @@ export const firebaseService = {
         });
         localStorage.setItem('mock_sent_emails', JSON.stringify(emailsList));
       }
+      window.dispatchEvent(new Event('announcements-updated'));
       window.dispatchEvent(new Event('storage'));
     } else if (db) {
       // Registrar el comunicado general en la app
@@ -1525,25 +1526,44 @@ export const firebaseService = {
       };
 
       callback(getList());
-      const handleStorage = (e) => {
-        if (e.key === 'mock_db_email_announcements') callback(getList());
+      const handleUpdate = () => callback(getList());
+      window.addEventListener('announcements-updated', handleUpdate);
+      window.addEventListener('storage', handleUpdate);
+      return () => {
+        window.removeEventListener('announcements-updated', handleUpdate);
+        window.removeEventListener('storage', handleUpdate);
       };
-      window.addEventListener('storage', handleStorage);
-      return () => window.removeEventListener('storage', handleStorage);
     } else {
-      return onSnapshot(collection(db, 'email_announcements'), (snapshot) => {
-        const list = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
-        const filtered = list.filter(item => {
-          if (item.targetType === 'all') return true;
-          if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
-          if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
-          return false;
+      // Try Firestore first; if permission denied fall back to localStorage
+      try {
+        return onSnapshot(collection(db, 'email_announcements'), (snapshot) => {
+          const list = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
+          const filtered = list.filter(item => {
+            if (item.targetType === 'all') return true;
+            if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
+            if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
+            return false;
+          });
+          filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          callback(filtered);
+        }, (err) => {
+          console.warn("Firestore email_announcements access denied, falling back to localStorage:", err.code);
+          // Fallback: read from localStorage (same data the admin wrote via mock path)
+          const saved = localStorage.getItem('mock_db_email_announcements');
+          const allRecords = saved ? Object.values(JSON.parse(saved)) : [];
+          const filtered = allRecords.filter(item => {
+            if (item.targetType === 'all') return true;
+            if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
+            if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
+            return false;
+          });
+          callback(filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         });
-        filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        callback(filtered);
-      }, (err) => {
-        console.error("Error en subscribeToStudentReceivedEmails:", err);
-      });
+      } catch (initErr) {
+        console.warn("onSnapshot init error:", initErr);
+        callback([]);
+        return () => {};
+      }
     }
   },
 

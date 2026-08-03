@@ -63,7 +63,8 @@ service cloud.firestore {
 
     // Reglas para el historial de comunicados por email
     match /email_announcements/{announcementId} {
-      allow read, write: if isAdmin();
+      allow read, list: if request.auth != null;  // Cualquier alumno autenticado puede leer comunicados
+      allow write: if isAdmin();
     }
 
   }
