@@ -211,9 +211,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
     } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+      let fullList = competencias60Data;
       if (selectedSpecialTestId === 'competencias-60') {
-        qPool = competencias60Data;
+        fullList = competencias60Data;
       }
+      const shuffled = [...fullList].sort(() => 0.5 - Math.random());
+      const limit = getEffectiveLimit();
+      qPool = limit < shuffled.length ? shuffled.slice(0, limit) : shuffled;
     } else if (selectedTopicMode === 'simulacro-40') {
       qPool = generateSimulacro40Questions();
     } else if (selectedTopicMode === 'simulacro-oficial') {
@@ -279,9 +283,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
     } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+      let fullList = competencias60Data;
       if (selectedSpecialTestId === 'competencias-60') {
-        qPool = competencias60Data;
+        fullList = competencias60Data;
       }
+      const shuffled = [...fullList].sort(() => 0.5 - Math.random());
+      const limit = getEffectiveLimit();
+      qPool = limit < shuffled.length ? shuffled.slice(0, limit) : shuffled;
     } else if (selectedTopicMode === 'simulacro-40') {
       qPool = generateSimulacro40Questions();
     } else if (selectedTopicMode === 'simulacro-oficial') {
@@ -705,7 +713,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
             )}
 
-            {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && selectedTopicMode !== 'especial-competencias' && selectedTopicMode !== 'especial-profundizacion' && (
+            {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
                 <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>
                   {selectedTopicMode === 'test-book'
@@ -762,9 +770,11 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === 'all' ? 'active' : ''}`}
                     style={{ padding: '6px 12px', fontSize: '0.8rem' }}
                   >
-                    {selectedTopicMode === 'single' && quizzesData[singleTopicId]
-                      ? `Todas (${quizzesData[singleTopicId].length})`
-                      : 'Todas'}
+                    {(selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias')
+                      ? `Todas (${competencias60Data.length})`
+                      : selectedTopicMode === 'single' && quizzesData[singleTopicId]
+                        ? `Todas (${quizzesData[singleTopicId].length})`
+                        : 'Todas'}
                   </button>
                 </div>
               </div>
