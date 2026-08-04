@@ -555,6 +555,7 @@ export default function App() {
           <Flashcards
             topics={topicsData}
             activeTopicId={activeTopicId}
+            currentUser={currentUser}
           />
         );
       case 'stats':

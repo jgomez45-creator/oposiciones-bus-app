@@ -203,7 +203,9 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
               <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{currentUser.name || 'Alumno Registrado'}</span>
-              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>ID: {currentUser.bookCode || currentUser.code || (currentUser.role === 'admin' ? 'ADMIN' : 'REGISTRADO')}</span>
+              <span style={{ fontSize: '0.68rem', color: (currentUser.role === 'guest' || currentUser.uid === 'guest_profile') ? '#fbbf24' : 'var(--text-muted)', fontWeight: (currentUser.role === 'guest' || currentUser.uid === 'guest_profile') ? '700' : 'normal' }}>
+                ID: {(currentUser.role === 'guest' || currentUser.uid === 'guest_profile') ? 'INVITADO (DEMO TEMAS 1-3)' : currentUser.bookCode || currentUser.code || (currentUser.role === 'admin' ? 'ADMIN' : 'REGISTRADO')}
+              </span>
             </div>
           </div>
           <div style={{ display: 'flex', gap: '8px', width: '100%' }}>

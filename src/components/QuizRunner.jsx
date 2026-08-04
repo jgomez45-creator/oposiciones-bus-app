@@ -21,6 +21,7 @@ import PrintEditionModal from './PrintEditionModal';
 import { firebaseService } from '../services/firebaseService';
 
 export default function QuizRunner({ topics, progress, recordQuizScore, activeTopicId, currentUser }) {
+  const isGuestMode = currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile';
   const [showPrintModal, setShowPrintModal] = useState(false);
 
   const handlePrintClick = () => {
@@ -590,13 +591,14 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 >
                   {topics.map(t => {
                     const hasQuestions = availableTopicIds.includes(t.id.toString());
+                    const isGuestLocked = isGuestMode && Number(t.id) > 3;
                     return (
                       <option
                         key={t.id}
                         value={t.id.toString()}
-                        disabled={!hasQuestions}
+                        disabled={!hasQuestions || isGuestLocked}
                       >
-                        Tema {t.id}: {t.title} {!hasQuestions ? '(Sin preguntas)' : ''}
+                        Tema {t.id}: {t.title} {isGuestLocked ? '🔒 (Exclusivo Alumnos)' : !hasQuestions ? '(Sin preguntas)' : ''}
                       </option>
                     );
                   })}
@@ -754,29 +756,42 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                     : 'Cantidad de preguntas:'}
                 </label>
                 <div className="question-limit-selector" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
-                  {[5, 10, 20, 30, 50, 100].map(limit => (
-                    <button
-                      key={limit}
-                      type="button"
-                      onClick={() => {
-                        setIsCustomLimitInput(false);
-                        setQuestionLimit(limit);
-                      }}
-                      className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === limit ? 'active' : ''}`}
-                      style={{ padding: '6px 12px', fontSize: '0.8rem' }}
-                    >
-                      {`${limit} preguntas`}
-                    </button>
-                  ))}
+                  {[5, 10, 20, 30, 50, 100].map(limit => {
+                    const isGuestLocked = isGuestMode && limit !== 10;
+                    return (
+                      <button
+                        key={limit}
+                        type="button"
+                        onClick={() => {
+                          if (isGuestLocked) {
+                            alert('🔒 En el Modo Invitado solo se permite realizar cuestionarios de 10 preguntas. Registra tu código de obra impresa para desbloquear 5, 20, 30, 50 y 100 preguntas.');
+                            return;
+                          }
+                          setIsCustomLimitInput(false);
+                          setQuestionLimit(limit);
+                        }}
+                        className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === limit ? 'active' : ''}`}
+                        style={{ padding: '6px 12px', fontSize: '0.8rem', opacity: isGuestLocked ? 0.65 : 1 }}
+                      >
+                        {isGuestLocked ? `${limit} preguntas 🔒` : `${limit} preguntas`}
+                      </button>
+                    );
+                  })}
 
                   {/* Opción Elegir Número Personalizada */}
                   <button
                     type="button"
-                    onClick={() => setIsCustomLimitInput(true)}
+                    onClick={() => {
+                      if (isGuestMode) {
+                        alert('🔒 En el Modo Invitado solo se permite realizar cuestionarios de 10 preguntas. Registra tu código para desbloquear la cantidad personalizada.');
+                        return;
+                      }
+                      setIsCustomLimitInput(true);
+                    }}
                     className={`limit-chip-btn ${isCustomLimitInput ? 'active' : ''}`}
-                    style={{ padding: '6px 12px', fontSize: '0.8rem' }}
+                    style={{ padding: '6px 12px', fontSize: '0.8rem', opacity: isGuestMode ? 0.65 : 1 }}
                   >
-                    Elegir número
+                    {isGuestMode ? 'Elegir número 🔒' : 'Elegir número'}
                   </button>
 
                   {isCustomLimitInput && (
@@ -797,17 +812,23 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   <button
                     type="button"
                     onClick={() => {
+                      if (isGuestMode) {
+                        alert('🔒 En el Modo Invitado solo se permite realizar cuestionarios de 10 preguntas. Registra tu código para realizar el cuestionario completo.');
+                        return;
+                      }
                       setIsCustomLimitInput(false);
                       setQuestionLimit('all');
                     }}
                     className={`limit-chip-btn ${!isCustomLimitInput && questionLimit === 'all' ? 'active' : ''}`}
-                    style={{ padding: '6px 12px', fontSize: '0.8rem' }}
+                    style={{ padding: '6px 12px', fontSize: '0.8rem', opacity: isGuestMode ? 0.65 : 1 }}
                   >
-                    {(selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias')
-                      ? `Todas (${competencias60Data.length})`
-                      : selectedTopicMode === 'single' && quizzesData[singleTopicId]
-                        ? `Todas (${quizzesData[singleTopicId].length})`
-                        : 'Todas'}
+                    {isGuestMode
+                      ? 'Todas 🔒'
+                      : (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias')
+                        ? `Todas (${competencias60Data.length})`
+                        : selectedTopicMode === 'single' && quizzesData[singleTopicId]
+                          ? `Todas (${quizzesData[singleTopicId].length})`
+                          : 'Todas'}
                   </button>
                 </div>
               </div>

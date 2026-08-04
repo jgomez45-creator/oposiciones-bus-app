@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Layers, HelpCircle, ArrowRight, RotateCcw, Check, RefreshCw } from 'lucide-react';
 import flashcardsData from '../data/flashcards.json';
 
-export default function Flashcards({ topics, activeTopicId }) {
+export default function Flashcards({ topics, activeTopicId, currentUser }) {
+  const isGuestMode = currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile';
   const [selectedTopicId, setSelectedTopicId] = useState(activeTopicId || 'all');
   const [deckStarted, setDeckStarted] = useState(false);
   const [cards, setCards] = useState([]);
@@ -37,10 +38,16 @@ export default function Flashcards({ topics, activeTopicId }) {
   }, [activeTopicId]);
 
   const handleStartDeck = () => {
+    if (isGuestMode && selectedTopicId !== 'all' && Number(selectedTopicId) > 3) {
+      alert('🔒 El Modo Invitado permite repasar las tarjetas de los Temas 1, 2 y 3. Registra tu código para desbloquear las barajas de los Temas 4 al 20.');
+      return;
+    }
+
     let cardPool = [];
 
     if (selectedTopicId === 'all') {
-      availableTopicIds.forEach(topicId => {
+      const allowedTopicIds = isGuestMode ? availableTopicIds.filter(id => Number(id) <= 3) : availableTopicIds;
+      allowedTopicIds.forEach(topicId => {
         const topicCards = flashcardsData[topicId].map(c => ({
           ...c,
           topicId: Number(topicId)
@@ -49,7 +56,7 @@ export default function Flashcards({ topics, activeTopicId }) {
       });
       // Shuffle
       cardPool.sort(() => 0.5 - Math.random());
-      cardPool = cardPool.slice(0, 15); // Limit general deck to 15 cards
+      cardPool = cardPool.slice(0, isGuestMode ? 10 : 15); // Limit guest to 10 cards
     } else {
       const topicCards = flashcardsData[selectedTopicId] || [];
       cardPool = topicCards.map(c => ({
@@ -58,6 +65,9 @@ export default function Flashcards({ topics, activeTopicId }) {
       }));
       // Shuffle
       cardPool = [...cardPool].sort(() => 0.5 - Math.random());
+      if (isGuestMode) {
+        cardPool = cardPool.slice(0, 10); // Limit guest deck to max 10 cards per topic
+      }
     }
 
     if (cardPool.length === 0) {
@@ -257,16 +267,17 @@ export default function Flashcards({ topics, activeTopicId }) {
                 onChange={(e) => setSelectedTopicId(e.target.value)}
                 className="config-select"
               >
-                <option value="all">Mazo Combinado (15 tarjetas aleatorias)</option>
+                <option value="all">Mazo Combinado {isGuestMode ? '(10 tarjetas de prueba)' : '(15 tarjetas aleatorias)'}</option>
                 {topics.map(t => {
                   const hasCards = availableTopicIds.includes(t.id.toString());
+                  const isGuestLocked = isGuestMode && Number(t.id) > 3;
                   return (
                     <option
                       key={t.id}
                       value={t.id.toString()}
-                      disabled={!hasCards}
+                      disabled={!hasCards || isGuestLocked}
                     >
-                      Tema {t.id}: {t.title} {!hasCards ? '(Sin tarjetas)' : ''}
+                      Tema {t.id}: {t.title} {isGuestLocked ? '🔒 (Exclusivo Alumnos)' : !hasCards ? '(Sin tarjetas)' : ''}
                     </option>
                   );
                 })}

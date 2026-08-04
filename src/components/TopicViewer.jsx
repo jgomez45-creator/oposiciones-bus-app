@@ -2010,6 +2010,26 @@ export default function TopicViewer({
                       </div>
                     )}
                   </div>
+                ) : (currentUser?.role === 'guest' || currentUser?.uid === 'guest_profile') && Number(topic.id) > 3 ? (
+                  <div className="glass-panel fade-in" style={{ padding: '50px 24px', textAlign: 'center', borderRadius: '16px', border: '1.5px solid rgba(245, 158, 11, 0.4)', background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.98) 100%)', margin: '30px auto', maxWidth: '640px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+                    <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.15)', border: '2px solid #f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#f59e0b', fontSize: '2rem', boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' }}>
+                      🔒
+                    </div>
+                    <h2 style={{ color: '#fff', fontSize: '1.3rem', margin: '0 0 8px 0', textTransform: 'uppercase' }}>
+                      Tema {topic.id}: Contenido Exclusivo para Alumnos
+                    </h2>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5', maxWidth: '500px', margin: '0 auto 20px auto' }}>
+                      El <strong>Modo Invitado</strong> permite la lectura libre y completa de los <strong>Temas 1, 2 y 3</strong>. Para desbloquear el temario completo (Temas 4 al 20), registra tu código de activación de la obra impresa.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setCurrentTab(isMobile ? 'mobile-menu' : 'dashboard')}
+                      className="glow-btn"
+                      style={{ padding: '10px 24px', background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '800', fontSize: '0.88rem', cursor: 'pointer' }}
+                    >
+                      🔑 Registrar Código de Obra Impresa
+                    </button>
+                  </div>
                 ) : (
                   <div
                     className={`markdown-rendered-content font-${fontSize} theme-${readingTheme}`}
