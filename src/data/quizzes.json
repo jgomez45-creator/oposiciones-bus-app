@@ -30862,7 +30862,7 @@
   ],
   "20": [
     {
-      "id": 20001,
+      "id": "20001",
       "question": "¿A quiénes resulta aplicable el Protocolo de Prevención e Intervención ante situaciones de violencia, acoso y discriminación de la US?",
       "options": [
         "Únicamente al personal técnico funcionario (PTGAS).",
@@ -30876,7 +30876,7 @@
       "simulacroExamId": 1
     },
     {
-      "id": 20002,
+      "id": "20002",
       "question": "Según la Normativa de la US de 2024 (Acuerdo 9.1/CG 18-12-24), ¿a través de qué canal debe presentarse la solicitud de intervención por violencia, discriminación o acoso?",
       "options": [
         "Directamente ante la Unidad de Igualdad o la Inspección de Servicios, mediante escrito en papel.",
@@ -30889,7 +30889,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20003,
+      "id": "20003",
       "question": "¿Qué principio procedimental garantiza que la identidad de las partes y los hechos denunciados en el protocolo de acoso no sean divulgados?",
       "options": [
         "Principio de celeridad.",
@@ -30903,7 +30903,7 @@
       "simulacroExamId": 1
     },
     {
-      "id": 20004,
+      "id": "20004",
       "question": "¿Cómo se denomina la protección legal que prohíbe aplicar cualquier tipo de perjuicio o represalia laboral o académica contra el denunciante de acoso?",
       "options": [
         "Inversión de la prueba.",
@@ -30916,7 +30916,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20005,
+      "id": "20005",
       "question": "Si la instrucción interna de la US concluye que existen indicios claros de acoso constitutivo de delito, la Universidad debe obligatoriamente:",
       "options": [
         "Archivar el expediente y sancionar a la víctima.",
@@ -30930,7 +30930,7 @@
       "simulacroExamId": 2
     },
     {
-      "id": 20006,
+      "id": "20006",
       "question": "En virtud de la legislación y normativa vigente del Tema 20 (Normativa de la US contra la violencia y el acoso), ¿cuál de las siguientes opciones describe correctamente lo relativo a 'Garantía de Indemnidad'?",
       "options": [
         "Determina que asegura que ningún miembro de la US sufrirá represalias por denunciar acoso o testificar en el protocolo salvo para el personal interino o estudiantes de doctorado con becas de colaboración.",
@@ -30943,7 +30943,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20007,
+      "id": "20007",
       "question": "Según la Normativa de la US de 2024 (Art. 17), ¿de cuántos días hábiles dispone el Comité para analizar la información recibida y adoptar una primera decisión en la fase de indagación inicial?",
       "options": [
         "5 días hábiles.",
@@ -30957,7 +30957,7 @@
       "simulacroExamId": 2
     },
     {
-      "id": 20008,
+      "id": "20008",
       "question": "Según la Normativa de la US de 2024 (Art. 19), ¿cuántos días hábiles tiene el Comité para realizar la indagación avanzada (segunda fase) una vez admitida la solicitud de intervención?",
       "options": [
         "10 días hábiles, improrrogables.",
@@ -30970,7 +30970,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20009,
+      "id": "20009",
       "question": "Con relación al Tema 20 y el concepto de 'deber de confidencialidad y sigilo', ¿qué aspecto resulta de especial relevancia para la preparación del examen de Técnico/a Auxiliar de Biblioteca?",
       "options": [
         "Resulta fundamental saber que aplica a todos los participantes; su revelación constituye una infracción disciplinaria muy grave siempre y cuando afecte de forma directa al profesorado funcionario doctor.",
@@ -30984,7 +30984,7 @@
       "simulacroExamId": 3
     },
     {
-      "id": 20010,
+      "id": "20010",
       "question": "Según la Normativa de la US de 2024, ¿cuántos días hábiles tiene el Comité para elaborar el informe final una vez realizada la última actuación del procedimiento de investigación?",
       "options": [
         "5 días hábiles.",
@@ -30997,7 +30997,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20011,
+      "id": "20011",
       "question": "Respecto a 'ámbito subjetivo amplio' dentro de las directrices y normas del Tema 20 (Normativa de la US contra la violencia y el acoso), ¿cuál es el postulado legal o técnico correcto?",
       "options": [
         "El reglamento dispone que el protocolo cubre a estudiantes, PDI, PTGAS y empleados de subcontratas en recintos de la US.",
@@ -31011,7 +31011,7 @@
       "simulacroExamId": 3
     },
     {
-      "id": 20012,
+      "id": "20012",
       "question": "Respecto al plazo de 10 días hábiles de la indagación inicial dentro de la Normativa de la US de 2024 (Art. 17.1), ¿cuál es el postulado correcto?",
       "options": [
         "El reglamento dispone que es el plazo de que dispone el Comité para analizar la información y adoptar una primera decisión, ampliable por acuerdo del Comité.",
@@ -31024,7 +31024,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20013,
+      "id": "20013",
       "question": "Según el temario oficial del Tema 20, cuando nos referimos a 'violencia psicológica y moral', es correcto afirmar que:",
       "options": [
         "Implica que se valoran mediante la concurrencia de hostigamiento reiterado y destrucción del entorno laboral solo durante los periodos no lectivos acordados en los calendarios oficiales.",
@@ -31038,7 +31038,7 @@
       "simulacroExamId": 4
     },
     {
-      "id": 20014,
+      "id": "20014",
       "question": "Según la Normativa de la US de 2024, cuando se hace referencia al plazo de la indagación avanzada, es correcto afirmar que:",
       "options": [
         "Es crucial recordar que es el plazo máximo (20 días hábiles) para realizar la indagación avanzada (segunda fase) del procedimiento.",
@@ -31051,7 +31051,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20015,
+      "id": "20015",
       "question": "¿Cuál es la política general de la Universidad de Sevilla ante conductas de acoso y violencia?",
       "options": [
         "Tolerancia cero ante cualquier tipo de acoso o discriminación.",
@@ -31065,7 +31065,7 @@
       "simulacroExamId": 4
     },
     {
-      "id": 20016,
+      "id": "20016",
       "question": "¿A quiénes de la comunidad de la US es de aplicación la normativa interna contra el acoso?",
       "options": [
         "Únicamente al personal docente e investigador (PDI).",
@@ -31078,7 +31078,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20017,
+      "id": "20017",
       "question": "Las conductas realizadas por miembros de la US en actividades extrauniversitarias oficiales (como un congreso o prácticas externas):",
       "options": [
         "Quedan excluidas de la normativa interna de la US.",
@@ -31092,7 +31092,7 @@
       "simulacroExamId": 5
     },
     {
-      "id": 20018,
+      "id": "20018",
       "question": "El comportamiento sistemático, hostil y prolongado en el tiempo que degrada psicológicamente al trabajador en su entorno laboral se define como:",
       "options": [
         "Acoso sexual",
@@ -31105,7 +31105,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20019,
+      "id": "20019",
       "question": "Según la Normativa de la US de 2024, ¿a través de qué canal se inicia formalmente el procedimiento de intervención por acoso?",
       "options": [
         "En el Decanato de la Facultad correspondiente.",
@@ -31119,7 +31119,7 @@
       "simulacroExamId": 5
     },
     {
-      "id": 20020,
+      "id": "20020",
       "question": "¿Cuál es el plazo del que dispone el Comité para adoptar una primera decisión en la fase de indagación inicial del procedimiento de la US (Normativa 2024)?",
       "options": [
         "3 días hábiles",
@@ -31132,7 +31132,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20021,
+      "id": "20021",
       "question": "¿Quién tiene la competencia exclusiva en la US para ordenar la adopción de medidas cautelares provisionales e inmediatas?",
       "options": [
         "El Director de la Unidad de Igualdad.",
@@ -31146,7 +31146,7 @@
       "simulacroExamId": 6
     },
     {
-      "id": 20022,
+      "id": "20022",
       "question": "¿Cuál de las siguientes medidas puede constituir una medida cautelar inmediata en un caso de presunto acoso laboral en las bibliotecas de la US?",
       "options": [
         "La separación provisional y reubicación de puesto de trabajo de las partes, sin menoscabo económico.",
@@ -31159,7 +31159,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20023,
+      "id": "20023",
       "question": "Según la Normativa de la US de 2024, ¿qué ocurre cuando el Comité necesita más tiempo del establecido en la fase de indagación avanzada (segunda fase)?",
       "options": [
         "El procedimiento se archiva automáticamente.",
@@ -31173,7 +31173,7 @@
       "simulacroExamId": 6
     },
     {
-      "id": 20024,
+      "id": "20024",
       "question": "Si la instrucción interna en la US concluye que existen indicios probatorios sólidos de acoso, ¿qué resolución debe tomar el Rector?",
       "options": [
         "Archivar el expediente sin más trámites.",
@@ -31186,7 +31186,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20025,
+      "id": "20025",
       "question": "¿Qué ocurre si en el transcurso de una investigación interna de la US se aprecian indicios evidentes de delito grave (delito penal)?",
       "options": [
         "Se continúa con la investigación interna de forma preferente.",
@@ -31200,7 +31200,7 @@
       "simulacroExamId": 7
     },
     {
-      "id": 20026,
+      "id": "20026",
       "question": "El principio del protocolo de la US que prohíbe cualquier tipo de represalia frente a las víctimas, denunciantes o testigos se denomina:",
       "options": [
         "Confidencialidad absoluta",
@@ -31213,7 +31213,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20027,
+      "id": "20027",
       "question": "¿Qué consecuencia tiene para el personal participante en el procedimiento vulnerar el deber de confidencialidad y sigilo?",
       "options": [
         "Ninguna, es un deber puramente moral.",
@@ -31227,7 +31227,7 @@
       "simulacroExamId": 7
     },
     {
-      "id": 20028,
+      "id": "20028",
       "question": "¿Qué órgano de la US coordina las políticas de género y supervisa el protocolo de prevención contra el acoso?",
       "options": [
         "La Inspección de Servicios.",
@@ -31240,7 +31240,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20029,
+      "id": "20029",
       "question": "¿En qué fecha aprobó el Consejo de Gobierno de la Universidad de Sevilla la vigente 'Normativa para la prevención, evaluación e intervención en situaciones de violencia, discriminación y acoso'?",
       "options": [
         "El 12 de febrero de 2025.",
@@ -31254,7 +31254,7 @@
       "simulacroExamId": 8
     },
     {
-      "id": 20030,
+      "id": "20030",
       "question": "La vigente normativa contra el acoso de la Universidad de Sevilla de finales de 2024 deroga y unifica en un solo texto regulador:",
       "options": [
         "Las directrices de la Ley de Convivencia y el régimen del PTGAS de la BUS de 2007.",
@@ -31267,7 +31267,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20031,
+      "id": "20031",
       "question": "¿En qué año fue creada la Red de Referentes para la Convivencia y el Buentrato de la Universidad de Sevilla y por quién está integrada?",
       "options": [
         "En 2013, integrada únicamente por miembros de la Inspección de Servicios y el Rectorado.",
@@ -31280,7 +31280,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20032,
+      "id": "20032",
       "question": "Las personas voluntarias que forman la Red de Referentes para la Convivencia y el Buentrato de la US reciben una formación especializada de:",
       "options": [
         "10 horas de sensibilización online básica.",
@@ -31294,7 +31294,7 @@
       "simulacroExamId": 8
     },
     {
-      "id": 20033,
+      "id": "20033",
       "question": "Respecto a la tramitación del protocolo de acoso en la US, ¿cuál es una función principal de las personas pertenecientes a la Red de Referentes para la Convivencia y el Buentrato?",
       "options": [
         "Instruir de manera formal el expediente y redactar la propuesta de sanción disciplinaria.",
@@ -31307,7 +31307,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20034,
+      "id": "20034",
       "question": "En los exámenes de oposición de la Universidad de Sevilla (PTGAS), ¿cómo se calcula habitualmente la penalización por respuestas erróneas en los cuestionarios tipo test?",
       "options": [
         "Cada error resta el equivalente a media pregunta correcta (1/2), y las preguntas en blanco restan un cuarto (1/4).",
@@ -31321,8 +31321,8 @@
       "simulacroExamId": 9
     },
     {
-      "id": 20035,
-      "question": "La garantía de indemnidad en la US protege de manera directa a: (Pregunta de control 24)",
+      "id": "20035",
+      "question": "La garantía de indemnidad en la US protege de manera directa a:",
       "options": [
         "Las víctimas, denunciantes y testigos frente a represalias.",
         "Exclusivamente al personal de las bibliotecas universitarias.",
@@ -31334,8 +31334,8 @@
       "usage": "dossier"
     },
     {
-      "id": 20036,
-      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024? (Pregunta de control 25)",
+      "id": "20036",
+      "question": "¿De cuántos días hábiles dispone el Comité para realizar la indagación avanzada (segunda fase) en la Normativa de la US de 2024?",
       "options": [
         "5 días hábiles",
         "10 días hábiles",
@@ -31348,8 +31348,8 @@
       "simulacroExamId": 9
     },
     {
-      "id": 20037,
-      "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso? (Pregunta de control 26)",
+      "id": "20037",
+      "question": "¿Ante qué órgano de la US se inicia formalmente el protocolo de intervención contra el acoso?",
       "options": [
         "A través del buzón único electrónico para la convivencia de la Universidad de Sevilla, cuya gestión corresponde a la Secretaría General.",
         "Ante el Registro General de Estudiantes.",
@@ -31361,8 +31361,8 @@
       "usage": "dossier"
     },
     {
-      "id": 20038,
-      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a: (Pregunta de control 27)",
+      "id": "20038",
+      "question": "El plazo de 10 días hábiles en la Normativa de la US de 2024 corresponde a:",
       "options": [
         "La adopción de medidas disciplinarias definitivas.",
         "El plazo para que el Comité Técnico analice la información y adopte una decisión en la fase de indagación inicial.",
@@ -31375,8 +31375,8 @@
       "simulacroExamId": 10
     },
     {
-      "id": 20039,
-      "question": "La prejudicialidad penal en el protocolo contra el acoso de la US exige que: (Pregunta de control 28)",
+      "id": "20039",
+      "question": "La prejudicialidad penal en el protocolo contra el acoso de la US exige que:",
       "options": [
         "El Rector suspenda las actuaciones administrativas internas en favor de la vía judicial penal.",
         "Se continúe el proceso administrativo con prioridad.",
@@ -31388,7 +31388,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20040,
+      "id": "20040",
       "question": "¿Cuál es la finalidad última del Protocolo frente al acoso y la violencia de la Universidad de Sevilla?",
       "options": [
         "Regular las tarifas de los préstamos interbibliotecarios.",
@@ -31402,7 +31402,7 @@
       "simulacroExamId": 10
     },
     {
-      "id": 20041,
+      "id": "20041",
       "question": "En la estructura administrativa de la US, ¿qué siglas corresponden al Servicio de Prevención de Riesgos Laborales encargado de tramitar inicialmente la activación del protocolo?",
       "options": [
         "CIVE.",
@@ -31415,7 +31415,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20042,
+      "id": "20042",
       "question": "Al recibir una solicitud de activación del protocolo de acoso, ¿cuál es la primera tarea encomendada al personal técnico del SEPRUS?",
       "options": [
         "Iniciar un expediente de sanción muy grave al Rector.",
@@ -31429,7 +31429,7 @@
       "simulacroExamId": 11
     },
     {
-      "id": 20043,
+      "id": "20043",
       "question": "¿Cuál es el nombre completo del órgano técnico colegiado encargado de investigar y evaluar las situaciones de violencia, discriminación y acoso en la Universidad de Sevilla según la Normativa de 2024?",
       "options": [
         "Comisión de Inspección del Personal de Administración y Servicios.",
@@ -31442,7 +31442,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20044,
+      "id": "20044",
       "question": "Según la Normativa de la US de 2024 (Art. 10), ¿quién preside el Comité Técnico para la Prevención, Evaluación e Intervención en Situaciones de Violencia, Discriminación y Acoso?",
       "options": [
         "El Rector o Rectora de la Universidad de Sevilla.",
@@ -31456,7 +31456,7 @@
       "simulacroExamId": 11
     },
     {
-      "id": 20045,
+      "id": "20045",
       "question": "¿Quién forma parte del Comité Técnico de la US según la Normativa de 2024 (Art. 10) como experto/a en materia de prevención de riesgos?",
       "options": [
         "El Gerente de la Universidad.",
@@ -31469,7 +31469,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20046,
+      "id": "20046",
       "question": "Según la Normativa de la US de 2024 (Art. 10), ¿de qué listados pueden ser sorteados los representantes de los colectivos (PDI, PTGAS, estudiantes) para incorporarse al Comité Técnico?",
       "options": [
         "Del claustro de profesores titulares y del Consejo Social.",
@@ -31483,7 +31483,7 @@
       "simulacroExamId": 12
     },
     {
-      "id": 20047,
+      "id": "20047",
       "question": "¿De qué plazo dispone el Comité para llevar a cabo la indagación avanzada (segunda fase) del procedimiento de investigación según la Normativa de la US de 2024 (Art. 19)?",
       "options": [
         "15 días hábiles.",
@@ -31496,7 +31496,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20048,
+      "id": "20048",
       "question": "Según la Normativa de la US de 2024, ¿cómo se puede ampliar el plazo de la indagación avanzada (segunda fase) si el caso es complejo?",
       "options": [
         "No puede ampliarse bajo ningún concepto.",
@@ -31510,7 +31510,7 @@
       "simulacroExamId": 12
     },
     {
-      "id": 20049,
+      "id": "20049",
       "question": "¿Qué medidas de urgencia puede proponer el Comité desde el inicio de la instrucción para separar a las partes y proteger la integridad física y mental de la presunta víctima?",
       "options": [
         "Sanciones de suspensión de empleo y sueldo definitivas.",
@@ -31523,7 +31523,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20050,
+      "id": "20050",
       "question": "Una vez recibido el Informe Final del Comité, ¿a quién se remite para que actúe según la normativa disciplinaria aplicable?",
       "options": [
         "Al Gerente de la Universidad.",
@@ -31537,7 +31537,7 @@
       "simulacroExamId": 13
     },
     {
-      "id": 20051,
+      "id": "20051",
       "question": "Si una resolución rectoral concluye la existencia probada de acoso moral o sexual laboral por parte de un trabajador, el hecho se tipifica como una infracción disciplinaria de carácter:",
       "options": [
         "Falta leve.",
@@ -31550,7 +31550,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20052,
+      "id": "20052",
       "question": "¿Qué elemento completamente nuevo introduce la Normativa de la US de 2024 para proteger y apoyar a las víctimas una vez cerrado el caso?",
       "options": [
         "Un plazo de 5 días hábiles para que el Rector/a dicte resolución.",
@@ -31564,7 +31564,7 @@
       "simulacroExamId": 13
     },
     {
-      "id": 20053,
+      "id": "20053",
       "question": "¿Quién puede solicitar formalmente la activación del protocolo de acoso en la Universidad de Sevilla?",
       "options": [
         "Exclusivamente la propia persona afectada o víctima.",
@@ -31577,7 +31577,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20054,
+      "id": "20054",
       "question": "Según la normativa de la Universidad de Sevilla contra la violencia, acoso y discriminación, el comportamiento hostil o de hostigamiento psicológico sistemático y continuado en el marco laboral que humille y atente contra la dignidad de un empleado se denomina:",
       "options": [
         "Acoso psicológico circunstancial.",
@@ -31591,7 +31591,7 @@
       "simulacroExamId": 14
     },
     {
-      "id": 20055,
+      "id": "20055",
       "question": "¿Es obligatorio acogerse al procedimiento interno de la US antes de iniciar cualquier acción legal ante los tribunales por una situación de acoso o violencia?",
       "options": [
         "Sí, es un requisito previo obligatorio agotar la vía interna antes de acudir a los tribunales.",
@@ -31604,7 +31604,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20056,
+      "id": "20056",
       "question": "Según la Normativa de la US de 2024 (Art. 16.4), ¿qué ocurre con el procedimiento interno del Comité si los hechos son objeto de un procedimiento judicial, disciplinario o administrativo paralelo?",
       "options": [
         "El Comité continúa su investigación de forma independiente y en paralelo.",
@@ -31618,7 +31618,7 @@
       "simulacroExamId": 14
     },
     {
-      "id": 20057,
+      "id": "20057",
       "question": "¿Qué expresa el Art. 9.2 de la Normativa de la US de 2024 respecto a las actuaciones realizadas por el Comité Técnico?",
       "options": [
         "Las actuaciones del Comité conforman un expediente administrativo formal con carácter vinculante.",
@@ -31631,7 +31631,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20058,
+      "id": "20058",
       "question": "Según la Normativa de la US de 2024, ¿con qué incompatibilidad expresa se regula la composición del Comité Técnico (Art. 10.6)?",
       "options": [
         "Los miembros del Comité no pueden pertenecer al mismo colectivo (PDI, PTGAS o estudiantes) que las partes implicadas.",
@@ -31645,7 +31645,7 @@
       "simulacroExamId": 15
     },
     {
-      "id": 20059,
+      "id": "20059",
       "question": "¿Qué nuevo elemento del Título IV de la Normativa de la US de 2024 (Art. 21) está diseñado para apoyar la recuperación de las víctimas de violencia, discriminación y acoso?",
       "options": [
         "La apertura automática de un expediente penal por parte del Rector/a.",
@@ -31658,7 +31658,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20060,
+      "id": "20060",
       "question": "¿Cuál es la función principal de la Comisión de Seguimiento que puede constituirse según el Art. 22 de la Normativa de la US de 2024?",
       "options": [
         "Investigar los hechos en segunda instancia si el Comité no los ha esclarecido.",
@@ -31672,7 +31672,7 @@
       "simulacroExamId": 15
     },
     {
-      "id": 20061,
+      "id": "20061",
       "question": "Según la Declaración de Principios de la Normativa de la US de 2024, ¿qué puede hacer la Universidad en caso de acusaciones falsas de violencia, discriminación o acoso?",
       "options": [
         "La US no puede actuar contra quien hace una denuncia falsa, ya que esto podría disuadir a las víctimas reales.",
@@ -31685,7 +31685,7 @@
       "usage": "dossier"
     },
     {
-      "id": 20062,
+      "id": "20062",
       "question": "Según la Normativa para la prevención, evaluación e intervención ante la violencia, la discriminación y el acoso en la Universidad de Sevilla (BOUS de 12 de febrero de 2025), ¿cuál es el plazo máximo fijado para la Fase 1 (Indagación Inicial) del Comité Técnico?",
       "options": [
         "5 días hábiles.",
@@ -31698,13 +31698,13 @@
       "usage": "dossier"
     },
     {
-      "id": "q_auto_t20_63",
+      "id": "20063",
       "question": "De acuerdo con la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, ¿qué se entiende por 'discriminación indirecta por razón de sexo'?",
       "options": [
-        "A) El tratamiento desfavorable explícito a una mujer por estar embarazada",
-        "B) La situación en que una disposición, criterio o práctica aparentemente neutro pone a personas de un sexo en desventaja particular con respecto a personas del otro sexo",
-        "C) La denegación de una subvención por falta de presupuesto institucional",
-        "D) La obligación de presentar la declaración de la renta de forma conjunta"
+        "El tratamiento desfavorable explícito a una mujer por estar embarazada",
+        "La situación en que una disposición, criterio o práctica aparentemente neutro pone a personas de un sexo en desventaja particular con respecto a personas del otro sexo",
+        "La denegación de una subvención por falta de presupuesto institucional",
+        "La obligación de presentar la declaración de la renta de forma conjunta"
       ],
       "correctAnswer": 1,
       "explanation": "El artículo 6.2 de la LO 3/2007 define la discriminación indirecta como la situación en que una norma o criterio neutro perjudica cuantitativamente a un sexo sin justificación objetiva.",
@@ -31714,13 +31714,13 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t20_64",
+      "id": "20064",
       "question": "En la Universidad de Sevilla, ¿cuál es el instrumento estratégico institucional destinado a integrar el principio de igualdad en la docencia, investigación y gestión?",
       "options": [
-        "A) El Plan de Infraestructuras y Obras del Campus",
-        "B) El Plan de Igualdad de la Universidad de Sevilla",
-        "C) El Reglamento de Estudiantes de la Facultad de Derecho",
-        "D) El IV Convenio Colectivo del Personal Docente"
+        "El Plan de Infraestructuras y Obras del Campus",
+        "El Plan de Igualdad de la Universidad de Sevilla",
+        "El Reglamento de Estudiantes de la Facultad de Derecho",
+        "El IV Convenio Colectivo del Personal Docente"
       ],
       "correctAnswer": 1,
       "explanation": "Los Planes de Igualdad de la US establecen los objetivos, medidas y evaluación periódica para garantizar la igualdad efectiva de mujeres y hombres en toda la comunidad universitaria.",
@@ -31730,580 +31730,436 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t20_65",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 65)?",
+      "id": "20065",
+      "question": "¿Cuál es el ámbito subjetivo de aplicación de la Normativa de la Universidad de Sevilla para la prevención e intervención ante la violencia y el acoso (Acuerdo 9.1/CG 18-12-24)?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Afecta a todo el personal docente e investigador, personal técnico de gestión, estudiantado y personal de empresas externas que presten servicios en la US.",
+        "Resulta aplicable exclusivamente al personal funcionario de carrera e interino adscrito a la plantilla propia de la Universidad de Sevilla.",
+        "Se aplica únicamente a los estudiantes matriculados en grados oficiales y másteres universitarios impartidos en centros propios.",
+        "Abarca únicamente a las conductas cometidas por el personal laboral fijo dentro de las dependencias administrativas de la universidad."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El artículo 2 de la Normativa de la US (2024) establece un ámbito subjetivo amplio que protege a todo el PDI, PTGAS, estudiantado y personal de empresas contratistas en el ámbito universitario."
     },
     {
-      "id": "q_auto_t20_66",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 66)?",
+      "id": "20066",
+      "question": "De acuerdo con el artículo 4 de la Normativa de la US de 2024, ¿qué implica el principio de 'garantía de indemnidad' en los procedimientos de acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La prohibición absoluta de aplicar cualquier medida disciplinaria o perjuicio contra las personas que inicien, declaren o participen en el procedimiento.",
+        "El derecho a recibir una indemnización económica automática por parte de la Universidad con anterioridad a la resolución del expediente.",
+        "La exención total de responsabilidad penal para los miembros del Comité Técnico de Intervención en el ejercicio de sus funciones asesoras.",
+        "La reserva obligatoria de la plaza de trabajo o estudio durante un periodo mínimo de cinco años académicos tras la denuncia."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La garantía de indemnidad protege contra represalias o consecuencias adversas a quienes activen el protocolo, formulen denuncias o presten testimonio en la investigación."
     },
     {
-      "id": "q_auto_t20_67",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 67)?",
+      "id": "20067",
+      "question": "Según el Acuerdo 9.1/CG de 18 de diciembre de 2024 de la US, ¿cuál es el plazo máximo para la fase de 'indagación inicial' tras la solicitud de activación del protocolo?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Un plazo de 10 días hábiles, prorrogable de forma motivada por otros 5 días hábiles en casos de especial complejidad.",
+        "Un plazo improrrogable de 30 días naturales a contar desde la recepción de la denuncia en el Registro General de la US.",
+        "Un plazo de 48 horas lectivas determinado por la Dirección de la Unidad de Igualdad de la Universidad de Sevilla.",
+        "Un plazo máximo de 3 meses hábiles coincidiendo con el periodo de instrucción disciplinaria ordinaria del personal de la US."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El artículo 17 de la Normativa de la US de 2024 fija un plazo de 10 días hábiles para la indagación inicial orientada a valorar la admisión a trámite."
     },
     {
-      "id": "q_auto_t20_68",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 68)?",
+      "id": "20068",
+      "question": "¿Qué órgano de la Universidad de Sevilla es el competente para dictar medidas cautelares provisionales durante la tramitación de un expediente de acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "El Rector o Rectora de la Universidad de Sevilla, a propuesta motivada del Comité Técnico de Intervención.",
+        "La Presidencia de la Junta de Personal Funcionario o del Comité de Empresa del personal laboral de la US.",
+        "El Pleno del Consejo Social previo informe favorable de la Comisión Paritaria de Igualdad de la universidad.",
+        "La persona titular de la Dirección de la Unidad de Igualdad en coordinación con el Defensor Universitario."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Corresponde en exclusiva al Rector adoptar medidas provisionales urgentes (como separación de espacios o cambio temporal de grupo) a propuesta del Comité Técnico."
     },
     {
-      "id": "q_auto_t20_69",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 69)?",
+      "id": "20069",
+      "question": "De conformidad con la Ley Orgánica 3/2007, de 22 de marzo, ¿cómo se define legalmente el 'acoso por razón de sexo'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Cualquier comportamiento realizado en función del sexo de una persona, con el propósito o el efecto de atentar contra su dignidad y crear un entorno intimidatorio.",
+        "Cualquier conducta física no deseada de naturaleza exclusivamente sexual ejercida de forma continuada en el centro de trabajo.",
+        "La disparidad salarial comprobada entre hombres y mujeres que desempeñan funciones idénticas en la misma unidad administrativa.",
+        "El trato desproporcionado o desigual dispensado por los órganos colegiados en la selección de personal docente e investigador."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Art. 7.2 de la LO 3/2007 define el acoso por razón de sexo como cualquier comportamiento realizado en función del sexo con el propósito o efecto de atentar contra su dignidad."
     },
     {
-      "id": "q_auto_t20_70",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 70)?",
+      "id": "20070",
+      "question": "En virtud del artículo 25 de la Ley Orgánica 3/2007, ¿qué obligación específica se impone a las Universidades en el ámbito de la Educación Superior?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Fomentar la inclusión de la perspectiva de género en las líneas de investigación y en los planes de estudio académicos.",
+        "Exigir una cuota mínima obligatoria del 60% de mujeres en los órganos representativos del estudiantado universitario.",
+        "Establecer la gratuidad de la matrícula universitaria para todas las estudiantes matriculadas en carreras STEM.",
+        "Sustituir los tribunales de oposición por comisiones evaluadoras compuestas de forma exclusiva por funcionarias de carrera."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El artículo 25 de la LO 3/2007 dispone que las universidades promoverán la inclusión de la perspectiva de género en los planes de estudio y la investigación."
     },
     {
-      "id": "q_auto_t20_71",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 71)?",
+      "id": "20071",
+      "question": "Según la Normativa de la US de 2024 (Art. 10), ¿quién ostenta la Presidencia del Comité Técnico de Intervención frente al Acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La persona titular de la Dirección de la Unidad de Igualdad de la Universidad de Sevilla o persona en quien delegue.",
+        "El Decano o Decana de la Facultad de Derecho o persona de reconocido prestigio en el ámbito del Derecho Administrativo.",
+        "La persona titular de la Secretaría General de la Universidad de Sevilla o el Defensor del Universitario.",
+        "Un vocal designado por sorteo público entre el personal docente del Área de Psicología de la Salud."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El artículo 10 de la Normativa de la US (2024) determina que la Presidencia del Comité Técnico corresponde a la Dirección de la Unidad de Igualdad."
     },
     {
-      "id": "q_auto_t20_72",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 72)?",
+      "id": "20072",
+      "question": "De acuerdo con el procedimiento de intervención de la US (2024), ¿cuál es el plazo asignado para la fase de 'indagación avanzada o instrucción'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Un plazo general de 20 días hábiles, prorrogable motivadamente por 10 días hábiles adicionales.",
+        "Un plazo máximo de 60 días naturales improrrogables desde la sesión constitutiva del Comité Técnico.",
+        "Un plazo de 5 días hábiles a contar desde la recepción del escrito inicial formulado por la víctima.",
+        "Un plazo de 6 meses lectivos ajustado a la duración del cuatrimestre académico de la Universidad de Sevilla."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El artículo 19 de la Normativa fija en 20 días hábiles el plazo de indagación avanzada, extensible por 10 días hábiles si se requiere la práctica de pruebas complejas."
     },
     {
-      "id": "q_auto_t20_73",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 73)?",
+      "id": "20073",
+      "question": "¿Qué consecuencia contempla la Normativa de la US de 2024 ante la existencia de 'prejudicialidad penal' sobre los mismos hechos investigados?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La suspensión inmediata del procedimiento administrativo interno hasta que recaiga resolución judicial firme.",
+        "El archivo definitivo y sin posibilidad de reapertura del expediente de intervención ante el Comité Técnico de la US.",
+        "La remisión automática de las actuaciones al Defensor del Pueblo Andaluz sin paralización de la investigación de la US.",
+        "La imposición cautelar inmediata de la sanción de expulsión o separación del servicio a la persona investigada."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "En virtud del principio de prejudicialidad penal (Art. 23), la existencia de actuaciones penales por los mismos hechos suspende la vía administrativa de la US."
     },
     {
-      "id": "q_auto_t20_74",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 74)?",
+      "id": "20074",
+      "question": "En el III Plan de Igualdad de la Universidad de Sevilla, ¿cuál es la función encomendada a la 'Red de Referentes para la Convivencia y el Buentrato'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Ofrecer una primera acogida, información y orientación cercana ante situaciones de conflicto o acoso en centros y servicios.",
+        "Sustituir al Comité Técnico de Intervención en la tramitación e instrucción de expedientes disciplinarios de la US.",
+        "Aprobar la asignación presupuestaria anual destinada a las actividades culturales de la Unidad de Igualdad.",
+        "Dictar las resoluciones rectorales que pongan fin a las reclamaciones presentadas por el personal laboral de la US."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Red de Referentes (creada en 2023) actúa como espacio de primera acogida, información y detección precoz descentralizada en facultades y centros."
     },
     {
-      "id": "q_auto_t20_75",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 75)?",
+      "id": "20075",
+      "question": "De acuerdo con el artículo 8 de la Ley Orgánica 3/2007, ¿qué consideración legal tiene la discriminación por maternidad o embarazo?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Constituye en todo caso un supuesto de discriminación directa por razón de sexo proscrito por la ley.",
+        "Es una falta administrativa leve sancionable únicamente en el ámbito del contrato laboral privado.",
+        "Constituye una discriminación indirecta susceptible de justificación por necesidades operativas de la empresa.",
+        "Se considera una circunstancia neutra regulada exclusivamente por los convenios colectivos sectoriales."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El artículo 8 de la LO 3/2007 establece expresamente que todo trato desfavorable a las mujeres relacionado con el embarazo o maternidad es discriminación directa."
     },
     {
-      "id": "q_auto_t20_76",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 76)?",
+      "id": "20076",
+      "question": "Según el protocolo de intervención de la US (2024), ¿quiénes pueden presentar la solicitud inicial de activación del procedimiento?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La persona afectada, la Unidad de Igualdad de oficio, o cualquier miembro de la comunidad universitaria que tenga conocimiento directo de los hechos.",
+        "Exclusivamente la persona presuntamente afectada de forma presencial y mediante firma compulsada por la Secretaría General.",
+        "Únicamente los representantes legales de la Junta de Personal o del Comité de Empresa de la Universidad de Sevilla.",
+        "Exclusivamente el Rector o la Rectora tras la emisión de un informe del Consejo de Gobierno de la Universidad."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La normativa permite la activación por la persona afectada, de oficio por la Unidad de Igualdad o mediante comunicación de terceros conocedores del caso."
     },
     {
-      "id": "q_auto_t20_77",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 77)?",
+      "id": "20077",
+      "question": "¿Qué requisito formal exige el artículo 11 de la Normativa de la US de 2024 para la tramitación de una comunicación de acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "No se admitirán denuncias o comunicaciones anónimas, debiendo constar la identificación de la persona denunciante o comunicante.",
+        "Debe ir acompañada obligatoriamente de una fianza económica previa en la Tesorería General de la Universidad de Sevilla.",
+        "Requiere la aportación inicial de al menos tres peritajes médicos o psicológicos emitidos por facultativos colegiados.",
+        "Debe redactarse mediante escritura pública notarial e inscribirse en el Registro de la Propiedad Intelectual de Andalucía."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El protocolo prohíbe las denuncias anónimas para salvaguardar los derechos de defensa, garantizando la estricta confidencialidad del comunicante."
     },
     {
-      "id": "q_auto_t20_78",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 78)?",
+      "id": "20078",
+      "question": "De acuerdo con el artículo 45 de la Ley Orgánica 3/2007, ¿cuándo es obligatorio elaborar un Plan de Igualdad en las Administraciones Públicas y Universidades?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Las Administraciones Públicas, incluidas las Universidades, están obligadas a elaborar y aplicar un Plan de Igualdad sin excepción.",
+        "Únicamente cuando la plantilla de personal docente supere los 500 funcionarios con vinculación permanente.",
+        "Solo si se comprueba la existencia de al menos tres sanciones por acoso sexual en el expediente institucional del año anterior.",
+        "Únicamente cuando lo solicite la mayoría absoluta del Consejo Social de la universidad pública correspondiente."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La LO 3/2007 establece el deber de las Administraciones Públicas y Universidades de contar con un Plan de Igualdad evaluable periódicamente."
     },
     {
-      "id": "q_auto_t20_79",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 79)?",
+      "id": "20079",
+      "question": "En la Normativa de la US de 2024 (Art. 6), ¿cuál es el deber que incumbe a todas las personas que intervienen en el procedimiento de acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "El deber estricto de sigilo y confidencialidad respecto a los hechos, partes e informaciones conocidas durante las actuaciones.",
+        "La obligación de publicar los informes provisionales en el Boletín Oficial de la Universidad de Sevilla para general conocimiento.",
+        "El deber de comparecer ante la comisión de disciplina del Parlamento de Andalucía en el plazo improrrogable de 48 horas.",
+        "La obligación de inhibirse de forma automática en todas las labores docentes o investigadoras durante un cuatrimestre académico."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El deber de sigilo y confidencialidad compromete a todos los miembros del Comité Técnico y personas participantes en el procedimiento."
     },
     {
-      "id": "q_auto_t20_80",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 80)?",
+      "id": "20080",
+      "question": "Según el Acuerdo de 18 de diciembre de 2024 de la US, ¿qué finalidad persigue la 'Comisión de Seguimiento' tras la resolución de un expediente?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Verificar y garantizar el cumplimiento efectivo de las medidas correctoras, sancionadoras o de apoyo acordadas por la resolución rectoral.",
+        "Volver a evaluar las pruebas testimoniales aportadas por la persona investigada para modificar el fallo sancionador dictado.",
+        "Redactar un nuevo reglamento orgánico para su sometimiento a votación en el Claustro Universitario de la US.",
+        "Gestionar las solicitudes de indemnización económica ante la Consejería de Universidad de la Junta de Andalucía."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Comisión de Seguimiento supervisa periódicamente que las medidas acordadas en la resolución rectoral (protección, formación, sanción) se apliquen efectivamente."
     },
     {
-      "id": "q_auto_t20_81",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 81)?",
+      "id": "20081",
+      "question": "De acuerdo con el artículo 7.1 de la Ley Orgánica 3/2007, ¿cómo se define el 'acoso sexual'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Cualquier comportamiento, verbal o físico, de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona.",
+        "Cualquier desacuerdo en la asignación de complementos de productividad entre el personal técnico y docente de la universidad.",
+        "La falta de presencia equilibrada de hombres y mujeres en las listas electorales a los órganos de gobierno universitarios.",
+        "La denegación no motivada de permisos de conciliación familiar previstos en el Convenio Colectivo del personal laboral."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El acoso sexual se define en la LO 3/2007 como cualquier comportamiento de naturaleza sexual con el propósito o efecto de atentar contra la dignidad de la víctima."
     },
     {
-      "id": "q_auto_t20_82",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 82)?",
+      "id": "20082",
+      "question": "En el marco de la Normativa de la US de 2024, ¿cuál de las siguientes actuaciones NO constituye una medida provisional cautelar urgente?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La separación definitiva del servicio o expulsión firme del estudiante antes de concluir el informe final del Comité Técnico.",
+        "El cambio temporal de turno de trabajo o de grupo de docencia lectiva de cualquiera de las partes implicadas.",
+        "La reubicación de espacio o la adscripción funcional temporal en otro departamento o servicio administrativo de la US.",
+        "La facilitación del seguimiento telemático de las clases o de la actividad laboral para evitar el contacto presencial."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La separación definitiva o expulsión es una sanción firme resultante de expediente sancionador, nunca una medida cautelar provisional."
     },
     {
-      "id": "q_auto_t20_83",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 83)?",
+      "id": "20083",
+      "question": "Según el artículo 14 de la Ley Orgánica 3/2007, ¿qué se entiende por el principio de 'presencia equilibrada' en los órganos de representación?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Que en la composición de los órganos colegiados ningún sexo supere el 60% ni sea inferior al 40%.",
+        "Que la representación de mujeres en los órganos decanales sea de al menos el 75% del total de miembros electos.",
+        "Que se alternen obligatoriamente un hombre y una mujer cada dos años en el cargo de Decano o Director de Centro.",
+        "Que exista una igualdad numérica idéntica del 50% computable de forma diaria en todas las reuniones de departamento."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El principio de presencia equilibrada fija que en el conjunto de personas de los órganos ningún sexo supere el 60% ni sea inferior al 40%."
     },
     {
-      "id": "q_auto_t20_84",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 84)?",
+      "id": "20084",
+      "question": "De acuerdo con el artículo 12 de la Normativa de la US de 2024, ¿cuál es la función de la valoración inicial del escrito de solicitud?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Comprobar si los hechos comunicados entran en el ámbito de aplicación del protocolo y presentan verosimilitud de indicios.",
+        "Declarar de forma inmediata la culpabilidad del investigado y acordar la sanción disciplinaria sin necesidad de pruebas.",
+        "Remitir los autos al Juzgado de lo Mercantil para la apertura del correspondiente juicio de faltas administrativo.",
+        "Aprobar la modificación del plan de estudios de la titulación oficial afectada por la comunicación."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La valoración inicial permite determinar la admisibilidad a trámite en función de si los hechos entran en el protocolo y presentan indicios verosímiles."
     },
     {
-      "id": "q_auto_t20_85",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 85)?",
+      "id": "20085",
+      "question": "En el contexto del III Plan de Igualdad de la US, ¿cuál es uno de los objetivos principales del Eje relativo a la 'Conciliación y Corresponsabilidad'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Fomentar medidas que permitan la compatibilidad de la vida laboral, académica y personal de toda la comunidad universitaria.",
+        "Eximir de la obligación de realizar jornadas lectivas al personal docente con más de 10 años de antigüedad en la universidad.",
+        "Establecer la preferencia absoluta de las estudiantes en la adjudicación de becas de movilidad internacional Erasmus.",
+        "Centralizar la emisión de licencias de obras y mantenimiento de edificios universitarios en el Vicerrectorado de Servicios."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El eje de conciliación del III Plan de Igualdad persigue facilitar la corresponsabilidad y compaginación de la vida personal, familiar y laboral."
     },
     {
-      "id": "q_auto_t20_86",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 86)?",
+      "id": "20086",
+      "question": "De acuerdo con la Normativa de la US de 2024 (Art. 10), ¿cómo se garantiza la imparcialidad del Comité Técnico de Intervención?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Mediante el régimen legal de abstención y recusación previsto en la Ley 40/2015 del Régimen Jurídico del Sector Público.",
+        "Impidiendo que cualquier persona nacida en la provincia de Sevilla forme parte del personal del Comité Técnico.",
+        "Exigiendo que los miembros del Comité pertenezcan obligatoriamente a una universidad extranjera sin vínculos en España.",
+        "Mediante la ratificación previa de cada miembro por parte del Consejo Social mediante votación secreta por mayoría de tres quintos."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La imparcialidad del Comité se asegura aplicando las causas de abstención y recusación establecidas en los Art. 23 y 24 de la Ley 40/2015."
     },
     {
-      "id": "q_auto_t20_87",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 87)?",
+      "id": "20087",
+      "question": "Según el artículo 11 de la Ley Orgánica 3/2007, ¿qué son las 'acciones positivas' en el ámbito de la igualdad de género?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Medidas específicas en favor de las mujeres para corregir situaciones patentes de desigualdad de hecho no justificadas.",
+        "Incentivos económicos directos otorgados a empresas particulares que contraten personal técnico graduado en la US.",
+        "Mecanismos de sanción disciplinaria aplicados al estudiantado que cometa faltas administrativas por primera vez.",
+        "Subvenciones autonómicas destinadas a la edificación de nuevas instalaciones deportivas en los campus universitarios."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las acciones positivas son medidas temporales dirigidas a remover situaciones de desigualdad de hecho que sufran las mujeres."
     },
     {
-      "id": "q_auto_t20_88",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 88)?",
+      "id": "20088",
+      "question": "En la Normativa de la US de 2024 (Art. 25), ¿qué recurso o vía cabe interponer contra la Resolución Rectoral que ponga fin al procedimiento de intervención?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Pone fin a la vía administrativa, pudiendo interponerse recurso de reposición potestativo o recurso contencioso-administrativo.",
+        "No admite recurso alguno en vía administrativa ni judicial por revestir el carácter de acto trámite cualificado no susceptible de impugnación.",
+        "Debe elevarse en apelación ante el Consejo de Universidades de Madrid en el plazo improrrogable de 5 días hábiles.",
+        "Requiere la previa solicitud de arbitraje ante el Juzgado de lo Social número uno de la provincia de Sevilla."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Resolución del Rector agota la vía administrativa, por lo que cabe recurso de reposición ante el Rector o recurso contencioso-administrativo."
     },
     {
-      "id": "q_auto_t20_89",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 89)?",
+      "id": "20089",
+      "question": "De acuerdo con el artículo 12 de la Ley Orgánica 3/2007, ¿quiénostenta la legitimación procesal en los litigios sobre acoso por razón de sexo?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La persona acosada, además de los sindicatos y asociaciones legalmente constituidas con la autorización de la persona afectada.",
+        "Únicamente el Ministerio Fiscal previa incoación de causa penal de oficio por el Juzgado de Instrucción competente.",
+        "Cualquier ciudadano a través de la acción popular sin necesidad de consentimiento expreso de la persona agraviada.",
+        "Exclusivamente la persona titular de la Delegación del Gobierno contra la Violencia de Género de la comunidad autónoma."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La persona acosada es la promovente principal, y los sindicatos o entidades asociativas pueden personarse si cuentan con su autorización expresa."
     },
     {
-      "id": "q_auto_t20_90",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 90)?",
+      "id": "20090",
+      "question": "En el marco de la Normativa de la US de 2024, ¿qué tratamiento tienen los datos de carácter personal recabados en los expedientes de acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Gozan de alta protección y confidencialidad conforme al Reglamento General de Protección de Datos (RGPD) y la LOPDGDD 3/2018.",
+        "Se incorporan a un registro público accesible desde la sede electrónica de la Universidad de Sevilla para su consulta ilimitada.",
+        "Son remitidos de forma automática a los medios de comunicación acreditados ante el Gabinete de Prensa de la US.",
+        "Se destruyen al término de 24 horas desde la recepción de la comunicación inicial sin dejar constancia en archivo institucional."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El tratamiento de los datos en el protocolo se rige por el RGPD y la Ley Orgánica 3/2018, aplicando medidas de máxima seguridad y reserva."
     },
     {
-      "id": "q_auto_t20_91",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 91)?",
+      "id": "20091",
+      "question": "Según el III Plan de Igualdad de la US, ¿cuál de las siguientes actuaciones corresponde al área de 'Gobernanza e Institucionalización'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Integrar el principio de transversalidad de género en todas las normativas, reglamentos y comisiones de la Universidad de Sevilla.",
+        "Sustituir el vestuario del personal de biblioteca por uniformes corporativos de diseño neutro homologados por la Junta de Andalucía.",
+        "Aumentar las tarifas de matrícula en las enseñanzas propias no oficiales para financiar la adquisición de material informático.",
+        "Prohibir el uso de dispositivos telefónicos personales durante el horario de apertura al público de las salas de lectura."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El área de Gobernanza busca la transversalidad (mainstreaming) de género en todas las políticas, normativas y órganos de la estructura universitaria."
     },
     {
-      "id": "q_auto_t20_92",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 92)?",
+      "id": "20092",
+      "question": "De acuerdo con el artículo 15 de la Normativa de la US de 2024, ¿qué principio de actuación rige en el tratamiento de las partes durante la indagación?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "El principio de contradicción y audiencia, garantizando el derecho de ambas partes a ser escuchadas y presentar alegaciones.",
+        "El principio de presunción de veracidad ilimitada del testimonio del comunicante sin opción de alegación por la contraparte.",
+        "La obligatoriedad de carear presencialmente a la víctima con el agresor en la primera sesión de investigación del Comité.",
+        "El archivo automático del expediente si la persona investigada rehúsa declarar en la primera citación por escrito."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El protocolo respeta las garantías procesales esenciales: derecho de audiencia, contradicción y presunción de inocencia mientras no se resuelva."
     },
     {
-      "id": "q_auto_t20_93",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 93)?",
+      "id": "20093",
+      "question": "En la Ley Orgánica 3/2007 (Art. 48), ¿qué obligación tienen las empresas y Administraciones de articular frente al acoso sexual?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Mecanismos específicos de prevención, así como cauces para la tramitación de las denuncias o reclamaciones que se formulen.",
+        "Contratar una póliza de seguro privada que cubra los costes judiciales en caso de querella por difamación administrativa.",
+        "Solicitar la homologación del protocolo de acoso ante la Dirección General de Trabajo del Ministerio cada seis meses.",
+        "Publicar el nombre completo de los sancionados en el Tablón Edictal Único del Boletín Oficial del Estado."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Art. 48 de la LO 3/2007 impone a los empleadores promover condiciones de trabajo que eviten el acoso sexual y arbitrar procedimientos específicos."
     },
     {
-      "id": "q_auto_t20_94",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 94)?",
+      "id": "20094",
+      "question": "De acuerdo con el Acuerdo 9.1/CG 18-12-24 de la US, ¿cuál es la naturaleza del Informe Final emitido por el Comité Técnico de Intervención?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Es un informe técnico motivado de carácter no vinculante que concluye sobre la existencia o no de indicios y propone medidas al Rector.",
+        "Es una sentencia ejecutiva firme de obligado cumplimiento directo que sanciona administrativamente al denunciado de forma inmediata.",
+        "Es un dictamen preceptivo y vinculante que requiere la ratificación previa del Pleno del Consejo Consultivo de Andalucía.",
+        "Es una propuesta de resolución provisional sujeta a consulta pública en el Portal de Transparencia durante un plazo de 30 días."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Informe Final es una propuesta motivada no vinculante remitida al Rector, quien ostenta la potestad de dictar la resolución definitiva."
     },
     {
-      "id": "q_auto_t20_95",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 95)?",
+      "id": "20095",
+      "question": "En el marco de la Normativa de la US de 2024, ¿qué garantía se ofrece a las partes respecto al asesoramiento durante sus comparecencias?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "El derecho a acudir acompañadas en todo momento por una persona de su confianza (representante sindical, abogado o acompañante).",
+        "La obligación de comparecer a solas sin posibilidad de asistencia letrada ni sindical en las sesiones de entrevista presencial.",
+        "La asignación obligatoria de un procurador de oficio designado por el Juzgado de Decanato de Sevilla.",
+        "La prohibición expresa de contar con asistencia letrada si la persona investigada pertenece al estamento de estudiantes de grado."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las partes tienen derecho a asistir a las entrevistas del Comité acompañadas por una persona de su elección para su apoyo y defensa."
     },
     {
-      "id": "q_auto_t20_96",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 96)?",
+      "id": "20096",
+      "question": "De acuerdo con el artículo 14 de la Ley Orgánica 3/2007, ¿qué criterio debe presidir la elaboración de estadísticas de los Poderes Públicos?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La inclusión sistemática de la variable de sexo en la recogida de datos y la desagregación por sexo de los resultados estadísticos.",
+        "La prohibición de registrar el sexo de los usuarios por motivos de protección estricta de la privacidad informática.",
+        "La publicación única de porcentajes globales ponderados de forma quinquenal sin desglose por categorías profesionales.",
+        "La exclusión de los datos referentes al personal en régimen laboral temporal de la Administración del Estado."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La LO 3/2007 mandata a los Poderes Públicos incluir la variable sexo en las estadísticas para visibilizar las diferencias y brechas de género."
     },
     {
-      "id": "q_auto_t20_97",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 97)?",
+      "id": "20097",
+      "question": "En la Normativa de la US de 2024, ¿qué ocurre si el escrito inicial presenta deficiencias subsanables?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Se requerirá al solicitante para que en el plazo de 5 días hábiles subsane la falta o acompañe los documentos preceptivos.",
+        "Se procederá al archivo inmediato del escrito de denuncia sin opción de alegación o presentación diferida de documentos.",
+        "Se elevará consulta vinculante a la Junta Electoral Central para la apertura de periodo extraordinario de alegaciones.",
+        "Se impondrá una sanción económica de demora con arreglo a la ley de tasas universitarias públicas de Andalucía."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Si la solicitud no reúne los requisitos básicos, se otorga un plazo de subsanación de 5 días hábiles conforme al régimen administrativo común."
     },
     {
-      "id": "q_auto_t20_98",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 98)?",
+      "id": "20098",
+      "question": "Según la Ley Orgánica 3/2007 (Art. 3), ¿qué significa el principio de 'igualdad de trato entre mujeres y hombres'?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "La ausencia de toda discriminación, directa o indirecta, por razón de sexo, especialmente las derivadas de la maternidad y asunción de cargas familiares.",
+        "El establecimiento de idénticas calificaciones cuantitativas fijas en todas las oposiciones de acceso a la función pública.",
+        "La equiparación salarial automática de todas las categorías profesionales sin atender a la titulación exigida en la convocatoria.",
+        "La obligación de unificar los horarios lectivos universitarios en jornadas exclusivas de turno de mañana en todas las facultades."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El principio de igualdad de trato supone la ausencia de toda discriminación directa o indirecta por razón de sexo en cualquier ámbito."
     },
     {
-      "id": "q_auto_t20_99",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 99)?",
+      "id": "20099",
+      "question": "De conformidad con la Normativa de la US de 2024 (Art. 7), ¿qué principio garantiza que el procedimiento de intervención no se demore injustificadamente?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "El principio de celeridad e impulso de oficio, tramitando los expedientes con carácter prioritario y urgente.",
+        "El principio de caducidad automática de las actuaciones al término de 72 horas lectivas desde el escrito inicial.",
+        "La delegación obligatoria de las funciones instructoras en una comisión externa arbitral de la Junta de Andalucía.",
+        "La suspensión de todos los plazos administrativos universitarios durante los periodos no lectivos del calendario académico."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El protocolo consagra el principio de celeridad, tramitando los expedientes con preferencia y urgencia para evitar perjuicios a las partes."
     },
     {
-      "id": "q_auto_t20_100",
-      "question": "De acuerdo con la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres (Tema 20), ¿qué principio rige la actuación de los poderes públicos en el ámbito universitario (Cuestión 100)?",
+      "id": "20100",
+      "question": "En el marco de la Universidad de Sevilla, ¿cuál es la función de la Unidad de Igualdad en el seguimiento del protocolo de acoso?",
       "options": [
-        "A) La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "B) Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "C) Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "D) Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "Coordinar la tramitación administrativa, gestionar la Red de Referentes y colaborar con el Comité Técnico en la atención a las partes.",
+        "Sustituir a los tribunales de oposiciones del PTGAS en el cálculo de las notas de la fase de concurso.",
+        "Aprobar con carácter definitivo las sanciones de separación del servicio del personal docente de la universidad.",
+        "Emitir las certificaciones oficiales de superación del periodo de prueba del personal funcionario interino de la US."
       ],
       "correctAnswer": 0,
-      "explanation": "Ley Orgánica 3/2007 e III Plan de Igualdad de la Universidad de Sevilla.",
-      "topicId": "20",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Unidad de Igualdad coordina institucionalmente la igualdad, gestiona la Red de Referentes y proporciona soporte técnico al procedimiento de intervención."
     }
   ]
 }
