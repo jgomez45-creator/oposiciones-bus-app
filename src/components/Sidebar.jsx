@@ -12,43 +12,10 @@ import {
   HelpCircle,
   Sparkles,
   Edit3,
-  Settings,
-  Mail
+  Settings
 } from 'lucide-react';
 
-import { firebaseService } from '../services/firebaseService';
-
 export default function Sidebar({ currentTab, setCurrentTab, currentUser, handleLogout, onOpenSiri, isSiriOpen, onOpenSettings }) {
-  const [unreadCount, setUnreadCount] = React.useState(0);
-
-  React.useEffect(() => {
-    const unsub = firebaseService.subscribeToStudentReceivedEmails(currentUser, (list) => {
-      try {
-        const readMap = JSON.parse(localStorage.getItem('read_announcements') || '{}');
-        const unread = list.filter(item => !readMap[item.id]).length;
-        setUnreadCount(unread);
-      } catch (e) {
-        setUnreadCount(list.length);
-      }
-    });
-
-    const handleReadEvent = () => {
-      try {
-        const readMap = JSON.parse(localStorage.getItem('read_announcements') || '{}');
-        firebaseService.subscribeToStudentReceivedEmails(currentUser, (list) => {
-          const unread = list.filter(item => !readMap[item.id]).length;
-          setUnreadCount(unread);
-        });
-      } catch (e) {}
-    };
-
-    window.addEventListener('announcements-read', handleReadEvent);
-    return () => {
-      if (unsub) unsub();
-      window.removeEventListener('announcements-read', handleReadEvent);
-    };
-  }, [currentUser]);
-
   const menuGroups = [
     {
       label: 'Aprendizaje',
@@ -75,7 +42,6 @@ export default function Sidebar({ currentTab, setCurrentTab, currentUser, handle
       label: 'Herramientas',
       items: [
         { id: 'agente_bus', name: 'Agente BUS', icon: Sparkles, onClick: onOpenSiri, isBlueButton: true },
-        { id: 'mis_comunicados', name: 'Buzón de Comunicados', icon: Mail, badge: unreadCount },
         { id: 'anexos', name: 'Mis Anexos / Fe Erratas', icon: Edit3 },
         { id: 'manual', name: 'Manual de Uso', icon: HelpCircle }
       ]
