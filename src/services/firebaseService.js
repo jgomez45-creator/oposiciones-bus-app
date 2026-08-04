@@ -2010,6 +2010,128 @@ export const firebaseService = {
         console.warn("Aviso al guardar en Firestore:", err.message);
       }
     }
+  },
+
+  // =========================================================================
+  // ACTIVITY TRACKING (Silent Background - Admin Only Visibility)
+  // =========================================================================
+
+  /**
+   * Track user activity time silently in the background.
+   * @param {string} uid - The user's UID
+   * @param {'study'|'quiz'} timeType - Whether tracking study (reading) or quiz time
+   * @param {number} secondsDelta - Number of seconds to add
+   */
+  trackActivityTime(uid, timeType, secondsDelta) {
+    if (!uid || !secondsDelta || secondsDelta <= 0) return;
+
+    try {
+      const storageKey = `activity_tracking_${uid}`;
+      const raw = localStorage.getItem(storageKey);
+      const data = raw ? JSON.parse(raw) : { studySeconds: 0, quizSeconds: 0, lastActiveAt: null };
+
+      if (timeType === 'study') {
+        data.studySeconds = (data.studySeconds || 0) + secondsDelta;
+      } else if (timeType === 'quiz') {
+        data.quizSeconds = (data.quizSeconds || 0) + secondsDelta;
+      }
+      data.lastActiveAt = new Date().toISOString();
+
+      localStorage.setItem(storageKey, JSON.stringify(data));
+
+      // Also sync to Firestore if available
+      if (!isMock && db) {
+        const docRef = doc(db, 'activity_tracking', uid);
+        setDoc(docRef, data, { merge: true }).catch(err => {
+          console.warn("Activity tracking sync error:", err.message);
+        });
+      }
+    } catch (e) {
+      console.warn("trackActivityTime error:", e);
+    }
+  },
+
+  /**
+   * Record a quiz score for a specific topic in the activity tracker (for admin diagnostic).
+   * @param {string} uid - The user's UID
+   * @param {number} topicId - Topic number
+   * @param {number} scorePct - Score percentage (0-100)
+   */
+  recordTopicQuizScore(uid, topicId, scorePct) {
+    if (!uid) return;
+    try {
+      const storageKey = `activity_tracking_${uid}`;
+      const raw = localStorage.getItem(storageKey);
+      const data = raw ? JSON.parse(raw) : { studySeconds: 0, quizSeconds: 0, lastActiveAt: null };
+
+      if (!data.topicScores) data.topicScores = {};
+      const key = topicId.toString();
+      if (!data.topicScores[key]) data.topicScores[key] = { scores: [], count: 0 };
+      data.topicScores[key].scores.push(scorePct);
+      data.topicScores[key].count = data.topicScores[key].scores.length;
+      data.lastActiveAt = new Date().toISOString();
+
+      localStorage.setItem(storageKey, JSON.stringify(data));
+
+      if (!isMock && db) {
+        const docRef = doc(db, 'activity_tracking', uid);
+        setDoc(docRef, data, { merge: true }).catch(err => {
+          console.warn("recordTopicQuizScore sync error:", err.message);
+        });
+      }
+    } catch (e) {
+      console.warn("recordTopicQuizScore error:", e);
+    }
+  },
+
+  /**
+   * Get all activity tracking data for all users (Admin only).
+   * Returns a map: { uid: { studySeconds, quizSeconds, lastActiveAt, topicScores } }
+   */
+  async getAllActivityData() {
+    const result = {};
+
+    // 1. Gather from localStorage
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('activity_tracking_')) {
+        const uid = key.replace('activity_tracking_', '');
+        try {
+          result[uid] = JSON.parse(localStorage.getItem(key));
+        } catch (e) { /* skip */ }
+      }
+    }
+
+    // 2. Also fetch from Firestore if available
+    if (!isMock && db) {
+      try {
+        const snapshot = await getDocs(collection(db, 'activity_tracking'));
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          const uid = docSnap.id;
+          // Merge: prefer Firestore data if it has more seconds (in case of multi-device)
+          if (!result[uid]) {
+            result[uid] = data;
+          } else {
+            result[uid].studySeconds = Math.max(result[uid].studySeconds || 0, data.studySeconds || 0);
+            result[uid].quizSeconds = Math.max(result[uid].quizSeconds || 0, data.quizSeconds || 0);
+            result[uid].lastActiveAt = data.lastActiveAt || result[uid].lastActiveAt;
+            // Merge topic scores
+            if (data.topicScores) {
+              if (!result[uid].topicScores) result[uid].topicScores = {};
+              Object.keys(data.topicScores).forEach(tKey => {
+                if (!result[uid].topicScores[tKey] || (data.topicScores[tKey].scores || []).length > (result[uid].topicScores[tKey].scores || []).length) {
+                  result[uid].topicScores[tKey] = data.topicScores[tKey];
+                }
+              });
+            }
+          }
+        });
+      } catch (err) {
+        console.warn("getAllActivityData Firestore error:", err.message);
+      }
+    }
+
+    return result;
   }
 };
-

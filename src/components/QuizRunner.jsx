@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   GraduationCap,
   HelpCircle,
@@ -87,6 +87,9 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   const [userAnswers, setUserAnswers] = useState([]);
   const [paperExamSubmitted, setPaperExamSubmitted] = useState(false);
   const [isPaperFullscreen, setIsPaperFullscreen] = useState(false);
+
+  // Silent quiz time tracking for admin diagnostic (invisible to student)
+  const quizStartTimeRef = useRef(null);
 
   const [quizzesVersion, setQuizzesVersion] = useState(0);
 
@@ -333,6 +336,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     setPaperExamSubmitted(false);
 
     setQuizStarted(true);
+    quizStartTimeRef.current = Date.now();
   };
 
   const handleSubmitPaperExam = () => {
@@ -360,11 +364,27 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     const scorePct = Math.round((correctCount / questions.length) * 100);
     if (selectedTopicMode === 'single') {
       recordQuizScore(Number(singleTopicId), scorePct);
+    } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+      // Record score to topic 17 (Estatutos) for especial-competencias
+      recordQuizScore(17, scorePct);
     } else if (selectedTopicMode === 'custom' || selectedTopicMode === 'simulacro-40' || selectedTopicMode === 'simulacro-oficial' || selectedTopicMode === 'examen-real-2019' || selectedTopicMode === 'examen-real-2022') {
       const activeIds = (selectedTopicMode === 'simulacro-40' || selectedTopicMode === 'simulacro-oficial' || selectedTopicMode === 'examen-real-2019' || selectedTopicMode === 'examen-real-2022') ? availableTopicIds : customSelectedTopicIds;
       activeIds.forEach(topicId => {
         recordQuizScore(Number(topicId), scorePct);
       });
+    }
+
+    // Silent quiz time tracking for admin diagnostic
+    if (currentUser?.uid && quizStartTimeRef.current) {
+      const elapsedSec = Math.round((Date.now() - quizStartTimeRef.current) / 1000);
+      firebaseService.trackActivityTime(currentUser.uid, 'quiz', elapsedSec);
+      // Record per-topic scores for diagnostic
+      if (selectedTopicMode === 'single') {
+        firebaseService.recordTopicQuizScore(currentUser.uid, Number(singleTopicId), scorePct);
+      } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+        firebaseService.recordTopicQuizScore(currentUser.uid, 17, scorePct);
+      }
+      quizStartTimeRef.current = null;
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -398,12 +418,25 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       // Record score
       if (selectedTopicMode === 'single') {
         recordQuizScore(Number(singleTopicId), scorePct);
+      } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+        recordQuizScore(17, scorePct);
       } else if (selectedTopicMode === 'custom' || selectedTopicMode === 'simulacro-40' || selectedTopicMode === 'simulacro-oficial' || selectedTopicMode === 'examen-real-2019' || selectedTopicMode === 'examen-real-2022') {
-        // Record score to all selected custom topics
         const activeIds = (selectedTopicMode === 'simulacro-40' || selectedTopicMode === 'simulacro-oficial' || selectedTopicMode === 'examen-real-2019' || selectedTopicMode === 'examen-real-2022') ? availableTopicIds : customSelectedTopicIds;
         activeIds.forEach(topicId => {
           recordQuizScore(Number(topicId), scorePct);
         });
+      }
+
+      // Silent quiz time tracking for admin diagnostic
+      if (currentUser?.uid && quizStartTimeRef.current) {
+        const elapsedSec = Math.round((Date.now() - quizStartTimeRef.current) / 1000);
+        firebaseService.trackActivityTime(currentUser.uid, 'quiz', elapsedSec);
+        if (selectedTopicMode === 'single') {
+          firebaseService.recordTopicQuizScore(currentUser.uid, Number(singleTopicId), scorePct);
+        } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+          firebaseService.recordTopicQuizScore(currentUser.uid, 17, scorePct);
+        }
+        quizStartTimeRef.current = null;
       }
     }
   };

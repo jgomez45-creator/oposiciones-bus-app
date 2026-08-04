@@ -801,12 +801,16 @@ export default function TopicViewer({
       interval = setInterval(() => {
         setSessionTime(prev => prev + 1);
         incrementTimeForTopic(topic.id, 1);
+        // Silent activity tracking for admin diagnostic (invisible to student)
+        if (currentUser?.uid) {
+          firebaseService.trackActivityTime(currentUser.uid, 'study', 1);
+        }
       }, 1000);
     } else {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [timerRunning, topic.id]);
+  }, [timerRunning, topic.id, currentUser?.uid]);
 
   // Focus mode effect (hides sidebars for distraction-free study)
   useEffect(() => {

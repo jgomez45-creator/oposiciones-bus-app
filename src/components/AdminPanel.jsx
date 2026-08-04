@@ -43,11 +43,16 @@ import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
 
 export default function AdminPanel({ topics }) {
-  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank' | 'email'
+  const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank' | 'email' | 'activity'
   const [users, setUsers] = useState([]);
   const [bookCodes, setBookCodes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
+
+  // Activity Tracking & Pedagogical Diagnostic State (Admin Only)
+  const [activityData, setActivityData] = useState({});
+  const [selectedStudentForDiagnostic, setSelectedStudentForDiagnostic] = useState(null);
+  const [copiedAdvisorMsg, setCopiedAdvisorMsg] = useState(false);
 
   // Email Communication State
   const [emailSubject, setEmailSubject] = useState('');
@@ -830,6 +835,31 @@ export default function AdminPanel({ topics }) {
           >
             <Video size={16} />
             <span>Vídeos por Tema</span>
+          </button>
+          <button
+            onClick={() => {
+              setActiveSubTab('activity');
+              firebaseService.getAllActivityData().then(data => setActivityData(data || {}));
+            }}
+            className={`tab-btn ${activeSubTab === 'activity' ? 'active' : ''}`}
+            style={{
+              padding: '8px 14px',
+              border: 'none',
+              background: activeSubTab === 'activity' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'rgba(16, 185, 129, 0.12)',
+              color: activeSubTab === 'activity' ? '#fff' : '#34d399',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontWeight: '800',
+              fontSize: '0.85rem',
+              transition: 'var(--transition-fast)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              border: '1px solid rgba(16, 185, 129, 0.3)'
+            }}
+          >
+            <Clock size={16} />
+            <span>📊 Tiempo y Consejos (Admin)</span>
           </button>
         </div>
       </div>
@@ -2220,7 +2250,365 @@ export default function AdminPanel({ topics }) {
               </div>
             )}
           </div>
+        </div>
+      )}
 
+      {/* SUBTAB: MONITOR DE TIEMPO, DIAGNÓSTICO Y CONSEJOS (EXCLUSIVO ADMIN) */}
+      {activeSubTab === 'activity' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {/* Header Box */}
+          <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)', background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(15, 23, 42, 0.7) 100%)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+              <div>
+                <h3 style={{ margin: '0 0 6px 0', color: '#34d399', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Clock size={20} />
+                  <span>📊 Monitor de Tiempo & Diagnóstico Pedagógico por Alumno</span>
+                </h3>
+                <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.85rem', maxWidth: '750px', lineHeight: '1.4' }}>
+                  Control de dedicación acumulada en lectura de temario y realización de cuestionarios en segundo plano. Úsalo para detectar puntos débiles y enviar recomendaciones personalizadas de estudio. <strong>(Herramienta 100% invisible para los estudiantes)</strong>.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => firebaseService.getAllActivityData().then(data => setActivityData(data || {}))}
+                style={{ padding: '8px 16px', background: 'rgba(16, 185, 129, 0.2)', border: '1px solid #10b981', color: '#34d399', borderRadius: '8px', cursor: 'pointer', fontSize: '0.82rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+              >
+                <RefreshCw size={14} />
+                <span>Actualizar Tiempos</span>
+              </button>
+            </div>
+          </div>
+
+          {/* KPI Summary Cards */}
+          {(() => {
+            let totalStudySec = 0;
+            let totalQuizSec = 0;
+            let activeCount = 0;
+            let topStudent = null;
+            let maxTotalSec = -1;
+
+            users.forEach(u => {
+              const act = activityData[u.uid] || {};
+              const sSec = act.studySeconds || (u.totalStudyTime ? u.totalStudyTime * 60 : 0);
+              const qSec = act.quizSeconds || 0;
+              const totSec = sSec + qSec;
+
+              totalStudySec += sSec;
+              totalQuizSec += qSec;
+              if (totSec > 0) activeCount++;
+              if (totSec > maxTotalSec && u.role !== 'admin') {
+                maxTotalSec = totSec;
+                topStudent = u.name || u.email;
+              }
+            });
+
+            const formatHoursMins = (totalSec) => {
+              const hrs = Math.floor(totalSec / 3600);
+              const mins = Math.floor((totalSec % 3600) / 60);
+              if (hrs === 0 && mins === 0) return '0m';
+              if (hrs === 0) return `${mins}m`;
+              return `${hrs}h ${mins}m`;
+            };
+
+            return (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
+                <div className="glass-panel" style={{ padding: '16px 20px', borderRadius: '12px', borderLeft: '4px solid #3b82f6' }}>
+                  <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: '700' }}>📚 Tiempo Lectura Temario</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: '#60a5fa', marginTop: '4px' }}>{formatHoursMins(totalStudySec)}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-dark)', marginTop: '2px' }}>Total acumulado academia</div>
+                </div>
+
+                <div className="glass-panel" style={{ padding: '16px 20px', borderRadius: '12px', borderLeft: '4px solid #f59e0b' }}>
+                  <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: '700' }}>📝 Tiempo en Tests</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: '#fba518', marginTop: '4px' }}>{formatHoursMins(totalQuizSec)}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-dark)', marginTop: '2px' }}>Total ejercitación práctica</div>
+                </div>
+
+                <div className="glass-panel" style={{ padding: '16px 20px', borderRadius: '12px', borderLeft: '4px solid #10b981' }}>
+                  <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: '700' }}>⏱️ Media / Alumno Activo</div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '800', color: '#34d399', marginTop: '4px' }}>
+                    {formatHoursMins(activeCount > 0 ? Math.round((totalStudySec + totalQuizSec) / activeCount) : 0)}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-dark)', marginTop: '2px' }}>En {activeCount} alumnos activos</div>
+                </div>
+
+                <div className="glass-panel" style={{ padding: '16px 20px', borderRadius: '12px', borderLeft: '4px solid #ec4899' }}>
+                  <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: '700' }}>🏆 Mayor Dedicación</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#f472b6', marginTop: '6px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {topStudent || 'Sin actividad'}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-dark)', marginTop: '2px' }}>
+                    {maxTotalSec > 0 ? formatHoursMins(maxTotalSec) : '—'}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Student Activity Table */}
+          <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+              <h3 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem' }}>Detalle de Dedicación y Diagnóstico por Alumno</h3>
+              <div style={{ position: 'relative' }}>
+                <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                <input
+                  type="text"
+                  value={userSearch}
+                  onChange={(e) => setUserSearch(e.target.value)}
+                  placeholder="Buscar por nombre o email..."
+                  style={{ padding: '8px 12px 8px 36px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none' }}
+                />
+              </div>
+            </div>
+
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem', color: 'var(--text-main)' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid var(--border-color)', textAlign: 'left' }}>
+                    <th style={{ padding: '10px' }}>Alumno</th>
+                    <th style={{ padding: '10px' }}>Código Libro</th>
+                    <th style={{ padding: '10px' }}>⏱️ Temario</th>
+                    <th style={{ padding: '10px' }}>📝 Tests</th>
+                    <th style={{ padding: '10px' }}>🎯 Cuestionarios & Media</th>
+                    <th style={{ padding: '10px' }}>📅 Última Actividad</th>
+                    <th style={{ padding: '10px' }}>🚦 Diagnóstico</th>
+                    <th style={{ padding: '10px' }}>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sortedUsers.map(u => {
+                    const act = activityData[u.uid] || {};
+                    const studySec = act.studySeconds || (u.totalStudyTime ? u.totalStudyTime * 60 : 0);
+                    const quizSec = act.quizSeconds || 0;
+                    const lastActive = act.lastActiveAt ? new Date(act.lastActiveAt).toLocaleString('es-ES', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : 'Sin registros';
+
+                    const formatSec = (sec) => {
+                      const h = Math.floor(sec / 3600);
+                      const m = Math.floor((sec % 3600) / 60);
+                      if (h === 0 && m === 0) return '0m';
+                      if (h === 0) return `${m}m`;
+                      return `${h}h ${m}m`;
+                    };
+
+                    const testsCount = u.quizzesTaken || u.completedCount || 0;
+                    const avgPct = Math.round(u.averageQuizScore || 0);
+
+                    // Compute quick status diagnosis
+                    let statusLabel = '🟢 Buen ritmo';
+                    let statusBg = 'rgba(16, 185, 129, 0.15)';
+                    let statusColor = '#34d399';
+
+                    if (studySec < 600 && testsCount === 0) {
+                      statusLabel = '⚪ Sin inicio';
+                      statusBg = 'rgba(148, 163, 184, 0.15)';
+                      statusColor = '#94a3b8';
+                    } else if (studySec > 3600 && testsCount === 0) {
+                      statusLabel = '🟡 Requiere tests';
+                      statusBg = 'rgba(245, 158, 11, 0.15)';
+                      statusColor = '#fbbf24';
+                    } else if (avgPct > 0 && avgPct < 60) {
+                      statusLabel = '🔴 Reforzar conceptos';
+                      statusBg = 'rgba(239, 68, 68, 0.15)';
+                      statusColor = '#fca5a5';
+                    }
+
+                    return (
+                      <tr key={u.uid} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                        <td style={{ padding: '10px' }}>
+                          <div style={{ fontWeight: '700' }}>{u.name || 'Sin nombre'}</div>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.email}</div>
+                        </td>
+                        <td style={{ padding: '10px', fontFamily: 'monospace' }}>{u.bookCode || u.code || '—'}</td>
+                        <td style={{ padding: '10px', fontWeight: '700', color: '#60a5fa' }}>{formatSec(studySec)}</td>
+                        <td style={{ padding: '10px', fontWeight: '700', color: '#fba518' }}>{formatSec(quizSec)}</td>
+                        <td style={{ padding: '10px' }}>
+                          <div><strong>{testsCount}</strong> tests completados</div>
+                          <div style={{ fontSize: '0.75rem', color: avgPct >= 70 ? '#34d399' : avgPct >= 50 ? '#fbbf24' : '#fca5a5' }}>
+                            Media: {avgPct}% aciertos
+                          </div>
+                        </td>
+                        <td style={{ padding: '10px', fontSize: '0.78rem', color: 'var(--text-muted)' }}>{lastActive}</td>
+                        <td style={{ padding: '10px' }}>
+                          <span style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: '700', background: statusBg, color: statusColor }}>
+                            {statusLabel}
+                          </span>
+                        </td>
+                        <td style={{ padding: '10px' }}>
+                          <button
+                            type="button"
+                            onClick={() => setSelectedStudentForDiagnostic(u)}
+                            style={{ padding: '6px 12px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: '700', fontSize: '0.75rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                          >
+                            <Sparkles size={13} />
+                            <span>Analizar & Aconsejar</span>
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Drawer / Modal de Diagnóstico Pedagógico del Alumno Seleccionado */}
+          {selectedStudentForDiagnostic && (
+            <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
+              <div className="glass-panel" style={{ background: '#0f172a', border: '1.5px solid #10b981', borderRadius: '16px', maxWidth: '780px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.8)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+                  <div>
+                    <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', color: '#34d399', fontWeight: '800', letterSpacing: '1px' }}>Ficha de Diagnóstico Pedagógico del Preparador</span>
+                    <h3 style={{ margin: '4px 0 0 0', color: '#fff', fontSize: '1.3rem' }}>{selectedStudentForDiagnostic.name || selectedStudentForDiagnostic.email}</h3>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '2px' }}>Código Libro: {selectedStudentForDiagnostic.bookCode || 'Sin asignación'}</div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedStudentForDiagnostic(null);
+                      setCopiedAdvisorMsg(false);
+                    }}
+                    style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', padding: '6px', borderRadius: '50%', cursor: 'pointer' }}
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {(() => {
+                  const student = selectedStudentForDiagnostic;
+                  const act = activityData[student.uid] || {};
+                  const sSec = act.studySeconds || (student.totalStudyTime ? student.totalStudyTime * 60 : 0);
+                  const qSec = act.quizSeconds || 0;
+                  const topicScores = act.topicScores || {};
+
+                  const formatHoursMins = (sec) => {
+                    const h = Math.floor(sec / 3600);
+                    const m = Math.floor((sec % 3600) / 60);
+                    if (h === 0) return `${m} min`;
+                    return `${h}h ${m}m`;
+                  };
+
+                  // Find weak topics (<60% avg)
+                  const weakTopicIds = [];
+                  topics.forEach(t => {
+                    const tScoreData = topicScores[t.id.toString()];
+                    if (tScoreData && tScoreData.scores && tScoreData.scores.length > 0) {
+                      const avg = tScoreData.scores.reduce((a, b) => a + b, 0) / tScoreData.scores.length;
+                      if (avg < 60) weakTopicIds.push(t.id);
+                    }
+                  });
+
+                  // Generate personalized advice letter
+                  const studentFirstName = (student.name || 'opositor/a').split(' ')[0];
+                  let adviceText = `Hola ${studentFirstName},\n\n`;
+                  adviceText += `Revisando tu seguimiento en la plataforma de la academia:\n`;
+                  adviceText += `• Dedicación en lectura de temario: ${formatHoursMins(sSec)}\n`;
+                  adviceText += `• Dedicación en ejercitación de tests: ${formatHoursMins(qSec)}\n`;
+
+                  if (weakTopicIds.length > 0) {
+                    adviceText += `• Puntos que debemos reforzar prioritariamente: Tema(s) ${weakTopicIds.join(', ')}.\n\n`;
+                    adviceText += `Pauta recomendada: Te aconsejo repasar los conceptos clave de estos temas y realizar 2 simulacros cortos de 20 preguntas antes del próximo bloque. ¡Mucho ánimo y a por la plaza!`;
+                  } else if (qSec < 900) {
+                    adviceText += `\nVeo que estás avanzando muy bien con la lectura de la norma, pero es esencial incrementar la práctica con cuestionarios tipo test para entrenar la velocidad y la técnica de descarte.\n\n`;
+                    adviceText += `Pauta recomendada: Realiza al menos 1 simulacro aleatorio de 40 preguntas cada dos días para consolidar el temario. ¡Sigue así!`;
+                  } else {
+                    adviceText += `\n¡Excelente nivel de constancia y equilibrio entre teoría y tests! Mantienes un ritmo idóneo para la convocatoria.\n\n`;
+                    adviceText += `Pauta recomendada: Continúa con los simulacros semanales de 40 preguntas para afianzar la memoria a largo plazo. ¡A por todas!`;
+                  }
+
+                  const handleCopyAdvice = () => {
+                    navigator.clipboard.writeText(adviceText);
+                    setCopiedAdvisorMsg(true);
+                    setTimeout(() => setCopiedAdvisorMsg(false), 3000);
+                  };
+
+                  return (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                      {/* Metric Summary Grid */}
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+                        <div style={{ background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.25)', padding: '12px', borderRadius: '10px' }}>
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>Tiempo Temario</span>
+                          <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#60a5fa' }}>{formatHoursMins(sSec)}</span>
+                        </div>
+                        <div style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.25)', padding: '12px', borderRadius: '10px' }}>
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>Tiempo Tests</span>
+                          <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#fba518' }}>{formatHoursMins(qSec)}</span>
+                        </div>
+                        <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '12px', borderRadius: '10px' }}>
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>Nota Media Tests</span>
+                          <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#34d399' }}>{Math.round(student.averageQuizScore || 0)}%</span>
+                        </div>
+                      </div>
+
+                      {/* Topic Scores Breakdown */}
+                      <div>
+                        <h4 style={{ color: '#fff', fontSize: '0.95rem', margin: '0 0 10px 0' }}>📊 Rendimiento y Práctica por Tema (Temas 1 al 20)</h4>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '8px', maxHeight: '180px', overflowY: 'auto', paddingRight: '4px' }}>
+                          {topics.map(t => {
+                            const tScoreData = topicScores[t.id.toString()];
+                            const count = tScoreData ? tScoreData.count : 0;
+                            const scores = tScoreData ? tScoreData.scores : [];
+                            const avg = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : null;
+
+                            let bg = 'rgba(255,255,255,0.03)';
+                            let border = 'rgba(255,255,255,0.08)';
+                            let badgeColor = 'var(--text-muted)';
+
+                            if (avg !== null) {
+                              if (avg >= 75) {
+                                bg = 'rgba(16, 185, 129, 0.12)';
+                                border = 'rgba(16, 185, 129, 0.3)';
+                                badgeColor = '#34d399';
+                              } else if (avg >= 60) {
+                                bg = 'rgba(245, 158, 11, 0.12)';
+                                border = 'rgba(245, 158, 11, 0.3)';
+                                badgeColor = '#fbbf24';
+                              } else {
+                                bg = 'rgba(239, 68, 68, 0.15)';
+                                border = 'rgba(239, 68, 68, 0.4)';
+                                badgeColor = '#fca5a5';
+                              }
+                            }
+
+                            return (
+                              <div key={t.id} style={{ background: bg, border: `1px solid ${border}`, padding: '8px 10px', borderRadius: '8px', fontSize: '0.78rem' }}>
+                                <div style={{ fontWeight: '700', color: '#fff' }}>Tema {t.id}</div>
+                                <div style={{ fontSize: '0.72rem', color: badgeColor, marginTop: '2px' }}>
+                                  {avg !== null ? `${avg}% (${count} tests)` : 'Sin intentos'}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Automated Personalized Advice Generator */}
+                      <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '16px', borderRadius: '12px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                          <span style={{ fontSize: '0.85rem', fontWeight: '800', color: '#34d399', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <Send size={15} />
+                            <span>Pauta de Recomendación Sugerida para el Alumno</span>
+                          </span>
+                          <button
+                            type="button"
+                            onClick={handleCopyAdvice}
+                            style={{ padding: '6px 12px', background: '#10b981', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                          >
+                            <Copy size={13} />
+                            <span>{copiedAdvisorMsg ? '¡Pauta Copiada!' : 'Copiar Pauta'}</span>
+                          </button>
+                        </div>
+                        <textarea
+                          readOnly
+                          value={adviceText}
+                          style={{ width: '100%', height: '140px', background: 'rgba(15, 23, 42, 0.9)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#e2e8f0', padding: '10px', fontSize: '0.82rem', fontFamily: 'inherit', lineHeight: '1.4', outline: 'none', resize: 'none' }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
