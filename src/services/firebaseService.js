@@ -1378,7 +1378,11 @@ export const firebaseService = {
       const prefix = targetValue.toUpperCase();
       targetUsers = targetUsers.filter(u => u.bookCode && u.bookCode.toUpperCase().startsWith(prefix));
     } else if (targetType === 'individual') {
-      targetUsers = targetUsers.filter(u => u.uid === targetValue || u.email === targetValue);
+      const val = (targetValue || '').toLowerCase().trim();
+      targetUsers = targetUsers.filter(u => 
+        (u.uid && u.uid.toLowerCase().trim() === val) || 
+        (u.email && u.email.toLowerCase().trim() === val)
+      );
     }
 
     // 2. Procesar el comunicado general en base de datos para la App
@@ -1518,7 +1522,12 @@ export const firebaseService = {
         const filtered = allRecords.filter(item => {
           if (item.targetType === 'all') return true;
           if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
-          if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
+          if (item.targetType === 'individual') {
+            const targetVal = (item.targetValue || '').toLowerCase().trim();
+            const emailVal = (currentUser.email || '').toLowerCase().trim();
+            const uidVal = (currentUser.uid || '').toLowerCase().trim();
+            return targetVal === uidVal || targetVal === emailVal;
+          }
           return false;
         });
 
@@ -1541,7 +1550,12 @@ export const firebaseService = {
           const filtered = list.filter(item => {
             if (item.targetType === 'all') return true;
             if (item.targetType === 'code-prefix' && userBookCode.startsWith((item.targetValue || '').toUpperCase())) return true;
-            if (item.targetType === 'individual' && (item.targetValue === currentUser.uid || item.targetValue === userEmail)) return true;
+            if (item.targetType === 'individual') {
+              const targetVal = (item.targetValue || '').toLowerCase().trim();
+              const emailVal = (currentUser.email || '').toLowerCase().trim();
+              const uidVal = (currentUser.uid || '').toLowerCase().trim();
+              return targetVal === uidVal || targetVal === emailVal;
+            }
             return false;
           });
           filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
