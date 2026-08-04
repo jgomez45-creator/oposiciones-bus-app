@@ -493,9 +493,27 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 type="button"
                 onClick={() => setSelectedTopicMode('especial-competencias')}
                 className={`mode-btn ${selectedTopicMode === 'especial-competencias' ? 'active' : ''}`}
-                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem', fontWeight: '800', border: '1px solid #3b82f6' }}
+                style={{
+                  flex: '1 1 auto',
+                  padding: '8px 16px',
+                  fontSize: '0.85rem',
+                  fontWeight: '800',
+                  background: selectedTopicMode === 'especial-competencias'
+                    ? 'linear-gradient(135deg, #d97706 0%, #b45309 100%)'
+                    : 'linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(30, 58, 138, 0.4) 100%)',
+                  color: '#fff',
+                  border: '1.5px solid #f59e0b',
+                  borderRadius: '10px',
+                  boxShadow: '0 0 12px rgba(245, 158, 11, 0.35)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
               >
-                🎯 Especial Competencias (60)
+                <span>🎯 Especial Competencias (60)</span>
+                <span style={{ fontSize: '0.68rem', background: '#ef4444', color: '#fff', padding: '2px 6px', borderRadius: '6px', fontWeight: '900', letterSpacing: '0.5px' }}>
+                  ¡NUEVO!
+                </span>
               </button>
               <button
                 type="button"
