@@ -15,6 +15,7 @@ import {
 import quizzesData from '../data/quizzes.json';
 import examen2019Data from '../data/examen_2019.json';
 import examen2022Data from '../data/examen_2022.json';
+import competencias60Data from '../data/baterias/competencias_organos_60.json';
 
 import PrintEditionModal from './PrintEditionModal';
 import { firebaseService } from '../services/firebaseService';
@@ -208,6 +209,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       qPool = examen2019Data;
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
+    } else if (selectedTopicMode === 'especial-competencias') {
+      qPool = competencias60Data;
     } else if (selectedTopicMode === 'simulacro-40') {
       qPool = generateSimulacro40Questions();
     } else if (selectedTopicMode === 'simulacro-oficial') {
@@ -272,6 +275,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       qPool = examen2019Data;
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
+    } else if (selectedTopicMode === 'especial-competencias') {
+      qPool = competencias60Data;
     } else if (selectedTopicMode === 'simulacro-40') {
       qPool = generateSimulacro40Questions();
     } else if (selectedTopicMode === 'simulacro-oficial') {
@@ -486,6 +491,14 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </button>
               <button
                 type="button"
+                onClick={() => setSelectedTopicMode('especial-competencias')}
+                className={`mode-btn ${selectedTopicMode === 'especial-competencias' ? 'active' : ''}`}
+                style={{ flex: '1 1 auto', padding: '6px 12px', fontSize: '0.8rem', fontWeight: '800', border: '1px solid #3b82f6' }}
+              >
+                🎯 Especial Competencias (60)
+              </button>
+              <button
+                type="button"
                 onClick={() => {
                   setSelectedTopicMode('test-book');
                   if (availableTopicIds.length > 0) {
@@ -610,6 +623,13 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
             )}
 
+            {selectedTopicMode === 'especial-competencias' && (
+              <div style={{ padding: '14px', background: 'rgba(30, 58, 138, 0.25)', borderLeft: '4px solid #3b82f6', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
+                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: '#60a5fa', fontSize: '0.95rem' }}>🎯 Batería Especial: Competencias y Funciones Órganos US (60 Preguntas)</h5>
+                Batería exclusiva de <strong>60 preguntas rigurosas sobre competencias del Decreto 98/2025</strong> (Órganos Colegiados y Unipersonales). Métrica de opciones homogénea diseñada para entrenamiento de alto nivel en descarte.
+              </div>
+            )}
+
             {selectedTopicMode === 'simulacro-oficial' && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
                 <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>Selecciona los Simulacros de Examen predefinidos (40 preguntas):</label>
@@ -643,7 +663,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
             )}
 
-            {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && (
+            {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && selectedTopicMode !== 'especial-competencias' && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
                 <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>
                   {selectedTopicMode === 'test-book'
