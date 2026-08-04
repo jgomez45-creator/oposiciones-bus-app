@@ -31731,15 +31731,15 @@
     },
     {
       "id": "20065",
-      "question": "¿Cuál es el ámbito subjetivo de aplicación de la Normativa de la Universidad de Sevilla para la prevención e intervención ante la violencia y el acoso (Acuerdo 9.1/CG 18-12-24)?",
+      "question": "De acuerdo con el artículo 2 de la Normativa de la US de 2024 (Acuerdo 9.1/CG 18-12-24), ¿a quiénes resulta aplicable su ámbito subjetivo y qué colectivo queda excluido de su aplicación directa?",
       "options": [
-        "Afecta a todo el personal docente e investigador, personal técnico de gestión, estudiantado y personal de empresas externas que presten servicios en la US.",
-        "Resulta aplicable exclusivamente al personal funcionario de carrera e interino adscrito a la plantilla propia de la Universidad de Sevilla.",
-        "Se aplica únicamente a los estudiantes matriculados en grados oficiales y másteres universitarios impartidos en centros propios.",
-        "Abarca únicamente a las conductas cometidas por el personal laboral fijo dentro de las dependencias administrativas de la universidad."
+        "Aplica al PDI, PTGAS, estudiantado y personal en formación, quedando excluido el personal de empresas contratistas externas (cuya gestión se canaliza por la LPRL).",
+        "Aplica exclusivamente al personal funcionario de carrera e interino, quedando excluido el personal laboral y el estudiantado universitario.",
+        "Aplica de forma idéntica y sin excepción a todas las personas físicas, incluyendo expresamente al personal de empresas contratistas externas.",
+        "Aplica únicamente a los estudiantes matriculados en grados oficiales, quedando excluidos los estudiantes de máster y doctorado."
       ],
       "correctAnswer": 0,
-      "explanation": "El artículo 2 de la Normativa de la US (2024) establece un ámbito subjetivo amplio que protege a todo el PDI, PTGAS, estudiantado y personal de empresas contratistas en el ámbito universitario."
+      "explanation": "El artículo 2 de la Normativa de la US (2024) establece que se aplica al PDI, PTGAS, estudiantado, becarios y personal en formación. Queda EXCLUIDO del ámbito subjetivo directo el personal de empresas contratistas externas (como seguridad o limpieza), cuya atención se canaliza mediante la Coordinación de Actividades Empresariales de la LPRL."
     },
     {
       "id": "20066",
