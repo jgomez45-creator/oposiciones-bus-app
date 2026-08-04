@@ -49,7 +49,8 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
 
 
   // Config state
-  const [selectedTopicMode, setSelectedTopicMode] = useState('single'); // 'single' | 'custom' | 'simulacro-40' | 'simulacro-oficial' | 'test-book' | 'examen-real-2019' | 'examen-real-2022'
+  const [selectedTopicMode, setSelectedTopicMode] = useState('single'); // 'single' | 'custom' | 'simulacro-40' | 'simulacro-oficial' | 'test-book' | 'examen-real-2019' | 'examen-real-2022' | 'especial-profundizacion'
+  const [selectedSpecialTestId, setSelectedSpecialTestId] = useState('competencias-60');
   const [selectedSimulacroNums, setSelectedSimulacroNums] = useState(['1']);
   const [compiledExamsContent, setCompiledExamsContent] = useState([]);
   const [isExamsPrintMode, setIsExamsPrintMode] = useState(false);
@@ -209,8 +210,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       qPool = examen2019Data;
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
-    } else if (selectedTopicMode === 'especial-competencias') {
-      qPool = competencias60Data;
+    } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+      if (selectedSpecialTestId === 'competencias-60') {
+        qPool = competencias60Data;
+      }
     } else if (selectedTopicMode === 'simulacro-40') {
       qPool = generateSimulacro40Questions();
     } else if (selectedTopicMode === 'simulacro-oficial') {
@@ -275,8 +278,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
       qPool = examen2019Data;
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
-    } else if (selectedTopicMode === 'especial-competencias') {
-      qPool = competencias60Data;
+    } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+      if (selectedSpecialTestId === 'competencias-60') {
+        qPool = competencias60Data;
+      }
     } else if (selectedTopicMode === 'simulacro-40') {
       qPool = generateSimulacro40Questions();
     } else if (selectedTopicMode === 'simulacro-oficial') {
@@ -491,14 +496,14 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </button>
               <button
                 type="button"
-                onClick={() => setSelectedTopicMode('especial-competencias')}
-                className={`mode-btn ${selectedTopicMode === 'especial-competencias' ? 'active' : ''}`}
+                onClick={() => setSelectedTopicMode('especial-profundizacion')}
+                className={`mode-btn ${selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias' ? 'active' : ''}`}
                 style={{
                   flex: '1 1 auto',
                   padding: '8px 16px',
                   fontSize: '0.85rem',
                   fontWeight: '800',
-                  background: selectedTopicMode === 'especial-competencias'
+                  background: (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias')
                     ? 'linear-gradient(135deg, #d97706 0%, #b45309 100%)'
                     : 'linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(30, 58, 138, 0.4) 100%)',
                   color: '#fff',
@@ -510,7 +515,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   gap: '8px'
                 }}
               >
-                <span>🎯 Especial Competencias (60)</span>
+                <span>🔥 Tests de Profundización / Especiales</span>
                 <span style={{ fontSize: '0.68rem', background: '#ef4444', color: '#fff', padding: '2px 6px', borderRadius: '6px', fontWeight: '900', letterSpacing: '0.5px' }}>
                   ¡NUEVO!
                 </span>
@@ -641,9 +646,28 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
             )}
 
-            {selectedTopicMode === 'especial-competencias' && (
+            {(selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') && (
+              <div className="form-group" style={{ marginBottom: '14px' }}>
+                <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block', fontWeight: '700', color: '#f59e0b' }}>
+                  🎯 Selecciona el Bloque Específico de Profundización:
+                </label>
+                <select
+                  value={selectedSpecialTestId}
+                  onChange={(e) => setSelectedSpecialTestId(e.target.value)}
+                  className="config-select"
+                  style={{ padding: '10px 14px', fontSize: '0.92rem', border: '1.5px solid #f59e0b', background: 'rgba(15, 23, 42, 0.95)', color: '#fff', borderRadius: '10px', width: '100%', outline: 'none' }}
+                >
+                  <option value="competencias-60">🎯 Competencias y Funciones de Órganos (60 Preguntas) - Decreto 98/2025</option>
+                  <option value="proximamente-plazos" disabled>🔒 Próximamente: Plazos y Procedimientos en Normativa US</option>
+                  <option value="proximamente-bibliotecas" disabled>🔒 Próximamente: Sistemas y Redes de Bibliotecas Universitarias</option>
+                  <option value="proximamente-igualdad" disabled>🔒 Próximamente: Protocolos de Igualdad y Prevención en la US</option>
+                </select>
+              </div>
+            )}
+
+            {(selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') && (
               <div style={{ padding: '14px', background: 'rgba(30, 58, 138, 0.25)', borderLeft: '4px solid #3b82f6', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
-                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: '#60a5fa', fontSize: '0.95rem' }}>🎯 Batería Especial: Competencias y Funciones Órganos US (60 Preguntas)</h5>
+                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: '#60a5fa', fontSize: '0.95rem' }}>🎯 Batería Seleccionada: Competencias y Funciones Órganos US (60 Preguntas)</h5>
                 Batería exclusiva de <strong>60 preguntas rigurosas sobre competencias del Decreto 98/2025</strong> (Órganos Colegiados y Unipersonales). Métrica de opciones homogénea diseñada para entrenamiento de alto nivel en descarte.
               </div>
             )}
@@ -681,7 +705,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               </div>
             )}
 
-            {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && selectedTopicMode !== 'especial-competencias' && (
+            {selectedTopicMode !== 'simulacro-40' && selectedTopicMode !== 'simulacro-oficial' && selectedTopicMode !== 'examen-real-2019' && selectedTopicMode !== 'examen-real-2022' && selectedTopicMode !== 'especial-competencias' && selectedTopicMode !== 'especial-profundizacion' && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
                 <label style={{ fontSize: '0.85rem', marginBottom: '6px', display: 'block' }}>
                   {selectedTopicMode === 'test-book'
