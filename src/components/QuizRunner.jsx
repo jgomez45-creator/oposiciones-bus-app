@@ -109,6 +109,30 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     };
   }, [isPaperFullscreen]);
 
+  const getExamTitle = () => {
+    if (selectedTopicMode === 'single') {
+      const topicObj = topics ? topics.find(t => t.id === Number(singleTopicId)) : null;
+      const topicTitle = topicObj ? topicObj.title : '';
+      return `CUESTIONARIO TEMA ${singleTopicId}: ${topicTitle}`.toUpperCase();
+    }
+    if (selectedTopicMode === 'simulacro-40') {
+      return 'SIMULACRO DE EXAMEN (40 PREGUNTAS)';
+    }
+    if (selectedTopicMode === 'simulacro-oficial') {
+      return `SIMULACRO PREDEFINIDO Nº ${selectedSimulacroNums[0] || 1} (40 PREGUNTAS)`;
+    }
+    if (selectedTopicMode === 'examen-real-2019') {
+      return 'EXAMEN OFICIAL REAL DE 2019 (40 PREGUNTAS)';
+    }
+    if (selectedTopicMode === 'examen-real-2022') {
+      return 'EXAMEN OFICIAL REAL DE 2022 (38 PREGUNTAS)';
+    }
+    if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
+      return 'CUESTIONARIO ESPECIAL DE PROFUNDIZACIÓN - COMPETENCIAS (60 PREGUNTAS)';
+    }
+    return 'SIMULACRO DE EXAMEN - OPOSICIONES BUS';
+  };
+
   const generateSimulacro40Questions = () => {
     let qPool = [];
     availableTopicIds.forEach(topicId => {
@@ -943,7 +967,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
               {/* PAGE 1: QUESTIONS (FRONT) */}
               <div className="exam-questions-section">
                 <div className="exam-metadata-header">
-                  <h2>{selectedTopicMode === 'simulacro-40' ? 'SIMULACRO DE EXAMEN (40 PREGUNTAS)' : selectedTopicMode === 'simulacro-oficial' ? `SIMULACRO PREDEFINIDO Nº ${selectedSimulacroNums[0]} (40 PREGUNTAS)` : selectedTopicMode === 'examen-real-2019' ? 'EXAMEN OFICIAL REAL DE 2019 (40 PREGUNTAS)' : selectedTopicMode === 'examen-real-2022' ? 'EXAMEN OFICIAL REAL DE 2022 (38 PREGUNTAS)' : 'SIMULACRO DE EXAMEN - OPOSICIONES BUS'}</h2>
+                  <h2>{getExamTitle()}</h2>
                   <p style={{ textAlign: 'center', margin: 0, fontSize: '0.9rem', color: '#555' }}>
                     Técnico/a Auxiliar de Biblioteca, Archivo y Museo - Universidad de Sevilla
                   </p>
@@ -1642,7 +1666,7 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                 {/* Header inside paper */}
                 <div className="exam-metadata-header" style={{ borderBottom: '2px solid black', paddingBottom: '16px', marginBottom: '28px' }}>
                   <h2 style={{ margin: '0 0 8px 0', fontSize: isPaperFullscreen ? '1.8rem' : '1.6rem', fontWeight: '800', textAlign: 'center', color: 'black' }}>
-                    {selectedTopicMode === 'simulacro-40' ? 'SIMULACRO DE EXAMEN (40 PREGUNTAS)' : selectedTopicMode === 'simulacro-oficial' ? `SIMULACRO PREDEFINIDO Nº ${selectedSimulacroNums[0]} (40 PREGUNTAS)` : selectedTopicMode === 'examen-real-2019' ? 'EXAMEN OFICIAL REAL DE 2019 (40 PREGUNTAS)' : selectedTopicMode === 'examen-real-2022' ? 'EXAMEN OFICIAL REAL DE 2022 (38 PREGUNTAS)' : 'SIMULACRO DE EXAMEN - OPOSICIONES BUS'}
+                    {getExamTitle()}
                   </h2>
                   <p style={{ textAlign: 'center', margin: 0, fontSize: isPaperFullscreen ? '0.95rem' : '0.85rem', color: '#555', fontWeight: '600' }}>
                     Técnico/a Auxiliar de Biblioteca, Archivo y Museo - Universidad de Sevilla
