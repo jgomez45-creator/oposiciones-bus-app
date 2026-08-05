@@ -2133,5 +2133,120 @@ export const firebaseService = {
     }
 
     return result;
+  },
+
+  // =========================================================================
+  // BLOQUES ESPECIALES / TESTS DE PROFUNDIZACIÓN
+  // =========================================================================
+  _getDefaultSpecialTests() {
+    return [
+      {
+        id: 'competencias-60',
+        title: '🎯 Competencias y Funciones de Órganos (Decreto 98/2025)',
+        topicId: '20',
+        scopeType: 'puntos',
+        specificPoints: 'Órganos Colegiados y Unipersonales - Decreto 98/2025',
+        description: 'Batería de 60 preguntas rigurosas sobre competencias del Decreto 98/2025 (Órganos Colegiados y Unipersonales). Métrica de opciones homogénea diseñada para entrenamiento de alto nivel.',
+        isDefault: true,
+        updatedAt: new Date().toISOString()
+      }
+    ];
+  },
+
+  _getLocalSpecialTests() {
+    try {
+      const stored = localStorage.getItem('mock_db_special_tests');
+      if (stored) return JSON.parse(stored);
+    } catch (e) {
+      console.warn("Error reading local special tests:", e);
+    }
+    return this._getDefaultSpecialTests();
+  },
+
+  subscribeToSpecialTests(callback) {
+    const initialList = this._getLocalSpecialTests();
+    callback(initialList);
+
+    if (!isMock && db) {
+      try {
+        const qRef = collection(db, 'special_tests');
+        const unsub = onSnapshot(qRef, (snapshot) => {
+          const cloudList = [];
+          snapshot.forEach(docSnap => {
+            cloudList.push({ id: docSnap.id, ...docSnap.data() });
+          });
+
+          let mergedList = [...this._getDefaultSpecialTests()];
+          cloudList.forEach(item => {
+            const idx = mergedList.findIndex(x => x.id === item.id);
+            if (idx >= 0) {
+              mergedList[idx] = item;
+            } else {
+              mergedList.push(item);
+            }
+          });
+
+          localStorage.setItem('mock_db_special_tests', JSON.stringify(mergedList));
+          callback(mergedList);
+        }, (err) => {
+          console.warn("subscribeToSpecialTests listener error:", err.message);
+        });
+
+        return unsub;
+      } catch (err) {
+        console.warn("subscribeToSpecialTests error:", err.message);
+      }
+    }
+    return () => {};
+  },
+
+  async saveSpecialTest(testObj) {
+    if (!testObj || !testObj.id) throw new Error("ID de Bloque Especial inválido.");
+
+    const currentList = this._getLocalSpecialTests();
+    const idx = currentList.findIndex(x => x.id === testObj.id);
+    let updatedList = [...currentList];
+    if (idx >= 0) {
+      updatedList[idx] = { ...updatedList[idx], ...testObj, updatedAt: new Date().toISOString() };
+    } else {
+      updatedList.push({ ...testObj, updatedAt: new Date().toISOString() });
+    }
+
+    localStorage.setItem('mock_db_special_tests', JSON.stringify(updatedList));
+
+    if (!isMock && db) {
+      try {
+        const docRef = doc(db, 'special_tests', testObj.id);
+        await withTimeout(setDoc(docRef, { ...testObj, updatedAt: new Date().toISOString() }), 4000, "Write timeout");
+      } catch (err) {
+        console.warn("saveSpecialTest Firestore write warning:", err.message);
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('special-tests-updated', { detail: { testId: testObj.id } }));
+    }
+    return updatedList;
+  },
+
+  async deleteSpecialTest(testId) {
+    if (!testId) return;
+    const currentList = this._getLocalSpecialTests();
+    const updatedList = currentList.filter(x => x.id !== testId);
+    localStorage.setItem('mock_db_special_tests', JSON.stringify(updatedList));
+
+    if (!isMock && db) {
+      try {
+        const docRef = doc(db, 'special_tests', testId);
+        await withTimeout(deleteDoc(docRef), 4000, "Delete timeout");
+      } catch (err) {
+        console.warn("deleteSpecialTest Firestore warning:", err.message);
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('special-tests-updated', { detail: { testId } }));
+    }
+    return updatedList;
   }
 };

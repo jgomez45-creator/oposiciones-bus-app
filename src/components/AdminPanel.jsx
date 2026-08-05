@@ -139,6 +139,100 @@ export default function AdminPanel({ topics }) {
   const [editingVideoId, setEditingVideoId] = useState(null);
   const [savingVideo, setSavingVideo] = useState(false);
   const [videoMsg, setVideoMsg] = useState('');
+  // Special Tests Creator state
+  const [specialTestsList, setSpecialTestsList] = useState([]);
+  const [specialForm, setSpecialForm] = useState({
+    title: '',
+    topicId: '1',
+    scopeType: 'todo',
+    specificPoints: '',
+    description: '',
+    questionsJson: ''
+  });
+  const [editingSpecialId, setEditingSpecialId] = useState(null);
+  const [savingSpecial, setSavingSpecial] = useState(false);
+  const [specialMsg, setSpecialMsg] = useState('');
+
+  useEffect(() => {
+    const unsubSpecial = firebaseService.subscribeToSpecialTests((list) => {
+      setSpecialTestsList(list);
+    });
+    return () => { if (unsubSpecial) unsubSpecial(); };
+  }, []);
+
+  const handleSaveSpecialTest = async (e) => {
+    e.preventDefault();
+    if (!specialForm.title.trim()) {
+      alert('Introduce el título del Bloque Especial.');
+      return;
+    }
+
+    let parsedQuestions = [];
+    if (specialForm.questionsJson.trim()) {
+      try {
+        parsedQuestions = JSON.parse(specialForm.questionsJson);
+        if (!Array.isArray(parsedQuestions)) {
+          alert('El JSON debe ser un array de preguntas [...].');
+          return;
+        }
+      } catch (err) {
+        alert('Error sintáctico en el JSON de preguntas: ' + err.message);
+        return;
+      }
+    }
+
+    setSavingSpecial(true);
+    setSpecialMsg('');
+    try {
+      const testId = editingSpecialId || ('esp_' + specialForm.topicId + '_' + Date.now());
+      const payload = {
+        id: testId,
+        title: specialForm.title.trim(),
+        topicId: specialForm.topicId.toString(),
+        scopeType: specialForm.scopeType,
+        specificPoints: specialForm.scopeType === 'puntos' ? specialForm.specificPoints.trim() : '',
+        description: specialForm.description.trim(),
+        questions: parsedQuestions,
+        questionsCount: parsedQuestions.length
+      };
+
+      await firebaseService.saveSpecialTest(payload);
+      setSpecialMsg(editingSpecialId ? '¡Bloque Especial actualizado con éxito!' : '¡Nuevo Bloque Especial creado con éxito!');
+      setSpecialForm({ title: '', topicId: '1', scopeType: 'todo', specificPoints: '', description: '', questionsJson: '' });
+      setEditingSpecialId(null);
+      setTimeout(() => setSpecialMsg(''), 4000);
+    } catch (err) {
+      console.error(err);
+      alert('Error al guardar el Bloque Especial.');
+    } finally {
+      setSavingSpecial(false);
+    }
+  };
+
+  const handleEditSpecialTest = (item) => {
+    setEditingSpecialId(item.id);
+    setSpecialForm({
+      title: item.title || '',
+      topicId: item.topicId ? item.topicId.toString() : '1',
+      scopeType: item.scopeType || 'todo',
+      specificPoints: item.specificPoints || '',
+      description: item.description || '',
+      questionsJson: item.questions ? JSON.stringify(item.questions, null, 2) : ''
+    });
+  };
+
+  const handleDeleteSpecialTest = async (testId, title) => {
+    if (window.confirm(`¿Estás seguro de que deseas eliminar el Bloque Especial "${title}"?`)) {
+      try {
+        await firebaseService.deleteSpecialTest(testId);
+        setSpecialMsg(`Bloque "${title}" eliminado con éxito.`);
+        setTimeout(() => setSpecialMsg(''), 4000);
+      } catch (err) {
+        console.error(err);
+        alert('Error al eliminar el bloque.');
+      }
+    }
+  };
 
   const activeTopicList = topics || topicsData;
 
@@ -829,6 +923,14 @@ export default function AdminPanel({ topics }) {
             <span>Generar Tests</span>
           </button>
           <button
+            onClick={() => setActiveSubTab('special')}
+            className={`tab-btn ${activeSubTab === 'special' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'special' ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'rgba(245, 158, 11, 0.15)', color: activeSubTab === 'special' ? '#fff' : '#fbbf24', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Award size={16} />
+            <span>Bloques Especiales ({specialTestsList.length})</span>
+          </button>
+          <button
             onClick={() => setActiveSubTab('videos')}
             className={`tab-btn ${activeSubTab === 'videos' ? 'active' : ''}`}
             style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'videos' ? 'var(--secondary)' : 'transparent', color: activeSubTab === 'videos' ? '#000' : 'var(--text-main)', borderRadius: '8px', cursor: 'pointer', fontWeight: '750', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
@@ -869,6 +971,214 @@ export default function AdminPanel({ topics }) {
         <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '10px', color: '#fca5a5', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ShieldAlert size={18} />
           <span>{errorMsg}</span>
+        </div>
+      )}
+
+      {/* SUBTAB: BLOQUES ESPECIALES / TESTS DE PROFUNDIZACIÓN */}
+      {activeSubTab === 'special' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
+            <h3 style={{ margin: '0 0 6px 0', color: '#f59e0b', fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Award size={24} />
+              <span>Creador de Bloques Especiales / Tests de Profundización</span>
+            </h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
+              Crea baterías temáticas avanzadas para cualquier Tema de la oposición, especificando si abarcan <strong>Todo el Tema</strong> o <strong>Aspectos / Puntos Concretos</strong>.
+            </p>
+
+            {specialMsg && (
+              <div style={{ marginTop: '16px', padding: '10px 14px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid #10b981', color: '#34d399', fontSize: '0.88rem', fontWeight: '600' }}>
+                {specialMsg}
+              </div>
+            )}
+
+            <form onSubmit={handleSaveSpecialTest} style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: '700' }}>
+                    Título del Bloque Especial: *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Ej. 🎯 Competencias de Órganos Colegiados (60 Preguntas)"
+                    value={specialForm.title}
+                    onChange={(e) => setSpecialForm({ ...specialForm, title: e.target.value })}
+                    style={{ width: '100%', padding: '10px 12px', background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: '700' }}>
+                    Tema Asociado: *
+                  </label>
+                  <select
+                    value={specialForm.topicId}
+                    onChange={(e) => setSpecialForm({ ...specialForm, topicId: e.target.value })}
+                    style={{ width: '100%', padding: '10px 12px', background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
+                  >
+                    {activeTopicList.map(t => (
+                      <option key={t.id} value={t.id.toString()}>
+                        Tema {t.id}: {t.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: '700' }}>
+                    Cobertura / Ámbito del Test: *
+                  </label>
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
+                    <button
+                      type="button"
+                      onClick={() => setSpecialForm({ ...specialForm, scopeType: 'todo' })}
+                      className={`tab-btn ${specialForm.scopeType === 'todo' ? 'active' : ''}`}
+                      style={{ flex: 1, padding: '8px', fontSize: '0.82rem', background: specialForm.scopeType === 'todo' ? 'var(--primary)' : 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid var(--border-color)', borderRadius: '6px' }}
+                    >
+                      🌐 Todo el Tema
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSpecialForm({ ...specialForm, scopeType: 'puntos' })}
+                      className={`tab-btn ${specialForm.scopeType === 'puntos' ? 'active' : ''}`}
+                      style={{ flex: 1, padding: '8px', fontSize: '0.82rem', background: specialForm.scopeType === 'puntos' ? '#f59e0b' : 'rgba(255,255,255,0.05)', color: specialForm.scopeType === 'puntos' ? '#000' : '#fff', border: '1px solid var(--border-color)', borderRadius: '6px', fontWeight: 'bold' }}
+                    >
+                      🎯 Aspectos Concretos
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {specialForm.scopeType === 'puntos' && (
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.8rem', color: '#f59e0b', marginBottom: '4px', fontWeight: '700' }}>
+                    Aspectos / Puntos Concretos del Tema Tratados: *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Ej. Órganos Colegiados y Unipersonales (Decreto 98/2025)"
+                    value={specialForm.specificPoints}
+                    onChange={(e) => setSpecialForm({ ...specialForm, specificPoints: e.target.value })}
+                    style={{ width: '100%', padding: '10px 12px', background: 'rgba(30, 41, 59, 0.9)', border: '1px solid #f59e0b', borderRadius: '8px', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
+                  />
+                </div>
+              )}
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: '700' }}>
+                  Descripción Pedagógica para los Alumnos:
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder="Explicación detallada de la batería de preguntas, enfoque legal o métrica de opciones..."
+                  value={specialForm.description}
+                  onChange={(e) => setSpecialForm({ ...specialForm, description: e.target.value })}
+                  style={{ width: '100%', padding: '10px 12px', background: 'rgba(30, 41, 59, 0.9)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }}
+                />
+              </div>
+
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                  <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700' }}>
+                    Banco de Preguntas del Bloque (Código JSON):
+                  </label>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                    {'Pega un array JSON [ { "id": "...", "question": "...", "options": [...], "correctAnswer": 0, "explanation": "..." } ]'}
+                  </span>
+                </div>
+                <textarea
+                  rows={6}
+                  placeholder='[ &#10;  { &#10;    "id": "esp_01", &#10;    "question": "¿Enunciado de la pregunta?", &#10;    "options": ["Opción A", "Opción B", "Opción C", "Opción D"], &#10;    "correctAnswer": 0, &#10;    "explanation": "Explicación legal..." &#10;  } &#10;]'
+                  value={specialForm.questionsJson}
+                  onChange={(e) => setSpecialForm({ ...specialForm, questionsJson: e.target.value })}
+                  style={{ width: '100%', padding: '10px 12px', background: 'rgba(15, 23, 42, 0.95)', border: '1px solid var(--border-color)', borderRadius: '8px', color: '#38bdf8', fontFamily: 'monospace', fontSize: '0.8rem', outline: 'none', resize: 'vertical' }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button
+                  type="submit"
+                  disabled={savingSpecial}
+                  style={{ padding: '10px 20px', background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '800', fontSize: '0.9rem', cursor: 'pointer' }}
+                >
+                  {savingSpecial ? 'Guardando...' : editingSpecialId ? '💾 Guardar Cambios en el Bloque' : '✨ Crear Bloque Especial'}
+                </button>
+                {editingSpecialId && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingSpecialId(null);
+                      setSpecialForm({ title: '', topicId: '1', scopeType: 'todo', specificPoints: '', description: '', questionsJson: '' });
+                    }}
+                    style={{ padding: '10px 16px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', cursor: 'pointer' }}
+                  >
+                    Cancelar Edición
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+
+          {/* LIST OF ACTIVE SPECIAL BLOCKS */}
+          <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px' }}>
+            <h3 style={{ margin: '0 0 16px 0', fontSize: '1.1rem', color: 'var(--text-main)' }}>
+              Bloques Especiales Activos ({specialTestsList.length})
+            </h3>
+
+            {specialTestsList.length === 0 ? (
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>No hay bloques especiales creados. Utiliza el formulario superior para añadir el primero.</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {specialTestsList.map(item => {
+                  const qCount = (item.questions && Array.isArray(item.questions)) ? item.questions.length : (item.questionsCount || 0);
+                  return (
+                    <div
+                      key={item.id}
+                      style={{ padding: '16px', borderRadius: '12px', background: 'rgba(30, 41, 59, 0.5)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}
+                    >
+                      <div style={{ flex: 1, minWidth: '280px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                          <span style={{ padding: '2px 8px', borderRadius: '6px', background: 'rgba(59, 130, 246, 0.2)', color: '#60a5fa', fontSize: '0.75rem', fontWeight: '800' }}>
+                            Tema {item.topicId}
+                          </span>
+                          <span style={{ padding: '2px 8px', borderRadius: '6px', background: item.scopeType === 'puntos' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(16, 185, 129, 0.2)', color: item.scopeType === 'puntos' ? '#f59e0b' : '#34d399', fontSize: '0.75rem', fontWeight: '700' }}>
+                            {item.scopeType === 'puntos' ? `🎯 Aspectos Concretos: ${item.specificPoints || 'Puntos específicos'}` : '🌐 Todo el Tema'}
+                          </span>
+                          <span style={{ padding: '2px 8px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.08)', color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: '700' }}>
+                            {qCount} preguntas
+                          </span>
+                        </div>
+                        <h4 style={{ margin: '4px 0', fontSize: '1rem', color: '#fff' }}>{item.title}</h4>
+                        {item.description && (
+                          <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.35' }}>{item.description}</p>
+                        )}
+                      </div>
+
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button
+                          type="button"
+                          onClick={() => handleEditSpecialTest(item)}
+                          style={{ padding: '6px 12px', background: 'rgba(59, 130, 246, 0.2)', border: '1px solid #3b82f6', color: '#60a5fa', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '700', cursor: 'pointer' }}
+                        >
+                          ✏️ Editar
+                        </button>
+                        {!item.isDefault && (
+                          <button
+                            type="button"
+                            onClick={() => handleDeleteSpecialTest(item.id, item.title)}
+                            style={{ padding: '6px 12px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid #ef4444', color: '#f87171', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '700', cursor: 'pointer' }}
+                          >
+                            🗑️ Eliminar
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
       )}
 

@@ -52,6 +52,14 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
   // Config state
   const [selectedTopicMode, setSelectedTopicMode] = useState('single'); // 'single' | 'custom' | 'simulacro-40' | 'simulacro-oficial' | 'test-book' | 'examen-real-2019' | 'examen-real-2022' | 'especial-profundizacion'
   const [selectedSpecialTestId, setSelectedSpecialTestId] = useState('competencias-60');
+  const [specialTestsList, setSpecialTestsList] = useState([]);
+
+  useEffect(() => {
+    const unsubSpecial = firebaseService.subscribeToSpecialTests((list) => {
+      setSpecialTestsList(list);
+    });
+    return () => { if (unsubSpecial) unsubSpecial(); };
+  }, []);
   const [selectedSimulacroNums, setSelectedSimulacroNums] = useState(['1']);
   const [compiledExamsContent, setCompiledExamsContent] = useState([]);
   const [isExamsPrintMode, setIsExamsPrintMode] = useState(false);
@@ -239,10 +247,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
     } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
-      let fullList = competencias60Data;
-      if (selectedSpecialTestId === 'competencias-60') {
-        fullList = competencias60Data;
-      }
+      const selectedItem = specialTestsList.find(x => x.id === selectedSpecialTestId);
+      let fullList = (selectedItem && selectedItem.questions && selectedItem.questions.length > 0)
+        ? selectedItem.questions
+        : competencias60Data;
       const shuffled = [...fullList].sort(() => 0.5 - Math.random());
       const limit = getEffectiveLimit();
       qPool = limit < shuffled.length ? shuffled.slice(0, limit) : shuffled;
@@ -311,10 +319,10 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
     } else if (selectedTopicMode === 'examen-real-2022') {
       qPool = examen2022Data;
     } else if (selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') {
-      let fullList = competencias60Data;
-      if (selectedSpecialTestId === 'competencias-60') {
-        fullList = competencias60Data;
-      }
+      const selectedItem = specialTestsList.find(x => x.id === selectedSpecialTestId);
+      let fullList = (selectedItem && selectedItem.questions && selectedItem.questions.length > 0)
+        ? selectedItem.questions
+        : competencias60Data;
       const shuffled = [...fullList].sort(() => 0.5 - Math.random());
       const limit = getEffectiveLimit();
       qPool = limit < shuffled.length ? shuffled.slice(0, limit) : shuffled;
@@ -724,20 +732,43 @@ export default function QuizRunner({ topics, progress, recordQuizScore, activeTo
                   className="config-select"
                   style={{ padding: '10px 14px', fontSize: '0.92rem', border: '1.5px solid #f59e0b', background: 'rgba(15, 23, 42, 0.95)', color: '#fff', borderRadius: '10px', width: '100%', outline: 'none' }}
                 >
-                  <option value="competencias-60">🎯 Competencias y Funciones de Órganos (60 Preguntas) - Decreto 98/2025</option>
-                  <option value="proximamente-plazos" disabled>🔒 Próximamente: Plazos y Procedimientos en Normativa US</option>
-                  <option value="proximamente-bibliotecas" disabled>🔒 Próximamente: Sistemas y Redes de Bibliotecas Universitarias</option>
-                  <option value="proximamente-igualdad" disabled>🔒 Próximamente: Protocolos de Igualdad y Prevención en la US</option>
+                  {specialTestsList.length === 0 ? (
+                    <option value="competencias-60">🎯 Competencias y Funciones de Órganos (60 Preguntas) - Decreto 98/2025</option>
+                  ) : (
+                    specialTestsList.map(item => (
+                      <option key={item.id} value={item.id}>
+                        Tema {item.topicId}: {item.title} ({item.questions ? item.questions.length : (item.questionsCount || 0)} preguntas)
+                      </option>
+                    ))
+                  )}
                 </select>
               </div>
             )}
 
-            {(selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') && (
-              <div style={{ padding: '14px', background: 'rgba(30, 58, 138, 0.25)', borderLeft: '4px solid #3b82f6', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
-                <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: '#60a5fa', fontSize: '0.95rem' }}>🎯 Batería Seleccionada: Competencias y Funciones Órganos US (60 Preguntas)</h5>
-                Batería exclusiva de <strong>60 preguntas rigurosas sobre competencias del Decreto 98/2025</strong> (Órganos Colegiados y Unipersonales). Métrica de opciones homogénea diseñada para entrenamiento de alto nivel en descarte.
-              </div>
-            )}
+            {(selectedTopicMode === 'especial-profundizacion' || selectedTopicMode === 'especial-competencias') && (() => {
+              const currentItem = specialTestsList.find(x => x.id === selectedSpecialTestId) || {
+                title: 'Competencias y Funciones Órganos US (Decreto 98/2025)',
+                topicId: '20',
+                scopeType: 'puntos',
+                specificPoints: 'Órganos Colegiados y Unipersonales - Decreto 98/2025',
+                description: 'Batería de 60 preguntas rigurosas sobre competencias del Decreto 98/2025. Métrica de opciones homogénea diseñada para entrenamiento de alto nivel.'
+              };
+
+              return (
+                <div style={{ padding: '14px', background: 'rgba(30, 58, 138, 0.25)', borderLeft: '4px solid #3b82f6', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', margin: '10px 0', fontSize: '0.85rem', textAlign: 'left' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                    <span style={{ padding: '2px 8px', borderRadius: '6px', background: 'rgba(59, 130, 246, 0.2)', color: '#60a5fa', fontSize: '0.75rem', fontWeight: '800' }}>
+                      Tema {currentItem.topicId}
+                    </span>
+                    <span style={{ padding: '2px 8px', borderRadius: '6px', background: currentItem.scopeType === 'puntos' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(16, 185, 129, 0.2)', color: currentItem.scopeType === 'puntos' ? '#f59e0b' : '#34d399', fontSize: '0.75rem', fontWeight: '700' }}>
+                      {currentItem.scopeType === 'puntos' ? `🎯 Aspectos Concretos: ${currentItem.specificPoints || 'Puntos específicos'}` : '🌐 Todo el Tema'}
+                    </span>
+                  </div>
+                  <h5 style={{ margin: '0 0 6px 0', fontWeight: 'bold', color: '#60a5fa', fontSize: '0.95rem' }}>{currentItem.title}</h5>
+                  <p style={{ margin: 0, color: 'var(--text-muted)', lineHeight: '1.4' }}>{currentItem.description}</p>
+                </div>
+              );
+            })()}
 
             {selectedTopicMode === 'simulacro-oficial' && (
               <div className="form-group" style={{ marginBottom: '14px' }}>
