@@ -31,11 +31,12 @@ export default function UserAnexosView({ currentUser, topics }) {
   const userTemarioEdition = editions.find(e => e.id === temarioEditionId);
   const userTestEdition = editions.find(e => e.id === testEditionId);
 
-  // Filter modifications that apply to the user's assigned editions
+  // Filter modifications that apply to the user's assigned editions or general
   const userModifications = modifications.filter(mod => {
+    if (!mod.affectedEditionIds || mod.affectedEditionIds.length === 0) return true;
     const userEdId = assignedEditions[mod.materialType];
-    if (!userEdId) return false; // if user has no assigned edition for this type, don't show or show all? Only show if matches user's edition!
-    return mod.affectedEditionIds && mod.affectedEditionIds.includes(userEdId);
+    if (!userEdId) return true; // Show all if user has no assigned edition
+    return mod.affectedEditionIds.includes(userEdId);
   });
 
   return (
@@ -49,9 +50,40 @@ export default function UserAnexosView({ currentUser, topics }) {
             <span>Mis Actualizaciones y Fe de Erratas</span>
           </h1>
           <p className="text-muted">
-            Consulta las hojas de modificación y anexos normativos que aplican a las ediciones físicas de material que posees.
+            Consulta las hojas de modificación, anexos normativos y fe de erratas oficiales aplicables al temario y cuadernos de test.
           </p>
         </div>
+      </div>
+
+      {/* DESTACADO: FE DE ERRATAS Y PREGUNTAS SUSTITUTAS IMPRESAS */}
+      <div className="glass-panel" style={{ padding: '24px', borderRadius: '18px', border: '1.5px solid #f59e0b', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(15, 23, 42, 0.9) 100%)', boxShadow: '0 8px 32px rgba(245, 158, 11, 0.15)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+        <div style={{ flex: '1 1 500px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+            <span style={{ fontSize: '0.78rem', fontWeight: '800', background: '#f59e0b', color: '#000', padding: '4px 12px', borderRadius: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              📄 Documento Oficial Publicado
+            </span>
+            <span style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: '700' }}>
+              Actualización Código 4140
+            </span>
+          </div>
+          <h3 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', color: '#fff' }}>
+            Comunicado Oficial: Fe de Erratas y Preguntas Sustitutas (Edición Impresa)
+          </h3>
+          <p style={{ margin: 0, color: 'var(--text-main)', fontSize: '0.9rem', lineHeight: '1.55' }}>
+            Descarga el informe oficial con las correcciones normativas (Art. 2 Normativa US 2024, Parejas de Hecho, Altura de Techos PRL y Matriz REDER EFQM) y las <strong>preguntas sustitutas con hoja de respuestas separada en la página 4</strong> para no interferir en la autoevaluación.
+          </p>
+        </div>
+
+        <a
+          href="/Comunicado_Fe_de_Erratas_y_Preguntas_Sustitutas.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glow-btn"
+          style={{ padding: '12px 24px', fontSize: '0.92rem', fontWeight: '800', background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', color: '#000', border: 'none', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none', boxShadow: '0 4px 16px rgba(245, 158, 11, 0.4)' }}
+        >
+          <Download size={20} />
+          <span>Descargar PDF Fe de Erratas</span>
+        </a>
       </div>
 
       {/* Card de Material Asignado al Alumno */}
@@ -81,15 +113,15 @@ export default function UserAnexosView({ currentUser, topics }) {
       {/* Listado de Anexos y Modificaciones */}
       <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px' }}>
         <h3 style={{ margin: '0 0 16px 0', fontSize: '1.1rem', color: 'var(--text-main)' }}>
-          Hojas de Modificación y Correcciones Afectadas ({userModifications.length})
+          Hojas de Modificación y Correcciones Registradas ({userModifications.length})
         </h3>
 
         {userModifications.length === 0 ? (
           <div style={{ padding: '40px 20px', textAlign: 'center', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '14px' }}>
             <CheckCircle2 size={48} style={{ color: '#34d399', margin: '0 auto 12px auto' }} />
-            <h4 style={{ color: '#34d399', margin: 0, fontSize: '1.1rem' }}>¡Tu material está 100% al día y actualizado!</h4>
+            <h4 style={{ color: '#34d399', margin: 0, fontSize: '1.1rem' }}>¡Tu material está al día!</h4>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginTop: '6px', maxWidth: '500px', margin: '6px auto 0 auto' }}>
-              No existen fe de erratas ni modificaciones normativas registradas para las versiones físicas de material que posees.
+              Puedes descargar el documento oficial de Fe de Erratas en el panel superior.
             </p>
           </div>
         ) : (
