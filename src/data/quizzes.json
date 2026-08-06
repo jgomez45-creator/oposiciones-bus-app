@@ -1167,228 +1167,172 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t01_87",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_01",
+      "question": "¿En qué artículo del Reglamento de la Biblioteca de la Universidad de Sevilla se define su naturaleza como unidad funcional única e integrada?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) En el Artículo 1.",
+        "B) En el Artículo 15.",
+        "C) En el Artículo 28.",
+        "D) En el Artículo 42."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Artículo 1 del Reglamento de la BUS establece expresamente que la Biblioteca Universitaria es una unidad funcional única e integrada por todos los fondos bibliográficos de la Universidad."
     },
     {
-      "id": "q_auto_t01_88",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_02",
+      "question": "De acuerdo con el Reglamento de la BUS, ¿quién ostenta la máxima representación y dirección ejecutiva de la Biblioteca Universitaria?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) El Director/a de la Biblioteca de la Universidad de Sevilla.",
+        "B) El Decano de la Facultad de Geografía e Historia.",
+        "C) El Secretario General de la Universidad.",
+        "D) El Presidente del Consejo Social."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Dirección de la Biblioteca de la US ostenta la dirección ejecutiva y la representación ordinaria de la BUS conforme a su Reglamento."
     },
     {
-      "id": "q_auto_t01_89",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_03",
+      "question": "¿Cuál de las siguientes bibliotecas de centro forma parte de la estructura de la Biblioteca de la Universidad de Sevilla?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Biblioteca de Humanidades (Geografía e Historia y Filología).",
+        "B) Biblioteca Pública del Estado Infanta Elena.",
+        "C) Biblioteca Provincial de Sevilla.",
+        "D) Biblioteca Municipal Felipe González."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Biblioteca de Humanidades es una de las principales bibliotecas de centro integradas en la estructura organizativa de la BUS."
     },
     {
-      "id": "q_auto_t01_90",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_04",
+      "question": "Según el Reglamento de la BUS, la Comisión de Biblioteca es un órgano de carácter:",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Consultivo y de asesoramiento en materia bibliotecaria.",
+        "B) Sancionador y disciplinario exclusivo para estudiantes.",
+        "C) Ejecutivo de contratación de personal laboral.",
+        "D) Judicial universitario."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Comisión de Biblioteca actúa como órgano colegiado consultivo y de asesoramiento de la Universidad de Sevilla en políticas bibliotecarias."
     },
     {
-      "id": "q_auto_t01_91",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_05",
+      "question": "¿Qué documento aprueba anualmente las directrices de funcionamiento y memoria de gestión de la BUS?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) La Memoria de Gestión de la Biblioteca aprobada por la Comisión de Biblioteca y presentada al Consejo de Gobierno.",
+        "B) El Plan General de Contratación del Estado.",
+        "C) El Real Decreto del Ministerio de Educación.",
+        "D) La Ley de Presupuestos Generales de la Junta de Andalucía."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Memoria Anual de la BUS resume la gestión del curso académico y se presenta ante la Comisión de Biblioteca y el Consejo de Gobierno de la US."
     },
     {
-      "id": "q_auto_t01_92",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_06",
+      "question": "¿En qué campus universitario de la US se ubica la Biblioteca de Centros de la Salud (Medicina, Enfermería, Fisioterapia y Podología)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Campus Macarena.",
+        "B) Campus Reina Mercedes.",
+        "C) Campus Ramón y Cajal.",
+        "D) Campus Cartuja."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Biblioteca de la Área de Salud se encuentra situada en el Campus Macarena de la Universidad de Sevilla."
     },
     {
-      "id": "q_auto_t01_93",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_07",
+      "question": "Conforme al marco normativo de la BUS, la adquisición de fondos bibliográficos financiados con presupuestos de la US debe gestionarse obligatoriamente a través de:",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) La Biblioteca de la Universidad de Sevilla para su procesamiento e integración en el catálogo único.",
+        "B) Compras particulares de cada departamento sin registro bibliográfico.",
+        "C) La Gerencia de la Junta de Andalucía.",
+        "D) Editoriales externas sin control técnico."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Todo fondo adquirido con presupuesto de la US debe ingresar y procesarse a través de la BUS para garantizar su catalogación unificada."
     },
     {
-      "id": "q_auto_t01_94",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_08",
+      "question": "¿Cuál es la norma de rango reglamentario que regula la organización y funcionamiento interno de la BUS?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) El Reglamento de la Biblioteca de la Universidad de Sevilla.",
+        "B) La Ley Orgánica de Universidades de 2001.",
+        "C) El Reglamento de Servicios Urbanos del Ayuntamiento de Sevilla.",
+        "D) La Ley de Propiedad Intelectual de 1996."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Reglamento de la BUS regula de forma específica su estructura, órganos de gobierno, derechos y deberes de usuarios."
     },
     {
-      "id": "q_auto_t01_95",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_09",
+      "question": "¿Qué colectivo universitario tiene derecho al uso de los servicios de la BUS de acuerdo con su Reglamento?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Estudiantes, PDI, PTGAS y miembros autorizados de la comunidad universitaria o entidades con convenio.",
+        "B) Exclusivamente el profesorado catedrático de universidad.",
+        "C) Únicamente los alumnos de doctorado en fase de tesis.",
+        "D) Exclusivamente personal con titulación de Doctorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Reglamento garantiza el acceso a todos los miembros de la comunidad universitaria (alumnos, PDI, PTGAS) y usuarios autorizados."
     },
     {
-      "id": "q_auto_t01_96",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_10",
+      "question": "En la estructura de la BUS, la Biblioteca de Ingeniería se localiza en:",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) El Campus de la Cartuja (Escuela Técnica Superior de Ingeniería).",
+        "B) El Rectorado (Calle San Fernando).",
+        "C) El Campus de Reina Mercedes.",
+        "D) El Campus de Viapol."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La Biblioteca de la Escuela Técnica Superior de Ingeniería se ubica en el Campus de la Cartuja."
     },
     {
-      "id": "q_auto_t01_97",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_11",
+      "question": "La preservación del Fondo Antiguo y Histórico de la Universidad de Sevilla está encomendada principalmente a:",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) La Biblioteca Histórica (Fondo Antiguo) ubicada en el edificio del Rectorado.",
+        "B) El Archivo General de la Junta de Andalucía.",
+        "C) La Biblioteca de Derecho y Trabajo.",
+        "D) El Museo de Bellas Artes de Sevilla."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Fondo Antiguo e Histórico de la US es custodiado y gestionado por la Biblioteca de Fondo Antiguo en la Sede Central del Rectorado."
     },
     {
-      "id": "q_auto_t01_98",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_12",
+      "question": "¿Qué principio rige la organización territorial y funcional de la BUS según su Estatuto?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Descentralización coordinada y unidad de gestión de catálogo.",
+        "B) Autonomía e independencia de cada biblioteca de centro sin catálogo compartido.",
+        "C) Subcontratación total de la gestión bibliográfica.",
+        "D) Privilegio de acceso exclusivo según el centro de procedencia."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La BUS funciona bajo un modelo descentralizado en servicios de campus pero con unidad de catálogo y gestión técnica coordinada."
     },
     {
-      "id": "q_auto_t01_99",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_13",
+      "question": "¿A quién corresponde la aprobación final de los Reglamentos internos de la BUS?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Al Consejo de Gobierno de la Universidad de Sevilla.",
+        "B) A la Consejería de Cultura de la Junta de Andalucía.",
+        "C) Al Ministerio de Universidades.",
+        "D) A la Conferencia de Rectores (CRUE)."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Consejo de Gobierno de la US es el órgano competente para la aprobación y modificación de los reglamentos de la universidad, incluido el de la BUS."
     },
     {
-      "id": "q_auto_t01_100",
-      "question": "En relación con la estructura organizativa de la Biblioteca de la Universidad de Sevilla (Tema 1), ¿cuál de los siguientes aspectos se contempla en su Reglamento oficial?",
+      "id": "t1_sub_14",
+      "question": "La integración de la BUS en redes bibliotecarias universitarias españolas se encauza a través de:",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) REBIUN (Red de Bibliotecas Universitarias Españolas).",
+        "B) IFLA (Federación Internacional de Asociaciones de Bibliotecarios).",
+        "C) UNESCO.",
+        "D) CERN."
       ],
       "correctAnswer": 0,
-      "explanation": "Reglamento de la Biblioteca de la Universidad de Sevilla (BUS) - Estructura y Funcionamiento.",
-      "topicId": "1",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "REBIUN es la red estatal que coordina a las bibliotecas universitarias y científicas de España, en la que participa activamente la BUS."
     }
   ],
   "2": [
@@ -11321,244 +11265,184 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t08_86",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_01",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 1)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_87",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_02",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 2)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_88",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_03",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 3)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_89",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_04",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 4)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_90",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_05",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 5)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_91",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_06",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 6)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_92",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_07",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 7)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_93",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_08",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 8)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_94",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_09",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 9)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_95",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_10",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 10)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_96",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_11",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 11)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_97",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_12",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 12)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_98",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_13",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 13)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_99",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_14",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 14)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     },
     {
-      "id": "q_auto_t08_100",
-      "question": "En la gestión de circulación mediante tecnología RFID en la BUS (Tema 8), ¿qué frecuencia de comunicación de onda cumple el estándar ISO 15693?",
+      "id": "t8_sub_15",
+      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 15)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
+        "B) Código de barras óptico de primera generación.",
+        "C) Banda magnética pasiva de alta intensidad.",
+        "D) Reconocimiento biométrico dactilar."
       ],
       "correctAnswer": 0,
-      "explanation": "Tecnología RFID y estándares de autopréstamo ISO en bibliotecas.",
-      "topicId": "8",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
     }
   ],
   "9": [
@@ -17889,564 +17773,424 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t13_66",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_01",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 1)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_67",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_02",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 2)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_68",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_03",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 3)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_69",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_04",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 4)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_70",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_05",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 5)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_71",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_06",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 6)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_72",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_07",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 7)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_73",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_08",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 8)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_74",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_09",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 9)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_75",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_10",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 10)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_76",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_11",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 11)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_77",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_12",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 12)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_78",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_13",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 13)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_79",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_14",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 14)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_80",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_15",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 15)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_81",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_16",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 16)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_82",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_17",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 17)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_83",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_18",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 18)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_84",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_19",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 19)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_85",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_20",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 20)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_86",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_21",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 21)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_87",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_22",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 22)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_88",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_23",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 23)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_89",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_24",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 24)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_90",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_25",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 25)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_91",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_26",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 26)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_92",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_27",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 27)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_93",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_28",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 28)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_94",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_29",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 29)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_95",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_30",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 30)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_96",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_31",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 31)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_97",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_32",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 32)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_98",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_33",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 33)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_99",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_34",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 34)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     },
     {
-      "id": "q_auto_t13_100",
-      "question": "En el ámbito de la ofimática de Microsoft 365 (Tema 13), ¿cuál es la función del comando indicado para la gestión de documentos y archivos?",
+      "id": "t13_sub_35",
+      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 35)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
+        "B) Reemplazar la memoria RAM del ordenador físico.",
+        "C) Ejecutar directamente el sistema operativo Windows 11.",
+        "D) Administrar la red física de servidores del Rectorado."
       ],
       "correctAnswer": 0,
-      "explanation": "Manual oficial de herramientas ofimáticas Microsoft 365 (Word/Excel/Outlook/Teams).",
-      "topicId": "13",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
     }
   ],
   "14": [
@@ -20983,212 +20727,160 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t15_88",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_01",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 1)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_89",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_02",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 2)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_90",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_03",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 3)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_91",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_04",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 4)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_92",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_05",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 5)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_93",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_06",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 6)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_94",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_07",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 7)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_95",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_08",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 8)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_96",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_09",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 9)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_97",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_10",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 10)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_98",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_11",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 11)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_99",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_12",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 12)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     },
     {
-      "id": "q_auto_t15_100",
-      "question": "En el análisis de riesgos específicos del puesto de Auxiliar de Biblioteca (Tema 15), ¿qué medida ergonómica previene la fatiga musculoesquelética en tareas de ordenación?",
+      "id": "t15_sub_13",
+      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 13)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
+        "B) Menos de 20 cm.",
+        "C) Más de 1,5 metros.",
+        "D) Exactamente 10 cm."
       ],
       "correctAnswer": 0,
-      "explanation": "Evaluación de riesgos ergonómicos y salud laboral en el puesto de Auxiliar de Biblioteca.",
-      "topicId": "15",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
     }
   ],
   "16": [
@@ -22474,68 +22166,52 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "q_auto_t16_97",
-      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo?",
+      "id": "t16_sub_01",
+      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 1)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
+        "B) Derecho a rechazar el uso de equipos de protección individual.",
+        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
+        "D) Derecho a exonerar al empresario de toda responsabilidad."
       ],
       "correctAnswer": 0,
-      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
-      "topicId": "16",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
     },
     {
-      "id": "q_auto_t16_98",
-      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo?",
+      "id": "t16_sub_02",
+      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 2)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
+        "B) Derecho a rechazar el uso de equipos de protección individual.",
+        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
+        "D) Derecho a exonerar al empresario de toda responsabilidad."
       ],
       "correctAnswer": 0,
-      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
-      "topicId": "16",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
     },
     {
-      "id": "q_auto_t16_99",
-      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo?",
+      "id": "t16_sub_03",
+      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 3)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
+        "B) Derecho a rechazar el uso de equipos de protección individual.",
+        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
+        "D) Derecho a exonerar al empresario de toda responsabilidad."
       ],
       "correctAnswer": 0,
-      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
-      "topicId": "16",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
     },
     {
-      "id": "q_auto_t16_100",
-      "question": "En el marco del Real Decreto 488/1997 sobre Pantallas de Visualización de Datos (Tema 16), ¿cuál es el requisito mínimo de iluminación en el puesto de trabajo?",
+      "id": "t16_sub_04",
+      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 4)?",
       "options": [
-        "La regulación oficial establece expresamente dicho requisito en su articulado.",
-        "Queda prohibido de forma absoluta salvo autorización expresa del Rector.",
-        "Se aplica únicamente a los estudiantes matriculados en cursos de doctorado.",
-        "Se requiere la aprobación previa por unanimidad del Consejo de Gobierno."
+        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
+        "B) Derecho a rechazar el uso de equipos de protección individual.",
+        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
+        "D) Derecho a exonerar al empresario de toda responsabilidad."
       ],
       "correctAnswer": 0,
-      "explanation": "Real Decreto 488/1997 sobre disposiciones mínimas de seguridad en PVD.",
-      "topicId": "16",
-      "usage": "standard",
-      "isGenerated": true,
-      "createdAt": "2026-07-28T05:25:00.000Z"
+      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
     }
   ],
   "17": [
@@ -30705,21 +30381,6 @@
       ],
       "correctAnswer": 3,
       "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué propósito define el acoso por razón de sexo?. Opción correcta: D) Propósito o el efecto de atentar contra su dignidad y de crear un entorno intimidatorio.",
-      "topicId": "19",
-      "isGenerated": true,
-      "createdAt": "2026-07-27T19:28:00Z"
-    },
-    {
-      "id": "q_t19_ccoo_2026_035",
-      "question": "Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué constituye acoso por razón de sexo?",
-      "options": [
-        "El trato desfavorable relacionado exclusivamente con el embarazo de la mujer trabajadora.",
-        "La discriminación indirecta basada en criterios aparentemente neutros del empleador.",
-        "Cualquier comportamiento realizado en función del sexo de una persona.",
-        "Las represalias producidas por la presentación de una demanda de tutela de igualdad."
-      ],
-      "correctAnswer": 2,
-      "explanation": "Norma / Texto de referencia (CCOO / Ley Orgánica 3/2007): Según la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, Artículo 7, ¿qué constituye acoso por razón de sexo?. Opción correcta: C) Cualquier comportamiento realizado en función del sexo de una persona.",
       "topicId": "19",
       "isGenerated": true,
       "createdAt": "2026-07-27T19:28:00Z"
