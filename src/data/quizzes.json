@@ -11265,184 +11265,184 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "t8_sub_01",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 1)?",
+      "id": "t8_ined_01",
+      "question": "En la implantación de la tecnología RFID en las bibliotecas universitarias, ¿cuál es la frecuencia de operación normalizada según el estándar ISO 15693 para la gestión de fondos?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) 13,56 MHz (Alta Frecuencia / HF).",
+        "B) 125 kHz (Baja Frecuencia / LF).",
+        "C) 868 MHz (Ultra Alta Frecuencia / UHF).",
+        "D) 2,4 GHz (Super Alta Frecuencia / SHF)."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "El estándar internacional ISO 15693 fija la frecuencia de 13,56 MHz (HF) como la norma homologada para las etiquetas RFID en bibliotecas, garantizando interoperabilidad en préstamos y arcos de seguridad."
     },
     {
-      "id": "t8_sub_02",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 2)?",
+      "id": "t8_ined_02",
+      "question": "Respecto a la memoria de las etiquetas (tags) RFID integradas en los libros de la BUS, ¿qué información se almacena obligatoriamente en el chip según el modelo de datos de biblioteca?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) El identificador del documento (código de barras/ID de ejemplar) y el bit o estado de seguridad (EAS).",
+        "B) El texto completo digitalizado del libro.",
+        "C) El historial completo con nombres y DNI de todos los usuarios que lo han tomado en préstamo.",
+        "D) La firma biológica del catalogador del documento."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "Las etiquetas RFID de biblioteca almacenan el código único del ejemplar y el bit de antihurto (EAS - Electronic Article Surveillance) que se activa o desactiva en el momento del préstamo o devolución."
     },
     {
-      "id": "t8_sub_03",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 3)?",
+      "id": "t8_ined_03",
+      "question": "¿Qué ventaja principal ofrece la tecnología RFID frente al código de barras tradicional durante la realización del recuento de fondos (inventario de estanterías)?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Permite la lectura múltiple y simultánea de ejemplares a distancia sin necesidad de visión directa del código.",
+        "B) Elimina la necesidad de disponer de catálogo automatizado en la biblioteca.",
+        "C) Impide físicamente la rotura o deterioro de las páginas de los libros.",
+        "D) Reemplaza de forma automática los libros extraviados por copias digitales."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "La lectura por radiofrecuencia (RFID) no requiere contacto visual directo con la etiqueta ni escaneado unidad a unidad, permitiendo inventariar estanterías enteras mediante lectores portátiles a gran velocidad."
     },
     {
-      "id": "t8_sub_04",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 4)?",
+      "id": "t8_ined_04",
+      "question": "En los terminales de autopréstamo de la BUS, ¿qué función cumple la pletina desmagnetizadora o desacopladora de seguridad?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Cambiar el estado del bit de seguridad (EAS) de la etiqueta RFID para permitir el paso por los arcos de detección sin activar la alarma.",
+        "B) Borrar los datos personales de la tarjeta del estudiante tras la transacción.",
+        "C) Imprimir el resguardo en papel térmico con la fecha de devolución.",
+        "D) Limpiar la cubierta del libro mediante desinfección ultravioleta."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "La pletina o módulo de seguridad del terminal de autopréstamo desactiva el bit de seguridad EAS del tag RFID una vez que el sistema de gestión registra correctamente el préstamo."
     },
     {
-      "id": "t8_sub_05",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 5)?",
+      "id": "t8_ined_05",
+      "question": "¿Cuál de las siguientes afirmaciones NO es correcta en relación con las estaciones de devolución automática de libros (buzones inteligentes)?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Requieren la presencia física y validación manual por parte del personal de la biblioteca para procesar el retorno.",
+        "B) Permiten la devolución de documentos durante las 24 horas del día sin intervención del personal.",
+        "C) Leen automáticamente el tag RFID y dan de baja el préstamo en el sistema de gestión bibliotecaria (Alma).",
+        "D) Recomponen el estado de seguridad (EAS) para activar la protección antihurto del libro al ingresar."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "Los buzones y estaciones de devolución automática funcionan de forma autónoma las 24 horas, procesando la baja del préstamo en el sistema en tiempo real sin requerir validación manual en el mostrador."
     },
     {
-      "id": "t8_sub_06",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 6)?",
+      "id": "t8_ined_06",
+      "question": "En los procesos de digitalización de colecciones de la Universidad de Sevilla, ¿cuál es el formato de archivo de imagen máster o de conservación recomendado por su ausencia de compresión con pérdida?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) TIFF (Tagged Image File Format) sin compresión o con compresión LZW.",
+        "B) JPEG con compresión alta de 72 dpi.",
+        "C) GIF animado de 8 bits.",
+        "D) WEBP de baja resolución."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "El formato TIFF se utiliza como máster de preservación digital debido a su altísima fidelidad cromática y de detalle sin pérdida de información, mientras que el JPEG se usa para difusión en web."
     },
     {
-      "id": "t8_sub_07",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 7)?",
+      "id": "t8_ined_07",
+      "question": "En la digitalización de documentos históricos y fondo antiguo en la BUS, la resolución espacial recomendada para la captura de imagen de conservación máster es de al menos:",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) 300 a 600 ppi (puntos por pulgada) a escala 1:1 en color real (24 bits).",
+        "B) 72 ppi en blanco y negro de 1 bit.",
+        "C) 150 ppi en formato de vídeo continuo.",
+        "D) 96 ppi en escala de grises básica."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "Las directrices de digitalización de patrimonio bibliográfico fijan una resolución mínima de 300 a 600 ppi en color de 24 bits para asegurar una réplica exacta del original."
     },
     {
-      "id": "t8_sub_08",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 8)?",
+      "id": "t8_ined_08",
+      "question": "¿Qué estándar internacional de metadatos de preservación digital se utiliza habitualmente en repositorios y proyectos de digitalización bibliotecaria?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) PREMIS (Preservation Metadata Implementation Strategies).",
+        "B) ISBN (International Standard Book Number).",
+        "C) ISSN (International Standard Serial Number).",
+        "D) NIPO (Número de Identificación de Publicaciones Oficiales)."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "PREMIS es el estándar internacional de referencia para definir metadatos de preservación digital, auditando procedencia, derechos y ciclo de vida de los objetos digitales."
     },
     {
-      "id": "t8_sub_09",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 9)?",
+      "id": "t8_ined_09",
+      "question": "En el contexto de los sistemas de autopréstamo bibliotecario, el protocolo de comunicación estándar que conecta las terminales físicas con el sistema de gestión de la biblioteca se denomina:",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Protocolo SIP2 (Standard Interchange Protocol v2) o NCIP.",
+        "B) Protocolo HTTP/2 sin encriptación.",
+        "C) Protocolo SMTP de correo electrónico.",
+        "D) Protocolo FTP pasivo."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "SIP2 (3M Standard Interchange Protocol) y NCIP son los protocolos estándar de comunicaciones que permiten a los equipos de autopréstamo/RFID intercambiar datos de usuarios y préstamos con el ILS/LMS."
     },
     {
-      "id": "t8_sub_10",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 10)?",
+      "id": "t8_ined_10",
+      "question": "¿Qué componente de los arcos de seguridad RFID a la salida de la biblioteca detecta los libros no prestados correctamente?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) La antena de radiofrecuencia integrada que lee el estado del bit de seguridad EAS activado.",
+        "B) Una cámara fotográfica con reconocimiento óptico de caracteres (OCR).",
+        "C) Un sensor de peso infrarrojo en el suelo.",
+        "D) Un escáner láser de código de barras visible."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "Los arcos de seguridad disponen de antenas RF que emiten un campo magnético constante para verificar si alguna etiqueta que cruza el portal mantiene activo su bit de alarma (EAS)."
     },
     {
-      "id": "t8_sub_11",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 11)?",
+      "id": "t8_ined_11",
+      "question": "En la gestión de proyectos de digitalización, el software OCR (Reconocimiento Óptico de Caracteres) se aplica principalmente para:",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Convertir la imagen gráfica del texto escaneado en texto editable y buscable por los motores de búsqueda.",
+        "B) Reducir el tamaño físico del libro impreso.",
+        "C) Reparar encuadernaciones de cuero o pergamino.",
+        "D) Codificar los precios de venta al público."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "El OCR analiza los patrones de luz y sombra de las imágenes digitalizadas para convertirlos en caracteres alfanuméricos buscables, generando PDFs interactivos con capa de texto."
     },
     {
-      "id": "t8_sub_12",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 12)?",
+      "id": "t8_ined_12",
+      "question": "¿Qué tipo de escáner es el más aconsejable para la digitalización de libros raros, manuscritos o de alto valor patrimonial?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Escáner cenital (de cuna o de captura superior) con iluminación fría sin radiación UV/IR.",
+        "B) Escáner plano de mesa de oficina con tapa pesada de presión.",
+        "C) Escáner de alimentación automática con rodillos de arrastre rápido.",
+        "D) Fotocopiadora convencional de tóner caliente."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "Los escáneres cenitales de cuna permiten digitalizar documentos antiguos con una apertura de 90º a 120º sin forzar el lomo y emplean luz fría para no deteriorar los pigmentos."
     },
     {
-      "id": "t8_sub_13",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 13)?",
+      "id": "t8_ined_13",
+      "question": "Respecto al identificador Handle o DOI asignado a los objetos digitales en repositorios bibliotecarios, ¿cuál es su función principal?",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Proporcionar un enlace persistente y permanente al documento en la web que no se rompe si cambia la URL del servidor.",
+        "B) Proteger el archivo mediante contraseña de cifrado militar.",
+        "C) Convertir automáticamente el idioma del documento al castellano.",
+        "D) Medir la velocidad de descarga en megabits por segundo."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "Los identificadores persistentes (Handle/DOI) garantizan la citación bibliográfica permanente y la localización web duradera de las publicaciones digitales."
     },
     {
-      "id": "t8_sub_14",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 14)?",
+      "id": "t8_ined_14",
+      "question": "En las etiquetas RFID para uso bibliotecario, la propiedad denominada 'anti-colisión' permite:",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Que el lector identifique de forma independiente múltiples etiquetas situadas en el mismo campo electromagnético al mismo tiempo.",
+        "B) Evitar que los libros se caigan de las estanterías.",
+        "C) Proteger el chip RFID frente a caídas físicas al suelo.",
+        "D) Impedir la duplicación ilegal de tarjetas de crédito."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "El algoritmo de anti-colisión en el protocolo RFID permite al lector discriminar y leer decenas de etiquetas de libros colocados juntos en un solo pase."
     },
     {
-      "id": "t8_sub_15",
-      "question": "¿Qué tecnología de identificación por radiofrecuencia se utiliza en los sistemas de autopréstamo de la BUS (Pregunta de refuerzo 15)?",
+      "id": "t8_ined_15",
+      "question": "En el marco de la preservación digital a largo plazo, la técnica de 'migración de formatos' consiste en:",
       "options": [
-        "A) Tecnología RFID de alta frecuencia (13.56 MHz).",
-        "B) Código de barras óptico de primera generación.",
-        "C) Banda magnética pasiva de alta intensidad.",
-        "D) Reconocimiento biométrico dactilar."
+        "A) Convertir periódicamente los archivos digitales a formatos estándar y vigentes para evitar la obsolescencia tecnológica.",
+        "B) Mover los servidores físicos de un edificio a otro dentro de la Universidad.",
+        "C) Imprimir todos los documentos en papel permanente para archivarlos.",
+        "D) Eliminar las copias digitales antiguas sin conservar metadatos."
       ],
       "correctAnswer": 0,
-      "explanation": "Las etiquetas RFID utilizadas en bibliotecas universitarias operan bajo el estándar de 13.56 MHz para lectura de ejemplares y control de seguridad."
+      "explanation": "La migración es una estrategia de preservación digital que consiste en transferir datos digitales desde un formato en riesgo de obsolescencia a un formato estándar actualizado."
     }
   ],
   "9": [
@@ -17773,424 +17773,424 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "t13_sub_01",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 1)?",
+      "id": "t13_ined_00",
+      "question": "En Microsoft Word 365, ¿qué herramienta permite crear documentos con una estructura jerárquica clara para generar automáticamente una Tabla de Contenidos (Índice)?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) La aplicación correcta de los Estilos de Título (Título 1, Título 2, Título 3).",
+        "B) El cambio de color de fuente en cada párrafo de forma manual.",
+        "C) La inserción de saltos de página consecutivos.",
+        "D) El uso del corrector ortográfico y gramatical."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Los Estilos de Título en Word estructuran el documento jerárquicamente y permiten compilar la tabla de contenidos de forma automática."
     },
     {
-      "id": "t13_sub_02",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 2)?",
+      "id": "t13_ined_01",
+      "question": "En Microsoft Excel 365, ¿cuál es la sintaxis correcta de la función para sumar únicamente las celdas de un rango que cumplen una condición específica?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) =SUMAR.SI(rango; criterio; [rango_suma])",
+        "B) =SUMA.CONDICIONAL(rango; valor)",
+        "C) =CONTAR.SI(rango; criterio)",
+        "D) =SUMAR.RANGO(criterio; valores)"
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "SUMAR.SI evalúa un rango bajo un criterio y suma las celdas correspondientes del rango especificado."
     },
     {
-      "id": "t13_sub_03",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 3)?",
+      "id": "t13_ined_02",
+      "question": "En Microsoft Teams, ¿cuál es la diferencia principal entre un 'Canal Estándar' y un 'Canal Privado' dentro de un equipo de trabajo?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El canal estándar es accesible para todos los miembros del equipo, mientras que el privado se limita a miembros seleccionados.",
+        "B) El canal privado no permite enviar archivos adjuntos.",
+        "C) El canal estándar solo funciona fuera de la red de la Universidad.",
+        "D) El canal privado cobra una tarifa adicional por usuario."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Los canales privados restringen la visibilidad y conversaciones únicamente a los usuarios explícitamente añadidos al canal."
     },
     {
-      "id": "t13_sub_04",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 4)?",
+      "id": "t13_ined_03",
+      "question": "En OneDrive para la Empresa (M365 US), ¿qué indica el icono de un 'candado' o una 'nube azul' junto al nombre de un archivo en el Explorador de Archivos de Windows?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) La nube azul indica que el archivo está disponible solo en línea (ahorrando espacio local), y se descargará al abrirlo.",
+        "B) El candado indica que el archivo ha sido borrado definitivamente.",
+        "C) La nube azul significa que el archivo contiene un virus informático.",
+        "D) El candado indica que el archivo se ha impreso en papel."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La función 'Archivos a petición' de OneDrive muestra una nube azul para archivos guardados en la nube que no ocupan espacio en el disco duro local."
     },
     {
-      "id": "t13_sub_05",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 5)?",
+      "id": "t13_ined_04",
+      "question": "En Microsoft Word, ¿qué combinación de teclas abre la ventana de diálogo para 'Buscar y Reemplazar' texto en el documento de forma rápida?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Control + L (o Control + B para Buscar).",
+        "B) Alt + F4.",
+        "C) Control + P.",
+        "D) Control + Z."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "En la versión en español de Microsoft Word, Ctrl + L abre la pestaña Reemplazar y Ctrl + B abre el panel de Búsqueda."
     },
     {
-      "id": "t13_sub_06",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 6)?",
+      "id": "t13_ined_05",
+      "question": "En Microsoft Excel, ¿qué operador de referencia se utiliza para fijar una celda (referencia absoluta) al arrastrar una fórmula en una hoja de cálculo?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El símbolo del dólar ($), por ejemplo: $A$1.",
+        "B) El símbolo del porcentaje (%).",
+        "C) El símbolo del guion bajo (_).",
+        "D) El símbolo del asterisco (*)."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El signo $ antes de la columna o fila inmoviliza la referencia impidiendo que cambie al copiar o arrastrar la fórmula."
     },
     {
-      "id": "t13_sub_07",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 7)?",
+      "id": "t13_ined_06",
+      "question": "En Microsoft Outlook 365 web, ¿cuál es la función de la herramienta 'Responder a todos' en la gestión de correos electrónicos corporativos?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Enviar la respuesta al remitente original y a todos los destinatarios incluidos en los campos 'Para' y 'CC'.",
+        "B) Enviar el correo únicamente a los destinatarios ocultos en CCO.",
+        "C) Archivar el mensaje en la papelera de reciclaje.",
+        "D) Reenviar el correo al administrador del sistema."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "'Responder a todos' distribuye la contestación a la lista completa de direcciones visibles que recibieron el mensaje original."
     },
     {
-      "id": "t13_sub_08",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 8)?",
+      "id": "t13_ined_07",
+      "question": "En Microsoft Teams, ¿qué función permite compartir la pantalla de tu equipo durante una reunión con otros integrantes de la biblioteca?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El botón 'Compartir contenido' (o presionar Ctrl + Mayús + E) en la barra de controles de la reunión.",
+        "B) La opción 'Bloquear equipo'.",
+        "C) El botón 'Grabar reunión'.",
+        "D) El menú de configuración de audio."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La opción Compartir Contenido en Teams permite proyectar la pantalla completa, una ventana específica o una pizarra interactiva."
     },
     {
-      "id": "t13_sub_09",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 9)?",
+      "id": "t13_ined_08",
+      "question": "En Microsoft Excel 365, ¿qué realiza la función =BUSCARV(valor_buscado; tabla_separador; indicador_columnas; [ordenado])?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Busca un valor en la primera columna de una tabla y devuelve el valor de la misma fila en una columna especificada.",
+        "B) Suma los valores de las columnas impares de la hoja.",
+        "C) Cuenta cuántas palabras con formato en negrita existen.",
+        "D) Cambia el tipo de letra de la tabla a cursiva."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "BUSCARV busca verticalmente en la columna 1 de una matriz y recupera el dato ubicado en la columna indicada."
     },
     {
-      "id": "t13_sub_10",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 10)?",
+      "id": "t13_ined_09",
+      "question": "En Microsoft Word, ¿para qué sirve la función de 'Control de Cambios' ubicada en la pestaña Revisar?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Registrar y mostrar todas las ediciones, eliminaciones y formatos realizados en el documento por distintos revisores.",
+        "B) Cambiar automáticamente el idioma del texto al inglés.",
+        "C) Convertir el archivo Word en una hoja de cálculo Excel.",
+        "D) Guardar una copia cifrada en un pendrive USB."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El Control de Cambios destaca en color las inserciones, supresiones y comentarios añadidos para la revisión colaborativa."
     },
     {
-      "id": "t13_sub_11",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 11)?",
+      "id": "t13_ined_10",
+      "question": "En el entorno Microsoft 365, ¿qué aplicación está diseñada específicamente como cuaderno de notas digital para estructurar secciones y páginas de trabajo?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Microsoft OneNote.",
+        "B) Microsoft Publisher.",
+        "C) Microsoft Access.",
+        "D) Microsoft Power Automate."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "OneNote actúa como bloc de notas digital estructurado por blocs, secciones y páginas organizativas."
     },
     {
-      "id": "t13_sub_12",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 12)?",
+      "id": "t13_ined_11",
+      "question": "En Microsoft Excel, si en una celda aparece el error de fórmula '#¡DIV/0!', ¿cuál es el motivo de dicha advertencia?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Se está intentando realizar una operación aritmética de división entre cero o una celda vacía.",
+        "B) El texto de la celda es demasiado largo para el ancho de la columna.",
+        "C) La fórmula contiene un error de ortografía en el nombre de la función.",
+        "D) El archivo no tiene conexión a internet."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "#¡DIV/0! ocurre cuando una fórmula intenta dividir un número por 0 o por una celda sin valor numérico."
     },
     {
-      "id": "t13_sub_13",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 13)?",
+      "id": "t13_ined_12",
+      "question": "En Microsoft Forms (M365), ¿qué tipo de recurso se puede crear para recopilar opiniones de los usuarios o realizar cuestionarios de autoevaluación?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Encuestas, cuestionarios interactivos y formularios de registro con volcado automático de datos a Excel.",
+        "B) Bases de datos relacionales SQL.",
+        "C) Programas ejecutables .exe.",
+        "D) Archivos de música en formato MP3."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Forms permite diseñar encuestas y cuestionarios en línea cuyas respuestas se analizan e exportan a Excel en tiempo real."
     },
     {
-      "id": "t13_sub_14",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 14)?",
+      "id": "t13_ined_13",
+      "question": "En Microsoft Word 365, ¿qué diferencia existe entre un 'Salto de Página' y un 'Salto de Sección'?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El salto de página mueve el texto a la página siguiente manteniéndolo en la misma sección; el salto de sección permite cambiar orientación, márgenes o encabezados independientes.",
+        "B) El salto de sección borra el texto anterior.",
+        "C) El salto de página cambia el tipo de letra del documento entero.",
+        "D) No existe ninguna diferencia técnica entre ambos."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Los saltos de sección dividen el documento en bloques con configuraciones de página independientes (ej. páginas horizontales y verticales en el mismo archivo)."
     },
     {
-      "id": "t13_sub_15",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 15)?",
+      "id": "t13_ined_14",
+      "question": "En Microsoft Teams, ¿cuál es la utilidad de la función 'Mencionar' a un usuario mediante la arroba (@nombre)?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Enviar una notificación prioritaria directa al usuario mencionado y destacar el mensaje en su panel de actividad.",
+        "B) Bloquear los mensajes entrantes de dicho usuario.",
+        "C) Eliminar la cuenta del usuario de la universidad.",
+        "D) Cambiar la foto de perfil del usuario."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Al teclear @nombre en Teams, la persona recibe una alerta de actividad directa para llamar su atención sobre el mensaje."
     },
     {
-      "id": "t13_sub_16",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 16)?",
+      "id": "t13_ined_15",
+      "question": "En Microsoft Excel, ¿qué realiza la herramienta de 'Formato Condicional' en una tabla de datos?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Aplica estilos visuales (colores, iconos, barras) a las celdas automáticamente cuando cumplen ciertas reglas o valores.",
+        "B) Borra las celdas que contienen números negativos.",
+        "C) Envía la hoja de cálculo por correo postal.",
+        "D) Imprime la tabla en papel transparente."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El Formato Condicional destaca visualmente patrones o desviaciones de datos en función de criterios numéricos o de texto."
     },
     {
-      "id": "t13_sub_17",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 17)?",
+      "id": "t13_ined_16",
+      "question": "En OneDrive para la Empresa, al compartir un archivo mediante un enlace, ¿qué nivel de permiso permite al destinatario modificar el contenido?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Permiso de 'Edición' (Puede editar).",
+        "B) Permiso de 'Solo lectura' (Puede ver).",
+        "C) Permiso de 'Solo bloqueo'.",
+        "D) Permiso de 'Administración de red'."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El permiso Puede Editar concede derechos para modificar texto, añadir comentarios y colaborar simultáneamente."
     },
     {
-      "id": "t13_sub_18",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 18)?",
+      "id": "t13_ined_17",
+      "question": "En Microsoft Word, ¿qué vista del documento es la adecuada para trabajar con la maqueta final tal y como se imprimirá en papel?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Vista de Diseño de Impresión.",
+        "B) Vista de Borrador.",
+        "C) Vista de Esquema.",
+        "D) Vista Web."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La vista Diseño de Impresión muestra exactamente la paginación, márgenes, encabezados e imágenes tal como saldrán en papel."
     },
     {
-      "id": "t13_sub_19",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 19)?",
+      "id": "t13_ined_18",
+      "question": "En Microsoft Excel 365, ¿cuál es la función de una 'Tabla Dinámica'?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Resumir, analizar, agrupar y pivotar grandes volúmenes de datos sin modificar el rango original.",
+        "B) Insertar vídeos de YouTube dentro de las celdas.",
+        "C) Traducir el texto de la hoja a 50 idiomas.",
+        "D) Crear presentaciones de diapositivas automáticas."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Las Tablas Dinámicas extraen resúmenes estadísticos combinando filas, columnas y valores agregados de forma flexible."
     },
     {
-      "id": "t13_sub_20",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 20)?",
+      "id": "t13_ined_19",
+      "question": "En Microsoft Outlook, ¿qué significa la marca o icono de un 'Clip de papel' junto al asunto de un correo entrante?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Que el mensaje de correo contiene uno o más archivos adjuntos.",
+        "B) Que el correo es Spam o correo no deseado.",
+        "C) Que el correo ha sido marcado con alta prioridad de urgencia.",
+        "D) Que el mensaje está firmado digitalmente."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El icono del clip es el estándar en clientes de correo para indicar la inclusión de ficheros adjuntos."
     },
     {
-      "id": "t13_sub_21",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 21)?",
+      "id": "t13_ined_20",
+      "question": "En Microsoft SharePoint / Teams, ¿qué es la 'Papelera de reciclaje de segundo nivel' (o de la colección de sitios)?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Un depósito donde los administradores pueden recuperar archivos eliminados por los usuarios tras haber sido borrados de la papelera principal.",
+        "B) Un programa informático para reciclar componentes físicos de ordenadores.",
+        "C) Un filtro que destruye de forma irreversible los correos no leídos.",
+        "D) El disco duro externo del usuario."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "SharePoint cuenta con una papelera de 2º nivel administrada que retiene archivos eliminados antes de su borrado definitivo."
     },
     {
-      "id": "t13_sub_22",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 22)?",
+      "id": "t13_ined_21",
+      "question": "En Microsoft Word, ¿qué herramienta permite generar cartas o certificados personalizados masivos combinando un modelo con una lista de datos (Excel)?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Combinación de Correspondencia (Mail Merge).",
+        "B) Insertar Objeto OLE.",
+        "C) Autocorrección de texto.",
+        "D) Comparar documentos."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La Combinación de Correspondencia vincula un plantilla Word con una matriz de datos Excel para emitir documentos personalizados."
     },
     {
-      "id": "t13_sub_23",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 23)?",
+      "id": "t13_ined_22",
+      "question": "En Microsoft Excel, si la celda A1 contiene el texto 'UNIVERSIDAD' y aplicamos la función =MINUSC(A1), ¿cuál será el resultado?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) 'universidad'",
+        "B) 'Universidad'",
+        "C) 'UNIVERSIDAD'",
+        "D) '#¡VALOR!'"
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La función MINUSC convierte todos los caracteres alfabéticos del texto a letras minúsculas."
     },
     {
-      "id": "t13_sub_24",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 24)?",
+      "id": "t13_ined_23",
+      "question": "En Microsoft Teams, ¿qué función realiza el modo 'Juntos' (Together Mode) durante una videoconferencia?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Colocar a todos los participantes en un fondo virtual compartido simulando un auditorio o sala de reuniones.",
+        "B) Silenciar los micrófonos de todos los profesores.",
+        "C) Desconectar la videollamada transcurridos 30 minutos.",
+        "D) Grabar el audio en un disco CD."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El modo Juntos utiliza IA para segmentar la silueta de los asistentes y ubicarlos en un espacio virtual común como un anfiteatro."
     },
     {
-      "id": "t13_sub_25",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 25)?",
+      "id": "t13_ined_24",
+      "question": "En Microsoft Word, ¿qué es un 'Pie de página'?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Un área situada en el margen inferior de cada página reservada para números de página, fechas o títulos de crédito.",
+        "B) La última línea de texto de un capítulo.",
+        "C) Una nota aclaratoria al final de una palabra.",
+        "D) El título de una tabla de datos."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El pie de página es la sección repetida del margen inferior destinada a paginación y datos institucionales."
     },
     {
-      "id": "t13_sub_26",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 26)?",
+      "id": "t13_ined_25",
+      "question": "En Microsoft Excel, ¿qué resultado devuelve la función =CONTAR.BLANCO(A1:A10)?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El número total de celdas vacías dentro del rango de A1 a A10.",
+        "B) La suma de todas las celdas con el número cero.",
+        "C) El número de celdas que contienen texto en color blanco.",
+        "D) La media aritmética del rango."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "CONTAR.BLANCO contabiliza las celdas que no contienen ningún valor numérico, texto ni fórmula activa en el rango especificado."
     },
     {
-      "id": "t13_sub_27",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 27)?",
+      "id": "t13_ined_26",
+      "question": "En el ecosistema Microsoft 365, ¿qué aplicación permite automatizar flujos de trabajo repetitivos e integraciones entre servicios como Outlook, Teams y SharePoint?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Power Automate (anteriormente Microsoft Flow).",
+        "B) Microsoft Sway.",
+        "C) Microsoft Delve.",
+        "D) Microsoft Stream."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Power Automate diseña flujos lógicos automáticos para desencadenar acciones entre diferentes apps y servicios de M365."
     },
     {
-      "id": "t13_sub_28",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 28)?",
+      "id": "t13_ined_27",
+      "question": "En Microsoft Word, ¿qué función cumple la herramienta 'Copiar Formato' (icono de la brocha de pintar)?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Copiar el estilo visual (fuente, tamaño, color, alineación) del texto seleccionado y aplicarlo a otro texto sin alterar sus palabras.",
+        "B) Duplicar la página completa al final del archivo.",
+        "C) Imprimir el documento en una impresora a color.",
+        "D) Traducir el párrafo seleccionado al francés."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Copiar Formato duplica exclusivamente las propiedades estéticas y de párrafo de un texto para aplicarlas a otro punto del documento."
     },
     {
-      "id": "t13_sub_29",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 29)?",
+      "id": "t13_ined_28",
+      "question": "En Microsoft Excel, ¿qué realiza el método abreviado de teclado Alt + = en una celda situada al final de una columna con datos numéricos?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Inserta automáticamente la función =SUMA() seleccionando el rango de números superior.",
+        "B) Borra el contenido de toda la columna.",
+        "C) Multiplica el valor por dos.",
+        "D) Aplica el formato de moneda en euros."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Alt + = es el acceso directo de Autosuma en Excel en castellano para insertar la suma del rango adyacente."
     },
     {
-      "id": "t13_sub_30",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 30)?",
+      "id": "t13_ined_29",
+      "question": "En Microsoft Planner (M365), ¿cómo se organizan visualmente las tareas dentro de un plan de trabajo?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Mediante depósitos o columnas (buckets) con tarjetas de tareas asignadas a usuarios y fechas de vencimiento.",
+        "B) Como líneas de código de programación en C++.",
+        "C) En formato de diapositivas animadas de PowerPoint.",
+        "D) Como mensajes de audio en una contestador."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Planner emplea un modelo Kanban estructurado en depósitos verticales que alojan tarjetas visuales de tareas."
     },
     {
-      "id": "t13_sub_31",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 31)?",
+      "id": "t13_ined_30",
+      "question": "En Microsoft Word, ¿qué es la 'Sangría de primera línea' en un párrafo?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El desplazamiento horizontal hacia la derecha de la primera línea de un párrafo respecto al margen izquierdo.",
+        "B) El espacio vertical entre dos párrafos consecutivos.",
+        "C) El margen derecho del documento entero.",
+        "D) El texto en negrita del primer renglón."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La sangría de primera línea adentra exclusivamente el primer renglón del párrafo para marcar el inicio del bloque conceptual."
     },
     {
-      "id": "t13_sub_32",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 32)?",
+      "id": "t13_ined_31",
+      "question": "En Microsoft Excel, ¿qué diferencia existe entre una 'Hoja' y un 'Libro' de trabajo?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El Libro es el archivo completo (.xlsx) que contiene una o varias Hojas de cálculo individuales organizadas mediante pestañas inferiores.",
+        "B) La Hoja es el programa instalado y el Libro es la impresora.",
+        "C) No hay diferencia; ambos términos designan al mismo elemento.",
+        "D) El Libro solo admite texto y la Hoja solo admite números."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "El libro es la estructura contenedora de archivo que agrupa múltiples hojas de cálculo interconectables."
     },
     {
-      "id": "t13_sub_33",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 33)?",
+      "id": "t13_ined_32",
+      "question": "En Microsoft Teams, ¿qué ocurre cuando se activa la función 'Activar subtítulos en directo' (Live Captions) durante una videollamada?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) El sistema procesa la voz de los ponentes y muestra transcripciones de texto en tiempo real en la pantalla del usuario.",
+        "B) Se traduce la conversación a lenguaje de signos por cámara.",
+        "C) Se bloquea el chat escrito para todos los asistentes.",
+        "D) Se apaga la cámara de todos los participantes."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "Los subtítulos en directo procesan el audio mediante IA para proyectar la transcripción textual del discurso de los hablantes."
     },
     {
-      "id": "t13_sub_34",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 34)?",
+      "id": "t13_ined_33",
+      "question": "En Microsoft Word, ¿qué es una 'Nota al pie'?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Una referencia o aclaración numerada ubicada en la parte inferior de la página donde se encuentra la palabra citada.",
+        "B) La firma manuscrita del autor al final del libro.",
+        "C) El número total de palabras impresas en el documento.",
+        "D) Un enlace a una página web externa."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "La nota al pie inserta una superíndice en el texto vinculado a una llamada explicativa o bibliográfica en la base de la misma página."
     },
     {
-      "id": "t13_sub_35",
-      "question": "En el entorno corporativo de Microsoft 365 de la US, ¿cuál es la función del almacenamiento en la nube de OneDrive (Pregunta de refuerzo 35)?",
+      "id": "t13_ined_34",
+      "question": "En Microsoft Excel, ¿qué realiza la función =CONCATENAR(A1; \" \"; B1) o su versión moderna =CONCAT()?",
       "options": [
-        "A) Almacenar y sincronizar documentos personales de trabajo accesibles desde cualquier dispositivo.",
-        "B) Reemplazar la memoria RAM del ordenador físico.",
-        "C) Ejecutar directamente el sistema operativo Windows 11.",
-        "D) Administrar la red física de servidores del Rectorado."
+        "A) Une las cadenas de texto de las celdas A1 y B1 insertando un espacio en blanco intermedio.",
+        "B) Multiplica A1 por B1.",
+        "C) Compara si A1 es mayor que B1.",
+        "D) Elimina los espacios duplicados de A1."
       ],
       "correctAnswer": 0,
-      "explanation": "OneDrive para la Empresa permite a los usuarios de la US guardar, compartir y sincronizar archivos en la nube con altos estándares de seguridad."
+      "explanation": "CONCAT / CONCATENAR enlaza múltiples elementos de texto de distintas celdas en un único valor de salida."
     }
   ],
   "14": [
@@ -20727,160 +20727,160 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "t15_sub_01",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 1)?",
+      "id": "t15_ined_00",
+      "question": "Respecto a la colocación del monitor en puestos provistos de Pantallas de Visualización de Datos (PVD) según el RD 488/1997, la pantalla debe ubicarse de manera que la línea de visión del usuario coincida con:",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) El borde superior del monitor o ligeramente por debajo.",
+        "B) El centro exacto de la pantalla a la altura de la barbilla.",
+        "C) El borde inferior de la pantalla inclinado a 45º.",
+        "D) Cualquier posición sin requerir ajuste de altura ni inclinación."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "Para evitar la fatiga muscular del cuello, la parte superior del monitor debe quedar a la altura de los ojos o ligeramente por debajo, manteniendo un ángulo de mirada descendente de 10º a 20º."
     },
     {
-      "id": "t15_sub_02",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 2)?",
+      "id": "t15_ined_01",
+      "question": "En la evaluación de fatiga visual en puestos con PVD, ¿cuál de las siguientes medidas NO es adecuada para prevenir reflejos y deslumbramientos en la pantalla?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Colocar la pantalla de frente a una ventana sin cortinas ni persianas.",
+        "B) Orientar la pantalla de forma paralela a las fuentes de luz natural (ventanas).",
+        "C) Utilizar luminarias con difusores de luz indirecta en el techo.",
+        "D) Ajustar el contraste y brillo de la pantalla según la luz ambiental."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "Colocar el monitor directamente de frente o de espaldas a ventanas genera deslumbramientos directos o reflejos en la pantalla, debiendo situarse en perpendicular respecto a los puntos de luz."
     },
     {
-      "id": "t15_sub_03",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 3)?",
+      "id": "t15_ined_02",
+      "question": "Conforme a las recomendaciones del Servicio de Prevención de Riesgos Laborales de la US (SEPRUS), la silla de trabajo en puestos con PVD debe disponer obligatoriamente de:",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Base estable de 5 apoyos con ruedas, altura e inclinación de respaldo regulables y apoyo lumbar adecuado.",
+        "B) Estructura rígida de madera de 4 patas fijas sin ruedas.",
+        "C) Reposabrazos fijos metálicos sin posibilidad de ajuste.",
+        "D) Asiento blando tipo sofás sin soporte lumbar."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "El Real Decreto 488/1997 exige sillas ergonómicas estables de 5 ruedas con altura de asiento y curvatura lumbar orientable para adaptarse a la anatomía del trabajador."
     },
     {
-      "id": "t15_sub_04",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 4)?",
+      "id": "t15_ined_03",
+      "question": "En el trabajo continuo con PVD, ¿qué criterio establece el RD 488/1997 sobre las pausas periódicas de descanso?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) El empresario debe organizar la actividad de modo que el trabajo diario con pantalla se alterne con pausas o cambios de actividad que reduzcan la carga de pantalla.",
+        "B) Las pausas deben acumularse al final de la jornada saliendo 2 horas antes del puesto.",
+        "C) No está contemplada la realización de pausas en jornadas inferiores a 12 horas.",
+        "D) Las pausas son obligatorias únicamente para el personal con minusvalía reconocida."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "El Art. 4 del RD 488/1997 obliga a estructurar la jornada introduciendo pausas periódicas o alternancia de tareas para prevenir la fatiga física y visual."
     },
     {
-      "id": "t15_sub_05",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 5)?",
+      "id": "t15_ined_04",
+      "question": "Respecto a la colocación del teclado en el puesto de trabajo con PVD, ¿qué espacio libre mínimo debe existir entre el borde anterior de la mesa y el teclado?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Al menos 10 cm para permitir el apoyo adecuado de antebrazos y manos.",
+        "B) 0 cm, el teclado debe sobresalir fuera del borde de la mesa.",
+        "C) Más de 80 cm, situando el teclado al fondo de la mesa.",
+        "D) No se requiere espacio de apoyo."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "El Anexo del RD 488/1997 exige un espacio de unos 10 cm delante del teclado para apoyar las muñecas y antebrazos reduciendo la tensión muscular."
     },
     {
-      "id": "t15_sub_06",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 6)?",
+      "id": "t15_ined_05",
+      "question": "De acuerdo con el RD 488/1997, el portadocumentos (atril) en un puesto equipado con PVD debe colocarse:",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Junto a la pantalla, a una altura y distancia similares a ésta, para minimizar los movimientos de cabeza y fatiga ocular.",
+        "B) Debajo del teclado a nivel de las rodillas.",
+        "C) Detrás del monitor de forma inaccesible.",
+        "D) En el suelo junto a la papelera."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "El atril orientable evita movimientos bruscos de cuello y acomodaciones oculares repetitivas al mantener el documento y la pantalla en el mismo plano de visión."
     },
     {
-      "id": "t15_sub_07",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 7)?",
+      "id": "t15_ined_06",
+      "question": "En el marco de la salud laboral del personal de la US, ¿cuál de los siguientes síntomas se asocia habitualmente al síndrome de fatiga informática o ASTENOPIA?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Sequedad ocular, picor, visión borrosa y cefaleas asociadas a la exposición prolongada a PVD.",
+        "B) Fracturas óseas de extremidades inferiores.",
+        "C) Pérdida súbita de audición unilateral.",
+        "D) Quemaduras térmicas de segundo grado."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "La astenopia agrupa los trastornos oculares y visuales (sequedad, fotofobia, pesadez de párpados) provocados por fijación prolongada en pantallas."
     },
     {
-      "id": "t15_sub_08",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 8)?",
+      "id": "t15_ined_07",
+      "question": "Respecto al uso del ratón o dispositivo apuntador, ¿qué medida preventiva ergonómica evita la aparición del síndrome del túnel carpiano?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Mantener la muñeca recta alineada con el antebrazo sin flexiones forzadas y usar almohadilla con reposamuñecas.",
+        "B) Agarrar el ratón con máxima fuerza muscular.",
+        "C) Trabajar con el brazo completamente suspendido en el aire sin apoyar el codo.",
+        "D) Utilizar el ratón con el cable enrollado a los dedos."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "Mantener la muñeca neutra y apoyada reduce la compresión sobre el nervio mediano a su paso por el túnel carpiano."
     },
     {
-      "id": "t15_sub_09",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 9)?",
+      "id": "t15_ined_08",
+      "question": "En la iluminación del puesto de trabajo con PVD según el SEPRUS, ¿cuál es el nivel de iluminancia recomendado para tareas mixtas de lectura de papel y pantalla?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Alrededor de 300 a 500 lux.",
+        "B) 10 lux (penumbra casi total).",
+        "C) 5.000 lux (luz solar directa sin filtro).",
+        "D) 0 lux."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "Una iluminancia general de 300 a 500 lux garantiza luz suficiente para leer documentos en papel sin provocar deslumbramiento en la pantalla."
     },
     {
-      "id": "t15_sub_10",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 10)?",
+      "id": "t15_ined_09",
+      "question": "En la Instrucción de Seguridad del SEPRUS sobre notificaciones de riesgos, si un trabajador de la BUS detecta un fallo eléctrico en el puesto de PVD, debe:",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Comunicarlo inmediatamente al responsable de la unidad y al SEPRUS, absteniéndose de manipular la instalación eléctrica.",
+        "B) Intentar reparar los cables desnudos con cinta adhesiva de papel.",
+        "C) Ignorar la avería hasta el año siguiente.",
+        "D) Desmontar el cuadro general de luz del edificio."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "El Art. 29 de la LPRL y las normas SEPRUS obligan a notificar de inmediato cualquier situación de riesgo eléctrico sin manipular elementos sin cualificación."
     },
     {
-      "id": "t15_sub_11",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 11)?",
+      "id": "t15_ined_10",
+      "question": "Respecto a la inclinación del respaldo de la silla en trabajo de oficina con PVD, ¿cuál es el ángulo de postura neutra recomendado para la columna lumbar?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Entre 90º y 105º (ligeramente reclinado hacia atrás con soporte lumbar firme).",
+        "B) 45º de inclinación tumbado.",
+        "C) 60º inclinado fuertemente hacia adelante sobre la mesa.",
+        "D) Sin respaldo de ningún tipo."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "Un ángulo de 90º a 105º reduce la presión sobre los discos intervertebrales lumbares garantizando apoyo completo de la espalda."
     },
     {
-      "id": "t15_sub_12",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 12)?",
+      "id": "t15_ined_11",
+      "question": "En la utilización de reposapiés en puestos con PVD, ¿cuándo es técnicamente aconsejable su instalación?",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) Cuando la altura del asiento ajustada al plano de trabajo no permite al trabajador apoyar de forma plana y cómoda la planta de los pies en el suelo.",
+        "B) En todos los puestos sin excepción obligatoriamente por ley.",
+        "C) Únicamente si el trabajador mide más de 2 metros de altura.",
+        "D) Solo durante los meses de verano."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "El reposapiés se hace necesario si tras regular la silla para alcanzar el teclado la planta de los pies no apoya totalmente en el piso."
     },
     {
-      "id": "t15_sub_13",
-      "question": "Conforme a las recomendaciones ergonómicas del SEPRUS en trabajo con PVD, ¿cuál es la distancia aconsejable entre los ojos del usuario y la pantalla (Pregunta de refuerzo 13)?",
+      "id": "t15_ined_12",
+      "question": "Respecto al ruido ambiental en locales de trabajo con PVD (oficinas y bibliotecas), las recomendaciones ergonómicas fijan un nivel sonoro continuo equivalente inferior a:",
       "options": [
-        "A) Entre 40 cm y 70 cm (la distancia equivalente a la longitud del brazo).",
-        "B) Menos de 20 cm.",
-        "C) Más de 1,5 metros.",
-        "D) Exactamente 10 cm."
+        "A) 55 dB(A) para tareas que requieran atención y concentración intelectual.",
+        "B) 90 dB(A).",
+        "C) 120 dB(A).",
+        "D) 15 dB(A)."
       ],
       "correctAnswer": 0,
-      "explanation": "La distancia adecuada de visión a la pantalla en puestos con PVD se sitúa entre 40 cm y 70 cm para prevenir la fatiga ocular."
+      "explanation": "Un nivel sonoro por debajo de 55 dB(A) evita distracciones y estrés acústico en entornos de lectura y procesamiento de información."
     }
   ],
   "16": [
@@ -22166,52 +22166,52 @@
       "createdAt": "2026-07-28T05:25:00.000Z"
     },
     {
-      "id": "t16_sub_01",
-      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 1)?",
+      "id": "t16_ined_00",
+      "question": "Conforme al Artículo 14 de la Ley 31/1995 de Prevención de Riesgos Laborales (LPRL), ¿qué carácter jurídico tiene el derecho de los trabajadores a la protección frente a los riesgos laborales?",
       "options": [
-        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
-        "B) Derecho a rechazar el uso de equipos de protección individual.",
-        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
-        "D) Derecho a exonerar al empresario de toda responsabilidad."
+        "A) Constituye un derecho indisponible y un deber correlativo de las Administraciones Públicas y empresarios de garantizar la seguridad.",
+        "B) Es una recomendación facultativa no vinculante para las universidades.",
+        "C) Es un derecho que el trabajador puede vender o renunciar a cambio de un complemento salarial.",
+        "D) Aplica exclusivamente al personal temporal."
       ],
       "correctAnswer": 0,
-      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
+      "explanation": "El derecho a la protección eficaz es irrenunciable e indisponible, generando el deber del empresario de adoptar las medidas preventivas legales."
     },
     {
-      "id": "t16_sub_02",
-      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 2)?",
+      "id": "t16_ined_01",
+      "question": "De acuerdo con el Real Decreto 485/1997 sobre Señalización de Seguridad y Salud en el Trabajo, ¿qué significado preventivo atribuye el color de seguridad ROJO?",
       "options": [
-        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
-        "B) Derecho a rechazar el uso de equipos de protección individual.",
-        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
-        "D) Derecho a exonerar al empresario de toda responsabilidad."
+        "A) Señal de prohibición, peligro-alarma, material y equipos de lucha contra incendios.",
+        "B) Señal de salvamento o de auxilio.",
+        "C) Señal de obligación de usar EPI.",
+        "D) Situación de seguridad o retorno a la normalidad."
       ],
       "correctAnswer": 0,
-      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
+      "explanation": "El color rojo en señalización indica prohibición, parada, emergencia y localización de equipos de extinción de incendios."
     },
     {
-      "id": "t16_sub_03",
-      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 3)?",
+      "id": "t16_ined_02",
+      "question": "En virtud del Real Decreto 486/1997 sobre Lugares de Trabajo, las dimensiones de los locales de trabajo deberán disponer de un volumen de espacio no ocupado por trabajador de al menos:",
       "options": [
-        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
-        "B) Derecho a rechazar el uso de equipos de protección individual.",
-        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
-        "D) Derecho a exonerar al empresario de toda responsabilidad."
+        "A) 10 metros cúbicos por trabajador.",
+        "B) 2 metros cúbicos por trabajador.",
+        "C) 50 metros cúbicos por trabajador.",
+        "D) 1 metro cúbico por trabajador."
       ],
       "correctAnswer": 0,
-      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
+      "explanation": "El Anexo I del RD 486/1997 exige como mínimo 2 metros cuadrados de superficie libre y 10 metros cúbicos no ocupados por trabajador."
     },
     {
-      "id": "t16_sub_04",
-      "question": "Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿cuál es el derecho fundamental de los trabajadores en materia preventiva (Pregunta de refuerzo 4)?",
+      "id": "t16_ined_03",
+      "question": "Conforme al Artículo 29.2 de la LPRL 31/1995, es una obligación expresa del trabajador en materia preventiva:",
       "options": [
-        "A) Derecho a una protección eficaz en materia de seguridad y salud en el trabajo.",
-        "B) Derecho a rechazar el uso de equipos de protección individual.",
-        "C) Derecho a modificar unilateralmente las instalaciones de la empresa.",
-        "D) Derecho a exonerar al empresario de toda responsabilidad."
+        "A) Usar adecuadamente las máquinas, herramientas, sustancias peligrosas y cualquier otro medio con el que desarrolle su actividad.",
+        "B) Diseñar el Plan de Prevención de Riesgos de la Universidad.",
+        "C) Asumir el coste económico de los Equipos de Protección Individual (EPIs).",
+        "D) Contratar a los servicios de prevención ajenos."
       ],
       "correctAnswer": 0,
-      "explanation": "El Artículo 14 de la LPRL establece el derecho de los trabajadores a una protección eficaz frente a los riesgos laborales."
+      "explanation": "El Art. 29.2.1º de la LPRL impone al trabajador la obligación de utilizar correctamente las herramientas y equipos según las instrucciones recibidas."
     }
   ],
   "17": [
