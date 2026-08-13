@@ -136,6 +136,18 @@ function cleanStemExcerpt(text) {
 function getSectionSubdomain(heading, text) {
   const combined = (heading + ' ' + text).toLowerCase();
   
+  if (/sanci\u00f3n|sanciones|suspensi\u00f3n|penalizaci\u00f3n|retraso|infracci\u00f3n|demora/i.test(combined)) {
+    return 'sanciones_penalizaciones';
+  }
+  if (/crai|software|equipamiento|impresi\u00f3n|objetoteca|tecnol\u00f3gico|recurso|soporte inform\u00e1tico|servicios|atenci\u00f3n/i.test(combined)) {
+    return 'servicios_recursos';
+  }
+  if (/consorcio|redes de cooperaci\u00f3n|worldcat|rebiun|cabu|bne/i.test(combined)) {
+    return 'cooperacion_consorcios';
+  }
+  if (/reglamento|marco normativo|dependencia|planificaci\u00f3n|estructura|organigrama|estatuto/i.test(combined)) {
+    return 'normativa_organigrama';
+  }
   if (/ámbito|subjetivo|aplicación|colectivo|personal|pdi|ptgas|estudiantes|becarios|contratistas|exclusión/i.test(combined)) {
     return 'ambito_aplicacion';
   }
@@ -380,43 +392,54 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
   const targetSemanticType = getSemanticType(correctOpt);
   const targetLength = correctOpt.length;
 
+  const isSanctionTarget = targetSubdomain === 'sanciones_penalizaciones' || /sanción|suspensión|penalización|retraso/i.test(correctOpt);
+
+  // Filtro de coherencia estricta para evitar opciones de fácil descarte (mezcla de dominios)
+  const isCoherent = (text) => {
+    if (!text) return false;
+    const isSanctionText = /sanción|suspensión|penalización|retraso|infracción/i.test(text);
+    if (!isSanctionTarget && isSanctionText) return false; // Bloquea sanciones en preguntas de servicios
+    if (isSanctionTarget && !isSanctionText) return false; // Bloquea no-sanciones en preguntas de sanciones
+    return true;
+  };
+
   const distractors = [];
   const used = new Set([correctOpt.toLowerCase().trim()]);
 
-  // OP 1: Definiciones con paridad de longitud (variación máx. 35%)
+  // OP 1: Definiciones con paridad de longitud (variación máx. 35%) y coherencia
   const sameSubdomainPairs = allConceptPairs
     .filter(cp => {
       const cpSub = getSectionSubdomain(cp.heading, cp.definition);
       const cpSem = getSemanticType(cp.definition);
       const def = cp.definition.toLowerCase().trim();
       const lenDiff = Math.abs(cp.definition.length - targetLength);
-      return !used.has(def) && cpSub === targetSubdomain && cpSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
+      return !used.has(def) && isCoherent(cp.definition) && (cpSub === targetSubdomain || isCoherent(cp.definition)) && cpSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
     })
     .sort(() => 0.5 - Math.random());
 
   sameSubdomainPairs.forEach(cp => {
     const cand = cp.definition.substring(0, 115).trim();
-    if (distractors.length < 3 && !used.has(cand.toLowerCase())) {
+    if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
       distractors.push(cand);
       used.add(cand.toLowerCase());
     }
   });
 
-  // OP 2: Párrafos limpios con paridad de longitud
+  // OP 2: Párrafos limpios con paridad de longitud y coherencia de dominio
   if (distractors.length < 3) {
     const sameSubdomainParas = allCleanParas
       .filter(p => {
-        const pSub = getSectionSubdomain(heading, p);
+        const pSub = getSectionSubdomain('', p);
         const pSem = getSemanticType(p);
         const pClean = p.trim();
         const lenDiff = Math.abs(pClean.length - targetLength);
-        return pClean.length > 20 && !isMarketingOrHTML(pClean) && pSub === targetSubdomain && pSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
+        return pClean.length > 20 && !isMarketingOrHTML(pClean) && isCoherent(pClean) && (pSub === targetSubdomain || isCoherent(pClean)) && pSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
       })
       .sort(() => 0.5 - Math.random());
 
     sameSubdomainParas.forEach(p => {
       const cand = p.substring(0, 115).trim();
-      if (distractors.length < 3 && !used.has(cand.toLowerCase())) {
+      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
         distractors.push(cand);
         used.add(cand.toLowerCase());
       }
