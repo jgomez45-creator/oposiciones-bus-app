@@ -415,9 +415,16 @@ const MUTATIONS = [
     ]
   },
   {
+    target: /el Consejo de Gobierno/gi,
+    replacements: [
+      'la Comisión Permanente de Docencia de cada Facultad',
+      'la Junta Técnica Interfacultativa de la US',
+      'el Ministerio de Universidades mediante Real Decreto'
+    ]
+  },
+  {
     target: /Consejo de Gobierno/gi,
     replacements: [
-      'Comisión Permanente de Docencia de cada Facultad',
       'Junta Técnica Interfacultativa de la US',
       'Ministerio de Universidades mediante Real Decreto'
     ]
@@ -522,52 +529,6 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // Intento 3: Alteración de números o plazos (si existen en la frase)
-  if (distractors.length < 3) {
-    const numMatch = correctOpt.match(/\b(\d{1,3})\b/);
-    if (numMatch) {
-      const n = parseInt(numMatch[1], 10);
-      const hasHabil = /hábiles/i.test(correctOpt);
-      const hasNatural = /naturales/i.test(correctOpt);
-      const shifts = [n * 2, Math.max(1, Math.floor(n / 2)), n + 5].filter(v => v !== n);
-      for (const v of shifts) {
-        if (distractors.length >= 3) break;
-        let candidateRaw = correctOpt.replace(/\b\d{1,3}\b/, v.toString());
-        if (hasHabil) candidateRaw = candidateRaw.replace(/hábiles/i, 'naturales');
-        else if (hasNatural) candidateRaw = candidateRaw.replace(/naturales/i, 'hábiles');
-        
-        const cand = formatCompleteSentence(candidateRaw);
-        const normCand = stripAccents(cand);
-        if (cand && !used.has(normCand)) {
-          distractors.push(cand);
-          used.add(normCand);
-        }
-      }
-    }
-  }
-
-  // Intento 4: Distractores sintéticos contextuales genéricos
-  const CONTEXTUAL_FALLBACKS = [
-    'Es una disposición de carácter facultativo y orientativo que no vincula a los órganos unipersonales de la Universidad.',
-    'Procede únicamente por resolución motivada del Vicerrectorado competente, previa audiencia de los interesados.',
-    'Queda sujeto a la aprobación del Plan Director y de los presupuestos anuales de la Junta de Andalucía.',
-    'Se aplica exclusivamente al Personal Técnico, de Gestión y de Administración y Servicios (PTGAS) de la US.',
-    'Corresponde de forma exclusiva a los órganos colegiados de cada Facultad mediante acuerdo adoptado en Junta.',
-    'Es competencia delegada en exclusiva de la Comisión Permanente de Calidad de la Universidad de Sevilla.'
-  ];
-
-  const poolOffset = (idx * 3) % CONTEXTUAL_FALLBACKS.length;
-  for (let i = 0; distractors.length < 3; i++) {
-    const fallbackRaw = CONTEXTUAL_FALLBACKS[(poolOffset + i) % CONTEXTUAL_FALLBACKS.length];
-    const cand = formatCompleteSentence(fallbackRaw);
-    const normCand = stripAccents(cand);
-    if (!used.has(normCand)) {
-      distractors.push(cand);
-      used.add(normCand);
-    }
-    if (i >= CONTEXTUAL_FALLBACKS.length) break;
-  }
-
   return distractors.slice(0, 3);
 }
 
@@ -658,6 +619,16 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       sec.paragraphs.forEach(para => {
         if (!para || para.length < 35) return;
 
+        // Extraer etiqueta específica de la viñeta para dar precisión exacta a la pregunta (ej. "Dispositivos y Objetoteca")
+        let specificHeading = sec.title;
+        const labelMatch = para.match(/^([^:]+):/);
+        if (labelMatch && labelMatch[1] && labelMatch[1].length < 60) {
+          const cleanLabel = sanitizeText(labelMatch[1]).replace(/^[•*\-–—\s]+/, '');
+          if (cleanLabel.length > 3 && !cleanLabel.startsWith('http') && !/tabla/i.test(cleanLabel)) {
+            specificHeading = `${sec.title} (${cleanLabel})`;
+          }
+        }
+
         const sentences = para.split(/\.\s+/).map(s => s.trim()).filter(s => s.length > 30);
         sentences.forEach(sent => {
           const cleanSentence = formatCompleteSentence(sent);
@@ -665,7 +636,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
             factPool.push({
               rawFact: para,
               sentence: cleanSentence,
-              heading: sec.title
+              heading: specificHeading
             });
           }
         });
