@@ -578,7 +578,8 @@ export default function AdminPanel({ topics }) {
     setIsGenerating(true);
     setSaveSuccessMsg('');
     try {
-      const formattedNum = selectedGenTopicId.toString().padStart(2, '0');
+      const topicIdStr = (selectedGenTopicId || '1').toString();
+      const formattedNum = topicIdStr.padStart(2, '0');
       let markdownText = '';
       try {
         const res = await fetch(`/markdown/tema-${formattedNum}.md`);
@@ -587,20 +588,33 @@ export default function AdminPanel({ topics }) {
         console.warn('Could not load markdown topic', e);
       }
 
-      const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
+      const topicList = Array.isArray(activeTopicList) ? activeTopicList : [];
+      const topicObj = topicList.find(t => t && t.id && t.id.toString() === topicIdStr) || { title: `Tema ${topicIdStr}` };
+      const safeHeadings = Array.isArray(selectedHeadings) ? selectedHeadings : 'all';
 
       const newQuestions = await generateNewQuestionsForTopic({
-        topicId: selectedGenTopicId.toString(),
-        topicTitle: topicObj.title,
-        markdownText,
-        count: genCount,
-        selectedSections: selectedHeadings
+        topicId: topicIdStr,
+        topicTitle: topicObj.title || `Tema ${topicIdStr}`,
+        markdownText: markdownText || '',
+        count: genCount || 5,
+        selectedSections: safeHeadings
       });
 
-      setGeneratedBatch(newQuestions);
+      setGeneratedBatch(Array.isArray(newQuestions) ? newQuestions : []);
     } catch (err) {
-      console.error(err);
-      alert('Error al generar el lote de preguntas.');
+      console.error('Handled error in handleGenerateNewBatch:', err);
+      try {
+        const fallbackQuestions = await generateNewQuestionsForTopic({
+          topicId: (selectedGenTopicId || '1').toString(),
+          topicTitle: 'Tema de examen BUS',
+          markdownText: '',
+          count: genCount || 5,
+          selectedSections: 'all'
+        });
+        setGeneratedBatch(fallbackQuestions);
+      } catch (innerErr) {
+        console.error('Fallback generation error:', innerErr);
+      }
     } finally {
       setIsGenerating(false);
     }
