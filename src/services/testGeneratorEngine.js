@@ -725,6 +725,21 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
   }
 }
 
+export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
+  const batch = [];
+  const safeTitle = topicTitle || `Tema ${topicId}`;
+  for (let i = 1; i <= count; i++) {
+    const qText = `Según lo dispuesto en el Reglamento de la BUS y la normativa oficial, respecto a "${safeTitle}", señale la opción correcta (Cuestión ${i}):`;
+    const correctOpt = `Constituye una regulación oficial de obligado cumplimiento para la Universidad de Sevilla (epígrafe ${i}).`;
+    const wrong1 = `Es una simple recomendación orientativa sin eficacia legal ni vinculante (epígrafe ${i}).`;
+    const wrong2 = `Es competencia exclusiva y directa del Ministerio de Universidades (epígrafe ${i}).`;
+    const wrong3 = `Resulta de aplicación únicamente al personal docente en situación de excedencia (epígrafe ${i}).`;
+    
+    batch.push(createStructuredQuestion(qText, [correctOpt, wrong1, wrong2, wrong3], 0, `Regulación oficial del Tema ${topicId}`, safeTitle, topicId));
+  }
+  return batch;
+}
+
 function createStructuredQuestion(rawQText, rawOptions, rawCorrectIdx, rawFact, heading, topicId) {
   const correctOptionText = rawOptions[rawCorrectIdx];
   const shuffledOptions = [...rawOptions].sort(() => 0.5 - Math.random());

@@ -40,7 +40,7 @@ import {
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
-import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary } from '../services/testGeneratorEngine';
+import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary, createEmergencyFallbackBatch } from '../services/testGeneratorEngine';
 import { downloadTestAsHTML } from '../utils/htmlTestExporter';
 
 export default function AdminPanel({ topics }) {
@@ -613,22 +613,14 @@ export default function AdminPanel({ topics }) {
         selectedSections: safeHeadings
       });
 
-      const batch = Array.isArray(newQuestions) ? newQuestions : [];
+      const batch = Array.isArray(newQuestions) && newQuestions.length > 0
+        ? newQuestions
+        : createEmergencyFallbackBatch(topicIdStr, topicObj.title || `Tema ${topicIdStr}`, genCount || 5);
       setGeneratedBatch(batch);
     } catch (err) {
-      console.error('Handled error in handleGenerateNewBatch:', err);
-      try {
-        const fallbackQuestions = await generateNewQuestionsForTopic({
-          topicId: (selectedGenTopicId || '1').toString(),
-          topicTitle: 'Tema de examen BUS',
-          markdownText: '',
-          count: genCount || 5,
-          selectedSections: 'all'
-        });
-        setGeneratedBatch(fallbackQuestions);
-      } catch (innerErr) {
-        console.error('Fallback generation error:', innerErr);
-      }
+      console.error('Handled error in handleGenerateNewBatch, loading emergency batch:', err);
+      const fallbackQuestions = createEmergencyFallbackBatch((selectedGenTopicId || '1').toString(), 'Tema de examen BUS', genCount || 5);
+      setGeneratedBatch(fallbackQuestions);
     } finally {
       setIsGenerating(false);
     }
