@@ -1005,16 +1005,13 @@ export default function AdminPanel({ topics }) {
             <span>Vídeos por Tema</span>
           </button>
           <button
-            onClick={() => {
-              setActiveSubTab('activity');
-              firebaseService.getAllActivityData().then(data => setActivityData(data || {}));
-            }}
-            className={`tab-btn ${activeSubTab === 'activity' ? 'active' : ''}`}
+            onClick={() => setActiveSubTab('results')}
+            className={`tab-btn ${activeSubTab === 'results' ? 'active' : ''}`}
             style={{
               padding: '8px 14px',
               border: 'none',
-              background: activeSubTab === 'activity' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'rgba(16, 185, 129, 0.12)',
-              color: activeSubTab === 'activity' ? '#fff' : '#34d399',
+              background: activeSubTab === 'results' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'rgba(16, 185, 129, 0.18)',
+              color: activeSubTab === 'results' ? '#fff' : '#34d399',
               borderRadius: '8px',
               cursor: 'pointer',
               fontWeight: '800',
@@ -1023,7 +1020,32 @@ export default function AdminPanel({ topics }) {
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              border: '1px solid rgba(16, 185, 129, 0.3)'
+              border: '1px solid rgba(16, 185, 129, 0.4)'
+            }}
+          >
+            <CheckCircle size={16} />
+            <span>📊 Notas Alumnos HTML ({studentTestResults.length})</span>
+          </button>
+          <button
+            onClick={() => {
+              setActiveSubTab('activity');
+              firebaseService.getAllActivityData().then(data => setActivityData(data || {}));
+            }}
+            className={`tab-btn ${activeSubTab === 'activity' ? 'active' : ''}`}
+            style={{
+              padding: '8px 14px',
+              border: 'none',
+              background: activeSubTab === 'activity' ? 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)' : 'rgba(59, 130, 246, 0.12)',
+              color: activeSubTab === 'activity' ? '#fff' : '#60a5fa',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontWeight: '800',
+              fontSize: '0.85rem',
+              transition: 'var(--transition-fast)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              border: '1px solid rgba(59, 130, 246, 0.3)'
             }}
           >
             <Clock size={16} />
@@ -2135,6 +2157,54 @@ export default function AdminPanel({ topics }) {
               </div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* SUBTAB: REGISTRO DE NOTAS DE ALUMNOS (TESTS HTML) */}
+      {activeSubTab === 'results' && (
+        <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)', background: 'rgba(15, 23, 42, 0.8)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h3 style={{ margin: 0, color: '#34d399', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <CheckCircle size={24} style={{ color: '#10b981' }} />
+              <span>📊 Registro de Calificaciones de Alumnos (Tests HTML Entregados)</span>
+            </h3>
+            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', background: 'rgba(16, 185, 129, 0.15)', padding: '4px 12px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+              {studentTestResults.length} Entregas Registradas
+            </span>
+          </div>
+
+          {studentTestResults.length === 0 ? (
+            <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', margin: '15px 0', fontSize: '0.92rem' }}>
+              No se han recibido entregas de alumnos aún. Cuando un alumno abra el archivo HTML exportado, responda las preguntas y pulse "Enviar y Corregir Test", su nota, porcentaje de acierto y respuestas aparecerán aquí en tiempo real de forma 100% invisible para él.
+            </p>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '550px', overflowY: 'auto' }}>
+              {studentTestResults.map((item, idx) => {
+                const percent = Math.round((item.score / item.maxScore) * 100);
+                const isPass = percent >= 50;
+                return (
+                  <div key={item.id || idx} style={{ background: 'rgba(30, 41, 59, 0.7)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      <span style={{ fontWeight: '700', color: '#60a5fa', fontSize: '1rem' }}>📧 Alumno / Dispositivo: {item.studentId}</span>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--text-main)' }}>📌 {item.title}</span>
+                      <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>🕒 Fecha de entrega: {new Date(item.timestamp).toLocaleString()}</span>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                      <div style={{ textAlign: 'right' }}>
+                        <div style={{ fontSize: '1.3rem', fontWeight: '800', color: isPass ? '#4ade80' : '#fca5a5' }}>
+                          Nota: {item.score} / {item.maxScore}
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: isPass ? '#86efac' : '#fca5a5' }}>
+                          {percent}% de aciertos netos ({isPass ? 'APROBADO' : 'SUSPENSO'})
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 
