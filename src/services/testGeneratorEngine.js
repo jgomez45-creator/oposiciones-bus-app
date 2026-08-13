@@ -451,6 +451,21 @@ const DOMAIN_DISTRACTORS = {
   ]
 };
 
+// Valida que el texto de la opción no contenga discordancias gramaticales ni palabras deformadas
+function hasGrammarError(text) {
+  if (!text) return true;
+
+  // 1. Detección de deformaciones morfológicas por plurales mal construidos (ej. Gerentees, Gobiernoes)
+  if (/\b(gerentees|gobiernoes|rectoradoes|directorases|vicerrectoreses|consejoes)\b/i.test(text)) return true;
+  if (/\b\w+(ees|oes)\b/i.test(text) && !/\b(jueces|cafés|canapés|bebés)\b/i.test(text)) return true;
+
+  // 2. Discordancias sintácticas de género/número (ej. de ningún Conferencia, la Consejo)
+  if (/\b(de ningún|un|del)\s+(conferencia|comisión|unidad|red|biblioteca|resolución|norma)\b/i.test(text)) return true;
+  if (/\b(de una|la)\s+(consejo|rector|servicio|catálogo|órgano|procedimiento|reglamento)\b/i.test(text)) return true;
+
+  return false;
+}
+
 // Genera distractores pertenecientes strictly al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed = new Set()) {
   const targetSubdomain = getSectionSubdomain(heading, factText);
@@ -462,6 +477,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
   // Filtro de coherencia estricta para evitar opciones de fácil descarte y comodines recurrentes
   const isCoherent = (text) => {
     if (!text) return false;
+    if (hasGrammarError(text)) return false; // Bloqueo automático de errores gramaticales
 
     // BLOQUEO ABSOLUTO DE COMODINES RECURRENTES (carnet universitario) SALVO QUE LA PREGUNTA SEA DE ESE TEMA
     const isAskingAboutCarnet = /carnet/i.test(heading) || /carnet/i.test(factText);
@@ -481,7 +497,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     ...Array.from(globalBatchUsed).map(s => s.toLowerCase().trim())
   ]);
 
-  // OP 1: TÉCNICA DEL DISTRACTOR FINO / MUTACIONES SINTÁCTICAS Y SEMÁNTICAS DEL PROPIO HECHO (MÁXIMO RIGOR)
+  // OP 1: TÉCNICA DEL DISTRACTOR FINO / MUTACIONES CON CONTROL RIGUROSO DE PLURALES Y GÉNERO
   const mutations = [];
   const text = correctOpt;
 
@@ -497,23 +513,32 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   }
 
+  // Mutación de órganos con concordancia exacta de plurales (\b)
+  if (/\bRectores\b/i.test(text)) {
+    mutations.push(text.replace(/\bRectores\b/gi, 'Gerentes'));
+    mutations.push(text.replace(/\bRectores\b/gi, 'Vicerrectores'));
+    mutations.push(text.replace(/\bRectores\b/gi, 'Decanos'));
+  } else if (/\bRector\b/i.test(text)) {
+    mutations.push(text.replace(/\bRector\b/gi, 'Gerente'));
+    mutations.push(text.replace(/\bRector\b/gi, 'Vicerrector/a competente'));
+  }
+
+  if (/\bConsejo de Gobierno\b/i.test(text)) {
+    mutations.push(text.replace(/\bConsejo de Gobierno\b/gi, 'Rectorado'));
+    mutations.push(text.replace(/\bConsejo de Gobierno\b/gi, 'Consejo Social'));
+  }
+
+  if (/\bGerente\b/i.test(text)) {
+    mutations.push(text.replace(/\bGerente\b/gi, 'Vicerrector/a competente'));
+    mutations.push(text.replace(/\bGerente\b/gi, 'Rector/a'));
+  }
+
   // Mutaciones de canales, modalidades o permisos
   if (/fama|catálogo|online|electrónico|telemático/i.test(text)) {
     mutations.push(text.replace(/fama|catálogo|online|electrónico|telemático/gi, 'únicamente de forma presencial en el mostrador de la biblioteca'));
   }
   if (/presencial|mostrador/i.test(text)) {
     mutations.push(text.replace(/presencial|mostrador/gi, 'exclusivamente a través del catálogo automatizado FAMA'));
-  }
-  if (/rector/i.test(text)) {
-    mutations.push(text.replace(/rector/gi, 'Consejo de Gobierno'));
-    mutations.push(text.replace(/rector/gi, 'Gerente'));
-  }
-  if (/consejo de gobierno/i.test(text)) {
-    mutations.push(text.replace(/consejo de gobierno/gi, 'Rector/a'));
-    mutations.push(text.replace(/consejo de gobierno/gi, 'Consejo Social'));
-  }
-  if (/gerente/i.test(text)) {
-    mutations.push(text.replace(/gerente/gi, 'Vicerrector/a competente'));
   }
   if (/gratuito/i.test(text)) {
     mutations.push(text.replace(/gratuito/gi, 'sujeto a precio público'));
@@ -522,8 +547,8 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     mutations.push(text.replace(/se pueden|se podrá|permite/gi, 'no se autorizan ni se permiten'));
   }
   if (/docencia|investigación|aprendizaje/i.test(text)) {
-    mutations.push(text.replace(/docencia/gi, 'gestión de recursos').replace(/investigación/gi, 'transferencia tecnológica'));
-    mutations.push(text.replace(/docencia y al aprendizaje/gi, 'extensión universitaria y servicios culturales'));
+    mutations.push(text.replace(/\bdocencia\b/gi, 'gestión de recursos').replace(/\binvestigación\b/gi, 'transferencia tecnológica'));
+    mutations.push(text.replace(/\bdocencia y al aprendizaje\b/gi, 'extensión universitaria y servicios culturales'));
   }
   if (/principio organizativo|unidad funcional|patrimonio/i.test(text)) {
     mutations.push(text.replace(/principio organizativo|unidad funcional/gi, 'modelo descentralizado por facultades independientes'));
@@ -539,10 +564,9 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
-  // Mutaciones estructurales universales como respaldo de rigor si faltan distractores
+  // Mutaciones estructurales de respaldo con concordancia asegurada
   if (distractors.length < 3) {
     const fallbackMutations = [
-      text.replace(/\b(el|la|los|las|un|una)\b/i, 'ningún').replace(/\b(es|son|corresponde)\b/i, 'no es'),
       text.replace(/\b(todas|todos|cada|cualquier)\b/i, 'únicamente las'),
       text.replace(/\b(única|integrada|oficial)\b/i, 'autónoma y descentralizada')
     ];
