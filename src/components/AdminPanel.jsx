@@ -350,6 +350,19 @@ export default function AdminPanel({ topics }) {
     loadHeadings();
   }, [selectedGenTopicId]);
 
+  // Auto-scroll suave garantizado hacia el lote de preguntas al terminar la generación
+  useEffect(() => {
+    if (generatedBatch.length > 0) {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('batch-preview');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+  }, [generatedBatch]);
+
   const toggleSectionHeading = (headingText) => {
     if (selectedHeadings === 'all') {
       setSelectedHeadings([headingText]);
@@ -602,12 +615,6 @@ export default function AdminPanel({ topics }) {
 
       const batch = Array.isArray(newQuestions) ? newQuestions : [];
       setGeneratedBatch(batch);
-
-      if (batch.length > 0) {
-        setTimeout(() => {
-          document.getElementById('batch-preview')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
     } catch (err) {
       console.error('Handled error in handleGenerateNewBatch:', err);
       try {
@@ -619,9 +626,6 @@ export default function AdminPanel({ topics }) {
           selectedSections: 'all'
         });
         setGeneratedBatch(fallbackQuestions);
-        setTimeout(() => {
-          document.getElementById('batch-preview')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
       } catch (innerErr) {
         console.error('Fallback generation error:', innerErr);
       }
@@ -1652,9 +1656,40 @@ export default function AdminPanel({ topics }) {
         </div>
       )}
 
-      {/* SUBTAB 4: GENERADOR DE TESTS IA CON SELECCIÓN DE EPÍGRAFES */}
+      {/* SUBTAB 4: GENERATOR */}
       {activeSubTab === 'generator' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          
+          {/* BANNER NOTIFICACIÓN DE LOTE GENERADO DISPONIBLE */}
+          {generatedBatch.length > 0 && (
+            <div
+              onClick={() => document.getElementById('batch-preview')?.scrollIntoView({ behavior: 'smooth' })}
+              style={{
+                cursor: 'pointer',
+                padding: '14px 20px',
+                background: 'rgba(34, 197, 94, 0.2)',
+                border: '1px solid rgba(34, 197, 94, 0.5)',
+                borderRadius: '14px',
+                color: '#4ade80',
+                fontSize: '0.95rem',
+                fontWeight: '800',
+                display: 'flex',
+                alignItems: 'center',
+                justify: 'space-between',
+                boxShadow: '0 4px 16px rgba(34, 197, 94, 0.25)',
+                animation: 'pulse 2s infinite'
+              }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <CheckCircle2 size={22} style={{ color: '#22c55e' }} />
+                <span>¡LOTE DE {generatedBatch.length} PREGUNTAS SINTETIZADO CON ÉXITO! (Tema {selectedGenTopicId})</span>
+              </span>
+              <span style={{ fontSize: '0.85rem', background: '#22c55e', color: '#000', padding: '4px 12px', borderRadius: '10px', fontWeight: '800' }}>
+                👇 Haz clic aquí para ver o exportar
+              </span>
+            </div>
+          )}
+
           <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(15, 23, 42, 0.6) 100%)' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
