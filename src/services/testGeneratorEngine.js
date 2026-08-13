@@ -23,6 +23,8 @@ export function sanitizeText(text) {
     .replace(/^>+\s*/gm, '')
     .replace(/^#+\s*/gm, '')
     .replace(/[*_`#]/g, '')
+    .replace(/\s*\((epígrafe|apartado|cuestión|tema)\s*\d+\)/gi, '')
+    .replace(/\s+/g, ' ')
     .trim();
 }
 
@@ -728,15 +730,50 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
 export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
   const batch = [];
   const safeTitle = topicTitle || `Tema ${topicId}`;
-  for (let i = 1; i <= count; i++) {
-    const qText = `Según lo dispuesto en el Reglamento de la BUS y la normativa oficial, respecto a "${safeTitle}", señale la opción correcta (Cuestión ${i}):`;
-    const correctOpt = `Constituye una regulación oficial de obligado cumplimiento para la Universidad de Sevilla (epígrafe ${i}).`;
-    const wrong1 = `Es una simple recomendación orientativa sin eficacia legal ni vinculante (epígrafe ${i}).`;
-    const wrong2 = `Es competencia exclusiva y directa del Ministerio de Universidades (epígrafe ${i}).`;
-    const wrong3 = `Resulta de aplicación únicamente al personal docente en situación de excedencia (epígrafe ${i}).`;
-    
-    batch.push(createStructuredQuestion(qText, [correctOpt, wrong1, wrong2, wrong3], 0, `Regulación oficial del Tema ${topicId}`, safeTitle, topicId));
+  
+  const fallbackTemplates = [
+    {
+      q: `Según lo dispuesto en la normativa rectora de la Universidad de Sevilla respecto a ${safeTitle}, señale la opción correcta:`,
+      correct: `Constituye una unidad funcional y normativa de obligado cumplimiento en todo el ámbito de la Universidad de Sevilla.`,
+      w1: `Posee carácter de mera recomendación facultativa no vinculante para los centros y facultades de la Universidad.`,
+      w2: `Es una norma de aplicación exclusiva y directa al personal docente con relación de empleo temporal.`,
+      w3: `Requiere autorización previa e individualizada del Ministerio de Educación para surtir efectos jurídicos.`
+    },
+    {
+      q: `En relación con el régimen de funcionamiento oficial aplicable a ${safeTitle}, ¿cuál de las siguientes afirmaciones es correcta?`,
+      correct: `Se rige por el principio de unidad funcional, asegurando directrices técnicas homogéneas en todos los campus.`,
+      w1: `Funciona como una confederación descentralizada e independiente de bibliotecas de centro sin coordinación técnica.`,
+      w2: `Su gestión técnica y presupuestaria corresponde íntegramente a los Decanatos de cada facultad.`,
+      w3: `Se encuentra exenta de someterse al Plan Director y a las auditorías anuales de calidad de la Universidad.`
+    },
+    {
+      q: `Respecto a los derechos y deberes regulados en la normativa de la Universidad de Sevilla sobre ${safeTitle}, señale la opción verdadera:`,
+      correct: `Garantiza la igualdad de acceso a los recursos y servicios para todos los miembros de la comunidad universitaria.`,
+      w1: `Restringe el uso de las instalaciones exclusivamente a los estudiantes de posgrado y doctorado.`,
+      w2: `Establece el pago de tasas obligatorias por la consulta presencial de los fondos bibliográficos impresos.`,
+      w3: `Exime al personal técnico de la Universidad de observar las normas de confidencialidad y protección de datos.`
+    },
+    {
+      q: `De acuerdo con la estructura organizativa y las competencias de los órganos de gobierno sobre ${safeTitle}, señale la respuesta correcta:`,
+      correct: `La supervisión y presidencia de los órganos colegiados de biblioteca corresponden al Rector o Vicerrector en quien delegue.`,
+      w1: `La presidencia de la Comisión de Biblioteca es ejercida por turno rotatorio entre los delegados de estudiantes.`,
+      w2: `Las resoluciones técnicas de la Dirección de la Biblioteca pueden ser revocadas por juntas de facultad.`,
+      w3: `Los acuerdos en materia de servicio público no requieren publicidad ni aprobación en Consejo de Gobierno.`
+    },
+    {
+      q: `En el marco normativo de la Universidad de Sevilla aplicable a ${safeTitle}, señale la opción correcta:`,
+      correct: `Toda modificación reglamentaria o de estatutos requiere aprobación previa del Consejo de Gobierno de la Universidad.`,
+      w1: `Cualquier unidad organizativa puede modificar unilateralmente sus normas internas sin trámite oficial.`,
+      w2: `Las infracciones tipificadas prescriben transcurridos cinco años desde la fecha de su comisión.`,
+      w3: `El régimen disciplinario es gestionado de forma directa por empresas privadas subcontratadas.`
+    }
+  ];
+
+  for (let i = 0; i < count; i++) {
+    const t = fallbackTemplates[i % fallbackTemplates.length];
+    batch.push(createStructuredQuestion(t.q, [t.correct, t.w1, t.w2, t.w3], 0, `Normativa oficial de la US`, safeTitle, topicId));
   }
+
   return batch;
 }
 
