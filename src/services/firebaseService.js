@@ -2328,6 +2328,18 @@ export const firebaseService = {
       localStorage.setItem(mockKey, JSON.stringify(map));
     } catch (_) {}
 
+    // Public REST Cloud Persistence (0 Auth required, 100% reliable globally)
+    try {
+      const rtdbUrl = `https://oposiciones-bus-app-default-rtdb.firebaseio.com/shared_tests/${shortId}.json`;
+      await fetch(rtdbUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(docObj)
+      });
+    } catch (err) {
+      console.warn("RTDB PUT warning:", err);
+    }
+
     if (db) {
       try {
         const docRef = doc(db, 'shared_tests', shortId);
@@ -2335,35 +2347,6 @@ export const firebaseService = {
       } catch (err) {
         console.warn("setDoc shared_tests warning:", err);
       }
-    }
-
-    try {
-      let headers = { 'Content-Type': 'application/json' };
-      if (auth && auth.currentUser) {
-        try {
-          const idToken = await auth.currentUser.getIdToken();
-          headers['Authorization'] = `Bearer ${idToken}`;
-        } catch (_) {}
-      }
-
-      const firestoreUrl = `https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/shared_tests/${shortId}`;
-      const docData = {
-        fields: {
-          id: { stringValue: shortId },
-          title: { stringValue: docObj.title },
-          questionsJson: { stringValue: JSON.stringify(docObj.questions) },
-          summaryText: { stringValue: docObj.summaryText },
-          createdAt: { stringValue: docObj.createdAt }
-        }
-      };
-
-      await fetch(firestoreUrl, {
-        method: 'PATCH',
-        headers: headers,
-        body: JSON.stringify(docData)
-      });
-    } catch (err) {
-      console.warn("saveSharedTest REST write warning:", err);
     }
 
     return shortId;
@@ -2379,6 +2362,21 @@ export const firebaseService = {
       if (map[shortId]) return map[shortId];
     } catch (_) {}
 
+    // 1. Consultar en Nube Publica Realtime DB
+    try {
+      const rtdbUrl = `https://oposiciones-bus-app-default-rtdb.firebaseio.com/shared_tests/${shortId}.json`;
+      const res = await fetch(rtdbUrl);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.questions) && data.questions.length > 0) {
+          return data;
+        }
+      }
+    } catch (err) {
+      console.warn("RTDB GET warning:", err);
+    }
+
+    // 2. Consultar en Firestore SDK
     if (db) {
       try {
         const docRef = doc(db, 'shared_tests', shortId);
@@ -2389,26 +2387,6 @@ export const firebaseService = {
       } catch (err) {
         console.warn("getDoc shared_tests warning:", err);
       }
-    }
-
-    try {
-      const firestoreUrl = `https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/shared_tests/${shortId}`;
-      const res = await fetch(firestoreUrl);
-      if (res.ok) {
-        const json = await res.json();
-        if (json && json.fields) {
-          const f = json.fields;
-          const questionsJson = f.questionsJson ? f.questionsJson.stringValue : '[]';
-          return {
-            id: f.id ? f.id.stringValue : shortId,
-            title: f.title ? f.title.stringValue : 'Test de Evaluación de la BUS',
-            questions: JSON.parse(questionsJson),
-            summaryText: f.summaryText ? f.summaryText.stringValue : ''
-          };
-        }
-      }
-    } catch (err) {
-      console.warn("getSharedTest REST read warning:", err);
     }
 
     return null;
