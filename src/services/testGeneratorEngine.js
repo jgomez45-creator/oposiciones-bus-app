@@ -211,23 +211,23 @@ function isValidConcept(concept) {
 }
 
 // Trunca texto de forma segura sin cortar palabras ni dejar conectores sueltos
-function safeTruncateText(text, maxLen = 115) {
+function safeTruncateText(text, maxLen = 220) {
   if (!text) return '';
   let clean = sanitizeText(text).trim();
   if (clean.length <= maxLen) return clean;
 
   let sub = clean.substring(0, maxLen);
   const lastSpace = sub.lastIndexOf(' ');
-  if (lastSpace > 15) {
+  if (lastSpace > 20) {
     sub = sub.substring(0, lastSpace);
   }
 
   sub = sub
     .replace(/[,;:\-\s]+$/, '')
-    .replace(/\b(del|de|el|la|los|las|un|una|en|para|con|por|y|o|que|su|sus|al|e|i)\s*$/i, '')
+    .replace(/\b(del|de|el|la|los|las|un|una|en|para|con|por|y|o|que|su|sus|al|e|i|ante|tras|conforme)\s*$/i, '')
     .trim();
 
-  return sub;
+  return sub + '...';
 }
 
 // Valida que el enunciado NO contenga la solución, tautologías ni pistas de la respuesta correcta
@@ -437,19 +437,49 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     ...Array.from(globalBatchUsed).map(s => s.toLowerCase().trim())
   ]);
 
-  // OP 1: Definiciones con paridad de longitud (variación máx. 35%) y coherencia
-  const sameSubdomainPairs = allConceptPairs
-    .filter(cp => {
-      const cpSub = getSectionSubdomain(cp.heading, cp.definition);
-      const cpSem = getSemanticType(cp.definition);
-      const def = cp.definition.toLowerCase().trim();
-      const lenDiff = Math.abs(cp.definition.length - targetLength);
-      return !used.has(def) && isCoherent(cp.definition) && (cpSub === targetSubdomain || isCoherent(cp.definition)) && cpSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
-    })
-    .sort(() => 0.5 - Math.random());
+  // OP 1: TÉCNICA DEL DISTRACTOR FINO / MUTACIONES SINTÁCTICAS DEL PROPIO HECHO (MÁXIMO RIGOR)
+  const mutations = [];
+  const text = correctOpt;
 
-  sameSubdomainPairs.forEach(cp => {
-    const cand = safeTruncateText(cp.definition, 115);
+  // Mutación de cifras y plazos dentro de la misma frase
+  const numMatch = text.match(/\b(\d+)\b/);
+  if (numMatch) {
+    const n = parseInt(numMatch[1], 10);
+    if (n > 0 && n < 100) {
+      mutations.push(text.replace(/\b\d+\b/, (n * 2).toString()));
+      mutations.push(text.replace(/\b\d+\b/, (Math.max(1, Math.floor(n / 2))).toString()));
+      mutations.push(text.replace(/\b\d+\b/, (n + 2).toString()));
+      mutations.push(text.replace(/\b\d+\b/, (n + 5).toString()));
+    }
+  }
+
+  // Mutaciones de canales, modalidades o permisos
+  if (/fama|catálogo|online|electrónico|telemático/i.test(text)) {
+    mutations.push(text.replace(/fama|catálogo|online|electrónico|telemático/gi, 'únicamente de forma presencial en el mostrador de la biblioteca'));
+  }
+  if (/presencial|mostrador/i.test(text)) {
+    mutations.push(text.replace(/presencial|mostrador/gi, 'exclusivamente a través del catálogo automatizado FAMA'));
+  }
+  if (/rector/i.test(text)) {
+    mutations.push(text.replace(/rector/gi, 'Consejo de Gobierno'));
+    mutations.push(text.replace(/rector/gi, 'Gerente'));
+  }
+  if (/consejo de gobierno/i.test(text)) {
+    mutations.push(text.replace(/consejo de gobierno/gi, 'Rector/a'));
+    mutations.push(text.replace(/consejo de gobierno/gi, 'Consejo Social'));
+  }
+  if (/gerente/i.test(text)) {
+    mutations.push(text.replace(/gerente/gi, 'Vicerrector/a competente'));
+  }
+  if (/gratuito/i.test(text)) {
+    mutations.push(text.replace(/gratuito/gi, 'sujeto a precio público'));
+  }
+  if (/se pueden|se podrá|permite/i.test(text)) {
+    mutations.push(text.replace(/se pueden|se podrá|permite/gi, 'no se autorizan ni se permiten'));
+  }
+
+  mutations.forEach(m => {
+    const cand = safeTruncateText(m, 220);
     if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
       distractors.push(cand);
       used.add(cand.toLowerCase());
@@ -457,20 +487,20 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
-  // OP 2: Párrafos limpios con paridad de longitud y coherencia de dominio
+  // OP 2: Definiciones del MISMO subdominio exacto con paridad de longitud
   if (distractors.length < 3) {
-    const sameSubdomainParas = allCleanParas
-      .filter(p => {
-        const pSub = getSectionSubdomain('', p);
-        const pSem = getSemanticType(p);
-        const pClean = p.trim();
-        const lenDiff = Math.abs(pClean.length - targetLength);
-        return pClean.length > 20 && !isMarketingOrHTML(pClean) && isCoherent(pClean) && (pSub === targetSubdomain || isCoherent(pClean)) && pSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
+    const sameSubdomainPairs = allConceptPairs
+      .filter(cp => {
+        const cpSub = getSectionSubdomain(cp.heading, cp.definition);
+        const cpSem = getSemanticType(cp.definition);
+        const def = cp.definition.toLowerCase().trim();
+        const lenDiff = Math.abs(cp.definition.length - targetLength);
+        return !used.has(def) && isCoherent(cp.definition) && cpSub === targetSubdomain && cpSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
       })
       .sort(() => 0.5 - Math.random());
 
-    sameSubdomainParas.forEach(p => {
-      const cand = safeTruncateText(p, 115);
+    sameSubdomainPairs.forEach(cp => {
+      const cand = safeTruncateText(cp.definition, 220);
       if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
         distractors.push(cand);
         used.add(cand.toLowerCase());
@@ -479,51 +509,24 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     });
   }
 
-  // OP 3: Mutaciones sintácticas paralelas del propio texto correcto
+  // OP 3: Párrafos limpios de la MISMA sección exacta
   if (distractors.length < 3) {
-    const mutations = [];
-    if (/rector/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/rector/gi, 'Consejo de Gobierno'));
-      mutations.push(correctOpt.replace(/rector/gi, 'Gerente'));
-    }
-    if (/consejo de gobierno/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/consejo de gobierno/gi, 'Rector/a'));
-      mutations.push(correctOpt.replace(/consejo de gobierno/gi, 'Consejo Social'));
-    }
-    if (/gerente/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/gerente/gi, 'Vicerrector/a competente'));
-    }
-    if (/gratuito/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/gratuito/gi, 'sujeto a precio público'));
-    }
-    if (/presencial/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/presencial/gi, 'exclusivamente telemático'));
-    }
-    if (/anual/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/anual/gi, 'semestral'));
-    }
-    if (/obligatorio/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/obligatorio/gi, 'facultativo u opcional'));
-    }
-    if (/mayoría absoluta/i.test(correctOpt)) {
-      mutations.push(correctOpt.replace(/mayoría absoluta/gi, 'mayoría simple'));
-    }
+    const sameSubdomainParas = allCleanParas
+      .filter(p => {
+        const pSub = getSectionSubdomain('', p);
+        const pSem = getSemanticType(p);
+        const pClean = p.trim();
+        const lenDiff = Math.abs(pClean.length - targetLength);
+        return pClean.length > 20 && !isMarketingOrHTML(pClean) && isCoherent(pClean) && pSub === targetSubdomain && pSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
+      })
+      .sort(() => 0.5 - Math.random());
 
-    mutations.forEach(m => {
-      if (distractors.length < 3 && !used.has(m.toLowerCase()) && isCoherent(m)) {
-        distractors.push(m);
-        used.add(m.toLowerCase());
-      }
-    });
-  }
-
-  // OP 4: Banco predefinido coherente (solo como último recurso)
-  if (distractors.length < 3) {
-    const subPool = (DOMAIN_DISTRACTORS[targetSubdomain] || DOMAIN_DISTRACTORS.ambito_aplicacion).sort(() => 0.5 - Math.random());
-    subPool.forEach(item => {
-      if (distractors.length < 3 && !used.has(item.toLowerCase()) && isCoherent(item)) {
-        distractors.push(item);
-        used.add(item.toLowerCase());
+    sameSubdomainParas.forEach(p => {
+      const cand = safeTruncateText(p, 220);
+      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
+        distractors.push(cand);
+        used.add(cand.toLowerCase());
+        globalBatchUsed.add(cand.toLowerCase());
       }
     });
   }
