@@ -336,15 +336,49 @@ export function extractTopicSummary(markdownText) {
   const sections = parseSectionsFromMarkdown(markdownText);
   if (!sections || sections.length === 0) return '';
   
-  const highlights = [];
-  sections.slice(0, 4).forEach(sec => {
-    if (sec.paragraphs && sec.paragraphs.length > 0) {
-      const firstPara = sec.paragraphs[0];
-      highlights.push(`<strong>${sec.title}:</strong> ${firstPara}`);
+  const summaryBlocks = [];
+
+  sections.forEach(sec => {
+    if (!sec.paragraphs || sec.paragraphs.length === 0) return;
+    
+    // Unir párrafos de la sección resolviendo frases que terminan en ':' o ';'
+    const joinedParagraphs = [];
+    let buffer = '';
+
+    sec.paragraphs.forEach(p => {
+      const cleanP = p.trim();
+      if (!cleanP) return;
+
+      if (buffer) {
+        buffer += ' ' + cleanP;
+        if (!cleanP.endsWith(':') && !cleanP.endsWith(';')) {
+          joinedParagraphs.push(buffer);
+          buffer = '';
+        }
+      } else if (cleanP.endsWith(':') || cleanP.endsWith(';')) {
+        buffer = cleanP;
+      } else {
+        joinedParagraphs.push(cleanP);
+      }
+    });
+
+    if (buffer) {
+      joinedParagraphs.push(buffer);
+    }
+
+    if (joinedParagraphs.length > 0) {
+      // Tomar hasta 2 explicaciones clave completas por sección
+      const fullText = joinedParagraphs.slice(0, 3).join(' ');
+      summaryBlocks.push(`
+        <div style="margin-bottom: 16px; border-bottom: 1px dashed #cbd5e1; padding-bottom: 12px;">
+          <strong style="color: #065f46; font-size: 1.05rem; display: block; margin-bottom: 4px;">📌 ${sec.title}</strong>
+          <div style="color: #334155; line-height: 1.6; font-size: 0.95rem;">${fullText}</div>
+        </div>
+      `);
     }
   });
 
-  return highlights.join('<br/><br/>');
+  return summaryBlocks.join('');
 }
 
 // Algoritmo de similitud Levenshtein / Jaccard
