@@ -821,7 +821,7 @@ function createStructuredQuestion(rawQText, rawOptions, rawCorrectIdx, rawFact, 
     question: sanitizeText(rawQText),
     options: formattedOptions,
     correctAnswer: newCorrectIndex,
-    explanation: `Norma / Texto de referencia (${heading}): "${sanitizeText(rawFact).substring(0, 180)}..."`,
+    explanation: `Fundamento legal (${heading}): "${sanitizeText(rawFact).replace(/\s+/g, ' ').trim()}"`,
     topicId: topicId.toString(),
     isGenerated: true,
     createdAt: new Date().toISOString()

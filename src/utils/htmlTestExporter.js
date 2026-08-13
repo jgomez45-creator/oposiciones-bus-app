@@ -56,6 +56,24 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
           card.appendChild(label);
         });
 
+        // Caja de Explicación Pedagógica del Concepto Clave
+        if (q.explanation) {
+          const expBox = document.createElement('div');
+          expBox.id = 'explanation-' + index;
+          expBox.className = 'explanation-box';
+          expBox.style.display = 'none';
+          expBox.style.marginTop = '14px';
+          expBox.style.padding = '12px 16px';
+          expBox.style.backgroundColor = '#f0fdf4';
+          expBox.style.borderLeft = '4px solid #16a34a';
+          expBox.style.borderRadius = '6px';
+          expBox.style.color = '#166534';
+          expBox.style.fontSize = '0.93rem';
+          expBox.style.lineHeight = '1.5';
+          expBox.innerHTML = `<strong>💡 Concepto Clave y Justificación Legal:</strong><br/>\${q.explanation}`;
+          card.appendChild(expBox);
+        }
+
         form.appendChild(card);
       });
     }
@@ -101,6 +119,10 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
             const lCorr = document.getElementById('label-' + index + '-' + correct);
             if (lCorr) lCorr.classList.add('correct');
           }
+
+          // Mostrar la caja explicativa del concepto clave al corregir
+          const expDiv = document.getElementById('explanation-' + index);
+          if (expDiv) expDiv.style.display = 'block';
 
           detailedResults.push({
             questionId: q.id,
