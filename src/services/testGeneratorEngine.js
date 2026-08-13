@@ -608,9 +608,12 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       factPool.push({ text: `Regulación oficial aplicable a ${topicTitle}`, heading: `Tema ${topicId}` });
     }
 
-    const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
+    const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random()).slice(0, 20);
+    const samplePairs = allConceptPairs.slice(0, 30);
+    const sampleParas = allCleanParas.slice(0, 30);
+
     let idx = 0;
-    while (generated.length < count && idx < shuffledFacts.length * 4) {
+    while (generated.length < count && idx < Math.min(25, shuffledFacts.length * 3)) {
       const factObj = shuffledFacts[idx % shuffledFacts.length];
       idx++;
       const factText = factObj.text;
@@ -629,7 +632,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         if (cleanShortcut && actionDesc.length > 5) {
           const qText = `En ${normName}, ¿cuál de las siguientes opciones describe exactamente la función realizada por el atajo de teclado "${cleanShortcut}"?`;
           const correctOpt = actionDesc.substring(0, 110);
-          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
+          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, samplePairs, sampleParas);
           const options = [correctOpt, ...wrongDistractors];
           newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
         }
@@ -666,7 +669,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
           if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
             const qText = buildExamQuestionStem(normName, concept, heading, idx);
             const correctOpt = safeTruncateText(definition, 115);
-            const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
+            const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, samplePairs, sampleParas, globalBatchUsed);
             const options = [correctOpt, ...wrongDistractors];
             newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
           }
@@ -675,7 +678,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
           if (sentence.length > 30) {
             const qText = buildExamQuestionStem(normName, heading, heading, idx);
             const correctOpt = safeTruncateText(sentence, 120);
-            const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
+            const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, samplePairs, sampleParas, globalBatchUsed);
             const options = [correctOpt, ...wrongDistractors];
             newQ = createStructuredQuestion(qText, options, 0, sentence, heading, topicId);
           }
@@ -703,7 +706,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const normName = getOfficialNormName(topicId, topicTitle, sectionLabel, sampleFact);
       const qText = buildExamQuestionStem(normName, cleanStemExcerpt(sectionLabel), sectionLabel, fallbackNum);
       const correctOpt = sampleFact.substring(0, 120);
-      const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
+      const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, samplePairs, sampleParas);
       const options = [correctOpt, ...wrongDistractors];
       const newQ = createStructuredQuestion(qText, options, 0, sampleFact, sectionLabel, topicId);
       generated.push(newQ);
