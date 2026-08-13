@@ -41,6 +41,7 @@ import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
+import { downloadTestAsHTML } from '../utils/htmlTestExporter';
 
 export default function AdminPanel({ topics }) {
   const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank' | 'email' | 'activity'
@@ -85,6 +86,29 @@ export default function AdminPanel({ topics }) {
     });
     return () => { if (unsub) unsub(); };
   }, []);
+
+  const handleExportToHTML = (item) => {
+    const emailsInput = window.prompt(`Exportando batería: "${item.title}"\n\nIntroduce los identificadores o emails de los alumnos (separados por comas):`);
+    if (!emailsInput) return;
+    
+    const emails = emailsInput.split(',').map(e => e.trim()).filter(e => e);
+    if (emails.length === 0) return;
+    
+    let questionsToExport = item.questions;
+    if (typeof questionsToExport === 'string') {
+      try { questionsToExport = JSON.parse(questionsToExport); } catch(e){}
+    }
+    
+    if (!Array.isArray(questionsToExport) || questionsToExport.length === 0) {
+      alert("Esta batería no tiene preguntas guardadas o el formato es incorrecto.");
+      return;
+    }
+
+    emails.forEach(email => {
+      downloadTestAsHTML(questionsToExport, item.title, email);
+    });
+    alert(`Se han generado y descargado ${emails.length} archivos HTML personalizados.`);
+  };
 
   // Editions & Modifications State
   const [editions, setEditions] = useState([]);
@@ -1162,6 +1186,14 @@ export default function AdminPanel({ topics }) {
                           style={{ padding: '6px 12px', background: 'rgba(59, 130, 246, 0.2)', border: '1px solid #3b82f6', color: '#60a5fa', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '700', cursor: 'pointer' }}
                         >
                           ✏️ Editar
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleExportToHTML(item)}
+                          style={{ padding: '6px 12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid #10b981', color: '#34d399', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '700', cursor: 'pointer' }}
+                          title="Descargar HTML offline para enviar a alumnos"
+                        >
+                          📧 Exportar HTML
                         </button>
                         {!item.isDefault && (
                           <button

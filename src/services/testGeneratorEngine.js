@@ -31,11 +31,15 @@ function isMarketingOrHTML(line) {
   if (!line) return true;
   const lower = line.toLowerCase();
   return (
-    lower.includes('<p') || lower.includes('<div') || lower.includes('class=') || lower.includes('style=') ||
+    lower.includes('<p') || lower.includes('<div') || lower.includes('<ul') || lower.includes('<li') || lower.includes('<a') ||
+    lower.includes('class=') || lower.includes('style=') || lower.includes('href=') ||
     lower.includes('app-promo-banner') || lower.includes('header-promo') || lower.includes('mid-promo') ||
     lower.includes('estudia y optimiza') || lower.includes('modo test') || lower.includes('flashcards') ||
     lower.includes('tarjetas de memorización') || lower.includes('repaso rápido') || lower.includes('pon a prueba') ||
-    lower.includes('no te quedes solo') || lower.includes('accede a oposiciones-bus-app') || lower.startsWith('http')
+    lower.includes('no te quedes solo') || lower.includes('accede a oposiciones-bus-app') || lower.startsWith('http') ||
+    lower.includes('complementa tu estudio') || lower.includes('preguntas por tema') || lower.includes('simulacros predefinidos') ||
+    lower.includes('exámenes reales') || lower.includes('simulacros infinitos') || lower.includes('repaso de fallos') ||
+    lower.includes('oposiciones-bus-app.vercel.app')
   );
 }
 
@@ -246,6 +250,9 @@ export function parseSectionsFromMarkdown(markdownText) {
   lines.forEach(line => {
     const trimmed = line.trim();
     if (isMarketingOrHTML(trimmed)) return;
+    
+    // Ignorar tablas Markdown porque no forman frases con sentido completo
+    if (/^\|.*\|$/.test(trimmed)) return;
 
     if (/^#{1,3}\s+/.test(trimmed)) {
       const titleText = cleanHeadingTitle(trimmed.replace(/^#+\s*/, ''));
@@ -253,7 +260,13 @@ export function parseSectionsFromMarkdown(markdownText) {
         if (currentParas.length > 0 && currentTitle) {
           sections.push({ title: currentTitle, paragraphs: currentParas });
         }
-        currentTitle = titleText;
+        
+        const lowerTitle = titleText.toLowerCase();
+        if (lowerTitle.includes('bibliografía') || lowerTitle.includes('bibliografia') || lowerTitle.includes('anexo') || lowerTitle === 'notas') {
+          currentTitle = ''; // Ignorar esta sección
+        } else {
+          currentTitle = titleText;
+        }
         currentParas = [];
       }
     } else {
