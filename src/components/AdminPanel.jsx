@@ -1960,7 +1960,7 @@ export default function AdminPanel({ topics }) {
                       }
 
                       downloadTestAsHTML(generatedBatch, topicObj.title, '', 'oposiciones-bus-app', summaryText);
-                      alert(`¡Archivo HTML interactivo descargado!\n\nPuedes adjuntar este único archivo por correo a 1 o varios alumnos. Al abrirlo, cada alumno escribirá su nombre o email para registrar su nota en tu panel.`);
+                      alert(`¡Archivo HTML interactivo descargado!\n\nLa recogida de datos es 100% invisible para el alumno (sin formularios ni preguntas en pantalla). Al realizar el test, su resultado se registrará silenciosamente en tu panel.`);
                     }}
                     style={{
                       padding: '10px 16px',

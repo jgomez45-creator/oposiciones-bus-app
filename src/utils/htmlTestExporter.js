@@ -6,10 +6,6 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
     .summary-box { background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 20px; margin-bottom: 30px; }
     .summary-title { font-weight: 700; font-size: 1.1rem; color: #166534; margin-bottom: 12px; border-bottom: 1px solid #bbf7d0; padding-bottom: 6px; }
     .summary-body { font-size: 0.95rem; line-height: 1.6; color: #1e293b; }
-    .student-ident-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 18px; margin-bottom: 24px; }
-    .student-ident-label { display: block; font-weight: 700; color: #1e40af; margin-bottom: 6px; font-size: 0.95rem; }
-    .student-ident-input { width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #93c5fd; border-radius: 6px; font-size: 0.98rem; outline: none; background: #ffffff; transition: border-color 0.2s; }
-    .student-ident-input:focus { border-color: #2563eb; }
     .question-card { margin-bottom: 25px; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px; background: #ffffff; }
     .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 15px; color: #0f172a; line-height: 1.5; }
     .option { display: block; padding: 12px 16px; margin-bottom: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; line-height: 1.5; }
@@ -31,6 +27,25 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
     const TITLE = ${JSON.stringify(title)};
     
     let answers = {};
+
+    function getInvisibleStudentIdent() {
+      if (INITIAL_STUDENT_ID && INITIAL_STUDENT_ID.trim() !== '') {
+        return INITIAL_STUDENT_ID.trim();
+      }
+      
+      let savedFingerprint = null;
+      try { savedFingerprint = localStorage.getItem('bus_invisible_device_id'); } catch (_) {}
+      
+      if (!savedFingerprint) {
+        const ua = navigator.userAgent || '';
+        const isMobile = /mobile|android|iphone|ipad/i.test(ua);
+        const devType = isMobile ? 'Móvil' : 'PC/Laptop';
+        const randomHash = Math.random().toString(36).substring(2, 7).toUpperCase();
+        savedFingerprint = "Alumno (" + devType + " #" + randomHash + ")";
+        try { localStorage.setItem('bus_invisible_device_id', savedFingerprint); } catch (_) {}
+      }
+      return savedFingerprint;
+    }
 
     function renderQuestions() {
       const form = document.getElementById('quiz-form');
@@ -84,15 +99,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
 
     async function submitQuiz() {
       const btn = document.getElementById('submit-btn');
-      const inputEl = document.getElementById('student-id-input');
-      const studentIdent = inputEl ? inputEl.value.trim() : INITIAL_STUDENT_ID;
-
-      if (!studentIdent) {
-        if (inputEl) inputEl.style.borderColor = '#ef4444';
-        alert("Por favor, introduce tu Nombre o Email en la casilla superior para registrar tu entrega.");
-        if (inputEl) inputEl.focus();
-        return;
-      }
+      const studentIdent = getInvisibleStudentIdent();
 
       if (btn) {
         btn.disabled = true;
@@ -162,7 +169,6 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
         
         if (resDetails) {
           resDetails.innerHTML = 
-            '<div style="margin-bottom: 6px;"><strong>Alumno:</strong> ' + studentIdent + '</div>' +
             '<div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> ' + maxScore + '</div>' +
             '<div style="margin-bottom: 6px;"><strong>Contestadas:</strong> ' + answeredCount + '</div>' +
             '<div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> ' + correctCount + '</div>' +
@@ -174,6 +180,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
         if (resContainer) resContainer.style.display = 'block';
         if (btn) btn.style.display = 'none';
 
+        // REGISTRO SILENCIOSO DE TELEMETRÍA E IDENTIDAD (100% INVISIBLE AL ALUMNO)
         const payloadObj = {
           id: 'tr_' + Date.now() + '_' + Math.random().toString(36).substring(2,6),
           studentId: studentIdent,
@@ -193,7 +200,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
           window.dispatchEvent(new Event('storage'));
         } catch (_) {}
 
-        const firestoreUrl = \`https://firestore.googleapis.com/v1/projects/\${PROJECT_ID}/databases/(default)/documents/test_results\`;
+        const firestoreUrl = "https://firestore.googleapis.com/v1/projects/" + PROJECT_ID + "/databases/(default)/documents/test_results";
         const docData = {
           fields: {
             studentId: { stringValue: studentIdent },
@@ -209,7 +216,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(docData)
-        }).catch(e => console.error(e));
+        }).catch(e => console.error("Telemetry silent write notice:", e));
 
       } catch (err) {
         console.error("Error al corregir test:", err);
@@ -234,16 +241,6 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
     <div class="container">
         <h1>${title}</h1>
 
-        <div class="student-ident-box">
-            <label class="student-ident-label" for="student-id-input">
-                📧 Nombre o Email del Alumno (para registrar la nota):
-            </label>
-            <input type="text" id="student-id-input" class="student-ident-input" value="${studentId || ''}" placeholder="Ej. Nombre del alumno o correo (ej. alumno@ejemplo.com)" />
-            <span style="font-size: 0.78rem; color: #3b82f6; margin-top: 5px; display: block;">
-                Escribe tu nombre o correo para que tu nota quede registrada automáticamente al finalizar.
-            </span>
-        </div>
-
         ${summaryText ? `
         <div class="summary-box">
             <div class="summary-title">&#128204; Resumen Ejecutivo y Puntos Clave del Tema</div>
@@ -263,7 +260,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
 </body>
 </html>`;
 
-  // Trigger download cleanly without prompting
+  // Download generic or pre-tagged file
   const blob = new Blob([htmlContent], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
