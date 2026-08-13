@@ -57,22 +57,21 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         });
 
         // Caja de Explicación Pedagógica del Concepto Clave
-        if (q.explanation) {
-          const expBox = document.createElement('div');
-          expBox.id = 'explanation-' + index;
-          expBox.className = 'explanation-box';
-          expBox.style.display = 'none';
-          expBox.style.marginTop = '14px';
-          expBox.style.padding = '12px 16px';
-          expBox.style.backgroundColor = '#f0fdf4';
-          expBox.style.borderLeft = '4px solid #16a34a';
-          expBox.style.borderRadius = '6px';
-          expBox.style.color = '#166534';
-          expBox.style.fontSize = '0.93rem';
-          expBox.style.lineHeight = '1.5';
-          expBox.innerHTML = `<strong>💡 Concepto Clave y Justificación Legal:</strong><br/>\${q.explanation}`;
-          card.appendChild(expBox);
-        }
+        const explanationText = q.explanation || "Fundamento de la norma aplicable según la regulación oficial de la BUS.";
+        const expBox = document.createElement('div');
+        expBox.id = 'explanation-' + index;
+        expBox.className = 'explanation-box';
+        expBox.style.display = 'none';
+        expBox.style.marginTop = '14px';
+        expBox.style.padding = '12px 16px';
+        expBox.style.backgroundColor = '#f0fdf4';
+        expBox.style.borderLeft = '4px solid #16a34a';
+        expBox.style.borderRadius = '6px';
+        expBox.style.color = '#166534';
+        expBox.style.fontSize = '0.93rem';
+        expBox.style.lineHeight = '1.5';
+        expBox.innerHTML = "<strong>Concepto Clave y Justificación Legal:</strong><br/>" + explanationText;
+        card.appendChild(expBox);
 
         form.appendChild(card);
       });
@@ -144,18 +143,17 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         const percentage = Math.max(0, Math.round((finalScore / maxScore) * 100));
 
         if (resScore) {
-          resScore.innerText = \`Nota Final: \${finalScore} / \${maxScore} (\${percentage}%)\`;
+          resScore.innerText = "Nota Final: " + finalScore + " / " + maxScore + " (" + percentage + "%)";
         }
         
         if (resDetails) {
-          resDetails.innerHTML = \`
-            <div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> \${maxScore}</div>
-            <div style="margin-bottom: 6px;"><strong>Contestadas:</strong> \${answeredCount}</div>
-            <div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> \${correctCount}</div>
-            <div style="margin-bottom: 6px; color: #991b1b;"><strong>Errores (-0.33):</strong> \${incorrectCount}</div>
-            <div style="margin-bottom: 6px; color: #854d0e;"><strong>No contestadas:</strong> \${blankCount}</div>
-            <div style="margin-top: 10px; font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 6px;"><strong>Porcentaje neto de acierto:</strong> \${percentage}%</div>
-          \`;
+          resDetails.innerHTML = 
+            '<div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> ' + maxScore + '</div>' +
+            '<div style="margin-bottom: 6px;"><strong>Contestadas:</strong> ' + answeredCount + '</div>' +
+            '<div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> ' + correctCount + '</div>' +
+            '<div style="margin-bottom: 6px; color: #991b1b;"><strong>Errores (-0.33):</strong> ' + incorrectCount + '</div>' +
+            '<div style="margin-bottom: 6px; color: #854d0e;"><strong>No contestadas:</strong> ' + blankCount + '</div>' +
+            '<div style="margin-top: 10px; font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 6px;"><strong>Porcentaje neto de acierto:</strong> ' + percentage + '%</div>';
         }
         
         if (resContainer) resContainer.style.display = 'block';
@@ -204,7 +202,7 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         <h1>${title}</h1>
         ${summaryText ? `
         <div class="summary-box">
-            <div class="summary-title">📌 Resumen Ejecutivo y Puntos Clave del Tema</div>
+            <div class="summary-title">&#128204; Resumen Ejecutivo y Puntos Clave del Tema</div>
             <div class="summary-body">${summaryText}</div>
         </div>
         ` : ''}
@@ -212,7 +210,7 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         <button id="submit-btn" class="btn" onclick="submitQuiz()">Corregir y Finalizar</button>
         
         <div id="result-container" class="result-container">
-            <div style="font-size: 1.3rem; font-weight: 800; color: #065f46; margin-bottom: 10px;">📊 Test Completado</div>
+            <div style="font-size: 1.3rem; font-weight: 800; color: #065f46; margin-bottom: 10px;">&#128202; Test Completado</div>
             <div id="result-score" class="result-score"></div>
             <div id="result-details" style="text-align: left; background: #ffffff; padding: 18px; border-radius: 8px; border: 1px solid #a7f3d0; margin-top: 15px;"></div>
         </div>
