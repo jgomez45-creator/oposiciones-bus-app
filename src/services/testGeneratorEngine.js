@@ -533,6 +533,25 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     }
   });
 
+  // 4. Pool de respaldo normativo garantizado (evita cualquier fallo por falta de distractores)
+  if (distractors.length < 3) {
+    const defaultPool = [
+      `Regulación aplicable aprobada por resolución de la Secretaría General de la Universidad de Sevilla.`,
+      `Disposición general dictada conforme a los Estatutos oficiales de la Universidad de Sevilla (Decreto 98/2025).`,
+      `Instrucción técnica de servicio aprobada por la Dirección de la Biblioteca de la Universidad de Sevilla (BUS).`,
+      `Criterio normativo aplicable al Personal Técnico de Gestión y de Administración y Servicios (PTGAS).`
+    ];
+
+    defaultPool.forEach(item => {
+      const cand = safeTruncateText(item, 250);
+      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
+        distractors.push(cand);
+        used.add(cand.toLowerCase());
+        globalBatchUsed.add(cand.toLowerCase());
+      }
+    });
+  }
+
   return distractors.slice(0, 3);
 }
 
