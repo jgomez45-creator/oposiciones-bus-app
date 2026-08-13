@@ -67,6 +67,11 @@ export default function App() {
   const [activeTopicId, setActiveTopicId] = useState(1);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [standaloneTestData, setStandaloneTestData] = useState(null);
+  const [loadingUrlTest, setLoadingUrlTest] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const params = new URLSearchParams(window.location.search);
+    return Boolean(params.get('t') || params.get('test') || params.get('testData'));
+  });
 
   // Check URL parameters for direct executable test link (?t=8471 or ?testData=...)
   useEffect(() => {
@@ -79,6 +84,7 @@ export default function App() {
           const sharedData = await firebaseService.getSharedTest(shortId);
           if (sharedData && Array.isArray(sharedData.questions) && sharedData.questions.length > 0) {
             setStandaloneTestData(sharedData);
+            setLoadingUrlTest(false);
             return;
           }
         }
@@ -89,10 +95,14 @@ export default function App() {
           const parsed = JSON.parse(decodedString);
           if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
             setStandaloneTestData(parsed);
+            setLoadingUrlTest(false);
+            return;
           }
         }
       } catch (e) {
         console.warn("Could not parse standalone test from URL", e);
+      } finally {
+        setLoadingUrlTest(false);
       }
     };
 
@@ -633,6 +643,19 @@ export default function App() {
             <span>Aceptar y Volver</span>
           </button>
         </div>
+      </div>
+    );
+  }
+
+  // Show elegant spinner while fetching short link test data from cloud
+  if (loadingUrlTest) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#090d16', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px', fontFamily: "'Inter', sans-serif" }}>
+        <div className="spinning" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Sparkles size={40} style={{ color: '#f59e0b' }} />
+        </div>
+        <div style={{ fontSize: '1.15rem', fontWeight: '800', color: '#fbbf24' }}>Cargando Test de Examen Oficial...</div>
+        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Conectando con la nube de la BUS Sevilla</div>
       </div>
     );
   }

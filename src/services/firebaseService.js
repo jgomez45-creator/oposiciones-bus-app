@@ -2328,13 +2328,25 @@ export const firebaseService = {
       localStorage.setItem(mockKey, JSON.stringify(map));
     } catch (_) {}
 
-    if (!isMock && db) {
-      try {
-        const docRef = doc(db, 'shared_tests', shortId);
-        await setDoc(docRef, docObj);
-      } catch (err) {
-        console.warn("saveSharedTest Firestore warning:", err);
-      }
+    try {
+      const firestoreUrl = `https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/shared_tests/${shortId}`;
+      const docData = {
+        fields: {
+          id: { stringValue: shortId },
+          title: { stringValue: docObj.title },
+          questionsJson: { stringValue: JSON.stringify(docObj.questions) },
+          summaryText: { stringValue: docObj.summaryText },
+          createdAt: { stringValue: docObj.createdAt }
+        }
+      };
+
+      await fetch(firestoreUrl, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(docData)
+      });
+    } catch (err) {
+      console.warn("saveSharedTest REST write warning:", err);
     }
 
     return shortId;
@@ -2350,16 +2362,24 @@ export const firebaseService = {
       if (map[shortId]) return map[shortId];
     } catch (_) {}
 
-    if (!isMock && db) {
-      try {
-        const docRef = doc(db, 'shared_tests', shortId);
-        const snap = await getDoc(docRef);
-        if (snap.exists()) {
-          return snap.data();
+    try {
+      const firestoreUrl = `https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/shared_tests/${shortId}`;
+      const res = await fetch(firestoreUrl);
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.fields) {
+          const f = json.fields;
+          const questionsJson = f.questionsJson ? f.questionsJson.stringValue : '[]';
+          return {
+            id: f.id ? f.id.stringValue : shortId,
+            title: f.title ? f.title.stringValue : 'Test de Evaluación de la BUS',
+            questions: JSON.parse(questionsJson),
+            summaryText: f.summaryText ? f.summaryText.stringValue : ''
+          };
         }
-      } catch (err) {
-        console.warn("getSharedTest Firestore warning:", err);
       }
+    } catch (err) {
+      console.warn("getSharedTest REST read warning:", err);
     }
 
     return null;
