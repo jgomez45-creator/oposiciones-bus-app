@@ -497,82 +497,62 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     ...Array.from(globalBatchUsed).map(s => s.toLowerCase().trim())
   ]);
 
-  // OP 1: TÉCNICA DEL DISTRACTOR FINO / MUTACIONES CON CONTROL RIGUROSO DE PLURALES Y GÉNERO
-  const mutations = [];
-  const text = correctOpt;
-
-  // Mutación de cifras y plazos dentro de la misma frase
-  const numMatch = text.match(/\b(\d+)\b/);
-  if (numMatch) {
-    const n = parseInt(numMatch[1], 10);
-    if (n > 0 && n < 100) {
-      mutations.push(text.replace(/\b\d+\b/, (n * 2).toString()));
-      mutations.push(text.replace(/\b\d+\b/, (Math.max(1, Math.floor(n / 2))).toString()));
-      mutations.push(text.replace(/\b\d+\b/, (n + 2).toString()));
-      mutations.push(text.replace(/\b\d+\b/, (n + 5).toString()));
+  // 1. PARA PREGUNTAS DE PLAZOS Y NÚMEROS: Mutaciones de cifras (exige saber la cifra exacta)
+  const isNumberQuestion = /\b(\d+)\b/.test(correctOpt) && correctOpt.length < 120;
+  if (isNumberQuestion) {
+    const numMatch = correctOpt.match(/\b(\d+)\b/);
+    if (numMatch) {
+      const n = parseInt(numMatch[1], 10);
+      if (n > 0 && n < 100) {
+        [n * 2, Math.max(1, Math.floor(n / 2)), n + 2, n + 5].forEach(num => {
+          const cand = safeTruncateText(correctOpt.replace(/\b\d+\b/, num.toString()), 250);
+          if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
+            distractors.push(cand);
+            used.add(cand.toLowerCase());
+            globalBatchUsed.add(cand.toLowerCase());
+          }
+        });
+      }
     }
   }
 
-  // Mutación de órganos con concordancia exacta de plurales (\b)
-  if (/\bRectores\b/i.test(text)) {
-    mutations.push(text.replace(/\bRectores\b/gi, 'Gerentes'));
-    mutations.push(text.replace(/\bRectores\b/gi, 'Vicerrectores'));
-    mutations.push(text.replace(/\bRectores\b/gi, 'Decanos'));
-  } else if (/\bRector\b/i.test(text)) {
-    mutations.push(text.replace(/\bRector\b/gi, 'Gerente'));
-    mutations.push(text.replace(/\bRector\b/gi, 'Vicerrector/a competente'));
-  }
-
-  if (/\bConsejo de Gobierno\b/i.test(text)) {
-    mutations.push(text.replace(/\bConsejo de Gobierno\b/gi, 'Rectorado'));
-    mutations.push(text.replace(/\bConsejo de Gobierno\b/gi, 'Consejo Social'));
-  }
-
-  if (/\bGerente\b/i.test(text)) {
-    mutations.push(text.replace(/\bGerente\b/gi, 'Vicerrector/a competente'));
-    mutations.push(text.replace(/\bGerente\b/gi, 'Rector/a'));
-  }
-
-  // Mutaciones de canales, modalidades o permisos
-  if (/fama|catálogo|online|electrónico|telemático/i.test(text)) {
-    mutations.push(text.replace(/fama|catálogo|online|electrónico|telemático/gi, 'únicamente de forma presencial en el mostrador de la biblioteca'));
-  }
-  if (/presencial|mostrador/i.test(text)) {
-    mutations.push(text.replace(/presencial|mostrador/gi, 'exclusivamente a través del catálogo automatizado FAMA'));
-  }
-  if (/gratuito/i.test(text)) {
-    mutations.push(text.replace(/gratuito/gi, 'sujeto a precio público'));
-  }
-  if (/se pueden|se podrá|permite/i.test(text)) {
-    mutations.push(text.replace(/se pueden|se podrá|permite/gi, 'no se autorizan ni se permiten'));
-  }
-  if (/docencia|investigación|aprendizaje/i.test(text)) {
-    mutations.push(text.replace(/\bdocencia\b/gi, 'gestión de recursos').replace(/\binvestigación\b/gi, 'transferencia tecnológica'));
-    mutations.push(text.replace(/\bdocencia y al aprendizaje\b/gi, 'extensión universitaria y servicios culturales'));
-  }
-  if (/principio organizativo|unidad funcional|patrimonio/i.test(text)) {
-    mutations.push(text.replace(/principio organizativo|unidad funcional/gi, 'modelo descentralizado por facultades independientes'));
-    mutations.push(text.replace(/dicta que todo|pertenece a/gi, 'establece que cada centro gestiona de forma autónoma'));
-  }
-
-  mutations.forEach(m => {
-    const cand = safeTruncateText(m, 250);
-    if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
-      distractors.push(cand);
-      used.add(cand.toLowerCase());
-      globalBatchUsed.add(cand.toLowerCase());
-    }
-  });
-
-  // Mutaciones estructurales de respaldo con concordancia asegurada
+  // 2. PARA PREGUNTAS CONCEPTUALES / DEFINICIONES: Usar conceptos REALES Y DISTINTOS del tema
+  // (Evita opciones repetidas/clonadas que solo cambian una palabra y afean el examen)
   if (distractors.length < 3) {
-    const fallbackMutations = [
-      text.replace(/\b(todas|todos|cada|cualquier)\b/i, 'únicamente las'),
-      text.replace(/\b(única|integrada|oficial)\b/i, 'autónoma y descentralizada')
-    ];
-    fallbackMutations.forEach(fm => {
-      const cand = safeTruncateText(fm, 250);
-      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
+    const distinctPairs = allConceptPairs
+      .filter(cp => {
+        const def = cp.definition.trim();
+        const defNorm = def.toLowerCase();
+        // Exigir que la opción sea un texto distinto (similitud < 65% respecto a la correcta)
+        const isTooSimilar = calculateSimilarity(defNorm, correctOpt.toLowerCase()) > 0.65;
+        return !used.has(defNorm) && isCoherent(def) && !isTooSimilar && def.length > 20;
+      })
+      .sort(() => 0.5 - Math.random());
+
+    distinctPairs.forEach(cp => {
+      const cand = safeTruncateText(cp.definition, 250);
+      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
+        distractors.push(cand);
+        used.add(cand.toLowerCase());
+        globalBatchUsed.add(cand.toLowerCase());
+      }
+    });
+  }
+
+  // 3. Párrafos limpios reales distintos del tema
+  if (distractors.length < 3) {
+    const distinctParas = allCleanParas
+      .filter(p => {
+        const pClean = p.trim();
+        const pNorm = pClean.toLowerCase();
+        const isTooSimilar = calculateSimilarity(pNorm, correctOpt.toLowerCase()) > 0.65;
+        return pClean.length > 25 && !isMarketingOrHTML(pClean) && isCoherent(pClean) && !used.has(pNorm) && !isTooSimilar;
+      })
+      .sort(() => 0.5 - Math.random());
+
+    distinctParas.forEach(p => {
+      const cand = safeTruncateText(p, 250);
+      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
         distractors.push(cand);
         used.add(cand.toLowerCase());
         globalBatchUsed.add(cand.toLowerCase());
