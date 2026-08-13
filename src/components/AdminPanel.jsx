@@ -310,7 +310,7 @@ export default function AdminPanel({ topics }) {
 
     try {
       await navigator.clipboard.writeText(finalUrl);
-      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace compacto y ejecutable:\n${finalUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.\n\nNota: Si Outlook bloquea la apertura (pantalla en blanco), indica a tus alumnos que copien el enlace y lo peguen en Chrome.`);
+      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace compacto y ejecutable:\n${finalUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail.\n\n🤫 TRUCO PARA RASTREAR AL ALUMNO (OPCIONAL):\nSi quieres que en tu Panel de Calificaciones salga el correo del alumno en lugar de "PC/Laptop #G5R3C", simplemente añade "&u=correo@alumno.com" al final del enlace cuando se lo envíes. (Ej: ${finalUrl}&u=juan@gmail.com)`);
     } catch (e) {
       console.error(e);
       alert("Error al copiar enlace.");

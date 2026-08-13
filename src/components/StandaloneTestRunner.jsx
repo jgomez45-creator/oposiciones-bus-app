@@ -72,16 +72,30 @@ export default function StandaloneTestRunner({ testData, onBack }) {
     setSubmitted(true);
     setSubmitting(false);
 
-    // Identificación silenciosa por huella de dispositivo
+    // Identificación silenciosa por huella de dispositivo o parámetro de URL
     let studentIdent = null;
-    try { studentIdent = localStorage.getItem('bus_invisible_device_id'); } catch (_) {}
+    
+    // 1. Si el profesor pasó el email oculto en la URL (ej: &u=julio@outlook.com)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const emailParam = urlParams.get('u') || urlParams.get('e') || urlParams.get('email');
+      if (emailParam) {
+        studentIdent = decodeURIComponent(emailParam);
+        localStorage.setItem('bus_invisible_device_id', studentIdent);
+      }
+    } catch (_) {}
+
+    // 2. Si no hay parámetro, usar el guardado o generar huella anónima
     if (!studentIdent) {
-      const ua = navigator.userAgent || '';
-      const isMobile = /mobile|android|iphone|ipad/i.test(ua);
-      const devType = isMobile ? 'Móvil' : 'PC/Laptop';
-      const randomHash = Math.random().toString(36).substring(2, 7).toUpperCase();
-      studentIdent = `Alumno (${devType} #${randomHash})`;
-      try { localStorage.setItem('bus_invisible_device_id', studentIdent); } catch (_) {}
+      try { studentIdent = localStorage.getItem('bus_invisible_device_id'); } catch (_) {}
+      if (!studentIdent) {
+        const ua = navigator.userAgent || '';
+        const isMobile = /mobile|android|iphone|ipad/i.test(ua);
+        const devType = isMobile ? 'Móvil' : 'PC/Laptop';
+        const randomHash = Math.random().toString(36).substring(2, 7).toUpperCase();
+        studentIdent = `Alumno (${devType} #${randomHash})`;
+        try { localStorage.setItem('bus_invisible_device_id', studentIdent); } catch (_) {}
+      }
     }
 
     // Telemetría silenciosa a Cloud Firestore / LocalStorage
