@@ -600,7 +600,14 @@ export default function AdminPanel({ topics }) {
         selectedSections: safeHeadings
       });
 
-      setGeneratedBatch(Array.isArray(newQuestions) ? newQuestions : []);
+      const batch = Array.isArray(newQuestions) ? newQuestions : [];
+      setGeneratedBatch(batch);
+
+      if (batch.length > 0) {
+        setTimeout(() => {
+          document.getElementById('batch-preview')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     } catch (err) {
       console.error('Handled error in handleGenerateNewBatch:', err);
       try {
@@ -612,6 +619,9 @@ export default function AdminPanel({ topics }) {
           selectedSections: 'all'
         });
         setGeneratedBatch(fallbackQuestions);
+        setTimeout(() => {
+          document.getElementById('batch-preview')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
       } catch (innerErr) {
         console.error('Fallback generation error:', innerErr);
       }
@@ -1894,7 +1904,7 @@ export default function AdminPanel({ topics }) {
 
           {/* PREVIEW & EDIT BATCH */}
           {generatedBatch.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div id="batch-preview" style={{ display: 'flex', flexDirection: 'column', gap: '16px', scrollMarginTop: '40px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h4 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Edit3 size={18} style={{ color: 'var(--secondary)' }} />
