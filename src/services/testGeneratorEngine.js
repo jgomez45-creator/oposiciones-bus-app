@@ -559,202 +559,160 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
  * Genera preguntas inéditas CON TRAMPAS DE COMPLEMENTO PROBABILÍSTICAS (50% DE VECES EN PLAZOS)
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
-  const generated = [];
-  const globalBatchUsed = new Set();
-  const allSections = parseSectionsFromMarkdown(markdownText);
+  try {
+    const generated = [];
+    const globalBatchUsed = new Set();
+    const allSections = parseSectionsFromMarkdown(markdownText);
+    
+    let targetSections = allSections;
+    if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
+      targetSections = allSections.filter(sec => {
+        const secNorm = stripAccents(sec.title);
+        return selectedSections.some(sel => {
+          const selNorm = stripAccents(sel);
+          return secNorm.includes(selNorm) || selNorm.includes(secNorm);
+        });
+      });
+      if (targetSections.length === 0) targetSections = allSections;
+    }
 
-  // Extraer todos los párrafos limpios del tema
-  const allCleanParas = [];
-  const allConceptPairs = [];
+    const allConceptPairs = [];
+    const allCleanParas = [];
 
-  allSections.forEach(sec => {
-    sec.paragraphs.forEach(para => {
-      if (!isMarketingOrHTML(para)) {
-        allCleanParas.push(para);
-        const parts = para.split(/[:–-]/);
-        if (parts.length >= 2) {
-          const rawConcept = parts[0].trim();
-          if (isValidConcept(rawConcept)) {
-            allConceptPairs.push({
-              concept: cleanHeadingTitle(rawConcept),
-              definition: parts.slice(1).join(' ').trim(),
-              heading: cleanHeadingTitle(sec.title)
-            });
+    allSections.forEach(sec => {
+      sec.paragraphs.forEach(para => {
+        if (!isMarketingOrHTML(para) && para.length > 20) {
+          allCleanParas.push(para);
+          const parts = para.split(/[:–-]/);
+          if (parts.length >= 2 && isValidConcept(parts[0])) {
+            const concept = cleanHeadingTitle(parts[0]);
+            const definition = sanitizeText(parts.slice(1).join(' '));
+            if (definition.length > 15) {
+              allConceptPairs.push({ concept, definition, heading: sec.title });
+            }
           }
         }
-      }
-    });
-  });
-
-  // 1. Filtrar las secciones estrictamente seleccionadas
-  let targetSections = allSections;
-  if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
-    targetSections = allSections.filter(sec => {
-      const secNorm = stripAccents(sec.title);
-      return selectedSections.some(sel => {
-        const selNorm = stripAccents(sel);
-        return secNorm.includes(selNorm) || selNorm.includes(secNorm);
       });
     });
 
-    if (targetSections.length === 0) {
-      targetSections = allSections.filter(sec => selectedSections.some(sel => sec.title.includes(sel) || sel.includes(sec.title)));
-    }
-  }
-
-  if (targetSections.length === 0) {
-    targetSections = allSections;
-  }
-
-  // 2. Extraer hechos y párrafos EXCLUSIVAMENTE de targetSections
-  const factPool = [];
-  targetSections.forEach(sec => {
-    sec.paragraphs.forEach(para => {
-      if (!isMarketingOrHTML(para) && para.length > 20) {
-        factPool.push({ text: para, heading: sec.title });
-      }
+    const factPool = [];
+    targetSections.forEach(sec => {
+      sec.paragraphs.forEach(para => {
+        if (!isMarketingOrHTML(para) && para.length > 20) {
+          factPool.push({ text: para, heading: sec.title });
+        }
+      });
     });
-  });
 
-  if (factPool.length === 0) {
-    factPool.push({ text: `Regulación oficial aplicable a ${topicTitle}`, heading: `Tema ${topicId}` });
-  }
-
-  const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
-
-  let idx = 0;
-  while (generated.length < count && idx < shuffledFacts.length * 4) {
-    const factObj = shuffledFacts[idx % shuffledFacts.length];
-    idx++;
-
-    const factText = factObj.text;
-    const heading = cleanHeadingTitle(factObj.heading);
-    const normName = getOfficialNormName(topicId, topicTitle, heading, factText);
-
-    let newQ = null;
-
-    const daysMatch = factText.match(/(\d+)\s+(días|meses|años|mes)/i);
-    const isShortcut = /Ctrl|Alt|Shift|F\d|teclado|atajo/i.test(factText);
-
-    // PATRÓN 1: ATAJOS DE TECLADO / INFORMÁTICA
-    if (isShortcut) {
-      const shortcutMatch = factText.match(/(Ctrl\s*\+\s*[^|\n]+|Alt\s*\+\s*[^|\n]+|Shift\s*\+\s*[^|\n]+)/i);
-      const cleanShortcut = shortcutMatch ? shortcutMatch[1].trim() : null;
-      
-      const parts = factText.split('|').map(s => s.trim()).filter(Boolean);
-      let actionDesc = parts.length >= 2 ? parts[parts.length - 1] : factText.split(':')[1] || factText;
-      actionDesc = sanitizeText(actionDesc);
-
-      if (cleanShortcut && actionDesc.length > 5) {
-        const qText = `En ${normName}, ¿cuál de las siguientes opciones describe exactamente la función realizada por el atajo de teclado "${cleanShortcut}"?`;
-        const correctOpt = actionDesc.substring(0, 110);
-        
-        const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
-        const options = [correctOpt, ...wrongDistractors];
-        
-        newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
-      }
+    if (factPool.length === 0) {
+      factPool.push({ text: `Regulación oficial aplicable a ${topicTitle}`, heading: `Tema ${topicId}` });
     }
-    // PATRÓN 2: FECHAS Y PLAZOS (Literalidad estricta)
-    else if (daysMatch) {
-      const num = daysMatch[1];
-      const numVal = parseInt(num, 10);
-      const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
-      
-      const hasNatural = /natural/i.test(factText);
-      const hasHabil = /hábiles|habil/i.test(factText);
-      
-      let baseWord = numVal === 1 ? 'día' : 'días';
-      let correctUnit = baseWord;
-      
-      if (hasNatural) {
-        correctUnit = `${baseWord} naturales`;
-      } else if (hasHabil) {
-        correctUnit = `${baseWord} hábiles`;
-      }
 
-      const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 45)}", ¿cuál es el plazo legalmente establecido?`;
-      const correctOpt = `${num} ${correctUnit}`;
-      
-      let wrong1, wrong2, wrong3;
-      
-      if (hasNatural || hasHabil) {
-        const oppositeUnit = hasNatural ? `${baseWord} hábiles` : `${baseWord} naturales`;
-        wrong1 = `${num} ${oppositeUnit}`; // Trampa de complemento
-        wrong2 = `${numVal * 2} ${correctUnit}`;
-        wrong3 = `${numVal * 2} ${oppositeUnit}`;
-      } else {
-        wrong1 = `${numVal * 2} ${correctUnit}`;
-        wrong2 = `${Math.max(1, Math.floor(numVal / 2))} ${correctUnit}`;
-        wrong3 = `${numVal + 5} ${correctUnit}`;
-      }
+    const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
+    let idx = 0;
+    while (generated.length < count && idx < shuffledFacts.length * 4) {
+      const factObj = shuffledFacts[idx % shuffledFacts.length];
+      idx++;
+      const factText = factObj.text;
+      const heading = cleanHeadingTitle(factObj.heading);
+      const normName = getOfficialNormName(topicId, topicTitle, heading, factText);
+      let newQ = null;
+      const daysMatch = factText.match(/(\d+)\s+(días|meses|años|mes)/i);
+      const isShortcut = /Ctrl|Alt|Shift|F\d|teclado|atajo/i.test(factText);
 
-      const options = [correctOpt, wrong1, wrong2, wrong3];
-      newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
-    } 
-    // PATRÓN 3: CONCEPTOS Y DEFINICIONES LEGALES / TÉCNICAS
-    else if (factText.length > 25) {
-      const parts = factText.split(/[:–-]/);
-      if (parts.length >= 2 && isValidConcept(parts[0])) {
-        const concept = cleanHeadingTitle(parts[0]);
-        const definition = sanitizeText(parts.slice(1).join(' '));
-        
-        if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
-          const qText = buildExamQuestionStem(normName, concept, heading, idx);
-          const correctOpt = safeTruncateText(definition, 115);
-          
-          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
+      if (isShortcut) {
+        const shortcutMatch = factText.match(/(Ctrl\s*\+\s*[^|\n]+|Alt\s*\+\s*[^|\n]+|Shift\s*\+\s*[^|\n]+)/i);
+        const cleanShortcut = shortcutMatch ? shortcutMatch[1].trim() : null;
+        const parts = factText.split('|').map(s => s.trim()).filter(Boolean);
+        let actionDesc = parts.length >= 2 ? parts[parts.length - 1] : factText.split(':')[1] || factText;
+        actionDesc = sanitizeText(actionDesc);
+        if (cleanShortcut && actionDesc.length > 5) {
+          const qText = `En ${normName}, ¿cuál de las siguientes opciones describe exactamente la función realizada por el atajo de teclado "${cleanShortcut}"?`;
+          const correctOpt = actionDesc.substring(0, 110);
+          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
           const options = [correctOpt, ...wrongDistractors];
-          
           newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
         }
-      } else {
-        const sentence = sanitizeText(factText.split('.')[0]);
-        if (sentence.length > 30) {
-          const qText = buildExamQuestionStem(normName, heading, heading, idx);
-          const correctOpt = safeTruncateText(sentence, 120);
-          
-          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
-          const options = [correctOpt, ...wrongDistractors];
-          
-          newQ = createStructuredQuestion(qText, options, 0, sentence, heading, topicId);
+      } else if (daysMatch) {
+        const num = daysMatch[1];
+        const numVal = parseInt(num, 10);
+        const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
+        const hasNatural = /natural/i.test(factText);
+        const hasHabil = /hábiles|habil/i.test(factText);
+        let baseWord = numVal === 1 ? 'día' : 'días';
+        let correctUnit = baseWord;
+        if (hasNatural) correctUnit = `${baseWord} naturales`;
+        else if (hasHabil) correctUnit = `${baseWord} hábiles`;
+        const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 45)}", ¿cuál es el plazo legalmente establecido?`;
+        const correctOpt = `${num} ${correctUnit}`;
+        let wrong1, wrong2, wrong3;
+        if (hasNatural || hasHabil) {
+          const oppositeUnit = hasNatural ? `${baseWord} hábiles` : `${baseWord} naturales`;
+          wrong1 = `${num} ${oppositeUnit}`;
+          wrong2 = `${numVal * 2} ${correctUnit}`;
+          wrong3 = `${numVal * 2} ${oppositeUnit}`;
+        } else {
+          wrong1 = `${numVal * 2} ${correctUnit}`;
+          wrong2 = `${Math.max(1, Math.floor(numVal / 2))} ${correctUnit}`;
+          wrong3 = `${numVal + 5} ${correctUnit}`;
+        }
+        const options = [correctOpt, wrong1, wrong2, wrong3];
+        newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
+      } else if (factText.length > 25) {
+        const parts = factText.split(/[:–-]/);
+        if (parts.length >= 2 && isValidConcept(parts[0])) {
+          const concept = cleanHeadingTitle(parts[0]);
+          const definition = sanitizeText(parts.slice(1).join(' '));
+          if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
+            const qText = buildExamQuestionStem(normName, concept, heading, idx);
+            const correctOpt = safeTruncateText(definition, 115);
+            const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
+            const options = [correctOpt, ...wrongDistractors];
+            newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
+          }
+        } else {
+          const sentence = sanitizeText(factText.split('.')[0]);
+          if (sentence.length > 30) {
+            const qText = buildExamQuestionStem(normName, heading, heading, idx);
+            const correctOpt = safeTruncateText(sentence, 120);
+            const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
+            const options = [correctOpt, ...wrongDistractors];
+            newQ = createStructuredQuestion(qText, options, 0, sentence, heading, topicId);
+          }
+        }
+      }
+      if (newQ) {
+        const correctOptClean = newQ.options[newQ.correctAnswer].replace(/^[A-D]\)\s*/, '');
+        const isLeakingAnswer = hasAnswerLeak(newQ.question, correctOptClean);
+        const dupCheck = checkDuplicated(newQ.question, topicId);
+        const isAlreadyInBatch = generated.some(g => calculateSimilarity(g.question, newQ.question) > 0.6);
+        const isValidBatchQ = hasCoherentOptions(newQ.options);
+        if (!isLeakingAnswer && !dupCheck.isDuplicated && !isAlreadyInBatch && isValidBatchQ) {
+          generated.push(newQ);
         }
       }
     }
-
-    if (newQ) {
-      const correctOptClean = newQ.options[newQ.correctAnswer].replace(/^[A-D]\)\s*/, '');
-      const isLeakingAnswer = hasAnswerLeak(newQ.question, correctOptClean);
-      const dupCheck = checkDuplicated(newQ.question, topicId);
-      const isAlreadyInBatch = generated.some(g => calculateSimilarity(g.question, newQ.question) > 0.6);
-      const isValidBatchQ = hasCoherentOptions(newQ.options);
-
-      if (!isLeakingAnswer && !dupCheck.isDuplicated && !isAlreadyInBatch && isValidBatchQ) {
-        generated.push(newQ);
-      }
+    const safeSections = targetSections.length > 0 ? targetSections : [{ title: `Tema ${topicId}`, paragraphs: [] }];
+    while (generated.length < count) {
+      const fallbackNum = generated.length + 1;
+      const targetSectionObj = safeSections[fallbackNum % safeSections.length] || { title: `Tema ${topicId}` };
+      const sectionLabel = cleanHeadingTitle(targetSectionObj.title);
+      const sampleFact = (targetSectionObj.paragraphs && targetSectionObj.paragraphs.length > 0)
+        ? sanitizeText(targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length])
+        : `Regulación oficial aplicable a la Universidad de Sevilla`;
+      const normName = getOfficialNormName(topicId, topicTitle, sectionLabel, sampleFact);
+      const qText = buildExamQuestionStem(normName, cleanStemExcerpt(sectionLabel), sectionLabel, fallbackNum);
+      const correctOpt = sampleFact.substring(0, 120);
+      const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
+      const options = [correctOpt, ...wrongDistractors];
+      const newQ = createStructuredQuestion(qText, options, 0, sampleFact, sectionLabel, topicId);
+      generated.push(newQ);
     }
+    return generated;
+  } catch (err) {
+    console.error("Error in generateNewQuestionsForTopic, returning robust fallback batch:", err);
+    return createEmergencyFallbackBatch(topicId, topicTitle, count);
   }
-
-  // Relleno de preguntas con fuentes oficiales y subdominios coherentes
-  while (generated.length < count) {
-    const fallbackNum = generated.length + 1;
-    const targetSectionObj = targetSections[fallbackNum % targetSections.length] || { title: `Tema ${topicId}` };
-    const sectionLabel = cleanHeadingTitle(targetSectionObj.title);
-    const sampleFact = (targetSectionObj.paragraphs && targetSectionObj.paragraphs.length > 0)
-      ? sanitizeText(targetSectionObj.paragraphs[fallbackNum % targetSectionObj.paragraphs.length])
-      : `Regulación oficial sobre la materia`;
-
-    const normName = getOfficialNormName(topicId, topicTitle, sectionLabel, sampleFact);
-    const qText = buildExamQuestionStem(normName, cleanStemExcerpt(sectionLabel), sectionLabel, fallbackNum);
-    const correctOpt = sampleFact.substring(0, 120);
-    const wrongDistractors = generateContextualDistractors(sampleFact, sectionLabel, correctOpt, topicId, allConceptPairs, allCleanParas);
-    const options = [correctOpt, ...wrongDistractors];
-    
-    const newQ = createStructuredQuestion(qText, options, 0, sampleFact, sectionLabel, topicId);
-    generated.push(newQ);
-  }
-
-  return generated;
 }
 
 function createStructuredQuestion(rawQText, rawOptions, rawCorrectIdx, rawFact, heading, topicId) {
