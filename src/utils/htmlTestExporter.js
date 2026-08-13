@@ -65,8 +65,10 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
       btn.disabled = true;
       btn.innerText = "Corrigiendo...";
 
-      let score = 0;
-      let detailedResults = [];
+      let answeredCount = 0;
+      let correctCount = 0;
+      let incorrectCount = 0;
+      let blankCount = 0;
 
       TEST_DATA.forEach((q, index) => {
         const selected = answers[index];
@@ -74,16 +76,20 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         
         let isCorrect = false;
         if (selected !== undefined) {
+          answeredCount++;
           if (selected === correct) {
             score += 1;
+            correctCount++;
             isCorrect = true;
             document.getElementById('label-' + index + '-' + selected).classList.add('correct');
           } else {
-            score -= 0.33; // Standard penalty, adjust if needed
+            score -= 0.33; // Descuento estándar de examen
+            incorrectCount++;
             document.getElementById('label-' + index + '-' + selected).classList.add('incorrect');
             document.getElementById('label-' + index + '-' + correct).classList.add('correct');
           }
         } else {
+          blankCount++;
           document.getElementById('label-' + index + '-' + correct).classList.add('correct');
         }
 
@@ -102,10 +108,23 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
       // Show results
       const resContainer = document.getElementById('result-container');
       const resScore = document.getElementById('result-score');
+      const resDetails = document.getElementById('result-details');
+      
       const finalScore = Math.max(0, score).toFixed(2);
       const maxScore = TEST_DATA.length;
+      const percentage = Math.max(0, Math.round((finalScore / maxScore) * 100));
+
+      resScore.innerText = \`Nota Final: \${finalScore} / \${maxScore} (\${percentage}%)\`;
       
-      resScore.innerText = \`\${finalScore} / \${maxScore}\`;
+      resDetails.innerHTML = \`
+        <div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> \${maxScore}</div>
+        <div style="margin-bottom: 6px;"><strong>Contestadas:</strong> \${answeredCount}</div>
+        <div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> \${correctCount}</div>
+        <div style="margin-bottom: 6px; color: #991b1b;"><strong>Errores (-0.33):</strong> \${incorrectCount}</div>
+        <div style="margin-bottom: 6px; color: #854d0e;"><strong>No contestadas:</strong> \${blankCount}</div>
+        <div style="margin-top: 10px; font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 6px;"><strong>Porcentaje neto de acierto:</strong> \${percentage}%</div>
+      \`;
+      
       resContainer.style.display = 'block';
       btn.style.display = 'none';
 
@@ -161,9 +180,9 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         <button id="submit-btn" class="btn" onclick="submitQuiz()">Corregir y Finalizar</button>
         
         <div id="result-container" class="result-container">
-            <div>Test Completado</div>
+            <div style="font-size: 1.3rem; font-weight: 800; color: #065f46; margin-bottom: 10px;">📊 Test Completado</div>
             <div id="result-score" class="result-score"></div>
-            <div>Tus respuestas han sido registradas.</div>
+            <div id="result-details" style="text-align: left; background: #ffffff; padding: 18px; border-radius: 8px; border: 1px solid #a7f3d0; margin-top: 15px;"></div>
         </div>
     </div>
     <script>${jsLogic}</script>
