@@ -144,7 +144,18 @@ export function parseSectionsFromMarkdown(markdownText) {
   lines.forEach(line => {
     const trimmed = line.trim();
     if (isMarketingOrHTML(trimmed)) return;
-    if (/^\|.*\|$/.test(trimmed)) return; // Ignorar tablas
+
+    // Formatear filas de tabla como viñetas explicativas en lugar de descartarlas
+    if (/^\|.*\|$/.test(trimmed)) {
+      const cells = trimmed.split('|').map(c => c.trim()).filter(Boolean);
+      if (cells.length >= 2 && !/^:?-+:?$/.test(cells[0].replace(/[\s-]/g, ''))) {
+        const rowText = cells.join(' | ');
+        if (!rowText.includes('---') && !/tipo de usuario/i.test(rowText)) {
+          currentParas.push(`Tabla: ${rowText}`);
+        }
+      }
+      return;
+    }
 
     if (/^#{1,3}\s+/.test(trimmed)) {
       const titleText = cleanHeadingTitle(trimmed.replace(/^#+\s*/, ''));
@@ -163,9 +174,14 @@ export function parseSectionsFromMarkdown(markdownText) {
         }
         currentParas = [];
       }
+    } else if (/^#{4,}\s+/.test(trimmed)) {
+      const subTitle = cleanHeadingTitle(trimmed.replace(/^#+\s*/, ''));
+      if (subTitle.length > 2) {
+        currentParas.push(`🔹 ${subTitle}:`);
+      }
     } else {
       const cleanPara = sanitizeText(trimmed.replace(/^[•*\-\d.]+\s*/, ''));
-      if (cleanPara.length > 30 && !isMarketingOrHTML(cleanPara)) {
+      if (cleanPara.length > 15 && !isMarketingOrHTML(cleanPara)) {
         currentParas.push(cleanPara);
       }
     }
@@ -184,6 +200,7 @@ export function extractTopicHeadings(markdownText) {
 
 /**
  * Genera el HTML del resumen filtrado o completo.
+ * Incluye TODOS los datos del apartado: plazos, sanciones, tablas y conceptos clave en formato viñeta.
  */
 export function extractTopicSummary(markdownText, selectedSections = 'all') {
   const allSections = parseSectionsFromMarkdown(markdownText);
@@ -208,13 +225,25 @@ export function extractTopicSummary(markdownText, selectedSections = 'all') {
   const summaryBlocks = [];
   sectionsToSummarize.forEach(sec => {
     if (!sec.paragraphs || sec.paragraphs.length === 0) return;
-    const validParas = sec.paragraphs.filter(p => p && p.length > 25);
+    const validParas = sec.paragraphs.filter(p => p && p.length > 10);
     if (validParas.length > 0) {
-      const fullText = validParas.slice(0, 3).join(' ');
+      const itemsHtml = validParas.map(p => {
+        let clean = p.trim();
+        if (clean.startsWith('🔹')) {
+          clean = `<strong style="color: #1e40af; display: block; margin-top: 6px; font-size: 0.98rem;">${clean.replace(/:$/, '')}</strong>`;
+        } else if (clean.startsWith('Tabla:')) {
+          const rawContent = clean.replace(/^Tabla:\s*/, '').replace(/\*\*/g, '');
+          clean = `<span style="display: inline-block; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 4px; padding: 2px 8px; font-family: monospace; font-size: 0.88rem; color: #166534;">📊 ${rawContent}</span>`;
+        } else if (clean.includes(':')) {
+          clean = clean.replace(/^([^:]+):/, '<strong style="color: #065f46;">$1:</strong>');
+        }
+        return `<li style="margin-bottom: 8px; line-height: 1.6; color: #334155; font-size: 0.95rem; list-style-type: none;">• ${clean}</li>`;
+      }).join('');
+
       summaryBlocks.push(`
-        <div style="margin-bottom: 16px; border-bottom: 1px dashed #cbd5e1; padding-bottom: 12px;">
-          <strong style="color: #065f46; font-size: 1.05rem; display: block; margin-bottom: 4px;">📌 ${sec.title}</strong>
-          <div style="color: #334155; line-height: 1.6; font-size: 0.95rem;">${fullText}</div>
+        <div style="margin-bottom: 20px; background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #059669; border-radius: 8px; padding: 14px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <strong style="color: #065f46; font-size: 1.1rem; display: block; margin-bottom: 10px;">📌 ${sec.title}</strong>
+          <ul style="margin: 0; padding-left: 18px; list-style-type: disc;">${itemsHtml}</ul>
         </div>
       `);
     }
