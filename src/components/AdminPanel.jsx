@@ -305,15 +305,15 @@ export default function AdminPanel({ topics }) {
       summaryText: summaryText
     };
 
-    try {
-      const shortId = await firebaseService.saveSharedTest(payload);
-      const shortUrl = `${window.location.origin}/?t=${shortId}`;
+    const token = compressTestToUrlToken(payload);
+    const finalUrl = `${window.location.origin}/?t=${token}`;
 
-      await navigator.clipboard.writeText(shortUrl);
-      alert(`¡ENLACE CORTO DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace corto (4 dígitos): ${shortUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.`);
+    try {
+      await navigator.clipboard.writeText(finalUrl);
+      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace compacto y ejecutable:\n${finalUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.\n\nNota: Si Outlook bloquea la apertura (pantalla en blanco), indica a tus alumnos que copien el enlace y lo peguen en Chrome.`);
     } catch (e) {
       console.error(e);
-      alert("Error al generar enlace.");
+      alert("Error al copiar enlace.");
     }
   };
 
