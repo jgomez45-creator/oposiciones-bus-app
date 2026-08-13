@@ -12,20 +12,6 @@ Los títulos de los 20 temas de nuestro temario para la convocatoria del **Códi
 ### INSTRUCCIONES PERMANENTES DE EJECUCIÓN
 1. **Filtrado por Epígrafe, NUNCA por Título General:**
    * Compara la materia directamente contra los subpuntos/epígrafes específicos de nuestro temario oficial Código 4140.
-# Directivas y Reglas Permanentes del Proyecto (Código 4140 - US)
-
-> **SYSTEM DIRECTIVE / REGLA DE ORO: CRITERIO DE FILTRADO, ALCANCE ESTRICTO Y PLAN DE INTEGRACIÓN (CÓDIGO 4140)**
-
-### CONTEXTO DE COMPRENSIÓN
-Los títulos de los 20 temas de nuestro temario para la convocatoria del **Código 4140 (Técnico/a Auxiliar de Biblioteca, Archivo y Museo - Grupo IV)** hacen referencia a leyes, convenios o marcos normativos muy amplios (ej. *IV Convenio Colectivo, Estatutos de la US, Ley Orgánica de Igualdad 3/2007, LPRL 31/1995*).
-
-**SIN EMBARGO**, el alcance real del examen se limita **ÚNICA Y EXCLUSIVAMENTE** a los epígrafes y puntos concretos desarrollados dentro de cada tema de la convocatoria, no al texto completo de la norma.
-
----
-
-### INSTRUCCIONES PERMANENTES DE EJECUCIÓN
-1. **Filtrado por Epígrafe, NUNCA por Título General:**
-   * Compara la materia directamente contra los subpuntos/epígrafes específicos de nuestro temario oficial Código 4140.
    * Si una pregunta trata sobre un artículo de una ley o convenio que **NO está explícitamente desarrollado en los epígrafes de nuestro tema**, márcala inmediatamente como **`❌ FUERA DE ALCANCE ESTRUCTURAL`** y descártala.
 2. **Vigencia Normativa Estricta según Bibliografía:**
    * Evalúa la validez con la versión más actualizada de la legislación (Estatutos US, LOSU, Ley 39/2015, LO 3/2007, IV Convenio Colectivo, etc.).
@@ -48,3 +34,6 @@ Los títulos de los 20 temas de nuestro temario para la convocatoria del **Códi
    * **Plazos:** Jugar siempre con la dicotomía "Días Hábiles" vs "Días Naturales", o "Meses" vs "Días".
    * **Órganos:** Intercambiar competencias exclusivas (ej. atribuir al *Consejo de Gobierno* lo que le corresponde al *Rector*).
    * **Mayorías:** Alterar los quórums de votación (mezclar *mayoría absoluta* con *mayoría de 2/3* o *3/5*).
+10. **Isomorfismo Semántico Universal y Rigor Global (Temas 1 al 20):**
+   * Esta rigurosidad y filtrado de alta precisión se aplica **de forma obligatoria a los 20 temas** del temario.
+   * Las 4 opciones (A, B, C, D) pertenecerán **siempre al mismo subdominio temático y categoría semántica**. Prohibido estrictamente mezclar párrafos de sanciones o penalizaciones en preguntas sobre servicios, organigramas o conceptos técnicos, o viceversa.

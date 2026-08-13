@@ -177,18 +177,20 @@ function getSemanticType(text) {
   return 'procedural_text';
 }
 
-// Generador dinámico de enunciados de examen
+// Generador dinámico de enunciados de examen sin cortes bruscos
 function buildExamQuestionStem(normName, concept, heading, index) {
   const rawFocus = concept || heading || 'esta materia';
-  const cleanFocus = cleanStemExcerpt(rawFocus);
-  const finalFocus = cleanFocus.length > 55 ? cleanFocus.substring(0, 50) + '...' : cleanFocus;
+  let cleanFocus = cleanStemExcerpt(rawFocus).trim();
+  if (cleanFocus.length > 55) {
+    cleanFocus = cleanFocus.substring(0, 50).replace(/\s+[^\s]*$/, '') + '...';
+  }
 
   const stemTemplates = [
-    `En relación con "${finalFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
-    `De acuerdo con la regulación de ${normName} referente a "${finalFocus}", señale la afirmación correcta:`,
-    `Según lo dispuesto en ${normName}, señale la opción correcta respecto a "${finalFocus}":`,
-    `En un supuesto práctico de actuación sobre "${finalFocus}" en la US, ¿cómo debe procederse conforme a ${normName}?`,
-    `Ante una situación en la que se valore "${finalFocus}", ¿qué opción refleja la regla establecida en ${normName}?`
+    `En relación con "${cleanFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
+    `De acuerdo con la regulación de ${normName} referente a "${cleanFocus}", señale la afirmación correcta:`,
+    `Según lo dispuesto en ${normName}, señale la opción correcta respecto a "${cleanFocus}":`,
+    `En un supuesto práctico de actuación sobre "${cleanFocus}" en la US, ¿cómo debe procederse conforme a ${normName}?`,
+    `Ante una situación en la que se valore "${cleanFocus}", ¿qué opción refleja la regla establecida en ${normName}?`
   ];
 
   return stemTemplates[index % stemTemplates.length];
@@ -239,6 +241,17 @@ function hasAnswerLeak(questionText, correctOptionText) {
   }
 
   return false;
+}
+
+// Valida que las 4 opciones sean semánticamente coherentes, únicas y sin comodines
+function hasCoherentOptions(options) {
+  if (!options || options.length !== 4) return false;
+  const cleanOpts = options.map(o => o.replace(/^[A-D]\)\s*/, '').trim());
+  if (cleanOpts.some(o => o.length < 2)) return false;
+  if (cleanOpts.some(o => /todas son correctas|ninguna es correcta|todas las anteriores|a y b son/i.test(o))) return false;
+  const uniqueOpts = new Set(cleanOpts.map(o => o.toLowerCase()));
+  if (uniqueOpts.size !== 4) return false;
+  return true;
 }
 
 // Generador de ID único
@@ -446,11 +459,49 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     });
   }
 
-  // OP 3: Banco predefinido del MISMO subdominio
+  // OP 3: Mutaciones sintácticas paralelas del propio texto correcto
+  if (distractors.length < 3) {
+    const mutations = [];
+    if (/rector/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/rector/gi, 'Consejo de Gobierno'));
+      mutations.push(correctOpt.replace(/rector/gi, 'Gerente'));
+    }
+    if (/consejo de gobierno/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/consejo de gobierno/gi, 'Rector/a'));
+      mutations.push(correctOpt.replace(/consejo de gobierno/gi, 'Consejo Social'));
+    }
+    if (/gerente/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/gerente/gi, 'Vicerrector/a competente'));
+    }
+    if (/gratuito/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/gratuito/gi, 'sujeto a precio público'));
+    }
+    if (/presencial/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/presencial/gi, 'exclusivamente telemático'));
+    }
+    if (/anual/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/anual/gi, 'semestral'));
+    }
+    if (/obligatorio/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/obligatorio/gi, 'facultativo u opcional'));
+    }
+    if (/mayoría absoluta/i.test(correctOpt)) {
+      mutations.push(correctOpt.replace(/mayoría absoluta/gi, 'mayoría simple'));
+    }
+
+    mutations.forEach(m => {
+      if (distractors.length < 3 && !used.has(m.toLowerCase()) && isCoherent(m)) {
+        distractors.push(m);
+        used.add(m.toLowerCase());
+      }
+    });
+  }
+
+  // OP 4: Banco predefinido coherente (solo como último recurso)
   if (distractors.length < 3) {
     const subPool = (DOMAIN_DISTRACTORS[targetSubdomain] || DOMAIN_DISTRACTORS.ambito_aplicacion).sort(() => 0.5 - Math.random());
     subPool.forEach(item => {
-      if (distractors.length < 3 && !used.has(item.toLowerCase())) {
+      if (distractors.length < 3 && !used.has(item.toLowerCase()) && isCoherent(item)) {
         distractors.push(item);
         used.add(item.toLowerCase());
       }
@@ -631,8 +682,9 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const isLeakingAnswer = hasAnswerLeak(newQ.question, correctOptClean);
       const dupCheck = checkDuplicated(newQ.question, topicId);
       const isAlreadyInBatch = generated.some(g => calculateSimilarity(g.question, newQ.question) > 0.6);
+      const isValidBatchQ = hasCoherentOptions(newQ.options);
 
-      if (!isLeakingAnswer && !dupCheck.isDuplicated && !isAlreadyInBatch) {
+      if (!isLeakingAnswer && !dupCheck.isDuplicated && !isAlreadyInBatch && isValidBatchQ) {
         generated.push(newQ);
       }
     }
