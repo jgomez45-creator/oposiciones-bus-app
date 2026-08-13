@@ -305,17 +305,15 @@ export default function AdminPanel({ topics }) {
       summaryText: summaryText
     };
 
-    try {
-      const shortId = await firebaseService.saveSharedTest(payload);
-      const token = compressTestToUrlToken(payload);
-      const tokenParam = (token && token.length < 500) ? token : shortId;
-      const finalUrl = `${window.location.origin}/?t=${tokenParam}`;
+    const token = compressTestToUrlToken(payload);
+    const finalUrl = `${window.location.origin}/?t=${token}`;
 
+    try {
       await navigator.clipboard.writeText(finalUrl);
-      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace ejecutable directo: ${finalUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.`);
+      alert(`¡ENLACE DE TEST EJECUTABLE COPIADO AL PORTAPAPELES!\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test').\n\nAl pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.`);
     } catch (e) {
       console.error(e);
-      alert("Error al generar enlace.");
+      alert("Error al copiar enlace.");
     }
   };
 
