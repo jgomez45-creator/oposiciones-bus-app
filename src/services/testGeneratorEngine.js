@@ -177,13 +177,10 @@ function getSemanticType(text) {
   return 'procedural_text';
 }
 
-// Generador dinámico de enunciados de examen sin cortes bruscos
+// Generador dinámico de enunciados de examen con fluidez y claridad natural
 function buildExamQuestionStem(normName, concept, heading, index) {
   const rawFocus = concept || heading || 'esta materia';
-  let cleanFocus = cleanStemExcerpt(rawFocus).trim();
-  if (cleanFocus.length > 55) {
-    cleanFocus = cleanFocus.substring(0, 50).replace(/\s+[^\s]*$/, '') + '...';
-  }
+  let cleanFocus = cleanStemExcerpt(rawFocus).replace(/\s+/g, ' ').trim();
 
   const stemTemplates = [
     `En relación con "${cleanFocus}", ¿cuál de las siguientes opciones expresa lo establecido en ${normName}?`,
@@ -200,7 +197,7 @@ function buildExamQuestionStem(normName, concept, heading, index) {
 function isValidConcept(concept) {
   if (!concept || typeof concept !== 'string') return false;
   const clean = cleanHeadingTitle(concept).trim();
-  if (clean.length < 4 || clean.length > 65) return false;
+  if (clean.length < 4 || clean.length > 85) return false;
   
   if (/\b(y|o|de|del|en|para|con|por|a|que|su|sus|un|una|el|la|los|las|hábiles|naturales)\s*$/i.test(clean)) {
     return false;
@@ -210,11 +207,17 @@ function isValidConcept(concept) {
   return true;
 }
 
-// Trunca texto de forma segura sin cortar palabras ni dejar conectores sueltos
-function safeTruncateText(text, maxLen = 220) {
+// Trunca texto respetando oraciones completas y sin límites artificiales rígidos
+function safeTruncateText(text, maxLen = 350) {
   if (!text) return '';
   let clean = sanitizeText(text).trim();
   if (clean.length <= maxLen) return clean;
+
+  // Priorizar siempre cortar en un punto seguido / final de oración completa
+  const periodIndex = clean.substring(0, maxLen).lastIndexOf('.');
+  if (periodIndex > 30) {
+    return clean.substring(0, periodIndex + 1);
+  }
 
   let sub = clean.substring(0, maxLen);
   const lastSpace = sub.lastIndexOf(' ');
@@ -227,7 +230,7 @@ function safeTruncateText(text, maxLen = 220) {
     .replace(/\b(del|de|el|la|los|las|un|una|en|para|con|por|y|o|que|su|sus|al|e|i|ante|tras|conforme)\s*$/i, '')
     .trim();
 
-  return sub + '...';
+  return sub + '.';
 }
 
 // Valida que el enunciado NO contenga la solución, tautologías ni pistas de la respuesta correcta
