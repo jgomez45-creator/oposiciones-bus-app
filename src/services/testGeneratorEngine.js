@@ -289,6 +289,21 @@ export function extractTopicHeadings(markdownText) {
   return sections.map(s => s.title);
 }
 
+export function extractTopicSummary(markdownText) {
+  const sections = parseSectionsFromMarkdown(markdownText);
+  if (!sections || sections.length === 0) return '';
+  
+  const highlights = [];
+  sections.slice(0, 4).forEach(sec => {
+    if (sec.paragraphs && sec.paragraphs.length > 0) {
+      const firstPara = sec.paragraphs[0];
+      highlights.push(`<strong>${sec.title}:</strong> ${firstPara}`);
+    }
+  });
+
+  return highlights.join('<br/><br/>');
+}
+
 // Algoritmo de similitud Levenshtein / Jaccard
 export function calculateSimilarity(text1, text2) {
   const norm1 = stripAccents(text1).replace(/[^a-z0-9\s]/g, '');

@@ -40,7 +40,7 @@ import {
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
-import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings } from '../services/testGeneratorEngine';
+import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary } from '../services/testGeneratorEngine';
 import { downloadTestAsHTML } from '../utils/htmlTestExporter';
 
 export default function AdminPanel({ topics }) {
@@ -87,7 +87,7 @@ export default function AdminPanel({ topics }) {
     return () => { if (unsub) unsub(); };
   }, []);
 
-  const handleExportToHTML = (item) => {
+  const handleExportToHTML = async (item) => {
     const emailsInput = window.prompt(`Exportando batería: "${item.title}"\n\nIntroduce los identificadores o emails de los alumnos (separados por comas):`);
     if (!emailsInput) return;
     
@@ -104,10 +104,25 @@ export default function AdminPanel({ topics }) {
       return;
     }
 
+    let summaryText = '';
+    const topicNumMatch = item.title.match(/Tema\s+(\d+)/i) || (item.topicId ? [null, item.topicId] : null);
+    if (topicNumMatch && topicNumMatch[1]) {
+      const formattedNum = topicNumMatch[1].toString().padStart(2, '0');
+      try {
+        const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+        if (res.ok) {
+          const mdText = await res.text();
+          summaryText = extractTopicSummary(mdText);
+        }
+      } catch (e) {
+        console.warn("Could not fetch topic summary for export", e);
+      }
+    }
+
     emails.forEach(email => {
-      downloadTestAsHTML(questionsToExport, item.title, email);
+      downloadTestAsHTML(questionsToExport, item.title, email, 'oposiciones-bus-app', summaryText);
     });
-    alert(`Se han generado y descargado ${emails.length} archivos HTML personalizados.`);
+    alert(`Se han generado y descargado ${emails.length} archivos HTML personalizados con el resumen del tema.`);
   };
 
   // Editions & Modifications State
@@ -1787,28 +1802,75 @@ export default function AdminPanel({ topics }) {
                   <span>Lote Generado ({generatedBatch.length} preguntas) — Tema {selectedGenTopicId}</span>
                 </h4>
 
-                <button
-                  type="button"
-                  onClick={handleSaveBatchToBank}
-                  disabled={savingBatch}
-                  style={{
-                    padding: '10px 20px',
-                    borderRadius: '10px',
-                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                    color: '#fff',
-                    fontWeight: '800',
-                    border: 'none',
-                    cursor: savingBatch ? 'not-allowed' : 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '0.9rem',
-                    boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)'
-                  }}
-                >
-                  <Save size={18} />
-                  <span>{savingBatch ? 'Guardando...' : `💾 Guardar e Incorporar al Banco (${generatedBatch.length} preguntas)`}</span>
-                </button>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      if (generatedBatch.length === 0) return;
+                      const emailsInput = window.prompt(`Exportar Lote Generado (Tema ${selectedGenTopicId})\n\nIntroduce los identificadores o emails de los alumnos (separados por comas):`, 'alumno@ejemplo.com');
+                      if (!emailsInput) return;
+                      const emails = emailsInput.split(',').map(e => e.trim()).filter(e => e);
+                      if (emails.length === 0) return;
+
+                      const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
+                      let summaryText = '';
+                      const formattedNum = selectedGenTopicId.toString().padStart(2, '0');
+                      try {
+                        const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+                        if (res.ok) {
+                          const mdText = await res.text();
+                          summaryText = extractTopicSummary(mdText);
+                        }
+                      } catch (e) {
+                        console.warn("Could not fetch summary", e);
+                      }
+
+                      emails.forEach(email => {
+                        downloadTestAsHTML(generatedBatch, topicObj.title, email, 'oposiciones-bus-app', summaryText);
+                      });
+                      alert(`Se han generado y descargado ${emails.length} archivos HTML con el resumen del tema y las preguntas.`);
+                    }}
+                    style={{
+                      padding: '10px 16px',
+                      borderRadius: '10px',
+                      background: 'rgba(59, 130, 246, 0.15)',
+                      color: '#60a5fa',
+                      fontWeight: '700',
+                      border: '1px solid rgba(96, 165, 250, 0.3)',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontSize: '0.88rem'
+                    }}
+                    title="Descargar paquete HTML interactivo con Resumen del Tema para enviar por email"
+                  >
+                    <span>📧 Exportar HTML (con Resumen)</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleSaveBatchToBank}
+                    disabled={savingBatch}
+                    style={{
+                      padding: '10px 20px',
+                      borderRadius: '10px',
+                      background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                      color: '#fff',
+                      fontWeight: '800',
+                      border: 'none',
+                      cursor: savingBatch ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontSize: '0.9rem',
+                      boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)'
+                    }}
+                  >
+                    <Save size={18} />
+                    <span>{savingBatch ? 'Guardando...' : `💾 Guardar e Incorporar al Banco (${generatedBatch.length} preguntas)`}</span>
+                  </button>
+                </div>
               </div>
 
               {generatedBatch.map((q, idx) => {

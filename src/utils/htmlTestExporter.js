@@ -1,8 +1,11 @@
-export const downloadTestAsHTML = (questions, title, studentId, projectId = 'oposiciones-bus-app') => {
+export const downloadTestAsHTML = (questions, title, studentId, projectId = 'oposiciones-bus-app', summaryText = '') => {
   const cssStyles = `
     body { font-family: 'Inter', system-ui, sans-serif; background-color: #f3f4f6; color: #1f2937; margin: 0; padding: 20px; display: flex; justify-content: center; }
     .container { max-width: 800px; width: 100%; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
     h1 { color: #111827; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 20px; }
+    .summary-box { background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 20px; margin-bottom: 30px; }
+    .summary-title { font-weight: 700; font-size: 1.1rem; color: #166534; margin-bottom: 12px; border-bottom: 1px solid #bbf7d0; padding-bottom: 6px; }
+    .summary-body { font-size: 0.95rem; line-height: 1.6; color: #1e293b; }
     .question-card { margin-bottom: 25px; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px; }
     .question-text { font-size: 1.125rem; font-weight: 600; margin-bottom: 15px; }
     .option { display: block; padding: 10px 15px; margin-bottom: 10px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
@@ -148,6 +151,12 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 <body>
     <div class="container">
         <h1>${title}</h1>
+        ${summaryText ? `
+        <div class="summary-box">
+            <div class="summary-title">📌 Resumen Ejecutivo y Puntos Clave del Tema</div>
+            <div class="summary-body">${summaryText}</div>
+        </div>
+        ` : ''}
         <div id="quiz-form"></div>
         <button id="submit-btn" class="btn" onclick="submitQuiz()">Corregir y Finalizar</button>
         
