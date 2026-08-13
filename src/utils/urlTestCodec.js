@@ -1,8 +1,42 @@
 /**
  * Compresión y Decompresión Ultra Compacta para Enlaces Directos Ejecutables de Examen
- * Permite empaquetar un test completo en un token URL 100% autosuficiente que NO depende
- * de bases de datos externas, red ni permisos para abrir al instante en cualquier dispositivo.
+ * Utiliza codificación UTF-8 Base64 pura (sin secuencias %20 ni %7B) para producir
+ * enlaces extremadamente limpios y cortos de 1 sola línea.
  */
+
+function utf8ToBase64(str) {
+  try {
+    return btoa(
+      encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) =>
+        String.fromCharCode(parseInt(p1, 16))
+      )
+    )
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+  } catch (e) {
+    console.error("utf8ToBase64 error", e);
+    return '';
+  }
+}
+
+function base64ToUtf8(str) {
+  try {
+    let base64 = str.trim().replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) {
+      base64 += '=';
+    }
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    return new TextDecoder('utf-8').decode(bytes);
+  } catch (e) {
+    console.warn("base64ToUtf8 decode error", e);
+    return null;
+  }
+}
 
 export function compressTestToUrlToken(payload) {
   if (!payload || !Array.isArray(payload.questions)) return '';
@@ -12,43 +46,52 @@ export function compressTestToUrlToken(payload) {
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
-    .substring(0, 350);
+    .substring(0, 200);
 
   const minified = {
-    t: (payload.title || 'Test BUS').substring(0, 80),
+    t: (payload.title || 'Test BUS').substring(0, 70),
     s: cleanSummary,
     q: payload.questions.map(q => [
       q.question,
       q.options,
       q.correctAnswer,
-      (q.explanation || '').substring(0, 150)
+      (q.explanation || '').substring(0, 120)
     ])
   };
 
-  try {
-    const jsonStr = JSON.stringify(minified);
-    const base64 = btoa(encodeURIComponent(jsonStr))
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-      .replace(/=+$/, '');
-    return base64;
-  } catch (err) {
-    console.error("Error compressing test payload:", err);
-    return '';
-  }
+  const jsonStr = JSON.stringify(minified);
+  return utf8ToBase64(jsonStr);
 }
 
 export function decompressUrlTokenToTest(token) {
   if (!token || typeof token !== 'string') return null;
 
-  try {
-    let base64 = token.trim().replace(/-/g, '+').replace(/_/g, '/');
-    while (base64.length % 4) {
-      base64 += '=';
-    }
-    const jsonStr = decodeURIComponent(atob(base64));
-    const minified = JSON.parse(jsonStr);
+  // Si el token aún trae secuencias %7B (versión antigua), fallback a decodeURIComponent(atob)
+  if (token.includes('%7B') || token.includes('%22')) {
+    try {
+      const decodedStr = decodeURIComponent(token.trim());
+      const parsed = JSON.parse(decodedStr);
+      if (parsed && Array.isArray(parsed.q)) {
+        return {
+          title: parsed.t || 'Test BUS',
+          summaryText: parsed.s || '',
+          questions: parsed.q.map((item, idx) => ({
+            id: `q_url_${idx}_${Date.now()}`,
+            question: item[0],
+            options: item[1],
+            correctAnswer: item[2],
+            explanation: item[3]
+          }))
+        };
+      }
+    } catch (_) {}
+  }
 
+  const jsonStr = base64ToUtf8(token);
+  if (!jsonStr) return null;
+
+  try {
+    const minified = JSON.parse(jsonStr);
     if (!minified || !Array.isArray(minified.q)) return null;
 
     return {
@@ -63,7 +106,7 @@ export function decompressUrlTokenToTest(token) {
       }))
     };
   } catch (err) {
-    console.warn("Could not decompress test token from URL:", err);
+    console.warn("Could not parse decompressed test JSON", err);
     return null;
   }
 }
