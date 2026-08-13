@@ -2247,6 +2247,66 @@ export const firebaseService = {
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('special-tests-updated', { detail: { testId } }));
     }
-    return updatedList;
+  },
+
+  subscribeToTestResults(callback) {
+    const mockKey = 'bus_mock_test_results';
+    
+    const emitLocalStorage = () => {
+      try {
+        const raw = localStorage.getItem(mockKey) || '[]';
+        callback(JSON.parse(raw));
+      } catch (_) {
+        callback([]);
+      }
+    };
+
+    if (isMock || !db) {
+      emitLocalStorage();
+      const handler = () => emitLocalStorage();
+      window.addEventListener('storage', handler);
+      return () => window.removeEventListener('storage', handler);
+    }
+
+    try {
+      const q = collection(db, 'test_results');
+      return onSnapshot(q, (snapshot) => {
+        const list = [];
+        snapshot.forEach((docSnap) => {
+          const data = docSnap.data();
+          list.push({
+            id: docSnap.id,
+            studentId: data.studentId || 'Desconocido',
+            title: data.title || 'Test de Evaluación',
+            score: typeof data.score === 'number' ? data.score : (parseFloat(data.score) || 0),
+            maxScore: typeof data.maxScore === 'number' ? data.maxScore : 5,
+            timestamp: data.timestamp || new Date().toISOString(),
+            details: typeof data.details === 'string' ? JSON.parse(data.details || '[]') : (data.details || [])
+          });
+        });
+
+        try {
+          const localRaw = localStorage.getItem(mockKey);
+          if (localRaw) {
+            const localList = JSON.parse(localRaw);
+            localList.forEach(item => {
+              if (!list.some(r => r.id === item.id || (r.studentId === item.studentId && r.timestamp === item.timestamp))) {
+                list.push(item);
+              }
+            });
+          }
+        } catch (_) {}
+
+        list.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        callback(list);
+      }, (err) => {
+        console.warn("Firestore test_results listener warning, falling back to LocalStorage:", err);
+        emitLocalStorage();
+      });
+    } catch (err) {
+      console.error(err);
+      emitLocalStorage();
+      return () => {};
+    }
   }
 };

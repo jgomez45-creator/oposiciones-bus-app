@@ -22,9 +22,9 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 
   const jsLogic = `
     const TEST_DATA = ${JSON.stringify(questions)};
-    const STUDENT_ID = "${studentId}";
-    const PROJECT_ID = "${projectId}";
-    const TITLE = "${title}";
+    const STUDENT_ID = ${JSON.stringify(studentId)};
+    const PROJECT_ID = ${JSON.stringify(projectId)};
+    const TITLE = ${JSON.stringify(title)};
     
     let answers = {};
 
@@ -160,6 +160,25 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         if (btn) btn.style.display = 'none';
 
         if (STUDENT_ID) {
+          const payloadObj = {
+            id: 'tr_' + Date.now() + '_' + Math.random().toString(36).substring(2,6),
+            studentId: STUDENT_ID,
+            title: TITLE,
+            score: parseFloat(finalScore),
+            maxScore: maxScore,
+            timestamp: new Date().toISOString(),
+            details: detailedResults
+          };
+
+          try {
+            const mockKey = 'bus_mock_test_results';
+            const raw = localStorage.getItem(mockKey) || '[]';
+            const list = JSON.parse(raw);
+            list.unshift(payloadObj);
+            localStorage.setItem(mockKey, JSON.stringify(list));
+            window.dispatchEvent(new Event('storage'));
+          } catch (_) {}
+
           const firestoreUrl = \`https://firestore.googleapis.com/v1/projects/\${PROJECT_ID}/databases/(default)/documents/test_results\`;
           const docData = {
             fields: {
@@ -167,7 +186,7 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
               title: { stringValue: TITLE },
               score: { doubleValue: parseFloat(finalScore) },
               maxScore: { doubleValue: maxScore },
-              timestamp: { timestampValue: new Date().toISOString() },
+              timestamp: { timestampValue: payloadObj.timestamp },
               details: { stringValue: JSON.stringify(detailedResults) }
             }
           };
