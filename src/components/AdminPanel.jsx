@@ -1711,7 +1711,79 @@ export default function AdminPanel({ topics }) {
                     }}
                   >
                     <Sparkles size={18} />
-                    <span>{isGenerating ? 'Sintetizando...' : '⚡ Generar Preguntas Inéditas'}</span>
+                    <span>{isGenerating ? 'Sintetizando...' : '⚡ Generar (Ver en Pantalla)'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setIsGenerating(true);
+                      setSaveSuccessMsg('');
+                      try {
+                        const topicIdStr = (selectedGenTopicId || '1').toString();
+                        const formattedNum = topicIdStr.padStart(2, '0');
+                        let markdownText = '';
+                        try {
+                          const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+                          if (res.ok) markdownText = await res.text();
+                        } catch (e) {
+                          console.warn('Could not load markdown topic', e);
+                        }
+
+                        const topicList = Array.isArray(activeTopicList) ? activeTopicList : [];
+                        const topicObj = topicList.find(t => t && t.id && t.id.toString() === topicIdStr) || { title: `Tema ${topicIdStr}` };
+                        const safeHeadings = Array.isArray(selectedHeadings) ? selectedHeadings : 'all';
+
+                        const newQuestions = await generateNewQuestionsForTopic({
+                          topicId: topicIdStr,
+                          topicTitle: topicObj.title || `Tema ${topicIdStr}`,
+                          markdownText: markdownText || '',
+                          count: genCount || 5,
+                          selectedSections: safeHeadings
+                        });
+
+                        const batch = Array.isArray(newQuestions) ? newQuestions : [];
+                        setGeneratedBatch(batch);
+
+                        if (batch.length > 0) {
+                          const emailsInput = window.prompt(`Síntesis completada (${batch.length} preguntas inéditas).\n\nIntroduce los emails de los alumnos (separados por comas) para generar el archivo HTML interactivo con Resumen del Tema:`, 'alumno@ejemplo.com');
+                          if (emailsInput) {
+                            const emails = emailsInput.split(',').map(e => e.trim()).filter(Boolean);
+                            let summaryText = '';
+                            if (markdownText) {
+                              summaryText = extractTopicSummary(markdownText);
+                            }
+                            emails.forEach(email => {
+                              downloadTestAsHTML(batch, topicObj.title, email, 'oposiciones-bus-app', summaryText);
+                            });
+                            alert(`¡Éxito! Se han generado y descargado ${emails.length} archivos HTML interactivos listos para enviar por correo.`);
+                          }
+                        }
+                      } catch (err) {
+                        console.error('Error in direct export:', err);
+                      } finally {
+                        setIsGenerating(false);
+                      }
+                    }}
+                    disabled={isGenerating}
+                    style={{
+                      marginTop: '18px',
+                      padding: '9px 16px',
+                      borderRadius: '10px',
+                      background: 'rgba(59, 130, 246, 0.2)',
+                      border: '1px solid rgba(96, 165, 250, 0.4)',
+                      color: '#60a5fa',
+                      fontWeight: '800',
+                      cursor: isGenerating ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontSize: '0.85rem'
+                    }}
+                    title="Sintetizar preguntas inéditas y descargar directamente los archivos HTML interactivos para enviar a los alumnos"
+                  >
+                    <Mail size={18} />
+                    <span>📧 Exportar HTML con Resumen (Para Email)</span>
                   </button>
 
                   <button
