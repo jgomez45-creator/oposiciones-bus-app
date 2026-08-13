@@ -451,7 +451,7 @@ const DOMAIN_DISTRACTORS = {
   ]
 };
 
-// Genera distractores pertenecientes estrictamente al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
+// Genera distractores pertenecientes strictly al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed = new Set()) {
   const targetSubdomain = getSectionSubdomain(heading, factText);
   const targetSemanticType = getSemanticType(correctOpt);
@@ -459,9 +459,16 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
 
   const isSanctionTarget = targetSubdomain === 'sanciones_penalizaciones' || /sanción|suspensión|penalización|retraso/i.test(correctOpt);
 
-  // Filtro de coherencia estricta para evitar opciones de fácil descarte (mezcla de dominios)
+  // Filtro de coherencia estricta para evitar opciones de fácil descarte y comodines recurrentes
   const isCoherent = (text) => {
     if (!text) return false;
+
+    // BLOQUEO ABSOLUTO DE COMODINES RECURRENTES (carnet universitario) SALVO QUE LA PREGUNTA SEA DE ESE TEMA
+    const isAskingAboutCarnet = /carnet/i.test(heading) || /carnet/i.test(factText);
+    if (!isAskingAboutCarnet && /carnet universitario/i.test(text)) {
+      return false;
+    }
+
     const isSanctionText = /sanción|suspensión|penalización|retraso|infracción/i.test(text);
     if (!isSanctionTarget && isSanctionText) return false; // Bloquea sanciones en preguntas de servicios
     if (isSanctionTarget && !isSanctionText) return false; // Bloquea no-sanciones en preguntas de sanciones
@@ -474,7 +481,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     ...Array.from(globalBatchUsed).map(s => s.toLowerCase().trim())
   ]);
 
-  // OP 1: TÉCNICA DEL DISTRACTOR FINO / MUTACIONES SINTÁCTICAS DEL PROPIO HECHO (MÁXIMO RIGOR)
+  // OP 1: TÉCNICA DEL DISTRACTOR FINO / MUTACIONES SINTÁCTICAS Y SEMÁNTICAS DEL PROPIO HECHO (MÁXIMO RIGOR)
   const mutations = [];
   const text = correctOpt;
 
@@ -514,15 +521,40 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
   if (/se pueden|se podrá|permite/i.test(text)) {
     mutations.push(text.replace(/se pueden|se podrá|permite/gi, 'no se autorizan ni se permiten'));
   }
+  if (/docencia|investigación|aprendizaje/i.test(text)) {
+    mutations.push(text.replace(/docencia/gi, 'gestión de recursos').replace(/investigación/gi, 'transferencia tecnológica'));
+    mutations.push(text.replace(/docencia y al aprendizaje/gi, 'extensión universitaria y servicios culturales'));
+  }
+  if (/principio organizativo|unidad funcional|patrimonio/i.test(text)) {
+    mutations.push(text.replace(/principio organizativo|unidad funcional/gi, 'modelo descentralizado por facultades independientes'));
+    mutations.push(text.replace(/dicta que todo|pertenece a/gi, 'establece que cada centro gestiona de forma autónoma'));
+  }
 
   mutations.forEach(m => {
-    const cand = safeTruncateText(m, 220);
-    if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
+    const cand = safeTruncateText(m, 250);
+    if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
       distractors.push(cand);
       used.add(cand.toLowerCase());
       globalBatchUsed.add(cand.toLowerCase());
     }
   });
+
+  // Mutaciones estructurales universales como respaldo de rigor si faltan distractores
+  if (distractors.length < 3) {
+    const fallbackMutations = [
+      text.replace(/\b(el|la|los|las|un|una)\b/i, 'ningún').replace(/\b(es|son|corresponde)\b/i, 'no es'),
+      text.replace(/\b(todas|todos|cada|cualquier)\b/i, 'únicamente las'),
+      text.replace(/\b(única|integrada|oficial)\b/i, 'autónoma y descentralizada')
+    ];
+    fallbackMutations.forEach(fm => {
+      const cand = safeTruncateText(fm, 250);
+      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
+        distractors.push(cand);
+        used.add(cand.toLowerCase());
+        globalBatchUsed.add(cand.toLowerCase());
+      }
+    });
+  }
 
   // OP 2: Definiciones del MISMO subdominio exacto con paridad de longitud
   if (distractors.length < 3) {

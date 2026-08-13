@@ -62,78 +62,85 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 
     async function submitQuiz() {
       const btn = document.getElementById('submit-btn');
-      btn.disabled = true;
-      btn.innerText = "Corrigiendo...";
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = "Corregiendo...";
+      }
 
-      let answeredCount = 0;
-      let correctCount = 0;
-      let incorrectCount = 0;
-      let blankCount = 0;
+      try {
+        let score = 0;
+        let answeredCount = 0;
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let blankCount = 0;
+        let detailedResults = [];
 
-      TEST_DATA.forEach((q, index) => {
-        const selected = answers[index];
-        const correct = q.correctAnswer;
-        
-        let isCorrect = false;
-        if (selected !== undefined) {
-          answeredCount++;
-          if (selected === correct) {
-            score += 1;
-            correctCount++;
-            isCorrect = true;
-            document.getElementById('label-' + index + '-' + selected).classList.add('correct');
+        TEST_DATA.forEach((q, index) => {
+          const selected = answers[index];
+          const correct = q.correctAnswer;
+          
+          let isCorrect = false;
+          if (selected !== undefined) {
+            answeredCount++;
+            if (selected === correct) {
+              score += 1;
+              correctCount++;
+              isCorrect = true;
+              const l = document.getElementById('label-' + index + '-' + selected);
+              if (l) l.classList.add('correct');
+            } else {
+              score -= 0.33;
+              incorrectCount++;
+              const lSel = document.getElementById('label-' + index + '-' + selected);
+              if (lSel) lSel.classList.add('incorrect');
+              const lCorr = document.getElementById('label-' + index + '-' + correct);
+              if (lCorr) lCorr.classList.add('correct');
+            }
           } else {
-            score -= 0.33; // Descuento estándar de examen
-            incorrectCount++;
-            document.getElementById('label-' + index + '-' + selected).classList.add('incorrect');
-            document.getElementById('label-' + index + '-' + correct).classList.add('correct');
+            blankCount++;
+            const lCorr = document.getElementById('label-' + index + '-' + correct);
+            if (lCorr) lCorr.classList.add('correct');
           }
-        } else {
-          blankCount++;
-          document.getElementById('label-' + index + '-' + correct).classList.add('correct');
-        }
 
-        detailedResults.push({
-          questionId: q.id,
-          selectedAnswer: selected !== undefined ? selected : null,
-          correctAnswer: correct,
-          isCorrect: isCorrect
+          detailedResults.push({
+            questionId: q.id,
+            selectedAnswer: selected !== undefined ? selected : null,
+            correctAnswer: correct,
+            isCorrect: isCorrect
+          });
+
+          const inputs = document.getElementsByName('q' + index);
+          inputs.forEach(input => input.disabled = true);
         });
 
-        // Disable inputs
-        const inputs = document.getElementsByName('q' + index);
-        inputs.forEach(input => input.disabled = true);
-      });
+        const resContainer = document.getElementById('result-container');
+        const resScore = document.getElementById('result-score');
+        const resDetails = document.getElementById('result-details');
+        
+        const finalScore = Math.max(0, score).toFixed(2);
+        const maxScore = TEST_DATA.length;
+        const percentage = Math.max(0, Math.round((finalScore / maxScore) * 100));
 
-      // Show results
-      const resContainer = document.getElementById('result-container');
-      const resScore = document.getElementById('result-score');
-      const resDetails = document.getElementById('result-details');
-      
-      const finalScore = Math.max(0, score).toFixed(2);
-      const maxScore = TEST_DATA.length;
-      const percentage = Math.max(0, Math.round((finalScore / maxScore) * 100));
+        if (resScore) {
+          resScore.innerText = \`Nota Final: \${finalScore} / \${maxScore} (\${percentage}%)\`;
+        }
+        
+        if (resDetails) {
+          resDetails.innerHTML = \`
+            <div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> \${maxScore}</div>
+            <div style="margin-bottom: 6px;"><strong>Contestadas:</strong> \${answeredCount}</div>
+            <div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> \${correctCount}</div>
+            <div style="margin-bottom: 6px; color: #991b1b;"><strong>Errores (-0.33):</strong> \${incorrectCount}</div>
+            <div style="margin-bottom: 6px; color: #854d0e;"><strong>No contestadas:</strong> \${blankCount}</div>
+            <div style="margin-top: 10px; font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 6px;"><strong>Porcentaje neto de acierto:</strong> \${percentage}%</div>
+          \`;
+        }
+        
+        if (resContainer) resContainer.style.display = 'block';
+        if (btn) btn.style.display = 'none';
 
-      resScore.innerText = \`Nota Final: \${finalScore} / \${maxScore} (\${percentage}%)\`;
-      
-      resDetails.innerHTML = \`
-        <div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> \${maxScore}</div>
-        <div style="margin-bottom: 6px;"><strong>Contestadas:</strong> \${answeredCount}</div>
-        <div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> \${correctCount}</div>
-        <div style="margin-bottom: 6px; color: #991b1b;"><strong>Errores (-0.33):</strong> \${incorrectCount}</div>
-        <div style="margin-bottom: 6px; color: #854d0e;"><strong>No contestadas:</strong> \${blankCount}</div>
-        <div style="margin-top: 10px; font-weight: bold; border-top: 1px dashed #cbd5e1; padding-top: 6px;"><strong>Porcentaje neto de acierto:</strong> \${percentage}%</div>
-      \`;
-      
-      resContainer.style.display = 'block';
-      btn.style.display = 'none';
-
-      // Secretly send to Firebase Firestore via REST API
-      if (STUDENT_ID) {
-        try {
+        if (STUDENT_ID) {
           const firestoreUrl = \`https://firestore.googleapis.com/v1/projects/\${PROJECT_ID}/databases/(default)/documents/test_results\`;
-          
-          // Format data for Firestore REST API
           const docData = {
             fields: {
               studentId: { stringValue: STUDENT_ID },
@@ -150,9 +157,12 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(docData)
           }).catch(e => console.error(e));
-        } catch (error) {
-          console.error(error);
         }
+      } catch (err) {
+        console.error("Error al corregir test:", err);
+        const resContainer = document.getElementById('result-container');
+        if (resContainer) resContainer.style.display = 'block';
+        if (btn) btn.style.display = 'none';
       }
     }
 
