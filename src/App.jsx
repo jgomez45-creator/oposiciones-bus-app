@@ -11,6 +11,7 @@ import FormadoresTests from './components/FormadoresTests';
 import UserManual from './components/UserManual';
 import UserAnexosView from './components/UserAnexosView';
 import StandaloneTestRunner from './components/StandaloneTestRunner';
+import { decompressUrlTokenToTest } from './utils/urlTestCodec';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
 import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft, Settings } from 'lucide-react';
@@ -70,31 +71,29 @@ export default function App() {
   const [loadingUrlTest, setLoadingUrlTest] = useState(() => {
     if (typeof window === 'undefined') return false;
     const params = new URLSearchParams(window.location.search);
-    return Boolean(params.get('t') || params.get('test') || params.get('testData'));
+    return Boolean(params.get('t') || params.get('test') || params.get('d') || params.get('testData'));
   });
 
-  // Check URL parameters for direct executable test link (?t=8471 or ?testData=...)
+  // Check URL parameters for direct executable test link (?t=... or ?d=... or ?testData=...)
   useEffect(() => {
     const parseUrlTest = async () => {
       try {
         const params = new URLSearchParams(window.location.search);
-        const shortId = params.get('t') || params.get('test');
+        const token = params.get('t') || params.get('test') || params.get('d') || params.get('testData');
         
-        if (shortId) {
-          const sharedData = await firebaseService.getSharedTest(shortId);
-          if (sharedData && Array.isArray(sharedData.questions) && sharedData.questions.length > 0) {
-            setStandaloneTestData(sharedData);
+        if (token) {
+          // 1. Intentar descompresión directa del token URL (100% autosuficiente e instantáneo)
+          const decompressed = decompressUrlTokenToTest(token);
+          if (decompressed && Array.isArray(decompressed.questions) && decompressed.questions.length > 0) {
+            setStandaloneTestData(decompressed);
             setLoadingUrlTest(false);
             return;
           }
-        }
 
-        const rawData = params.get('testData');
-        if (rawData) {
-          const decodedString = decodeURIComponent(atob(rawData));
-          const parsed = JSON.parse(decodedString);
-          if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
-            setStandaloneTestData(parsed);
+          // 2. Si es un ID corto numérico, consultar Firestore / Nube
+          const sharedData = await firebaseService.getSharedTest(token);
+          if (sharedData && Array.isArray(sharedData.questions) && sharedData.questions.length > 0) {
+            setStandaloneTestData(sharedData);
             setLoadingUrlTest(false);
             return;
           }

@@ -43,6 +43,7 @@ import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary, createEmergencyFallbackBatch } from '../services/testGeneratorEngine';
 import { downloadTestAsHTML } from '../utils/htmlTestExporter';
+import { compressTestToUrlToken } from '../utils/urlTestCodec';
 
 export default function AdminPanel({ topics }) {
   const [activeSubTab, setActiveSubTab] = useState('stats'); // 'stats' | 'users' | 'editions' | 'modifications' | 'codes' | 'generator' | 'bank' | 'email' | 'activity'
@@ -306,13 +307,15 @@ export default function AdminPanel({ topics }) {
 
     try {
       const shortId = await firebaseService.saveSharedTest(payload);
-      const shortUrl = `${window.location.origin}/?t=${shortId}`;
+      const token = compressTestToUrlToken(payload);
+      const tokenParam = (token && token.length < 500) ? token : shortId;
+      const finalUrl = `${window.location.origin}/?t=${tokenParam}`;
 
-      await navigator.clipboard.writeText(shortUrl);
-      alert(`¡ENLACE CORTO DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace corto y limpio: ${shortUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.`);
+      await navigator.clipboard.writeText(finalUrl);
+      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace ejecutable directo: ${finalUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.`);
     } catch (e) {
       console.error(e);
-      alert("Error al generar enlace corto.");
+      alert("Error al generar enlace.");
     }
   };
 
