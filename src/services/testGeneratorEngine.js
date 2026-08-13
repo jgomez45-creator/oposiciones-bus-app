@@ -536,31 +536,38 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
       }
     }
-    // PATRÓN 2: FECHAS Y PLAZOS (Uso probabilístico ~50% de la trampa hábiles vs naturales)
+    // PATRÓN 2: FECHAS Y PLAZOS (Literalidad estricta)
     else if (daysMatch) {
       const num = daysMatch[1];
+      const numVal = parseInt(num, 10);
       const cleanSentence = cleanStemExcerpt(factText.split('.')[0]);
       
-      const isNatural = /natural/i.test(factText);
-      const correctComplement = isNatural ? 'días naturales' : 'días hábiles';
-      const oppositeComplement = isNatural ? 'días hábiles' : 'días naturales';
+      const hasNatural = /natural/i.test(factText);
+      const hasHabil = /hábiles|habil/i.test(factText);
+      
+      let baseWord = numVal === 1 ? 'día' : 'días';
+      let correctUnit = baseWord;
+      
+      if (hasNatural) {
+        correctUnit = `${baseWord} naturales`;
+      } else if (hasHabil) {
+        correctUnit = `${baseWord} hábiles`;
+      }
 
       const qText = `Según lo establecido en ${normName}, respecto a "${cleanSentence.substring(0, 45)}", ¿cuál es el plazo legalmente establecido?`;
-      
-      const correctOpt = `${num} ${correctComplement}`;
-      
-      // Aplicación del recurso de trampa de complemento con 50% de probabilidad
-      const useComplementTrap = Math.random() < 0.5;
+      const correctOpt = `${num} ${correctUnit}`;
       
       let wrong1, wrong2, wrong3;
-      if (useComplementTrap) {
-        wrong1 = `${num} ${oppositeComplement}`; // Trampa de complemento
-        wrong2 = `${parseInt(num) * 2} ${correctComplement}`;
-        wrong3 = `${parseInt(num) * 2} ${oppositeComplement}`;
+      
+      if (hasNatural || hasHabil) {
+        const oppositeUnit = hasNatural ? `${baseWord} hábiles` : `${baseWord} naturales`;
+        wrong1 = `${num} ${oppositeUnit}`; // Trampa de complemento
+        wrong2 = `${numVal * 2} ${correctUnit}`;
+        wrong3 = `${numVal * 2} ${oppositeUnit}`;
       } else {
-        wrong1 = `${parseInt(num) * 2} ${correctComplement}`;
-        wrong2 = `${Math.max(1, Math.floor(parseInt(num) / 2))} ${correctComplement}`;
-        wrong3 = `30 ${correctComplement}`;
+        wrong1 = `${numVal * 2} ${correctUnit}`;
+        wrong2 = `${Math.max(1, Math.floor(numVal / 2))} ${correctUnit}`;
+        wrong3 = `${numVal + 5} ${correctUnit}`;
       }
 
       const options = [correctOpt, wrong1, wrong2, wrong3];
