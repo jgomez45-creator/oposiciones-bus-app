@@ -8,6 +8,42 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   const [resultScore, setResultScore] = useState(0);
   const [resultDetails, setResultDetails] = useState([]);
   const [submitting, setSubmitting] = useState(false);
+  
+  // Novedad: Estado para pedir el email
+  const [studentEmail, setStudentEmail] = useState('');
+  const [isIdentified, setIsIdentified] = useState(false);
+
+  // Efecto para buscar si ya está identificado por URL o localStorage
+  useEffect(() => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const emailParam = urlParams.get('u') || urlParams.get('e') || urlParams.get('email');
+      
+      let savedIdent = localStorage.getItem('bus_student_real_email');
+      
+      if (emailParam) {
+        const decoded = decodeURIComponent(emailParam);
+        setStudentEmail(decoded);
+        localStorage.setItem('bus_student_real_email', decoded);
+        setIsIdentified(true);
+      } else if (savedIdent && savedIdent.includes('@')) {
+        setStudentEmail(savedIdent);
+        setIsIdentified(true);
+      }
+    } catch (_) {}
+  }, []);
+
+  const handleStartTest = (e) => {
+    e.preventDefault();
+    if (studentEmail && studentEmail.includes('@')) {
+      try {
+        localStorage.setItem('bus_student_real_email', studentEmail);
+      } catch (_) {}
+      setIsIdentified(true);
+    } else {
+      alert("Por favor, introduce un correo electrónico válido.");
+    }
+  };
 
   if (!testData || !Array.isArray(testData.questions) || testData.questions.length === 0) {
     return (
@@ -21,6 +57,51 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   }
 
   const { title = 'Test de Evaluación de la BUS', questions = [], summaryText = '' } = testData;
+
+  // PANTALLA DE IDENTIFICACIÓN
+  if (!isIdentified) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#090d16', color: '#e2e8f0', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+        <div className="glass-panel" style={{ maxWidth: '450px', width: '100%', background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '24px', padding: '40px 30px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+          <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
+            <Sparkles size={32} style={{ color: '#3b82f6' }} />
+          </div>
+          
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#fff', margin: '0 0 10px 0' }}>{title}</h1>
+            <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.5', margin: 0 }}>
+              Para registrar correctamente tu calificación, por favor indica tu correo electrónico.
+            </p>
+          </div>
+
+          <form onSubmit={handleStartTest} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <label style={{ fontSize: '0.85rem', fontWeight: '600', color: '#cbd5e1' }}>Tu correo electrónico</label>
+              <input
+                type="email"
+                required
+                value={studentEmail}
+                onChange={(e) => setStudentEmail(e.target.value)}
+                placeholder="ej: alumno@correo.com"
+                style={{ width: '100%', padding: '14px 16px', background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', color: '#fff', fontSize: '1rem', outline: 'none', transition: 'border-color 0.2s' }}
+                onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
+              />
+            </div>
+            
+            <button
+              type="submit"
+              style={{ width: '100%', padding: '14px', background: '#3b82f6', color: '#fff', border: 'none', borderRadius: '12px', fontSize: '1rem', fontWeight: '700', cursor: 'pointer', transition: 'background 0.2s', marginTop: '8px' }}
+              onMouseOver={(e) => e.target.style.background = '#2563eb'}
+              onMouseOut={(e) => e.target.style.background = '#3b82f6'}
+            >
+              Comenzar Evaluación
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   const handleSelectOption = (qIdx, optIdx) => {
     if (submitted) return;
@@ -72,29 +153,16 @@ export default function StandaloneTestRunner({ testData, onBack }) {
     setSubmitted(true);
     setSubmitting(false);
 
-    // Identificación silenciosa por huella de dispositivo o parámetro de URL
-    let studentIdent = null;
+    // Identificación silenciosa por huella de dispositivo, parámetro de URL o formulario
+    let studentIdent = studentEmail; // Usar el email que introdujo en el formulario (o cargado por URL)
     
-    // 1. Si el profesor pasó el email oculto en la URL (ej: &u=julio@outlook.com)
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const emailParam = urlParams.get('u') || urlParams.get('e') || urlParams.get('email');
-      if (emailParam) {
-        studentIdent = decodeURIComponent(emailParam);
-        localStorage.setItem('bus_invisible_device_id', studentIdent);
-      }
-    } catch (_) {}
-
-    // 2. Si no hay parámetro, usar el guardado o generar huella anónima
-    if (!studentIdent) {
-      try { studentIdent = localStorage.getItem('bus_invisible_device_id'); } catch (_) {}
+    if (!studentIdent || !studentIdent.includes('@')) {
+      try { studentIdent = localStorage.getItem('bus_student_real_email'); } catch (_) {}
+      
       if (!studentIdent) {
-        const ua = navigator.userAgent || '';
-        const isMobile = /mobile|android|iphone|ipad/i.test(ua);
-        const devType = isMobile ? 'Móvil' : 'PC/Laptop';
+        // Fallback en caso extremadamente raro
         const randomHash = Math.random().toString(36).substring(2, 7).toUpperCase();
-        studentIdent = `Alumno (${devType} #${randomHash})`;
-        try { localStorage.setItem('bus_invisible_device_id', studentIdent); } catch (_) {}
+        studentIdent = `Alumno (Anónimo #${randomHash})`;
       }
     }
 
