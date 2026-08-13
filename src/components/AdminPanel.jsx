@@ -19,6 +19,7 @@ import {
   Library,
   Sparkles,
   Save,
+  CheckCircle,
   CheckCircle2,
   AlertTriangle,
   Edit3,
