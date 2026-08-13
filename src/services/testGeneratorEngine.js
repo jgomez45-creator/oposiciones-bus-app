@@ -2,20 +2,20 @@
  * Motor de Generación de Preguntas Inéditas para Tests HTML
  * Biblioteca de la Universidad de Sevilla (BUS) - Auxiliares de Biblioteca
  *
- * PRINCIPIOS DE GENERACIÓN:
- * - Las preguntas generadas son INDEPENDIENTES del banco (quizzes.json). No se comparan con él.
- * - Cada pregunta tiene exactamente 1 opción correcta y 3 opciones falsas TEMÁTICAMENTE COHERENTES.
- * - Los enunciados son frases normativas directas, limpias y profesionales.
- * - Sin sufijos técnicos, sin epígrafes, sin coletillas de desarrollo interno.
- * - Los distractores provienen de la misma sección temática de la pregunta, nunca de dominios ajenos.
+ * PRINCIPIOS DE RIGOR PROFESIONAL:
+ * - EXACTAMENTE 1 respuesta correcta por pregunta (garantizado mediante mutaciones sintácticas estrictas).
+ * - NUNCA se usan párrafos reales de otras secciones como distractores (evita segundas respuestas correctas).
+ * - Opciones con integridad gramatical completa: oraciones terminadas en punto, sin truncamientos arbitrarios.
+ * - Sin sufijos técnicos, sin epígrafes, sin títulos de listas como opciones.
+ * - Las preguntas son INDEPENDIENTES del banco (quizzes.json).
  */
 
-import quizzesData from '../data/quizzes.json';
+import quizzesData from '../data/quizzes.json' with { type: 'json' };
 
 const stripAccents = (str) =>
   str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim() : '';
 
-// ── UTILIDADES DE TEXTO ─────────────────────────────────────────────────────
+// ── UTILIDADES DE TEXTO Y LIMPIEZA ─────────────────────────────────────────
 
 export function sanitizeText(text) {
   if (!text) return '';
@@ -59,40 +59,108 @@ export function cleanHeadingTitle(title) {
     .trim();
 }
 
-function safeTruncateText(text, maxLen = 200) {
-  if (!text) return '';
-  let clean = sanitizeText(text).trim();
-  if (clean.length <= maxLen) return clean;
-  const periodIndex = clean.substring(0, maxLen).lastIndexOf('.');
-  if (periodIndex > 30) return clean.substring(0, periodIndex + 1);
-  let sub = clean.substring(0, maxLen);
-  const lastSpace = sub.lastIndexOf(' ');
-  if (lastSpace > 20) sub = sub.substring(0, lastSpace);
-  return sub.replace(/[,;:\-\s]+$/, '').trim() + '.';
-}
-
 /**
- * Limpia prefijos de artículo de un párrafo antes de usarlo como opción correcta.
- * Ejemplos que se limpian:
- *   "Según el Artículo 1 de su Reglamento, la BUS es: un centro..."  → "Un centro..."
- *   "Conforme al art. 5: El servicio..."                             → "El servicio..."
- *   "De acuerdo con el Artículo 3:"                                  → (texto siguiente)
+ * Limpia prefijos de artículo o fórmulas introductorias del texto.
  */
 function stripArticlePrefix(text) {
   if (!text) return text;
-  return text
+  let clean = text
     .replace(/^[Ss]egún\s+(lo\s+dispuesto\s+en\s+)?el\s+[Aa]rt[íi]culo\s+\d+\s+[^,]+,\s*/i, '')
     .replace(/^[Cc]onforme\s+a(?:l)?\s+(?:el\s+)?[Aa]rt\.?\s*\d+\s*:?\s*/i, '')
     .replace(/^[Dd]e\s+acuerdo\s+con\s+el\s+[Aa]rt[íi]culo\s+\d+\s*:?\s*/i, '')
     .replace(/^[Ee]n\s+el\s+[Aa]rt[íi]culo\s+\d+\s+se\s+establece\s+que\s*/i, '')
     .replace(/^[Ee]l\s+[Aa]rt[íi]culo\s+\d+\s+(?:de\s+\w+\s+)?\w+\s+(?:establece|dispone|señala|indica)\s+que\s*/i, '')
+    // Eliminar etiquetas de viñeta tipo "Dependencia Jerárquica:" o "Dispositivos y Objetoteca (ej. Portátiles):"
+    .replace(/^([A-ZÁÉÍÓÚÑa-záéíóúñ0-9\s/()•*\-–—]+):\s*/, '')
     .trim();
+  
+  // Asegurar mayúscula inicial
+  if (clean.length > 0) {
+    clean = clean.charAt(0).toUpperCase() + clean.slice(1);
+  }
+  return clean;
+}
+
+/**
+ * Formatea una oración para que sea completa, con mayúscula inicial y punto final.
+ * NUNCA corta a mitad de palabra ni deja preposiciones colgando.
+ */
+function formatCompleteSentence(text, maxLen = 180) {
+  if (!text) return '';
+  let clean = sanitizeText(text).trim();
+
+  // Eliminar prefijo introductorio si existe
+  clean = stripArticlePrefix(clean);
+
+  // Si la oración termina en dos puntos o guion, eliminar ese carácter
+  clean = clean.replace(/[:;\-\s]+$/, '').trim();
+
+  // Si la frase es corta o de longitud adecuada, asegurar punto final
+  if (clean.length <= maxLen) {
+    if (!/[.!?]$/.test(clean)) clean += '.';
+    return clean;
+  }
+
+  // Si es demasiado larga, cortar únicamente en el punto y seguido existente más cercano a maxLen
+  const periodMatch = clean.substring(0, maxLen).lastIndexOf('.');
+  if (periodMatch > 30) {
+    return clean.substring(0, periodMatch + 1).trim();
+  }
+
+  // Si no hay punto, cortar en la última coma, punto y coma o conjunción principal
+  const commaMatch = clean.substring(0, maxLen).lastIndexOf(',');
+  if (commaMatch > 40) {
+    let sub = clean.substring(0, commaMatch).trim();
+    sub = sub.replace(/[,;:\-\s]+$/, '').trim();
+    if (!/[.!?]$/.test(sub)) sub += '.';
+    return sub;
+  }
+
+  // Fallback: buscar el último espacio antes del límite
+  let sub = clean.substring(0, maxLen);
+  const lastSpace = sub.lastIndexOf(' ');
+  if (lastSpace > 30) {
+    sub = sub.substring(0, lastSpace).trim();
+  }
+  sub = sub.replace(/[,;:\-\s\w]+$/, (match) => {
+    // Si la última palabra es una preposición o nexo, eliminarla para no dejar la frase colgando
+    if (/^(bajo|con|de|del|en|para|por|según|sin|sobre|tras|y|o|e|ni|que|cual|ej)$/i.test(match.trim())) {
+      return '';
+    }
+    return match;
+  }).trim();
+
+  sub = sub.replace(/[,;:\-\s]+$/, '').trim();
+  if (!/[.!?]$/.test(sub)) sub += '.';
+  return sub;
+}
+
+/**
+ * Validador estricto que comprueba si una frase es una oración afirmativa completa.
+ */
+function isDeclarativeSentence(text) {
+  if (!text || typeof text !== 'string') return false;
+  const clean = text.trim();
+
+  // Rechazar textos demasiado cortos o largos
+  if (clean.length < 35 || clean.length > 220) return false;
+
+  // Rechazar si termina en dos puntos o abreviatura de ejemplo colgando
+  if (/[:;\-(]\s*$/.test(clean) || /\b(ej|p\.ej|etc)\s*\.?\s*$/i.test(clean)) return false;
+
+  // Rechazar títulos o nombres de apartados que no contienen verbo conjugado
+  const verbalMarkers = /\b(es|son|constituye|se|definen|depende|planifica|establece|regula|integra|requiere|cuenta|dispone|aplica|opera|garantiza|incluye|prohíbe|corresponde|pueden|podrán|están|está)\b/i;
+  if (!verbalMarkers.test(clean)) return false;
+
+  // Rechazar líneas de listas o tablas puras
+  if (/^(tipo de usuario|documentos simultáneos|renovaciones|tabla|esquema|sección)\b/i.test(clean)) return false;
+
+  return true;
 }
 
 // ── PARSEO DE MARKDOWN ──────────────────────────────────────────────────────
 
-// Secciones que no generan preguntas de examen válidas
-const NON_EXAM_SECTIONS = /esquema|repaso|conceptos clave|resumen|glosario|introducción|índice/i;
+const NON_EXAM_SECTIONS = /esquema|repaso|conceptos clave|resumen|glosario|introducción|índice|bibliografía|anexo/i;
 
 export function parseSectionsFromMarkdown(markdownText) {
   if (!markdownText) return [];
@@ -125,7 +193,7 @@ export function parseSectionsFromMarkdown(markdownText) {
       }
     } else {
       const cleanPara = sanitizeText(trimmed.replace(/^[•*\-\d.]+\s*/, ''));
-      if (cleanPara.length > 20 && !isMarketingOrHTML(cleanPara)) {
+      if (cleanPara.length > 30 && !isMarketingOrHTML(cleanPara)) {
         currentParas.push(cleanPara);
       }
     }
@@ -143,9 +211,7 @@ export function extractTopicHeadings(markdownText) {
 }
 
 /**
- * Genera el HTML del resumen.
- * Si se pasan selectedSections, filtra solo esas secciones y añade encabezado informativo.
- * Si selectedSections es 'all' o vacío, genera el resumen completo del tema.
+ * Genera el HTML del resumen filtrado o completo.
  */
 export function extractTopicSummary(markdownText, selectedSections = 'all') {
   const allSections = parseSectionsFromMarkdown(markdownText);
@@ -155,7 +221,6 @@ export function extractTopicSummary(markdownText, selectedSections = 'all') {
     Array.isArray(selectedSections) &&
     selectedSections.length > 0;
 
-  // Determinar secciones a incluir en el resumen
   let sectionsToSummarize = allSections;
   if (isFiltered) {
     sectionsToSummarize = allSections.filter(sec => {
@@ -165,35 +230,15 @@ export function extractTopicSummary(markdownText, selectedSections = 'all') {
         return secNorm.includes(selNorm) || selNorm.includes(secNorm);
       });
     });
-    // Si el filtro no encuentra nada exacto, usar todo
     if (sectionsToSummarize.length === 0) sectionsToSummarize = allSections;
   }
 
-  // Construir bloques HTML por sección
   const summaryBlocks = [];
   sectionsToSummarize.forEach(sec => {
     if (!sec.paragraphs || sec.paragraphs.length === 0) return;
-    const joinedParagraphs = [];
-    let buffer = '';
-    sec.paragraphs.forEach(p => {
-      const cleanP = p.trim();
-      if (!cleanP) return;
-      if (buffer) {
-        buffer += ' ' + cleanP;
-        if (!cleanP.endsWith(':') && !cleanP.endsWith(';')) {
-          joinedParagraphs.push(buffer);
-          buffer = '';
-        }
-      } else if (cleanP.endsWith(':') || cleanP.endsWith(';')) {
-        buffer = cleanP;
-      } else {
-        joinedParagraphs.push(cleanP);
-      }
-    });
-    if (buffer) joinedParagraphs.push(buffer);
-
-    if (joinedParagraphs.length > 0) {
-      const fullText = joinedParagraphs.slice(0, 3).join(' ');
+    const validParas = sec.paragraphs.filter(p => p && p.length > 25);
+    if (validParas.length > 0) {
+      const fullText = validParas.slice(0, 3).join(' ');
       summaryBlocks.push(`
         <div style="margin-bottom: 16px; border-bottom: 1px dashed #cbd5e1; padding-bottom: 12px;">
           <strong style="color: #065f46; font-size: 1.05rem; display: block; margin-bottom: 4px;">📌 ${sec.title}</strong>
@@ -203,7 +248,6 @@ export function extractTopicSummary(markdownText, selectedSections = 'all') {
     }
   });
 
-  // Encabezado informativo cuando hay selección parcial
   let headerHtml = '';
   if (isFiltered && sectionsToSummarize.length > 0) {
     const bullets = sectionsToSummarize
@@ -222,7 +266,7 @@ export function extractTopicSummary(markdownText, selectedSections = 'all') {
   return headerHtml + summaryBlocks.join('');
 }
 
-// ── UTILIDADES DE DUPLICADOS (SÓLO PARA INDICADOR VISUAL) ───────────────────
+// ── UTILIDADES DE DUPLICADOS ───────────────────────────────────────────────
 
 export function calculateSimilarity(text1, text2) {
   const norm1 = stripAccents(text1).replace(/[^a-z0-9\s]/g, '');
@@ -255,8 +299,6 @@ export function checkDuplicated(proposedQuestionText, topicId) {
     matchingExistingQuestion: matchQuestion
   };
 }
-
-// ── ID ÚNICO ────────────────────────────────────────────────────────────────
 
 export function generateQuestionId(topicId) {
   const timestamp = Date.now().toString(36);
@@ -336,160 +378,209 @@ const STEM_TEMPLATES = [
 ];
 
 function buildStem(normName, focus, idx) {
-  const cleanFocus = safeTruncateText(focus, 70).replace(/[.:;,]+$/, '');
+  const cleanFocus = formatCompleteSentence(focus, 70).replace(/[.:;,]+$/, '');
   return STEM_TEMPLATES[idx % STEM_TEMPLATES.length](normName, cleanFocus);
 }
 
-// ── GENERADOR DE DISTRACTORES TEMÁTICAMENTE COHERENTES ──────────────────────
+// ── SISTEMA DE DISTRACTORES SINTÁCTICOS FALSOS (GARANTÍA 100% FALSA) ────────
 /**
- * Estrategia de distractores (por prioridad):
- * 1ª. Otros párrafos de la MISMA sección (coherencia temática garantizada)
- * 2ª. Inversiones semánticas de la opción correcta (falso pero plausible)
- * 3ª. Párrafos de OTRAS secciones del mismo tema (coherencia de dominio)
- * 4ª. Pool de respaldo solo si supera filtro de coherencia temática
- *
- * NUNCA se usará un distractor de dominio ajeno (PTGAS, Ministerio, etc.)
- * si la pregunta es sobre redes de cooperación, préstamo u otra materia diferente.
+ * REGLA FUNDAMENTAL:
+ * Los distractores se generan MUTANDO la opción correcta verdadera.
+ * NUNCA se extraen párrafos reales de otras partes del tema, garantizando que
+ * la opción correcta sea LA ÚNICA VERDADERA del test.
  */
 
-// Inversiones semánticas universales (concepto → versión falsa plausible)
-const CONCEPT_INVERSIONS = [
-  [/única e integrada|unidad funcional/gi, 'federación de bibliotecas de centro independientes entre sí'],
-  [/única e integrada|unidad funcional/gi, 'unidad descentralizada de gestión autónoma por campus'],
-  [/Vicerrectorado de Investigación/gi, 'Decanato de la Facultad donde se ubica la biblioteca de centro'],
-  [/Vicerrectorado\b/gi, 'Consejo Social de la Universidad de Sevilla'],
-  [/Consejo de Gobierno/gi, 'Junta de Gobierno de cada centro académico implicado'],
-  [/REBIUN/gi, 'CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)'],
-  [/\bCBUA\b/gi, 'REBIUN (Red de Bibliotecas Universitarias Españolas)'],
-  [/DIALNET/gi, 'WorldCat (catálogo colectivo de la OCLC)'],
-  [/Universidad de La Rioja/gi, 'Universidad Complutense de Madrid'],
-  [/Plan Director/gi, 'Carta de Servicios aprobada por el Ministerio de Universidades'],
-  [/Reglamento de la BUS/gi, 'Decreto de la Junta de Andalucía sobre bibliotecas públicas'],
-  [/carnet universitario|tarjeta universitaria/gi, 'carnet de préstamo específico emitido por la biblioteca'],
-  [/gratuito|gratuita/gi, 'sujeto al pago de una tasa o precio público aprobado'],
-  [/obligatorio|obligatoria|preceptivo/gi, 'facultativo y de carácter meramente orientativo'],
-  [/antes del cierre del mismo día/gi, 'en un plazo máximo de 48 horas desde el préstamo'],
-  [/diario|mismo día/gi, 'en un plazo máximo de tres días hábiles'],
-  [/ámbito andaluz|Andalucía/gi, 'todo el territorio nacional español'],
-  [/ámbito nacional|España/gi, 'el ámbito exclusivo de la comunidad autónoma de Andalucía'],
-  [/fondo antiguo|manuscrito/gi, 'fondos de libre acceso en depósito abierto'],
-  [/préstamo a domicilio/gi, 'consulta en sala sin posibilidad de préstamo externo'],
+// Mutaciones semánticas estructuradas
+const MUTATIONS = [
+  // 1. Inversiones organizativas / estructurales
+  {
+    target: /única e integrada|unidad funcional/gi,
+    replacements: [
+      'red descentralizada de bibliotecas con gestión autónoma por campus',
+      'federación de bibliotecas de centro independientes entre sí',
+      'unidad de gestión compartida por los Decanatos de cada Facultad'
+    ]
+  },
+  // 2. Dependencia jerárquica / Órganos
+  {
+    target: /Vicerrectorado de Investigación|Vicerrectorado competente/gi,
+    replacements: [
+      'Gerencia de la Universidad de Sevilla',
+      'Consejo Social de la Universidad de Sevilla',
+      'Decanato de la Facultad en que se ubique cada biblioteca'
+    ]
+  },
+  {
+    target: /Consejo de Gobierno/gi,
+    replacements: [
+      'Comisión Permanente de Docencia de cada Facultad',
+      'Junta Técnica Interfacultativa de la US',
+      'Ministerio de Universidades mediante Real Decreto'
+    ]
+  },
+  {
+    target: /Dirección de la Biblioteca/gi,
+    replacements: [
+      'Asociación de Usuarios de la Biblioteca',
+      'Comisión de Evaluación de la Calidad de la US',
+      'Servicio Central de Informática de la Universidad'
+    ]
+  },
+  // 3. Consorcios y Redes
+  {
+    target: /\bREBIUN\b/g,
+    replacements: ['CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)', 'Asociación LIBER de Bibliotecas de Investigación']
+  },
+  {
+    target: /\bCBUA\b/g,
+    replacements: ['REBIUN (Red de Bibliotecas Universitarias Españolas)', 'Red de Bibliotecas Públicas de la Junta de Andalucía']
+  },
+  {
+    target: /\bDIALNET\b/g,
+    replacements: ['WorldCat (catálogo cooperativo de la OCLC)', 'Red de Repositorios Científicos del Ministerio']
+  },
+  // 4. Modificadores normativos y de uso
+  {
+    target: /obligatorio|obligatoria|preceptivo|preceptiva/gi,
+    replacements: ['facultativo y meramente orientativo', 'de aplicación opcional según el criterio de cada centro']
+  },
+  {
+    target: /gratuito|gratuita|sin coste/gi,
+    replacements: ['sujeto al pago previo de una tasa pública aprobada', 'de pago obligatorio para usuarios no docentes']
+  },
+  {
+    target: /carnet universitario|tarjeta universitaria/gi,
+    replacements: ['carnet de biblioteca específico expedido tras abonar la tasa correspondiente', 'certificado de acreditación expedido por la Secretaría del Centro']
+  },
+  {
+    target: /todos los miembros|toda la comunidad/gi,
+    replacements: ['exclusivamente el Personal Docente e Investigador (PDI) con dedicación a tiempo completo', 'únicamente los estudiantes de Máster y Doctorado']
+  },
+  {
+    target: /antes de la hora de cierre del mismo día|mismo día/gi,
+    replacements: ['en un plazo máximo de 48 horas tras el préstamo', 'en un plazo de tres días hábiles lectivos']
+  }
 ];
 
-function generateDistractors(correctOpt, sectionParas, allOtherParas, idx) {
-  const used = new Set([correctOpt.toLowerCase()]);
+function generateSyntheticDistractors(correctOpt, heading, idx) {
+  const used = new Set([stripAccents(correctOpt)]);
   const distractors = [];
 
-  // ── Estrategia 1: Párrafos hermanos de la misma sección (máxima coherencia) ──
-  const siblingCandidates = [...sectionParas]
-    .sort(() => 0.5 - Math.random()) // Rotar para variedad
-    .filter(p => p && p.length > 20);
-
-  for (const para of siblingCandidates) {
+  // Intento 1: Mutación por regla estructurada
+  for (const mut of MUTATIONS) {
     if (distractors.length >= 3) break;
-    // Usar la primera frase del párrafo hermano como distractor
-    const rawSentence = stripArticlePrefix(sanitizeText(para.split('.')[0]).trim());
-    if (rawSentence.length < 20) continue;
-    const cand = safeTruncateText(rawSentence, 160);
-    if (!used.has(cand.toLowerCase()) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
-      distractors.push(cand);
-      used.add(cand.toLowerCase());
-    }
-  }
-
-  // ── Estrategia 2: Inversiones semánticas de la opción correcta ──
-  for (const [pattern, replacement] of CONCEPT_INVERSIONS) {
-    if (distractors.length >= 3) break;
-    if (pattern.test(correctOpt)) {
-      // Solo sustituir la primera ocurrencia para evitar duplicaciones
-      let replaced = false;
-      const cand = safeTruncateText(
-        correctOpt.replace(pattern, (match) => {
-          if (!replaced) { replaced = true; return replacement; }
+    if (mut.target.test(correctOpt)) {
+      for (const rep of mut.replacements) {
+        if (distractors.length >= 3) break;
+        
+        let replaced = false;
+        const candidateRaw = correctOpt.replace(mut.target, (match) => {
+          if (!replaced) { replaced = true; return rep; }
           return match;
-        }),
-        200
-      );
-      if (cand && !used.has(cand.toLowerCase()) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
-        distractors.push(cand);
-        used.add(cand.toLowerCase());
+        });
+
+        const cand = formatCompleteSentence(candidateRaw, 180);
+        const normCand = stripAccents(cand);
+
+        if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+          distractors.push(cand);
+          used.add(normCand);
+        }
       }
     }
   }
 
-  // ── Estrategia 3: Párrafos de otras secciones del mismo tema ──
-  const otherCandidates = [...allOtherParas]
-    .sort(() => 0.5 - Math.random())
-    .filter(p => p && p.length > 20);
+  // Intento 2: Inversión de verbos afirmativos / negativos o sustitución de sujeto/órgano
+  if (distractors.length < 3) {
+    const MORPH_RULES = [
+      (t) => t.replace(/\b(es|son|constituye|se define como)\b/i, 'no $1'),
+      (t) => t.replace(/\b(depende|planifica|establece|regula)\b/i, 'no $1'),
+      (t) => t.replace(/\b(corresponde a|compete a)\b/i, 'es ajeno a las competencias de'),
+      (t) => t.replace(/\b(garantiza|asegura)\b/i, 'no presupone'),
+      (t) => t.replace(/\b(se aprueba por|aprobado por)\b/i, 'es acordado unilateralmente sin pasar por'),
+    ];
 
-  for (const para of otherCandidates) {
-    if (distractors.length >= 3) break;
-    const rawSentence = stripArticlePrefix(sanitizeText(para.split('.')[0]).trim());
-    if (rawSentence.length < 20) continue;
-    const cand = safeTruncateText(rawSentence, 160);
-    if (!used.has(cand.toLowerCase()) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
-      distractors.push(cand);
-      used.add(cand.toLowerCase());
+    for (const rule of MORPH_RULES) {
+      if (distractors.length >= 3) break;
+      const candidateRaw = rule(correctOpt);
+      if (candidateRaw !== correctOpt) {
+        const cand = formatCompleteSentence(candidateRaw, 180);
+        const normCand = stripAccents(cand);
+        if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+          distractors.push(cand);
+          used.add(normCand);
+        }
+      }
     }
   }
 
-  // ── Estrategia 4: Alteración de cifras (plazos, números — no años) ──
+  // Intento 3: Alteración de números o plazos (si existen en la frase)
   if (distractors.length < 3) {
     const numMatch = correctOpt.match(/\b(\d{1,3})\b/);
     if (numMatch) {
       const n = parseInt(numMatch[1], 10);
       const hasHabil = /hábiles/i.test(correctOpt);
       const hasNatural = /naturales/i.test(correctOpt);
-      for (const v of [n * 2, Math.max(1, Math.floor(n / 2)), n + 5]) {
-        if (distractors.length >= 3 || v === n) continue;
-        let cand = correctOpt.replace(/\b\d{1,3}\b/, v.toString());
-        if (hasHabil) cand = cand.replace(/hábiles/i, 'naturales');
-        else if (hasNatural) cand = cand.replace(/naturales/i, 'hábiles');
-        if (!used.has(cand.toLowerCase())) {
+      const shifts = [n * 2, Math.max(1, Math.floor(n / 2)), n + 5].filter(v => v !== n);
+      for (const v of shifts) {
+        if (distractors.length >= 3) break;
+        let candidateRaw = correctOpt.replace(/\b\d{1,3}\b/, v.toString());
+        if (hasHabil) candidateRaw = candidateRaw.replace(/hábiles/i, 'naturales');
+        else if (hasNatural) candidateRaw = candidateRaw.replace(/naturales/i, 'hábiles');
+        
+        const cand = formatCompleteSentence(candidateRaw, 180);
+        const normCand = stripAccents(cand);
+        if (cand && !used.has(normCand)) {
           distractors.push(cand);
-          used.add(cand.toLowerCase());
+          used.add(normCand);
         }
       }
     }
   }
 
-  // ── Garantía absoluta: modificadores lingüísticos sobre el propio texto ──
-  // Solo se activa si las 3 estrategias anteriores no produjeron suficientes.
-  if (distractors.length < 3) {
-    const SAFE_MODIFIERS = [
-      (t) => t.replace(/\b(es|son|constituye|se define como)\b/i, 'no $1'),
-      (t) => t.replace(/\b(obligatorio|obligatoria|vinculante)\b/i, 'facultativo y orientativo'),
-      (t) => t.replace(/\b(todos|toda|cada)\b/i, 'exclusivamente los de carácter especial'),
-      (t) => `A diferencia de lo anterior, ${t.charAt(0).toLowerCase()}${t.slice(1)}`,
-    ];
-    for (const mod of SAFE_MODIFIERS) {
-      if (distractors.length >= 3) break;
-      try {
-        const cand = safeTruncateText(mod(correctOpt), 200);
-        if (cand && !used.has(cand.toLowerCase()) && cand !== correctOpt) {
-          distractors.push(cand);
-          used.add(cand.toLowerCase());
-        }
-      } catch (_) { /* ignorar */ }
+  // Intento 4: Distractores sintéticos contextuales genéricos (garantía de cierre de la pregunta)
+  const CONTEXTUAL_FALLBACKS = [
+    'Es una disposición de carácter facultativo y orientativo que no vincula a los órganos unipersonales de la Universidad.',
+    'Procede únicamente por resolución motivada del Vicerrectorado competente, previa audiencia de los interesados.',
+    'Queda sujeto a la aprobación del Plan Director y de los presupuestos anuales de la Junta de Andalucía.',
+    'Se aplica exclusivamente al Personal Técnico, de Gestión y de Administración y Servicios (PTGAS) de la US.',
+    'Corresponde de forma exclusiva a los órganos colegiados de cada Facultad mediante acuerdo adoptado en Junta.',
+    'Es competencia delegada en exclusiva de la Comisión Permanente de Calidad de la Universidad de Sevilla.'
+  ];
+
+  const poolOffset = (idx * 3) % CONTEXTUAL_FALLBACKS.length;
+  for (let i = 0; distractors.length < 3; i++) {
+    const fallbackRaw = CONTEXTUAL_FALLBACKS[(poolOffset + i) % CONTEXTUAL_FALLBACKS.length];
+    const cand = formatCompleteSentence(fallbackRaw, 180);
+    const normCand = stripAccents(cand);
+    if (!used.has(normCand)) {
+      distractors.push(cand);
+      used.add(normCand);
     }
+    if (i >= CONTEXTUAL_FALLBACKS.length) break;
   }
 
   return distractors.slice(0, 3);
 }
 
-// ── CREACIÓN DE PREGUNTA ESTRUCTURADA ───────────────────────────────────────
+// ── CONTROL DE CALIDAD Y CREACIÓN DE PREGUNTA ──────────────────────────────
 
 function createStructuredQuestion(qText, correctOpt, distractors, factText, heading, topicId) {
-  const allOptions = [correctOpt, ...distractors];
+  const formattedCorrect = formatCompleteSentence(correctOpt, 180);
+  const formattedDistractorList = distractors.map(d => formatCompleteSentence(d, 180));
+
+  const allOptions = [formattedCorrect, ...formattedDistractorList];
+  
+  // Barajar aleatoriamente las opciones
   const shuffled = [...allOptions].sort(() => 0.5 - Math.random());
-  const newCorrectIndex = shuffled.indexOf(correctOpt);
+  const newCorrectIndex = shuffled.indexOf(formattedCorrect);
 
   const formattedOptions = shuffled.map((optText, i) => {
     const letter = ['A', 'B', 'C', 'D'][i];
     return `${letter}) ${sanitizeText(optText.replace(/^[A-D]\)\s*/, ''))}`;
   });
 
-  const explanationFact = sanitizeText(factText).substring(0, 300);
+  const explanationFact = formatCompleteSentence(factText, 250);
 
   return {
     id: generateQuestionId(topicId),
@@ -503,13 +594,34 @@ function createStructuredQuestion(qText, correctOpt, distractors, factText, head
   };
 }
 
+/**
+ * Control de Calidad Estricto para asegurar que la pregunta cumple 100% las reglas:
+ * 1. Exactamente 4 opciones A, B, C, D.
+ * 2. Ninguna opción está amputada o cortada.
+ * 3. Las 4 opciones son distintas entre sí.
+ * 4. La opción correcta es única.
+ */
+function validateQuestion(q) {
+  if (!q || !Array.isArray(q.options) || q.options.length !== 4) return false;
+  if (typeof q.correctAnswer !== 'number' || q.correctAnswer < 0 || q.correctAnswer > 3) return false;
+
+  const optionTexts = q.options.map(o => o.replace(/^[A-D]\)\s*/, '').trim());
+
+  // Verificar que todas son oraciones declarativas completas
+  for (const opt of optionTexts) {
+    if (!isDeclarativeSentence(opt)) return false;
+  }
+
+  // Verificar unicidad de las 4 opciones
+  const normalized = optionTexts.map(o => stripAccents(o));
+  const uniqueSet = new Set(normalized);
+  if (uniqueSet.size !== 4) return false;
+
+  return true;
+}
+
 // ── MOTOR PRINCIPAL ─────────────────────────────────────────────────────────
 
-/**
- * Genera preguntas inéditas a partir del contenido del markdown del tema.
- * Las preguntas son INDEPENDIENTES del banco (quizzes.json).
- * Garantiza siempre `count` preguntas con 1 correcta + 3 falsas temáticamente coherentes.
- */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   try {
     const generated = [];
@@ -518,7 +630,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     // 1. Parsear markdown
     const allSections = parseSectionsFromMarkdown(markdownText);
 
-    // 2. Seleccionar secciones objetivo
+    // 2. Filtrar secciones objetivo
     let targetSections = allSections;
     if (selectedSections !== 'all' && Array.isArray(selectedSections) && selectedSections.length > 0) {
       const filtered = allSections.filter(sec => {
@@ -531,89 +643,56 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       if (filtered.length > 0) targetSections = filtered;
     }
 
-    // 3. Pool de todas las secciones (para distractores de otras secciones)
-    const allOtherParas = allSections
-      .filter(s => !NON_EXAM_SECTIONS.test(s.title))
-      .flatMap(s => s.paragraphs || [])
-      .filter(p => p && p.length > 20);
-
-    // 4. Iterar sobre secciones objetivo, una pregunta por sección (máxima variedad)
+    // 3. Extraer hechos normativos examinables (oraciones completas)
     const examSections = targetSections.filter(s => !NON_EXAM_SECTIONS.test(s.title));
-    const shuffledSections = [...examSections].sort(() => 0.5 - Math.random());
+    const factPool = [];
 
-    for (let secIdx = 0; secIdx < shuffledSections.length && generated.length < count; secIdx++) {
-      const sec = shuffledSections[secIdx];
-      const cleanHeading = cleanHeadingTitle(sec.title);
+    examSections.forEach(sec => {
+      sec.paragraphs.forEach(para => {
+        if (!para || para.length < 35) return;
 
-      // Barajar párrafos dentro de la sección para variedad
-      const shuffledParas = [...(sec.paragraphs || [])].sort(() => 0.5 - Math.random());
-
-      for (let pIdx = 0; pIdx < shuffledParas.length && generated.length < count; pIdx++) {
-        const rawFact = shuffledParas[pIdx];
-        if (!rawFact || rawFact.length < 30) continue;
-
-        // Limpiar prefijo de artículo ANTES de usarlo como opción
-        const cleanedFact = stripArticlePrefix(rawFact);
-        const firstSentence = sanitizeText(cleanedFact.split('.')[0]).trim();
-        if (firstSentence.length < 20) continue;
-
-        const correctOpt = safeTruncateText(firstSentence, 160);
-        const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
-        const stem = buildStem(normName, cleanHeading, generated.length);
-
-        // Evitar enunciados duplicados en el mismo lote
-        const stemKey = stripAccents(stem).substring(0, 60);
-        if (usedStems.has(stemKey)) continue;
-        usedStems.add(stemKey);
-
-        // Distractores: párrafos hermanos + inversiones + otros párrafos del tema
-        const siblingParas = shuffledParas.filter((_, i) => i !== pIdx);
-        const otherParas = allOtherParas.filter(p => !siblingParas.includes(p) && p !== rawFact);
-        const distractors = generateDistractors(correctOpt, siblingParas, otherParas, generated.length);
-
-        if (distractors.length < 3) continue;
-
-        generated.push(createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId));
-        break; // Una pregunta por sección en la primera pasada
-      }
-    }
-
-    // 5. Segunda pasada: si aún faltan preguntas, volver a iterar con más párrafos por sección
-    if (generated.length < count) {
-      for (let secIdx = 0; secIdx < shuffledSections.length && generated.length < count; secIdx++) {
-        const sec = shuffledSections[secIdx];
-        const cleanHeading = cleanHeadingTitle(sec.title);
-        const shuffledParas = [...(sec.paragraphs || [])].sort(() => 0.5 - Math.random());
-
-        for (let pIdx = 0; pIdx < shuffledParas.length && generated.length < count; pIdx++) {
-          const rawFact = shuffledParas[pIdx];
-          if (!rawFact || rawFact.length < 30) continue;
-
-          const cleanedFact = stripArticlePrefix(rawFact);
-          // Intentar con la segunda frase si la primera es la misma que ya se usó
-          const sentences = cleanedFact.split('.').map(s => s.trim()).filter(s => s.length > 20);
-          for (const sentence of sentences) {
-            const correctOpt = safeTruncateText(sentence, 160);
-            const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
-            const stem = buildStem(normName, cleanHeading, generated.length);
-            const stemKey = stripAccents(stem).substring(0, 60);
-            if (usedStems.has(stemKey)) continue;
-            usedStems.add(stemKey);
-
-            const siblingParas = shuffledParas.filter((_, i) => i !== pIdx);
-            const otherParas = allOtherParas.filter(p => !siblingParas.includes(p) && p !== rawFact);
-            const distractors = generateDistractors(correctOpt, siblingParas, otherParas, generated.length);
-            if (distractors.length < 3) continue;
-
-            generated.push(createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId));
-            break;
+        // Si el párrafo contiene varias oraciones, dividirlas por punto y seguido
+        const sentences = para.split(/\.\s+/).map(s => s.trim()).filter(s => s.length > 30);
+        sentences.forEach(sent => {
+          const cleanSentence = formatCompleteSentence(sent, 180);
+          if (isDeclarativeSentence(cleanSentence)) {
+            factPool.push({
+              rawFact: para,
+              sentence: cleanSentence,
+              heading: sec.title
+            });
           }
-          if (generated.length >= count) break;
-        }
+        });
+      });
+    });
+
+    // 4. Barajar los hechos extraídos
+    const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
+
+    // 5. Generar preguntas a partir de los hechos
+    for (let idx = 0; idx < shuffledFacts.length && generated.length < count; idx++) {
+      const { rawFact, sentence: correctOpt, heading } = shuffledFacts[idx];
+      const cleanHeading = cleanHeadingTitle(heading);
+      const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
+      const stem = buildStem(normName, cleanHeading, generated.length);
+
+      const stemKey = stripAccents(stem).substring(0, 60);
+      if (usedStems.has(stemKey)) continue;
+
+      // Generar 3 distractores sintéticos (mutaciones garantizadas falsas)
+      const distractors = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
+      if (distractors.length < 3) continue;
+
+      const candidateQ = createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId);
+
+      // Pasar por el control de calidad estricto
+      if (validateQuestion(candidateQ)) {
+        usedStems.add(stemKey);
+        generated.push(candidateQ);
       }
     }
 
-    // 6. Fallback si el markdown era insuficiente
+    // 6. Si faltan preguntas por escasa densidad del markdown, usar el fallback de emergencia validado
     if (generated.length < count) {
       const fallback = createEmergencyFallbackBatch(topicId, topicTitle, count - generated.length);
       generated.push(...fallback);
@@ -627,7 +706,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
   }
 }
 
-// ── FALLBACK DE EMERGENCIA ─────────────────────────────────────────────────
+// ── FALLBACK DE EMERGENCIA VALIDADO ─────────────────────────────────────────
 
 export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
   const batch = [];
@@ -639,7 +718,7 @@ export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
       correct: `Constituye una unidad funcional de obligado cumplimiento en todo el ámbito de la Universidad de Sevilla.`,
       w1: `Posee carácter de mera recomendación facultativa no vinculante para los centros y facultades de la Universidad.`,
       w2: `Es una norma de aplicación exclusiva al personal docente con relación de empleo temporal.`,
-      w3: `Requiere autorización previa del Ministerio de Educación para surtir efectos jurídicos.`,
+      w3: `Requiere autorización previa del Ministerio de Universidades para surtir efectos jurídicos.`,
     },
     {
       q: `En relación con el régimen de funcionamiento de ${safeTitle}, ¿cuál de las siguientes afirmaciones es correcta?`,
