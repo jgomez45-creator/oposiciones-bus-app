@@ -244,8 +244,8 @@ function hasAnswerLeak(questionText, correctOptionText) {
   const quotedMatch = qLower.match(/"([^"]+)"/);
   if (quotedMatch) {
     const focusWord = quotedMatch[1].toLowerCase().trim();
-    if (focusWord.length > 4 && cLower.includes(focusWord)) {
-      return true; // Evita preguntas del tipo "¿Qué es La Objetoteca?" -> "Servicio de Objetoteca..."
+    if (focusWord.length > 4 && focusWord.length < 15 && cLower.startsWith(focusWord)) {
+      return true; // Evita preguntas del tipo "¿Qué es La Objetoteca?" -> "Objetoteca..."
     }
   }
 
@@ -299,7 +299,7 @@ export function parseSectionsFromMarkdown(markdownText) {
 
     if (/^#{1,3}\s+/.test(trimmed)) {
       const titleText = cleanHeadingTitle(trimmed.replace(/^#+\s*/, ''));
-      if (titleText.length > 2 && !titleText.toLowerCase().startsWith('tema ')) {
+      if (titleText.length > 2) {
         if (currentParas.length > 0 && currentTitle) {
           sections.push({ title: currentTitle, paragraphs: currentParas });
         }
@@ -407,9 +407,16 @@ export function checkDuplicated(proposedQuestionText, topicId) {
   let maxSim = 0;
   let matchQuestion = null;
 
+  const cleanStem = (q) => (q || '')
+    .replace(/^Según lo (dispuesto|establecido) en [^,]+,\s*/i, '')
+    .replace(/^En [^,]+,\s*¿cuál/i, '¿cuál');
+
+  const coreProp = cleanStem(proposedQuestionText);
+
   for (const item of existingList) {
     if (!item || !item.question) continue;
-    const sim = calculateSimilarity(proposedQuestionText, item.question);
+    const coreItem = cleanStem(item.question);
+    const sim = calculateSimilarity(coreProp, coreItem);
     if (sim > maxSim) {
       maxSim = sim;
       matchQuestion = item.question;
@@ -417,7 +424,7 @@ export function checkDuplicated(proposedQuestionText, topicId) {
   }
 
   return {
-    isDuplicated: maxSim >= 0.7,
+    isDuplicated: maxSim >= 0.85,
     similarityPercentage: Math.round(maxSim * 100),
     matchingExistingQuestion: matchQuestion
   };
