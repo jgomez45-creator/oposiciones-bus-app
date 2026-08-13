@@ -1,28 +1,32 @@
-export const downloadTestAsHTML = (questions, title, studentId, projectId = 'oposiciones-bus-app', summaryText = '') => {
+export const downloadTestAsHTML = (questions, title, studentId = '', projectId = 'oposiciones-bus-app', summaryText = '') => {
   const cssStyles = `
-    body { font-family: 'Inter', system-ui, sans-serif; background-color: #f3f4f6; color: #1f2937; margin: 0; padding: 20px; display: flex; justify-content: center; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f3f4f6; color: #1f2937; margin: 0; padding: 20px; display: flex; justify-content: center; }
     .container { max-width: 800px; width: 100%; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-    h1 { color: #111827; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 20px; }
+    h1 { color: #111827; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.6rem; }
     .summary-box { background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 20px; margin-bottom: 30px; }
     .summary-title { font-weight: 700; font-size: 1.1rem; color: #166534; margin-bottom: 12px; border-bottom: 1px solid #bbf7d0; padding-bottom: 6px; }
     .summary-body { font-size: 0.95rem; line-height: 1.6; color: #1e293b; }
-    .question-card { margin-bottom: 25px; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px; }
-    .question-text { font-size: 1.125rem; font-weight: 600; margin-bottom: 15px; }
-    .option { display: block; padding: 10px 15px; margin-bottom: 10px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
-    .option:hover { background: #f3f4f6; border-color: #9ca3af; }
-    .option input { margin-right: 10px; }
-    .btn { background: #2563eb; color: white; border: none; padding: 12px 24px; font-size: 1rem; font-weight: 600; border-radius: 6px; cursor: pointer; width: 100%; transition: background 0.2s; }
+    .student-ident-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 18px; margin-bottom: 24px; }
+    .student-ident-label { display: block; font-weight: 700; color: #1e40af; margin-bottom: 6px; font-size: 0.95rem; }
+    .student-ident-input { width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #93c5fd; border-radius: 6px; font-size: 0.98rem; outline: none; background: #ffffff; transition: border-color 0.2s; }
+    .student-ident-input:focus { border-color: #2563eb; }
+    .question-card { margin-bottom: 25px; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px; background: #ffffff; }
+    .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 15px; color: #0f172a; line-height: 1.5; }
+    .option { display: block; padding: 12px 16px; margin-bottom: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; line-height: 1.5; }
+    .option:hover { background: #f1f5f9; border-color: #94a3b8; }
+    .option input { margin-right: 12px; }
+    .btn { background: #2563eb; color: white; border: none; padding: 14px 24px; font-size: 1.05rem; font-weight: 700; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.2s; }
     .btn:hover { background: #1d4ed8; }
     .btn:disabled { background: #9ca3af; cursor: not-allowed; }
     .result-container { display: none; text-align: center; margin-top: 30px; padding: 20px; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; }
     .result-score { font-size: 2rem; font-weight: bold; margin-bottom: 10px; }
-    .correct { background-color: #d1fae5 !important; border-color: #10b981 !important; }
-    .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; }
+    .correct { background-color: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 600; }
+    .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
   `;
 
   const jsLogic = `
     const TEST_DATA = ${JSON.stringify(questions)};
-    const STUDENT_ID = ${JSON.stringify(studentId)};
+    const INITIAL_STUDENT_ID = ${JSON.stringify(studentId || '')};
     const PROJECT_ID = ${JSON.stringify(projectId)};
     const TITLE = ${JSON.stringify(title)};
     
@@ -30,6 +34,7 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 
     function renderQuestions() {
       const form = document.getElementById('quiz-form');
+      
       TEST_DATA.forEach((q, index) => {
         const card = document.createElement('div');
         card.className = 'question-card';
@@ -79,6 +84,16 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 
     async function submitQuiz() {
       const btn = document.getElementById('submit-btn');
+      const inputEl = document.getElementById('student-id-input');
+      const studentIdent = inputEl ? inputEl.value.trim() : INITIAL_STUDENT_ID;
+
+      if (!studentIdent) {
+        if (inputEl) inputEl.style.borderColor = '#ef4444';
+        alert("Por favor, introduce tu Nombre o Email en la casilla superior para registrar tu entrega.");
+        if (inputEl) inputEl.focus();
+        return;
+      }
+
       if (btn) {
         btn.disabled = true;
         btn.innerText = "Corregiendo...";
@@ -119,7 +134,6 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
             if (lCorr) lCorr.classList.add('correct');
           }
 
-          // Mostrar la caja explicativa del concepto clave al corregir
           const expDiv = document.getElementById('explanation-' + index);
           if (expDiv) expDiv.style.display = 'block';
 
@@ -148,6 +162,7 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         
         if (resDetails) {
           resDetails.innerHTML = 
+            '<div style="margin-bottom: 6px;"><strong>Alumno:</strong> ' + studentIdent + '</div>' +
             '<div style="margin-bottom: 6px;"><strong>Total de preguntas:</strong> ' + maxScore + '</div>' +
             '<div style="margin-bottom: 6px;"><strong>Contestadas:</strong> ' + answeredCount + '</div>' +
             '<div style="margin-bottom: 6px; color: #166534;"><strong>Aciertos:</strong> ' + correctCount + '</div>' +
@@ -159,44 +174,43 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         if (resContainer) resContainer.style.display = 'block';
         if (btn) btn.style.display = 'none';
 
-        if (STUDENT_ID) {
-          const payloadObj = {
-            id: 'tr_' + Date.now() + '_' + Math.random().toString(36).substring(2,6),
-            studentId: STUDENT_ID,
-            title: TITLE,
-            score: parseFloat(finalScore),
-            maxScore: maxScore,
-            timestamp: new Date().toISOString(),
-            details: detailedResults
-          };
+        const payloadObj = {
+          id: 'tr_' + Date.now() + '_' + Math.random().toString(36).substring(2,6),
+          studentId: studentIdent,
+          title: TITLE,
+          score: parseFloat(finalScore),
+          maxScore: maxScore,
+          timestamp: new Date().toISOString(),
+          details: detailedResults
+        };
 
-          try {
-            const mockKey = 'bus_mock_test_results';
-            const raw = localStorage.getItem(mockKey) || '[]';
-            const list = JSON.parse(raw);
-            list.unshift(payloadObj);
-            localStorage.setItem(mockKey, JSON.stringify(list));
-            window.dispatchEvent(new Event('storage'));
-          } catch (_) {}
+        try {
+          const mockKey = 'bus_mock_test_results';
+          const raw = localStorage.getItem(mockKey) || '[]';
+          const list = JSON.parse(raw);
+          list.unshift(payloadObj);
+          localStorage.setItem(mockKey, JSON.stringify(list));
+          window.dispatchEvent(new Event('storage'));
+        } catch (_) {}
 
-          const firestoreUrl = \`https://firestore.googleapis.com/v1/projects/\${PROJECT_ID}/databases/(default)/documents/test_results\`;
-          const docData = {
-            fields: {
-              studentId: { stringValue: STUDENT_ID },
-              title: { stringValue: TITLE },
-              score: { doubleValue: parseFloat(finalScore) },
-              maxScore: { doubleValue: maxScore },
-              timestamp: { timestampValue: payloadObj.timestamp },
-              details: { stringValue: JSON.stringify(detailedResults) }
-            }
-          };
+        const firestoreUrl = \`https://firestore.googleapis.com/v1/projects/\${PROJECT_ID}/databases/(default)/documents/test_results\`;
+        const docData = {
+          fields: {
+            studentId: { stringValue: studentIdent },
+            title: { stringValue: TITLE },
+            score: { doubleValue: parseFloat(finalScore) },
+            maxScore: { doubleValue: maxScore },
+            timestamp: { timestampValue: payloadObj.timestamp },
+            details: { stringValue: JSON.stringify(detailedResults) }
+          }
+        };
 
-          fetch(firestoreUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(docData)
-          }).catch(e => console.error(e));
-        }
+        fetch(firestoreUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(docData)
+        }).catch(e => console.error(e));
+
       } catch (err) {
         console.error("Error al corregir test:", err);
         const resContainer = document.getElementById('result-container');
@@ -219,6 +233,17 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 <body>
     <div class="container">
         <h1>${title}</h1>
+
+        <div class="student-ident-box">
+            <label class="student-ident-label" for="student-id-input">
+                📧 Nombre o Email del Alumno (para registrar la nota):
+            </label>
+            <input type="text" id="student-id-input" class="student-ident-input" value="${studentId || ''}" placeholder="Ej. Nombre del alumno o correo (ej. alumno@ejemplo.com)" />
+            <span style="font-size: 0.78rem; color: #3b82f6; margin-top: 5px; display: block;">
+                Escribe tu nombre o correo para que tu nota quede registrada automáticamente al finalizar.
+            </span>
+        </div>
+
         ${summaryText ? `
         <div class="summary-box">
             <div class="summary-title">&#128204; Resumen Ejecutivo y Puntos Clave del Tema</div>
@@ -226,7 +251,7 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
         </div>
         ` : ''}
         <div id="quiz-form"></div>
-        <button id="submit-btn" class="btn" onclick="submitQuiz()">Corregir y Finalizar</button>
+        <button id="submit-btn" class="btn" onclick="submitQuiz()">Corregir y Finalizar Test</button>
         
         <div id="result-container" class="result-container">
             <div style="font-size: 1.3rem; font-weight: 800; color: #065f46; margin-bottom: 10px;">&#128202; Test Completado</div>
@@ -238,12 +263,13 @@ export const downloadTestAsHTML = (questions, title, studentId, projectId = 'opo
 </body>
 </html>`;
 
-  // Trigger download
+  // Trigger download cleanly without prompting
   const blob = new Blob([htmlContent], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `test_${title.replace(/\s+/g, '_').toLowerCase()}_${studentId.replace(/[^a-zA-Z0-9]/g, '_')}.html`;
+  const safeName = studentId ? studentId.replace(/[^a-zA-Z0-9]/g, '_') : 'general';
+  a.download = `test_${title.replace(/\s+/g, '_').toLowerCase()}_${safeName}.html`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

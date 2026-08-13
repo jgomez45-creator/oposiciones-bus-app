@@ -1789,19 +1789,13 @@ export default function AdminPanel({ topics }) {
                         setGeneratedBatch(batch);
 
                         if (batch.length > 0) {
-                          const emailsInput = window.prompt(`Síntesis completada (${batch.length} preguntas inéditas).\n\nIntroduce los emails de los alumnos (separados por comas) para generar el archivo HTML interactivo con Resumen del Tema:`, 'alumno@ejemplo.com');
-                          if (emailsInput) {
-                            const emails = emailsInput.split(',').map(e => e.trim()).filter(Boolean);
-                            let summaryText = '';
-                            if (markdownText) {
+                          let summaryText = '';
+                          if (markdownText) {
                             const safeSelHeadings = Array.isArray(selectedHeadings) ? selectedHeadings : 'all';
                             summaryText = extractTopicSummary(markdownText, safeSelHeadings);
-                            }
-                            emails.forEach(email => {
-                              downloadTestAsHTML(batch, topicObj.title, email, 'oposiciones-bus-app', summaryText);
-                            });
-                            alert(`¡Éxito! Se han generado y descargado ${emails.length} archivos HTML interactivos listos para enviar por correo.`);
                           }
+                          downloadTestAsHTML(batch, topicObj.title, '', 'oposiciones-bus-app', summaryText);
+                          alert(`¡Éxito! Se ha descargado el archivo HTML interactivo con Resumen (${batch.length} preguntas).\n\nPuedes adjuntar este único archivo por correo a 1 o varios alumnos. Al abrirlo, cada alumno escribirá su nombre o email para registrar su nota en tu panel.`);
                         }
                       } catch (err) {
                         console.error('Error in direct export:', err);
@@ -1950,10 +1944,6 @@ export default function AdminPanel({ topics }) {
                     type="button"
                     onClick={async () => {
                       if (generatedBatch.length === 0) return;
-                      const emailsInput = window.prompt(`Exportar Lote Generado (Tema ${selectedGenTopicId})\n\nIntroduce los identificadores o emails de los alumnos (separados por comas):`, 'alumno@ejemplo.com');
-                      if (!emailsInput) return;
-                      const emails = emailsInput.split(',').map(e => e.trim()).filter(e => e);
-                      if (emails.length === 0) return;
 
                       const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
                       let summaryText = '';
@@ -1969,10 +1959,8 @@ export default function AdminPanel({ topics }) {
                         console.warn("Could not fetch summary", e);
                       }
 
-                      emails.forEach(email => {
-                        downloadTestAsHTML(generatedBatch, topicObj.title, email, 'oposiciones-bus-app', summaryText);
-                      });
-                      alert(`Se han generado y descargado ${emails.length} archivos HTML con el resumen del tema y las preguntas.`);
+                      downloadTestAsHTML(generatedBatch, topicObj.title, '', 'oposiciones-bus-app', summaryText);
+                      alert(`¡Archivo HTML interactivo descargado!\n\nPuedes adjuntar este único archivo por correo a 1 o varios alumnos. Al abrirlo, cada alumno escribirá su nombre o email para registrar su nota en tu panel.`);
                     }}
                     style={{
                       padding: '10px 16px',
