@@ -210,33 +210,48 @@ function isValidConcept(concept) {
   return true;
 }
 
-// Valida que el enunciado NO contenga la solución ni pistas de la respuesta correcta
+// Trunca texto de forma segura sin cortar palabras ni dejar conectores sueltos
+function safeTruncateText(text, maxLen = 115) {
+  if (!text) return '';
+  let clean = sanitizeText(text).trim();
+  if (clean.length <= maxLen) return clean;
+
+  let sub = clean.substring(0, maxLen);
+  const lastSpace = sub.lastIndexOf(' ');
+  if (lastSpace > 15) {
+    sub = sub.substring(0, lastSpace);
+  }
+
+  sub = sub
+    .replace(/[,;:\-\s]+$/, '')
+    .replace(/\b(del|de|el|la|los|las|un|una|en|para|con|por|y|o|que|su|sus|al|e|i)\s*$/i, '')
+    .trim();
+
+  return sub;
+}
+
+// Valida que el enunciado NO contenga la solución, tautologías ni pistas de la respuesta correcta
 function hasAnswerLeak(questionText, correctOptionText) {
   if (!questionText || !correctOptionText) return false;
   
   const qLower = questionText.toLowerCase();
   const cLower = correctOptionText.toLowerCase();
 
+  // Fuga 1: Tautología directa (el foco del enunciado se repite literalmente en la opción correcta)
+  const quotedMatch = qLower.match(/"([^"]+)"/);
+  if (quotedMatch) {
+    const focusWord = quotedMatch[1].toLowerCase().trim();
+    if (focusWord.length > 4 && cLower.includes(focusWord)) {
+      return true; // Evita preguntas del tipo "¿Qué es La Objetoteca?" -> "Servicio de Objetoteca..."
+    }
+  }
+
+  // Fuga 2: Coincidencia de cifras
   const digitMatch = cLower.match(/(\d+)\s*(días|meses|años|horas)/);
   if (digitMatch) {
     const numberStr = digitMatch[1];
     if (new RegExp(`\\b${numberStr}\\b`).test(qLower)) {
       return true;
-    }
-  }
-
-  const quotedMatch = qLower.match(/"([^"]+)"/);
-  if (quotedMatch) {
-    const quotedText = quotedMatch[1];
-    const cWords = cLower.replace(/^[a-d]\)\s*/, '').split(/\s+/).filter(w => w.length > 3);
-    if (cWords.length > 0) {
-      let matches = 0;
-      cWords.forEach(w => {
-        if (quotedText.includes(w)) matches++;
-      });
-      if (matches / cWords.length >= 0.7) {
-        return true;
-      }
     }
   }
 
@@ -400,7 +415,7 @@ const DOMAIN_DISTRACTORS = {
 };
 
 // Genera distractores pertenecientes estrictamente al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
-function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas) {
+function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed = new Set()) {
   const targetSubdomain = getSectionSubdomain(heading, factText);
   const targetSemanticType = getSemanticType(correctOpt);
   const targetLength = correctOpt.length;
@@ -417,7 +432,10 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
   };
 
   const distractors = [];
-  const used = new Set([correctOpt.toLowerCase().trim()]);
+  const used = new Set([
+    correctOpt.toLowerCase().trim(),
+    ...Array.from(globalBatchUsed).map(s => s.toLowerCase().trim())
+  ]);
 
   // OP 1: Definiciones con paridad de longitud (variación máx. 35%) y coherencia
   const sameSubdomainPairs = allConceptPairs
@@ -431,10 +449,11 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
     .sort(() => 0.5 - Math.random());
 
   sameSubdomainPairs.forEach(cp => {
-    const cand = cp.definition.substring(0, 115).trim();
+    const cand = safeTruncateText(cp.definition, 115);
     if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
       distractors.push(cand);
       used.add(cand.toLowerCase());
+      globalBatchUsed.add(cand.toLowerCase());
     }
   });
 
@@ -451,10 +470,11 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
       .sort(() => 0.5 - Math.random());
 
     sameSubdomainParas.forEach(p => {
-      const cand = p.substring(0, 115).trim();
+      const cand = safeTruncateText(p, 115);
       if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
         distractors.push(cand);
         used.add(cand.toLowerCase());
+        globalBatchUsed.add(cand.toLowerCase());
       }
     });
   }
@@ -516,6 +536,7 @@ function generateContextualDistractors(factText, heading, correctOpt, topicId, a
  */
 export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdownText, count = 5, selectedSections = 'all' }) {
   const generated = [];
+  const globalBatchUsed = new Set();
   const allSections = parseSectionsFromMarkdown(markdownText);
 
   // Extraer todos los párrafos limpios del tema
@@ -656,9 +677,9 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         
         if (definition.length > 15 && !definition.toLowerCase().startsWith(concept.toLowerCase().substring(0, 15))) {
           const qText = buildExamQuestionStem(normName, concept, heading, idx);
-          const correctOpt = definition.substring(0, 115);
+          const correctOpt = safeTruncateText(definition, 115);
           
-          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
+          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
           const options = [correctOpt, ...wrongDistractors];
           
           newQ = createStructuredQuestion(qText, options, 0, factText, heading, topicId);
@@ -667,9 +688,9 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
         const sentence = sanitizeText(factText.split('.')[0]);
         if (sentence.length > 30) {
           const qText = buildExamQuestionStem(normName, heading, heading, idx);
-          const correctOpt = sentence.substring(0, 120);
+          const correctOpt = safeTruncateText(sentence, 120);
           
-          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas);
+          const wrongDistractors = generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed);
           const options = [correctOpt, ...wrongDistractors];
           
           newQ = createStructuredQuestion(qText, options, 0, sentence, heading, topicId);
