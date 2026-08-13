@@ -3,9 +3,10 @@
  * Biblioteca de la Universidad de Sevilla (BUS) - Auxiliares de Biblioteca
  *
  * PRINCIPIOS DE RIGOR PROFESIONAL:
- * - EXACTAMENTE 1 respuesta correcta por pregunta (garantizado mediante mutaciones sintácticas estrictas).
- * - NUNCA se usan párrafos reales de otras secciones como distractores (evita segundas respuestas correctas).
- * - Opciones con integridad gramatical completa: oraciones terminadas en punto, sin truncamientos arbitrarios.
+ * - EXACTAMENTE 1 respuesta correcta por pregunta.
+ * - SIN LÍMITE DE CARACTERES ARBITRARIO: NUNCA se cortan las oraciones a mitad de frase.
+ * - NUNCA se usan párrafos reales de otras secciones como distractores.
+ * - Opciones con integridad gramatical completa: oraciones completas terminadas en punto.
  * - Sin sufijos técnicos, sin epígrafes, sin títulos de listas como opciones.
  * - Las preguntas son INDEPENDIENTES del banco (quizzes.json).
  */
@@ -70,11 +71,9 @@ function stripArticlePrefix(text) {
     .replace(/^[Dd]e\s+acuerdo\s+con\s+el\s+[Aa]rt[íi]culo\s+\d+\s*:?\s*/i, '')
     .replace(/^[Ee]n\s+el\s+[Aa]rt[íi]culo\s+\d+\s+se\s+establece\s+que\s*/i, '')
     .replace(/^[Ee]l\s+[Aa]rt[íi]culo\s+\d+\s+(?:de\s+\w+\s+)?\w+\s+(?:establece|dispone|señala|indica)\s+que\s*/i, '')
-    // Eliminar etiquetas de viñeta tipo "Dependencia Jerárquica:" o "Dispositivos y Objetoteca (ej. Portátiles):"
     .replace(/^([A-ZÁÉÍÓÚÑa-záéíóúñ0-9\s/()•*\-–—]+):\s*/, '')
     .trim();
   
-  // Asegurar mayúscula inicial
   if (clean.length > 0) {
     clean = clean.charAt(0).toUpperCase() + clean.slice(1);
   }
@@ -83,56 +82,29 @@ function stripArticlePrefix(text) {
 
 /**
  * Formatea una oración para que sea completa, con mayúscula inicial y punto final.
- * NUNCA corta a mitad de palabra ni deja preposiciones colgando.
+ * NUNCA TRUNCA NI CORTA LA ORACIÓN POR LÍMITE DE CARACTERES.
  */
-function formatCompleteSentence(text, maxLen = 180) {
+function formatCompleteSentence(text) {
   if (!text) return '';
   let clean = sanitizeText(text).trim();
 
   // Eliminar prefijo introductorio si existe
   clean = stripArticlePrefix(clean);
 
-  // Si la oración termina en dos puntos o guion, eliminar ese carácter
-  clean = clean.replace(/[:;\-\s]+$/, '').trim();
+  // Si la oración termina en dos puntos, guion o coma, eliminar ese carácter final
+  clean = clean.replace(/[:;\-,\s]+$/, '').trim();
 
-  // Si la frase es corta o de longitud adecuada, asegurar punto final
-  if (clean.length <= maxLen) {
-    if (!/[.!?]$/.test(clean)) clean += '.';
-    return clean;
+  // Asegurar mayúscula inicial
+  if (clean.length > 0) {
+    clean = clean.charAt(0).toUpperCase() + clean.slice(1);
   }
 
-  // Si es demasiado larga, cortar únicamente en el punto y seguido existente más cercano a maxLen
-  const periodMatch = clean.substring(0, maxLen).lastIndexOf('.');
-  if (periodMatch > 30) {
-    return clean.substring(0, periodMatch + 1).trim();
+  // Asegurar punto final si no lo tiene
+  if (clean.length > 0 && !/[.!?]$/.test(clean)) {
+    clean += '.';
   }
 
-  // Si no hay punto, cortar en la última coma, punto y coma o conjunción principal
-  const commaMatch = clean.substring(0, maxLen).lastIndexOf(',');
-  if (commaMatch > 40) {
-    let sub = clean.substring(0, commaMatch).trim();
-    sub = sub.replace(/[,;:\-\s]+$/, '').trim();
-    if (!/[.!?]$/.test(sub)) sub += '.';
-    return sub;
-  }
-
-  // Fallback: buscar el último espacio antes del límite
-  let sub = clean.substring(0, maxLen);
-  const lastSpace = sub.lastIndexOf(' ');
-  if (lastSpace > 30) {
-    sub = sub.substring(0, lastSpace).trim();
-  }
-  sub = sub.replace(/[,;:\-\s\w]+$/, (match) => {
-    // Si la última palabra es una preposición o nexo, eliminarla para no dejar la frase colgando
-    if (/^(bajo|con|de|del|en|para|por|según|sin|sobre|tras|y|o|e|ni|que|cual|ej)$/i.test(match.trim())) {
-      return '';
-    }
-    return match;
-  }).trim();
-
-  sub = sub.replace(/[,;:\-\s]+$/, '').trim();
-  if (!/[.!?]$/.test(sub)) sub += '.';
-  return sub;
+  return clean;
 }
 
 /**
@@ -142,8 +114,8 @@ function isDeclarativeSentence(text) {
   if (!text || typeof text !== 'string') return false;
   const clean = text.trim();
 
-  // Rechazar textos demasiado cortos o largos
-  if (clean.length < 35 || clean.length > 220) return false;
+  // Rechazar textos demasiado cortos (< 30 caracteres)
+  if (clean.length < 30) return false;
 
   // Rechazar si termina en dos puntos o abreviatura de ejemplo colgando
   if (/[:;\-(]\s*$/.test(clean) || /\b(ej|p\.ej|etc)\s*\.?\s*$/i.test(clean)) return false;
@@ -378,23 +350,16 @@ const STEM_TEMPLATES = [
 ];
 
 function buildStem(normName, focus, idx) {
-  const cleanFocus = formatCompleteSentence(focus, 70).replace(/[.:;,]+$/, '');
+  const cleanFocus = formatCompleteSentence(focus).replace(/[.:;,]+$/, '');
   return STEM_TEMPLATES[idx % STEM_TEMPLATES.length](normName, cleanFocus);
 }
 
 // ── SISTEMA DE DISTRACTORES SINTÁCTICOS FALSOS (GARANTÍA 100% FALSA) ────────
-/**
- * REGLA FUNDAMENTAL:
- * Los distractores se generan MUTANDO la opción correcta verdadera.
- * NUNCA se extraen párrafos reales de otras partes del tema, garantizando que
- * la opción correcta sea LA ÚNICA VERDADERA del test.
- */
 
-// Mutaciones semánticas estructuradas
 const MUTATIONS = [
   // 1. Inversiones organizativas / estructurales
   {
-    target: /única e integrada|unidad funcional/gi,
+    target: /unidad funcional única e integrada(\s+por todos los fondos)?/gi,
     replacements: [
       'red descentralizada de bibliotecas con gestión autónoma por campus',
       'federación de bibliotecas de centro independientes entre sí',
@@ -441,16 +406,20 @@ const MUTATIONS = [
   },
   // 4. Modificadores normativos y de uso
   {
+    target: /carnet universitario(\s+oficial)?(\s*\([^)]*\))?/gi,
+    replacements: [
+      'carnet de biblioteca específico expedido tras abonar la tasa correspondiente',
+      'certificado de acreditación expedido por la Secretaría del Centro',
+      'carnet temporal de usuario externo expedido al efecto'
+    ]
+  },
+  {
     target: /obligatorio|obligatoria|preceptivo|preceptiva/gi,
     replacements: ['facultativo y meramente orientativo', 'de aplicación opcional según el criterio de cada centro']
   },
   {
     target: /gratuito|gratuita|sin coste/gi,
     replacements: ['sujeto al pago previo de una tasa pública aprobada', 'de pago obligatorio para usuarios no docentes']
-  },
-  {
-    target: /carnet universitario|tarjeta universitaria/gi,
-    replacements: ['carnet de biblioteca específico expedido tras abonar la tasa correspondiente', 'certificado de acreditación expedido por la Secretaría del Centro']
   },
   {
     target: /todos los miembros|toda la comunidad/gi,
@@ -479,7 +448,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
           return match;
         });
 
-        const cand = formatCompleteSentence(candidateRaw, 180);
+        const cand = formatCompleteSentence(candidateRaw);
         const normCand = stripAccents(cand);
 
         if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
@@ -504,7 +473,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
       if (distractors.length >= 3) break;
       const candidateRaw = rule(correctOpt);
       if (candidateRaw !== correctOpt) {
-        const cand = formatCompleteSentence(candidateRaw, 180);
+        const cand = formatCompleteSentence(candidateRaw);
         const normCand = stripAccents(cand);
         if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
           distractors.push(cand);
@@ -528,7 +497,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
         if (hasHabil) candidateRaw = candidateRaw.replace(/hábiles/i, 'naturales');
         else if (hasNatural) candidateRaw = candidateRaw.replace(/naturales/i, 'hábiles');
         
-        const cand = formatCompleteSentence(candidateRaw, 180);
+        const cand = formatCompleteSentence(candidateRaw);
         const normCand = stripAccents(cand);
         if (cand && !used.has(normCand)) {
           distractors.push(cand);
@@ -538,7 +507,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // Intento 4: Distractores sintéticos contextuales genéricos (garantía de cierre de la pregunta)
+  // Intento 4: Distractores sintéticos contextuales genéricos
   const CONTEXTUAL_FALLBACKS = [
     'Es una disposición de carácter facultativo y orientativo que no vincula a los órganos unipersonales de la Universidad.',
     'Procede únicamente por resolución motivada del Vicerrectorado competente, previa audiencia de los interesados.',
@@ -551,7 +520,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
   const poolOffset = (idx * 3) % CONTEXTUAL_FALLBACKS.length;
   for (let i = 0; distractors.length < 3; i++) {
     const fallbackRaw = CONTEXTUAL_FALLBACKS[(poolOffset + i) % CONTEXTUAL_FALLBACKS.length];
-    const cand = formatCompleteSentence(fallbackRaw, 180);
+    const cand = formatCompleteSentence(fallbackRaw);
     const normCand = stripAccents(cand);
     if (!used.has(normCand)) {
       distractors.push(cand);
@@ -566,12 +535,11 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
 // ── CONTROL DE CALIDAD Y CREACIÓN DE PREGUNTA ──────────────────────────────
 
 function createStructuredQuestion(qText, correctOpt, distractors, factText, heading, topicId) {
-  const formattedCorrect = formatCompleteSentence(correctOpt, 180);
-  const formattedDistractorList = distractors.map(d => formatCompleteSentence(d, 180));
+  const formattedCorrect = formatCompleteSentence(correctOpt);
+  const formattedDistractorList = distractors.map(d => formatCompleteSentence(d));
 
   const allOptions = [formattedCorrect, ...formattedDistractorList];
   
-  // Barajar aleatoriamente las opciones
   const shuffled = [...allOptions].sort(() => 0.5 - Math.random());
   const newCorrectIndex = shuffled.indexOf(formattedCorrect);
 
@@ -580,7 +548,7 @@ function createStructuredQuestion(qText, correctOpt, distractors, factText, head
     return `${letter}) ${sanitizeText(optText.replace(/^[A-D]\)\s*/, ''))}`;
   });
 
-  const explanationFact = formatCompleteSentence(factText, 250);
+  const explanationFact = formatCompleteSentence(factText);
 
   return {
     id: generateQuestionId(topicId),
@@ -651,10 +619,9 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       sec.paragraphs.forEach(para => {
         if (!para || para.length < 35) return;
 
-        // Si el párrafo contiene varias oraciones, dividirlas por punto y seguido
         const sentences = para.split(/\.\s+/).map(s => s.trim()).filter(s => s.length > 30);
         sentences.forEach(sent => {
-          const cleanSentence = formatCompleteSentence(sent, 180);
+          const cleanSentence = formatCompleteSentence(sent);
           if (isDeclarativeSentence(cleanSentence)) {
             factPool.push({
               rawFact: para,
@@ -679,13 +646,11 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       const stemKey = stripAccents(stem).substring(0, 60);
       if (usedStems.has(stemKey)) continue;
 
-      // Generar 3 distractores sintéticos (mutaciones garantizadas falsas)
       const distractors = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
       if (distractors.length < 3) continue;
 
       const candidateQ = createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId);
 
-      // Pasar por el control de calidad estricto
       if (validateQuestion(candidateQ)) {
         usedStems.add(stemKey);
         generated.push(candidateQ);
