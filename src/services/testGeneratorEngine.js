@@ -455,154 +455,83 @@ const DOMAIN_DISTRACTORS = {
 function hasGrammarError(text) {
   if (!text) return true;
 
-  // 1. Detección de deformaciones morfológicas por plurales mal construidos (ej. Gerentees, Gobiernoes)
   if (/\b(gerentees|gobiernoes|rectoradoes|directorases|vicerrectoreses|consejoes)\b/i.test(text)) return true;
   if (/\b\w+(ees|oes)\b/i.test(text) && !/\b(jueces|cafés|canapés|bebés)\b/i.test(text)) return true;
 
-  // 2. Discordancias sintácticas de género/número (ej. de ningún Conferencia, la Consejo)
   if (/\b(de ningún|un|del)\s+(conferencia|comisión|unidad|red|biblioteca|resolución|norma)\b/i.test(text)) return true;
   if (/\b(de una|la)\s+(consejo|rector|servicio|catálogo|órgano|procedimiento|reglamento)\b/i.test(text)) return true;
 
   return false;
 }
 
-// Genera distractores pertenecientes strictly al MISMO SUBDOMINIO Y TIPO SEMÁNTICO
+// Genera distractores FALSOS garantizados (imposibilita preguntas con 2 opciones verdaderas)
 function generateContextualDistractors(factText, heading, correctOpt, topicId, allConceptPairs, allCleanParas, globalBatchUsed = new Set()) {
   const targetSubdomain = getSectionSubdomain(heading, factText);
-  const targetSemanticType = getSemanticType(correctOpt);
-  const targetLength = correctOpt.length;
 
   const isSanctionTarget = targetSubdomain === 'sanciones_penalizaciones' || /sanción|suspensión|penalización|retraso/i.test(correctOpt);
 
-  // Filtro de coherencia estricta para evitar opciones de fácil descarte y comodines recurrentes
   const isCoherent = (text) => {
     if (!text) return false;
-    if (hasGrammarError(text)) return false; // Bloqueo automático de errores gramaticales
+    if (hasGrammarError(text)) return false;
 
-    // BLOQUEO ABSOLUTO DE COMODINES RECURRENTES (carnet universitario) SALVO QUE LA PREGUNTA SEA DE ESE TEMA
     const isAskingAboutCarnet = /carnet/i.test(heading) || /carnet/i.test(factText);
     if (!isAskingAboutCarnet && /carnet universitario/i.test(text)) {
       return false;
     }
 
     const isSanctionText = /sanción|suspensión|penalización|retraso|infracción/i.test(text);
-    if (!isSanctionTarget && isSanctionText) return false; // Bloquea sanciones en preguntas de servicios
-    if (isSanctionTarget && !isSanctionText) return false; // Bloquea no-sanciones en preguntas de sanciones
+    if (!isSanctionTarget && isSanctionText) return false;
+    if (isSanctionTarget && !isSanctionText) return false;
     return true;
   };
 
-  const distractors = [];
-  const used = new Set([
-    correctOpt.toLowerCase().trim(),
-    ...Array.from(globalBatchUsed).map(s => s.toLowerCase().trim())
-  ]);
+  // 1. CONSTRUCCIÓN DE DISTRACTORES FALSOS RIGUROSOS (GARANTÍA DE 1 SÓLA OPCIÓN VERDADERA)
+  const falseVariants = [];
+  const text = correctOpt;
 
-  // 1. PARA PREGUNTAS DE PLAZOS Y NÚMEROS: Mutaciones de cifras (exige saber la cifra exacta)
-  const isNumberQuestion = /\b(\d+)\b/.test(correctOpt) && correctOpt.length < 120;
-  if (isNumberQuestion) {
-    const numMatch = correctOpt.match(/\b(\d+)\b/);
-    if (numMatch) {
-      const n = parseInt(numMatch[1], 10);
-      if (n > 0 && n < 100) {
-        [n * 2, Math.max(1, Math.floor(n / 2)), n + 2, n + 5].forEach(num => {
-          const cand = safeTruncateText(correctOpt.replace(/\b\d+\b/, num.toString()), 250);
-          if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
-            distractors.push(cand);
-            used.add(cand.toLowerCase());
-            globalBatchUsed.add(cand.toLowerCase());
-          }
-        });
-      }
+  // Alteración de cifras y plazos (ej. 3 veces -> 5 veces)
+  const numMatch = text.match(/\b(\d+)\b/);
+  if (numMatch) {
+    const n = parseInt(numMatch[1], 10);
+    if (n > 0 && n < 100) {
+      falseVariants.push(text.replace(/\b\d+\b/, (n * 2).toString()));
+      falseVariants.push(text.replace(/\b\d+\b/, (Math.max(1, Math.floor(n / 2))).toString()));
+      falseVariants.push(text.replace(/\b\d+\b/, (n + 5).toString()));
     }
   }
 
-  // 2. PARA PREGUNTAS CONCEPTUALES / DEFINICIONES: Usar conceptos REALES Y DISTINTOS del tema
-  // (Evita opciones repetidas/clonadas que solo cambian una palabra y afean el examen)
-  if (distractors.length < 3) {
-    const distinctPairs = allConceptPairs
-      .filter(cp => {
-        const def = cp.definition.trim();
-        const defNorm = def.toLowerCase();
-        // Exigir que la opción sea un texto distinto (similitud < 65% respecto a la correcta)
-        const isTooSimilar = calculateSimilarity(defNorm, correctOpt.toLowerCase()) > 0.65;
-        return !used.has(defNorm) && isCoherent(def) && !isTooSimilar && def.length > 20;
-      })
-      .sort(() => 0.5 - Math.random());
-
-    distinctPairs.forEach(cp => {
-      const cand = safeTruncateText(cp.definition, 250);
-      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
-        distractors.push(cand);
-        used.add(cand.toLowerCase());
-        globalBatchUsed.add(cand.toLowerCase());
-      }
-    });
+  // Inversión de conceptos para crear alternativas plausibles pero FALSAS
+  if (/única e integrada|unidad funcional/i.test(text)) {
+    falseVariants.push(text.replace(/única e integrada|unidad funcional/gi, 'federación de bibliotecas independientes y autónomas'));
+    falseVariants.push(text.replace(/única e integrada|unidad funcional/gi, 'unidad de gestión descentralizada por centros'));
+    falseVariants.push(text.replace(/única e integrada|unidad funcional/gi, 'servicio de carácter exclusivamente virtual'));
+  }
+  if (/clave|prioritaria|fundamental/i.test(text)) {
+    falseVariants.push(text.replace(/clave|prioritaria|fundamental/gi, 'secundaria y supletoria'));
+    falseVariants.push(text.replace(/clave|prioritaria|fundamental/gi, 'facultativa y prescindible'));
+  }
+  if (/exclusivamente|únicamente/i.test(text)) {
+    falseVariants.push(text.replace(/exclusivamente|únicamente/gi, 'de forma optativa en cualquier órgano'));
+  }
+  if (/gratuito/i.test(text)) {
+    falseVariants.push(text.replace(/gratuito/gi, 'sujeto a tasa o precio público'));
   }
 
-  // 3. Párrafos limpios reales distintos del tema
-  if (distractors.length < 3) {
-    const distinctParas = allCleanParas
-      .filter(p => {
-        const pClean = p.trim();
-        const pNorm = pClean.toLowerCase();
-        const isTooSimilar = calculateSimilarity(pNorm, correctOpt.toLowerCase()) > 0.65;
-        return pClean.length > 25 && !isMarketingOrHTML(pClean) && isCoherent(pClean) && !used.has(pNorm) && !isTooSimilar;
-      })
-      .sort(() => 0.5 - Math.random());
-
-    distinctParas.forEach(p => {
-      const cand = safeTruncateText(p, 250);
-      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
-        distractors.push(cand);
-        used.add(cand.toLowerCase());
-        globalBatchUsed.add(cand.toLowerCase());
-      }
-    });
+  // Modificador Falso Universal si el texto no encaja en patrones anteriores
+  if (falseVariants.length < 3) {
+    falseVariants.push(text.replace(/\b(son|es|se define|corresponde)\b/i, '$1 únicamente de forma provisional'));
+    falseVariants.push(text.replace(/\b(son|es|se define|corresponde)\b/i, 'no $1'));
+    falseVariants.push(text.replace(/\b(todas|todos|cada|cualquier)\b/i, 'exclusivamente las de carácter especial'));
   }
 
-  // OP 2: Definiciones del MISMO subdominio exacto con paridad de longitud
-  if (distractors.length < 3) {
-    const sameSubdomainPairs = allConceptPairs
-      .filter(cp => {
-        const cpSub = getSectionSubdomain(cp.heading, cp.definition);
-        const cpSem = getSemanticType(cp.definition);
-        const def = cp.definition.toLowerCase().trim();
-        const lenDiff = Math.abs(cp.definition.length - targetLength);
-        return !used.has(def) && isCoherent(cp.definition) && cpSub === targetSubdomain && cpSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
-      })
-      .sort(() => 0.5 - Math.random());
-
-    sameSubdomainPairs.forEach(cp => {
-      const cand = safeTruncateText(cp.definition, 220);
-      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
-        distractors.push(cand);
-        used.add(cand.toLowerCase());
-        globalBatchUsed.add(cand.toLowerCase());
-      }
-    });
-  }
-
-  // OP 3: Párrafos limpios de la MISMA sección exacta
-  if (distractors.length < 3) {
-    const sameSubdomainParas = allCleanParas
-      .filter(p => {
-        const pSub = getSectionSubdomain('', p);
-        const pSem = getSemanticType(p);
-        const pClean = p.trim();
-        const lenDiff = Math.abs(pClean.length - targetLength);
-        return pClean.length > 20 && !isMarketingOrHTML(pClean) && isCoherent(pClean) && pSub === targetSubdomain && pSem === targetSemanticType && (targetLength < 30 || lenDiff < targetLength * 0.4);
-      })
-      .sort(() => 0.5 - Math.random());
-
-    sameSubdomainParas.forEach(p => {
-      const cand = safeTruncateText(p, 220);
-      if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand)) {
-        distractors.push(cand);
-        used.add(cand.toLowerCase());
-        globalBatchUsed.add(cand.toLowerCase());
-      }
-    });
-  }
+  falseVariants.forEach(fv => {
+    const cand = safeTruncateText(fv, 250);
+    if (distractors.length < 3 && !used.has(cand.toLowerCase()) && isCoherent(cand) && cand.toLowerCase() !== correctOpt.toLowerCase()) {
+      distractors.push(cand);
+      used.add(cand.toLowerCase());
+      globalBatchUsed.add(cand.toLowerCase());
+    }
+  });
 
   return distractors.slice(0, 3);
 }
