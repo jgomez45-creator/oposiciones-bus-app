@@ -305,15 +305,14 @@ export default function AdminPanel({ topics }) {
     };
 
     try {
-      const jsonStr = JSON.stringify(payload);
-      const encoded = btoa(encodeURIComponent(jsonStr));
-      const fullUrl = `${window.location.origin}/?testData=${encoded}`;
+      const shortId = await firebaseService.saveSharedTest(payload);
+      const shortUrl = `${window.location.origin}/?t=${shortId}`;
 
-      await navigator.clipboard.writeText(fullUrl);
-      alert(`¡ENLACE DE TEST EJECUTABLE COPIADO AL PORTAPAPELES!\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para hacer el test').\n\nAl hacer clic en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno SIN DESCARGAR ningún archivo.`);
+      await navigator.clipboard.writeText(shortUrl);
+      alert(`¡ENLACE CORTO DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace corto y limpio: ${shortUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para realizar el test'). Al pulsar en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno sin descargar archivos.`);
     } catch (e) {
       console.error(e);
-      alert("Error al copiar enlace al portapapeles.");
+      alert("Error al generar enlace corto.");
     }
   };
 

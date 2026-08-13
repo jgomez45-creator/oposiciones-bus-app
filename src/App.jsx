@@ -68,21 +68,35 @@ export default function App() {
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [standaloneTestData, setStandaloneTestData] = useState(null);
 
-  // Check URL parameters for direct executable test link (?testData=...)
+  // Check URL parameters for direct executable test link (?t=8471 or ?testData=...)
   useEffect(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const rawData = params.get('testData');
-      if (rawData) {
-        const decodedString = decodeURIComponent(atob(rawData));
-        const parsed = JSON.parse(decodedString);
-        if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
-          setStandaloneTestData(parsed);
+    const parseUrlTest = async () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const shortId = params.get('t') || params.get('test');
+        
+        if (shortId) {
+          const sharedData = await firebaseService.getSharedTest(shortId);
+          if (sharedData && Array.isArray(sharedData.questions) && sharedData.questions.length > 0) {
+            setStandaloneTestData(sharedData);
+            return;
+          }
         }
+
+        const rawData = params.get('testData');
+        if (rawData) {
+          const decodedString = decodeURIComponent(atob(rawData));
+          const parsed = JSON.parse(decodedString);
+          if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+            setStandaloneTestData(parsed);
+          }
+        }
+      } catch (e) {
+        console.warn("Could not parse standalone test from URL", e);
       }
-    } catch (e) {
-      console.warn("Could not parse standalone testData from URL", e);
-    }
+    };
+
+    parseUrlTest();
   }, []);
 
   // User preferences states

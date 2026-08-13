@@ -2308,5 +2308,60 @@ export const firebaseService = {
       emitLocalStorage();
       return () => {};
     }
+  },
+
+  async saveSharedTest(payload) {
+    const shortId = (Math.floor(1000 + Math.random() * 9000)).toString();
+    const docObj = {
+      id: shortId,
+      title: payload.title || 'Test de Evaluación de la BUS',
+      questions: payload.questions || [],
+      summaryText: payload.summaryText || '',
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      const mockKey = 'bus_mock_shared_tests';
+      const raw = localStorage.getItem(mockKey) || '{}';
+      const map = JSON.parse(raw);
+      map[shortId] = docObj;
+      localStorage.setItem(mockKey, JSON.stringify(map));
+    } catch (_) {}
+
+    if (!isMock && db) {
+      try {
+        const docRef = doc(db, 'shared_tests', shortId);
+        await setDoc(docRef, docObj);
+      } catch (err) {
+        console.warn("saveSharedTest Firestore warning:", err);
+      }
+    }
+
+    return shortId;
+  },
+
+  async getSharedTest(shortId) {
+    if (!shortId) return null;
+
+    try {
+      const mockKey = 'bus_mock_shared_tests';
+      const raw = localStorage.getItem(mockKey) || '{}';
+      const map = JSON.parse(raw);
+      if (map[shortId]) return map[shortId];
+    } catch (_) {}
+
+    if (!isMock && db) {
+      try {
+        const docRef = doc(db, 'shared_tests', shortId);
+        const snap = await getDoc(docRef);
+        if (snap.exists()) {
+          return snap.data();
+        }
+      } catch (err) {
+        console.warn("getSharedTest Firestore warning:", err);
+      }
+    }
+
+    return null;
   }
 };
