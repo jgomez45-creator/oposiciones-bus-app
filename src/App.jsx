@@ -10,6 +10,7 @@ import AdminPanel from './components/AdminPanel';
 import FormadoresTests from './components/FormadoresTests';
 import UserManual from './components/UserManual';
 import UserAnexosView from './components/UserAnexosView';
+import StandaloneTestRunner from './components/StandaloneTestRunner';
 import topicsData from './data/topics.json';
 import { firebaseService } from './services/firebaseService';
 import { ShieldAlert, RefreshCw, Clock, Sparkles, ArrowLeft, Settings } from 'lucide-react';
@@ -65,6 +66,24 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState(window.innerWidth < 1024 ? 'mobile-menu' : 'dashboard');
   const [activeTopicId, setActiveTopicId] = useState(1);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
+  const [standaloneTestData, setStandaloneTestData] = useState(null);
+
+  // Check URL parameters for direct executable test link (?testData=...)
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const rawData = params.get('testData');
+      if (rawData) {
+        const decodedString = decodeURIComponent(atob(rawData));
+        const parsed = JSON.parse(decodedString);
+        if (parsed && Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+          setStandaloneTestData(parsed);
+        }
+      }
+    } catch (e) {
+      console.warn("Could not parse standalone testData from URL", e);
+    }
+  }, []);
 
   // User preferences states
   const [appTheme, setAppTheme] = useState(() => localStorage.getItem('opos_theme') || 'theme-default');
@@ -602,6 +621,11 @@ export default function App() {
         </div>
       </div>
     );
+  }
+
+  // Render Standalone Executable Test directly if opened via email link (NO DOWNLOAD, NO LOGIN REQUIRED)
+  if (standaloneTestData) {
+    return <StandaloneTestRunner testData={standaloneTestData} />;
   }
 
   // Lock screen if not authenticated

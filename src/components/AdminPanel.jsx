@@ -277,6 +277,46 @@ export default function AdminPanel({ topics }) {
 
   const activeTopicList = topics || topicsData;
 
+  const handleCopyExecutableUrl = async (questions, title, topicId) => {
+    if (!questions || !Array.isArray(questions) || questions.length === 0) {
+      alert("No hay preguntas disponibles para generar el enlace.");
+      return;
+    }
+
+    let summaryText = '';
+    if (topicId) {
+      const formattedNum = topicId.toString().padStart(2, '0');
+      try {
+        const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+        if (res.ok) {
+          const mdText = await res.text();
+          const safeSelHeadings = Array.isArray(selectedHeadings) ? selectedHeadings : 'all';
+          summaryText = extractTopicSummary(mdText, safeSelHeadings);
+        }
+      } catch (e) {
+        console.warn("Could not fetch summary for executable URL generator", e);
+      }
+    }
+
+    const payload = {
+      title: title,
+      questions: questions,
+      summaryText: summaryText
+    };
+
+    try {
+      const jsonStr = JSON.stringify(payload);
+      const encoded = btoa(encodeURIComponent(jsonStr));
+      const fullUrl = `${window.location.origin}/?testData=${encoded}`;
+
+      await navigator.clipboard.writeText(fullUrl);
+      alert(`¡ENLACE DE TEST EJECUTABLE COPIADO AL PORTAPAPELES!\n\nPégalo directamente en tu correo de Outlook o Gmail (ej: 'Haz clic aquí para hacer el test').\n\nAl hacer clic en Outlook, el test SE EJECUTARÁ DIRECTAMENTE en el navegador del alumno SIN DESCARGAR ningún archivo.`);
+    } catch (e) {
+      console.error(e);
+      alert("Error al copiar enlace al portapapeles.");
+    }
+  };
+
   // Subscribe to real-time administrative data
   useEffect(() => {
     setLoading(true);
@@ -1253,11 +1293,19 @@ export default function AdminPanel({ topics }) {
                         </button>
                         <button
                           type="button"
+                          onClick={() => handleCopyExecutableUrl(item.questions, item.title, item.topicId)}
+                          style={{ padding: '6px 12px', background: 'rgba(245, 158, 11, 0.2)', border: '1px solid #f59e0b', color: '#fbbf24', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '700', cursor: 'pointer' }}
+                          title="Copiar enlace directo ejecutable para Outlook/Gmail (sin descargar archivos)"
+                        >
+                          🔗 Copiar Enlace Ejecutable (Sin descarga)
+                        </button>
+                        <button
+                          type="button"
                           onClick={() => handleExportToHTML(item)}
                           style={{ padding: '6px 12px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid #10b981', color: '#34d399', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '700', cursor: 'pointer' }}
                           title="Descargar HTML offline para enviar a alumnos"
                         >
-                          📧 Exportar HTML
+                          📧 Descargar HTML
                         </button>
                         {!item.isDefault && (
                           <button
@@ -1962,7 +2010,32 @@ export default function AdminPanel({ topics }) {
                   <span>Lote Generado ({generatedBatch.length} preguntas) — Tema {selectedGenTopicId}</span>
                 </h4>
 
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const topicObj = activeTopicList.find(t => t.id.toString() === selectedGenTopicId.toString()) || { title: `Tema ${selectedGenTopicId}` };
+                      handleCopyExecutableUrl(generatedBatch, topicObj.title, selectedGenTopicId);
+                    }}
+                    style={{
+                      padding: '10px 16px',
+                      borderRadius: '10px',
+                      background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                      color: '#fff',
+                      fontWeight: '800',
+                      border: 'none',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontSize: '0.88rem',
+                      boxShadow: '0 4px 12px rgba(245, 158, 11, 0.3)'
+                    }}
+                    title="Copiar enlace ejecutable directo para enviar por correo sin descarga de archivos"
+                  >
+                    <span>🔗 Copiar Enlace Ejecutable (para Outlook sin descarga)</span>
+                  </button>
+
                   <button
                     type="button"
                     onClick={async () => {
