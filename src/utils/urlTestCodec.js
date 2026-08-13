@@ -7,9 +7,15 @@
 export function compressTestToUrlToken(payload) {
   if (!payload || !Array.isArray(payload.questions)) return '';
 
+  const cleanSummary = (payload.summaryText || '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
   const minified = {
     t: payload.title || 'Test de Evaluación de la BUS',
-    s: payload.summaryText || '',
+    s: cleanSummary,
     q: payload.questions.map(q => [
       q.question,
       q.options,

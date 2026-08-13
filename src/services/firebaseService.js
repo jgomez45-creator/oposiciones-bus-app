@@ -2328,7 +2328,24 @@ export const firebaseService = {
       localStorage.setItem(mockKey, JSON.stringify(map));
     } catch (_) {}
 
+    if (db) {
+      try {
+        const docRef = doc(db, 'shared_tests', shortId);
+        await setDoc(docRef, docObj);
+      } catch (err) {
+        console.warn("setDoc shared_tests warning:", err);
+      }
+    }
+
     try {
+      let headers = { 'Content-Type': 'application/json' };
+      if (auth && auth.currentUser) {
+        try {
+          const idToken = await auth.currentUser.getIdToken();
+          headers['Authorization'] = `Bearer ${idToken}`;
+        } catch (_) {}
+      }
+
       const firestoreUrl = `https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/shared_tests/${shortId}`;
       const docData = {
         fields: {
@@ -2342,7 +2359,7 @@ export const firebaseService = {
 
       await fetch(firestoreUrl, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headers,
         body: JSON.stringify(docData)
       });
     } catch (err) {
@@ -2361,6 +2378,18 @@ export const firebaseService = {
       const map = JSON.parse(raw);
       if (map[shortId]) return map[shortId];
     } catch (_) {}
+
+    if (db) {
+      try {
+        const docRef = doc(db, 'shared_tests', shortId);
+        const snap = await getDoc(docRef);
+        if (snap.exists()) {
+          return snap.data();
+        }
+      } catch (err) {
+        console.warn("getDoc shared_tests warning:", err);
+      }
+    }
 
     try {
       const firestoreUrl = `https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/shared_tests/${shortId}`;
