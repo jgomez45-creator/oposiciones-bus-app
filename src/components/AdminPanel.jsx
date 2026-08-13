@@ -1807,6 +1807,19 @@ export default function AdminPanel({ topics }) {
             </div>
           )}
 
+          {/* GENERATING PROGRESS STATE CARD */}
+          {isGenerating && (
+            <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.4)', background: 'rgba(245, 158, 11, 0.08)', display: 'flex', alignItems: 'center', gap: '16px', color: '#fef08a' }}>
+              <div className="spinning" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Sparkles size={28} style={{ color: '#f59e0b' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <span style={{ fontSize: '1rem', fontWeight: '800', color: '#f59e0b' }}>Sintetizando preguntas inéditas de examen...</span>
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>Analizando normativa oficial de la US y Reglamento de la BUS para el Tema {selectedGenTopicId}...</span>
+              </div>
+            </div>
+          )}
+
           {/* PREVIEW & EDIT BATCH */}
           {generatedBatch.length > 0 && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
