@@ -230,12 +230,22 @@ export function extractTopicSummary(markdownText, selectedSections = 'all') {
       const itemsHtml = validParas.map(p => {
         let clean = p.trim();
         if (clean.startsWith('🔹')) {
-          clean = `<strong style="color: #1e40af; display: block; margin-top: 6px; font-size: 0.98rem;">${clean.replace(/:$/, '')}</strong>`;
+          clean = `<strong style="color: #1e40af; display: block; margin-top: 8px; font-size: 0.98rem;">${clean.replace(/:$/, '')}</strong>`;
         } else if (clean.startsWith('Tabla:')) {
           const rawContent = clean.replace(/^Tabla:\s*/, '').replace(/\*\*/g, '');
-          clean = `<span style="display: inline-block; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 4px; padding: 2px 8px; font-family: monospace; font-size: 0.88rem; color: #166534;">📊 ${rawContent}</span>`;
-        } else if (clean.includes(':')) {
-          clean = clean.replace(/^([^:]+):/, '<strong style="color: #065f46;">$1:</strong>');
+          clean = `<span style="display: inline-block; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 4px; padding: 3px 10px; font-family: monospace; font-size: 0.88rem; color: #166534; margin: 2px 0;">📊 ${rawContent}</span>`;
+        } else {
+          if (/^(art[íi]culo|art\.|ley|real decreto|rd|convenio|estatutos)\b/i.test(clean)) {
+            clean = clean.replace(/^([^:]+):?/, '<strong style="color: #7c2d12; background: #ffedd5; padding: 1px 6px; border-radius: 4px;">⚖️ $1:</strong>');
+          } else if (/^(plazo|duraci[oó]n|per[íi]odo|vigencia|prescripci[oó]n|horario)\b/i.test(clean)) {
+            clean = clean.replace(/^([^:]+):?/, '<strong style="color: #9a3412;">⏱️ $1:</strong>');
+          } else if (/^(sanci[oó]n|infracci[oó]n|falta|demora|suspensi[oó]n|penalizaci[oó]n)\b/i.test(clean)) {
+            clean = clean.replace(/^([^:]+):?/, '<strong style="color: #991b1b; background: #fee2e2; padding: 1px 6px; border-radius: 4px;">⚠️ $1:</strong>');
+          } else if (/^(competencias?|funciones|órgano|direcci[oó]n|comisi[oó]n|junta|vicerrectorado)\b/i.test(clean)) {
+            clean = clean.replace(/^([^:]+):?/, '<strong style="color: #1e40af;">🏛️ $1:</strong>');
+          } else if (clean.includes(':')) {
+            clean = clean.replace(/^([^:]+):/, '<strong style="color: #065f46;">$1:</strong>');
+          }
         }
         return `<li style="margin-bottom: 8px; line-height: 1.6; color: #334155; font-size: 0.95rem; list-style-type: none;">• ${clean}</li>`;
       }).join('');
