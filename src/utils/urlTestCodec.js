@@ -11,16 +11,17 @@ export function compressTestToUrlToken(payload) {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim();
+    .trim()
+    .substring(0, 350);
 
   const minified = {
-    t: payload.title || 'Test de Evaluación de la BUS',
+    t: (payload.title || 'Test BUS').substring(0, 80),
     s: cleanSummary,
     q: payload.questions.map(q => [
       q.question,
       q.options,
       q.correctAnswer,
-      q.explanation || ''
+      (q.explanation || '').substring(0, 150)
     ])
   };
 
