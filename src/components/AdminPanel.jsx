@@ -112,7 +112,7 @@ export default function AdminPanel({ topics }) {
         const res = await fetch(`/markdown/tema-${formattedNum}.md`);
         if (res.ok) {
           const mdText = await res.text();
-          summaryText = extractTopicSummary(mdText);
+          summaryText = extractTopicSummary(mdText); // Batería completa del banco: resumen completo del tema
         }
       } catch (e) {
         console.warn("Could not fetch topic summary for export", e);
@@ -1788,7 +1788,8 @@ export default function AdminPanel({ topics }) {
                             const emails = emailsInput.split(',').map(e => e.trim()).filter(Boolean);
                             let summaryText = '';
                             if (markdownText) {
-                              summaryText = extractTopicSummary(markdownText);
+                            const safeSelHeadings = Array.isArray(selectedHeadings) ? selectedHeadings : 'all';
+                            summaryText = extractTopicSummary(markdownText, safeSelHeadings);
                             }
                             emails.forEach(email => {
                               downloadTestAsHTML(batch, topicObj.title, email, 'oposiciones-bus-app', summaryText);
@@ -1955,7 +1956,8 @@ export default function AdminPanel({ topics }) {
                         const res = await fetch(`/markdown/tema-${formattedNum}.md`);
                         if (res.ok) {
                           const mdText = await res.text();
-                          summaryText = extractTopicSummary(mdText);
+                          const safeSelHeadings = Array.isArray(selectedHeadings) ? selectedHeadings : 'all';
+                          summaryText = extractTopicSummary(mdText, safeSelHeadings);
                         }
                       } catch (e) {
                         console.warn("Could not fetch summary", e);
