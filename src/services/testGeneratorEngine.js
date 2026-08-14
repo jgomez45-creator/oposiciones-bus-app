@@ -505,26 +505,125 @@ const MUTATIONS = [
   }
 ];
 
+// ── DETECTOR DE DOMINIO SEMÁNTICO ───────────────────────────────────────────
+
+/**
+ * Identifica el tipo de dato semántico de una oración para garantizar
+ * que los distractores pertenezcan al mismo dominio. Regla de oro:
+ * preguntas de DÍAS solo pueden tener opciones de DÍAS; de PARENTESCO
+ * solo opciones de PARENTESCO; de ÓRGANOS solo opciones de ÓRGANOS.
+ */
+function detectSemanticDomain(text) {
+  const t = text.toLowerCase();
+  // DOMINIO: Días / Plazos / Licencias
+  if (/\b(\d+\s*días?|\d+\s*semanas?|\d+\s*meses?|\d+\s*horas?|días? hábiles?|días? naturales?|días? laborables?)\b/i.test(t)) {
+    return 'PLAZO';
+  }
+  // DOMINIO: Grados de parentesco
+  if (/\b(grado|consanguinidad|afinidad|primer grado|segundo grado|tercer grado|cuarto grado|parentesco)\b/i.test(t)) {
+    return 'PARENTESCO';
+  }
+  // DOMINIO: Porcentajes o fracciones
+  if (/\b(\d+\s*%|por ciento|porcentaje|fracción)\b/i.test(t)) {
+    return 'PORCENTAJE';
+  }
+  // DOMINIO: Órganos de gobierno
+  if (/\b(rector|gerente|claustro|consejo de gobierno|consejo social|vicerrectorado|junta de centro|comisión|decano|secretario general|cadus|rebiun|cbua)\b/i.test(t)) {
+    return 'ORGANO';
+  }
+  // DOMINIO: Normativo genérico (préstamos, regulación...)
+  return 'NORMATIVO';
+}
+
+// Bancos de distractores por dominio semántico
+const DOMAIN_DISTRACTOR_BANKS = {
+  PLAZO: [
+    '2 días naturales.',
+    '3 días hábiles.',
+    '5 días naturales.',
+    '5 días hábiles.',
+    '7 días naturales.',
+    '10 días hábiles.',
+    '10 días naturales.',
+    '15 días hábiles.',
+    '20 días naturales.',
+    '1 mes de permiso retribuido.',
+    '2 meses de permiso no retribuido.',
+    '3 días laborables.',
+    '4 días hábiles.',
+    '6 días naturales.',
+    '8 días hábiles.',
+    '30 días naturales.',
+  ],
+  PARENTESCO: [
+    'Primer grado de consanguinidad.',
+    'Segundo grado de consanguinidad.',
+    'Tercer grado de consanguinidad.',
+    'Cuarto grado de consanguinidad.',
+    'Primer grado de afinidad.',
+    'Segundo grado de afinidad.',
+    'Tercer grado de afinidad.',
+    'Cuarto grado de afinidad.',
+  ],
+  PORCENTAJE: [
+    'El 20 por ciento de la jornada ordinaria.',
+    'El 30 por ciento del salario base mensual.',
+    'El 50 por ciento del sueldo bruto anual.',
+    'El 75 por ciento de las retribuciones íntegras.',
+    'El 100 por ciento de la retribución fija.',
+    'El 10 por ciento de la jornada anual.',
+  ],
+  ORGANO: [
+    'La Gerencia de la Universidad de Sevilla.',
+    'El Claustro Universitario.',
+    'El Consejo Social de la US.',
+    'El Ministerio de Universidades.',
+    'El Vicerrectorado de Personal.',
+    'El Decanato del Centro correspondiente.',
+    'La Junta de Andalucía.',
+    'La Comisión de Investigación del Consejo de Gobierno.',
+    'El Defensor Universitario.',
+  ],
+};
+
 function generateSyntheticDistractors(correctOpt, heading, idx) {
   const used = new Set([stripAccents(correctOpt)]);
   const distractors = [];
 
-  // Intento 1: Mutación por regla estructurada
+  // ── PASO 0: DETECCIÓN DE DOMINIO SEMÁNTICO ──────────────────────────────
+  const domain = detectSemanticDomain(correctOpt);
+
+  // Para dominios de PLAZO y PARENTESCO, usar exclusivamente el banco homogéneo.
+  // Esto garantiza que NUNCA se mezcle un órgano en una pregunta de días o parentesco.
+  if (domain === 'PLAZO' || domain === 'PARENTESCO' || domain === 'PORCENTAJE') {
+    const bank = DOMAIN_DISTRACTOR_BANKS[domain] || [];
+    const shuffled = [...bank].sort(() => 0.5 - Math.random());
+    for (const candidate of shuffled) {
+      if (distractors.length >= 3) break;
+      const cand = formatCompleteSentence(candidate);
+      const normCand = stripAccents(cand);
+      // Solo añadir si no coincide semánticamente con la respuesta correcta
+      if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+        distractors.push(cand);
+        used.add(normCand);
+      }
+    }
+    return distractors.slice(0, 3);
+  }
+
+  // ── PASO 1: Mutación por regla estructurada (para dominios ORGANO / NORMATIVO) ──
   for (const mut of MUTATIONS) {
     if (distractors.length >= 3) break;
     if (mut.target.test(correctOpt)) {
       for (const rep of mut.replacements) {
         if (distractors.length >= 3) break;
-        
         let replaced = false;
         const candidateRaw = correctOpt.replace(mut.target, (match) => {
           if (!replaced) { replaced = true; return rep; }
           return match;
         });
-
         const cand = formatCompleteSentence(candidateRaw);
         const normCand = stripAccents(cand);
-
         if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
           distractors.push(cand);
           used.add(normCand);
@@ -533,7 +632,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // Intento 2: Inversión de verbos afirmativos / negativos o sustitución de sujeto/órgano
+  // ── PASO 2: Inversión morfológica ──────────────────────────────────────────
   if (distractors.length < 3) {
     const MORPH_RULES = [
       (t) => t.replace(/\b(es|son|constituye|se define como)\b/i, 'no $1'),
@@ -541,7 +640,6 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
       (t) => t.replace(/\b(corresponde a|compete a)\b/i, 'es ajeno a las competencias de'),
       (t) => t.replace(/\b(garantiza|asegura)\b/i, 'no presupone'),
       (t) => t.replace(/\b(se aprueba por|aprobado por)\b/i, 'es acordado unilateralmente sin pasar por'),
-      (t) => t.replace(/\b(se divide en|está compuesto por)\b/i, 'carece de'),
       (t) => t.replace(/\b(facilita|permite|autoriza)\b/i, 'prohíbe expresamente'),
       (t) => t.replace(/\b(promueve|fomenta)\b/i, 'restringe o limita'),
       (t) => t.replace(/\b(debe|tienen la obligación de)\b/i, 'están exentos de'),
@@ -549,9 +647,8 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
       (t) => t.replace(/\b(anualmente|cada año)\b/i, 'cada cinco años de forma extraordinaria'),
       (t) => t.replace(/\b(el Rector|la Rectora)\b/i, 'el Gerente'),
       (t) => t.replace(/\b(el Claustro Universitario)\b/i, 'el Consejo Social'),
-      (t) => t.replace(/\b(del Consejo de Gobierno)\b/i, 'de la Junta de Andalucía')
+      (t) => t.replace(/\b(del Consejo de Gobierno)\b/i, 'de la Junta de Andalucía'),
     ];
-
     for (const rule of MORPH_RULES) {
       if (distractors.length >= 3) break;
       const candidateRaw = rule(correctOpt);
@@ -566,7 +663,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // Intento 3: Negaciones y mutaciones universales sobre la frase correcta si faltan distractores
+  // ── PASO 3: Mutaciones universales como último recurso ──────────────────────
   if (distractors.length < 3) {
     const UNIVERSAL_MUTATORS = [
       (t) => t.replace(/^([A-ZÁÉÍÓÚÑ])/, (m) => `No ${m.toLowerCase()}`),
@@ -575,7 +672,6 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
       (t) => t.replace(/\.$/, ', únicamente para el personal docente acreditado.'),
       (t) => t.replace(/\b(únicamente|exclusivamente|solamente)\b/i, 'en ningún caso'),
     ];
-
     for (const mut of UNIVERSAL_MUTATORS) {
       if (distractors.length >= 3) break;
       const candidateRaw = mut(correctOpt);
@@ -655,6 +751,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
   try {
     const generated = [];
     const usedStems = new Set();
+    const usedFacts = new Set(); // ← Deduplicación de hechos fuente
 
     // 1. Parsear markdown
     const allSections = parseSectionsFromMarkdown(markdownText);
@@ -680,7 +777,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
       sec.paragraphs.forEach(para => {
         if (!para || para.length < 35) return;
 
-        // Extraer etiqueta específica de la viñeta para dar precisión exacta a la pregunta (ej. "Dispositivos y Objetoteca")
+        // Extraer etiqueta específica de la viñeta
         let specificHeading = sec.title;
         const labelMatch = para.match(/^([^:]+):/);
         if (labelMatch && labelMatch[1] && labelMatch[1].length < 60) {
@@ -707,9 +804,14 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
     // 4. Barajar los hechos extraídos
     const shuffledFacts = [...factPool].sort(() => 0.5 - Math.random());
 
-    // 5. Generar preguntas a partir de los hechos
+    // 5. Generar preguntas a partir de los hechos (con deduplicación de hecho fuente)
     for (let idx = 0; idx < shuffledFacts.length && generated.length < count; idx++) {
       const { rawFact, sentence: correctOpt, heading } = shuffledFacts[idx];
+
+      // ← Evitar usar el mismo hecho fuente dos veces (elimina preguntas calcadas)
+      const factKey = stripAccents(correctOpt).substring(0, 80);
+      if (usedFacts.has(factKey)) continue;
+
       const cleanHeading = cleanHeadingTitle(heading);
       const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
       const stem = buildStem(normName, cleanHeading, generated.length);
@@ -724,6 +826,7 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
 
       if (validateQuestion(candidateQ)) {
         usedStems.add(stemKey);
+        usedFacts.add(factKey);
         generated.push(candidateQ);
       }
     }
