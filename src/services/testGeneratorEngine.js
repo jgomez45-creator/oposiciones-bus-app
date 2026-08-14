@@ -845,68 +845,528 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
   }
 }
 
-// ── FALLBACK DE EMERGENCIA VALIDADO ─────────────────────────────────────────
+// ── FALLBACK DE EMERGENCIA POR TEMA (SEMÁNTICAMENTE CORRECTO) ────────────────
+//
+// Regla de oro: NUNCA se mezclan temas. Cada bloque de fallback solo contiene
+// preguntas y distractores del propio tema. Los dominios PLAZO, PARENTESCO y
+// PORCENTAJE usan exclusivamente opciones de su mismo tipo.
+
+const TOPIC_FALLBACKS = {
+
+  // ── TEMA 1: Las bibliotecas universitarias y la BUS ─────────────────────
+  1: [
+    {
+      q: 'Según el Reglamento de la BUS aprobado por el Consejo de Gobierno, ¿qué naturaleza orgánica tiene la Biblioteca de la Universidad de Sevilla?',
+      correct: 'La BUS es una unidad funcional única e integrada que presta servicio a toda la comunidad universitaria de la Universidad de Sevilla.',
+      w1: 'La BUS es una federación de bibliotecas de centro con plena autonomía de gestión y presupuesto propio.',
+      w2: 'La BUS es un organismo autónomo adscrito al Consejo Social de la Universidad de Sevilla.',
+      w3: 'La BUS es una entidad de derecho privado con personalidad jurídica propia diferente a la de la Universidad.',
+    },
+    {
+      q: 'De acuerdo con el Reglamento de la BUS, ¿de quién depende orgánicamente la Dirección de la Biblioteca?',
+      correct: 'La Dirección de la Biblioteca depende orgánicamente del Rector o Vicerrector en quien delegue.',
+      w1: 'La Dirección de la Biblioteca depende del Gerente de la Universidad de Sevilla.',
+      w2: 'La Dirección de la Biblioteca depende del Decano de la Facultad donde radica la sede central.',
+      w3: 'La Dirección de la Biblioteca depende del Consejo Social de la Universidad.',
+    },
+    {
+      q: 'Según el Reglamento de la BUS, ¿quién aprueba el Reglamento que regula la organización y servicios de la Biblioteca?',
+      correct: 'El Reglamento de la BUS es aprobado por el Consejo de Gobierno de la Universidad de Sevilla.',
+      w1: 'El Reglamento de la BUS es aprobado por el Claustro Universitario a propuesta del Director de la Biblioteca.',
+      w2: 'El Reglamento de la BUS es aprobado por el Ministerio de Cultura mediante Orden Ministerial.',
+      w3: 'El Reglamento de la BUS es aprobado por la Junta Técnica de Biblioteca previo informe de la Consejería de Universidades.',
+    },
+    {
+      q: 'En relación con las redes nacionales de bibliotecas universitarias, señale la afirmación correcta:',
+      correct: 'La BUS es miembro de REBIUN, la Red de Bibliotecas Universitarias Españolas, integrada en la CRUE.',
+      w1: 'La BUS es miembro del CBUA, el Consorcio de Bibliotecas Universitarias de Andalucía, que agrupa a todas las universidades españolas.',
+      w2: 'La BUS es miembro de LIBER, la asociación europea de bibliotecas nacionales de investigación.',
+      w3: 'La BUS es miembro de IFLA, el organismo que regula el Reglamento de préstamo interbibliotecario nacional.',
+    },
+  ],
+
+  // ── TEMA 2: Sistema de gestión de la calidad / EFQM ─────────────────────
+  2: [
+    {
+      q: 'Según el Modelo EFQM de Excelencia adoptado por la BUS, ¿en cuántos criterios se estructura el modelo?',
+      correct: 'El Modelo EFQM se estructura en 9 criterios agrupados en Agentes Facilitadores y Resultados.',
+      w1: 'El Modelo EFQM se estructura en 5 criterios de gestión y 3 criterios de resultado.',
+      w2: 'El Modelo EFQM se estructura en 7 principios de calidad y 2 ejes transversales de evaluación.',
+      w3: 'El Modelo EFQM se estructura en 14 criterios distribuidos en tres ámbitos: personas, procesos y resultados.',
+    },
+    {
+      q: 'En relación con la Carta de Servicios de la BUS, señale la afirmación correcta:',
+      correct: 'La Carta de Servicios es un documento público que recoge los compromisos de calidad y los estándares de prestación que la BUS asume ante sus usuarios.',
+      w1: 'La Carta de Servicios es un documento de uso interno que regula el horario del personal técnico de biblioteca.',
+      w2: 'La Carta de Servicios es el reglamento de uso de las instalaciones aprobado por el Consejo de Gobierno.',
+      w3: 'La Carta de Servicios es el catálogo de adquisiciones bibliográficas del ejercicio presupuestario en curso.',
+    },
+    {
+      q: 'De acuerdo con el sistema de calidad de la BUS, ¿qué instrumento permite medir el grado de satisfacción de los usuarios?',
+      correct: 'Las encuestas de satisfacción periódicas son el principal instrumento de medición del grado de satisfacción de los usuarios de la BUS.',
+      w1: 'El indicador de satisfacción de la BUS se obtiene exclusivamente a partir de las reclamaciones formales presentadas por escrito.',
+      w2: 'La satisfacción de los usuarios se evalúa mediante un comité de expertos externos designados por el Rectorado.',
+      w3: 'La medición de la satisfacción se encomienda al Servicio de Inspección Académica de la Universidad de Sevilla.',
+    },
+  ],
+
+  // ── TEMA 3: Instalaciones, espacios y equipamiento ───────────────────────
+  3: [
+    {
+      q: 'En relación con los espacios de una biblioteca universitaria, señale la afirmación correcta:',
+      correct: 'Las bibliotecas universitarias deben contar con zonas diferenciadas para la consulta en sala, el trabajo en grupo, la formación de usuarios y el depósito de fondos.',
+      w1: 'Las bibliotecas universitarias deben destinar al menos el 70% de su superficie útil al depósito cerrado de fondos.',
+      w2: 'Las normas técnicas establecen que las zonas de trabajo en grupo deben estar en planta distinta a las salas de lectura individual.',
+      w3: 'Las directrices vigentes prohíben habilitar espacios de uso informático en las mismas salas de lectura.',
+    },
+    {
+      q: 'Según las directrices técnicas para bibliotecas universitarias, ¿cómo se define el concepto de CRAI?',
+      correct: 'El CRAI (Centro de Recursos para el Aprendizaje y la Investigación) es un espacio que integra en un mismo edificio los servicios de biblioteca, informática y apoyo al aprendizaje.',
+      w1: 'El CRAI es el sistema informático de gestión bibliográfica utilizado por la Red de Bibliotecas Universitarias Españolas.',
+      w2: 'El CRAI es la unidad administrativa que gestiona las adquisiciones de recursos digitales a nivel de consorcio.',
+      w3: 'El CRAI es la certificación de calidad que otorga REBIUN a las bibliotecas universitarias que superan la auditoría anual.',
+    },
+    {
+      q: 'En cuanto al equipamiento básico de las salas de lectura en una biblioteca universitaria, señale lo correcto:',
+      correct: 'Las salas de lectura deben disponer de iluminación natural y artificial suficiente, mobiliario ergonómico y puntos de conexión eléctrica y red para los usuarios.',
+      w1: 'Las salas de lectura deben limitarse al uso de ordenadores fijos y no pueden admitir equipos portátiles propios del usuario.',
+      w2: 'El equipamiento de salas de lectura está regulado exclusivamente por el Reglamento de la BUS, sin aplicación de normativa técnica externa.',
+      w3: 'Las normas vigentes establecen que las salas de lectura deben tener aforo mínimo de 500 puestos por biblioteca de centro.',
+    },
+  ],
+
+  // ── TEMA 4: La colección impresa y electrónica / Acceso remoto ───────────
+  4: [
+    {
+      q: 'En relación con el acceso remoto a los recursos electrónicos de la BUS, señale la afirmación correcta:',
+      correct: 'El acceso remoto a la colección digital de la BUS se realiza mediante el sistema de autenticación de la US, que permite a los miembros de la comunidad universitaria acceder desde fuera del campus.',
+      w1: 'El acceso remoto a los recursos electrónicos requiere la adquisición de un carnet de usuario externo de pago.',
+      w2: 'Los recursos electrónicos de la BUS solo pueden consultarse desde ordenadores instalados en las propias bibliotecas de la US.',
+      w3: 'El acceso remoto está restringido exclusivamente al Personal Docente e Investigador con acreditación de investigador activo.',
+    },
+    {
+      q: 'Según la regulación de la colección digital de la BUS, ¿qué tipo de recursos integra la colección electrónica?',
+      correct: 'La colección electrónica de la BUS integra libros electrónicos, revistas en línea, bases de datos referenciales y a texto completo, y recursos de acceso abierto.',
+      w1: 'La colección electrónica de la BUS se limita a las obras digitalizadas del fondo histórico de la US.',
+      w2: 'La colección electrónica incluye únicamente los recursos suscritos directamente por la BUS, excluyendo los del consorcio CBUA.',
+      w3: 'Los recursos electrónicos de la BUS se gestionan íntegramente desde la sede del Ministerio de Universidades.',
+    },
+  ],
+
+  // ── TEMA 5: Gestión de la colección ─────────────────────────────────────
+  5: [
+    {
+      q: 'En relación con el proceso de expurgo de la colección bibliográfica, señale la afirmación correcta:',
+      correct: 'El expurgo es el proceso técnico mediante el cual se retiran de la colección aquellos fondos obsoletos, deteriorados o de escasa utilidad para los usuarios.',
+      w1: 'El expurgo consiste en la digitalización de los fondos más antiguos para su preservación en el repositorio institucional.',
+      w2: 'El expurgo es el proceso de revisión del catálogo para detectar duplicidades en las referencias bibliográficas.',
+      w3: 'El expurgo implica la transferencia de fondos entre bibliotecas de centro sin retirarlos del catálogo general.',
+    },
+    {
+      q: 'Según las directrices de gestión de la colección de la BUS, ¿qué fase sigue a la selección de nuevos títulos?',
+      correct: 'Tras la selección, el siguiente paso es la adquisición, que puede realizarse mediante compra, canje o donación.',
+      w1: 'Tras la selección, el siguiente paso es el expurgo de los fondos que serán sustituidos por los nuevos títulos seleccionados.',
+      w2: 'Tras la selección, el siguiente paso es la catalogación directa en el sistema FAMA sin pasar por ningún proceso de adquisición.',
+      w3: 'Tras la selección, el siguiente paso es la evaluación de impacto realizada por el Vicerrectorado de Investigación.',
+    },
+    {
+      q: 'De acuerdo con la política de adquisiciones de la BUS, ¿qué se entiende por canje?',
+      correct: 'El canje es la modalidad de adquisición mediante la cual la biblioteca obtiene fondos mediante intercambio de publicaciones con otras instituciones.',
+      w1: 'El canje es el proceso de baja definitiva de un fondo del catálogo cuando su uso ha sido nulo durante cinco años.',
+      w2: 'El canje es la adquisición de recursos electrónicos mediante licencia de consorcio negociada por el CBUA.',
+      w3: 'El canje es la cláusula contractual que permite devolver al proveedor los fondos no utilizados en el ejercicio.',
+    },
+  ],
+
+  // ── TEMA 6: Clasificación CDU ────────────────────────────────────────────
+  6: [
+    {
+      q: 'Según la Clasificación Decimal Universal (CDU), ¿a qué clase principal corresponde la notación 5?',
+      correct: 'La notación 5 en la CDU corresponde a Ciencias Exactas y Naturales.',
+      w1: 'La notación 5 en la CDU corresponde a Ciencias Aplicadas y Tecnología.',
+      w2: 'La notación 5 en la CDU corresponde a Filosofía y Psicología.',
+      w3: 'La notación 5 en la CDU corresponde a Lengua y Lingüística.',
+    },
+    {
+      q: 'En relación con la CDU, ¿a qué clase principal corresponde la notación 3?',
+      correct: 'La notación 3 en la CDU corresponde a Ciencias Sociales.',
+      w1: 'La notación 3 en la CDU corresponde a Religión y Teología.',
+      w2: 'La notación 3 en la CDU corresponde a Historia y Geografía.',
+      w3: 'La notación 3 en la CDU corresponde a Ciencias Exactas y Naturales.',
+    },
+    {
+      q: 'De acuerdo con la CDU, ¿cuántas clases principales comprende la clasificación en su nivel de tabla auxiliar principal?',
+      correct: 'La CDU comprende 10 clases principales, numeradas del 0 al 9.',
+      w1: 'La CDU comprende 7 clases principales, organizadas de forma jerárquica por nivel de especialización.',
+      w2: 'La CDU comprende 20 clases principales agrupadas en dos grandes bloques: Ciencias y Humanidades.',
+      w3: 'La CDU comprende 100 clases principales distribuidas en cuatro tablas auxiliares independientes.',
+    },
+  ],
+
+  // ── TEMA 7: Sistemas de gestión bibliotecaria / FAMA ────────────────────
+  7: [
+    {
+      q: 'En relación con el catálogo FAMA de la Universidad de Sevilla, señale la afirmación correcta:',
+      correct: 'FAMA es el catálogo colectivo en línea de la BUS que permite localizar y acceder a los fondos bibliográficos de todas las bibliotecas de la Universidad de Sevilla.',
+      w1: 'FAMA es el repositorio institucional de la US destinado exclusivamente al depósito de tesis doctorales y trabajos de investigación.',
+      w2: 'FAMA es el sistema de préstamo interbibliotecario gestionado en colaboración con la red REBIUN.',
+      w3: 'FAMA es la plataforma de formación en línea para el personal técnico de la BUS desarrollada por el Servicio de Informática.',
+    },
+    {
+      q: 'Según la regulación de los sistemas integrados de gestión bibliotecaria, ¿qué módulo gestiona el proceso de préstamo?',
+      correct: 'El módulo de Circulación es el responsable de gestionar los préstamos, devoluciones, renovaciones y reservas de fondos.',
+      w1: 'El módulo de Adquisiciones es el responsable de gestionar los préstamos, devoluciones y renovaciones de fondos.',
+      w2: 'El módulo de Catalogación es el responsable de registrar y gestionar todas las operaciones de préstamo del fondo bibliográfico.',
+      w3: 'El módulo de Referencia es el encargado de gestionar el préstamo interbibliotecario y el préstamo en sala.',
+    },
+  ],
+
+  // ── TEMA 8: Tecnologías RFID y autopréstamo ──────────────────────────────
+  8: [
+    {
+      q: 'En relación con la tecnología RFID aplicada a las bibliotecas, señale la afirmación correcta:',
+      correct: 'La tecnología RFID permite identificar y registrar los fondos bibliográficos sin necesidad de contacto directo, mediante la lectura de etiquetas de radiofrecuencia.',
+      w1: 'La tecnología RFID requiere la lectura óptica directa del código de barras impreso en cada ejemplar de la colección.',
+      w2: 'La tecnología RFID solo puede emplearse en el control de acceso a las instalaciones, no en la gestión del préstamo de fondos.',
+      w3: 'La tecnología RFID almacena el contenido íntegro de cada obra en una etiqueta digital de alta capacidad.',
+    },
+    {
+      q: 'De acuerdo con el uso de las estaciones de autopréstamo en la BUS, señale lo correcto:',
+      correct: 'Las estaciones de autopréstamo permiten al usuario gestionar por sí mismo el préstamo y la devolución de documentos sin la intervención directa del personal técnico.',
+      w1: 'Las estaciones de autopréstamo solo pueden ser utilizadas por el Personal Docente e Investigador con acreditación investigadora activa.',
+      w2: 'Las estaciones de autopréstamo requieren la presencia obligatoria de un auxiliar de biblioteca para validar cada operación.',
+      w3: 'El uso de las estaciones de autopréstamo implica el pago de una tasa anual aprobada por el Consejo Social de la US.',
+    },
+  ],
+
+  // ── TEMA 9: Servicios a usuarios I: Préstamo y Objetoteca ───────────────
+  9: [
+    {
+      q: 'Según las Normas de Préstamo de la BUS, ¿cuántos días de préstamo ordinario tienen los estudiantes de grado para los libros de texto?',
+      correct: '14 días naturales, con posibilidad de renovación si el ejemplar no tiene reserva pendiente.',
+      w1: '7 días naturales, sin posibilidad de renovación en ningún caso.',
+      w2: '21 días hábiles, prorrogables por un período adicional de 7 días hábiles.',
+      w3: '30 días naturales, con un máximo de dos renovaciones de 15 días cada una.',
+    },
+    {
+      q: 'En relación con el servicio de Objetoteca de la BUS, señale la afirmación correcta:',
+      correct: 'La Objetoteca es un servicio de la BUS que permite el préstamo de objetos y dispositivos de uso cotidiano a los miembros de la comunidad universitaria.',
+      w1: 'La Objetoteca es el depósito de fondos históricos de la BUS destinado a la preservación y digitalización del patrimonio documental.',
+      w2: 'La Objetoteca es el servicio de reprografía y autoedición disponible para el personal docente e investigador de la US.',
+      w3: 'La Objetoteca es la sección de la BUS que gestiona las donaciones de fondos bibliográficos por parte de particulares e instituciones.',
+    },
+    {
+      q: 'Según las Normas de Préstamo de la BUS, ¿en qué plazo debe devolver un fondo prestado un usuario si recibe un aviso de reclamación?',
+      correct: 'El usuario debe devolver el fondo antes de la hora de cierre del mismo día en que recibe la reclamación.',
+      w1: 'El usuario dispone de un plazo de 48 horas desde la recepción de la reclamación para devolver el fondo.',
+      w2: 'El usuario dispone de 5 días hábiles desde la notificación para proceder a la devolución del fondo reclamado.',
+      w3: 'El usuario debe devolver el fondo en un plazo máximo de 3 días laborables desde la recepción del aviso de reclamación.',
+    },
+  ],
+
+  // ── TEMA 10: Servicios a usuarios II: Información y Referencia ───────────
+  10: [
+    {
+      q: 'En relación con el Servicio de Información y Referencia de la BUS, señale la afirmación correcta:',
+      correct: 'El Servicio de Información y Referencia de la BUS atiende consultas de los usuarios tanto de forma presencial como virtual, a través de formularios web, chat y correo electrónico.',
+      w1: 'El Servicio de Información y Referencia de la BUS solo atiende consultas presenciales en el mostrador de las bibliotecas de centro.',
+      w2: 'Las consultas de referencia son tramitadas exclusivamente por la Dirección de la Biblioteca, sin intervención del personal técnico.',
+      w3: 'El Servicio de Información y Referencia gestiona únicamente las consultas sobre el catálogo FAMA, no las de carácter temático.',
+    },
+    {
+      q: 'Según la regulación del servicio de referencia de la BUS, ¿qué se entiende por referencia virtual?',
+      correct: 'La referencia virtual es la atención de consultas bibliográficas e informativas a través de medios digitales como el chat, el formulario web o el correo electrónico.',
+      w1: 'La referencia virtual es el acceso en línea al catálogo FAMA para la búsqueda autónoma de registros bibliográficos por parte del usuario.',
+      w2: 'La referencia virtual es el préstamo electrónico de documentos digitalizados bajo demanda del usuario.',
+      w3: 'La referencia virtual es el sistema de reserva de puestos de sala a través de la aplicación móvil de la BUS.',
+    },
+  ],
+
+  // ── TEMA 11: Servicios a usuarios III: Apoyo al aprendizaje (ALFIN/CODI) ─
+  11: [
+    {
+      q: 'En relación con la formación en competencias informacionales (ALFIN) de la BUS, señale la afirmación correcta:',
+      correct: 'Las acciones de ALFIN tienen como objetivo que los usuarios sean capaces de identificar, localizar, evaluar y usar de forma eficiente la información.',
+      w1: 'Las acciones de ALFIN se centran exclusivamente en la formación del personal técnico de la BUS en el uso del catálogo FAMA.',
+      w2: 'El programa ALFIN gestiona el acceso de los usuarios a los recursos electrónicos mediante el sistema de autenticación de la US.',
+      w3: 'Las actividades de ALFIN se limitan a la formación en habilidades de ofimática para estudiantes de primer año de grado.',
+    },
+    {
+      q: 'Según las directrices del servicio de Apoyo al Aprendizaje de la BUS, ¿a qué colectivo van dirigidas principalmente las acciones de CODI?',
+      correct: 'Las acciones de CODI (Competencias Digitales) van dirigidas al conjunto de la comunidad universitaria, con especial atención a los estudiantes.',
+      w1: 'Las acciones de CODI van dirigidas exclusivamente al Personal Docente e Investigador con dedicación a tiempo completo.',
+      w2: 'Las acciones de CODI son formaciones de pago destinadas a titulados externos sin vinculación actual con la Universidad.',
+      w3: 'Las acciones de CODI van dirigidas únicamente al personal de administración y servicios de la Universidad de Sevilla.',
+    },
+  ],
+
+  // ── TEMA 12: Servicios a usuarios IV: Apoyo a la investigación ───────────
+  12: [
+    {
+      q: 'En relación con el repositorio institucional idUS de la Universidad de Sevilla, señale la afirmación correcta:',
+      correct: 'idUS es el repositorio institucional de la US gestionado por la BUS, que recoge y difunde en acceso abierto la producción científica de la Universidad.',
+      w1: 'idUS es el sistema de gestión de préstamo interbibliotecario entre las bibliotecas de la Red de Bibliotecas Universitarias Españolas.',
+      w2: 'idUS es la plataforma de evaluación de la actividad investigadora del profesorado gestionada por la ANECA.',
+      w3: 'idUS es el catálogo de revistas científicas de acceso abierto gestionado por el Ministerio de Ciencia e Innovación.',
+    },
+    {
+      q: 'Según los servicios de apoyo a la investigación de la BUS, ¿qué instrumento permite al investigador gestionar y dar visibilidad a su producción científica?',
+      correct: 'El perfil del investigador en plataformas como ORCID, Google Académico o ResearcherID permite gestionar y dar visibilidad a la producción científica de cada investigador.',
+      w1: 'El servicio de Préstamo Interbibliotecario es el principal instrumento para que el investigador gestione y dé visibilidad a su producción científica.',
+      w2: 'La Carta de Servicios de la BUS es el instrumento oficial para que el investigador registre y difunda sus publicaciones.',
+      w3: 'El catálogo FAMA es la herramienta habilitada por la BUS para que el investigador gestione su perfil científico y sus publicaciones.',
+    },
+  ],
+
+  // ── TEMA 13: Herramientas digitales: Microsoft 365 ───────────────────────
+  13: [
+    {
+      q: 'En relación con Microsoft Teams, herramienta de la suite Microsoft 365, señale la afirmación correcta:',
+      correct: 'Microsoft Teams es la herramienta de Microsoft 365 diseñada para la comunicación y colaboración en equipo, permitiendo reuniones virtuales, chats y el trabajo compartido sobre documentos.',
+      w1: 'Microsoft Teams es el gestor de correo electrónico corporativo de Microsoft 365 utilizado en la Universidad de Sevilla.',
+      w2: 'Microsoft Teams es la aplicación de Microsoft 365 destinada al almacenamiento individual de archivos en la nube.',
+      w3: 'Microsoft Teams es el sistema de videoconferencia exclusivo para reuniones del Consejo de Gobierno de la Universidad.',
+    },
+    {
+      q: 'De acuerdo con las funcionalidades de Microsoft 365, ¿qué herramienta está orientada al almacenamiento personal de archivos en la nube?',
+      correct: 'OneDrive es la herramienta de Microsoft 365 orientada al almacenamiento personal de archivos en la nube.',
+      w1: 'SharePoint es la herramienta de Microsoft 365 orientada al almacenamiento personal de archivos en la nube.',
+      w2: 'Microsoft Teams es la herramienta de Microsoft 365 orientada al almacenamiento personal de archivos en la nube.',
+      w3: 'Outlook es la herramienta de Microsoft 365 orientada al almacenamiento personal de archivos en la nube.',
+    },
+    {
+      q: 'En relación con Outlook, herramienta de Microsoft 365, señale la afirmación correcta:',
+      correct: 'Outlook es el cliente de correo electrónico y gestión de calendario corporativo de Microsoft 365.',
+      w1: 'Outlook es la herramienta de Microsoft 365 para la creación y edición de hojas de cálculo y análisis de datos.',
+      w2: 'Outlook es la plataforma de videoconferencia y reuniones virtuales de Microsoft 365.',
+      w3: 'Outlook es el sistema de gestión documental y base de datos corporativa de Microsoft 365.',
+    },
+  ],
+
+  // ── TEMA 14: Sistema de Gestión de PRL de la US ──────────────────────────
+  14: [
+    {
+      q: 'Según el Plan de Prevención de Riesgos Laborales de la US, ¿a quién corresponde la obligación de garantizar la seguridad y salud de los trabajadores?',
+      correct: 'La obligación de garantizar la seguridad y salud de los trabajadores corresponde al empresario, en este caso la Universidad de Sevilla.',
+      w1: 'La obligación de garantizar la seguridad y salud de los trabajadores corresponde en exclusiva al propio trabajador.',
+      w2: 'La obligación de garantizar la seguridad y salud corresponde al Ministerio de Trabajo mediante la Inspección de Trabajo.',
+      w3: 'La obligación de garantizar la seguridad y salud de los trabajadores corresponde a las mutuas colaboradoras con la Seguridad Social.',
+    },
+    {
+      q: 'En relación con la actuación ante un accidente laboral en la US, señale la afirmación correcta:',
+      correct: 'Ante un accidente laboral, el trabajador debe comunicarlo de forma inmediata a su responsable o mando directo, quien deberá notificarlo al Servicio de Prevención.',
+      w1: 'Ante un accidente laboral, el trabajador debe comunicarlo directamente al Ministerio de Trabajo en un plazo de 48 horas.',
+      w2: 'La notificación del accidente laboral es competencia exclusiva del delegado de prevención y no del mando directo.',
+      w3: 'El trabajador accidentado debe esperar a que concluya su jornada para notificar el accidente al Servicio de Prevención.',
+    },
+    {
+      q: 'Según el sistema de gestión de PRL de la US, ¿qué función tiene el Servicio de Prevención?',
+      correct: 'El Servicio de Prevención asesora y asiste al empresario, a los trabajadores y a sus representantes en materia de prevención de riesgos laborales.',
+      w1: 'El Servicio de Prevención de la US tiene como función exclusiva la gestión de las bajas médicas del personal de administración y servicios.',
+      w2: 'El Servicio de Prevención es el órgano encargado de imponer las sanciones disciplinarias por incumplimiento de la normativa de seguridad.',
+      w3: 'El Servicio de Prevención gestiona el sistema de reclutamiento de personal especializado en seguridad laboral de la Universidad.',
+    },
+  ],
+
+  // ── TEMA 15: Riesgos generales y específicos del puesto de trabajo ────────
+  15: [
+    {
+      q: 'En relación con los riesgos ergonómicos del puesto de Auxiliar de Biblioteca, señale la afirmación correcta:',
+      correct: 'Los principales riesgos ergonómicos del Auxiliar de Biblioteca son los derivados de la manipulación manual de cargas, las posturas forzadas y el trabajo prolongado de pie o sentado.',
+      w1: 'Los principales riesgos del Auxiliar de Biblioteca son los derivados de la exposición a agentes químicos y biológicos en los depósitos de fondos.',
+      w2: 'El riesgo ergonómico más frecuente en el Auxiliar de Biblioteca es la exposición a radiaciones ionizantes producidas por los equipos RFID.',
+      w3: 'Los riesgos ergonómicos del Auxiliar de Biblioteca son exclusivamente los derivados del trabajo nocturno y en condiciones de escasa iluminación.',
+    },
+    {
+      q: 'Según la normativa de PRL aplicable al puesto de Auxiliar de Biblioteca, ¿cuál es el peso máximo recomendado para la manipulación manual de cargas sin ayuda mecánica?',
+      correct: 'El peso máximo recomendado para la manipulación manual de cargas sin ayuda mecánica es de 25 kg para trabajadores en condiciones normales.',
+      w1: 'El peso máximo recomendado para la manipulación manual de cargas sin ayuda mecánica es de 50 kg en condiciones normales de trabajo.',
+      w2: 'El peso máximo recomendado para la manipulación manual de cargas sin ayuda mecánica es de 10 kg para cualquier tipo de trabajador.',
+      w3: 'La normativa no establece ningún límite de peso y delega en el trabajador la valoración del esfuerzo máximo admisible.',
+    },
+  ],
+
+  // ── TEMA 16: Legislación sobre PRL ──────────────────────────────────────
+  16: [
+    {
+      q: 'Según la Ley 31/1995 de Prevención de Riesgos Laborales, ¿qué obligación tiene el trabajador en materia preventiva?',
+      correct: 'El trabajador está obligado a velar por su propia seguridad y salud y por la de las personas que puedan verse afectadas por sus actos u omisiones en el trabajo.',
+      w1: 'El trabajador está obligado a sufragar los costes de los equipos de protección individual que necesite para el desempeño de sus funciones.',
+      w2: 'El trabajador está obligado a contratar un seguro privado de accidentes que cubra los riesgos inherentes a su puesto de trabajo.',
+      w3: 'El trabajador tiene la obligación de realizar la evaluación de riesgos de su propio puesto de trabajo de forma anual.',
+    },
+    {
+      q: 'En relación con el Real Decreto 488/1997, ¿qué materia regula?',
+      correct: 'El Real Decreto 488/1997 regula las disposiciones mínimas de seguridad y salud relativas al trabajo con equipos que incluyen pantallas de visualización de datos.',
+      w1: 'El Real Decreto 488/1997 regula las disposiciones mínimas de seguridad y salud en los lugares de trabajo.',
+      w2: 'El Real Decreto 488/1997 regula la señalización de seguridad y salud en el trabajo.',
+      w3: 'El Real Decreto 488/1997 regula la utilización por los trabajadores de los equipos de protección individual.',
+    },
+    {
+      q: 'Según el Real Decreto 486/1997, ¿qué materia regula específicamente?',
+      correct: 'El Real Decreto 486/1997 regula las disposiciones mínimas de seguridad y salud en los lugares de trabajo.',
+      w1: 'El Real Decreto 486/1997 regula las disposiciones mínimas de seguridad y salud relativas al trabajo con pantallas de visualización.',
+      w2: 'El Real Decreto 486/1997 regula la señalización de seguridad y salud en el trabajo en centros públicos.',
+      w3: 'El Real Decreto 486/1997 regula la utilización por los trabajadores de equipos de protección individual en la Administración Pública.',
+    },
+  ],
+
+  // ── TEMA 17: Estatutos de la Universidad de Sevilla ─────────────────────
+  17: [
+    {
+      q: 'Según los Estatutos de la Universidad de Sevilla (Decreto 98/2025), ¿cuál es el máximo órgano de representación de la comunidad universitaria?',
+      correct: 'El Claustro Universitario es el máximo órgano de representación y participación de la comunidad universitaria de la US.',
+      w1: 'El Consejo de Gobierno es el máximo órgano de representación y participación de la comunidad universitaria de la US.',
+      w2: 'El Consejo Social es el máximo órgano de representación de la comunidad universitaria ante la sociedad andaluza.',
+      w3: 'El Rectorado es el máximo órgano de representación y participación de la comunidad universitaria de la US.',
+    },
+    {
+      q: 'De acuerdo con los Estatutos de la US, ¿a quién corresponde la competencia para la propuesta de creación de Facultades y Escuelas?',
+      correct: 'La propuesta de creación, modificación o supresión de Facultades y Escuelas corresponde al Consejo de Gobierno de la Universidad.',
+      w1: 'La propuesta de creación de Facultades y Escuelas corresponde al Claustro Universitario como máximo órgano de representación.',
+      w2: 'La propuesta de creación de Facultades y Escuelas corresponde al Consejo Social como representante de los intereses sociales.',
+      w3: 'La propuesta de creación de Facultades y Escuelas es competencia exclusiva de la Junta de Andalucía sin intervención del Consejo de Gobierno.',
+    },
+    {
+      q: 'Según los Estatutos de la US, ¿con qué periodicidad se renuevan los representantes del estudiantado en la Junta de Centro?',
+      correct: 'La renovación de los representantes del estudiantado en la Junta de Centro es anual.',
+      w1: 'La renovación de los representantes del estudiantado en la Junta de Centro es bianual, coincidiendo con la renovación claustral.',
+      w2: 'La renovación de los representantes del estudiantado en la Junta de Centro es cuatrienal, coincidiendo con las elecciones rectorales.',
+      w3: 'La renovación de los representantes del estudiantado se produce al finalizar el ciclo de estudios en el que estén matriculados.',
+    },
+  ],
+
+  // ── TEMA 18: IV Convenio Colectivo del Personal Laboral ──────────────────
+  18: [
+    {
+      q: 'Según el IV Convenio Colectivo del Personal Laboral de las UUPP de Andalucía, ¿de cuántos días de permiso retribuido dispone el trabajador por razón de matrimonio o registro de pareja de hecho?',
+      correct: '15 días naturales.',
+      w1: '10 días naturales.',
+      w2: '20 días hábiles.',
+      w3: '7 días laborables.',
+    },
+    {
+      q: 'Según el IV Convenio Colectivo, ¿cuántos días de permiso retribuido corresponden al trabajador por fallecimiento de familiar de primer grado de consanguinidad?',
+      correct: '5 días naturales.',
+      w1: '2 días hábiles.',
+      w2: '10 días naturales.',
+      w3: '3 días laborables.',
+    },
+    {
+      q: 'Según el IV Convenio Colectivo, ¿cuántos días de permiso retribuido corresponden al trabajador por nacimiento, adopción o acogimiento de hijo?',
+      correct: '5 días naturales.',
+      w1: '3 días hábiles.',
+      w2: '10 días naturales.',
+      w3: '7 días laborables.',
+    },
+    {
+      q: 'Según el IV Convenio Colectivo, ¿qué grado de parentesco une a un trabajador con su tío?',
+      correct: 'Tercer grado de consanguinidad.',
+      w1: 'Segundo grado de consanguinidad.',
+      w2: 'Cuarto grado de consanguinidad.',
+      w3: 'Segundo grado de afinidad.',
+    },
+    {
+      q: 'Según el IV Convenio Colectivo, ¿qué grado de parentesco une a un trabajador con su suegro o suegra?',
+      correct: 'Primer grado de afinidad.',
+      w1: 'Primer grado de consanguinidad.',
+      w2: 'Segundo grado de afinidad.',
+      w3: 'Segundo grado de consanguinidad.',
+    },
+    {
+      q: 'Según el IV Convenio Colectivo, ¿cuántos días de permiso retribuido corresponden por traslado del domicilio habitual?',
+      correct: '2 días naturales.',
+      w1: '5 días hábiles.',
+      w2: '1 día laborable.',
+      w3: '4 días naturales.',
+    },
+  ],
+
+  // ── TEMA 19: Ley Orgánica 3/2007 para la Igualdad Efectiva ───────────────
+  19: [
+    {
+      q: 'Según la Ley Orgánica 3/2007 para la igualdad efectiva de mujeres y hombres, ¿cómo se define la discriminación directa por razón de sexo?',
+      correct: 'La discriminación directa por razón de sexo es la situación en que una persona sea tratada de manera menos favorable que otra en situación análoga por razón de sexo.',
+      w1: 'La discriminación directa por razón de sexo es toda orden de discriminar a personas por razón de su orientación sexual o identidad de género.',
+      w2: 'La discriminación directa se produce cuando una disposición, criterio o práctica aparentemente neutros perjudican a personas de un sexo respecto del otro.',
+      w3: 'La discriminación directa consiste en el acoso reiterado de carácter sexual que crea un entorno intimidatorio para la víctima en el ámbito laboral.',
+    },
+    {
+      q: 'De acuerdo con la LO 3/2007, ¿cómo se define el acoso sexual?',
+      correct: 'El acoso sexual es cualquier comportamiento verbal o físico de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona, en particular cuando se crea un entorno intimidatorio, degradante u ofensivo.',
+      w1: 'El acoso sexual es toda distinción, exclusión o restricción basada en el sexo que tenga por objeto menoscabar el reconocimiento de derechos.',
+      w2: 'El acoso sexual es la situación en que una disposición aparentemente neutra pone a personas de un sexo en desventaja frente al otro.',
+      w3: 'El acoso sexual es la conducta realizada en función del sexo de una persona con el propósito de atentar contra su dignidad en el trabajo.',
+    },
+    {
+      q: 'Según la LO 3/2007, ¿qué se entiende por discriminación indirecta por razón de sexo?',
+      correct: 'La discriminación indirecta se produce cuando una disposición, criterio o práctica aparentemente neutros ponen a personas de un sexo en desventaja particular con respecto a personas del otro sexo.',
+      w1: 'La discriminación indirecta es el trato menos favorable que se da directamente a una persona por razón de su sexo respecto de otra en situación análoga.',
+      w2: 'La discriminación indirecta es el comportamiento de naturaleza sexual que atenta contra la dignidad de la persona y crea un entorno intimidatorio.',
+      w3: 'La discriminación indirecta es la orden expresa de discriminar a una persona por razón de su sexo, orientación o identidad de género.',
+    },
+  ],
+
+  // ── TEMA 20: Normativa de la US contra violencia, acoso y discriminación ──
+  20: [
+    {
+      q: 'Según el Protocolo de actuación de la US contra el acoso, ¿qué órgano es el responsable de instruir el expediente cuando se presenta una denuncia?',
+      correct: 'La instrucción del expediente corresponde a la Comisión Instructora designada al efecto, compuesta por personal con formación específica en la materia.',
+      w1: 'La instrucción del expediente corresponde directamente al Rector o Rectora de la Universidad de Sevilla.',
+      w2: 'La instrucción del expediente corresponde al Defensor Universitario como garante de los derechos de la comunidad universitaria.',
+      w3: 'La instrucción del expediente corresponde al Gerente de la Universidad en calidad de máximo responsable de personal.',
+    },
+    {
+      q: 'De acuerdo con la normativa de la US contra el acoso, ¿cuál es la diferencia entre acoso sexual y acoso por razón de sexo?',
+      correct: 'El acoso sexual tiene naturaleza sexual explícita, mientras que el acoso por razón de sexo está motivado por el sexo de la persona pero no necesariamente tiene connotación sexual.',
+      w1: 'El acoso sexual es el que se produce en el ámbito laboral, mientras que el acoso por razón de sexo se produce exclusivamente en el ámbito académico.',
+      w2: 'El acoso sexual es sancionable penalmente, mientras que el acoso por razón de sexo es competencia exclusiva de la comisión de igualdad.',
+      w3: 'El acoso sexual afecta únicamente a mujeres, mientras que el acoso por razón de sexo puede afectar a cualquier persona independientemente de su identidad de género.',
+    },
+    {
+      q: 'Según el protocolo de la US contra el acoso, ¿qué garantía tiene la persona que presenta una denuncia?',
+      correct: 'La persona denunciante tiene garantizada la confidencialidad del procedimiento y la protección frente a represalias o perjuicios derivados de la presentación de la denuncia.',
+      w1: 'La persona denunciante tiene garantizado el anonimato absoluto, sin que en ningún caso pueda ser identificada durante todo el procedimiento.',
+      w2: 'La persona denunciante tiene garantizado el traslado preventivo a otro puesto de trabajo mientras se instruye el expediente.',
+      w3: 'La persona denunciante tiene garantizada la resolución del expediente en un plazo máximo de 15 días hábiles desde la presentación.',
+    },
+  ],
+};
 
 export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
   const batch = [];
+  const topNum = parseInt(topicId, 10);
   const safeTitle = topicTitle || `Tema ${topicId}`;
 
-  const templates = [
-    {
-      q: `Según lo dispuesto en la normativa rectora de la Universidad de Sevilla sobre ${safeTitle}, señale la afirmación correcta:`,
-      correct: `Constituye una unidad funcional de obligado cumplimiento en todo el ámbito de la Universidad de Sevilla.`,
-      w1: `Posee carácter de mera recomendación facultativa no vinculante para los centros y facultades de la Universidad.`,
-      w2: `Es una norma de aplicación exclusiva al personal docente con relación de empleo temporal.`,
-      w3: `Requiere autorización previa del Ministerio de Universidades para surtir efectos jurídicos.`,
-    },
-    {
-      q: `En relación con el régimen de funcionamiento de ${safeTitle}, ¿cuál de las siguientes afirmaciones es correcta?`,
-      correct: `Se rige por el principio de unidad funcional, asegurando directrices técnicas homogéneas en todos los campus.`,
-      w1: `Funciona como una confederación de bibliotecas de centro independientes entre sí, sin coordinación técnica.`,
-      w2: `Su gestión técnica y presupuestaria corresponde íntegramente a los Decanatos de cada facultad.`,
-      w3: `Está exenta de someterse al Plan Director y a las auditorías anuales de calidad de la Universidad.`,
-    },
-    {
-      q: `Respecto a los derechos y deberes regulados en la normativa de la Universidad de Sevilla sobre ${safeTitle}, señale la opción verdadera:`,
-      correct: `Garantiza la igualdad de acceso a los recursos y servicios para todos los miembros de la comunidad universitaria.`,
-      w1: `Restringe el uso de las instalaciones exclusivamente a los estudiantes de posgrado y doctorado matriculados.`,
-      w2: `Establece el pago de tasas obligatorias por la consulta presencial de los fondos bibliográficos impresos.`,
-      w3: `Exime al personal técnico de observar las normas de confidencialidad y protección de datos de carácter personal.`,
-    },
-    {
-      q: `De acuerdo con la estructura organizativa y las competencias de los órganos de gobierno sobre ${safeTitle}, señale la respuesta correcta:`,
-      correct: `La supervisión y presidencia de los órganos colegiados de biblioteca corresponden al Rector o Vicerrector en quien delegue.`,
-      w1: `La presidencia de la Comisión de Biblioteca es ejercida por turno rotatorio entre los delegados de estudiantes.`,
-      w2: `Las resoluciones técnicas de la Dirección de la Biblioteca pueden ser revocadas por las Juntas de Facultad.`,
-      w3: `Los acuerdos en materia de servicio público no requieren publicidad ni aprobación en Consejo de Gobierno.`,
-    },
-    {
-      q: `En el marco normativo aplicable a ${safeTitle}, señale la opción correcta:`,
-      correct: `Toda modificación reglamentaria requiere aprobación previa del Consejo de Gobierno de la Universidad de Sevilla.`,
-      w1: `Cualquier unidad organizativa puede modificar unilateralmente sus normas internas sin trámite institucional.`,
-      w2: `Las infracciones tipificadas prescriben automáticamente transcurridos cinco años desde su comisión.`,
-      w3: `El régimen disciplinario es gestionado por empresas privadas subcontratadas por la Universidad de Sevilla.`,
-    },
-    {
-      q: `Conforme a la regulación establecida sobre ${safeTitle} en la Universidad de Sevilla, indique la respuesta correcta:`,
-      correct: `Los ciudadanos sin vinculación formal con la US pueden acceder a sus recursos en los términos que apruebe el Consejo de Gobierno.`,
-      w1: `El acceso a los fondos documentales de la BUS queda restringido en todo caso al personal de plantilla de la US.`,
-      w2: `Los usuarios externos tienen los mismos derechos y plazos de préstamo que los miembros de la comunidad universitaria.`,
-      w3: `La determinación del acceso externo corresponde a cada biblioteca de centro de forma autónoma e independiente.`,
-    },
-    {
-      q: `¿Cuál de las siguientes afirmaciones sobre ${safeTitle} es correcta según el Reglamento de la BUS?`,
-      correct: `El Reglamento de la BUS es la norma marco aprobada por el Consejo de Gobierno que regula la organización, los servicios y los derechos de los usuarios.`,
-      w1: `El Reglamento de la BUS es aprobado directamente por el Ministerio de Cultura mediante Orden Ministerial.`,
-      w2: `La BUS carece de Reglamento propio y se rige únicamente por los Estatutos generales de la Universidad de Sevilla.`,
-      w3: `El Reglamento de la BUS es un documento interno sin valor normativo aprobado por la Dirección de la Biblioteca.`,
-    },
-  ];
+  // Obtener los fallbacks específicos del tema; si no hay (tema no contemplado), usar array vacío
+  const topicTemplates = TOPIC_FALLBACKS[topNum] || [];
 
-  for (let i = 0; i < count; i++) {
-    const t = templates[i % templates.length];
-    batch.push(createStructuredQuestion(t.q, t.correct, [t.w1, t.w2, t.w3], t.correct, safeTitle, topicId));
+  // Si hay fallbacks específicos para este tema, usarlos
+  if (topicTemplates.length > 0) {
+    for (let i = 0; i < count; i++) {
+      const t = topicTemplates[i % topicTemplates.length];
+      batch.push(createStructuredQuestion(t.q, t.correct, [t.w1, t.w2, t.w3], t.correct, safeTitle, topicId));
+    }
+    return batch;
   }
 
+  // Fallback de último recurso: solo si el tema no está en el mapa y no tiene Markdown.
+  // Se usa una pregunta neutra sobre la normativa del tema específico.
+  const genericFallback = {
+    q: `En relación con ${safeTitle}, señale la opción correcta:`,
+    correct: `La normativa reguladora de ${safeTitle} tiene carácter vinculante para todos los afectados en el ámbito de la Universidad de Sevilla.`,
+    w1: `La normativa reguladora de ${safeTitle} es de aplicación facultativa y cada centro puede adaptar su cumplimiento.`,
+    w2: `La normativa de ${safeTitle} requiere ratificación anual del Ministerio de Universidades para mantener su vigencia.`,
+    w3: `La normativa de ${safeTitle} es un documento orientativo sin fuerza jurídica aprobado por la Dirección de la Biblioteca.`,
+  };
+  for (let i = 0; i < count; i++) {
+    batch.push(createStructuredQuestion(
+      genericFallback.q, genericFallback.correct,
+      [genericFallback.w1, genericFallback.w2, genericFallback.w3],
+      genericFallback.correct, safeTitle, topicId
+    ));
+  }
   return batch;
 }
+
+
