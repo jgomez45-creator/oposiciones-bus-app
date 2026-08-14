@@ -132,7 +132,7 @@ function isDeclarativeSentence(text) {
 
 // ── PARSEO DE MARKDOWN ──────────────────────────────────────────────────────
 
-const NON_EXAM_SECTIONS = /esquema|repaso|conceptos clave|resumen|glosario|introducción|índice|bibliografía|anexo/i;
+const NON_EXAM_SECTIONS = /esquema|repaso|conceptos clave|resumen|glosario|introducción|índice|bibliografía|bibliografia|referencias|fuentes|lecturas recomendadas|para saber más|recursos de consulta|anexo/i;
 
 export function parseSectionsFromMarkdown(markdownText) {
   if (!markdownText) return [];
@@ -166,6 +166,9 @@ export function parseSectionsFromMarkdown(markdownText) {
         const lowerTitle = titleText.toLowerCase();
         if (
           lowerTitle.includes('bibliografía') || lowerTitle.includes('bibliografia') ||
+          lowerTitle.includes('referencias') || lowerTitle.includes('fuentes') ||
+          lowerTitle.includes('lecturas recomendadas') || lowerTitle.includes('recursos de consulta') ||
+          lowerTitle.includes('para saber más') || lowerTitle.includes('glosario') ||
           lowerTitle.includes('anexo') || lowerTitle === 'notas'
         ) {
           currentTitle = '';
@@ -583,6 +586,13 @@ const DOMAIN_DISTRACTOR_BANKS = {
     'La Junta de Andalucía.',
     'La Comisión de Investigación del Consejo de Gobierno.',
     'El Defensor Universitario.',
+    'La Comisión Permanente del Consejo de Gobierno.',
+    'La Junta de Facultad correspondiente.',
+    'El Consejo de Gobierno de la Junta de Andalucía.',
+    'El Vicerrectorado de Docencia.',
+    'El Secretario General de la Universidad de Sevilla.',
+    'El Consejo de Dirección de la US.',
+    'La Comisión de Garantía de Calidad.',
   ],
 };
 
@@ -593,9 +603,10 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
   // ── PASO 0: DETECCIÓN DE DOMINIO SEMÁNTICO ──────────────────────────────
   const domain = detectSemanticDomain(correctOpt);
 
-  // Para dominios de PLAZO y PARENTESCO, usar exclusivamente el banco homogéneo.
-  // Esto garantiza que NUNCA se mezcle un órgano en una pregunta de días o parentesco.
-  if (domain === 'PLAZO' || domain === 'PARENTESCO' || domain === 'PORCENTAJE') {
+  // Para dominios de PLAZO, PARENTESCO, PORCENTAJE y ORGANO, usar exclusivamente
+  // el banco homogéneo. Esto garantiza que NUNCA se mezclen conceptos de distinto
+  // tipo semántico: días solo con días, órganos solo con órganos.
+  if (domain === 'PLAZO' || domain === 'PARENTESCO' || domain === 'PORCENTAJE' || domain === 'ORGANO') {
     const bank = DOMAIN_DISTRACTOR_BANKS[domain] || [];
     const shuffled = [...bank].sort(() => 0.5 - Math.random());
     for (const candidate of shuffled) {
@@ -741,6 +752,17 @@ function validateQuestion(q) {
   const normalized = optionTexts.map(o => stripAccents(o));
   const uniqueSet = new Set(normalized);
   if (uniqueSet.size !== 4) return false;
+
+  // Verificar equilibrio de longitud: ninguna opción puede ser
+  // más de 3× la longitud media ni menos de 0.25× la longitud media.
+  // Previene que el opositor identifique la respuesta correcta por su extensión.
+  const lengths = optionTexts.map(o => o.length);
+  const avgLen = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+  if (avgLen > 10) { // solo aplica si las opciones tienen contenido real
+    for (const l of lengths) {
+      if (l > avgLen * 3 || l < avgLen * 0.25) return false;
+    }
+  }
 
   return true;
 }

@@ -195,6 +195,41 @@ export default function AdminPanel({ topics }) {
   const [savingSpecial, setSavingSpecial] = useState(false);
   const [specialMsg, setSpecialMsg] = useState('');
 
+  // ── PLANIFICADOR DE ENTREGAS (25 Píldoras) ──────────────────────────────
+  // Metadata de estado persistido por píldora: { [pillId]: { shortCode, createdAt, scheduledDate, isShared } }
+  const [pillPlanMeta, setPillPlanMeta] = useState({});
+  const [pillFilterStatus, setPillFilterStatus] = useState('all'); // 'all' | 'pending' | 'scheduled' | 'shared'
+  const [pillGenerating, setPillGenerating] = useState(null); // pillId en curso
+
+  // Constante fija con la plantilla maestra de 25 píldoras
+  const PILL_TEMPLATE = [
+    { id: 'T1',   topicId: 1,  label: 'Tema 1 – Las bibliotecas universitarias y la BUS',                    questions: 20, sections: 'all' },
+    { id: 'T2',   topicId: 2,  label: 'Tema 2 – Sistema de gestión de la calidad (EFQM)',                    questions: 20, sections: 'all' },
+    { id: 'T3',   topicId: 3,  label: 'Tema 3 – Instalaciones, espacios y equipamiento',                     questions: 15, sections: 'all' },
+    { id: 'T4',   topicId: 4,  label: 'Tema 4 – Colección impresa y electrónica. Acceso remoto',             questions: 20, sections: 'all' },
+    { id: 'T5A',  topicId: 5,  label: 'Tema 5A – Gestión de la colección: Selección e Inventario',           questions: 15, sections: ['Selección','Adquisición','Tratamiento','Inventario'] },
+    { id: 'T5B',  topicId: 5,  label: 'Tema 5B – Gestión de la colección: Expurgo y Preservación',          questions: 15, sections: ['Expurgo','Conservación','Preservación','Digital'] },
+    { id: 'T6',   topicId: 6,  label: 'Tema 6 – Clasificación de fondos: la CDU',                           questions: 20, sections: 'all' },
+    { id: 'T7',   topicId: 7,  label: 'Tema 7 – Sistemas de gestión bibliotecaria y FAMA',                   questions: 20, sections: 'all' },
+    { id: 'T8',   topicId: 8,  label: 'Tema 8 – Tecnologías: RFID y Autopréstamo',                          questions: 15, sections: 'all' },
+    { id: 'T9',   topicId: 9,  label: 'Tema 9 – Servicios I: Préstamo y Objetoteca',                        questions: 20, sections: 'all' },
+    { id: 'T10',  topicId: 10, label: 'Tema 10 – Servicios II: Información y referencia',                   questions: 15, sections: 'all' },
+    { id: 'T11',  topicId: 11, label: 'Tema 11 – Servicios III: Apoyo al aprendizaje (ALFIN/CODI)',         questions: 15, sections: 'all' },
+    { id: 'T12',  topicId: 12, label: 'Tema 12 – Servicios IV: Apoyo a la investigación',                   questions: 20, sections: 'all' },
+    { id: 'T13A', topicId: 13, label: 'Tema 13A – Microsoft 365: Outlook, Teams y OneDrive',                questions: 20, sections: ['Outlook','Teams','OneDrive','Correo'] },
+    { id: 'T13B', topicId: 13, label: 'Tema 13B – Microsoft 365: SharePoint, Word y Excel',                 questions: 20, sections: ['SharePoint','Word','Excel','Forms'] },
+    { id: 'T14',  topicId: 14, label: 'Tema 14 – Sistema de Prevención de Riesgos de la US',               questions: 20, sections: 'all' },
+    { id: 'T15',  topicId: 15, label: 'Tema 15 – Riesgos del puesto de Auxiliar de Biblioteca',             questions: 15, sections: 'all' },
+    { id: 'T16A', topicId: 16, label: 'Tema 16A – LPRL Art. 29 + RD 486 (Lugares) + RD 485 (Señales)',     questions: 20, sections: ['Art. 29','RD 486','Lugares de Trabajo','RD 485','Señalización'] },
+    { id: 'T16B', topicId: 16, label: 'Tema 16B – RD 488 (PVD) + RD 487 (Cargas) + RD 773 (EPIs)',         questions: 20, sections: ['RD 488','Pantallas','RD 487','Cargas','RD 773','EPIs'] },
+    { id: 'T17A', topicId: 17, label: 'Tema 17A – Estatutos US: Órganos Colegiados',                       questions: 20, sections: ['Claustro','Consejo de Gobierno','Consejo Social','Colegiados'] },
+    { id: 'T17B', topicId: 17, label: 'Tema 17B – Estatutos US: Órganos Unipersonales y PTGAS',            questions: 20, sections: ['Rector','Gerente','Decano','Vicerrector','PTGAS'] },
+    { id: 'T18A', topicId: 18, label: 'Tema 18A – IV Convenio: Clasificación, Vacaciones y Permisos',      questions: 20, sections: ['Clasificación','Vacaciones','Permisos','Licencias'] },
+    { id: 'T18B', topicId: 18, label: 'Tema 18B – IV Convenio: Régimen Disciplinario y Prevención',        questions: 20, sections: ['Disciplinario','Faltas','Sanciones','Prevención','Riesgos Laborales'] },
+    { id: 'T19',  topicId: 19, label: 'Tema 19 – Ley Orgánica 3/2007 para la Igualdad Efectiva',           questions: 20, sections: 'all' },
+    { id: 'T20',  topicId: 20, label: 'Tema 20 – Protocolo US contra violencia y acoso',                    questions: 15, sections: 'all' },
+  ];
+
   useEffect(() => {
     const unsubSpecial = firebaseService.subscribeToSpecialTests((list) => {
       setSpecialTestsList(list);
@@ -373,7 +408,91 @@ export default function AdminPanel({ topics }) {
     if (activeSubTab === 'shared_tests') {
       fetchSharedTests();
     }
+    if (activeSubTab === 'planner') {
+      // Cargar metadata persistida del planificador desde LocalStorage
+      try {
+        const raw = localStorage.getItem('bus_pill_plan_meta') || '{}';
+        setPillPlanMeta(JSON.parse(raw));
+      } catch (_) {}
+    }
   }, [activeSubTab]);
+
+  // Guardar metadata de una píldora en LocalStorage
+  const savePillMeta = (pillId, updates) => {
+    setPillPlanMeta(prev => {
+      const next = { ...prev, [pillId]: { ...(prev[pillId] || {}), ...updates } };
+      try { localStorage.setItem('bus_pill_plan_meta', JSON.stringify(next)); } catch (_) {}
+      return next;
+    });
+  };
+
+  // Handler: generar una píldora del planificador en 1 clic
+  const handleGeneratePill = async (pill) => {
+    setPillGenerating(pill.id);
+    try {
+      const padId = pill.topicId.toString().padStart(2, '0');
+      const res = await fetch(`/markdown/tema-${padId}.md`);
+      if (!res.ok) throw new Error('No se pudo cargar el markdown del tema');
+      const markdownText = await res.text();
+      const topicObj = topics.find(t => t.id === pill.topicId) || { title: pill.label };
+
+      // Cargar el resumen ejecutivo (sin bibliografía, garantizado por el motor)
+      const summaryHtml = extractTopicSummary(markdownText, pill.sections);
+
+      // Generar el lote de preguntas con el motor semántico estricto
+      const questions = await generateNewQuestionsForTopic({
+        topicId: pill.topicId,
+        topicTitle: topicObj.title || pill.label,
+        markdownText,
+        count: pill.questions,
+        selectedSections: pill.sections,
+      });
+
+      if (!questions || questions.length === 0) {
+        alert('No se pudieron generar preguntas. Intenta de nuevo.');
+        return;
+      }
+
+      // Guardar la píldora como test compartido (shortCode de 4 dígitos)
+      const shortCode = await firebaseService.saveSharedTest({
+        title: pill.label,
+        questions,
+        summaryText: summaryHtml,
+        isShared: false,
+        scheduledDate: null,
+      });
+
+      const createdAt = new Date().toISOString();
+      savePillMeta(pill.id, { shortCode, createdAt, isShared: false, scheduledDate: null });
+      fetchSharedTests();
+    } catch (err) {
+      console.error('Error generando píldora:', err);
+      alert('Error al generar la píldora. Revisa la consola.');
+    } finally {
+      setPillGenerating(null);
+    }
+  };
+
+  // Handler: actualizar fecha de envío Outlook de una píldora del planificador
+  const handlePillScheduledDate = async (pill, dateValue) => {
+    const meta = pillPlanMeta[pill.id];
+    if (!meta?.shortCode) return;
+    savePillMeta(pill.id, { scheduledDate: dateValue || null });
+    try {
+      await firebaseService.updateSharedTest(meta.shortCode, { scheduledDate: dateValue || null });
+    } catch (_) {}
+  };
+
+  // Handler: toggle compartir/ocultar una píldora del planificador
+  const handlePillToggleShared = async (pill) => {
+    const meta = pillPlanMeta[pill.id];
+    if (!meta?.shortCode) return;
+    const newShared = !meta.isShared;
+    savePillMeta(pill.id, { isShared: newShared });
+    try {
+      await firebaseService.updateSharedTest(meta.shortCode, { isShared: newShared });
+    } catch (_) {}
+  };
 
   const handleDeleteSharedTest = async (testId) => {
     if (window.confirm(`¿Estás seguro de que deseas eliminar permanentemente el test compartido #${testId}? El enlace dejará de funcionar para los alumnos.`)) {
@@ -516,7 +635,11 @@ export default function AdminPanel({ topics }) {
         if (res.ok) {
           const text = await res.text();
           const headings = extractTopicHeadings(text);
-          setAvailableHeadings(headings);
+          // Excluir secciones de bibliografía, referencias y glosario — nunca habrá
+          // preguntas sobre estas secciones y no deben mostrarse como opciones.
+          const EXCLUDED_HEADING_RE = /bibliograf\u00eda|bibliografia|referencias|fuentes|lecturas recomendadas|para saber m\u00e1s|recursos de consulta|glosario|anexo/i;
+          const filteredHeadings = headings.filter(h => !EXCLUDED_HEADING_RE.test(h));
+          setAvailableHeadings(filteredHeadings);
           setSelectedHeadings('all'); // reset to all by default
         }
       } catch (e) {
@@ -1159,6 +1282,14 @@ export default function AdminPanel({ topics }) {
           >
             <Sparkles size={16} />
             <span>Generar Tests</span>
+          </button>
+          <button
+            onClick={() => setActiveSubTab('planner')}
+            className={`tab-btn ${activeSubTab === 'planner' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'planner' ? 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)' : 'rgba(99, 102, 241, 0.15)', color: activeSubTab === 'planner' ? '#fff' : '#a5b4fc', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <span>📅</span>
+            <span>Planificador ({PILL_TEMPLATE.filter(p => pillPlanMeta[p.id]?.shortCode).length}/{PILL_TEMPLATE.length})</span>
           </button>
           <button
             onClick={() => setActiveSubTab('shared_tests')}
@@ -1864,6 +1995,165 @@ export default function AdminPanel({ topics }) {
           </div>
         </div>
       )}
+
+      {/* SUBTAB: PLANIFICADOR DE ENTREGAS (25 PÍLDORAS) */}
+      {activeSubTab === 'planner' && (() => {
+        const getPillStatus = (pill) => {
+          const meta = pillPlanMeta[pill.id];
+          if (!meta?.shortCode) return 'pending';
+          if (meta.isShared) return 'shared';
+          if (meta.scheduledDate && new Date(meta.scheduledDate) > new Date()) return 'scheduled';
+          return 'created';
+        };
+        const filteredPills = PILL_TEMPLATE.filter(p => {
+          const s = getPillStatus(p);
+          if (pillFilterStatus === 'all') return true;
+          if (pillFilterStatus === 'pending') return s === 'pending';
+          if (pillFilterStatus === 'scheduled') return s === 'scheduled';
+          if (pillFilterStatus === 'shared') return s === 'shared';
+          return true;
+        });
+        const genCount = PILL_TEMPLATE.filter(p => pillPlanMeta[p.id]?.shortCode).length;
+        return (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', background: 'rgba(15,20,36,0.6)' }}>
+              {/* Cabecera */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
+                <div>
+                  <h2 style={{ color: 'var(--text-main)', marginTop: 0, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span>📅</span> Planificador de Entregas — 25 Píldoras del Temario
+                  </h2>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>
+                    Plantilla maestra precargada. Genera cada píldora con <strong>1 solo clic</strong>, asigna la fecha de envío para Outlook y copia el enlace directo.
+                    <span style={{ marginLeft: '12px', color: '#a5b4fc', fontWeight: '700' }}>{genCount} / {PILL_TEMPLATE.length} generadas</span>
+                  </p>
+                </div>
+                {/* Barra de progreso */}
+                <div style={{ minWidth: '160px' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '6px', textAlign: 'right' }}>{Math.round(genCount / PILL_TEMPLATE.length * 100)}% completado</div>
+                  <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '8px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', background: 'linear-gradient(90deg, #6366f1, #4f46e5)', width: `${(genCount / PILL_TEMPLATE.length) * 100}%`, transition: 'width 0.5s ease', borderRadius: '8px' }} />
+                  </div>
+                </div>
+              </div>
+              {/* Filtros */}
+              <div style={{ display: 'flex', gap: '6px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '20px', flexWrap: 'wrap' }}>
+                {[
+                  { id: 'all', label: `Todas (${PILL_TEMPLATE.length})` },
+                  { id: 'pending', label: `⚪ Pendientes (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'pending').length})` },
+                  { id: 'scheduled', label: `🟡 Programadas (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'scheduled').length})` },
+                  { id: 'shared', label: `🟢 Compartidas (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'shared').length})` },
+                ].map(f => (
+                  <button key={f.id} onClick={() => setPillFilterStatus(f.id)}
+                    style={{ padding: '6px 12px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '0.78rem', transition: 'all 0.15s', background: pillFilterStatus === f.id ? 'linear-gradient(135deg,#6366f1,#4f46e5)' : 'transparent', color: pillFilterStatus === f.id ? '#fff' : 'var(--text-muted)' }}
+                  >{f.label}</button>
+                ))}
+              </div>
+              {/* Tarjetas de píldoras */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {filteredPills.map((pill) => {
+                  const meta = pillPlanMeta[pill.id] || {};
+                  const status = getPillStatus(pill);
+                  const isGenerating = pillGenerating === pill.id;
+                  const statusChip = status === 'pending'
+                    ? { color: '#94a3b8', bg: 'rgba(148,163,184,0.1)', label: '⚪ Pendiente' }
+                    : status === 'scheduled'
+                    ? { color: '#fbbf24', bg: 'rgba(251,191,36,0.1)', label: '🟡 Programada' }
+                    : status === 'shared'
+                    ? { color: '#4ade80', bg: 'rgba(74,222,128,0.1)', label: '🟢 Compartida' }
+                    : { color: '#a5b4fc', bg: 'rgba(165,180,252,0.1)', label: '🔵 Generada' };
+
+                  return (
+                    <div key={pill.id} style={{ background: 'rgba(15,23,42,0.7)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: '12px', transition: 'border 0.2s', borderLeft: `3px solid ${statusChip.color}` }}>
+                      {/* Fila superior */}
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '0.7rem', fontWeight: '800', padding: '2px 10px', borderRadius: '10px', background: statusChip.bg, color: statusChip.color, border: `1px solid ${statusChip.color}40` }}>
+                            {statusChip.label}
+                          </span>
+                          <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: 'monospace', fontWeight: '700' }}>
+                            {pill.id} · {pill.questions} preg.
+                          </span>
+                          {meta.shortCode && (
+                            <span style={{ fontSize: '0.72rem', color: '#6366f1', fontFamily: 'monospace', background: 'rgba(99,102,241,0.12)', padding: '2px 8px', borderRadius: '8px' }}>
+                              ?t={meta.shortCode}
+                            </span>
+                          )}
+                        </div>
+                        {/* Botones de acción */}
+                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                          {!meta.shortCode ? (
+                            <button
+                              onClick={() => handleGeneratePill(pill)}
+                              disabled={isGenerating}
+                              style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(99,102,241,0.4)' : 'linear-gradient(135deg,#6366f1,#4f46e5)', color: '#fff', border: 'none', fontWeight: '800', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }}
+                            >
+                              {isGenerating ? '⏳ Generando...' : '⚡ Generar Píldora'}
+                            </button>
+                          ) : (
+                            <>
+                              <button
+                                onClick={() => handleGeneratePill(pill)}
+                                disabled={isGenerating}
+                                title="Regenerar"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid rgba(99,102,241,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                              >
+                                {isGenerating ? '⏳' : '🔄 Regenerar'}
+                              </button>
+                              <button
+                                onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/?t=${meta.shortCode}`); }}
+                                title="Copiar enlace directo"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid rgba(99,102,241,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer' }}
+                              >
+                                📋 Copiar enlace
+                              </button>
+                              <button
+                                onClick={() => handlePillToggleShared(pill)}
+                                title={meta.isShared ? 'Ocultar' : 'Compartir'}
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: meta.isShared ? 'rgba(239,68,68,0.15)' : 'rgba(34,197,94,0.15)', color: meta.isShared ? '#fca5a5' : '#4ade80', border: `1px solid ${meta.isShared ? 'rgba(239,68,68,0.4)' : 'rgba(34,197,94,0.4)'}`, fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer' }}
+                              >
+                                {meta.isShared ? '🔒 Ocultar' : '🟢 Compartir'}
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                      {/* Título */}
+                      <div style={{ color: 'var(--text-main)', fontWeight: '700', fontSize: '0.9rem', lineHeight: 1.4 }}>
+                        {pill.label}
+                      </div>
+                      {/* Fechas y apartados */}
+                      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+                        {meta.createdAt && (
+                          <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                            📅 Creada: <strong style={{ color: '#cbd5e1' }}>{new Date(meta.createdAt).toLocaleString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' })}</strong>
+                          </div>
+                        )}
+                        {meta.shortCode && (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.75rem', color: '#94a3b8' }}>
+                            <span>📤 Outlook:</span>
+                            <input
+                              type="datetime-local"
+                              value={meta.scheduledDate ? meta.scheduledDate.slice(0,16) : ''}
+                              onChange={(e) => handlePillScheduledDate(pill, e.target.value ? new Date(e.target.value).toISOString() : null)}
+                              style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '8px', color: '#e2e8f0', padding: '4px 8px', fontSize: '0.78rem' }}
+                            />
+                          </div>
+                        )}
+                        {pill.sections !== 'all' && (
+                          <div style={{ fontSize: '0.72rem', color: '#6366f1', background: 'rgba(99,102,241,0.1)', padding: '2px 10px', borderRadius: '8px', border: '1px solid rgba(99,102,241,0.25)' }}>
+                            📚 {Array.isArray(pill.sections) ? pill.sections.join(', ') : pill.sections}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* SUBTAB: SHARED TESTS */}
       {activeSubTab === 'shared_tests' && (
