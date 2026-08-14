@@ -381,31 +381,18 @@ function getOfficialNormName(topicId, topicTitle, heading = '', factText = '') {
 // ── GENERADOR DE ENUNCIADOS ─────────────────────────────────────────────────
 
 const STEM_TEMPLATES = [
-  // ESTILO DIRECTO E INTERROGATIVO (Inspirado en Formadores/Sindicatos)
-  (norm, focus) => `Según establece ${norm}, ¿cuál es la definición, competencia o característica orgánica de ${focus}?`,
-  (norm, focus) => `De acuerdo con la regulación en ${norm}, respecto a ${focus}, ¿a quién corresponde la competencia o cómo se define?`,
-  (norm, focus) => `Según ${norm}, ¿cómo está formado, estructurado o definido ${focus}?`,
-  (norm, focus) => `En el marco normativo de ${norm}, ¿qué competencia, característica o requisito tiene ${focus}?`,
-  (norm, focus) => `Tomando como referencia ${norm}, ¿qué afirmación define correctamente a ${focus}?`,
-  (norm, focus) => `Atendiendo a las disposiciones de ${norm} aplicables a ${focus}, señale qué es correcto:`,
+  (norm, focus) => `Según establece ${norm}, en relación con ${focus}, señale la opción correcta:`,
+  (norm, focus) => `De acuerdo con lo regulado en ${norm} respecto a ${focus}, ¿cuál de los siguientes enunciados es verdadero?`,
+  (norm, focus) => `En el marco normativo de ${norm}, señale la opción cierta relativa a ${focus}:`,
+  (norm, focus) => `Conforme a lo dispuesto en ${norm} sobre ${focus}, indique la respuesta correcta:`,
+  (norm, focus) => `Tomando como referencia ${norm}, ¿cuál de las siguientes opciones describe correctamente ${focus}?`,
+  (norm, focus) => `Atendiendo a las disposiciones de ${norm} aplicables a ${focus}, indique el enunciado correcto:`,
   (norm, focus) => `¿Cuál de las siguientes afirmaciones referidas a ${focus} se ajusta a lo previsto en ${norm}?`,
-  (norm, focus) => `Según ${norm}, respecto a ${focus}, ¿qué debe cumplirse obligatoriamente o cómo se concibe?`,
-  (norm, focus) => `Determine la opción verdadera sobre ${focus} según lo establecido por ${norm}:`,
-  
-  // ESTILO DESCRIPTIVO Y FORMAL
-  (norm, focus) => `En relación con ${focus}, y basándose en ${norm}, indique qué alternativa es cierta:`,
-  (norm, focus) => `Entre las siguientes alternativas relativas a ${focus}, elija la que concuerde con ${norm}:`,
-  (norm, focus) => `Si tomamos como texto de referencia ${norm}, ¿qué afirmación es exacta al hablar de ${focus}?`,
-  (norm, focus) => `Conforme a la regulación establecida en ${norm} respecto a ${focus}, indique la respuesta correcta:`,
-  (norm, focus) => `Acerca de ${focus}, señale qué extremo se recoge de forma literal o conceptual en ${norm}:`,
-  
-  // ESTILO EXÁMEN OFICIAL (VARIACIONES)
-  (norm, focus) => `De las siguientes opciones planteadas acerca de ${focus}, ¿cuál es correcta según ${norm}?`,
-  (norm, focus) => `Según lo dispuesto en ${norm}, en relación con ${focus}, señale la afirmación correcta:`,
-  (norm, focus) => `En lo referente a ${focus}, tal y como se regula en ${norm}, señale la opción correcta:`,
-  (norm, focus) => `¿Qué establece de manera específica ${norm} respecto a la figura o concepto de ${focus}?`,
-  (norm, focus) => `Indique la respuesta correcta referida a ${focus}, en aplicación de lo contenido en ${norm}:`,
-  (norm, focus) => `Según se determina en ${norm} para ${focus}, indique cuál de los siguientes enunciados es verdadero:`
+  (norm, focus) => `En relación con ${focus}, señale qué extremo se establece expresamente en ${norm}:`,
+  (norm, focus) => `De las alternativas planteadas acerca de ${focus}, determine cuál es la correcta según ${norm}:`,
+  (norm, focus) => `Según ${norm}, respecto a ${focus}, señale la afirmación verdadera:`,
+  (norm, focus) => `De acuerdo con ${norm}, señale la respuesta válida sobre ${focus}:`,
+  (norm, focus) => `En relación con ${focus}, y basándose en ${norm}, indique qué opción es cierta:`
 ];
 
 function buildStem(normName, focus, idx) {
@@ -579,21 +566,26 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // Intento 3: Distractor Universal (Si aun así faltan distractores)
+  // Intento 3: Negaciones y mutaciones universales sobre la frase correcta si faltan distractores
   if (distractors.length < 3) {
-    const GENERIC_DISTRACTORS = [
-      "Será competencia exclusiva del Ministerio de Universidades mediante Real Decreto.",
-      "Es una función delegada directamente a los Decanatos de cada Facultad.",
-      "Queda sujeto a la aprobación de la Junta Técnica Interfacultativa.",
-      "Dependerá de los presupuestos aprobados por la Comunidad Autónoma de Andalucía.",
-      "Se establecerá mediante convenio con el Consorcio de Bibliotecas Universitarias (CBUA)."
+    const UNIVERSAL_MUTATORS = [
+      (t) => t.replace(/^([A-ZÁÉÍÓÚÑ])/, (m) => `No ${m.toLowerCase()}`),
+      (t) => t.replace(/\b(es|son|constituye|se define|posee|cuenta|permite)\b/i, 'nunca $1'),
+      (t) => t.replace(/\.$/, ', salvo en los casos expresamente exceptuados por la normativa vigente.'),
+      (t) => t.replace(/\.$/, ', únicamente para el personal docente acreditado.'),
+      (t) => t.replace(/\b(únicamente|exclusivamente|solamente)\b/i, 'en ningún caso'),
     ];
-    for (const gd of GENERIC_DISTRACTORS) {
+
+    for (const mut of UNIVERSAL_MUTATORS) {
       if (distractors.length >= 3) break;
-      const normCand = stripAccents(gd);
-      if (!used.has(normCand) && normCand !== stripAccents(correctOpt)) {
-        distractors.push(gd);
-        used.add(normCand);
+      const candidateRaw = mut(correctOpt);
+      if (candidateRaw !== correctOpt) {
+        const cand = formatCompleteSentence(candidateRaw);
+        const normCand = stripAccents(cand);
+        if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+          distractors.push(cand);
+          used.add(normCand);
+        }
       }
     }
   }
