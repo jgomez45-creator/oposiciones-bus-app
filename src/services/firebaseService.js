@@ -2310,25 +2310,43 @@ export const firebaseService = {
     }
   },
 
-  async deleteTestResult(resultId) {
-    if (!resultId) return;
+  async deleteTestResult(itemOrId) {
+    if (!itemOrId) return;
 
+    let resultId = typeof itemOrId === 'string' ? itemOrId : itemOrId?.id;
+    let studentId = typeof itemOrId === 'object' ? itemOrId?.studentId : null;
+    let timestamp = typeof itemOrId === 'object' ? itemOrId?.timestamp : null;
+
+    // 1. Limpieza en LocalStorage (por id o por combinación de studentId + timestamp)
     try {
       const mockKey = 'bus_mock_test_results';
       const raw = localStorage.getItem(mockKey) || '[]';
       const list = JSON.parse(raw);
-      const filtered = list.filter(item => item.id !== resultId);
+      const filtered = list.filter(item => {
+        if (resultId && item.id === resultId) return false;
+        if (studentId && timestamp && item.studentId === studentId && item.timestamp === timestamp) return false;
+        return true;
+      });
       localStorage.setItem(mockKey, JSON.stringify(filtered));
       window.dispatchEvent(new Event('storage'));
     } catch (_) {}
 
-    if (db && !isMock) {
+    // 2. Borrado del documento en Firestore SDK
+    if (db && !isMock && resultId) {
       try {
         const docRef = doc(db, 'test_results', resultId);
         await deleteDoc(docRef);
       } catch (err) {
         console.warn("deleteTestResult warning:", err);
       }
+    }
+
+    // 3. Borrado adicional por REST API en Firestore
+    const projectID = import.meta.env.VITE_FIREBASE_PROJECT_ID || 'oposiciones-bus-app';
+    if (resultId) {
+      fetch(`https://firestore.googleapis.com/v1/projects/${projectID}/databases/(default)/documents/test_results/${resultId}`, {
+        method: 'DELETE'
+      }).catch(_ => {});
     }
   },
 

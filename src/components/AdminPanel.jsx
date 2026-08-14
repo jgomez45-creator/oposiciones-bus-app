@@ -340,20 +340,22 @@ export default function AdminPanel({ topics }) {
 
   const handleDeleteSingleTestResult = async (item) => {
     if (window.confirm(`¿Estás seguro de que deseas eliminar permanentemente la entrega del alumno "${item.studentId}" para "${item.title}"?`)) {
+      setStudentTestResults(prev => prev.filter(r => r.id !== item.id && !(r.studentId === item.studentId && r.timestamp === item.timestamp)));
       try {
-        await firebaseService.deleteTestResult(item.id);
+        await firebaseService.deleteTestResult(item);
       } catch (err) {
-        alert("Error al eliminar la entrega.");
+        console.warn("Error al eliminar la entrega:", err);
       }
     }
   };
 
   const handleClearAllTestResults = async () => {
     if (window.confirm("⚠️ ¿Estás seguro de que deseas ELIMINAR TODO EL REGISTRO DE NOTAS DE ALUMNOS?\n\nEsta acción borrará permanentemente todas las entregas recibidas y no se podrá deshacer.")) {
+      setStudentTestResults([]);
       try {
         await firebaseService.clearAllTestResults();
       } catch (err) {
-        alert("Error al vaciar el registro.");
+        console.warn("Error al vaciar el registro:", err);
       }
     }
   };
