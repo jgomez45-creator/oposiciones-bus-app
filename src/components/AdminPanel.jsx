@@ -278,6 +278,34 @@ export default function AdminPanel({ topics }) {
 
   const activeTopicList = topics || topicsData;
 
+  const [sharedTests, setSharedTests] = useState([]);
+  
+  const fetchSharedTests = async () => {
+    try {
+      const list = await firebaseService.getAllSharedTests();
+      setSharedTests(list);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  useEffect(() => {
+    if (activeSubTab === 'shared_tests') {
+      fetchSharedTests();
+    }
+  }, [activeSubTab]);
+
+  const handleDeleteSharedTest = async (testId) => {
+    if (window.confirm(`¿Estás seguro de que deseas eliminar permanentemente el test compartido #${testId}? El enlace dejará de funcionar para los alumnos.`)) {
+      try {
+        await firebaseService.deleteSharedTest(testId);
+        fetchSharedTests();
+      } catch (err) {
+        alert("Error al eliminar.");
+      }
+    }
+  };
+
   const handleCopyExecutableUrl = async (questions, title, topicId) => {
     if (!questions || !Array.isArray(questions) || questions.length === 0) {
       alert("No hay preguntas disponibles para generar el enlace.");
@@ -305,15 +333,20 @@ export default function AdminPanel({ topics }) {
       summaryText: summaryText
     };
 
-    const token = compressTestToUrlToken(payload);
-    const finalUrl = `${window.location.origin}/?t=${token}`;
-
     try {
+      const shortId = await firebaseService.saveSharedTest(payload);
+      const finalUrl = `${window.location.origin}/?t=${shortId}`;
       await navigator.clipboard.writeText(finalUrl);
-      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace compacto y ejecutable:\n${finalUrl}\n\nPégalo directamente en tu correo de Outlook o Gmail.\n\n🤫 TRUCO PARA RASTREAR AL ALUMNO (OPCIONAL):\nSi quieres que en tu Panel de Calificaciones salga el correo del alumno en lugar de "PC/Laptop #G5R3C", simplemente añade "&u=correo@alumno.com" al final del enlace cuando se lo envíes. (Ej: ${finalUrl}&u=juan@gmail.com)`);
+      
+      alert(`¡ENLACE DE TEST COPIADO AL PORTAPAPELES!\n\nEnlace corto generado:\n${finalUrl}\n\nEste enlace de 4 dígitos ya está listo para pegarlo directamente en tu correo masivo.`);
+      
+      // Update list if currently viewing it
+      if (activeSubTab === 'shared_tests') {
+        fetchSharedTests();
+      }
     } catch (e) {
       console.error(e);
-      alert("Error al copiar enlace.");
+      alert("Error al generar y copiar el enlace en la base de datos.");
     }
   };
 
@@ -1029,6 +1062,14 @@ export default function AdminPanel({ topics }) {
             <span>Generar Tests</span>
           </button>
           <button
+            onClick={() => setActiveSubTab('shared_tests')}
+            className={`tab-btn ${activeSubTab === 'shared_tests' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'shared_tests' ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'rgba(245, 158, 11, 0.15)', color: activeSubTab === 'shared_tests' ? '#fff' : '#fbbf24', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Sparkles size={16} />
+            <span>Píldoras Compartidas ({sharedTests.length})</span>
+          </button>
+          <button
             onClick={() => setActiveSubTab('special')}
             className={`tab-btn ${activeSubTab === 'special' ? 'active' : ''}`}
             style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'special' ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'rgba(245, 158, 11, 0.15)', color: activeSubTab === 'special' ? '#fff' : '#fbbf24', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px' }}
@@ -1720,6 +1761,64 @@ export default function AdminPanel({ topics }) {
                   )}
                 </div>
               ))
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* SUBTAB: SHARED TESTS */}
+      {activeSubTab === 'shared_tests' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', background: 'rgba(15,20,36,0.6)' }}>
+            <h2 style={{ color: 'var(--text-main)', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Sparkles size={20} style={{ color: '#fbbf24' }} />
+              Gestor de Píldoras Compartidas
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '24px' }}>
+              Aquí se listan todos los tests que has generado y compartido a través del enlace de 4 dígitos. Si eliminas un test, el enlace dejará de funcionar inmediatamente para cualquier alumno que intente acceder.
+            </p>
+
+            {sharedTests.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '40px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}>
+                <p style={{ color: 'var(--text-muted)' }}>No hay tests compartidos actualmente.</p>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {sharedTests.map(test => {
+                  const url = `${window.location.origin}/?t=${test.id}`;
+                  return (
+                    <div key={test.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.3)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                      <div>
+                        <h3 style={{ margin: '0 0 8px 0', color: 'var(--primary)' }}>{test.title}</h3>
+                        <div style={{ display: 'flex', gap: '16px', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                          <span><strong>ID (Enlace):</strong> ?t={test.id}</span>
+                          <span><strong>Preguntas:</strong> {test.questions?.length || 0}</span>
+                          <span><strong>Creado:</strong> {new Date(test.createdAt).toLocaleDateString()} {new Date(test.createdAt).toLocaleTimeString()}</span>
+                        </div>
+                      </div>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(url);
+                            alert("¡Enlace copiado!");
+                          }}
+                          className="btn btn-secondary"
+                          style={{ padding: '8px 12px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                        >
+                          <Copy size={16} /> Copiar
+                        </button>
+                        <button
+                          onClick={() => handleDeleteSharedTest(test.id)}
+                          className="btn"
+                          style={{ padding: '8px 12px', fontSize: '0.85rem', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                        >
+                          <Trash2 size={16} /> Borrar
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             )}
           </div>
         </div>

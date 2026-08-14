@@ -2328,18 +2328,6 @@ export const firebaseService = {
       localStorage.setItem(mockKey, JSON.stringify(map));
     } catch (_) {}
 
-    // Public REST Cloud Persistence (0 Auth required, 100% reliable globally)
-    try {
-      const rtdbUrl = `https://oposiciones-bus-app-default-rtdb.firebaseio.com/shared_tests/${shortId}.json`;
-      await fetch(rtdbUrl, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(docObj)
-      });
-    } catch (err) {
-      console.warn("RTDB PUT warning:", err);
-    }
-
     if (db) {
       try {
         const docRef = doc(db, 'shared_tests', shortId);
@@ -2362,21 +2350,6 @@ export const firebaseService = {
       if (map[shortId]) return map[shortId];
     } catch (_) {}
 
-    // 1. Consultar en Nube Publica Realtime DB
-    try {
-      const rtdbUrl = `https://oposiciones-bus-app-default-rtdb.firebaseio.com/shared_tests/${shortId}.json`;
-      const res = await fetch(rtdbUrl);
-      if (res.ok) {
-        const data = await res.json();
-        if (data && Array.isArray(data.questions) && data.questions.length > 0) {
-          return data;
-        }
-      }
-    } catch (err) {
-      console.warn("RTDB GET warning:", err);
-    }
-
-    // 2. Consultar en Firestore SDK
     if (db) {
       try {
         const docRef = doc(db, 'shared_tests', shortId);
@@ -2390,5 +2363,57 @@ export const firebaseService = {
     }
 
     return null;
+  },
+
+  async getAllSharedTests() {
+    let list = [];
+    try {
+      const mockKey = 'bus_mock_shared_tests';
+      const raw = localStorage.getItem(mockKey) || '{}';
+      const map = JSON.parse(raw);
+      list = Object.values(map);
+    } catch (_) {}
+
+    if (db && !isMock) {
+      try {
+        const q = collection(db, 'shared_tests');
+        const snap = await getDocs(q);
+        const cloudList = [];
+        snap.forEach(docSnap => cloudList.push(docSnap.data()));
+        
+        // Merge
+        cloudList.forEach(cloudItem => {
+          if (!list.some(l => l.id === cloudItem.id)) {
+            list.push(cloudItem);
+          }
+        });
+      } catch (err) {
+        console.warn("getAllSharedTests warning:", err);
+      }
+    }
+    
+    list.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    return list;
+  },
+
+  async deleteSharedTest(shortId) {
+    try {
+      const mockKey = 'bus_mock_shared_tests';
+      const raw = localStorage.getItem(mockKey) || '{}';
+      const map = JSON.parse(raw);
+      if (map[shortId]) {
+        delete map[shortId];
+        localStorage.setItem(mockKey, JSON.stringify(map));
+      }
+    } catch (_) {}
+
+    if (db && !isMock) {
+      try {
+        const docRef = doc(db, 'shared_tests', shortId);
+        await deleteDoc(docRef);
+      } catch (err) {
+        console.warn("deleteSharedTest warning:", err);
+      }
+    }
   }
 };
