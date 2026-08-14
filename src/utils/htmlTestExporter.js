@@ -18,6 +18,10 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
     .result-score { font-size: 2rem; font-weight: bold; margin-bottom: 10px; }
     .correct { background-color: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 600; }
     .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+    .result-tag { display: inline-block; font-size: 0.88rem; font-weight: 800; letter-spacing: 0.04em; padding: 4px 14px; border-radius: 20px; margin-bottom: 10px; }
+    .result-tag.tag-correct { background: #d1fae5; color: #065f46; border: 1.5px solid #10b981; }
+    .result-tag.tag-error   { background: #fee2e2; color: #991b1b; border: 1.5px solid #ef4444; }
+    .result-tag.tag-blank   { background: #fef9c3; color: #854d0e; border: 1.5px solid #eab308; }
   `;
 
   const jsLogic = `
@@ -103,7 +107,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
 
       if (btn) {
         btn.disabled = true;
-        btn.innerText = "Corregiendo...";
+        btn.innerText = "Corrigiendo...";
       }
 
       try {
@@ -117,7 +121,23 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
         TEST_DATA.forEach((q, index) => {
           const selected = answers[index];
           const correct = q.correctAnswer;
-          
+          const card = document.getElementById('qcard-' + index);
+
+          // ── Etiqueta de resultado visible en cada tarjeta ──────────────────
+          const tag = document.createElement('span');
+          tag.className = 'result-tag';
+          if (selected === undefined) {
+            tag.classList.add('tag-blank');
+            tag.textContent = '\u26A0\uFE0F Sin contestar !!!!';
+          } else if (selected === correct) {
+            tag.classList.add('tag-correct');
+            tag.textContent = '\u2705 Correcta';
+          } else {
+            tag.classList.add('tag-error');
+            tag.textContent = '\u274C Error';
+          }
+          if (card) card.insertBefore(tag, card.firstChild);
+
           let isCorrect = false;
           if (selected !== undefined) {
             answeredCount++;
