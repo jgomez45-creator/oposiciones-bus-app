@@ -5,7 +5,8 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
-  signInAnonymously
+  signInAnonymously,
+  onAuthStateChanged
 } from 'firebase/auth';
 import {
   initializeFirestore,
@@ -649,32 +650,44 @@ export const firebaseService = {
         onUpdate(combined);
       };
 
-      const unsubUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
-        usersSnapshot = [];
-        snapshot.forEach(doc => {
-          usersSnapshot.push({ uid: doc.id, ...doc.data() });
-        });
-        combineAndEmit();
-      }, (err) => {
-        console.error("Error subscribing to users", err);
-        if (onError) onError(err);
-      });
+      let unsubUsers = () => {};
+      let unsubProgress = () => {};
+      
+      const authUnsub = onAuthStateChanged(auth, (user) => {
+        // Wait until a non-anonymous user is authenticated (real session restored)
+        if (user && !user.isAnonymous) {
+          unsubUsers(); // clean previous if any
+          unsubProgress();
+          
+          unsubUsers = onSnapshot(collection(db, 'users'), (snapshot) => {
+            usersSnapshot = [];
+            snapshot.forEach(doc => {
+              usersSnapshot.push({ uid: doc.id, ...doc.data() });
+            });
+            combineAndEmit();
+          }, (err) => {
+            console.error("Error subscribing to users", err);
+            if (onError) onError(err);
+          });
 
-      const unsubProgress = onSnapshot(collection(db, 'progress'), (snapshot) => {
-        progressSnapshot = {};
-        snapshot.forEach(doc => {
-          const data = doc.data();
-          if (data.topicsProgress) {
-            progressSnapshot[doc.id] = data.topicsProgress;
-          }
-        });
-        combineAndEmit();
-      }, (err) => {
-        console.error("Error subscribing to progress", err);
-        if (onError) onError(err);
+          unsubProgress = onSnapshot(collection(db, 'progress'), (snapshot) => {
+            progressSnapshot = {};
+            snapshot.forEach(doc => {
+              const data = doc.data();
+              if (data.topicsProgress) {
+                progressSnapshot[doc.id] = data.topicsProgress;
+              }
+            });
+            combineAndEmit();
+          }, (err) => {
+            console.error("Error subscribing to progress", err);
+            if (onError) onError(err);
+          });
+        }
       });
 
       return () => {
+        authUnsub();
         unsubUsers();
         unsubProgress();
       };
