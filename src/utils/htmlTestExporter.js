@@ -226,6 +226,11 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
       }
     }
 
+    function closeQuiz() {
+      try { window.close(); } catch(e) {}
+      document.body.innerHTML = '<div style="min-height:100vh;background:#090d16;color:#fff;display:flex;align-items:center;justify-content:center;font-family:sans-serif;text-align:center;padding:20px;"><div style="background:#1e293b;padding:35px 25px;border-radius:20px;border:1px solid #34d399;max-width:480px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);"><div style="font-size:3rem;margin-bottom:10px;">🎯</div><h2 style="color:#4ade80;margin:0 0 10px 0;font-size:1.5rem;">¡Repaso Finalizado!</h2><p style="color:#94a3b8;font-size:0.95rem;line-height:1.5;margin:0;">Has completado la píldora de estudio. ¡Mucho ánimo con la preparación del temario!</p></div></div>';
+    }
+
     window.onload = renderQuestions;
   `;
 
@@ -254,6 +259,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
             <div style="font-size: 1.3rem; font-weight: 800; color: #065f46; margin-bottom: 10px;">&#128202; Test Completado</div>
             <div id="result-score" class="result-score"></div>
             <div id="result-details" style="text-align: left; background: #ffffff; padding: 18px; border-radius: 8px; border: 1px solid #a7f3d0; margin-top: 15px;"></div>
+            <button id="close-btn" class="btn" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); margin-top: 20px; color: #fff; width: 100%; border: none;" onclick="closeQuiz()">&#10006; Cerrar Prueba</button>
         </div>
     </div>
     <script>${jsLogic}</script>

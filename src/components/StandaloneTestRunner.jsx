@@ -9,6 +9,7 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   const [resultDetails, setResultDetails] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   const [showFloatingJump, setShowFloatingJump] = useState(true);
+  const [isClosed, setIsClosed] = useState(false);
   
   // Estado para pedir el email
   const [studentEmail, setStudentEmail] = useState('');
@@ -68,6 +69,32 @@ export default function StandaloneTestRunner({ testData, onBack }) {
       alert("Por favor, introduce un correo electrónico válido para acceder.");
     }
   };
+
+  if (isClosed) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#090d16', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+        <div style={{ textTransform: 'none', background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '20px', padding: '40px 30px', maxWidth: '480px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+          <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(34, 197, 94, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <CheckCircle2 size={36} style={{ color: '#4ade80' }} />
+          </div>
+          <h2 style={{ color: '#fff', margin: 0, fontSize: '1.4rem', fontWeight: '800' }}>🎯 ¡Repaso Finalizado!</h2>
+          <p style={{ color: '#94a3b8', fontSize: '0.92rem', margin: 0, lineHeight: '1.5' }}>
+            Has completado la píldora de estudio. ¡Mucho ánimo con la preparación del temario!
+          </p>
+          <button
+            onClick={() => {
+              try { window.close(); } catch (_) {}
+              if (onBack) onBack();
+              else window.location.href = '/';
+            }}
+            style={{ marginTop: '10px', padding: '12px 24px', borderRadius: '12px', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#fff', border: 'none', fontSize: '0.95rem', fontWeight: '700', cursor: 'pointer' }}
+          >
+            Ir a la Plataforma Principal
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (!testData || !Array.isArray(testData.questions) || testData.questions.length === 0) {
     return (
@@ -457,7 +484,7 @@ export default function StandaloneTestRunner({ testData, onBack }) {
             {submitting ? 'Corregiendo test...' : '✅ Corregir y Finalizar Test'}
           </button>
         ) : (
-          <div style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '16px', padding: '24px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '16px', padding: '24px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <Award size={36} style={{ color: '#34d399', margin: '0 auto' }} />
             <h2 style={{ margin: 0, fontSize: '1.6rem', color: '#4ade80' }}>
               Nota Final: {resultScore} / {questions.length} ({percentage}%)
@@ -465,6 +492,34 @@ export default function StandaloneTestRunner({ testData, onBack }) {
             <p style={{ margin: 0, color: '#cbd5e1', fontSize: '0.95rem' }}>
               {percentage >= 50 ? '🎉 ¡Enhorabuena! Has superado la prueba.' : '💡 Sigue repasando los puntos clave para asegurar la plaza.'}
             </p>
+
+            <button
+              type="button"
+              onClick={() => {
+                try { window.close(); } catch (_) {}
+                setIsClosed(true);
+              }}
+              style={{
+                marginTop: '6px',
+                padding: '14px 20px',
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+                color: '#fff',
+                fontSize: '1rem',
+                fontWeight: '800',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 14px rgba(239, 68, 68, 0.3)',
+                transition: 'all 0.2s ease',
+                width: '100%'
+              }}
+            >
+              <span>✖ Cerrar Prueba</span>
+            </button>
           </div>
         )}
 
