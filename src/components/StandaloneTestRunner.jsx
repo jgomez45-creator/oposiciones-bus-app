@@ -56,6 +56,34 @@ export default function StandaloneTestRunner({ testData, onBack }) {
     );
   }
 
+  if (testData.isShared === false) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#0f172a', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+        <div style={{ textTransform: 'none', background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '16px', padding: '30px', maxWidth: '500px', textAlign: 'center' }}>
+          <h2 style={{ color: '#fca5a5', margin: '0 0 10px 0' }}>🔒 Píldora Desactivada</h2>
+          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Esta píldora de test ha sido desactivada temporalmente por el tutor.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (testData.scheduledDate) {
+    const scheduledTime = new Date(testData.scheduledDate);
+    if (scheduledTime > new Date()) {
+      const formattedDate = scheduledTime.toLocaleDateString();
+      const formattedTime = scheduledTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      return (
+        <div style={{ minHeight: '100vh', background: '#0f172a', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+          <div style={{ textTransform: 'none', background: 'rgba(30, 41, 59, 0.8)', border: '1px solid rgba(234, 179, 8, 0.4)', borderRadius: '16px', padding: '30px', maxWidth: '500px', textAlign: 'center' }}>
+            <h2 style={{ color: '#fbbf24', margin: '0 0 10px 0' }}>⏳ Píldora Programada</h2>
+            <p style={{ color: '#e2e8f0', fontSize: '1rem', marginBottom: '12px' }}>Este test está programado para su envío el <strong>{formattedDate}</strong> a las <strong>{formattedTime}</strong>.</p>
+            <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Estará disponible para realizarse a partir de esa fecha y hora. ¡Te esperamos!</p>
+          </div>
+        </div>
+      );
+    }
+  }
+
   const { title = 'Test de Evaluación de la BUS', questions = [], summaryText = '' } = testData;
 
   // PANTALLA DE IDENTIFICACIÓN (Acceso Restringido)

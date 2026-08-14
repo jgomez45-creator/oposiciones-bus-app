@@ -2312,12 +2312,15 @@ export const firebaseService = {
 
   async saveSharedTest(payload) {
     const shortId = (Math.floor(1000 + Math.random() * 9000)).toString();
+    const nowIso = new Date().toISOString();
     const docObj = {
       id: shortId,
       title: payload.title || 'Test de Evaluación de la BUS',
       questions: payload.questions || [],
       summaryText: payload.summaryText || '',
-      createdAt: new Date().toISOString()
+      createdAt: nowIso,
+      scheduledDate: payload.scheduledDate || nowIso,
+      isShared: payload.isShared !== undefined ? payload.isShared : true
     };
 
     try {
@@ -2338,6 +2341,28 @@ export const firebaseService = {
     }
 
     return shortId;
+  },
+
+  async updateSharedTest(shortId, updates) {
+    if (!shortId) return;
+    try {
+      const mockKey = 'bus_mock_shared_tests';
+      const raw = localStorage.getItem(mockKey) || '{}';
+      const map = JSON.parse(raw);
+      if (map[shortId]) {
+        map[shortId] = { ...map[shortId], ...updates };
+        localStorage.setItem(mockKey, JSON.stringify(map));
+      }
+    } catch (_) {}
+
+    if (db && !isMock) {
+      try {
+        const docRef = doc(db, 'shared_tests', shortId);
+        await updateDoc(docRef, updates);
+      } catch (err) {
+        console.warn("updateSharedTest warning:", err);
+      }
+    }
   },
 
   async getSharedTest(shortId) {

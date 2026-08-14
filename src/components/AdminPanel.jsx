@@ -279,6 +279,64 @@ export default function AdminPanel({ topics }) {
   const activeTopicList = topics || topicsData;
 
   const [sharedTests, setSharedTests] = useState([]);
+  const [sharedFilter, setSharedFilter] = useState('all'); // 'all', 'shared', 'scheduled', 'unshared'
+  const [editingPillId, setEditingPillId] = useState(null);
+  const [editDateValue, setEditDateValue] = useState('');
+  const [pillScheduleDate, setPillScheduleDate] = useState('');
+
+  const getPillStatus = (test) => {
+    if (test.isShared === false) {
+      return {
+        label: 'No compartida',
+        badgeBg: 'rgba(148, 163, 184, 0.15)',
+        badgeColor: '#94a3b8',
+        borderColor: 'rgba(148, 163, 184, 0.3)',
+        type: 'unshared'
+      };
+    }
+    const schDate = test.scheduledDate ? new Date(test.scheduledDate) : (test.createdAt ? new Date(test.createdAt) : new Date());
+    const isFuture = schDate > new Date();
+    if (isFuture) {
+      return {
+        label: 'Programada',
+        badgeBg: 'rgba(245, 158, 11, 0.15)',
+        badgeColor: '#fbbf24',
+        borderColor: 'rgba(245, 158, 11, 0.3)',
+        type: 'scheduled',
+        dateObj: schDate
+      };
+    }
+    return {
+      label: 'Compartida',
+      badgeBg: 'rgba(16, 185, 129, 0.15)',
+      badgeColor: '#34d399',
+      borderColor: 'rgba(16, 185, 129, 0.3)',
+      type: 'shared',
+      dateObj: schDate
+    };
+  };
+
+  const handleToggleShareStatus = async (test) => {
+    const nextIsShared = !(test.isShared !== false);
+    try {
+      await firebaseService.updateSharedTest(test.id, { isShared: nextIsShared });
+      fetchSharedTests();
+    } catch (e) {
+      alert("Error al actualizar el estado de la píldora.");
+    }
+  };
+
+  const handleSaveScheduledDate = async (testId) => {
+    if (!editDateValue) return;
+    try {
+      const isoDate = new Date(editDateValue).toISOString();
+      await firebaseService.updateSharedTest(testId, { scheduledDate: isoDate });
+      setEditingPillId(null);
+      fetchSharedTests();
+    } catch (e) {
+      alert("Error al actualizar la fecha programada.");
+    }
+  };
   
   const fetchSharedTests = async () => {
     try {
@@ -347,7 +405,9 @@ export default function AdminPanel({ topics }) {
     const payload = {
       title: finalTitle,
       questions: questions,
-      summaryText: summaryText
+      summaryText: summaryText,
+      scheduledDate: pillScheduleDate ? new Date(pillScheduleDate).toISOString() : new Date().toISOString(),
+      isShared: true
     };
 
     try {
@@ -1787,54 +1847,182 @@ export default function AdminPanel({ topics }) {
       {activeSubTab === 'shared_tests' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', background: 'rgba(15,20,36,0.6)' }}>
-            <h2 style={{ color: 'var(--text-main)', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles size={20} style={{ color: '#fbbf24' }} />
-              Gestor de Píldoras Compartidas
-            </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '24px' }}>
-              Aquí se listan todos los tests que has generado y compartido a través del enlace de 4 dígitos. Si eliminas un test, el enlace dejará de funcionar inmediatamente para cualquier alumno que intente acceder.
-            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
+              <div>
+                <h2 style={{ color: 'var(--text-main)', marginTop: 0, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Sparkles size={20} style={{ color: '#fbbf24' }} />
+                  Gestor de Píldoras Compartidas y Programadas
+                </h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>
+                  Administra el estado de tus píldoras (Compartidas, Programadas para envío diferido en Outlook o No compartidas) y gestiona sus fechas de publicación.
+                </p>
+              </div>
+
+              {/* FILTROS POR ESTADO */}
+              <div style={{ display: 'flex', gap: '6px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                {[
+                  { id: 'all', label: 'Todas' },
+                  { id: 'shared', label: '🟢 Compartidas' },
+                  { id: 'scheduled', label: '🟡 Programadas' },
+                  { id: 'unshared', label: '⚪ No compartidas' }
+                ].map(f => (
+                  <button
+                    key={f.id}
+                    onClick={() => setSharedFilter(f.id)}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.82rem',
+                      fontWeight: '600',
+                      border: 'none',
+                      cursor: 'pointer',
+                      background: sharedFilter === f.id ? 'var(--primary)' : 'transparent',
+                      color: sharedFilter === f.id ? '#fff' : 'var(--text-muted)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {sharedTests.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '40px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}>
                 <p style={{ color: 'var(--text-muted)' }}>No hay tests compartidos actualmente.</p>
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {sharedTests.map(test => {
-                  const url = `${window.location.origin}/?t=${test.id}`;
-                  return (
-                    <div key={test.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.3)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                      <div>
-                        <h3 style={{ margin: '0 0 8px 0', color: 'var(--primary)' }}>{test.title}</h3>
-                        <div style={{ display: 'flex', gap: '16px', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                          <span><strong>ID (Enlace):</strong> ?t={test.id}</span>
-                          <span><strong>Preguntas:</strong> {test.questions?.length || 0}</span>
-                          <span><strong>Creado:</strong> {new Date(test.createdAt).toLocaleDateString()} {new Date(test.createdAt).toLocaleTimeString()}</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {sharedTests
+                  .filter(test => {
+                    const status = getPillStatus(test);
+                    if (sharedFilter === 'shared') return status.type === 'shared';
+                    if (sharedFilter === 'scheduled') return status.type === 'scheduled';
+                    if (sharedFilter === 'unshared') return status.type === 'unshared';
+                    return true;
+                  })
+                  .map(test => {
+                    const url = `${window.location.origin}/?t=${test.id}`;
+                    const status = getPillStatus(test);
+                    const isEditingThisDate = editingPillId === test.id;
+
+                    const schDateObj = test.scheduledDate ? new Date(test.scheduledDate) : (test.createdAt ? new Date(test.createdAt) : new Date());
+                    const formattedSchDate = `${schDateObj.toLocaleDateString()} ${schDateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+                    return (
+                      <div key={test.id} style={{ display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(0,0,0,0.3)', padding: '18px', borderRadius: '14px', border: `1px solid ${status.borderColor}` }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
+                          <div style={{ flex: 1, minWidth: '280px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                              <h3 style={{ margin: 0, color: 'var(--primary)', fontSize: '1.05rem' }}>{test.title}</h3>
+                              <span style={{ padding: '3px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '700', background: status.badgeBg, color: status.badgeColor, border: `1px solid ${status.borderColor}` }}>
+                                {status.type === 'shared' && '🟢 '}
+                                {status.type === 'scheduled' && '🟡 '}
+                                {status.type === 'unshared' && '⚪ '}
+                                {status.label}
+                              </span>
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '16px', color: 'var(--text-muted)', fontSize: '0.85rem', flexWrap: 'wrap' }}>
+                              <span><strong>ID (Enlace):</strong> ?t={test.id}</span>
+                              <span><strong>Preguntas:</strong> {test.questions?.length || 0}</span>
+                              <span><strong>{status.type === 'scheduled' ? 'Envío programado (Outlook):' : 'Fecha compartida:'}</strong> {formattedSchDate}</span>
+                            </div>
+                          </div>
+
+                          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+                            {/* CAMBIAR ESTADO ACTIVA / DESACTIVADA */}
+                            <button
+                              onClick={() => handleToggleShareStatus(test)}
+                              className="btn btn-secondary"
+                              style={{
+                                padding: '8px 12px',
+                                fontSize: '0.82rem',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                background: test.isShared !== false ? 'rgba(239, 68, 68, 0.1)' : 'rgba(16, 185, 129, 0.1)',
+                                color: test.isShared !== false ? '#fca5a5' : '#34d399',
+                                border: `1px solid ${test.isShared !== false ? 'rgba(239, 68, 68, 0.3)' : 'rgba(16, 185, 129, 0.3)'}`
+                              }}
+                              title={test.isShared !== false ? "Desactivar píldora (Marcar como No compartida)" : "Activar píldora (Marcar como Compartida)"}
+                            >
+                              {test.isShared !== false ? 'Desactivar' : 'Activar'}
+                            </button>
+
+                            {/* EDITAR FECHA PROGRAMADA */}
+                            <button
+                              onClick={() => {
+                                if (isEditingThisDate) {
+                                  setEditingPillId(null);
+                                } else {
+                                  setEditingPillId(test.id);
+                                  const pad = (n) => String(n).padStart(2, '0');
+                                  const localIso = `${schDateObj.getFullYear()}-${pad(schDateObj.getMonth() + 1)}-${pad(schDateObj.getDate())}T${pad(schDateObj.getHours())}:${pad(schDateObj.getMinutes())}`;
+                                  setEditDateValue(localIso);
+                                }
+                              }}
+                              className="btn btn-secondary"
+                              style={{ padding: '8px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                            >
+                              <Clock size={15} /> {isEditingThisDate ? 'Cancelar' : 'Editar Fecha'}
+                            </button>
+
+                            {/* COPIAR ENLACE */}
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(url);
+                                alert("¡Enlace corto de test copiado al portapapeles!");
+                              }}
+                              className="btn btn-secondary"
+                              style={{ padding: '8px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+                            >
+                              <Copy size={15} /> Copiar Enlace
+                            </button>
+
+                            {/* BORRAR */}
+                            <button
+                              onClick={() => handleDeleteSharedTest(test.id)}
+                              className="btn"
+                              style={{ padding: '8px 12px', fontSize: '0.82rem', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                            >
+                              <Trash2 size={15} /> Borrar
+                            </button>
+                          </div>
                         </div>
+
+                        {/* PANEL DE EDICIÓN DE FECHA INLINE */}
+                        {isEditingThisDate && (
+                          <div style={{ marginTop: '6px', padding: '12px 16px', background: 'rgba(15,23,42,0.7)', borderRadius: '10px', border: '1px dashed var(--primary)', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                            <span style={{ fontSize: '0.88rem', color: 'var(--text-main)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <Clock size={16} style={{ color: '#fbbf24' }} />
+                              Establecer Fecha y Hora de Envío (Outlook):
+                            </span>
+                            <input
+                              type="datetime-local"
+                              value={editDateValue}
+                              onChange={(e) => setEditDateValue(e.target.value)}
+                              style={{
+                                padding: '8px 12px',
+                                borderRadius: '8px',
+                                background: 'rgba(0,0,0,0.5)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                                color: '#fff',
+                                fontSize: '0.88rem'
+                              }}
+                            />
+                            <button
+                              onClick={() => handleSaveScheduledDate(test.id)}
+                              className="btn btn-primary"
+                              style={{ padding: '8px 14px', fontSize: '0.85rem' }}
+                            >
+                              Guardar Fecha
+                            </button>
+                          </div>
+                        )}
                       </div>
-                      <div style={{ display: 'flex', gap: '8px' }}>
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText(url);
-                            alert("¡Enlace copiado!");
-                          }}
-                          className="btn btn-secondary"
-                          style={{ padding: '8px 12px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                        >
-                          <Copy size={16} /> Copiar
-                        </button>
-                        <button
-                          onClick={() => handleDeleteSharedTest(test.id)}
-                          className="btn"
-                          style={{ padding: '8px 12px', fontSize: '0.85rem', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}
-                        >
-                          <Trash2 size={16} /> Borrar
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
             )}
           </div>
