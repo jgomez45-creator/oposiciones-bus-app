@@ -313,7 +313,24 @@ export default function AdminPanel({ topics }) {
     }
 
     let summaryText = '';
+    let finalTitle = title;
+    
     if (topicId) {
+      if (!finalTitle.toLowerCase().startsWith('tema')) {
+        finalTitle = `Tema ${topicId}: ${title}`;
+      }
+      
+      // Añadir puntos específicos si estamos en el generador y no es todo el tema
+      if (activeSubTab === 'generator' && Array.isArray(selectedHeadings) && selectedHeadings.length > 0) {
+        const points = selectedHeadings.map(h => {
+          const match = h.match(/^(\d+\.\d+(\.\d+)?)/);
+          return match ? match[1] : h;
+        }).join(', ');
+        if (points) {
+          finalTitle += ` (Puntos: ${points})`;
+        }
+      }
+
       const formattedNum = topicId.toString().padStart(2, '0');
       try {
         const res = await fetch(`/markdown/tema-${formattedNum}.md`);
@@ -328,7 +345,7 @@ export default function AdminPanel({ topics }) {
     }
 
     const payload = {
-      title: title,
+      title: finalTitle,
       questions: questions,
       summaryText: summaryText
     };

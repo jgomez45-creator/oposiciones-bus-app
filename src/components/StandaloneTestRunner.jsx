@@ -225,7 +225,7 @@ export default function StandaloneTestRunner({ testData, onBack }) {
             <Sparkles size={24} style={{ color: '#f59e0b' }} />
             <h1 style={{ margin: 0, fontSize: '1.4rem', fontWeight: '800', color: '#fff' }}>{title}</h1>
           </div>
-          <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Test de Preparación Extraoficial - Universidad de Sevilla</span>
+          <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Pruebas de preparación examen de Biblioteca</span>
         </div>
 
         {/* RESUMEN DEL TEMA SI EXISTE */}
