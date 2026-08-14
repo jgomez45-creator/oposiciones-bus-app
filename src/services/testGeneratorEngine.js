@@ -381,11 +381,31 @@ function getOfficialNormName(topicId, topicTitle, heading = '', factText = '') {
 // ── GENERADOR DE ENUNCIADOS ─────────────────────────────────────────────────
 
 const STEM_TEMPLATES = [
-  (norm, focus) => `Según lo dispuesto en ${norm}, en relación con ${focus}, señale la afirmación correcta:`,
-  (norm, focus) => `De acuerdo con ${norm}, ¿cuál de las siguientes opciones describe correctamente ${focus}?`,
-  (norm, focus) => `En relación con ${focus}, conforme a ${norm}, señale la opción verdadera:`,
+  // ESTILO DIRECTO E INTERROGATIVO (Inspirado en Formadores/Sindicatos)
+  (norm, focus) => `Según establece ${norm}, ¿cuál es la definición, competencia o característica orgánica de ${focus}?`,
+  (norm, focus) => `De acuerdo con la regulación en ${norm}, respecto a ${focus}, ¿a quién corresponde la competencia o cómo se define?`,
+  (norm, focus) => `Según ${norm}, ¿cómo está formado, estructurado o definido ${focus}?`,
+  (norm, focus) => `En el marco normativo de ${norm}, ¿qué competencia, característica o requisito tiene ${focus}?`,
+  (norm, focus) => `Tomando como referencia ${norm}, ¿qué afirmación define correctamente a ${focus}?`,
+  (norm, focus) => `Atendiendo a las disposiciones de ${norm} aplicables a ${focus}, señale qué es correcto:`,
+  (norm, focus) => `¿Cuál de las siguientes afirmaciones referidas a ${focus} se ajusta a lo previsto en ${norm}?`,
+  (norm, focus) => `Según ${norm}, respecto a ${focus}, ¿qué debe cumplirse obligatoriamente o cómo se concibe?`,
+  (norm, focus) => `Determine la opción verdadera sobre ${focus} según lo establecido por ${norm}:`,
+  
+  // ESTILO DESCRIPTIVO Y FORMAL
+  (norm, focus) => `En relación con ${focus}, y basándose en ${norm}, indique qué alternativa es cierta:`,
+  (norm, focus) => `Entre las siguientes alternativas relativas a ${focus}, elija la que concuerde con ${norm}:`,
+  (norm, focus) => `Si tomamos como texto de referencia ${norm}, ¿qué afirmación es exacta al hablar de ${focus}?`,
   (norm, focus) => `Conforme a la regulación establecida en ${norm} respecto a ${focus}, indique la respuesta correcta:`,
-  (norm, focus) => `¿Cuál de las siguientes afirmaciones sobre ${focus} es correcta según ${norm}?`,
+  (norm, focus) => `Acerca de ${focus}, señale qué extremo se recoge de forma literal o conceptual en ${norm}:`,
+  
+  // ESTILO EXÁMEN OFICIAL (VARIACIONES)
+  (norm, focus) => `De las siguientes opciones planteadas acerca de ${focus}, ¿cuál es correcta según ${norm}?`,
+  (norm, focus) => `Según lo dispuesto en ${norm}, en relación con ${focus}, señale la afirmación correcta:`,
+  (norm, focus) => `En lo referente a ${focus}, tal y como se regula en ${norm}, señale la opción correcta:`,
+  (norm, focus) => `¿Qué establece de manera específica ${norm} respecto a la figura o concepto de ${focus}?`,
+  (norm, focus) => `Indique la respuesta correcta referida a ${focus}, en aplicación de lo contenido en ${norm}:`,
+  (norm, focus) => `Según se determina en ${norm} para ${focus}, indique cuál de los siguientes enunciados es verdadero:`
 ];
 
 function buildStem(normName, focus, idx) {
@@ -437,6 +457,14 @@ const MUTATIONS = [
       'Servicio Central de Informática de la Universidad'
     ]
   },
+  {
+    target: /Rectorado|Rector|Rectora/gi,
+    replacements: [
+      'Claustro Universitario',
+      'Consejo de Alumnos de la Universidad de Sevilla (CADUS)',
+      'Tribunal de Garantías'
+    ]
+  },
   // 3. Consorcios y Redes
   {
     target: /\bREBIUN\b/g,
@@ -450,7 +478,7 @@ const MUTATIONS = [
     target: /\bDIALNET\b/g,
     replacements: ['WorldCat (catálogo cooperativo de la OCLC)', 'Red de Repositorios Científicos del Ministerio']
   },
-  // 4. Modificadores normativos y de uso
+  // 4. Modificadores normativos y de uso (Trampas absolutas)
   {
     target: /carnet universitario(\s+oficial)?(\s*\([^)]*\))?/gi,
     replacements: [
@@ -474,6 +502,19 @@ const MUTATIONS = [
   {
     target: /antes de la hora de cierre del mismo día|mismo día/gi,
     replacements: ['en un plazo máximo de 48 horas tras el préstamo', 'en un plazo de tres días hábiles lectivos']
+  },
+  // 5. Cantidades y Absolutos
+  {
+    target: /siempre|en todo caso|invariablemente/gi,
+    replacements: ['excepcionalmente y previa solicitud justificada', 'nunca, salvo autorización expresa del Rectorado']
+  },
+  {
+    target: /podrá|podrán|están facultados/gi,
+    replacements: ['deberá inexcusablemente', 'están obligados bajo sanción disciplinaria a']
+  },
+  {
+    target: /deberá|deberán|están obligados/gi,
+    replacements: ['podrá de manera potestativa', 'tendrán la facultad opcional de']
   }
 ];
 
@@ -513,6 +554,15 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
       (t) => t.replace(/\b(corresponde a|compete a)\b/i, 'es ajeno a las competencias de'),
       (t) => t.replace(/\b(garantiza|asegura)\b/i, 'no presupone'),
       (t) => t.replace(/\b(se aprueba por|aprobado por)\b/i, 'es acordado unilateralmente sin pasar por'),
+      (t) => t.replace(/\b(se divide en|está compuesto por)\b/i, 'carece de'),
+      (t) => t.replace(/\b(facilita|permite|autoriza)\b/i, 'prohíbe expresamente'),
+      (t) => t.replace(/\b(promueve|fomenta)\b/i, 'restringe o limita'),
+      (t) => t.replace(/\b(debe|tienen la obligación de)\b/i, 'están exentos de'),
+      (t) => t.replace(/\b(podrá|podrán)\b/i, 'no podrán en ningún caso'),
+      (t) => t.replace(/\b(anualmente|cada año)\b/i, 'cada cinco años de forma extraordinaria'),
+      (t) => t.replace(/\b(el Rector|la Rectora)\b/i, 'el Gerente'),
+      (t) => t.replace(/\b(el Claustro Universitario)\b/i, 'el Consejo Social'),
+      (t) => t.replace(/\b(del Consejo de Gobierno)\b/i, 'de la Junta de Andalucía')
     ];
 
     for (const rule of MORPH_RULES) {
@@ -525,6 +575,25 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
           distractors.push(cand);
           used.add(normCand);
         }
+      }
+    }
+  }
+
+  // Intento 3: Distractor Universal (Si aun así faltan distractores)
+  if (distractors.length < 3) {
+    const GENERIC_DISTRACTORS = [
+      "Será competencia exclusiva del Ministerio de Universidades mediante Real Decreto.",
+      "Es una función delegada directamente a los Decanatos de cada Facultad.",
+      "Queda sujeto a la aprobación de la Junta Técnica Interfacultativa.",
+      "Dependerá de los presupuestos aprobados por la Comunidad Autónoma de Andalucía.",
+      "Se establecerá mediante convenio con el Consorcio de Bibliotecas Universitarias (CBUA)."
+    ];
+    for (const gd of GENERIC_DISTRACTORS) {
+      if (distractors.length >= 3) break;
+      const normCand = stripAccents(gd);
+      if (!used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+        distractors.push(gd);
+        used.add(normCand);
       }
     }
   }
