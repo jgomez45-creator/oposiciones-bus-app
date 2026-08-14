@@ -130,6 +130,22 @@ function isDeclarativeSentence(text) {
   return true;
 }
 
+/**
+ * Detecta negación perezosa: frases construidas añadiendo "No", "Nunca",
+ * "Jamás" al inicio, o insertando 'no X' / 'nunca X' sobre el verbo principal.
+ * Estas frases son descartables sin conocimiento del temario y están PROHIBIDAS.
+ * Regla de Oro: NINGÚN distractor puede superar este filtro.
+ */
+function isLazyNegation(text) {
+  if (!text) return true;
+  const t = text.trim();
+  // Negación prefijada al inicio de la oración
+  if (/^(No |Nunca |Jamás |Ningún |Ninguna |Carece |Falso )/i.test(t)) return true;
+  // Negación insertada directamente sobre el verbo principal
+  if (/\b(no es|no son|no constituye|no regula|no depende|no establece|no podrá|no podrán en ningún caso|nunca es|nunca son|nunca podrá|no integra|no garantiza|no presta)\b/i.test(t)) return true;
+  return false;
+}
+
 // ── PARSEO DE MARKDOWN ──────────────────────────────────────────────────────
 
 const NON_EXAM_SECTIONS = /esquema|repaso|conceptos clave|resumen|glosario|introducción|índice|bibliografía|bibliografia|referencias|fuentes|lecturas recomendadas|para saber más|recursos de consulta|anexo/i;
@@ -643,30 +659,122 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // ── PASO 2: Inversión morfológica ──────────────────────────────────────────
+  // ── PASO 2: Sustitución Semántica de Variables Clave ────────────────────────
+  // Regla de Oro: NUNCA se niega. Se sustituye una variable real (organismo,
+  // instrumento, ámbito, rol) por otra real del mismo dominio. El opositor que
+  // no conoce el temario no puede distinguir la correcta por descarte lógico.
   if (distractors.length < 3) {
-    const MORPH_RULES = [
-      (t) => t.replace(/\b(es|son|constituye|se define como)\b/i, 'no $1'),
-      (t) => t.replace(/\b(depende|planifica|establece|regula)\b/i, 'no $1'),
-      (t) => t.replace(/\b(corresponde a|compete a)\b/i, 'es ajeno a las competencias de'),
-      (t) => t.replace(/\b(garantiza|asegura)\b/i, 'no presupone'),
-      (t) => t.replace(/\b(se aprueba por|aprobado por)\b/i, 'es acordado unilateralmente sin pasar por'),
-      (t) => t.replace(/\b(facilita|permite|autoriza)\b/i, 'prohíbe expresamente'),
-      (t) => t.replace(/\b(promueve|fomenta)\b/i, 'restringe o limita'),
-      (t) => t.replace(/\b(debe|tienen la obligación de)\b/i, 'están exentos de'),
-      (t) => t.replace(/\b(podrá|podrán)\b/i, 'no podrán en ningún caso'),
-      (t) => t.replace(/\b(anualmente|cada año)\b/i, 'cada cinco años de forma extraordinaria'),
-      (t) => t.replace(/\b(el Rector|la Rectora)\b/i, 'el Gerente'),
-      (t) => t.replace(/\b(el Claustro Universitario)\b/i, 'el Consejo Social'),
-      (t) => t.replace(/\b(del Consejo de Gobierno)\b/i, 'de la Junta de Andalucía'),
+    const SEMANTIC_SUBSTITUTIONS = [
+      // ─ ORGANISMOS DE GOBIERNO ─────────────────────────────────────────────
+      { re: /\bConsejo de Gobierno\b/gi,
+        alts: ['el Claustro Universitario', 'el Consejo Social de la Universidad de Sevilla'] },
+      { re: /\b(el Rector|la Rectora)\b/gi,
+        alts: ['el Gerente de la Universidad de Sevilla', 'el Secretario General de la US'] },
+      { re: /\bVicerrectorado de Investigaci[oó]n\b/gi,
+        alts: ['el Vicerrectorado de Docencia y Espacio Europeo', 'el Vicerrectorado de Transferencia del Conocimiento'] },
+      { re: /\bVicerrectorado de Personal\b/gi,
+        alts: ['el Vicerrectorado de Docencia', 'la Gerencia de la Universidad de Sevilla'] },
+      { re: /\bComisi[oó]n de Investigaci[oó]n\b/gi,
+        alts: ['la Comisión de Garantía de Calidad', 'la Comisión Permanente del Consejo de Gobierno'] },
+      { re: /\bDefensor Universitario\b/gi,
+        alts: ['la Comisión de Garantía de Calidad de la US', 'el Servicio de Inspección Académica de la Universidad'] },
+      { re: /\bDirector de la Biblioteca\b|\bDirectora de la Biblioteca\b/gi,
+        alts: ['el Gerente de la Universidad de Sevilla', 'el Decano de la Facultad en que se ubique la biblioteca de centro'] },
+
+      // ─ REDES Y CONSORCIOS ─────────────────────────────────────────────────
+      { re: /\bREBIUN\b/g,
+        alts: ['el CBUA (Consorcio de Bibliotecas Universitarias de Andalucía)', 'la asociación LIBER de bibliotecas europeas de investigación'] },
+      { re: /\bCBUA\b/g,
+        alts: ['REBIUN (Red de Bibliotecas Universitarias Españolas integrada en la CRUE)', 'la Red de Bibliotecas Públicas de la Junta de Andalucía'] },
+      { re: /\bDIALNET\b/gi,
+        alts: ['WorldCat, el catálogo cooperativo de la OCLC', 'Scopus, la base de datos bibliográfica de Elsevier'] },
+      { re: /Universidad de La Rioja/gi,
+        alts: ['la Universidad Complutense de Madrid', 'la Universidad Autónoma de Barcelona'] },
+
+      // ─ SISTEMAS DE GESTIÓN BIBLIOTECARIA ──────────────────────────────────
+      { re: /\bAlma\b/g,
+        alts: ['SirsiDynix Symphony', 'KOHA (sistema de gestión integrada de código abierto)'] },
+      { re: /\bFAMA\b/g,
+        alts: ['WorldCat (catálogo cooperativo de la OCLC)', 'Primo, la herramienta de descubrimiento de Ex Libris'] },
+
+      // ─ INSTRUMENTOS NORMATIVOS ────────────────────────────────────────────
+      { re: /\bReglamento de la BUS\b/gi,
+        alts: ['la Carta de Servicios de la BUS', 'el Plan Estratégico de la BUS'] },
+      { re: /\bCarta de Servicios\b/gi,
+        alts: ['el Reglamento de uso de fondos especiales', 'el Manual de Procedimientos de la BUS'] },
+      { re: /\bIV Convenio Colectivo\b/gi,
+        alts: ['el III Convenio Colectivo del Personal Laboral de las Universidades Públicas Andaluzas', 'el Estatuto Básico del Empleado Público (TREBEP)'] },
+      { re: /\bLey 31\/1995\b|\bLPRL\b/gi,
+        alts: ['el Real Decreto Legislativo 5/2015 (TREBEP)', 'el Real Decreto 39/1997 de los Servicios de Prevención'] },
+      { re: /\bLey Org[aá]nica 3\/2007\b/gi,
+        alts: ['la Ley Orgánica 1/2004 de Medidas de Protección Integral contra la Violencia de Género', 'el Real Decreto Legislativo 2/2015 del Estatuto de los Trabajadores'] },
+      { re: /\bReal Decreto 488\/1997\b/gi,
+        alts: ['el Real Decreto 486/1997 de Lugares de Trabajo', 'el Real Decreto 773/1997 sobre Equipos de Protección Individual'] },
+      { re: /\bReal Decreto 486\/1997\b/gi,
+        alts: ['el Real Decreto 488/1997 sobre Pantallas de Visualización de Datos', 'el Real Decreto 485/1997 de Señalización de Seguridad'] },
+
+      // ─ ÁMBITO DE APLICACIÓN / COLECTIVO BENEFICIARIO ─────────────────────
+      { re: /\btoda la comunidad universitaria\b/gi,
+        alts: [
+          'exclusivamente el Personal Docente e Investigador con vinculación permanente',
+          'únicamente los estudiantes de Máster y Doctorado matriculados en el curso en vigor'
+        ] },
+      { re: /\btodos los miembros de la comunidad universitaria\b/gi,
+        alts: [
+          'exclusivamente el Personal de Administración y Servicios con contrato indefinido',
+          'únicamente los investigadores con proyectos activos en la Universidad de Sevilla'
+        ] },
+
+      // ─ ROLES EN REDES Y CONSORCIOS ────────────────────────────────────────
+      { re: /miembro colaborador y activo catalogador/gi,
+        alts: ['usuaria externa y consultora de contenidos sin capacidad de catalogación', 'suscriptora institucional con acceso en modo solo lectura'] },
+      { re: /miembro colaborador/gi,
+        alts: ['suscriptora institucional sin voto en los órganos de gobierno', 'entidad auditora externa sin derechos de catalogación'] },
+
+      // ─ OBJETO TEMÁTICO ────────────────────────────────────────────────────
+      { re: /\bproducci[oó]n cient[íi]fica\b/gi,
+        alts: ['las tesis doctorales y trabajos de fin de grado', 'los datos de investigación y conjuntos de datos en acceso abierto'] },
+      { re: /\bunidad funcional [úu]nica e integrada\b/gi,
+        alts: [
+          'una red descentralizada de bibliotecas de centro con gestión presupuestaria autónoma',
+          'un consorcio interfacultativo con personalidad jurídica propia diferenciada de la Universidad'
+        ] },
+      { re: /\bacceso abierto\b/gi,
+        alts: ['acceso restringido a los suscriptores del consorcio CBUA', 'acceso bajo licencia con restricciones de descarga simultánea'] },
+      { re: /\bpr[ée]stamo interbibliotecario\b/gi,
+        alts: ['préstamo en sala de fondos en reserva', 'préstamo de equipamiento tecnológico de la Objetoteca'] },
+
+      // ─ CUALIFICACIONES (alteradas sin negar) ─────────────────────────────
+      { re: /\bgratuito\b|\bgratuita\b|\bsin coste\b/gi,
+        alts: [
+          'sujeto al abono previo de una tasa administrativa aprobada anualmente por el Consejo de Gobierno',
+          'financiado mediante cuota semestral fijada en la Carta de Servicios de la BUS'
+        ] },
+      { re: /\bpermanente\b/gi,
+        alts: [
+          'temporal y renovable por periodos anuales previo informe favorable',
+          'provisional y condicionado a la evaluación anual de rendimiento'
+        ] },
     ];
-    for (const rule of MORPH_RULES) {
+
+    for (const rule of SEMANTIC_SUBSTITUTIONS) {
       if (distractors.length >= 3) break;
-      const candidateRaw = rule(correctOpt);
-      if (candidateRaw !== correctOpt) {
+      // Restablecer lastIndex antes de cada test (regexes con /g)
+      rule.re.lastIndex = 0;
+      if (!rule.re.test(correctOpt)) continue;
+      for (const alt of rule.alts) {
+        if (distractors.length >= 3) break;
+        rule.re.lastIndex = 0;
+        let replaced = false;
+        const candidateRaw = correctOpt.replace(rule.re, (match) => {
+          if (!replaced) { replaced = true; return alt; }
+          return match;
+        });
+        rule.re.lastIndex = 0;
+        if (!replaced) continue;
         const cand = formatCompleteSentence(candidateRaw);
         const normCand = stripAccents(cand);
-        if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+        if (cand && !isLazyNegation(cand) && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
           distractors.push(cand);
           used.add(normCand);
         }
@@ -674,25 +782,45 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  // ── PASO 3: Mutaciones universales como último recurso ──────────────────────
+  // ── PASO 3: Paráfrasis Contextual como último recurso ───────────────────────
+  // Regla de Oro: NUNCA se niega. Se construye una alternativa plausible
+  // alterando el sujeto institucional, el instrumento normativo o la modalidad,
+  // manteniendo longitud y densidad de información comparables.
   if (distractors.length < 3) {
-    const UNIVERSAL_MUTATORS = [
-      (t) => t.replace(/^([A-ZÁÉÍÓÚÑ])/, (m) => `No ${m.toLowerCase()}`),
-      (t) => t.replace(/\b(es|son|constituye|se define|posee|cuenta|permite)\b/i, 'nunca $1'),
-      (t) => t.replace(/\.$/, ', salvo en los casos expresamente exceptuados por la normativa vigente.'),
-      (t) => t.replace(/\.$/, ', únicamente para el personal docente acreditado.'),
-      (t) => t.replace(/\b(únicamente|exclusivamente|solamente)\b/i, 'en ningún caso'),
+    const CONTEXTUAL_PARAPHRASE = [
+      // Sustitución del sujeto institucional por entidad paralela del mismo rango
+      (t) => t.replace(/\bla BUS\b/gi, 'el Servicio de Informática de la US (SIC)'),
+      (t) => t.replace(/\bla BUS\b/gi, 'la Unidad de Apoyo a la Docencia e Investigación de la US'),
+      // Sustitución del instrumento normativo rector
+      (t) => t.replace(/\bReglamento\b/gi, 'Protocolo de Actuación'),
+      (t) => t.replace(/\bReglamento\b/gi, 'Plan Estratégico'),
+      (t) => t.replace(/\bprotocolo\b/gi, 'Reglamento de uso'),
+      // Sustitución del organismo decisor
+      (t) => t.replace(/\bConsejo de Gobierno\b/gi, 'Comisión Permanente del Claustro Universitario'),
+      (t) => t.replace(/\bConsejo de Gobierno\b/gi, 'Consejo Social en sesión plenaria'),
+      // Sustitución del tipo de vínculo con redes
+      (t) => t.replace(/\bes miembro\b/gi, 'actúa como entidad observadora'),
+      (t) => t.replace(/\bes miembro\b/gi, 'figura como institución adherida sin voto deliberativo'),
+      // Sustitución del ámbito territorial de aplicación
+      (t) => t.replace(/\bnacional\b|\bespañolas\b/gi, 'autonómico'),
+      (t) => t.replace(/\beuropeo\b|\beuropeas\b/gi, 'estatal'),
+      // Sustitución de la modalidad de acceso
+      (t) => t.replace(/\bacceso en l[íi]nea\b|\bacceso remoto\b/gi, 'acceso presencial en las instalaciones de la BUS'),
+      (t) => t.replace(/\bpr[ée]stamo domiciliario\b/gi, 'consulta en sala sin salida del recinto'),
+      // Sustitución del colectivo beneficiario
+      (t) => t.replace(/\bPersonal Docente e Investigador\b|\bPDI\b/g, 'Personal de Administración y Servicios (PAS)'),
+      (t) => t.replace(/\bPersonal de Administraci[oó]n y Servicios\b|\bPAS\b/g, 'Personal Docente e Investigador (PDI)'),
     ];
-    for (const mut of UNIVERSAL_MUTATORS) {
+
+    for (const paraphrase of CONTEXTUAL_PARAPHRASE) {
       if (distractors.length >= 3) break;
-      const candidateRaw = mut(correctOpt);
-      if (candidateRaw !== correctOpt) {
-        const cand = formatCompleteSentence(candidateRaw);
-        const normCand = stripAccents(cand);
-        if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
-          distractors.push(cand);
-          used.add(normCand);
-        }
+      const candidateRaw = paraphrase(correctOpt);
+      if (candidateRaw === correctOpt) continue;
+      const cand = formatCompleteSentence(candidateRaw);
+      const normCand = stripAccents(cand);
+      if (cand && !isLazyNegation(cand) && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
+        distractors.push(cand);
+        used.add(normCand);
       }
     }
   }
@@ -762,6 +890,13 @@ function validateQuestion(q) {
     for (const l of lengths) {
       if (l > avgLen * 3 || l < avgLen * 0.25) return false;
     }
+  }
+
+  // Prohibición absoluta de negación perezosa en cualquiera de las 4 opciones.
+  // Si alguna opción fue construida con "No X", "Nunca X" u otras fórmulas de
+  // descarte trivial, la pregunta completa se rechaza y se intenta regenerar.
+  for (const opt of optionTexts) {
+    if (isLazyNegation(opt)) return false;
   }
 
   return true;
