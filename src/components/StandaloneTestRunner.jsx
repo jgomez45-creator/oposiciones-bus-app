@@ -9,10 +9,11 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   const [resultDetails, setResultDetails] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   
-  // Estado para guardar el email silencioso si llega por URL
+  // Estado para pedir el email
   const [studentEmail, setStudentEmail] = useState('');
+  const [isIdentified, setIsIdentified] = useState(false);
 
-  // Efecto para buscar si ya está identificado por URL o localStorage (Invisible)
+  // Efecto para buscar si ya está identificado por URL o localStorage
   useEffect(() => {
     try {
       const urlParams = new URLSearchParams(window.location.search);
@@ -24,11 +25,25 @@ export default function StandaloneTestRunner({ testData, onBack }) {
         const decoded = decodeURIComponent(emailParam);
         setStudentEmail(decoded);
         localStorage.setItem('bus_student_real_email', decoded);
+        setIsIdentified(true);
       } else if (savedIdent && savedIdent.includes('@')) {
         setStudentEmail(savedIdent);
+        setIsIdentified(true);
       }
     } catch (_) {}
   }, []);
+
+  const handleStartTest = (e) => {
+    e.preventDefault();
+    if (studentEmail && studentEmail.includes('@')) {
+      try {
+        localStorage.setItem('bus_student_real_email', studentEmail);
+      } catch (_) {}
+      setIsIdentified(true);
+    } else {
+      alert("Por favor, introduce un correo electrónico válido para acceder.");
+    }
+  };
 
   if (!testData || !Array.isArray(testData.questions) || testData.questions.length === 0) {
     return (
@@ -42,6 +57,58 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   }
 
   const { title = 'Test de Evaluación de la BUS', questions = [], summaryText = '' } = testData;
+
+  // PANTALLA DE IDENTIFICACIÓN (Acceso Restringido)
+  if (!isIdentified) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#090d16', color: '#e2e8f0', fontFamily: "'Inter', system-ui, sans-serif", display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+        <div className="glass-panel" style={{ maxWidth: '480px', width: '100%', background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '24px', padding: '40px 30px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+          <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(234, 179, 8, 0.1)', border: '1px solid rgba(234, 179, 8, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
+            <span style={{ fontSize: '28px' }}>🔒</span>
+          </div>
+          
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#fff', margin: '0 0 14px 0' }}>Píldora de Repaso BUS:<br/><span style={{ color: '#eab308' }}>Acceso Restringido</span></h1>
+            
+            <div style={{ background: 'rgba(239, 68, 68, 0.05)', borderLeft: '3px solid #ef4444', padding: '12px 16px', borderRadius: '0 8px 8px 0', textAlign: 'left', marginBottom: '16px' }}>
+              <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: '1.5', margin: 0 }}>
+                <strong>Atención:</strong> Este material de repaso intensivo (resumen + test rápido) es de <strong>uso exclusivo</strong> para opositores registrados en la preparación. No se admite el acceso a usuarios invitados.
+              </p>
+            </div>
+            
+            <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: '1.5', margin: 0 }}>
+              Por favor, introduce el correo electrónico con el que estás dado de alta para validar tu identidad y desbloquear el contenido.
+            </p>
+          </div>
+
+          <form onSubmit={handleStartTest} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <input
+                type="email"
+                required
+                value={studentEmail}
+                onChange={(e) => setStudentEmail(e.target.value)}
+                placeholder="ej: correo_del_opositor@gmail.com"
+                style={{ width: '100%', padding: '14px 16px', background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '12px', color: '#fff', fontSize: '1rem', outline: 'none', transition: 'border-color 0.2s', textAlign: 'center' }}
+                onFocus={(e) => e.target.style.borderColor = '#eab308'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.15)'}
+              />
+            </div>
+            
+            <button
+              type="submit"
+              style={{ width: '100%', padding: '14px', background: 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)', color: '#111827', border: 'none', borderRadius: '12px', fontSize: '1rem', fontWeight: '800', cursor: 'pointer', transition: 'all 0.2s', marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+              onMouseOver={(e) => { e.target.style.transform = 'translateY(-1px)'; e.target.style.boxShadow = '0 10px 15px -3px rgba(234, 179, 8, 0.2)'; }}
+              onMouseOut={(e) => { e.target.style.transform = 'none'; e.target.style.boxShadow = 'none'; }}
+            >
+              <span>Validar Identidad y Desbloquear Repaso</span>
+              <span>⚡</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   const handleSelectOption = (qIdx, optIdx) => {
     if (submitted) return;
