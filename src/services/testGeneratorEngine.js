@@ -1498,10 +1498,26 @@ export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
   // Obtener los fallbacks específicos del tema; si no hay (tema no contemplado), usar array vacío
   const topicTemplates = TOPIC_FALLBACKS[topNum] || [];
 
+  // Función auxiliar para parafrasear preguntas en ciclos repetidos
+  const paraphraseFallback = (t, cycle) => {
+    if (cycle === 0) return t;
+    const prefixes = [
+      'En relación con lo establecido, ',
+      'Atendiendo a la normativa, ',
+      'En el marco regulatorio vigente, ',
+      'Considerando las disposiciones aplicables, '
+    ];
+    const qPrefix = prefixes[(cycle - 1) % prefixes.length];
+    const newQ = qPrefix + t.q.replace(/^[A-Z][^,]+, /, '').replace(/^[A-Z]/, c => c.toLowerCase());
+    return { ...t, q: newQ };
+  };
+
   // Si hay fallbacks específicos para este tema, usarlos
   if (topicTemplates.length > 0) {
     for (let i = 0; i < count; i++) {
-      const t = topicTemplates[i % topicTemplates.length];
+      const cycle = Math.floor(i / topicTemplates.length);
+      const baseT = topicTemplates[i % topicTemplates.length];
+      const t = paraphraseFallback(baseT, cycle);
       batch.push(createStructuredQuestion(t.q, t.correct, [t.w1, t.w2, t.w3], t.correct, safeTitle, topicId));
     }
     return batch;
@@ -1517,8 +1533,17 @@ export function createEmergencyFallbackBatch(topicId, topicTitle, count = 5) {
     w3: `La normativa de ${safeTitle} es un documento orientativo sin fuerza jurídica aprobado por la Dirección de la Biblioteca.`,
   };
   for (let i = 0; i < count; i++) {
+    const cycle = i;
+    const prefixes = [
+      'En relación con ',
+      'Referente a ',
+      'Acerca de ',
+      'Sobre '
+    ];
+    const qPrefix = prefixes[cycle % prefixes.length];
+    const newQ = `${qPrefix}${safeTitle}, señale la opción correcta:`;
     batch.push(createStructuredQuestion(
-      genericFallback.q, genericFallback.correct,
+      newQ, genericFallback.correct,
       [genericFallback.w1, genericFallback.w2, genericFallback.w3],
       genericFallback.correct, safeTitle, topicId
     ));

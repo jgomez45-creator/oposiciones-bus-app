@@ -388,6 +388,17 @@ export default function StandaloneTestRunner({ testData, onBack }) {
 
             return (
               <div key={q.id || qIdx} style={{ background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {submitted && (
+                  <div style={{ marginBottom: '-6px' }}>
+                    {selectedOpt === undefined ? (
+                      <span style={{ display: 'inline-block', padding: '4px 8px', borderRadius: '4px', background: '#eab308', color: '#000', fontSize: '0.85rem', fontWeight: 'bold' }}>⚠️ Sin contestar !!!!</span>
+                    ) : isCorrectAnswer ? (
+                      <span style={{ display: 'inline-block', padding: '4px 8px', borderRadius: '4px', background: '#22c55e', color: '#fff', fontSize: '0.85rem', fontWeight: 'bold' }}>✅ Correcta</span>
+                    ) : (
+                      <span style={{ display: 'inline-block', padding: '4px 8px', borderRadius: '4px', background: '#ef4444', color: '#fff', fontSize: '0.85rem', fontWeight: 'bold' }}>❌ Error</span>
+                    )}
+                  </div>
+                )}
                 <div style={{ fontSize: '1.05rem', fontWeight: '700', color: '#fff', lineHeight: '1.45' }}>
                   {qIdx + 1}. {q.question}
                 </div>
