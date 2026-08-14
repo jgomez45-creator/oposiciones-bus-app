@@ -8,10 +8,34 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   const [resultScore, setResultScore] = useState(0);
   const [resultDetails, setResultDetails] = useState([]);
   const [submitting, setSubmitting] = useState(false);
+  const [showFloatingJump, setShowFloatingJump] = useState(true);
   
   // Estado para pedir el email
   const [studentEmail, setStudentEmail] = useState('');
   const [isIdentified, setIsIdentified] = useState(false);
+
+  const scrollToTest = () => {
+    const el = document.getElementById('test-questions-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = document.getElementById('test-questions-section');
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight - 100) {
+          setShowFloatingJump(false);
+        } else {
+          setShowFloatingJump(true);
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Efecto para buscar si ya está identificado por URL o localStorage
   useEffect(() => {
@@ -244,7 +268,7 @@ export default function StandaloneTestRunner({ testData, onBack }) {
   const percentage = Math.max(0, Math.round((parseFloat(resultScore) / questions.length) * 100));
 
   return (
-    <div style={{ minHeight: '100vh', background: '#090d16', color: '#e2e8f0', fontFamily: "'Inter', system-ui, sans-serif", padding: '24px 16px', display: 'flex', justifyContent: 'center' }}>
+    <div style={{ minHeight: '100vh', background: '#090d16', color: '#e2e8f0', fontFamily: "'Inter', system-ui, sans-serif", padding: '24px 16px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
       <div style={{ maxWidth: '840px', width: '100%', display: 'flex', flexDirection: 'column', gap: '24px' }}>
         
         {/* HEADER */}
@@ -256,12 +280,71 @@ export default function StandaloneTestRunner({ testData, onBack }) {
           <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Pruebas de preparación examen de Biblioteca</span>
         </div>
 
+        {/* AVISO PEDAGÓGICO DE CONVENIENCIA DE LECTURA */}
+        {summaryText && (
+          <div style={{ background: 'rgba(234, 179, 8, 0.08)', border: '1px solid rgba(234, 179, 8, 0.3)', borderRadius: '14px', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: '260px' }}>
+              <span style={{ fontSize: '1.4rem' }}>💡</span>
+              <div style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+                <strong style={{ color: '#fbbf24', display: 'block', marginBottom: '2px' }}>Consejo de Preparación:</strong>
+                Te aconsejamos repasar los Puntos Clave del Tema antes de realizar la prueba. No obstante, si prefieres ir directo a evaluar tus conocimientos, puedes pasar directamente al cuestionario.
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={scrollToTest}
+              style={{
+                padding: '10px 18px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                color: '#fff',
+                fontSize: '0.88rem',
+                fontWeight: '800',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 12px rgba(245, 158, 11, 0.25)',
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              <span>⚡ Pasar directamente al Test</span>
+              <span>⬇️</span>
+            </button>
+          </div>
+        )}
+
         {/* RESUMEN DEL TEMA SI EXISTE */}
         {summaryText && (
           <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '16px', padding: '20px 24px' }}>
-            <div style={{ fontSize: '1rem', fontWeight: '800', color: '#34d399', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid rgba(16, 185, 129, 0.2)', paddingBottom: '8px' }}>
-              <BookOpen size={18} />
-              <span>📌 Resumen Ejecutivo y Puntos Clave del Tema</span>
+            <div style={{ fontSize: '1rem', fontWeight: '800', color: '#34d399', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', borderBottom: '1px solid rgba(16, 185, 129, 0.2)', paddingBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <BookOpen size={18} />
+                <span>📌 Resumen Ejecutivo y Puntos Clave del Tema</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={scrollToTest}
+                style={{
+                  padding: '5px 12px',
+                  borderRadius: '8px',
+                  background: 'rgba(16, 185, 129, 0.15)',
+                  color: '#34d399',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  fontSize: '0.8rem',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}
+              >
+                <span>⬇️ Saltar al Test</span>
+              </button>
             </div>
             <div
               style={{ fontSize: '0.92rem', lineHeight: '1.6', color: '#cbd5e1' }}
@@ -270,8 +353,8 @@ export default function StandaloneTestRunner({ testData, onBack }) {
           </div>
         )}
 
-        {/* CUESTIONARIO */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* CUESTIONARIO DE PREGUNTAS */}
+        <div id="test-questions-section" style={{ display: 'flex', flexDirection: 'column', gap: '20px', scrollMarginTop: '20px' }}>
           {questions.map((q, qIdx) => {
             const selectedOpt = answers[qIdx];
             const isCorrectAnswer = selectedOpt === q.correctAnswer;
@@ -383,6 +466,36 @@ export default function StandaloneTestRunner({ testData, onBack }) {
               {percentage >= 50 ? '🎉 ¡Enhorabuena! Has superado la prueba.' : '💡 Sigue repasando los puntos clave para asegurar la plaza.'}
             </p>
           </div>
+        )}
+
+        {/* BOTÓN FLOTANTE FLOTANTE DE SALTO RÁPIDO AL TEST */}
+        {summaryText && showFloatingJump && !submitted && (
+          <button
+            type="button"
+            onClick={scrollToTest}
+            style={{
+              position: 'fixed',
+              bottom: '24px',
+              right: '24px',
+              zIndex: 9999,
+              padding: '12px 20px',
+              borderRadius: '30px',
+              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+              color: '#fff',
+              fontSize: '0.88rem',
+              fontWeight: '800',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0 10px 25px rgba(245, 158, 11, 0.4)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <span>⚡ Ir al Test</span>
+            <span>⬇️</span>
+          </button>
         )}
 
       </div>
