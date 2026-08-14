@@ -2310,6 +2310,50 @@ export const firebaseService = {
     }
   },
 
+  async deleteTestResult(resultId) {
+    if (!resultId) return;
+
+    try {
+      const mockKey = 'bus_mock_test_results';
+      const raw = localStorage.getItem(mockKey) || '[]';
+      const list = JSON.parse(raw);
+      const filtered = list.filter(item => item.id !== resultId);
+      localStorage.setItem(mockKey, JSON.stringify(filtered));
+      window.dispatchEvent(new Event('storage'));
+    } catch (_) {}
+
+    if (db && !isMock) {
+      try {
+        const docRef = doc(db, 'test_results', resultId);
+        await deleteDoc(docRef);
+      } catch (err) {
+        console.warn("deleteTestResult warning:", err);
+      }
+    }
+  },
+
+  async clearAllTestResults() {
+    try {
+      const mockKey = 'bus_mock_test_results';
+      localStorage.setItem(mockKey, '[]');
+      window.dispatchEvent(new Event('storage'));
+    } catch (_) {}
+
+    if (db && !isMock) {
+      try {
+        const q = collection(db, 'test_results');
+        const snap = await getDocs(q);
+        const deletePromises = [];
+        snap.forEach(docSnap => {
+          deletePromises.push(deleteDoc(doc(db, 'test_results', docSnap.id)));
+        });
+        await Promise.all(deletePromises);
+      } catch (err) {
+        console.warn("clearAllTestResults warning:", err);
+      }
+    }
+  },
+
   async saveSharedTest(payload) {
     const shortId = (Math.floor(1000 + Math.random() * 9000)).toString();
     const nowIso = new Date().toISOString();

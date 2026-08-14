@@ -337,6 +337,26 @@ export default function AdminPanel({ topics }) {
       alert("Error al actualizar la fecha programada.");
     }
   };
+
+  const handleDeleteSingleTestResult = async (item) => {
+    if (window.confirm(`¿Estás seguro de que deseas eliminar permanentemente la entrega del alumno "${item.studentId}" para "${item.title}"?`)) {
+      try {
+        await firebaseService.deleteTestResult(item.id);
+      } catch (err) {
+        alert("Error al eliminar la entrega.");
+      }
+    }
+  };
+
+  const handleClearAllTestResults = async () => {
+    if (window.confirm("⚠️ ¿Estás seguro de que deseas ELIMINAR TODO EL REGISTRO DE NOTAS DE ALUMNOS?\n\nEsta acción borrará permanentemente todas las entregas recibidas y no se podrá deshacer.")) {
+      try {
+        await firebaseService.clearAllTestResults();
+      } catch (err) {
+        alert("Error al vaciar el registro.");
+      }
+    }
+  };
   
   const fetchSharedTests = async () => {
     try {
@@ -2491,19 +2511,34 @@ export default function AdminPanel({ topics }) {
 
           {/* STUDENT HTML TEST RESULTS PANEL */}
           <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)', background: 'rgba(15, 23, 42, 0.8)', marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
               <h3 style={{ margin: 0, color: '#34d399', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <CheckCircle size={22} style={{ color: '#10b981' }} />
                 <span>📊 Registro de Calificaciones de Alumnos (Tests HTML Entregados)</span>
               </h3>
-              <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', background: 'rgba(16, 185, 129, 0.15)', padding: '4px 12px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-                {studentTestResults.length} Entregas Registradas
-              </span>
+              
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', background: 'rgba(16, 185, 129, 0.15)', padding: '4px 12px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+                  {studentTestResults.length} Entregas Registradas
+                </span>
+
+                {studentTestResults.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={handleClearAllTestResults}
+                    className="btn"
+                    style={{ padding: '6px 12px', fontSize: '0.82rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.4)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    title="Eliminar permanentemente todas las entregas recibidas"
+                  >
+                    <Trash2 size={15} /> Vaciar Historial
+                  </button>
+                )}
+              </div>
             </div>
 
             {studentTestResults.length === 0 ? (
               <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', margin: '10px 0', fontSize: '0.88rem' }}>
-                No se han recibido entregas de alumnos aún. Cuando un alumno abra el archivo HTML exportado, responda las preguntas y pulse "Enviar y Corregir Test", su nota, porcentaje de acierto y respuestas aparecerán aquí en tiempo real.
+                No se han recibido entregas de alumnos aún. Cuando un alumno abra el archivo HTML exportado o píldora en línea, responda las preguntas y pulse "Enviar y Corregir Test", su nota, porcentaje de acierto y respuestas aparecerán aquí en tiempo real.
               </p>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '400px', overflowY: 'auto' }}>
@@ -2511,14 +2546,14 @@ export default function AdminPanel({ topics }) {
                   const percent = Math.round((item.score / item.maxScore) * 100);
                   const isPass = percent >= 50;
                   return (
-                    <div key={item.id || idx} style={{ background: 'rgba(30, 41, 59, 0.7)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '14px 18px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <div key={item.id || idx} style={{ background: 'rgba(30, 41, 59, 0.7)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '14px 18px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: '220px' }}>
                         <span style={{ fontWeight: '700', color: '#60a5fa', fontSize: '0.95rem' }}>📧 Alumno: {item.studentId}</span>
                         <span style={{ fontSize: '0.88rem', color: 'var(--text-main)' }}>📌 {item.title}</span>
                         <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>🕒 Fecha de entrega: {new Date(item.timestamp).toLocaleString()}</span>
                       </div>
 
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                         <div style={{ textAlign: 'right' }}>
                           <div style={{ fontSize: '1.2rem', fontWeight: '800', color: isPass ? '#4ade80' : '#fca5a5' }}>
                             Nota: {item.score} / {item.maxScore}
@@ -2527,6 +2562,16 @@ export default function AdminPanel({ topics }) {
                             {percent}% de aciertos netos ({isPass ? 'APROBADO' : 'SUSPENSO'})
                           </div>
                         </div>
+
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteSingleTestResult(item)}
+                          className="btn"
+                          style={{ padding: '6px 10px', fontSize: '0.8rem', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', gap: '4px' }}
+                          title="Eliminar este registro de evaluación"
+                        >
+                          <Trash2 size={14} /> Borrar
+                        </button>
                       </div>
                     </div>
                   );
@@ -2540,19 +2585,34 @@ export default function AdminPanel({ topics }) {
       {/* SUBTAB: REGISTRO DE NOTAS DE ALUMNOS (TESTS HTML) */}
       {activeSubTab === 'results' && (
         <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)', background: 'rgba(15, 23, 42, 0.8)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
             <h3 style={{ margin: 0, color: '#34d399', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
               <CheckCircle size={24} style={{ color: '#10b981' }} />
               <span>📊 Registro de Calificaciones de Alumnos (Tests HTML Entregados)</span>
             </h3>
-            <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', background: 'rgba(16, 185, 129, 0.15)', padding: '4px 12px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-              {studentTestResults.length} Entregas Registradas
-            </span>
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', background: 'rgba(16, 185, 129, 0.15)', padding: '4px 12px', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+                {studentTestResults.length} Entregas Registradas
+              </span>
+
+              {studentTestResults.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleClearAllTestResults}
+                  className="btn"
+                  style={{ padding: '6px 12px', fontSize: '0.82rem', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.4)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  title="Eliminar permanentemente todas las entregas recibidas"
+                >
+                  <Trash2 size={15} /> Vaciar Historial
+                </button>
+              )}
+            </div>
           </div>
 
           {studentTestResults.length === 0 ? (
             <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', margin: '15px 0', fontSize: '0.92rem' }}>
-              No se han recibido entregas de alumnos aún. Cuando un alumno abra el archivo HTML exportado, responda las preguntas y pulse "Enviar y Corregir Test", su nota, porcentaje de acierto y respuestas aparecerán aquí en tiempo real de forma 100% invisible para él.
+              No se han recibido entregas de alumnos aún. Cuando un alumno abra el archivo HTML exportado o píldora en línea, responda las preguntas y pulse "Enviar y Corregir Test", su nota, porcentaje de acierto y respuestas aparecerán aquí en tiempo real.
             </p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '550px', overflowY: 'auto' }}>
@@ -2561,7 +2621,7 @@ export default function AdminPanel({ topics }) {
                 const isPass = percent >= 50;
                 return (
                   <div key={item.id || idx} style={{ background: 'rgba(30, 41, 59, 0.7)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1, minWidth: '240px' }}>
                       <span style={{ fontWeight: '700', color: '#60a5fa', fontSize: '1rem' }}>📧 Alumno / Dispositivo: {item.studentId}</span>
                       <span style={{ fontSize: '0.9rem', color: 'var(--text-main)' }}>📌 {item.title}</span>
                       <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>🕒 Fecha de entrega: {new Date(item.timestamp).toLocaleString()}</span>
@@ -2576,6 +2636,16 @@ export default function AdminPanel({ topics }) {
                           {percent}% de aciertos netos ({isPass ? 'APROBADO' : 'SUSPENSO'})
                         </div>
                       </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteSingleTestResult(item)}
+                        className="btn"
+                        style={{ padding: '8px 12px', fontSize: '0.82rem', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                        title="Eliminar este registro de evaluación"
+                      >
+                        <Trash2 size={15} /> Borrar
+                      </button>
                     </div>
                   </div>
                 );
