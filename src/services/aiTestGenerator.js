@@ -32,7 +32,12 @@ Texto del tema:
 ${markdownText}
 `;
 
-  const modelsToTry = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-pro'];
+  const modelsToTry = [
+    'gemini-flash-latest', 
+    'gemini-2.5-flash', 
+    'gemini-1.5-flash', 
+    'gemini-pro-latest'
+  ];
   let lastError = null;
   let textResult = null;
 
