@@ -428,7 +428,7 @@ export default function AdminPanel({ topics }) {
   };
 
   // Handler: generar una píldora del planificador en 1 clic
-  const handleGeneratePill = async (pill, shouldDeleteOld = false) => {
+  const handleGeneratePill = async (pill, shouldDeleteOld = false, useAI = false) => {
     setPillGenerating(pill.id);
     try {
       // 1. Opcional: borrar el test viejo de la BBDD si se ha pedido "Regenerar y borrar"
@@ -452,14 +452,35 @@ export default function AdminPanel({ topics }) {
       // Cargar el resumen ejecutivo (sin bibliografía, garantizado por el motor)
       const summaryHtml = extractTopicSummary(markdownText, pill.sections);
 
-      // Generar el lote de preguntas con el motor semántico estricto
-      const questions = await generateNewQuestionsForTopic({
-        topicId: pill.topicId,
-        topicTitle: topicObj.title || pill.label,
-        markdownText,
-        count: pill.questions,
-        selectedSections: pill.sections,
-      });
+      let questions = [];
+
+      if (useAI) {
+        let apiKey = localStorage.getItem('gemini_api_key');
+        if (!apiKey) {
+          apiKey = window.prompt("Introduce tu clave API de Google Gemini para usar el Generador Inteligente:");
+          if (!apiKey) {
+            setPillGenerating(null);
+            return;
+          }
+          localStorage.setItem('gemini_api_key', apiKey.trim());
+        }
+        questions = await generateAITest({
+          topicId: pill.topicId.toString(),
+          topicTitle: topicObj.title || pill.label,
+          markdownText: markdownText,
+          count: pill.questions,
+          apiKey: apiKey
+        });
+      } else {
+        // Generar el lote de preguntas con el motor semántico estricto
+        questions = await generateNewQuestionsForTopic({
+          topicId: pill.topicId,
+          topicTitle: topicObj.title || pill.label,
+          markdownText,
+          count: pill.questions,
+          selectedSections: pill.sections,
+        });
+      }
 
       if (!questions || questions.length === 0) {
         alert('No se pudieron generar preguntas. Intenta de nuevo.');
@@ -2183,30 +2204,49 @@ export default function AdminPanel({ topics }) {
                         {/* Botones de acción */}
                         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                           {!meta.shortCode ? (
-                            <button
-                              onClick={() => handleGeneratePill(pill)}
-                              disabled={isGenerating}
-                              style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(99,102,241,0.4)' : 'linear-gradient(135deg,#6366f1,#4f46e5)', color: '#fff', border: 'none', fontWeight: '800', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }}
-                            >
-                              {isGenerating ? '⏳ Generando...' : '⚡ Generar Píldora'}
-                            </button>
+                            <>
+                              <button
+                                onClick={() => handleGeneratePill(pill, false, true)}
+                                disabled={isGenerating}
+                                title="Generar píldora inédita con IA"
+                                style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(16,185,129,0.4)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: '#fff', border: 'none', fontWeight: '800', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }}
+                              >
+                                {isGenerating ? '⏳ Generando IA...' : '⚡ Generar Píldora (IA)'}
+                              </button>
+                              <button
+                                onClick={() => handleGeneratePill(pill)}
+                                disabled={isGenerating}
+                                title="Generar píldora con Motor Clásico"
+                                style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(99,102,241,0.4)' : 'transparent', color: 'var(--text-muted)', border: '1px solid var(--border-color)', fontWeight: '700', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }}
+                              >
+                                {isGenerating ? '⏳' : 'Clásico'}
+                              </button>
+                            </>
                           ) : (
                             <>
                               <button
-                                onClick={() => handleGeneratePill(pill, true)}
+                                onClick={() => handleGeneratePill(pill, true, true)}
                                 disabled={isGenerating}
-                                title="Regenerar y borrar el anterior"
-                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(239,68,68,0.15)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                                title="Regenerar con IA y borrar el anterior"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(16,185,129,0.15)', color: '#34d399', border: '1px solid rgba(16,185,129,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
                               >
-                                {isGenerating ? '⏳' : '🔄 Regenerar (Borrar)'}
+                                {isGenerating ? '⏳' : '🔄 Regenerar (IA)'}
                               </button>
                               <button
-                                onClick={() => handleGeneratePill(pill, false)}
+                                onClick={() => handleGeneratePill(pill, true, false)}
                                 disabled={isGenerating}
-                                title="Generar una copia nueva conservando el anterior"
-                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid rgba(99,102,241,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                                title="Regenerar con motor clásico y borrar el anterior"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(239,68,68,0.15)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
                               >
-                                {isGenerating ? '⏳' : '➕ Nueva Copia'}
+                                {isGenerating ? '⏳' : '🔄 Clásico'}
+                              </button>
+                              <button
+                                onClick={() => handleGeneratePill(pill, false, true)}
+                                disabled={isGenerating}
+                                title="Generar una copia nueva con IA conservando el anterior"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(16,185,129,0.15)', color: '#34d399', border: '1px solid rgba(16,185,129,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                              >
+                                {isGenerating ? '⏳' : '➕ Copia (IA)'}
                               </button>
                               <button
                                 onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/?t=${meta.shortCode}`); }}
