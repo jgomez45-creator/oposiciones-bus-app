@@ -114,17 +114,12 @@ function isDeclarativeSentence(text) {
   if (!text || typeof text !== 'string') return false;
   const clean = text.trim();
 
-  // Rechazar textos demasiado cortos (< 30 caracteres)
   if (clean.length < 30) return false;
+  if (clean.split(/\s+/).length < 4) return false;
 
-  // Rechazar si termina en dos puntos o abreviatura de ejemplo colgando
   if (/[:;\-(]\s*$/.test(clean) || /\b(ej|p\.ej|etc)\s*\.?\s*$/i.test(clean)) return false;
+  if (/^[A-Z\s]+$/.test(clean)) return false;
 
-  // Rechazar títulos o nombres de apartados que no contienen verbo conjugado
-  const verbalMarkers = /\b(es|son|constituye|se|definen|depende|planifica|establece|regula|integra|requiere|cuenta|dispone|aplica|opera|garantiza|incluye|prohíbe|corresponde|pueden|podrán|están|está)\b/i;
-  if (!verbalMarkers.test(clean)) return false;
-
-  // Rechazar líneas de listas o tablas puras
   if (/^(tipo de usuario|documentos simultáneos|renovaciones|tabla|esquema|sección)\b/i.test(clean)) return false;
 
   return true;
@@ -986,49 +981,85 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
               heading: specificHeading
             });
           }
-huffledFacts = [...factPool].sort(() => 0.5 - Math.random());
+        });
+      });
+    });
 
-    // 5. Generar preguntas a partir de los hechos (con deduplicación de hecho fuente)
-    for (let idx = 0; idx < shuffledFacts.length && generated.length < count; idx++) {
-      const { rawFact, sentence: correctOpt, heading } = shuffledFacts[idx];
+    // 4. Agrupar los hechos por apartado (heading) para selección homogénea (Round-Robin)
+    const factsByHeading = {};
+    factPool.forEach(fact => {
+      const h = fact.heading || 'General';
+      if (!factsByHeading[h]) factsByHeading[h] = [];
+      factsByHeading[h].push(fact);
+    });
 
-      // ← Evitar usar el mismo hecho fuente dos veces (elimina preguntas calcadas)
-      const factKey = stripAccents(correctOpt).substring(0, 80);
-      if (usedFacts.has(factKey)) continue;
+    // Barajar los hechos dentro de cada apartado para dar variedad
+    Object.keys(factsByHeading).forEach(h => {
+      factsByHeading[h].sort(() => 0.5 - Math.random());
+    });
 
-      const cleanHeading = cleanHeadingTitle(heading);
-      const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
-      let stem = buildStem(normName, cleanHeading, generated.length);
+    const headings = Object.keys(factsByHeading);
+    headings.sort(() => 0.5 - Math.random());
 
-      const genResult = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
-      const distractors = genResult.distractors;
-      if (distractors.length < 3) continue;
+    // 5. Generar preguntas a partir de los hechos (Round-Robin)
+    let madeProgress = true;
+    const headingIndices = {};
+    headings.forEach(h => headingIndices[h] = 0);
 
-      // Sanitizar el enunciado si desvela el sujeto evaluado en las opciones
-      if (genResult.substitutedKeywords && genResult.substitutedKeywords.length > 0) {
-        const stemLower = stem.toLowerCase();
-        for (const kw of genResult.substitutedKeywords) {
-          if (stemLower.includes(kw)) {
-            const GENERIC_STEMS = [
-              `De acuerdo con la normativa aplicable, señale la afirmación verdadera:`,
-              `Según lo establecido en la normativa, ¿cuál de los siguientes enunciados es correcto?`,
-              `En relación con ${normName}, indique la respuesta correcta:`
-            ];
-            stem = GENERIC_STEMS[generated.length % GENERIC_STEMS.length];
-            break;
+    while (generated.length < count && madeProgress && headings.length > 0) {
+      madeProgress = false;
+      for (const currentHeading of headings) {
+        if (generated.length >= count) break;
+        const pool = factsByHeading[currentHeading];
+        let idx = headingIndices[currentHeading];
+
+        let foundValidFact = false;
+        while (idx < pool.length && !foundValidFact) {
+          const { rawFact, sentence: correctOpt, heading: factHeading } = pool[idx];
+          idx++;
+          headingIndices[currentHeading] = idx;
+
+          // ← Evitar usar el mismo hecho fuente dos veces (elimina preguntas calcadas)
+          const factKey = stripAccents(correctOpt).substring(0, 80);
+          if (usedFacts.has(factKey)) continue;
+
+          const cleanHeading = cleanHeadingTitle(factHeading);
+          const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
+          let stem = buildStem(normName, cleanHeading, generated.length);
+
+          const genResult = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
+          const distractors = genResult.distractors;
+          if (distractors.length < 3) continue;
+
+          // Sanitizar el enunciado si desvela el sujeto evaluado en las opciones
+          if (genResult.substitutedKeywords && genResult.substitutedKeywords.length > 0) {
+            const stemLower = stem.toLowerCase();
+            for (const kw of genResult.substitutedKeywords) {
+              if (stemLower.includes(kw)) {
+                const GENERIC_STEMS = [
+                  `De acuerdo con la normativa aplicable, señale la afirmación verdadera:`,
+                  `Según lo establecido en la normativa, ¿cuál de los siguientes enunciados es correcto?`,
+                  `En relación con ${normName}, indique la respuesta correcta:`
+                ];
+                stem = GENERIC_STEMS[generated.length % GENERIC_STEMS.length];
+                break;
+              }
+            }
+          }
+
+          const stemKey = stripAccents(stem).substring(0, 60);
+          if (usedStems.has(stemKey)) continue;
+
+          const candidateQ = createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId);
+
+          if (validateQuestion(candidateQ)) {
+            usedStems.add(stemKey);
+            usedFacts.add(factKey);
+            generated.push(candidateQ);
+            foundValidFact = true;
+            madeProgress = true;
           }
         }
-      }
-
-      const stemKey = stripAccents(stem).substring(0, 60);
-      if (usedStems.has(stemKey)) continue;
-
-      const candidateQ = createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId);
-
-      if (validateQuestion(candidateQ)) {
-        usedStems.add(stemKey);
-        usedFacts.add(factKey);
-        generated.push(candidateQ);
       }
     }
 
