@@ -529,12 +529,12 @@ const MUTATIONS = [
     replacements: ['limitación procedimental', 'barrera administrativa']
   },
   {
-    target: /\b(optimizar|optimización)\s*(de\s*la\s*|de\s*los\s*|del\s*|de\s*)?/gi,
+    target: /\b(optimizar|mejorar)\s*(de\s*la\s*|de\s*los\s*|del\s*|de\s*)?/gi,
     replacements: ['supervisar con carácter sancionador ', 'reducir drásticamente ', 'limitar el alcance de ']
   },
   {
-    target: /\b(mejora continua|mejorar)\b/gi,
-    replacements: ['fiscalizar', 'limitar', 'reducir']
+    target: /\b(optimización|mejora continua)\s*(de\s*la\s*|de\s*los\s*|del\s*|de\s*)?/gi,
+    replacements: ['fiscalización estricta ', 'reducción drástica ', 'limitación progresiva ']
   },
   {
     target: /\b(estratégic[oa]s?|estrategia)\b/gi,
