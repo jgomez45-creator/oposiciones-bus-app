@@ -32,32 +32,50 @@ Texto del tema:
 ${markdownText}
 `;
 
-  try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.2, // Low temperature for high accuracy
-          responseMimeType: "application/json",
-        }
-      })
-    });
+  const modelsToTry = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-pro'];
+  let lastError = null;
+  let textResult = null;
 
-    if (!response.ok) {
-      const errData = await response.json();
-      throw new Error(errData.error?.message || "Error al conectar con la API de Google Gemini");
-    }
+  for (const modelName of modelsToTry) {
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.2, // Low temperature for high accuracy
+            responseMimeType: "application/json",
+          }
+        })
+      });
 
-    const data = await response.json();
-    const textResult = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    
-    if (!textResult) {
-      throw new Error("Respuesta vacía de la IA");
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error?.message || `Error con modelo ${modelName}`);
+      }
+
+      const data = await response.json();
+      textResult = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      
+      if (textResult) {
+        break; // Éxito, salimos del bucle
+      }
+    } catch (error) {
+      console.warn(`Falló el modelo ${modelName}:`, error.message);
+      lastError = error;
+      // Si el error es de API Key inválida, no seguimos intentando otros modelos
+      if (error.message.includes("API Key") || error.message.includes("key")) {
+        throw error;
+      }
     }
+  }
+
+  if (!textResult) {
+    throw lastError || new Error("No se pudo obtener respuesta de ningún modelo de IA.");
+  }
 
     let cleanJson = textResult.trim();
     if (cleanJson.startsWith('```json')) {
