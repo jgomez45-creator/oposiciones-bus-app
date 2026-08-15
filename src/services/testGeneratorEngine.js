@@ -994,7 +994,25 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
           let stem = buildStem(normName, cleanHeading, generated.length);
 
           const genResult = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
-          const distractors = genResult.distractors;
+          let distractors = genResult.distractors;
+          
+          // ── FALLBACK UNIVERSAL (CROSS-POLLINATION) ──
+          // Si las reglas Regex no lograron sacar 3 distractores, rellenamos con frases reales
+          // de OTROS apartados del mismo tema. Al preguntar específicamente por el 'cleanHeading',
+          // las frases de otros apartados se convierten en opciones gramaticalmente perfectas pero falsas en contexto.
+          if (distractors.length < 3) {
+            const otherFacts = factPool.filter(f => f.heading !== factHeading && f.sentence !== correctOpt);
+            otherFacts.sort(() => 0.5 - Math.random()); // Barajar
+            for (const f of otherFacts) {
+              if (distractors.length >= 3) break;
+              const cand = f.sentence;
+              const normCand = stripAccents(cand);
+              if (!distractors.some(d => stripAccents(d) === normCand)) {
+                distractors.push(cand);
+              }
+            }
+          }
+
           if (distractors.length < 3) continue;
 
           // Sanitizar el enunciado si desvela el sujeto evaluado en las opciones
