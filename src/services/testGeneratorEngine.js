@@ -555,125 +555,44 @@ const MUTATIONS = [
   {
     target: /\b(eficiencia|eficacia)\b/gi,
     replacements: ['fiscalización estricta', 'burocratización progresiva']
+  },
+  // 7. Plazos, Parentescos y Porcentajes (Mutaciones dinámicas)
+  {
+    target: /\b(\d+\s*días?(\s*(hábiles|naturales|laborables))?)\b/gi,
+    replacements: ['15 días hábiles', '7 días naturales', '1 mes']
+  },
+  {
+    target: /\b(\d+\s*meses?|un\s*mes)\b/gi,
+    replacements: ['15 días hábiles', '3 meses', '6 meses']
+  },
+  {
+    target: /\b(\d+\s*horas?|cuarenta y ocho\s*horas?)\b/gi,
+    replacements: ['72 horas', '24 horas hábiles', '1 semana']
+  },
+  {
+    target: /\b(\d+\s*(%|por ciento)|mitad|tercio|cuarto)\b/gi,
+    replacements: ['30%', '50 por ciento', '25%']
+  },
+  {
+    target: /\b(primer|segundo|tercer|cuarto)\s*grado\b/gi,
+    replacements: ['segundo grado', 'tercer grado', 'cuarto grado']
+  },
+  {
+    target: /\b(consanguinidad)\b/gi,
+    replacements: ['afinidad', 'relación laboral']
+  },
+  {
+    target: /\b(afinidad)\b/gi,
+    replacements: ['consanguinidad', 'dependencia jerárquica']
   }
 ];
-
-// ── DETECTOR DE DOMINIO SEMÁNTICO ───────────────────────────────────────────
-
-/**
- * Identifica el tipo de dato semántico de una oración para garantizar
- * que los distractores pertenezcan al mismo dominio. Regla de oro:
- * preguntas de DÍAS solo pueden tener opciones de DÍAS; de PARENTESCO
- * solo opciones de PARENTESCO; de ÓRGANOS solo opciones de ÓRGANOS.
- */
-function detectSemanticDomain(text) {
-  const t = text.toLowerCase();
-  // DOMINIO: Días / Plazos / Licencias
-  if (/\b(\d+\s*días?|\d+\s*semanas?|\d+\s*meses?|\d+\s*horas?|días? hábiles?|días? naturales?|días? laborables?)\b/i.test(t)) {
-    return 'PLAZO';
-  }
-  // DOMINIO: Grados de parentesco
-  if (/\b(grado|consanguinidad|afinidad|primer grado|segundo grado|tercer grado|cuarto grado|parentesco)\b/i.test(t)) {
-    return 'PARENTESCO';
-  }
-  // DOMINIO: Porcentajes o fracciones
-  if (/\b(\d+\s*%|por ciento|porcentaje|fracción)\b/i.test(t)) {
-    return 'PORCENTAJE';
-  }
-  // DOMINIO: Órganos de gobierno
-  if (/\b(rector|gerente|claustro|consejo de gobierno|consejo social|vicerrectorado|junta de centro|comisión|decano|secretario general|cadus|rebiun|cbua)\b/i.test(t)) {
-    return 'ORGANO';
-  }
-  // DOMINIO: Normativo genérico (préstamos, regulación...)
-  return 'NORMATIVO';
-}
-
-// Bancos de distractores por dominio semántico
-const DOMAIN_DISTRACTOR_BANKS = {
-  PLAZO: [
-    '2 días naturales.',
-    '3 días hábiles.',
-    '5 días naturales.',
-    '5 días hábiles.',
-    '7 días naturales.',
-    '10 días hábiles.',
-    '10 días naturales.',
-    '15 días hábiles.',
-    '20 días naturales.',
-    '1 mes de permiso retribuido.',
-    '2 meses de permiso no retribuido.',
-    '3 días laborables.',
-    '4 días hábiles.',
-    '6 días naturales.',
-    '8 días hábiles.',
-    '30 días naturales.',
-  ],
-  PARENTESCO: [
-    'Primer grado de consanguinidad.',
-    'Segundo grado de consanguinidad.',
-    'Tercer grado de consanguinidad.',
-    'Cuarto grado de consanguinidad.',
-    'Primer grado de afinidad.',
-    'Segundo grado de afinidad.',
-    'Tercer grado de afinidad.',
-    'Cuarto grado de afinidad.',
-  ],
-  PORCENTAJE: [
-    'El 20 por ciento de la jornada ordinaria.',
-    'El 30 por ciento del salario base mensual.',
-    'El 50 por ciento del sueldo bruto anual.',
-    'El 75 por ciento de las retribuciones íntegras.',
-    'El 100 por ciento de la retribución fija.',
-    'El 10 por ciento de la jornada anual.',
-  ],
-  ORGANO: [
-    'La Gerencia de la Universidad de Sevilla.',
-    'El Claustro Universitario.',
-    'El Consejo Social de la US.',
-    'El Ministerio de Universidades.',
-    'El Vicerrectorado de Personal.',
-    'El Decanato del Centro correspondiente.',
-    'La Junta de Andalucía.',
-    'La Comisión de Investigación del Consejo de Gobierno.',
-    'El Defensor Universitario.',
-    'La Comisión Permanente del Consejo de Gobierno.',
-    'La Junta de Facultad correspondiente.',
-    'El Consejo de Gobierno de la Junta de Andalucía.',
-    'El Vicerrectorado de Docencia.',
-    'El Secretario General de la Universidad de Sevilla.',
-    'El Consejo de Dirección de la US.',
-    'La Comisión de Garantía de Calidad.',
-  ],
-};
 
 function generateSyntheticDistractors(correctOpt, heading, idx) {
   const used = new Set([stripAccents(correctOpt)]);
   const distractors = [];
   const substitutedKeywords = [];
 
-  // ── PASO 0: DETECCIÓN DE DOMINIO SEMÁNTICO ──────────────────────────────
-  const domain = detectSemanticDomain(correctOpt);
-
-  // Para dominios de PLAZO, PARENTESCO, PORCENTAJE y ORGANO, usar exclusivamente
-  // el banco homogéneo. Esto garantiza que NUNCA se mezclen conceptos de distinto
-  // tipo semántico: días solo con días, órganos solo con órganos.
-  if (domain === 'PLAZO' || domain === 'PARENTESCO' || domain === 'PORCENTAJE' || domain === 'ORGANO') {
-    const bank = DOMAIN_DISTRACTOR_BANKS[domain] || [];
-    const shuffled = [...bank].sort(() => 0.5 - Math.random());
-    for (const candidate of shuffled) {
-      if (distractors.length >= 3) break;
-      const cand = formatCompleteSentence(candidate);
-      const normCand = stripAccents(cand);
-      // Solo añadir si no coincide semánticamente con la respuesta correcta
-      if (cand && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
-        distractors.push(cand);
-        used.add(normCand);
-      }
-    }
-    return { distractors: distractors.slice(0, 3), substitutedKeywords };
-  }
-
-  // ── PASO 1: Mutación por regla estructurada (para dominios ORGANO / NORMATIVO) ──
+  // ── PASO 1: Mutación por regla estructurada ──
   for (const mut of MUTATIONS) {
     if (distractors.length >= 3) break;
     if (mut.target.test(correctOpt)) {
