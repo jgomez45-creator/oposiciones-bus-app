@@ -2,16 +2,18 @@ export const generateAITest = async ({ topicId, topicTitle, markdownText, count,
   if (!apiKey) throw new Error("API Key is missing");
   
   const prompt = `
-Eres un preparador experto de oposiciones. Tu tarea es generar un test de ${count} preguntas tipo test basado EXCLUSIVAMENTE en el siguiente texto del "${topicTitle}".
+Eres un preparador experto de oposiciones. Tu tarea es generar un test de ${count} preguntas tipo test.
 
-Reglas ESTRICTAS:
-1. Cada pregunta DEBE tener exactamente 4 opciones (A, B, C, D).
-2. SOLO UNA opción puede ser verdadera y correcta de acuerdo al texto.
-3. Las otras 3 opciones (distractores) DEBEN ser TOTALMENTE FALSAS en el contexto de la pregunta, pero deben sonar plausibles y usar jerga del texto (por ejemplo, mezclando conceptos de otras secciones para engañar, o alterando rangos numéricos/fechas/órganos).
-4. Prohibido usar negaciones vagas o perezosas como "No es cierto que..." o "Es falso que...". Formula afirmaciones directas que sean erróneas.
-5. La gramática debe ser absolutamente perfecta. No cortes oraciones a la mitad ni omitas preposiciones importantes.
-6. NO inventes información que no esté en el texto suministrado.
-7. Devuelve el resultado ÚNICAMENTE en el formato JSON especificado abajo, sin texto adicional (ni markdown \`\`\`json).
+Reglas ESTRICTAS Y FUNDAMENTALES:
+1. [CRÍTICO] BASADO EXCLUSIVAMENTE EN EL TEXTO: Todas las preguntas y respuestas deben extraerse ÚNICA Y EXCLUSIVAMENTE del texto que te proporciono al final. Tienes terminantemente prohibido utilizar conocimiento externo o añadir datos verídicos que no se mencionen explícitamente en el texto adjunto.
+2. Cada pregunta DEBE tener exactamente 4 opciones (A, B, C, D).
+3. SOLO UNA opción puede ser verdadera y correcta de acuerdo al texto.
+4. Las otras 3 opciones (distractores) DEBEN ser TOTALMENTE FALSAS en el contexto de la pregunta, pero deben sonar plausibles y usar jerga del texto (por ejemplo, mezclando conceptos de otras secciones para engañar, o alterando rangos numéricos/fechas/órganos).
+5. Prohibido usar negaciones vagas o perezosas como "No es cierto que..." o "Es falso que...". Formula afirmaciones directas que sean erróneas.
+6. [NUEVO] PROHIBIDO usar opciones comodín: Nunca utilices frases como "Todas las anteriores son correctas", "Ninguna de las anteriores" o combinaciones como "A y B son correctas". Las 4 opciones deben tener contenido real.
+7. [NUEVO] Control de longitud: Las 4 opciones de respuesta DEBEN tener una longitud (cantidad de palabras) muy similar entre sí. Evita por todos los medios que la respuesta correcta sea visualmente más larga o detallada que las falsas.
+8. La gramática debe ser absolutamente perfecta. No cortes oraciones a la mitad ni omitas preposiciones importantes.
+9. Devuelve el resultado ÚNICAMENTE en el formato JSON especificado abajo, sin texto adicional (ni markdown \`\`\`json).
 
 Formato JSON requerido:
 [
