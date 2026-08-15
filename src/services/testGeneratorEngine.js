@@ -757,21 +757,48 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
         ] },
     ];
 
+    // Expansión previa de contracciones para aislar los artículos
+    let expandedCorrectOpt = correctOpt
+      .replace(/\bdel\b/g, 'de el').replace(/\bal\b/g, 'a el')
+      .replace(/\bDel\b/g, 'De el').replace(/\bAl\b/g, 'A el');
+
     for (const rule of SEMANTIC_SUBSTITUTIONS) {
       if (distractors.length >= 3) break;
-      // Restablecer lastIndex antes de cada test (regexes con /g)
-      rule.re.lastIndex = 0;
-      if (!rule.re.test(correctOpt)) continue;
+      
+      // Creamos una nueva expresión regular que absorba los artículos opcionales
+      // Esto evita los dobles artículos (ej. "La el Reglamento")
+      let source = rule.re.source;
+      if (source.startsWith('\\b')) {
+        source = source.substring(2);
+      }
+      const articlePrefix = '(?:el |la |los |las |un |una |unos |unas |El |La |Los |Las |Un |Una |Unos |Unas )?';
+      const flexRe = new RegExp('\\b' + articlePrefix + source, 'gi');
+
+      if (!flexRe.test(expandedCorrectOpt)) continue;
+      
       for (const alt of rule.alts) {
         if (distractors.length >= 3) break;
-        rule.re.lastIndex = 0;
+        flexRe.lastIndex = 0;
         let replaced = false;
-        const candidateRaw = correctOpt.replace(rule.re, (match) => {
-          if (!replaced) { replaced = true; return alt; }
+        let candidateRaw = expandedCorrectOpt.replace(flexRe, (match) => {
+          if (!replaced) { 
+            replaced = true; 
+            // Si la frase empezaba con mayúscula, aseguramos que el reemplazo también
+            if (/^[A-Z]/.test(match)) {
+              return alt.charAt(0).toUpperCase() + alt.slice(1);
+            }
+            return alt; 
+          }
           return match;
         });
-        rule.re.lastIndex = 0;
+        
         if (!replaced) continue;
+        
+        // Contracción final (post-procesamiento)
+        candidateRaw = candidateRaw
+          .replace(/\bde el\b/gi, 'del').replace(/\ba el\b/gi, 'al')
+          .replace(/\bDe el\b/g, 'Del').replace(/\bA el\b/g, 'Al');
+
         const cand = formatCompleteSentence(candidateRaw);
         const normCand = stripAccents(cand);
         if (cand && !isLazyNegation(cand) && !used.has(normCand) && normCand !== stripAccents(correctOpt)) {
