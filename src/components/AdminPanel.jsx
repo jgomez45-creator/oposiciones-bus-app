@@ -427,9 +427,21 @@ export default function AdminPanel({ topics }) {
   };
 
   // Handler: generar una píldora del planificador en 1 clic
-  const handleGeneratePill = async (pill) => {
+  const handleGeneratePill = async (pill, shouldDeleteOld = false) => {
     setPillGenerating(pill.id);
     try {
+      // 1. Opcional: borrar el test viejo de la BBDD si se ha pedido "Regenerar y borrar"
+      const meta = pillPlanMeta[pill.id] || {};
+      const oldShortCode = meta.shortCode;
+      
+      if (shouldDeleteOld && oldShortCode) {
+        try {
+          await firebaseService.deleteSharedTest(oldShortCode);
+        } catch (e) {
+          console.warn("No se pudo borrar el test antiguo de Firebase. Continuando...", e);
+        }
+      }
+
       const padId = pill.topicId.toString().padStart(2, '0');
       const res = await fetch(`/markdown/tema-${padId}.md`);
       if (!res.ok) throw new Error('No se pudo cargar el markdown del tema');
@@ -2121,12 +2133,20 @@ export default function AdminPanel({ topics }) {
                           ) : (
                             <>
                               <button
-                                onClick={() => handleGeneratePill(pill)}
+                                onClick={() => handleGeneratePill(pill, true)}
                                 disabled={isGenerating}
-                                title="Regenerar"
+                                title="Regenerar y borrar el anterior"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(239,68,68,0.15)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                              >
+                                {isGenerating ? '⏳' : '🔄 Regenerar (Borrar)'}
+                              </button>
+                              <button
+                                onClick={() => handleGeneratePill(pill, false)}
+                                disabled={isGenerating}
+                                title="Generar una copia nueva conservando el anterior"
                                 style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid rgba(99,102,241,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
                               >
-                                {isGenerating ? '⏳' : '🔄 Regenerar'}
+                                {isGenerating ? '⏳' : '➕ Nueva Copia'}
                               </button>
                               <button
                                 onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/?t=${meta.shortCode}`); }}
