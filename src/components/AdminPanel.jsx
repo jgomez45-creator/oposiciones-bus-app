@@ -2162,18 +2162,30 @@ export default function AdminPanel({ topics }) {
                   </div>
                 </div>
               </div>
-              {/* Filtros */}
-              <div style={{ display: 'flex', gap: '6px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '20px', flexWrap: 'wrap' }}>
-                {[
-                  { id: 'all', label: `Todas (${PILL_TEMPLATE.length})` },
-                  { id: 'pending', label: `⚪ Pendientes (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'pending').length})` },
-                  { id: 'scheduled', label: `🟡 Programadas (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'scheduled').length})` },
-                  { id: 'shared', label: `🟢 Compartidas (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'shared').length})` },
-                ].map(f => (
-                  <button key={f.id} onClick={() => setPillFilterStatus(f.id)}
-                    style={{ padding: '6px 12px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '0.78rem', transition: 'all 0.15s', background: pillFilterStatus === f.id ? 'linear-gradient(135deg,#6366f1,#4f46e5)' : 'transparent', color: pillFilterStatus === f.id ? '#fff' : 'var(--text-muted)' }}
-                  >{f.label}</button>
-                ))}
+              {/* Filtros y Opciones */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
+                <div style={{ display: 'flex', gap: '6px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)', flexWrap: 'wrap' }}>
+                  {[
+                    { id: 'all', label: `Todas (${PILL_TEMPLATE.length})` },
+                    { id: 'pending', label: `⚪ Pendientes (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'pending').length})` },
+                    { id: 'scheduled', label: `🟡 Programadas (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'scheduled').length})` },
+                    { id: 'shared', label: `🟢 Compartidas (${PILL_TEMPLATE.filter(p => getPillStatus(p) === 'shared').length})` },
+                  ].map(f => (
+                    <button key={f.id} onClick={() => setPillFilterStatus(f.id)}
+                      style={{ padding: '6px 12px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '0.78rem', transition: 'all 0.15s', background: pillFilterStatus === f.id ? 'linear-gradient(135deg,#6366f1,#4f46e5)' : 'transparent', color: pillFilterStatus === f.id ? '#fff' : 'var(--text-muted)' }}
+                    >{f.label}</button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('gemini_api_key');
+                    alert('🔑 Clave API borrada con éxito de tu navegador.\\nLa próxima vez que intentes generar con IA, la aplicación te pedirá que introduzcas la clave correcta.');
+                  }}
+                  style={{ padding: '7px 14px', borderRadius: '8px', background: 'rgba(245,158,11,0.15)', color: '#fbbf24', border: '1px solid rgba(245,158,11,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  title="Borrar la clave actual si te has equivocado al copiarla"
+                >
+                  ⚙️ Cambiar Clave IA
+                </button>
               </div>
               {/* Tarjetas de píldoras */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
