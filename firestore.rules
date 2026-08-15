@@ -82,5 +82,11 @@ service cloud.firestore {
       allow write: if request.auth != null;
     }
 
+    // Reglas para Enlaces Cortos (Tests Compartidos de 4 dígitos)
+    match /shared_tests/{testId} {
+      allow read: if true; // Permitir que cualquier alumno lea el test usando el ID de 4 dígitos
+      allow write: if isAdmin(); // Solo el profesor puede generar los enlaces
+    }
+
   }
 }
