@@ -43,6 +43,7 @@ import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary } from '../services/testGeneratorEngine';
 import { downloadTestAsHTML } from '../utils/htmlTestExporter';
+import { generateAITest } from '../services/aiTestGenerator';
 import { compressTestToUrlToken } from '../utils/urlTestCodec';
 
 export default function AdminPanel({ topics }) {
@@ -900,7 +901,66 @@ export default function AdminPanel({ topics }) {
     }
   };
 
-  // ── GENERADOR DE TESTS IA ───────────────────────────────────────────
+  // ── GENERADOR DE TESTS IA (NUEVO PREDETERMINADO) ────────────────────
+  const handleGenerateAIBatch = async () => {
+    setIsGenerating(true);
+    setSaveSuccessMsg('');
+    try {
+      let apiKey = localStorage.getItem('gemini_api_key');
+      if (!apiKey) {
+        apiKey = window.prompt("Introduce tu clave API de Google Gemini (se guardará localmente en tu navegador para futuros usos):");
+        if (!apiKey) {
+          setIsGenerating(false);
+          return; // Cancelled
+        }
+        localStorage.setItem('gemini_api_key', apiKey.trim());
+      } else {
+        // Optional: allow user to reset key by holding shift when clicking? 
+        // For now, if they need to reset, they can clear localStorage.
+      }
+
+      const topicIdStr = (selectedGenTopicId || '1').toString();
+      const formattedNum = topicIdStr.padStart(2, '0');
+      let markdownText = '';
+      try {
+        const res = await fetch(`/markdown/tema-${formattedNum}.md`);
+        if (res.ok) markdownText = await res.text();
+      } catch (e) {
+        console.warn('Could not load markdown topic', e);
+      }
+
+      const topicList = Array.isArray(activeTopicList) ? activeTopicList : [];
+      const topicObj = topicList.find(t => t && t.id && t.id.toString() === topicIdStr) || { title: `Tema ${topicIdStr}` };
+
+      if (!markdownText) {
+         throw new Error("No se pudo cargar el texto del tema seleccionado.");
+      }
+
+      const newQuestions = await generateAITest({
+        topicId: topicIdStr,
+        topicTitle: topicObj.title || `Tema ${topicIdStr}`,
+        markdownText: markdownText,
+        count: genCount || 5,
+        apiKey: apiKey
+      });
+
+      setGeneratedBatch(newQuestions);
+    } catch (err) {
+      console.error('Handled error in handleGenerateAIBatch:', err);
+      // If auth error, maybe clear API key
+      if (err.message && (err.message.includes("API Key") || err.message.includes("key"))) {
+        localStorage.removeItem('gemini_api_key');
+        alert("Error de API Key. La clave se ha borrado. Vuelve a intentarlo para introducirla de nuevo.\\nDetalle: " + err.message);
+      } else {
+        alert("Error generando test con IA: " + err.message);
+      }
+      setGeneratedBatch([]);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  // ── GENERADOR DE TESTS CLÁSICO (REGEX) ──────────────────────────────
   const handleGenerateNewBatch = async () => {
     setIsGenerating(true);
     setSaveSuccessMsg('');
@@ -2470,13 +2530,13 @@ export default function AdminPanel({ topics }) {
 
                   <button
                     type="button"
-                    onClick={handleGenerateNewBatch}
+                    onClick={handleGenerateAIBatch}
                     disabled={isGenerating}
                     style={{
                       marginTop: '18px',
                       padding: '9px 16px',
                       borderRadius: '10px',
-                      background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                      background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', // Verde moderno para IA
                       color: '#fff',
                       fontWeight: '800',
                       border: 'none',
@@ -2485,11 +2545,37 @@ export default function AdminPanel({ topics }) {
                       alignItems: 'center',
                       gap: '8px',
                       fontSize: '0.85rem',
-                      boxShadow: '0 4px 14px rgba(245, 158, 11, 0.4)'
+                      boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)'
                     }}
                   >
                     <Sparkles size={18} />
-                    <span>{isGenerating ? 'Sintetizando...' : '⚡ Generar (Ver en Pantalla)'}</span>
+                    <span>{isGenerating ? 'Sintetizando...' : '⚡ Generar con IA (Recomendado)'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleGenerateNewBatch}
+                    disabled={isGenerating}
+                    style={{
+                      marginTop: '18px',
+                      padding: '9px 16px',
+                      borderRadius: '10px',
+                      background: 'transparent',
+                      color: 'var(--text-muted)',
+                      fontWeight: '600',
+                      border: '1px solid var(--border-color)',
+                      cursor: isGenerating ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontSize: '0.8rem',
+                      transition: 'var(--transition-fast)'
+                    }}
+                    onMouseOver={(e) => { e.currentTarget.style.color = 'var(--text-main)'; e.currentTarget.style.borderColor = 'var(--text-muted)'; }}
+                    onMouseOut={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.borderColor = 'var(--border-color)'; }}
+                  >
+                    <RefreshCw size={14} />
+                    <span>Usar Motor Clásico</span>
                   </button>
 
                   <button
