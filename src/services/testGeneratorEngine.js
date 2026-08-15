@@ -122,6 +122,12 @@ function isDeclarativeSentence(text) {
 
   if (/^(tipo de usuario|documentos simultáneos|renovaciones|tabla|esquema|sección)\b/i.test(clean)) return false;
 
+  // RECHAZAR oraciones que terminan en palabras "colgantes" típicas de introducciones a listas
+  // (antes del punto final que le haya puesto formatCompleteSentence)
+  if (/\b(para|como|son|es|siguientes|los|las|el|la|y|o|u|a|de|que|en|por|con|sin)\.?$/i.test(clean)) {
+    return false;
+  }
+
   return true;
 }
 
