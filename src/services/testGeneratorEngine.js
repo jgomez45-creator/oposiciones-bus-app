@@ -615,6 +615,7 @@ const DOMAIN_DISTRACTOR_BANKS = {
 function generateSyntheticDistractors(correctOpt, heading, idx) {
   const used = new Set([stripAccents(correctOpt)]);
   const distractors = [];
+  const substitutedKeywords = [];
 
   // ── PASO 0: DETECCIÓN DE DOMINIO SEMÁNTICO ──────────────────────────────
   const domain = detectSemanticDomain(correctOpt);
@@ -635,7 +636,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
         used.add(normCand);
       }
     }
-    return distractors.slice(0, 3);
+    return { distractors: distractors.slice(0, 3), substitutedKeywords };
   }
 
   // ── PASO 1: Mutación por regla estructurada (para dominios ORGANO / NORMATIVO) ──
@@ -783,6 +784,10 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
         let candidateRaw = expandedCorrectOpt.replace(flexRe, (match) => {
           if (!replaced) { 
             replaced = true; 
+            // Save the exact replaced word (stripped of optional articles) for sanitization later
+            const coreMatch = match.replace(/^(el|la|los|las|un|una|unos|unas|El|La|Los|Las|Un|Una|Unos|Unas)\s+/i, '').trim();
+            if (coreMatch) substitutedKeywords.push(coreMatch.toLowerCase());
+            
             // Si la frase empezaba con mayúscula, aseguramos que el reemplazo también
             if (/^[A-Z]/.test(match)) {
               return alt.charAt(0).toUpperCase() + alt.slice(1);
@@ -852,7 +857,7 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
     }
   }
 
-  return distractors.slice(0, 3);
+  return { distractors: distractors.slice(0, 3), substitutedKeywords };
 }
 
 // ── CONTROL DE CALIDAD Y CREACIÓN DE PREGUNTA ──────────────────────────────
@@ -998,13 +1003,30 @@ export async function generateNewQuestionsForTopic({ topicId, topicTitle, markdo
 
       const cleanHeading = cleanHeadingTitle(heading);
       const normName = getOfficialNormName(topicId, topicTitle, cleanHeading, rawFact);
-      const stem = buildStem(normName, cleanHeading, generated.length);
+      let stem = buildStem(normName, cleanHeading, generated.length);
+
+      const genResult = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
+      const distractors = genResult.distractors;
+      if (distractors.length < 3) continue;
+
+      // Sanitizar el enunciado si desvela el sujeto evaluado en las opciones
+      if (genResult.substitutedKeywords && genResult.substitutedKeywords.length > 0) {
+        const stemLower = stem.toLowerCase();
+        for (const kw of genResult.substitutedKeywords) {
+          if (stemLower.includes(kw)) {
+            const GENERIC_STEMS = [
+              `De acuerdo con la normativa aplicable, señale la afirmación verdadera:`,
+              `Según lo establecido en la normativa, ¿cuál de los siguientes enunciados es correcto?`,
+              `En relación con ${normName}, indique la respuesta correcta:`
+            ];
+            stem = GENERIC_STEMS[generated.length % GENERIC_STEMS.length];
+            break;
+          }
+        }
+      }
 
       const stemKey = stripAccents(stem).substring(0, 60);
       if (usedStems.has(stemKey)) continue;
-
-      const distractors = generateSyntheticDistractors(correctOpt, cleanHeading, generated.length);
-      if (distractors.length < 3) continue;
 
       const candidateQ = createStructuredQuestion(stem, correctOpt, distractors, rawFact, cleanHeading, topicId);
 
