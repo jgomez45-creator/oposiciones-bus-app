@@ -114,11 +114,11 @@ function isDeclarativeSentence(text) {
   if (!text || typeof text !== 'string') return false;
   const clean = text.trim();
 
-  if (clean.length < 30) return false;
-  if (clean.split(/\s+/).length < 4) return false;
-
-  if (/[:;\-(]\s*$/.test(clean) || /\b(ej|p\.ej|etc)\s*\.?\s*$/i.test(clean)) return false;
-  if (/^[A-Z\s]+$/.test(clean)) return false;
+  // Reducimos longitud mínima de 30 a 15 para admitir epígrafes cortos
+  if (clean.length < 15) return false;
+  
+  // Admitimos oraciones que terminen en punto, dos puntos, o sin puntuación (común en listas)
+  if (/^[A-Z\s]+$/.test(clean)) return false; // Todo mayúsculas, suele ser un título descartable
 
   if (/^(tipo de usuario|documentos simultáneos|renovaciones|tabla|esquema|sección)\b/i.test(clean)) return false;
 
@@ -516,6 +516,39 @@ const MUTATIONS = [
   {
     target: /deberá|deberán|están obligados/gi,
     replacements: ['podrá de manera potestativa', 'tendrán la facultad opcional de']
+  },
+  // 6. Enriquecimiento Semántico Abstracto (Gestión, Calidad y Procesos)
+  {
+    target: /\b(herramienta|instrumento)\b(?!\s*de\s*evaluación)/gi,
+    replacements: ['limitación procedimental', 'barrera administrativa']
+  },
+  {
+    target: /\b(optimizar|optimización)\s*(de\s*la\s*|de\s*los\s*|del\s*|de\s*)?/gi,
+    replacements: ['supervisar con carácter sancionador ', 'reducir drásticamente ', 'limitar el alcance de ']
+  },
+  {
+    target: /\b(mejora continua|mejorar)\b/gi,
+    replacements: ['fiscalizar', 'limitar', 'reducir']
+  },
+  {
+    target: /\b(estratégic[oa]s?|estrategia)\b/gi,
+    replacements: ['secundario y opcional', 'puramente burocrático']
+  },
+  {
+    target: /\b(participación|implicación)\b/gi,
+    replacements: ['exclusión deliberada', 'delegación pasiva']
+  },
+  {
+    target: /\b(transparencia|rendición de cuentas)\b/gi,
+    replacements: ['opacidad administrativa', 'reserva de la información departamental']
+  },
+  {
+    target: /\b(evaluación continua|evaluación permanente)\b/gi,
+    replacements: ['inspección puntual y esporádica', 'auditoría externa quinquenal']
+  },
+  {
+    target: /\b(eficiencia|eficacia)\b/gi,
+    replacements: ['fiscalización estricta', 'burocratización progresiva']
   }
 ];
 
@@ -837,6 +870,14 @@ function generateSyntheticDistractors(correctOpt, heading, idx) {
       // Sustitución del colectivo beneficiario
       (t) => t.replace(/\bPersonal Docente e Investigador\b|\bPDI\b/g, 'Personal de Administración y Servicios (PAS)'),
       (t) => t.replace(/\bPersonal de Administraci[oó]n y Servicios\b|\bPAS\b/g, 'Personal Docente e Investigador (PDI)'),
+      // Cruce de conceptos abstracto (trampas conceptuales)
+      (t) => t.replace(/\bgesti[oó]n de( la)? calidad\b/gi, 'evaluación punitiva del rendimiento'),
+      (t) => t.replace(/\b(criterios?|bloques?)\b/gi, 'recomendaciones opcionales'),
+      (t) => t.replace(/\b(indicadores?)\b/gi, 'estimaciones orientativas'),
+      (t) => t.replace(/\b(evaluaci[oó]n|diagn[oó]stico)\b/gi, 'sanción disciplinaria'),
+      (t) => t.replace(/\b(modelo EFQM)\b/gi, 'sistema ISO estandarizado antiguo'),
+      (t) => t.replace(/\b(puntuaci[oó]n)\b/gi, 'tasa de penalización'),
+      (t) => t.replace(/\b(cartas? de servicios?)\b/gi, 'catálogo de tarifas públicas'),
     ];
 
     for (const paraphrase of CONTEXTUAL_PARAPHRASE) {
