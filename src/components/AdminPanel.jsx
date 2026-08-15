@@ -501,7 +501,12 @@ export default function AdminPanel({ topics }) {
       fetchSharedTests();
     } catch (err) {
       console.error('Error generando píldora:', err);
-      alert('Error al generar la píldora. Revisa la consola.');
+      if (err.message && (err.message.includes("API Key") || err.message.includes("key"))) {
+        localStorage.removeItem('gemini_api_key');
+        alert("Error de API Key. La clave se ha borrado. Vuelve a intentarlo para introducirla de nuevo.\\nDetalle: " + err.message);
+      } else {
+        alert("Error al generar la píldora: " + err.message);
+      }
     } finally {
       setPillGenerating(null);
     }

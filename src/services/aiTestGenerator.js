@@ -59,7 +59,14 @@ ${markdownText}
       throw new Error("Respuesta vacía de la IA");
     }
 
-    const parsedQuestions = JSON.parse(textResult);
+    let cleanJson = textResult.trim();
+    if (cleanJson.startsWith('```json')) {
+      cleanJson = cleanJson.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+    } else if (cleanJson.startsWith('```')) {
+      cleanJson = cleanJson.replace(/^```\s*/, '').replace(/\s*```$/, '');
+    }
+
+    const parsedQuestions = JSON.parse(cleanJson);
     
     // Add required metadata
     return parsedQuestions.map(q => ({
