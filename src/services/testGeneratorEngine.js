@@ -465,7 +465,7 @@ const MUTATIONS = [
     ]
   },
   {
-    target: /Rectorado|Rector|Rectora/gi,
+    target: /\b(Rectorado|Rector|Rectora)\b/gi,
     replacements: [
       'Claustro Universitario',
       'Consejo de Alumnos de la Universidad de Sevilla (CADUS)',
@@ -487,7 +487,7 @@ const MUTATIONS = [
   },
   // 4. Modificadores normativos y de uso (Trampas absolutas)
   {
-    target: /carnet universitario(\s+oficial)?(\s*\([^)]*\))?/gi,
+    target: /\b(carnet universitario(\s+oficial)?(\s*\([^)]*\))?)\b/gi,
     replacements: [
       'carnet de biblioteca específico expedido tras abonar la tasa correspondiente',
       'certificado de acreditación expedido por la Secretaría del Centro',
@@ -495,32 +495,32 @@ const MUTATIONS = [
     ]
   },
   {
-    target: /obligatorio|obligatoria|preceptivo|preceptiva/gi,
+    target: /\b(obligatorio|obligatoria|preceptivo|preceptiva)\b/gi,
     replacements: ['facultativo y meramente orientativo', 'de aplicación opcional según el criterio de cada centro']
   },
   {
-    target: /gratuito|gratuita|sin coste/gi,
+    target: /\b(gratuito|gratuita|sin coste)\b/gi,
     replacements: ['sujeto al pago previo de una tasa pública aprobada', 'de pago obligatorio para usuarios no docentes']
   },
   {
-    target: /todos los miembros|toda la comunidad/gi,
+    target: /\b(todos los miembros|toda la comunidad)\b/gi,
     replacements: ['exclusivamente el Personal Docente e Investigador (PDI) con dedicación a tiempo completo', 'únicamente los estudiantes de Máster y Doctorado']
   },
   {
-    target: /antes de la hora de cierre del mismo día|mismo día/gi,
+    target: /\b(antes de la hora de cierre del mismo día|mismo día)\b/gi,
     replacements: ['en un plazo máximo de 48 horas tras el préstamo', 'en un plazo de tres días hábiles lectivos']
   },
   // 5. Cantidades y Absolutos
   {
-    target: /siempre|en todo caso|invariablemente/gi,
+    target: /\b(siempre|en todo caso|invariablemente)\b/gi,
     replacements: ['excepcionalmente y previa solicitud justificada', 'nunca, salvo autorización expresa del Rectorado']
   },
   {
-    target: /podrá|podrán|están facultados/gi,
+    target: /\b(podrá|podrán|están facultados)\b/gi,
     replacements: ['deberá inexcusablemente', 'están obligados bajo sanción disciplinaria a']
   },
   {
-    target: /deberá|deberán|están obligados/gi,
+    target: /\b(deberá|deberán|están obligados)\b/gi,
     replacements: ['podrá de manera potestativa', 'tendrán la facultad opcional de']
   },
   // 6. Enriquecimiento Semántico Abstracto (Gestión, Calidad y Procesos)
