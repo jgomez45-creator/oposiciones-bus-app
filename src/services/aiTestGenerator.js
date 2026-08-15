@@ -91,18 +91,13 @@ ${markdownText}
 
     const parsedQuestions = JSON.parse(cleanJson);
     
-    // Add required metadata
-    return parsedQuestions.map(q => ({
-      ...q,
-      id: `ai-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      topicId: topicId,
-      topicTitle: topicTitle,
-      correct: q.options[q.correctAnswer].replace(/^[A-D]\)\s*/, ''),
-      question: q.q // Alias for compatibility
-    }));
-    
-  } catch (error) {
-    console.error("AI Generation error:", error);
-    throw error;
-  }
+  // Add required metadata
+  return parsedQuestions.map(q => ({
+    ...q,
+    id: `ai-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+    topicId: topicId,
+    topicTitle: topicTitle,
+    correct: q.options[q.correctAnswer].replace(/^[A-D]\)\s*/, ''),
+    question: q.q // Alias for compatibility
+  }));
 };
