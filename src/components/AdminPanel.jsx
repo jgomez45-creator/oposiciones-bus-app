@@ -41,7 +41,7 @@ import {
 import { firebaseService } from '../services/firebaseService';
 import quizzesData from '../data/quizzes.json';
 import topicsData from '../data/topics.json';
-import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary, createEmergencyFallbackBatch } from '../services/testGeneratorEngine';
+import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary } from '../services/testGeneratorEngine';
 import { downloadTestAsHTML } from '../utils/htmlTestExporter';
 import { compressTestToUrlToken } from '../utils/urlTestCodec';
 
@@ -915,14 +915,42 @@ export default function AdminPanel({ topics }) {
         selectedSections: safeHeadings
       });
 
-      const batch = Array.isArray(newQuestions) && newQuestions.length > 0
-        ? newQuestions
-        : createEmergencyFallbackBatch(topicIdStr, topicObj.title || `Tema ${topicIdStr}`, genCount || 5);
+      let batch = newQuestions;
+      if (!Array.isArray(newQuestions) || newQuestions.length === 0) {
+        batch = [{
+          id: `error-${Date.now()}`,
+          topicId: topicIdStr,
+          topicTitle: topicObj.title || `Tema ${topicIdStr}`,
+          q: 'Error de Generación: No se ha podido extraer suficiente contenido útil de este tema. Revisa el texto Markdown para asegurarte de que contiene oraciones completas y válidas.',
+          correct: 'Ampliar o corregir el temario.',
+          options: [
+            'A) Ampliar o corregir el temario.',
+            'B) Ignorar esta pregunta.',
+            'C) Reiniciar el servidor.',
+            'D) Revisar la configuración.'
+          ],
+          correctAnswer: 0,
+          explanation: 'Esta es una pregunta de aviso automático porque el generador no encontró suficientes datos en el temario para alcanzar el número de preguntas solicitado.'
+        }];
+      }
       setGeneratedBatch(batch);
     } catch (err) {
-      console.error('Handled error in handleGenerateNewBatch, loading emergency batch:', err);
-      const fallbackQuestions = createEmergencyFallbackBatch((selectedGenTopicId || '1').toString(), 'Tema de examen BUS', genCount || 5);
-      setGeneratedBatch(fallbackQuestions);
+      console.error('Handled error in handleGenerateNewBatch:', err);
+      setGeneratedBatch([{
+          id: `error-${Date.now()}`,
+          topicId: (selectedGenTopicId || '1').toString(),
+          topicTitle: 'Error de Servidor',
+          q: 'Error de Generación: Ha ocurrido un fallo interno en el motor de generación.',
+          correct: 'Revisar la consola de errores.',
+          options: [
+            'A) Revisar la consola de errores.',
+            'B) Ignorar esta pregunta.',
+            'C) Reiniciar el servidor.',
+            'D) Revisar la configuración.'
+          ],
+          correctAnswer: 0,
+          explanation: err.message
+      }]);
     } finally {
       setIsGenerating(false);
     }
