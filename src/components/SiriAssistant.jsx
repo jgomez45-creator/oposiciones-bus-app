@@ -608,12 +608,16 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose, currentU
                                  localAnswer.includes('Respuesta entrenada') ||
                                  localAnswer.includes('¿Sabrías cuál es la opción correcta?');
 
-    if (apiKey && !isStructuredResponse) {
-      // Mostrar estado de escribiendo
-      setMessages(prev => [...prev, { id: 'typing', sender: 'bot', text: 'Escribiendo...', timestamp: new Date() }]);
-      
-      try {
-        const systemPrompt = `Eres el Agente BUS, asistente virtual de opositores de la Biblioteca de la Universidad de Sevilla.
+    if (!isStructuredResponse) {
+      if (!apiKey) {
+        // Fallback clásico con aviso de que falta la clave
+        finalAnswer = `⚠️ **Nota de Sistema:** La integración con IA está desactivada porque falta la API Key de Gemini. Debes configurarla en el Panel de Administrador.\n\n` + finalAnswer;
+      } else {
+        // Mostrar estado de escribiendo
+        setMessages(prev => [...prev, { id: 'typing', sender: 'bot', text: 'Escribiendo...', timestamp: new Date() }]);
+        
+        try {
+          const systemPrompt = `Eres el Agente BUS, asistente virtual de opositores de la Biblioteca de la Universidad de Sevilla.
 Tu tarea es responder a la pregunta del usuario utilizando ÚNICAMENTE la información proporcionada en el siguiente contexto extraído del temario oficial (Código 4140).
 - Redacta de forma natural, clara y conversacional (formato Markdown).
 - Si la respuesta no está en el contexto, DEBES decir explícitamente: 'Esa información no consta en las fuentes verificadas del temario oficial'. Tienes estrictamente prohibido usar conocimiento externo.
@@ -625,27 +629,32 @@ ${localAnswer}
 Pregunta del usuario:
 ${query}`;
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: systemPrompt }] }],
-            generationConfig: { temperature: 0.1 }
-          })
-        });
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: systemPrompt }] }],
+              generationConfig: { temperature: 0.1 }
+            })
+          });
 
-        if (response.ok) {
-          const data = await response.json();
-          const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (geminiText) {
-            finalAnswer = geminiText;
+          if (response.ok) {
+            const data = await response.json();
+            const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (geminiText) {
+              finalAnswer = `✨ *(Generado por IA)*\n\n` + geminiText;
+            }
+          } else {
+             console.warn("Gemini API error in Agente BUS:", await response.text());
+             finalAnswer = `⚠️ **Error de API Gemini:** Falló la conexión con la IA. Usando respuesta clásica:\n\n` + finalAnswer;
           }
+        } catch (err) {
+          console.error("Gemini request exception:", err);
+          finalAnswer = `⚠️ **Error de Red:** No se pudo conectar con Gemini. Usando respuesta clásica:\n\n` + finalAnswer;
+        } finally {
+          // Quitar estado de escribiendo
+          setMessages(prev => prev.filter(m => m.id !== 'typing'));
         }
-      } catch (err) {
-        console.warn("Gemini API error in Agente BUS:", err);
-      } finally {
-        // Quitar estado de escribiendo
-        setMessages(prev => prev.filter(m => m.id !== 'typing'));
       }
     }
 
