@@ -17,7 +17,10 @@ import {
   deleteDoc,
   onSnapshot,
   collection,
-  getDocs
+  getDocs,
+  enableIndexedDbPersistence,
+  query,
+  where
 } from 'firebase/firestore';
 import {
   getStorage,
@@ -61,6 +64,11 @@ if (!isMock) {
     auth = getAuth(app);
     db = initializeFirestore(app, {
       experimentalAutoDetectLongPolling: true
+    });
+    
+    // Activar caché offline
+    enableIndexedDbPersistence(db).catch((err) => {
+      console.warn("No se pudo habilitar el caché offline:", err.message);
     });
     
     // Ensure Firebase Auth session is active so Firestore permissions never fail
@@ -1374,7 +1382,11 @@ export const firebaseService = {
       targetUsers = Object.values(mockUsers);
     } else if (db) {
       try {
-        const snapshot = await getDocs(collection(db, 'users'));
+        const q = query(
+          collection(db, 'users'), 
+          where('emailNotificationsActive', '!=', false)
+        );
+        const snapshot = await getDocs(q);
         snapshot.forEach(docSnap => {
           targetUsers.push({ uid: docSnap.id, ...docSnap.data() });
         });
