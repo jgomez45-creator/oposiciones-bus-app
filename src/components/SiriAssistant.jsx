@@ -586,7 +586,7 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose, currentU
     }
   };
 
-  const handleSendMessage = (textToSend = null) => {
+  const handleSendMessage = async (textToSend = null) => {
     const query = textToSend || inputText;
     if (!query.trim()) return;
     const isClearCmd = /(borra|borrar|limpiar|vaciar|reiniciar)\s+(la\s+|el\s+)?(conversacion|conversación|chat|historial)/i.test(query.trim());
@@ -594,19 +594,71 @@ export default function SiriAssistant({ activeTopicId, isOpen, onClose, currentU
     const userMessage = { id: Date.now(), sender: 'user', text: query, timestamp: new Date() };
     setMessages(prev => [...prev, userMessage]);
     setInputText('');
-    setTimeout(() => {
-      const answer = generateAnswer(query);
-      const botMessage = {
-        id: Date.now() + 1,
-        sender: 'bot',
-        text: answer,
-        timestamp: new Date(),
-        userQuery: query,
-        feedback: null
-      };
-      setMessages(prev => [...prev, botMessage]);
-      if (voiceEnabled) speakText(answer);
-    }, 250);
+
+    // 1. Obtener la respuesta RAG local del motor (basada en el temario estricto)
+    const localAnswer = generateAnswer(query);
+    let finalAnswer = localAnswer;
+
+    // 2. Comprobar si existe API Key de Gemini
+    const apiKey = localStorage.getItem('gemini_api_key');
+    
+    // Filtros: No usar Gemini si es una respuesta muy estructurada (tests, tablas, respuestas entrenadas)
+    const isStructuredResponse = localAnswer.includes('Pregunta de Examen:') || 
+                                 localAnswer.includes('TABLA DE GRADOS DE PARENTESCO') ||
+                                 localAnswer.includes('Respuesta entrenada') ||
+                                 localAnswer.includes('¿Sabrías cuál es la opción correcta?');
+
+    if (apiKey && !isStructuredResponse) {
+      // Mostrar estado de escribiendo
+      setMessages(prev => [...prev, { id: 'typing', sender: 'bot', text: 'Escribiendo...', timestamp: new Date() }]);
+      
+      try {
+        const systemPrompt = `Eres el Agente BUS, asistente virtual de opositores de la Biblioteca de la Universidad de Sevilla.
+Tu tarea es responder a la pregunta del usuario utilizando ÚNICAMENTE la información proporcionada en el siguiente contexto extraído del temario oficial (Código 4140).
+- Redacta de forma natural, clara y conversacional (formato Markdown).
+- Si la respuesta no está en el contexto, DEBES decir explícitamente: 'Esa información no consta en las fuentes verificadas del temario oficial'. Tienes estrictamente prohibido usar conocimiento externo.
+- Incluye al final de tu respuesta la fuente en formato: "📋 Fuente: [Extraído del contexto]".
+
+Contexto (Respuesta cruda del motor de búsqueda local):
+${localAnswer}
+
+Pregunta del usuario:
+${query}`;
+
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: systemPrompt }] }],
+            generationConfig: { temperature: 0.1 }
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (geminiText) {
+            finalAnswer = geminiText;
+          }
+        }
+      } catch (err) {
+        console.warn("Gemini API error in Agente BUS:", err);
+      } finally {
+        // Quitar estado de escribiendo
+        setMessages(prev => prev.filter(m => m.id !== 'typing'));
+      }
+    }
+
+    const botMessage = {
+      id: Date.now() + 1,
+      sender: 'bot',
+      text: finalAnswer,
+      timestamp: new Date(),
+      userQuery: query,
+      feedback: null
+    };
+    setMessages(prev => [...prev, botMessage]);
+    if (voiceEnabled) speakText(finalAnswer);
   };
 
   const AdminConsoleView = () => {
