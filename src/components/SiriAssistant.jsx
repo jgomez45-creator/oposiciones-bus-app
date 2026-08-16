@@ -629,24 +629,42 @@ ${localAnswer}
 Pregunta del usuario:
 ${query}`;
 
-          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              contents: [{ parts: [{ text: systemPrompt }] }],
-              generationConfig: { temperature: 0.1 }
-            })
-          });
+          const modelsToTry = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-flash-latest'];
+          let geminiText = null;
+          let lastErrorMsg = '';
 
-          if (response.ok) {
-            const data = await response.json();
-            const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (geminiText) {
-              finalAnswer = `✨ *(Generado por IA)*\n\n` + geminiText;
+          for (const modelName of modelsToTry) {
+            try {
+              const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  contents: [{ parts: [{ text: systemPrompt }] }],
+                  generationConfig: { temperature: 0.1 }
+                })
+              });
+
+              if (response.ok) {
+                const data = await response.json();
+                geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (geminiText) break;
+              } else {
+                lastErrorMsg = await response.text();
+                console.warn(`Gemini API error in Agente BUS (${modelName}):`, lastErrorMsg);
+              }
+            } catch (err) {
+              lastErrorMsg = err.message;
+              console.error(`Gemini request exception (${modelName}):`, err);
             }
+          }
+
+          if (geminiText) {
+            finalAnswer = `✨ *(Generado por IA)*\n\n` + geminiText;
           } else {
-             console.warn("Gemini API error in Agente BUS:", await response.text());
-             finalAnswer = `⚠️ **Error de API Gemini:** Falló la conexión con la IA. Usando respuesta clásica:\n\n` + finalAnswer;
+             // Print the exact error so we can debug it
+             let shortErr = 'Error desconocido';
+             try { shortErr = JSON.parse(lastErrorMsg).error.message; } catch(e) { shortErr = lastErrorMsg.substring(0, 100); }
+             finalAnswer = `⚠️ **Error de API Gemini:** ${shortErr}\n\nUsando respuesta clásica:\n\n` + finalAnswer;
           }
         } catch (err) {
           console.error("Gemini request exception:", err);
