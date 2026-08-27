@@ -53,8 +53,25 @@ ${markdownText}
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
-            temperature: 0.2, // Low temperature for high accuracy
+            temperature: 0.2,
             responseMimeType: "application/json",
+            responseSchema: {
+              type: "ARRAY",
+              items: {
+                type: "OBJECT",
+                properties: {
+                  q: { type: "STRING", description: "Enunciado de la pregunta" },
+                  options: {
+                    type: "ARRAY",
+                    items: { type: "STRING" },
+                    description: "Las 4 opciones de respuesta (A, B, C, D)"
+                  },
+                  correctAnswer: { type: "INTEGER", description: "El índice de la respuesta correcta (0, 1, 2, o 3)" },
+                  explanation: { type: "STRING", description: "Explicación de por qué es correcta" }
+                },
+                required: ["q", "options", "correctAnswer", "explanation"]
+              }
+            }
           }
         })
       });
@@ -91,7 +108,13 @@ ${markdownText}
       cleanJson = cleanJson.replace(/^```\s*/, '').replace(/\s*```$/, '');
     }
 
-    const parsedQuestions = JSON.parse(cleanJson);
+    let parsedQuestions;
+    try {
+      parsedQuestions = JSON.parse(cleanJson);
+    } catch (parseError) {
+      console.error("Error parsing JSON response:", cleanJson);
+      throw new Error("El modelo de IA devolvió un formato no válido que no se pudo leer. " + parseError.message);
+    }
     
   // Add required metadata
   return parsedQuestions.map(q => ({

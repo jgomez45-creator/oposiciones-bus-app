@@ -2423,7 +2423,8 @@ export const firebaseService = {
         const docRef = doc(db, 'shared_tests', shortId);
         await setDoc(docRef, docObj);
       } catch (err) {
-        console.warn("setDoc shared_tests warning:", err);
+        console.error("Error crítico: No se pudo guardar el test en la nube (Firestore). Revisa tus permisos de administrador o la conexión:", err);
+        throw new Error("No se pudo guardar el enlace en la nube: " + err.message);
       }
     }
 
