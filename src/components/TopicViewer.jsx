@@ -1213,7 +1213,11 @@ export default function TopicViewer({
         {viewMode === 'multi-print' ? (
           <div className="multi-print-view-container" style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
             <div className="topic-viewer-nav">
-              <button onClick={() => setViewMode('single')} className="back-to-dashboard-btn">
+              <button 
+                onClick={() => setViewMode('single')} 
+                className="back-to-dashboard-btn glow-btn-secondary"
+                style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
+              >
                 <ChevronLeft size={16} />
                 <span>Volver a Lectura</span>
               </button>
@@ -1375,7 +1379,11 @@ export default function TopicViewer({
             {/* Navigation header */}
             <div className="topic-viewer-nav">
               <div className="nav-buttons-left">
-                <button onClick={() => setCurrentTab(isMobile ? 'mobile-menu' : 'dashboard')} className="back-to-dashboard-btn">
+                <button 
+                  onClick={() => setCurrentTab(isMobile ? 'mobile-menu' : 'dashboard')} 
+                  className="back-to-dashboard-btn glow-btn-secondary"
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
+                >
                   <ChevronLeft size={16} />
                   <span className="nav-btn-text">{isMobile ? 'Volver al Menú' : 'Volver al Dashboard'}</span>
                 </button>
