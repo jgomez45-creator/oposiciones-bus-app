@@ -1036,8 +1036,10 @@ export default function TopicViewer({
                 className={`reading-bar-btn ${isAutoscrolling ? 'reading-bar-btn--active' : ''}`}
                 title={isAutoscrolling ? 'Detener Autoscroll' : 'Iniciar Autoscroll'}
               >
-                {isAutoscrolling ? <Pause size={14} /> : <Play size={14} />}
-                <span>{isAutoscrolling ? 'Detener' : 'Play'}</span>
+                <span style={{ display: isAutoscrolling ? 'inline-flex' : 'none', alignItems: 'center' }}><Pause size={14} /></span>
+                <span style={{ display: isAutoscrolling ? 'none' : 'inline-flex', alignItems: 'center' }}><Play size={14} /></span>
+                <span style={{ display: isAutoscrolling ? 'none' : 'inline' }}>Play</span>
+                <span style={{ display: isAutoscrolling ? 'inline' : 'none' }}>Detener</span>
               </button>
 
               <div className="reading-bar-speed">
@@ -1391,8 +1393,10 @@ export default function TopicViewer({
                   style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '6px 12px', borderRadius: '20px' }}
                   title={isFocusMode ? "Mostrar lista de temas" : "Ocultar menú para enfocarse en la lectura"}
                 >
-                  {isFocusMode ? <List size={14} /> : <Maximize2 size={14} />}
-                  <span className="nav-btn-text">{isFocusMode ? "Ver Menú Temas" : "Enfoque de Lectura"}</span>
+                  <span style={{ display: isFocusMode ? 'inline-flex' : 'none', alignItems: 'center' }}><List size={14} /></span>
+                  <span style={{ display: isFocusMode ? 'none' : 'inline-flex', alignItems: 'center' }}><Maximize2 size={14} /></span>
+                  <span className="nav-btn-text" style={{ display: isFocusMode ? 'none' : 'inline' }}>Enfoque de Lectura</span>
+                  <span className="nav-btn-text" style={{ display: isFocusMode ? 'inline' : 'none' }}>Ver Menú Temas</span>
                 </button>
                 {isFocusMode && (
                   <button
@@ -1514,16 +1518,12 @@ export default function TopicViewer({
                   <button
                     onClick={() => setTimerRunning(!timerRunning)}
                     className={`timer-toggle-btn ${timerRunning ? 'running' : ''}`}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}
                   >
-                    {timerRunning ? (
-                      <>
-                        <Pause size={14} /> Pausar Estudio
-                      </>
-                    ) : (
-                      <>
-                        <Play size={14} /> Iniciar Estudio
-                      </>
-                    )}
+                    <span style={{ display: timerRunning ? 'none' : 'inline-flex', alignItems: 'center' }}><Play size={14} /></span>
+                    <span style={{ display: timerRunning ? 'inline-flex' : 'none', alignItems: 'center' }}><Pause size={14} /></span>
+                    <span style={{ display: timerRunning ? 'none' : 'inline' }}>Iniciar Estudio</span>
+                    <span style={{ display: timerRunning ? 'inline' : 'none' }}>Pausar Estudio</span>
                   </button>
                 </div>
 
@@ -1600,7 +1600,8 @@ export default function TopicViewer({
                           }}
                           title={isPlayingAudio ? 'Pausar' : 'Reproducir'}
                         >
-                          {isPlayingAudio ? <Pause size={16} /> : <Play size={16} style={{ marginLeft: '2px' }} />}
+                          <span style={{ display: isPlayingAudio ? 'inline-flex' : 'none', alignItems: 'center', justifyContent: 'center' }}><Pause size={16} /></span>
+                          <span style={{ display: isPlayingAudio ? 'none' : 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><Play size={16} style={{ marginLeft: '2px' }} /></span>
                         </button>
                         <button
                           type="button"
@@ -1790,8 +1791,10 @@ export default function TopicViewer({
                       className={`font-btn reading-mode-btn ${isAutoscrolling ? 'active' : ''}`}
                       style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem' }}
                     >
-                      {isAutoscrolling ? <Pause size={12} /> : <Play size={12} />}
-                      <span>{isAutoscrolling ? 'Detener Scroll' : 'Autoscroll'}</span>
+                      <span style={{ display: isAutoscrolling ? 'inline-flex' : 'none', alignItems: 'center' }}><Pause size={12} /></span>
+                      <span style={{ display: isAutoscrolling ? 'none' : 'inline-flex', alignItems: 'center' }}><Play size={12} /></span>
+                      <span style={{ display: isAutoscrolling ? 'none' : 'inline' }}>Autoscroll</span>
+                      <span style={{ display: isAutoscrolling ? 'inline' : 'none' }}>Detener Scroll</span>
                     </button>
 
                     <button
@@ -2230,7 +2233,8 @@ export default function TopicViewer({
                             fontSize: '0.85rem',
                             flexShrink: 0
                           }}>
-                            {isActive ? <Play size={16} fill="#000" /> : (idx + 1)}
+                            <span style={{ display: isActive ? 'inline-flex' : 'none', alignItems: 'center' }}><Play size={16} fill="#000" /></span>
+                            <span style={{ display: isActive ? 'none' : 'inline' }}>{idx + 1}</span>
                           </div>
 
                           <div style={{ flex: 1, minWidth: 0 }}>

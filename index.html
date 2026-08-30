@@ -1,13 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" translate="no" class="notranslate">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <title>oposiciones-bus-app</title>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Patch insertBefore and removeChild to survive Google Translate DOM mutations -->
+    <script>
+      (function() {
+        if (typeof Node !== 'function' || !Node.prototype) return;
+
+        var origInsertBefore = Node.prototype.insertBefore;
+        Node.prototype.insertBefore = function(newNode, referenceNode) {
+          if (referenceNode && referenceNode.parentNode !== this) {
+            return newNode;
+          }
+          return origInsertBefore.call(this, newNode, referenceNode);
+        };
+
+        var origRemoveChild = Node.prototype.removeChild;
+        Node.prototype.removeChild = function(child) {
+          if (child && child.parentNode !== this) {
+            return child;
+          }
+          return origRemoveChild.call(this, child);
+        };
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
