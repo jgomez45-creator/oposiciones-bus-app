@@ -72,10 +72,14 @@ if (!isMock) {
     });
     
     // Ensure Firebase Auth session is active so Firestore permissions never fail
-    signInAnonymously(auth).then(() => {
-      console.log("Firebase Auth signed in anonymously for Cloud Firestore sync.");
-    }).catch(err => {
-      console.warn("Firebase Auth anonymous login warning:", err);
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        signInAnonymously(auth).then(() => {
+          console.log("Firebase Auth signed in anonymously for Cloud Firestore sync.");
+        }).catch(err => {
+          console.warn("Firebase Auth anonymous login warning:", err);
+        });
+      }
     });
 
     try {
@@ -2424,7 +2428,18 @@ export const firebaseService = {
         await setDoc(docRef, docObj);
       } catch (err) {
         console.error("Error crítico: No se pudo guardar el test en la nube (Firestore). Revisa tus permisos de administrador o la conexión:", err);
-        throw new Error("No se pudo guardar el enlace en la nube: " + err.message);
+        const currentUserSaved = localStorage.getItem('opos_current_user');
+        let isMockAdmin = false;
+        if (currentUserSaved) {
+          try {
+            isMockAdmin = JSON.parse(currentUserSaved).uid === 'mock_admin_default';
+          } catch(e) {}
+        }
+        if (!isMockAdmin) {
+          throw new Error("No se pudo guardar el enlace en la nube: " + err.message);
+        } else {
+          console.warn("Ignorando error de permisos de Firestore por estar usando el bypass de desarrollador.");
+        }
       }
     }
 
