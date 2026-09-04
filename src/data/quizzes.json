@@ -20881,6 +20881,136 @@
       ],
       "correctAnswer": 0,
       "explanation": "Un nivel sonoro por debajo de 55 dB(A) evita distracciones y estrés acústico en entornos de lectura y procesamiento de información."
+    },
+    {
+      "question": "¿Cuál es el significado de las siglas P.A.S. en el protocolo fundamental de actuación ante un accidente laboral?",
+      "options": [
+        "Prevenir, Atender, Solucionar",
+        "Proteger, Avisar, Socorrer",
+        "Precaución, Alerta, Salvamento",
+        "Proteger, Auxiliar, Sanar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "[Ampliación SEPRUS] La conducta P.A.S. corresponde a la secuencia vital en emergencias: Proteger (la zona y a uno mismo), Avisar (al 112) y Socorrer (al herido).",
+      "usage": "tema",
+      "id": "q_auto_t15_8dd192ee"
+    },
+    {
+      "question": "Según el protocolo P.A.S., ¿cuál debe ser la primera acción en la fase de 'Proteger'?",
+      "options": [
+        "Llamar inmediatamente al 112",
+        "Asegurarse de que tanto el accidentado como el socorrista están fuera de peligro",
+        "Iniciar maniobras de reanimación (RCP)",
+        "Trasladar al herido en coche al hospital más cercano"
+      ],
+      "correctAnswer": 1,
+      "explanation": "[Ampliación SEPRUS] Antes de socorrer o avisar, la fase 'Proteger' exige asegurar la zona (p.ej. señalizando) para evitar que haya más víctimas.",
+      "usage": "tema",
+      "id": "q_auto_t15_24119473"
+    },
+    {
+      "question": "¿Cuál de los siguientes NO es un requisito legal concurrente para que un siniestro se considere accidente 'in itínere'?",
+      "options": [
+        "Requisito teleológico (fin del desplazamiento)",
+        "Requisito geográfico (trayecto habitual)",
+        "Requisito mecánico (uso de vehículo homologado)",
+        "Requisito cronológico (tiempo razonable)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "[Ampliación SEPRUS] Los requisitos legales son el teleológico, el geográfico y el cronológico. El tipo de vehículo o el ir a pie no es un requisito excluyente ('mecánico' es inventado).",
+      "usage": "tema",
+      "id": "q_auto_t15_7a4aae1d"
+    },
+    {
+      "question": "Al usar un extintor ante un fuego incipiente en la biblioteca, ¿dónde se debe dirigir el chorro del agente extintor?",
+      "options": [
+        "Hacia el techo para sofocar el humo",
+        "A la base de las llamas",
+        "A la parte superior del fuego para ahogar el oxígeno",
+        "Formando un círculo alrededor del fuego sin tocar las llamas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "[Ampliación SEPRUS] Las normas básicas contra incendios establecen aplicar siempre el agente extintor a la base de las llamas (el foco y combustible).",
+      "usage": "tema",
+      "id": "q_auto_t15_4b416e44"
+    },
+    {
+      "question": "De acuerdo con las recomendaciones ergonómicas del SEPRUS, ¿qué espacio de apoyo libre se debe mantener ante el teclado?",
+      "options": [
+        "Un máximo de 5 cm desde el borde de la mesa",
+        "No es necesario espacio si hay reposabrazos",
+        "Un mínimo de 10 cm entre el borde de la mesa y el teclado",
+        "Al menos 25 cm para apoyar los codos completamente"
+      ],
+      "correctAnswer": 2,
+      "explanation": "[Ampliación SEPRUS] Es imperativo dejar un mínimo de 10 cm entre el borde de la mesa y el teclado para apoyar las manos y muñecas y reducir la fatiga.",
+      "usage": "tema",
+      "id": "q_auto_t15_34e6f210"
+    },
+    {
+      "question": "Dentro de la conducta P.A.S., en la fase de 'Socorrer' es primordial:",
+      "options": [
+        "Mantener la calma, no mover al herido salvo peligro inminente y aplicar primeros auxilios solo si se está capacitado",
+        "Evacuar siempre a la víctima por los propios medios para no saturar al 112",
+        "Administrar analgésicos fuertes para evitar que el herido entre en shock",
+        "Dar agua inmediatamente a la víctima para mantener la hidratación"
+      ],
+      "correctAnswer": 0,
+      "explanation": "[Ampliación SEPRUS] En la fase de socorro, la regla de oro es 'no hacer más daño', por lo que no se debe mover al herido ni medicarle, actuando solo hasta el nivel de capacitación.",
+      "usage": "tema",
+      "id": "q_auto_t15_abede5e7"
+    },
+    {
+      "question": "Respecto a la movilidad urbana y el uso de Patinetes Eléctricos (VMP) para acudir al trabajo, el SEPRUS recuerda la obligación de:",
+      "options": [
+        "Circular por las aceras si la vía calzada está colapsada",
+        "Circular por las zonas permitidas y respetar los límites de velocidad de la ordenanza",
+        "Usar las vías ciclistas a cualquier velocidad sin restricciones",
+        "No acatar la normativa general por ser vehículos sin matrícula"
+      ],
+      "correctAnswer": 1,
+      "explanation": "[Ampliación SEPRUS] Los VMP deben someterse a la ordenanza municipal, circulando por zonas permitidas y nunca por las aceras.",
+      "usage": "tema",
+      "id": "q_auto_t15_6442f582"
+    },
+    {
+      "question": "Según el SEPRUS, ¿qué postura corporal garantiza la alineación ergonómica correcta al usar el teclado y ratón?",
+      "options": [
+        "Muñeca en extensión de 45º y antebrazo despegado",
+        "Antebrazo, muñeca y mano perfectamente alineados, evitando desviaciones laterales",
+        "Manos apoyadas lateralmente sobre el extremo del teclado numérico",
+        "Flexión de las muñecas para descansar sobre el borde de la mesa"
+      ],
+      "correctAnswer": 1,
+      "explanation": "[Ampliación SEPRUS] Antebrazo, muñeca y mano deben estar perfectamente alineados para prevenir el estrés en los tendones y trastornos musculoesqueléticos.",
+      "usage": "tema",
+      "id": "q_auto_t15_8690b499"
+    },
+    {
+      "question": "¿Qué requisito del accidente 'in itínere' exige que el trayecto se realice en el tiempo razonable y sin desvíos por motivos personales?",
+      "options": [
+        "Requisito tecnológico",
+        "Requisito geográfico",
+        "Requisito teleológico",
+        "Requisito cronológico"
+      ],
+      "correctAnswer": 3,
+      "explanation": "[Ampliación SEPRUS] El requisito cronológico determina que el accidente debe ocurrir durante el tiempo que normalmente se tarda en hacer ese desplazamiento sin desvíos sustanciales.",
+      "usage": "tema",
+      "id": "q_auto_t15_9fe10492"
+    },
+    {
+      "question": "Al intervenir con un extintor de forma manual, para garantizar la propia seguridad del trabajador, es fundamental situarse:",
+      "options": [
+        "Dando la espalda al fuego para minimizar la inhalación",
+        "Siempre entre el fuego y la vía de escape para garantizar la huida",
+        "En el rincón más alejado del origen de las llamas",
+        "Encima de una silla para proyectar el polvo hacia abajo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "[Ampliación SEPRUS] Hay que asegurar siempre la retirada. Por ello se debe atacar el fuego manteniendo la puerta / vía de escape a la espalda.",
+      "usage": "tema",
+      "id": "q_auto_t15_ae1d0b9f"
     }
   ],
   "16": [
