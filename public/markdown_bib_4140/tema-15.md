@@ -45,6 +45,39 @@ La colocación y transporte de volúmenes pesados (libros en bloques, cajas de d
 
 ---
 
+## ANEXO DIGITAL: AMPLIACIÓN PÍLDORAS SEPRUS
+
+> 🟩 **NOVEDAD EXCLUSIVA:** Este contenido complementa el manual impreso con las directrices actualizadas del SEPRUS en materia de Emergencias, Primeros Auxilios y Seguridad Vial.
+
+### A. ACTUACIÓN ANTE EMERGENCIAS Y PRIMEROS AUXILIOS
+
+**Conducta P.A.S. (Proteger, Avisar, Socorrer)**
+Protocolo fundamental de actuación ante un accidente laboral en las instalaciones de la Universidad de Sevilla:
+*   **Proteger:** Antes de actuar, asegúrate de que tanto el accidentado como tú estáis fuera de peligro. Señaliza la zona si es necesario.
+*   **Avisar:** Llama a los servicios de emergencia (112) facilitando el lugar exacto y el estado aparente del herido.
+*   **Socorrer:** Mantén la calma, no muevas al herido (salvo peligro inminente) y aplica primeros auxilios solo si estás capacitado.
+
+**Seguridad contra Incendios y Manejo de Extintores**
+Relevante en archivos y bibliotecas:
+*   Conocer la ubicación de las vías de evacuación y extintores cercanos.
+*   Ante un fuego incipiente: descolgar, quitar el precinto y aplicar el agente extintor a la base de las llamas, siempre situándose entre el fuego y la vía de escape.
+
+### B. PREVENCIÓN DE ACCIDENTES 'IN ITÍNERE'
+
+Se considera accidente *in itínere* el que sufre el trabajador al ir o al volver del lugar de trabajo. Para que se considere como tal legalmente, debe cumplir:
+*   **Requisito teleológico:** El fin principal del desplazamiento debe ser ir o volver del trabajo.
+*   **Requisito geográfico:** Debe producirse en el trayecto habitual y normal.
+*   **Requisito cronológico:** Debe ocurrir en el tiempo razonable que se tarda en el recorrido.
+*   **Patinetes Eléctricos (VMP):** Es obligatorio circular por las zonas permitidas (no por aceras) respetando los límites de velocidad según la ordenanza municipal.
+
+### C. AMPLIACIÓN ERGONÓMICA: POSTURA Y PERIFÉRICOS
+
+Recomendaciones específicas sobre periféricos de entrada (Teclado y Ratón):
+*   **Alineación:** El antebrazo, muñeca y mano deben permanecer perfectamente alineados. Se debe evitar la desviación cubital o radial al teclear.
+*   **Espacio de apoyo:** Mantener un mínimo de 10 cm entre el borde de la mesa y el teclado para apoyar las manos.
+
+---
+
 ## 4. Esquema de Repaso Rápido
 *   **Alineación Clave (SEPRUS):** Antebrazo, muñeca y mano deben estar **alineados** ante el ordenador.
 *   **Uso de PVD:** Pantallas de visualización de datos (riesgos de fatiga visual y postural).
