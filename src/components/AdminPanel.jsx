@@ -221,6 +221,7 @@ export default function AdminPanel({ topics }) {
     { id: 'T13B', topicId: 13, label: 'Tema 13B – Microsoft 365: SharePoint, Word y Excel',                 questions: 20, sections: ['SharePoint','Word','Excel','Forms'] },
     { id: 'T14',  topicId: 14, label: 'Tema 14 – Sistema de Prevención de Riesgos de la US',               questions: 20, sections: 'all' },
     { id: 'T15',  topicId: 15, label: 'Tema 15 – Riesgos del puesto de Auxiliar de Biblioteca',             questions: 15, sections: 'all' },
+    { id: 'T15_ANEXO', topicId: 15, label: 'Tema 15 (Ampliación) – Anexo SEPRUS y Riesgos',               questions: 10, sections: 'anexo' },
     { id: 'T16A', topicId: 16, label: 'Tema 16A – LPRL Art. 29 + RD 486 (Lugares) + RD 485 (Señales)',     questions: 20, sections: ['Art. 29','RD 486','Lugares de Trabajo','RD 485','Señalización'] },
     { id: 'T16B', topicId: 16, label: 'Tema 16B – RD 488 (PVD) + RD 487 (Cargas) + RD 773 (EPIs)',         questions: 20, sections: ['RD 488','Pantallas','RD 487','Cargas','RD 773','EPIs'] },
     { id: 'T17A', topicId: 17, label: 'Tema 17A – Estatutos US: Órganos Colegiados',                       questions: 20, sections: ['Claustro','Consejo de Gobierno','Consejo Social','Colegiados'] },
@@ -441,6 +442,67 @@ export default function AdminPanel({ topics }) {
         } catch (e) {
           console.warn("No se pudo borrar el test antiguo de Firebase. Continuando...", e);
         }
+      }
+
+      // EXCEPCIÓN TEMA 15 ANEXO
+      if (pill.id === 'T15_ANEXO') {
+        const res = await fetch('/markdown/tema-15.md');
+        const markdown = await res.text();
+        const startIndex = markdown.indexOf('## ANEXO DIGITAL');
+        const endIndex = markdown.indexOf('## 5. Esquema');
+        let anexoText = startIndex !== -1 ? markdown.substring(startIndex, endIndex !== -1 ? endIndex : undefined) : 'Error cargando texto';
+        
+        // Embellecedor: Convertir Markdown a HTML
+        let anexoHtml = anexoText
+          .replace(/> 🟩 \*\*NOVEDAD EXCLUSIVA:\*\*(.*)/g, '<div style="background-color: #dcfce7; border-left: 5px solid #22c55e; padding: 15px; margin-bottom: 20px; border-radius: 4px; color: #166534;"><strong>🟩 NOVEDAD EXCLUSIVA:</strong>$1</div>')
+          .replace(/### (.*)/g, '<h3 style="color: #2563eb; margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; text-transform: uppercase;">$1</h3>')
+          .replace(/## (.*)/g, '<h2 style="color: #1e40af; margin-top: 25px; margin-bottom: 15px; border-bottom: 1px solid #bfdbfe; padding-bottom: 5px; font-size: 1.3rem;">$1</h2>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em>$1</em>');
+        
+        let lines = anexoHtml.split('\n');
+        let htmlLines = [];
+        let inList = false;
+        
+        for (let line of lines) {
+          line = line.trim();
+          if (!line) continue;
+          if (line.startsWith('* ')) {
+            if (!inList) {
+              htmlLines.push('<ul style="margin-left: 25px; margin-bottom: 15px; list-style-type: disc;">');
+              inList = true;
+            }
+            htmlLines.push(`<li style="margin-bottom: 8px; line-height: 1.5;">${line.substring(2)}</li>`);
+          } else {
+            if (inList) {
+              htmlLines.push('</ul>');
+              inList = false;
+            }
+            if (!line.startsWith('<')) {
+              htmlLines.push(`<p style="margin-bottom: 12px; line-height: 1.6;">${line}</p>`);
+            } else {
+              htmlLines.push(line);
+            }
+          }
+        }
+        if (inList) htmlLines.push('</ul>');
+        anexoHtml = htmlLines.join('\n');
+
+        const todasPreguntas = quizzesData['15'] || [];
+        const preguntasAnexo = todasPreguntas.slice(-10); // Las últimas 10
+
+        const shortCode = await firebaseService.saveSharedTest({
+          title: pill.label,
+          questions: preguntasAnexo,
+          summaryText: anexoHtml,
+          isShared: false,
+          scheduledDate: null,
+        });
+        const createdAt = new Date().toISOString();
+        savePillMeta(pill.id, { shortCode, createdAt, isShared: false, scheduledDate: null });
+        fetchSharedTests();
+        setPillGenerating(null);
+        return;
       }
 
       const padId = pill.topicId.toString().padStart(2, '0');
