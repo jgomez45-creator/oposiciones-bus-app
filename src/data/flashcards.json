@@ -2502,6 +2502,26 @@
       "id": 15502,
       "front": "¿Qué distancia e inclinación visual recomienda el INSST para pantallas de visualización (PVD)?",
       "back": "Distancia visual de 40 a 70 cm e inclinación del monitor de 10° a 20° por debajo de los ojos."
+    },
+    {
+      "front": "Protocolo P.A.S. en Emergencias (Significado completo)",
+      "back": "**P**roteger (la zona y a ti) ➔ **A**visar (al 112) ➔ **S**ocorrer (a la víctima).",
+      "id": "fc_auto_t15_da111e97"
+    },
+    {
+      "front": "Accidente \"In itínere\" (Los 3 Requisitos Legales de la jurisprudencia)",
+      "back": "**1. Teleológico:** Fin principal del viaje (trabajo). <br>**2. Geográfico:** Trayecto habitual. <br>**3. Cronológico:** Tiempo razonable.",
+      "id": "fc_auto_t15_e351a95f"
+    },
+    {
+      "front": "Uso del Extintor (Dirección del agente extintor y Posición del trabajador)",
+      "back": "Aplicar siempre a la **BASE de las llamas**, situándose el trabajador entre el fuego y la **vía de escape**.",
+      "id": "fc_auto_t15_8af874a9"
+    },
+    {
+      "front": "Ergonomía PVD: Espacio mínimo de apoyo para el teclado en la mesa",
+      "back": "Mínimo **10 cm** libres entre el borde de la mesa y el teclado (para apoyar bien las muñecas).",
+      "id": "fc_auto_t15_d7c4d1ca"
     }
   ],
   "16": [
