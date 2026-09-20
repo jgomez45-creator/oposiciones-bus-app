@@ -2277,6 +2277,222 @@ export default function AdminPanel({ topics }) {
         </div>
       )}
 
+      
+      {/* SUBTAB: PLANIFICADOR DE SIMULACROS EQUILIBRADOS (PLANTILLA MAESTRA DE 10 EXÁMENES) */}
+      {activeSubTab === 'simulacros' && (() => {
+        const getSimStatus = (sim) => {
+          const meta = simulacroPlanMeta[sim.id];
+          if (!meta?.shortCode) return 'pending';
+          if (meta.isShared) return 'shared';
+          if (meta.scheduledDate && new Date(meta.scheduledDate) > new Date()) return 'scheduled';
+          return 'created';
+        };
+        const filteredSims = SIMULACRO_TEMPLATE.filter(s => {
+          const st = getSimStatus(s);
+          if (simFilterStatus === 'all') return true;
+          if (simFilterStatus === 'pending') return st === 'pending';
+          if (simFilterStatus === 'scheduled') return st === 'scheduled';
+          if (simFilterStatus === 'shared') return st === 'shared';
+          return true;
+        });
+        const genSimCount = SIMULACRO_TEMPLATE.filter(s => simulacroPlanMeta[s.id]?.shortCode).length;
+
+        return (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div className="glass-panel" style={{ padding: '24px', borderRadius: '16px', background: 'rgba(15,20,36,0.6)', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
+              
+              {/* Cabecera del Planificador de Simulacros */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
+                <div>
+                  <h2 style={{ color: '#c084fc', marginTop: 0, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.3rem' }}>
+                    <Award size={24} style={{ color: '#a855f7' }} />
+                    <span>Planificador de Simulacros — 10 Exámenes del Temario</span>
+                  </h2>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>
+                    Plantilla maestra de simulacros globales (45 preguntas: 40 ordinarias + 5 de reserva). Genera cada examen en <strong>1 solo clic</strong>, asigna fecha para Outlook y copia el enlace directo.
+                    <span style={{ marginLeft: '12px', color: '#c084fc', fontWeight: '700' }}>{genSimCount} / {SIMULACRO_TEMPLATE.length} generados</span>
+                  </p>
+                </div>
+                {/* Barra de progreso */}
+                <div style={{ minWidth: '160px' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '6px', textAlign: 'right' }}>{Math.round(genSimCount / SIMULACRO_TEMPLATE.length * 100)}% completado</div>
+                  <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '8px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', background: 'linear-gradient(90deg, #8b5cf6, #6d28d9)', width: `${(genSimCount / SIMULACRO_TEMPLATE.length) * 100}%`, transition: 'width 0.5s ease', borderRadius: '8px' }} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Filtros por Estado */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
+                <div style={{ display: 'flex', gap: '6px', background: 'rgba(0,0,0,0.4)', padding: '4px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)', flexWrap: 'wrap' }}>
+                  {[
+                    { id: 'all', label: `Todos (${SIMULACRO_TEMPLATE.length})` },
+                    { id: 'pending', label: `⚪ Pendientes (${SIMULACRO_TEMPLATE.filter(s => getSimStatus(s) === 'pending').length})` },
+                    { id: 'scheduled', label: `🟡 Programados (${SIMULACRO_TEMPLATE.filter(s => getSimStatus(s) === 'scheduled').length})` },
+                    { id: 'shared', label: `🟢 Compartidos (${SIMULACRO_TEMPLATE.filter(s => getSimStatus(s) === 'shared').length})` },
+                  ].map(f => (
+                    <button key={f.id} onClick={() => setSimFilterStatus(f.id)}
+                      style={{ padding: '6px 12px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '0.78rem', transition: 'all 0.15s', background: simFilterStatus === f.id ? 'linear-gradient(135deg,#8b5cf6,#6d28d9)' : 'transparent', color: simFilterStatus === f.id ? '#fff' : 'var(--text-muted)' }}
+                    >{f.label}</button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('gemini_api_key');
+                    alert('🔑 Clave API borrada con éxito de tu navegador.\nLa próxima vez que intentes generar con IA, la aplicación te pedirá que la introduzcas de nuevo.');
+                  }}
+                  style={{ padding: '7px 14px', borderRadius: '8px', background: 'rgba(245,158,11,0.15)', color: '#fbbf24', border: '1px solid rgba(245,158,11,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                >
+                  ⚙️ Cambiar Clave IA
+                </button>
+              </div>
+
+              {/* Lista de Tarjetas de Simulacro */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {filteredSims.map((sim) => {
+                  const meta = simulacroPlanMeta[sim.id] || {};
+                  const status = getSimStatus(sim);
+                  const isGenerating = pillGenerating === sim.id;
+                  const statusChip = status === 'pending'
+                    ? { color: '#94a3b8', bg: 'rgba(148,163,184,0.1)', label: '⚪ Pendiente' }
+                    : status === 'scheduled'
+                    ? { color: '#fbbf24', bg: 'rgba(251,191,36,0.1)', label: '🟡 Programado' }
+                    : status === 'shared'
+                    ? { color: '#4ade80', bg: 'rgba(74,222,128,0.1)', label: '🟢 Compartido' }
+                    : { color: '#c084fc', bg: 'rgba(192,132,252,0.1)', label: '🟣 Generado' };
+
+                  return (
+                    <div key={sim.id} style={{ background: 'rgba(15,23,42,0.7)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: '12px', transition: 'border 0.2s', borderLeft: `3px solid ${statusChip.color}` }}>
+                      
+                      {/* Fila superior */}
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '0.7rem', fontWeight: '800', padding: '2px 10px', borderRadius: '10px', background: statusChip.bg, color: statusChip.color, border: `1px solid ${statusChip.color}40` }}>
+                            {statusChip.label}
+                          </span>
+                          <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: 'monospace', fontWeight: '700' }}>
+                            {sim.id} · {sim.questions} preg.
+                          </span>
+                          {meta.shortCode && (
+                            <span style={{ fontSize: '0.72rem', color: '#c084fc', fontFamily: 'monospace', background: 'rgba(192,132,252,0.12)', padding: '2px 8px', borderRadius: '8px' }}>
+                              ?t={meta.shortCode}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Botones de acción */}
+                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                          {!meta.shortCode ? (
+                            <>
+                              <button
+                                onClick={() => handleGenerateSimulacroPill(sim, false, 'ia')}
+                                disabled={isGenerating}
+                                title="Generar simulacro inédito con IA Gemini"
+                                style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(16,185,129,0.4)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: '#fff', border: 'none', fontWeight: '800', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                {isGenerating ? '⏳ Generando IA...' : '⚡ Generar (IA)'}
+                              </button>
+                              <button
+                                onClick={() => handleGenerateSimulacroPill(sim, false, 'clasico')}
+                                disabled={isGenerating}
+                                title="Generar simulacro con Motor Clásico"
+                                style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(99,102,241,0.4)' : 'linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%)', color: '#fff', border: 'none', fontWeight: '700', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                {isGenerating ? '⏳' : '⚙️ Clásico'}
+                              </button>
+                              <button
+                                onClick={() => handleGenerateSimulacroPill(sim, false, 'banco')}
+                                disabled={isGenerating}
+                                title="Generar simulacro con Banco Validado 2026"
+                                style={{ padding: '7px 14px', borderRadius: '10px', background: isGenerating ? 'rgba(217,119,6,0.4)' : 'linear-gradient(135deg, #d97706 0%, #b45309 100%)', color: '#fff', border: 'none', fontWeight: '700', fontSize: '0.8rem', cursor: isGenerating ? 'wait' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                {isGenerating ? '⏳' : '📚 Banco'}
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <button
+                                onClick={() => handleGenerateSimulacroPill(sim, true, 'ia')}
+                                disabled={isGenerating}
+                                title="Regenerar con IA y reemplazar el anterior"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(16,185,129,0.15)', color: '#34d399', border: '1px solid rgba(16,185,129,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                              >
+                                {isGenerating ? '⏳' : '🔄 Regenerar (IA)'}
+                              </button>
+                              <button
+                                onClick={() => handleGenerateSimulacroPill(sim, true, 'clasico')}
+                                disabled={isGenerating}
+                                title="Regenerar con Motor Clásico y reemplazar el anterior"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(139,92,246,0.15)', color: '#c084fc', border: '1px solid rgba(139,92,246,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: isGenerating ? 'wait' : 'pointer' }}
+                              >
+                                {isGenerating ? '⏳' : '🔄 Clásico'}
+                              </button>
+                              <button
+                                onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/?t=${meta.shortCode}`); alert("¡Enlace corto del simulacro copiado!"); }}
+                                title="Copiar enlace directo"
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid rgba(99,102,241,0.4)', fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer' }}
+                              >
+                                📋 Copiar enlace
+                              </button>
+                              <button
+                                onClick={async () => {
+                                  const newShared = !meta.isShared;
+                                  saveSimulacroMeta(sim.id, { isShared: newShared });
+                                  try { await firebaseService.updateSharedTest(meta.shortCode, { isShared: newShared }); } catch (_) {}
+                                }}
+                                title={meta.isShared ? 'Ocultar' : 'Compartir'}
+                                style={{ padding: '7px 10px', borderRadius: '10px', background: meta.isShared ? 'rgba(239,68,68,0.15)' : 'rgba(34,197,94,0.15)', color: meta.isShared ? '#fca5a5' : '#4ade80', border: `1px solid ${meta.isShared ? 'rgba(239,68,68,0.4)' : 'rgba(34,197,94,0.4)'}`, fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer' }}
+                              >
+                                {meta.isShared ? '🔒 Ocultar' : '🟢 Compartir'}
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Título del Simulacro */}
+                      <div style={{ color: 'var(--text-main)', fontWeight: '700', fontSize: '0.95rem', lineHeight: 1.4 }}>
+                        {sim.label}
+                      </div>
+
+                      {/* Controles de fecha para Outlook */}
+                      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+                        {meta.createdAt && (
+                          <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                            📅 Creado: <strong style={{ color: '#cbd5e1' }}>{new Date(meta.createdAt).toLocaleString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' })}</strong>
+                          </div>
+                        )}
+                        {meta.shortCode && (
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.75rem', color: '#94a3b8' }}>
+                            <span>📤 Outlook:</span>
+                            <input
+                              type="datetime-local"
+                              value={meta.scheduledDate ? meta.scheduledDate.slice(0,16) : ''}
+                              onChange={async (e) => {
+                                const dateVal = e.target.value ? new Date(e.target.value).toISOString() : null;
+                                saveSimulacroMeta(sim.id, { scheduledDate: dateVal });
+                                try { await firebaseService.updateSharedTest(meta.shortCode, { scheduledDate: dateVal }); } catch (_) {}
+                              }}
+                              style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '8px', color: '#e2e8f0', padding: '4px 8px', fontSize: '0.78rem' }}
+                            />
+                          </div>
+                        )}
+                        <div style={{ fontSize: '0.72rem', color: '#c084fc', background: 'rgba(192,132,252,0.1)', padding: '2px 10px', borderRadius: '8px', border: '1px solid rgba(192,132,252,0.25)' }}>
+                          ⚖️ 40 Preguntas Ordinarias + 5 Reserva
+                        </div>
+                      </div>
+
+                    </div>
+                  );
+                })}
+              </div>
+
+            </div>
+          </div>
+        );
+      })()}
+
+
       {/* SUBTAB: PLANIFICADOR DE ENTREGAS (25 PÍLDORAS) */}
       {activeSubTab === 'planner' && (() => {
         const getPillStatus = (pill) => {
