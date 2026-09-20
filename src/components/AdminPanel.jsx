@@ -204,6 +204,24 @@ export default function AdminPanel({ topics }) {
   const [pillGenerating, setPillGenerating] = useState(null); // pillId en curso
 
   // Constante fija con la plantilla maestra de 25 píldoras
+  
+  // Constante fija con la plantilla maestra de 10 Simulacros
+  const SIMULACRO_TEMPLATE = [
+    { id: 'SIM1',  label: 'Simulacro 1 – Examen Global de 45 Preguntas Equilibradas (Motor Clásico)', questions: 45, defaultEngine: 'clasico' },
+    { id: 'SIM2',  label: 'Simulacro 2 – Examen Global de 45 Preguntas Equilibradas (Motor IA Gemini)', questions: 45, defaultEngine: 'ia' },
+    { id: 'SIM3',  label: 'Simulacro 3 – Examen Global de 45 Preguntas Equilibradas (Banco Validado 2026)', questions: 45, defaultEngine: 'banco' },
+    { id: 'SIM4',  label: 'Simulacro 4 – Examen Global de 45 Preguntas Equilibradas (Híbrido IA + Banco)', questions: 45, defaultEngine: 'hibrido' },
+    { id: 'SIM5',  label: 'Simulacro 5 – Examen Especial Bloque Biblioteconomía + Legislación', questions: 45, defaultEngine: 'clasico' },
+    { id: 'SIM6',  label: 'Simulacro 6 – Examen Global de 45 Preguntas Equilibradas (Repaso Intensivo)', questions: 45, defaultEngine: 'banco' },
+    { id: 'SIM7',  label: 'Simulacro 7 – Examen Global de 45 Preguntas Equilibradas (Nivel Avanzado IA)', questions: 45, defaultEngine: 'ia' },
+    { id: 'SIM8',  label: 'Simulacro 8 – Examen Global de 45 Preguntas Equilibradas (Casos Prácticos)', questions: 45, defaultEngine: 'clasico' },
+    { id: 'SIM9',  label: 'Simulacro 9 – Examen Pre-Selección Oficial US (45 Preguntas)', questions: 45, defaultEngine: 'banco' },
+    { id: 'SIM10', label: 'Simulacro 10 – Gran Simulación Final (45 Preguntas Equilibradas)', questions: 45, defaultEngine: 'ia' }
+  ];
+
+  const [simulacroPlanMeta, setSimulacroPlanMeta] = useState({});
+  const [simFilterStatus, setSimFilterStatus] = useState('all');
+
   const PILL_TEMPLATE = [
     { id: 'T1',   topicId: 1,  label: 'Tema 1 – Las bibliotecas universitarias y la BUS',                    questions: 20, sections: 'all' },
     { id: 'T2',   topicId: 2,  label: 'Tema 2 – Sistema de gestión de la calidad (EFQM)',                    questions: 20, sections: 'all' },
@@ -411,6 +429,12 @@ export default function AdminPanel({ topics }) {
     if (activeSubTab === 'shared_tests') {
       fetchSharedTests();
     }
+    if (activeSubTab === 'simulacros' || activeSubTab === 'planner') {
+      try {
+        const rawSim = localStorage.getItem('bus_simulacro_plan_meta') || '{}';
+        setSimulacroPlanMeta(JSON.parse(rawSim));
+      } catch (_) {}
+    }
     if (activeSubTab === 'planner') {
       // Cargar metadata persistida del planificador desde LocalStorage
       try {
@@ -419,6 +443,66 @@ export default function AdminPanel({ topics }) {
       } catch (_) {}
     }
   }, [activeSubTab]);
+
+  
+  // Guardar metadata de un simulacro en LocalStorage
+  const saveSimulacroMeta = (simId, updates) => {
+    setSimulacroPlanMeta(prev => {
+      const next = { ...prev, [simId]: { ...(prev[simId] || {}), ...updates } };
+      try { localStorage.setItem('bus_simulacro_plan_meta', JSON.stringify(next)); } catch (_) {}
+      return next;
+    });
+  };
+
+  const handleGenerateSimulacroPill = async (sim, shouldDeleteOld = false, engineOverride = null) => {
+    setPillGenerating(sim.id);
+    try {
+      const meta = simulacroPlanMeta[sim.id] || {};
+      const oldShortCode = meta.shortCode;
+      
+      if (shouldDeleteOld && oldShortCode) {
+        try {
+          await firebaseService.deleteSharedTest(oldShortCode);
+        } catch (e) {
+          console.warn("No se pudo borrar el test antiguo de Firebase.", e);
+        }
+      }
+
+      const engine = engineOverride || sim.defaultEngine || 'clasico';
+      let apiKey = null;
+      if (engine === 'ia' || engine === 'hibrido') {
+        apiKey = localStorage.getItem('gemini_api_key');
+        if (!apiKey) {
+          apiKey = window.prompt("Introduce tu clave API de Google Gemini:");
+          if (!apiKey) { setPillGenerating(null); return; }
+          localStorage.setItem('gemini_api_key', apiKey.trim());
+        }
+      }
+
+      const generatedSim = await generateBalancedSimulacro({
+        engineMode: engine,
+        apiKey,
+        title: sim.label
+      });
+
+      const shortCode = await firebaseService.saveSharedTest({
+        title: sim.label,
+        questions: generatedSim.questions,
+        summaryText: 'INSTRUCCIONES OFICIALES DEL EXAMEN US:\n- 40 Preguntas Ordinarias + 5 Preguntas de Reserva.\n- Duración: 60 minutos.',
+        isShared: false,
+        scheduledDate: null
+      });
+
+      const createdAt = new Date().toISOString();
+      saveSimulacroMeta(sim.id, { shortCode, createdAt, isShared: false, scheduledDate: null });
+      fetchSharedTests();
+    } catch (err) {
+      console.error('Error generando simulacro:', err);
+      alert('Error al generar simulacro: ' + err.message);
+    } finally {
+      setPillGenerating(null);
+    }
+  };
 
   // Guardar metadata de una píldora en LocalStorage
   const savePillMeta = (pillId, updates) => {
@@ -1478,7 +1562,7 @@ export default function AdminPanel({ topics }) {
             style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'simulacros' ? 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)' : 'rgba(139, 92, 246, 0.18)', color: activeSubTab === 'simulacros' ? '#fff' : '#c084fc', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px', border: '1px solid rgba(139, 92, 246, 0.4)' }}
           >
             <Award size={16} />
-            <span>🎯 Simulacros (45 Preg.)</span>
+            <span>🎯 Simulacros ({SIMULACRO_TEMPLATE.filter(s => simulacroPlanMeta[s.id]?.shortCode).length}/{SIMULACRO_TEMPLATE.length})</span>
           </button>
           <button
             onClick={() => setActiveSubTab('planner')}
