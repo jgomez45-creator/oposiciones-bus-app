@@ -19559,6 +19559,34 @@
       "usage": "standard",
       "isGenerated": true,
       "createdAt": "2026-07-28T05:25:00.000Z"
+    },
+    {
+      "topicId": "14",
+      "question": "¿Cuál es el objetivo principal que se pretende garantizar con el Plan de Prevención de Riesgos Laborales de la Universidad de Sevilla (Acuerdo 03-2024)?",
+      "options": [
+        "Reducir exclusivamente el presupuesto destinado a la contratación de personal.",
+        "Garantizar la protección de la seguridad, salud y bienestar de toda la comunidad universitaria.",
+        "Sancionar a los estudiantes que no cumplan con las normas de los laboratorios.",
+        "Externalizar completamente la gestión preventiva a mutuas privadas de salud."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Según el Plan de Prevención de Riesgos de la US (Acuerdo 03-2024), el objetivo es garantizar la protección integral de la salud y seguridad de la comunidad universitaria.",
+      "usage": "oficial_us_2026",
+      "id": 101
+    },
+    {
+      "topicId": "14",
+      "question": "¿Tendrá la consideración de accidente de trabajo aquel que sufra el trabajador al ir o al volver del lugar de trabajo?:",
+      "options": [
+        "No, se considera enfermedad común en todos los casos.",
+        "Sí, tendrá la consideración de accidente de trabajo «in itinere».",
+        "Solo si el trayecto se realiza en transporte público oficial de la Universidad.",
+        "Únicamente si ocurre en el horario exacto fijado en el cuadrante de servicios."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El accidente «in itinere» es aquel que sufre el trabajador al ir o al volver del lugar de trabajo.",
+      "usage": "oficial_us_2026",
+      "id": 102
     }
   ],
   "15": [
@@ -21011,6 +21039,20 @@
       "explanation": "[Ampliación SEPRUS] Hay que asegurar siempre la retirada. Por ello se debe atacar el fuego manteniendo la puerta / vía de escape a la espalda.",
       "usage": "tema",
       "id": "q_auto_t15_ae1d0b9f"
+    },
+    {
+      "topicId": "15",
+      "question": "Según las pildoras informativas del Servicio de Prevención de Riesgos Laborales de la US, ¿cuál es la norma general respecto al almacenamiento de sustancias peligrosas?:",
+      "options": [
+        "Todos los productos corrosivos pueden guardarse junto a cualquier otra sustancia.",
+        "Deben almacenarse teniendo en cuenta su peligrosidad y la compatibilidad entre ellos.",
+        "Se pueden agrupar en estanterías abiertas de madera sin ventilación.",
+        "El almacenamiento no requiere separación por tipos de riesgo."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las normas del SEPRUS exigen clasificar y agrupar los productos por su peligrosidad y compatibilidad química.",
+      "usage": "oficial_us_2026",
+      "id": 111
     }
   ],
   "16": [
@@ -22342,6 +22384,48 @@
       ],
       "correctAnswer": 0,
       "explanation": "El Art. 29.2.1º de la LPRL impone al trabajador la obligación de utilizar correctamente las herramientas y equipos según las instrucciones recibidas."
+    },
+    {
+      "topicId": "16",
+      "question": "Según el artículo 29 de la Ley 31/1995, de Prevención de Riesgos Laborales, ¿de qué debe velar cada trabajador en el ejercicio de su actividad?:",
+      "options": [
+        "Exclusivamente de su propia seguridad personal.",
+        "De la seguridad de la empresa por encima de cualquier otro bien.",
+        "De su propia seguridad y salud y de la de aquellas personas a las que pueda afectar su actividad.",
+        "Únicamente de la seguridad de la maquinaria y aparatos a su cargo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Según el Art. 29.1 de la Ley 31/1995, corresponde a cada trabajador velar por su propia seguridad y salud y por la de aquellas personas a las que pueda afectar su actividad.",
+      "usage": "oficial_us_2026",
+      "id": 101
+    },
+    {
+      "topicId": "16",
+      "question": "Según el Real Decreto 485/1997, de 14 de abril, sobre señalización de seguridad y salud en el trabajo, la señalización de seguridad:",
+      "options": [
+        "Puede utilizarse para publicidad interna y mensajes comerciales.",
+        "Puede transmitir mensajes distintos a la seguridad laboral.",
+        "No debe emplearse para mensajes ajenos a la seguridad.",
+        "Debe contener únicamente instrucciones de trabajo técnico."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El RD 485/1997 prohíbe taxativamente emplear la señalización de seguridad para mensajes ajenos a la misma.",
+      "usage": "oficial_us_2026",
+      "id": 102
+    },
+    {
+      "topicId": "16",
+      "question": "Según el Real Decreto 486/1997, de 14 de abril, sobre disposiciones mínimas de seguridad y salud en los lugares de trabajo, el diseño de los lugares de trabajo:",
+      "options": [
+        "No está sujeto a ningún requisito de seguridad constructiva.",
+        "Deberá ofrecer seguridad frente a riesgos de resbalones, caídas, choques o golpes.",
+        "Se decidirá libremente por el empresario sin aplicar normas mínimas.",
+        "Sólo regula los espacios destinados al almacenamiento exterior."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El RD 486/1997 establece que los suelos y superficies deben ofrecer seguridad frente a caídas y resbalones.",
+      "usage": "oficial_us_2026",
+      "id": 103
     }
   ],
   "17": [
@@ -26348,6 +26432,76 @@
       "explanation": "Según el Art. 90.3.d) del Decreto 98/2025, es deber fundamental de los miembros de la comunidad universitaria potenciar el prestigio de la Universidad de Sevilla y su vinculación con la sociedad.",
       "topicId": 17,
       "usage": "especial_competencias"
+    },
+    {
+      "topicId": "17",
+      "question": "Según los Estatutos de la Universidad de Sevilla (Decreto 98/2025), artículo 15, ¿cuántos miembros del Personal Técnico, de Gestión y de Administración y Servicios (PTGAS) componen el Claustro Universitario?:",
+      "options": [
+        "Quince miembros.",
+        "Veinticuatro miembros.",
+        "Treinta y tres miembros.",
+        "Cuarenta miembros."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Según el Art. 15.1.d) del Decreto 98/2025, corresponden 24 miembros al PTGAS en el Claustro Universitario.",
+      "usage": "oficial_us_2026",
+      "id": 291
+    },
+    {
+      "topicId": "17",
+      "question": "Según los Estatutos de la Universidad de Sevilla (Decreto 98/2025), artículo 90, ¿qué derecho tienen los miembros de la comunidad respecto a la igualdad?:",
+      "options": [
+        "Tienen derecho a recibir un trato respetuoso, no sexista y no discriminatorio.",
+        "Tienen derecho a ser exonerados de responsabilidades en sus funciones.",
+        "Tienen derecho a obtener indemnización económica automática por trato inadecuado.",
+        "Tienen derecho a elegir al funcionario encargado de sus expedientes."
+      ],
+      "correctAnswer": 0,
+      "explanation": "El Art. 90 del Decreto 98/2025 consagra el derecho a un trato respetuoso, no sexista y no discriminatorio.",
+      "usage": "oficial_us_2026",
+      "id": 292
+    },
+    {
+      "topicId": "17",
+      "question": "Según los Estatutos de la Universidad de Sevilla (Decreto 98/2025), artículo 41, ¿qué porcentaje de representantes del estudiantado forma parte del Consejo de Departamento?:",
+      "options": [
+        "Un veinticinco por ciento del total de miembros del órgano.",
+        "Representantes del estudiantado en número igual al treinta por ciento del total de miembros del Consejo.",
+        "Tres estudiantes por cada área de conocimiento del departamento.",
+        "El diez por ciento de los alumnos matriculados."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Según el Art. 41 del Decreto 98/2025, los estudiantes representan el 30% del total de miembros del Consejo de Departamento.",
+      "usage": "oficial_us_2026",
+      "id": 293
+    },
+    {
+      "topicId": "17",
+      "question": "Según los Estatutos de la Universidad de Sevilla (Decreto 98/2025), artículo 19, el Consejo Social se define como:",
+      "options": [
+        "El patronato gestor de las empresas públicas.",
+        "El órgano de enlace con el Ministerio de Universidades.",
+        "La entidad pública encargada de la fiscalización externa de cuentas.",
+        "El órgano de participación y representación de la sociedad en la Universidad de Sevilla."
+      ],
+      "correctAnswer": 3,
+      "explanation": "El Art. 19 define al Consejo Social como el órgano de participación de la sociedad en la Universidad de Sevilla.",
+      "usage": "oficial_us_2026",
+      "id": 294
+    },
+    {
+      "topicId": "17",
+      "question": "Según el artículo 20 del Decreto 98/2025 (Estatutos US), ¿qué cuentas corresponde aprobar al Consejo Social?:",
+      "options": [
+        "Los balances de pérdidas y ganancias de las contratistas.",
+        "Únicamente las cuentas generales tras informe del Rectorado.",
+        "Aprobar las cuentas anuales de la Universidad de Sevilla y de sus entidades vinculadas o dependientes.",
+        "Las liquidaciones presupuestarias trimestrales emitidas por Gerencia."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Corresponde al Consejo Social aprobar las cuentas anuales de la US y de sus entidades dependientes.",
+      "usage": "oficial_us_2026",
+      "id": 295
     }
   ],
   "18": [
@@ -28435,6 +28589,104 @@
       "explanation": "La respuesta correcta es la opción B: \"El Rector.\". Esto se encuentra regulado en el Artículo 38 del IV Convenio Colectivo del Personal Laboral de las Universidades Públicas de Andalucía.",
       "difficulty": "intermediate",
       "usage": "dossier"
+    },
+    {
+      "topicId": "18",
+      "question": "Según el IV Convenio Colectivo del Personal Laboral de las UUPP de Andalucía, artículo 14, ¿cómo se define la Relación de Puestos de Trabajo (RPT)?:",
+      "options": [
+        "La base de datos de control de jornadas y horarios del personal.",
+        "El reglamento que determina el número de puestos por centro.",
+        "El instrumento técnico a través del cual se realiza la ordenación del personal laboral fijo de acuerdo con las necesidades de los servicios.",
+        "El presupuesto que fija las retribuciones del centro de trabajo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Art. 14 del IV Convenio define la RPT como el instrumento técnico de ordenación del personal laboral fijo.",
+      "usage": "oficial_us_2026",
+      "id": 150
+    },
+    {
+      "topicId": "18",
+      "question": "Según el IV Convenio Colectivo del Personal Laboral de las UUPP de Andalucía, artículo 33, ¿cuántos días naturales corresponden por traslado del domicilio habitual?:",
+      "options": [
+        "Cuatro días naturales.",
+        "Un día hábil ampliable a tres.",
+        "Tres días naturales previa presentación de alquiler.",
+        "2 días naturales."
+      ],
+      "correctAnswer": 3,
+      "explanation": "El Art. 33 establece 2 días naturales por traslado del domicilio habitual.",
+      "usage": "oficial_us_2026",
+      "id": 151
+    },
+    {
+      "topicId": "18",
+      "question": "Según el IV Convenio Colectivo del Personal Laboral, artículo 41, ¿qué derecho se garantiza ante situaciones de riesgo grave e inminente?:",
+      "options": [
+        "Reducción de la jornada a la mitad.",
+        "Cobro de indemnización por peligrosidad.",
+        "Paralización de la actividad en caso de riesgo grave e inminente.",
+        "Abono de complemento de toxicidad del 10%."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Art. 41 reconoce el derecho a paralizar la actividad ante riesgo grave e inminente.",
+      "usage": "oficial_us_2026",
+      "id": 152
+    },
+    {
+      "topicId": "18",
+      "question": "Según el IV Convenio Colectivo, artículo 32, ¿cuántos días de vacaciones anuales corresponden al trabajador con 30 o más años de servicio?:",
+      "options": [
+        "25 días hábiles.",
+        "26 días hábiles.",
+        "28 días naturales.",
+        "30 días hábiles."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Con 30 o más años de servicio corresponden 26 días hábiles de vacaciones.",
+      "usage": "oficial_us_2026",
+      "id": 153
+    },
+    {
+      "topicId": "18",
+      "question": "Según el IV Convenio Colectivo, artículo 32, ¿qué días NO son considerados hábiles para el cómputo de las vacaciones?:",
+      "options": [
+        "Los días de cierre del centro en Navidad.",
+        "Los domingos únicamente.",
+        "Los periodos no lectivos del calendario académico.",
+        "Los sábados no serán considerados días hábiles."
+      ],
+      "correctAnswer": 3,
+      "explanation": "El Art. 32 establece expresamente que a efectos de vacaciones los sábados no son días hábiles.",
+      "usage": "oficial_us_2026",
+      "id": 154
+    },
+    {
+      "topicId": "18",
+      "question": "Según el IV Convenio Colectivo (Anexo III), ¿quién es la autoridad competente para sancionar a los trabajadores?:",
+      "options": [
+        "El Gerente de la Universidad previo informe de empresa.",
+        "El Rector.",
+        "El Jefe de Personal tras el expediente disciplinario.",
+        "El Consejo de Gobierno en sesión extraordinaria."
+      ],
+      "correctAnswer": 1,
+      "explanation": "La potestad sancionadora en el IV Convenio corresponde al Rector.",
+      "usage": "oficial_us_2026",
+      "id": 155
+    },
+    {
+      "topicId": "18",
+      "question": "Según el artículo 49 del IV Convenio Colectivo, ¿cuándo indemnizarán las Universidades por desgaste de vestuario?:",
+      "options": [
+        "Únicamente tras el deterioro total de las prendas.",
+        "Semestralmente en junio y diciembre.",
+        "Las Universidades indemnizarán anualmente a sus trabajadores, en el mes de marzo.",
+        "Al inicio de cada curso académico."
+      ],
+      "correctAnswer": 2,
+      "explanation": "La indemnización por desgaste de vestuario se realiza anualmente en el mes de marzo.",
+      "usage": "oficial_us_2026",
+      "id": 156
     }
   ],
   "19": [
@@ -30649,6 +30901,34 @@
       "topicId": "19",
       "isGenerated": true,
       "createdAt": "2026-07-27T19:28:00Z"
+    },
+    {
+      "topicId": "19",
+      "question": "Según el artículo 1 de la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, ¿qué tipo de sociedad se pretende alcanzar?:",
+      "options": [
+        "Una sociedad que garantice el pleno empleo femenino.",
+        "Una sociedad más democrática, más justa y más solidaria.",
+        "Una sociedad menos equitativa para compensar desequilibrios.",
+        "Una sociedad basada únicamente en la autonomía individual."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Art. 1 de la LO 3/2007 establece que su fin es avanzar hacia una sociedad más democrática, más justa y más solidaria.",
+      "usage": "oficial_us_2026",
+      "id": 158
+    },
+    {
+      "topicId": "19",
+      "question": "Según el artículo 2 de la Ley Orgánica 3/2007, ¿a quiénes se aplicarán las obligaciones establecidas en esta Ley?:",
+      "options": [
+        "A los ciudadanos españoles independientemente de su residencia.",
+        "Exclusivamente a las Administraciones Públicas.",
+        "Solo a las personas jurídicas del sector financiero.",
+        "A toda persona, física o jurídica, que se encuentre o actúe en territorio español."
+      ],
+      "correctAnswer": 3,
+      "explanation": "El Art. 2 delimita el ámbito de aplicación a toda persona física o jurídica que se encuentre o actúe en territorio español.",
+      "usage": "oficial_us_2026",
+      "id": 159
     }
   ],
   "20": [
@@ -31951,6 +32231,34 @@
       ],
       "correctAnswer": 0,
       "explanation": "La Unidad de Igualdad coordina institucionalmente la igualdad, gestiona la Red de Referentes y proporciona soporte técnico al procedimiento de intervención."
+    },
+    {
+      "topicId": "20",
+      "question": "Según la Normativa de la US contra violencia, discriminación y acoso (Acuerdo 9.1/CG 18-12-24), artículo 15, ¿quién tiene preferencia de elección si se propone la movilidad como medida de protección?:",
+      "options": [
+        "La persona de mayor antigüedad en el puesto.",
+        "El presunto responsable del acoso.",
+        "Tendrá preferencia de elección la presunta víctima.",
+        "Ambas partes por igual mediante sorteo."
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Art. 15 del protocolo de la US establece preferencia absoluta para la presunta víctima.",
+      "usage": "oficial_us_2026",
+      "id": 101
+    },
+    {
+      "topicId": "20",
+      "question": "Según la Normativa de la US (Acuerdo 9.1/CG 18-12-24), artículo 1, ¿cuál es el objeto de dicha regulación?:",
+      "options": [
+        "Definir el régimen sancionador administrativo general del PDI y PTGAS.",
+        "Establecer las acciones y procedimientos a seguir para prevenir, evitar y erradicar las conductas de violencia, discriminación y acoso en la Universidad de Sevilla.",
+        "Desarrollar un catálogo de faltas leves.",
+        "Implementar únicamente medidas de reparación psicológica."
+      ],
+      "correctAnswer": 1,
+      "explanation": "El objeto es prevenir, evitar y erradicar la violencia, discriminación y acoso en la US.",
+      "usage": "oficial_us_2026",
+      "id": 102
     }
   ]
 }

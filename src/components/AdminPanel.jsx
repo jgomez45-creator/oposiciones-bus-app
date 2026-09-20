@@ -44,6 +44,7 @@ import topicsData from '../data/topics.json';
 import { generateNewQuestionsForTopic, checkDuplicated, generateQuestionId, extractTopicHeadings, extractTopicSummary } from '../services/testGeneratorEngine';
 import { downloadTestAsHTML } from '../utils/htmlTestExporter';
 import { generateAITest } from '../services/aiTestGenerator';
+import { generateBalancedSimulacro, OFFICIAL_US_INSTRUCTIONS } from '../services/simulacroGeneratorEngine';
 import { compressTestToUrlToken } from '../utils/urlTestCodec';
 
 export default function AdminPanel({ topics }) {
@@ -1470,6 +1471,15 @@ export default function AdminPanel({ topics }) {
           >
             <Sparkles size={16} />
             <span>Generar Tests</span>
+          </button>
+          <button
+                      <button
+            onClick={() => setActiveSubTab('simulacros')}
+            className={`tab-btn ${activeSubTab === 'simulacros' ? 'active' : ''}`}
+            style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'simulacros' ? 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)' : 'rgba(139, 92, 246, 0.18)', color: activeSubTab === 'simulacros' ? '#fff' : '#c084fc', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px', border: '1px solid rgba(139, 92, 246, 0.4)' }}
+          >
+            <Award size={16} />
+            <span>🎯 Simulacros (45 Preg.)</span>
           </button>
           <button
             onClick={() => setActiveSubTab('planner')}
