@@ -1473,7 +1473,6 @@ export default function AdminPanel({ topics }) {
             <span>Generar Tests</span>
           </button>
           <button
-                      <button
             onClick={() => setActiveSubTab('simulacros')}
             className={`tab-btn ${activeSubTab === 'simulacros' ? 'active' : ''}`}
             style={{ padding: '8px 14px', border: 'none', background: activeSubTab === 'simulacros' ? 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)' : 'rgba(139, 92, 246, 0.18)', color: activeSubTab === 'simulacros' ? '#fff' : '#c084fc', borderRadius: '8px', cursor: 'pointer', fontWeight: '800', fontSize: '0.85rem', transition: 'var(--transition-fast)', display: 'flex', alignItems: 'center', gap: '6px', border: '1px solid rgba(139, 92, 246, 0.4)' }}
