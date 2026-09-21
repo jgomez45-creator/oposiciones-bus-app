@@ -135,7 +135,9 @@ export default function StandaloneTestRunner({ testData, onBack }) {
     }
   }
 
-  const { title = 'Test de Evaluación de la BUS', questions = [], summaryText = '' } = testData;
+  const { title: rawTitle = 'Test de Evaluación de la BUS', questions = [], summaryText = '' } = testData;
+  const title = rawTitle.replace(/\s*\((?:Motor Clásico|motor clásico|Motor IA|motor ia)\)/gi, '').trim();
+  const isSimulacro = title.toLowerCase().includes('simulacro') || testData.isSimulacro === true;
 
   // PANTALLA DE IDENTIFICACIÓN (Acceso Restringido)
   if (!isIdentified) {
@@ -307,8 +309,8 @@ export default function StandaloneTestRunner({ testData, onBack }) {
           <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Pruebas de preparación examen de Biblioteca</span>
         </div>
 
-        {/* AVISO PEDAGÓGICO DE CONVENIENCIA DE LECTURA */}
-        {summaryText && (
+        {/* AVISO PEDAGÓGICO DE CONVENIENCIA DE LECTURA (SOLO EN TEMAS, NO EN SIMULACROS) */}
+        {!isSimulacro && summaryText && (
           <div style={{ background: 'rgba(234, 179, 8, 0.08)', border: '1px solid rgba(234, 179, 8, 0.3)', borderRadius: '14px', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: '260px' }}>
               <span style={{ fontSize: '1.4rem' }}>💡</span>
@@ -344,13 +346,13 @@ export default function StandaloneTestRunner({ testData, onBack }) {
           </div>
         )}
 
-        {/* RESUMEN DEL TEMA SI EXISTE */}
+        {/* INSTRUCCIONES O RESUMEN DEL TEMA SI EXISTE */}
         {summaryText && (
           <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '16px', padding: '20px 24px' }}>
             <div style={{ fontSize: '1rem', fontWeight: '800', color: '#34d399', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', borderBottom: '1px solid rgba(16, 185, 129, 0.2)', paddingBottom: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <BookOpen size={18} />
-                <span>📌 Resumen Ejecutivo y Puntos Clave del Tema</span>
+                <span>{isSimulacro ? '📋 Instrucciones Oficiales del Examen' : '📌 Resumen Ejecutivo y Puntos Clave del Tema'}</span>
               </div>
 
               <button

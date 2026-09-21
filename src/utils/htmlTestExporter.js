@@ -1,4 +1,7 @@
-export const downloadTestAsHTML = (questions, title, studentId = '', projectId = 'oposiciones-bus-app', summaryText = '') => {
+export const downloadTestAsHTML = (questions, rawTitle = '', studentId = '', projectId = 'oposiciones-bus-app', summaryText = '') => {
+  const title = (rawTitle || '').replace(/\s*\((?:Motor Clásico|motor clásico|Motor IA|motor ia)\)/gi, '').trim();
+  const isSimulacro = title.toLowerCase().includes('simulacro');
+  const summaryHeaderTitle = isSimulacro ? '&#128221; Instrucciones Oficiales del Examen' : '&#128204; Resumen Ejecutivo y Puntos Clave del Tema';
   const cssStyles = `
     body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f3f4f6; color: #1f2937; margin: 0; padding: 20px; display: flex; justify-content: center; }
     .container { max-width: 800px; width: 100%; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
@@ -268,7 +271,7 @@ export const downloadTestAsHTML = (questions, title, studentId = '', projectId =
 
         ${summaryText ? `
         <div class="summary-box">
-            <div class="summary-title">&#128204; Resumen Ejecutivo y Puntos Clave del Tema</div>
+            <div class="summary-title">${summaryHeaderTitle}</div>
             <div class="summary-body">${summaryText}</div>
         </div>
         ` : ''}
